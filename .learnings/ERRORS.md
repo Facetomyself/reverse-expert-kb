@@ -249,3 +249,71 @@ For recurring research workflows on this host, prefer search-layer first, treat 
 - Related Files: research/reverse-expert-kb/runs/2026-03-14-0100.md
 
 ---
+## [ERR-20260314-001] git-commit-missing-identity
+
+**Logged**: 2026-03-14T02:19:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: config
+
+### Summary
+Git commit failed in the workspace because user.name and user.email are not configured for this repository/environment.
+
+### Error
+```
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address
+```
+
+### Context
+- Operation attempted: commit research KB updates in /root/.openclaw/workspace
+- Command reached commit stage after staging targeted files
+- Environment: workspace repo under root on OpenClaw host
+
+### Suggested Fix
+Configure git user.name and user.email either locally in the repository or globally for this environment before future commits.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/.git/config
+
+---
+## [ERR-20260313-003] search-layer-grok-trailing-json-parse-noise
+
+**Logged**: 2026-03-13T20:18:43Z
+**Priority**: low
+**Status**: pending
+**Area**: docs
+
+### Summary
+`search-layer/scripts/search.py` returned usable merged results, but the Grok source emitted a trailing JSON parse error after completion.
+
+### Error
+```
+[grok] error: Extra data: line 3 column 1 (char 2275)
+```
+
+### Context
+- Task: hourly `research:reverse-expert-kb` run
+- Command mode: deep exploratory search with `--source exa,tavily,grok`
+- Outcome: result set was still returned and usable; this appears to be output-cleanliness/error-handling noise rather than a hard failure
+
+### Suggested Fix
+Harden Grok response parsing in `search-layer` so partial-success cases do not append confusing parse-noise after a successful merged result.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: /root/.openclaw/workspace/skills/search-layer/scripts/search.py
+
+---
