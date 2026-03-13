@@ -43,6 +43,8 @@ This second axis is important because recent papers increasingly evaluate not ju
 - visualization and immersive-analysis support
 - automation interfaces shaped by analyst interaction needs
 
+Recent workflow-oriented literature now makes this axis concrete rather than speculative: observational RE studies, malware-analysis workflow taxonomies, and human–LLM teaming papers are enough to treat analyst-support research as a first-class organization scheme for the KB.
+
 This third axis matters because expert reverse engineering is not only about outputs and benchmarks; it is also about how analysts gather context, preserve hypotheses, navigate uncertainty, and decide what to inspect next.
 
 ## Open questions
@@ -59,7 +61,7 @@ This third axis matters because expert reverse engineering is not only about out
 - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
 - `topics/symbol-type-and-signature-recovery.md`
 - `topics/firmware-and-protocol-context-recovery.md`
-- `topics/analyst-workflows-and-human-llm-teaming.md` (candidate)
+- `topics/analyst-workflows-and-human-llm-teaming.md`
 
 ## Emerging benchmark family split
 Recent runs suggest the KB should represent obfuscation-heavy reverse engineering as a dedicated benchmark/evaluation family rather than as a sub-bullet under malware or generic decompilation.
