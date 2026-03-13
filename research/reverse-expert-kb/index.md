@@ -29,6 +29,7 @@ The KB now seems likely to need at least three orthogonal organization schemes:
 - function signature / prototype recovery
 - task-level binary understanding
 - firmware corpus realism and environment reconstruction
+- firmware peripheral-map / MMIO / protocol-context recovery
 - protocol message/state reconstruction
 - malware corpora used for RE-adjacent analysis
 
@@ -57,6 +58,7 @@ This third axis matters because expert reverse engineering is not only about out
 - `topics/benchmarks-datasets.md`
 - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
 - `topics/symbol-type-and-signature-recovery.md`
+- `topics/firmware-and-protocol-context-recovery.md`
 - `topics/analyst-workflows-and-human-llm-teaming.md` (candidate)
 
 ## Emerging benchmark family split
@@ -76,7 +78,7 @@ Recent evidence suggests the KB should explicitly separate at least four benchma
 - **decompilation evaluation** — semantic correctness, recompilability, runtime-aware validation, human readability
 - **symbol/type/signature recovery** — names, types, struct fields, prototypes, and related metadata recovery quality
 - **task-level binary understanding** — analyst-like tasks such as summarization, call-site reconstruction, algorithm classification, assembly generation
-- **firmware / protocol context recovery** — peripheral maps, protocol semantics, field inference, state-machine reconstruction, and environment realism
+- **firmware / protocol context recovery** — peripheral maps, MMIO/register recovery, protocol semantics, field inference, state-machine reconstruction, and environment realism
 
 This is a better fit for expert RE knowledge than a flat tool-centric structure, because it tracks what analysts actually need to trust before making the next investigative move.
 
