@@ -23,14 +23,16 @@ The KB now seems likely to need at least three orthogonal organization schemes:
 - anti-tamper / anti-cheat / obfuscation-heavy targets
 
 ### 2. By evaluation object
-- decompiler output quality
-- symbol / type / signature recovery
+- decompilation output quality
+- symbol recovery
+- type inference / struct-layout recovery
+- function signature / prototype recovery
 - task-level binary understanding
 - firmware corpus realism and environment reconstruction
 - protocol message/state reconstruction
 - malware corpora used for RE-adjacent analysis
 
-This second axis is important because recent papers increasingly evaluate not just tools, but specific analyst-relevant outputs and tasks.
+This second axis is important because recent papers increasingly evaluate not just tools, but specific analyst-relevant outputs and tasks. Recent runs also suggest that symbol/type/signature recovery should not be collapsed into one vague sub-bullet under decompilation, because those recovery layers affect analyst trust and navigation in different ways.
 
 ### 3. By analyst-support pattern
 - observational studies of expert reverse engineers
@@ -54,6 +56,7 @@ This third axis matters because expert reverse engineering is not only about out
 ## Current promising topic pages
 - `topics/benchmarks-datasets.md`
 - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
+- `topics/symbol-type-and-signature-recovery.md`
 - `topics/analyst-workflows-and-human-llm-teaming.md` (candidate)
 
 ## Emerging benchmark family split
