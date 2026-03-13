@@ -84,6 +84,54 @@ A reverse-engineering expert knowledge base should track not just tools and work
   - protocol RE evaluation has its own pipeline: trace collection, clustering, field segmentation, semantic inference, state-machine recovery, and reverse application.
   - This differs substantially from binary decompilation benchmarks and should likely become its own topic family.
 
+### 9. Symbol recovery is not just “better decompilation”
+Recent evidence makes it clearer that symbol recovery deserves its own benchmark family.
+
+- **R3-Bench** (ASE 2025 listing / later mirrors) is explicitly framed as a symbol-recovery dataset rather than a generic decompilation benchmark.
+- Its abstract highlights **AST-Align**, a cross-architecture and cross-language alignment method spanning **x86 and ARM** and **C/C++/Rust**.
+- It claims substantially richer ground truth generation, including **4× more struct fields** than prior methods.
+- It also frames the dataset as **metadata-rich, extensible, and reproducible**, with **explicit project inclusion criteria** and a **reproducible processing pipeline**.
+- The scale claim is notable: **over 10 million functions across multiple architectures**.
+
+Why this matters for the KB:
+- symbol recovery benchmarks evaluate whether analysts get useful names, fields, and semantic anchors back
+- this is adjacent to decompilation, but not reducible to it
+- a reverse engineer can tolerate imperfect pseudocode longer than they can tolerate missing or misleading symbols/types when navigating a large target
+
+### 10. Type inference quality is becoming a benchmarkable object
+A separate 2025 line of work focuses on **benchmarking binary type inference techniques in decompilers**, reinforcing that type recovery should be tracked apart from generic pseudocode quality.
+
+Related contextual signal:
+- Trail of Bits’ **BTIGhidra** write-up makes a strong practical case for why type inference changes analyst workflow quality: inferred composite/recursive types, array indexing, fewer raw `void*` flows, and better inter-procedural propagation.
+- This is useful for the KB because it ties benchmark abstractions back to lived analyst pain: type information is scattered across a program, and poor type recovery raises cognitive load everywhere.
+
+### 11. Protocol RE benchmarks need their own pipeline model
+Protocol reverse engineering is increasingly better viewed as a multi-stage evaluation pipeline, not a single benchmark item.
+
+Useful recent anchors:
+- **BinPRE** (CCS 2024) focuses on **field inference** in binary-analysis-based PRE and reports evaluation against five prior tools on **eight widely used protocols**.
+- Reported metrics include **format extraction**, **semantic inference of field types/functions**, and downstream utility for **protocol fuzzing** via improved branch coverage.
+- **Automatic State Machine Inference for Binary Protocol Reverse Engineering** (2024) highlights a complementary stage: **protocol state-machine inference**, especially in mixed-protocol environments.
+
+This suggests a protocol-RE benchmark decomposition such as:
+- trace/session collection
+- message clustering / protocol separation
+- field boundary inference
+- field semantics inference
+- state-machine inference
+- downstream utility (e.g. fuzzing, traffic understanding, exploit surface discovery)
+
+### 12. Firmware RE evaluation is trending toward context recovery
+Firmware-oriented work increasingly evaluates more than code lifting or decompiler quality.
+
+A particularly relevant new signal is the ACSAC 2025 paper:
+- **Recovering Peripheral Maps and Protocols to Expedite Firmware Reverse Engineering**
+
+Even from currently accessible metadata alone, the framing is important: firmware reverse engineering often bottlenecks on recovering **which peripherals exist, how memory-mapped interfaces are used, and what protocols govern device interaction**. That is a different evaluation object from ordinary decompilation.
+
+Implication for the KB:
+- firmware corpora should be tracked not only by ISA/platform coverage, but by how well they preserve **environmental context**, **peripheral realism**, and **rehosting/emulation relevance**.
+
 ## Cross-cutting synthesis
 
 ### A. RE evaluation is fragmenting into specialized tracks
@@ -110,3 +158,6 @@ One especially important trend is the move away from purely syntactic metrics. D
 - Which benchmarks are actually reproducible on a modest research machine versus only on specialized infrastructure?
 - Which datasets are legally and operationally reusable for long-term personal study?
 - What are the best benchmark families per subdomain: desktop binaries, malware, firmware, mobile, protocol traces?
+- Which symbol-recovery datasets have publicly reproducible alignment pipelines versus opaque one-off extraction steps?
+- How should protocol RE evaluation weigh intrinsic metrics (field/type/state accuracy) versus downstream metrics (fuzzing coverage, bug yield, analyst time saved)?
+- For firmware RE, what minimal environmental metadata is needed before a corpus becomes genuinely useful for rehosting-oriented study?

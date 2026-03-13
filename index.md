@@ -12,7 +12,7 @@ Build a long-running, research-stage knowledge base about how to think like a re
 - benchmarks, datasets, and corpora for evaluating RE knowledge and tooling
 
 ## Emerging structural axes
-The KB now seems likely to need at least two orthogonal organization schemes:
+The KB now seems likely to need at least three orthogonal organization schemes:
 
 ### 1. By domain
 - desktop / native binaries
@@ -32,6 +32,16 @@ The KB now seems likely to need at least two orthogonal organization schemes:
 
 This second axis is important because recent papers increasingly evaluate not just tools, but specific analyst-relevant outputs and tasks.
 
+### 3. By analyst-support pattern
+- observational studies of expert reverse engineers
+- workflow and sensemaking models
+- human-LLM teaming in reverse engineering
+- notebook / memory-augmented analysis flows
+- visualization and immersive-analysis support
+- automation interfaces shaped by analyst interaction needs
+
+This third axis matters because expert reverse engineering is not only about outputs and benchmarks; it is also about how analysts gather context, preserve hypotheses, navigate uncertainty, and decide what to inspect next.
+
 ## Open questions
 - What makes a reverse engineer "expert-level" beyond tool familiarity?
 - How should knowledge be segmented: by platform, task, tool, or mental model?
@@ -43,6 +53,16 @@ This second axis is important because recent papers increasingly evaluate not ju
 
 ## Current promising topic pages
 - `topics/benchmarks-datasets.md`
+- `topics/analyst-workflows-and-human-llm-teaming.md` (candidate)
+
+## Structural updates from recent runs
+Recent evidence suggests the KB should explicitly separate at least four benchmark/evaluation families instead of treating them as one bucket:
+- **decompilation evaluation** — semantic correctness, recompilability, runtime-aware validation, human readability
+- **symbol/type/signature recovery** — names, types, struct fields, prototypes, and related metadata recovery quality
+- **task-level binary understanding** — analyst-like tasks such as summarization, call-site reconstruction, algorithm classification, assembly generation
+- **firmware / protocol context recovery** — peripheral maps, protocol semantics, field inference, state-machine reconstruction, and environment realism
+
+This is a better fit for expert RE knowledge than a flat tool-centric structure, because it tracks what analysts actually need to trust before making the next investigative move.
 
 ## Notes
 This file should be updated over time as higher-confidence structure emerges.
