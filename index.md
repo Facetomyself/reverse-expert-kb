@@ -53,7 +53,20 @@ This third axis matters because expert reverse engineering is not only about out
 
 ## Current promising topic pages
 - `topics/benchmarks-datasets.md`
+- `topics/obfuscation-deobfuscation-and-packed-binaries.md`
 - `topics/analyst-workflows-and-human-llm-teaming.md` (candidate)
+
+## Emerging benchmark family split
+Recent runs suggest the KB should represent obfuscation-heavy reverse engineering as a dedicated benchmark/evaluation family rather than as a sub-bullet under malware or generic decompilation.
+
+A useful decomposition is:
+- **obfuscation detection / characterization**
+- **deobfuscation quality**
+- **diffing and function-similarity resilience under transformation**
+- **packer detection / unpacking readiness**
+- **robustness against semantics-preserving adversarial transformations**
+
+This matters because expert reversing often depends less on perfect pseudocode recovery and more on whether the analyst can still triage, match, unpack, and preserve trustworthy semantic anchors despite protective transformations.
 
 ## Structural updates from recent runs
 Recent evidence suggests the KB should explicitly separate at least four benchmark/evaluation families instead of treating them as one bucket:
