@@ -6,6 +6,7 @@ Maturity: mature
 Related pages:
 - topics/expert-re-overall-framework.md
 - topics/global-map-and-ontology.md
+- topics/mobile-protected-runtime-subtree-guide.md
 - topics/analyst-workflows-and-human-llm-teaming.md
 - topics/community-practice-signal-map.md
 - topics/runtime-behavior-recovery.md
@@ -280,6 +281,10 @@ Includes:
 - trace fidelity
 - layer-selection efficiency
 - anti-detection resilience
+
+### 6. Subtree navigation and coordination
+For subtree-level navigation, see:
+- `topics/mobile-protected-runtime-subtree-guide.md`
 
 ## 7. Analyst workflow implications
 This topic matters especially during:

@@ -1,0 +1,132 @@
+# Mobile / Protected-Runtime Subtree Guide
+
+Topic class: framework / guide page
+Ontology layers: navigation, subtree map, practice guide
+Maturity: structured
+Related pages:
+- topics/mobile-reversing-and-runtime-instrumentation.md
+- topics/anti-tamper-and-protected-runtime-analysis.md
+- topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md
+- topics/android-linker-binder-ebpf-observation-surfaces.md
+- topics/trace-guided-and-dbi-assisted-re.md
+- topics/community-practice-signal-map.md
+
+## Purpose
+This page explains how to navigate the mobile / protected-runtime practice branch of the reverse-expert KB.
+
+This subtree grew out of the manually curated practitioner source cluster, which repeatedly emphasized:
+- anti-Frida and anti-instrumentation pressure
+- Android-side alternative observation surfaces
+- trace-guided and DBI-assisted workflows
+- mobile reversing under environment, hook, and protection constraints
+
+This page exists to keep those growth directions coherent.
+
+## Core claim
+The mobile / protected-runtime branch should be read as a coordinated subtree about how analysts preserve observability and recover trustworthy runtime evidence when direct app-level analysis becomes constrained, unstable, or detectable.
+
+Its organizing logic is:
+- the parent problem is mobile or protected-runtime analysis under observation pressure
+- different child pages describe different practical analyst responses to that pressure
+- those responses should be understood as complementary workflow choices rather than isolated tricks
+
+## Parent pages
+### 1. Mobile runtime parent
+- `topics/mobile-reversing-and-runtime-instrumentation.md`
+
+Use this page when the question is broad, such as:
+- is this primarily a mobile runtime reversing problem?
+- which layer should I observe first?
+- what access or instrumentation strategy is the main bottleneck?
+
+### 2. Protected-runtime parent
+- `topics/anti-tamper-and-protected-runtime-analysis.md`
+
+Use this page when the question is broad, such as:
+- is this mainly a runtime-resistance problem rather than a code-readability problem?
+- is observability being actively denied or distorted?
+- which protected-runtime branch should I read next?
+
+## Main child branches
+
+### 1. Anti-Frida and anti-instrumentation practice taxonomy
+- `topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md`
+
+Read this when the main problem is:
+- direct hooks are failing, crashing, or being detected
+- you need to classify what kind of instrumentation resistance is present
+- you need to distinguish Frida detection, environment checks, integrity checks, and evidence distortion
+
+### 2. Android Linker / Binder / eBPF observation surfaces
+- `topics/android-linker-binder-ebpf-observation-surfaces.md`
+
+Read this when the main problem is:
+- direct app-layer hooks are not reliable enough
+- you need an alternative observation surface
+- loader activity, IPC, or lower-level execution traces may reveal the target behavior better
+
+### 3. Trace-guided and DBI-assisted reverse engineering
+- `topics/trace-guided-and-dbi-assisted-re.md`
+
+Read this when the main problem is:
+- transformed or protected execution paths are too ambiguous statically
+- traces may help expose real control structure or hidden behavior
+- DBI or execution-derived evidence may support deobfuscation or semantic recovery
+
+## How the branches relate
+These pages often form a workflow chain.
+
+### Common path A: direct hooks fail under protection pressure
+Typical path:
+1. Start at `topics/mobile-reversing-and-runtime-instrumentation.md`
+2. Move to `topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md`
+3. Use `topics/android-linker-binder-ebpf-observation-surfaces.md` if a different observation layer is needed
+4. Use `topics/trace-guided-and-dbi-assisted-re.md` if execution-derived simplification becomes more valuable than direct hooking
+
+### Common path B: transformed / protected native path inside a mobile target
+Typical path:
+1. Start at `topics/anti-tamper-and-protected-runtime-analysis.md`
+2. Move to `topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md`
+3. Use `topics/trace-guided-and-dbi-assisted-re.md` for path or handler recovery
+4. Use `topics/android-linker-binder-ebpf-observation-surfaces.md` if direct observation remains too unstable
+
+### Common path C: alternative surface first
+Typical path:
+1. Start at `topics/android-linker-binder-ebpf-observation-surfaces.md`
+2. Map system-layer findings back to `topics/mobile-reversing-and-runtime-instrumentation.md`
+3. Use `topics/trace-guided-and-dbi-assisted-re.md` if lower-level traces reveal hidden structure worth lifting back into the analysis
+
+## What this subtree is best at
+The mobile / protected-runtime subtree is especially strong for:
+- anti-instrumentation reasoning
+- protected mobile runtime workflows
+- alternative observation-surface selection
+- trace-guided analysis under observation pressure
+- connecting runtime evidence strategy back to higher-level analyst goals
+
+## What this subtree is weaker at
+This subtree is currently weaker on:
+- dedicated iOS-only substructure
+- formal comparative literature for anti-instrumentation families
+- systematic mobile game / anti-cheat separation
+- explicit mobile risk-control / device-fingerprint child pages
+
+## Suggested next expansions from this subtree
+The most natural next child pages include:
+- `topics/mobile-risk-control-and-device-fingerprint-analysis.md`
+- `topics/environment-state-checks-in-protected-runtimes.md`
+- `topics/observation-distortion-and-misleading-evidence.md`
+- `topics/ebpf-seccomp-and-svc-tracing-for-mobile-re.md`
+
+## Source anchor
+The subtree is strongly justified by the practitioner cluster documented in:
+- `sources/community-forums/2026-03-14-52pojie-kanxue-manual-curation.md`
+- `topics/community-practice-signal-map.md`
+
+## Bottom line
+The mobile / protected-runtime subtree is the KB’s main practice branch for preserving observability under active runtime resistance.
+
+Its pages should be read as a coordinated set of analyst entry surfaces into a hard practical problem:
+- classify the resistance
+- choose a better observation layer
+- use traces when direct structure is still too ambiguous
