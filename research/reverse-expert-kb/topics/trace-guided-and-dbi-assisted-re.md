@@ -5,6 +5,7 @@ Ontology layers: runtime evidence, alternative observation surface, deobfuscatio
 Maturity: structured
 Related pages:
 - topics/runtime-behavior-recovery.md
+- topics/observation-distortion-and-misleading-evidence.md
 - topics/android-linker-binder-ebpf-observation-surfaces.md
 - topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md
 - topics/obfuscation-deobfuscation-and-packed-binaries.md
