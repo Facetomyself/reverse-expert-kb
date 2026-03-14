@@ -5,6 +5,7 @@ Ontology layers: mobile-practice branch, protected-interaction workflow, environ
 Maturity: structured
 Related pages:
 - topics/mobile-protected-runtime-subtree-guide.md
+- topics/environment-state-checks-in-protected-runtimes.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
 - topics/anti-tamper-and-protected-runtime-analysis.md
 - topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md
