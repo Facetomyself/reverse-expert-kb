@@ -146,7 +146,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - instrumentation and contested observability (`browser-cdp-and-debugger-assisted-re` and `browser-debugger-detection-and-countermeasures`)
 - environment and mixed-runtime execution (`browser-environment-reconstruction` and `js-wasm-mixed-runtime-re`)
 - concrete mixed-runtime practice (`js-wasm-boundary-tracing`)
-- concrete widget/session/iframe lifecycle practice (`cloudflare-turnstile-widget-lifecycle-workflow-note` and `arkose-funcaptcha-session-and-iframe-workflow-note`)
+- concrete widget/session/iframe lifecycle practice (`cloudflare-turnstile-widget-lifecycle-workflow-note`, `arkose-funcaptcha-session-and-iframe-workflow-note`, and `hcaptcha-callback-submit-and-siteverify-workflow-note`)
 - concrete cookie-bootstrap / consumer-path practice (`acw-sc-v2-cookie-bootstrap-and-consumer-path-note`)
 - concrete request-signature-family practice (`bytedance-web-request-signature-workflow-note`)
 
@@ -173,4 +173,4 @@ This subtree is now best read as four coordinated mobile analyst entry surfaces:
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.
-The more stable the KB becomes, the more this page should behave like a guide rather than a dump of links.an a dump of links.
+The more stable the KB becomes, the more this page should behave like a guide rather than a dump of links.an a dump of links. of links.

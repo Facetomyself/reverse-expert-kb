@@ -3,6 +3,34 @@
 Command failures, exceptions, and unexpected behaviors.
 
 ---
+## [ERR-20260315-001] web_fetch-github-raw-404-during-kb-source-expansion
+
+**Logged**: 2026-03-15T01:18:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: docs
+
+### Summary
+During reverse-expert-kb browser source expansion, a `web_fetch` attempt for a guessed GitHub raw README path returned 404.
+
+### Error
+```text
+web_fetch failed (404): raw.githubusercontent.com/.../README.md not found
+```
+
+### Context
+- Operation attempted: broaden source coverage while exploring whether an additional browser anti-bot family deserved a concrete workflow page
+- The failure did not block the run because official hCaptcha docs were already sufficient for the practical page created that run
+- This is a reminder to verify repository file paths or inspect repo contents before assuming raw GitHub filenames
+
+### Suggested Fix
+When using GitHub raw URLs for KB source collection, prefer verifying the repository tree or use the rendered GitHub page first before assuming `README.md` exists at repository root.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/runs/2026-03-15-0100-hcaptcha-submit-siteverify-workflow.md
+
+---
 ## [ERR-20260314-002] web_fetch-ssrn-403-and-pdf-raw-bytes
 
 **Logged**: 2026-03-14T07:42:30Z
@@ -433,5 +461,35 @@ web_fetch on several PDFs returned raw %PDF bytes instead of readable extracted 
 ### Metadata
 - Reproducible: yes
 - Related Files: skills/search-layer/SKILL.md, .learnings/ERRORS.md
+
+---
+
+## [ERR-20260314-001] web_search_brave_missing_key
+
+**Logged**: 2026-03-14T22:16:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Raw web_search failed because Brave Search API credentials are not configured in this OpenClaw environment
+
+### Error
+```
+missing_brave_api_key
+web_search (brave) needs a Brave Search API key. Run `openclaw configure --section web` to store it, or set BRAVE_API_KEY in the Gateway environment.
+```
+
+### Context
+- Operation attempted: auxiliary Brave queries during reverse-expert-kb research cron
+- Workaround used: continued with search-layer local search.py flow instead of blocking the run
+- Impact: direct web_search unavailable; search-layer local path still usable
+
+### Suggested Fix
+Configure Brave Search credentials if direct web_search is desired, or remember to prefer search-layer script path in this environment.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/skills/search-layer/SKILL.md
 
 ---
