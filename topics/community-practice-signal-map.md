@@ -144,6 +144,7 @@ The manually supplied community cluster should be used first to deepen:
 - mobile signing and parameter-generation workflows ✅ (`topics/mobile-signing-and-parameter-generation-workflows.md`)
 - mobile challenge and verification-loop analysis ✅ (`topics/mobile-challenge-and-verification-loop-analysis.md`)
 - browser fingerprint and state-dependent token generation ✅ (`topics/browser-fingerprint-and-state-dependent-token-generation.md`)
+- Reese84 / ___utmvc workflow note ✅ (`topics/reese84-and-utmvc-workflow-note.md`)
 
 ## Source anchor
 Primary source note for this cluster:
