@@ -66,6 +66,7 @@ These pages define the central recovery objects, evaluation logic, and analyst w
 - `topics/runtime-behavior-recovery.md`
 - `topics/analyst-workflows-and-human-llm-teaming.md`
 - `topics/notebook-and-memory-augmented-re.md`
+- `topics/community-practice-signal-map.md`
 
 ### 3. Domain-constraint pages
 These pages show how different target classes change what matters in reverse engineering.
@@ -79,6 +80,7 @@ These directories contain incremental research artifacts rather than canonical s
 
 - `runs/`
 - `sources/`
+- `sources/community-forums/2026-03-14-52pojie-kanxue-manual-curation.md`
 
 ## Current active themes
 - reverse-engineering methodology

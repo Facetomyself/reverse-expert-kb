@@ -231,6 +231,7 @@ Good next actions include:
 4. split protocol state/message recovery from firmware page
 5. deepen notebook/provenance/trust-calibration literature
 6. add a short reader’s guide or “entry paths” page
+7. systematically ingest practitioner-community source clusters (52pojie / Kanxue / related blogs) into the mature topic pages
 
 ## Bottom line
 The consistency pass confirms that the reverse-engineering expert KB has reached a meaningful first-version state.
