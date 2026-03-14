@@ -210,6 +210,7 @@ Includes:
   - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
   - `topics/hcaptcha-callback-submit-and-siteverify-workflow-note.md`
   - `topics/akamai-sensor-submission-and-cookie-validation-workflow-note.md`
+  - `topics/kasada-x-kpsdk-request-attachment-workflow-note.md`
 - `topics/perimeterx-human-cookie-collector-workflow-note.md`
 
 ### 4. Replay, mutation, and environment-control workflows
