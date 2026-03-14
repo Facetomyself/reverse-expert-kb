@@ -1,163 +1,416 @@
 # Benchmarks and Datasets for Reverse Engineering Research
 
-## Why this topic matters
-A reverse-engineering expert knowledge base should track not just tools and workflows, but also the public corpora and benchmarks that shape evaluation. Recent work is making RE knowledge more measurable across decompilation, symbol recovery, binary understanding, malware analysis, firmware, and protocol reverse engineering.
+Topic class: topic synthesis
+Ontology layers: evaluation frame, object-of-recovery, domain-constraint crosscut
+Maturity: mature
+Related pages:
+- topics/expert-re-overall-framework.md
+- topics/global-map-and-ontology.md
+- topics/symbol-type-and-signature-recovery.md
+- topics/obfuscation-deobfuscation-and-packed-binaries.md
+- topics/firmware-and-protocol-context-recovery.md
 
-## High-signal items collected so far
+## 1. Topic identity
 
-### 1. DecompileBench (evaluation framework for decompilers in realistic workflows)
-- Paper: *DecompileBench: A Comprehensive Benchmark for Evaluating Decompilers in Real-World Scenarios* (ACL Findings 2025).
-- Core contribution:
-  - 23,400 functions from 130 real-world programs.
-  - Runtime-aware validation.
-  - LLM-as-judge assessment for human-centric code quality.
-  - Comparison across six traditional decompilers and six LLM-based approaches.
-- Important framing for this KB:
-  - It treats decompiler evaluation as a workflow problem, not just a syntax problem.
-  - It explicitly separates semantic correctness from analyst readability/usefulness.
-- Emerging implication:
-  - "Best decompiler" is task-dependent. Traditional tools still lead on correctness, but LLM-assisted outputs may score better on understandability.
+### What this topic studies
+This topic studies the benchmark, dataset, and corpus landscape relevant to reverse engineering.
 
-### 2. Decompile-Bench (million-scale binary-source pairs)
-- Distinct from DecompileBench above.
-- Search results indicate a 2025 dataset effort focused on million-scale binary-source function pairs for real-world binary decompilation.
-- This appears more training-data oriented than workflow-evaluation oriented.
-- Research value for KB organization:
-  - separate "evaluation benchmarks" from "training corpora"
-  - track lineage between function-pair datasets and downstream evaluation papers
+It focuses on how reverse-engineering methods are evaluated across different recovery objects, including decompilation, symbol recovery, type inference, binary understanding, protocol inference, firmware context recovery, and adjacent RE-relevant corpora.
 
-### 3. BinMetric (binary-analysis benchmark for LLMs)
-- Paper: *BinMetric: A Comprehensive Binary Analysis Benchmark for Large Language Models* (2025 / IJCAI 2025).
-- Reported structure:
-  - 1,000 questions
-  - 20 real open-source projects
-  - 6 task categories
-  - tasks include decompilation, summarization, assembly generation, call-site reconstruction, signature recovery, and algorithm classification
-- Why it matters:
-  - This is broader than decompilation-only evaluation.
-  - It captures a more analyst-like task surface for binary understanding.
-- Useful synthesis:
-  - DecompileBench measures decompiler outputs.
-  - BinMetric measures LLM capability on binary-analysis tasks.
-  - Together they suggest a future taxonomy of RE evaluation: tool-centric, analyst-centric, and task-centric.
+### Why this topic matters
+A reverse-engineering expert KB should not only know what tools and methods exist. It also needs to know:
+- what is actually being measured
+- what kind of ground truth exists
+- which benchmarks are analyst-relevant versus merely convenient
+- which datasets are training corpora versus evaluation corpora
+- which results are likely to transfer into real analyst work
 
-### 4. R3-Bench (symbol recovery)
-- Search results surfaced: *R3-Bench: Reproducible Real-world Reverse Engineering Dataset for Symbol Recovery* (ASE 2025 listing / later mirrors).
-- Even without full paper extraction yet, this looks important because symbol recovery is central to expert workflow quality and downstream readability.
-- Candidate subtopic:
-  - function naming / variable naming / type recovery / signature recovery as a dedicated track, not a side note under decompilation.
+Without this topic, the rest of the KB risks becoming a collection of claims without a stable way to compare them.
 
-### 5. Type inference benchmarking in decompilers
-- Search results surfaced a 2025 ACM paper on benchmarking binary type inference across Hex-Rays, Binary Ninja, Ghidra, angr, and Retypd.
-- Why it matters:
-  - Type recovery deserves its own evaluation layer.
-  - Experts often care less about pretty pseudocode in the abstract and more about whether types/structures/prototypes are trustworthy enough to guide the next move.
+### Ontology role
+This page mainly belongs to:
+- **evaluation frame**
+- **object-of-recovery**
 
-### 6. Firmware corpora and firmware-oriented RE evaluation
-- Search results surfaced:
-  - `fkie-cad/linux-firmware-corpus`
-  - *Mens Sana In Corpore Sano: Sound Firmware Corpora for Vulnerability Research*
-  - *Recovering Peripheral Maps and Protocols to Expedite Firmware Reverse Engineering*
-- Synthesis:
-  - firmware RE benchmarks are not only about lifting/disassembly quality
-  - they also hinge on environment reconstruction, peripheral understanding, and protocol recovery
-- This suggests the KB should treat firmware RE as more than “embedded binaries + Ghidra” — it is an ecosystem problem involving corpora quality, emulation assumptions, and hardware-interface inference.
+It is also cross-cutting across domain families because different domains require different benchmark families.
 
-### 7. Malware-oriented corpora relevant to RE
-- Search results surfaced:
-  - EMBER2024
-  - AU-PEMal-2025
-  - CIC-DGG-2025
-  - Binary-30K (2025/2026)
-- Caution:
-  - many malware datasets are primarily ML/detection datasets, not expert-analyst RE datasets
-- Still useful because:
-  - they can provide binary corpora, CFGs, metadata, and classification labels
-  - they help identify where RE-oriented datasets differ from classifier-oriented datasets
+### Page class
+- topic synthesis page
 
-### 8. Protocol reverse engineering benchmarks/surveys
-- Search surfaced:
-  - *An improved hierarchical protocol reverse engineering approach* (2025)
-  - *ChatPRE* (LLM-oriented protocol analysis)
-  - industrial control protocol RE survey (2025)
-- Emerging structure:
-  - protocol RE evaluation has its own pipeline: trace collection, clustering, field segmentation, semantic inference, state-machine recovery, and reverse application.
-  - This differs substantially from binary decompilation benchmarks and should likely become its own topic family.
+### Maturity status
+- mature
 
-### 9. Symbol recovery is not just “better decompilation”
-Recent evidence makes it clearer that symbol recovery deserves its own benchmark family.
+## 2. Core framing
 
-- **R3-Bench** (ASE 2025 listing / later mirrors) is explicitly framed as a symbol-recovery dataset rather than a generic decompilation benchmark.
-- Its abstract highlights **AST-Align**, a cross-architecture and cross-language alignment method spanning **x86 and ARM** and **C/C++/Rust**.
-- It claims substantially richer ground truth generation, including **4× more struct fields** than prior methods.
-- It also frames the dataset as **metadata-rich, extensible, and reproducible**, with **explicit project inclusion criteria** and a **reproducible processing pipeline**.
-- The scale claim is notable: **over 10 million functions across multiple architectures**.
+### Core claim
+Reverse-engineering evaluation is fragmenting into multiple benchmark families, and that fragmentation is a good thing.
 
-Why this matters for the KB:
-- symbol recovery benchmarks evaluate whether analysts get useful names, fields, and semantic anchors back
-- this is adjacent to decompilation, but not reducible to it
-- a reverse engineer can tolerate imperfect pseudocode longer than they can tolerate missing or misleading symbols/types when navigating a large target
+A useful expert KB should not ask only “what is the best tool?”
+It should ask:
+- best for recovering what?
+- under which constraints?
+- measured how?
+- with what analyst payoff?
 
-### 10. Type inference quality is becoming a benchmarkable object
-A separate 2025 line of work focuses on **benchmarking binary type inference techniques in decompilers**, reinforcing that type recovery should be tracked apart from generic pseudocode quality.
+### What this topic is not
+This topic is **not**:
+- just a paper list
+- just a catalog of public corpora
+- just a benchmark leaderboard
+- just decompiler benchmarking
 
-Related contextual signal:
-- Trail of Bits’ **BTIGhidra** write-up makes a strong practical case for why type inference changes analyst workflow quality: inferred composite/recursive types, array indexing, fewer raw `void*` flows, and better inter-procedural propagation.
-- This is useful for the KB because it ties benchmark abstractions back to lived analyst pain: type information is scattered across a program, and poor type recovery raises cognitive load everywhere.
+It exists to interpret evaluation work in terms of expert reverse-engineering needs.
 
-### 11. Protocol RE benchmarks need their own pipeline model
-Protocol reverse engineering is increasingly better viewed as a multi-stage evaluation pipeline, not a single benchmark item.
+### Key distinctions
+Several distinctions must remain explicit.
 
-Useful recent anchors:
-- **BinPRE** (CCS 2024) focuses on **field inference** in binary-analysis-based PRE and reports evaluation against five prior tools on **eight widely used protocols**.
-- Reported metrics include **format extraction**, **semantic inference of field types/functions**, and downstream utility for **protocol fuzzing** via improved branch coverage.
-- **Automatic State Machine Inference for Binary Protocol Reverse Engineering** (2024) highlights a complementary stage: **protocol state-machine inference**, especially in mixed-protocol environments.
+#### 1. Training corpora vs evaluation benchmarks
+A large function-pair corpus is not the same thing as a benchmark that measures analyst-relevant performance.
 
-This suggests a protocol-RE benchmark decomposition such as:
-- trace/session collection
-- message clustering / protocol separation
+#### 2. Tool-centric vs task-centric evaluation
+Some benchmarks evaluate decompiler outputs or tool pipelines.
+Others evaluate analyst-like tasks such as summarization, signature recovery, or classification.
+
+#### 3. Intrinsic metrics vs downstream utility
+A benchmark may measure local correctness while ignoring whether the output helps rehosting, fuzzing, clustering, navigation, or hypothesis testing.
+
+#### 4. Real-world source material vs real-world analyst conditions
+“Real-world” may mean:
+- binaries from real projects
+- execution-trace-backed validation
+- analyst-like tasks
+- preservation of hardware/protocol context
+These are related, but not identical.
+
+#### 5. Benchmark breadth vs benchmark faithfulness
+A large benchmark is not automatically better if the labels are noisy, the ground truth is weak, or the task does not reflect analyst reality.
+
+## 3. What this topic depends on
+This topic depends on several other KB ideas.
+
+- A clear notion of **objects of recovery**
+  - code reconstruction
+  - names/types/signatures
+  - runtime behavior
+  - protocol fields and states
+  - hardware/environment context
+
+- A clear notion of **domain constraints**
+  - mobile
+  - firmware
+  - obfuscation-heavy targets
+  - malware-adjacent corpora
+
+- A clear notion of **workflow payoff**
+  - whether a benchmark measures something that helps an analyst take the next step
+
+Without those frames, benchmark listings remain descriptive but not decision-useful.
+
+## 4. What this topic enables
+A good evaluation map enables the KB to do the following:
+
+- compare methods more honestly
+- identify under-benchmarked parts of reverse engineering
+- distinguish reproducible work from one-off demos
+- separate analyst-relevant evaluation from convenience evaluation
+- decide which benchmark families are worth watching long term
+- avoid overgeneralizing from one benchmark family to the entire RE problem
+
+In practical analyst terms, this topic helps answer:
+- should I trust the claim behind this paper or tool?
+- is this benchmark measuring what I actually care about?
+- which family of evaluation is relevant to my target and workflow?
+
+## 5. High-signal sources and findings
+
+### A. Decompilation evaluation is becoming more workflow-aware
+
+#### DecompileBench
+Paper:
+- *DecompileBench: A Comprehensive Benchmark for Evaluating Decompilers in Real-World Scenarios* (ACL Findings 2025)
+
+High-signal findings:
+- evaluates decompilers in a more realistic workflow setting
+- includes **23,400 functions** from **130 real-world programs**
+- includes **runtime-aware validation**
+- includes **LLM-as-judge assessment** for human-centric code quality
+- compares both traditional decompilers and LLM-based approaches
+
+Why it matters:
+- this is a strong signal that decompiler evaluation is moving beyond syntax-level or toy-function comparison
+- it explicitly separates semantic correctness from readability/usefulness
+- it fits the KB’s broader claim that analyst-facing value is not reducible to textual output alone
+
+#### Decompile-Bench (million-scale binary-source pairs)
+High-signal findings:
+- distinct from DecompileBench above
+- appears to be a large-scale binary-source pair dataset for decompilation research
+- more likely to be useful as **training / large-scale evaluation substrate** than as a directly workflow-faithful analyst benchmark
+
+Why it matters:
+- this is a good example of why the KB must separate **corpus scale** from **benchmark meaning**
+
+### B. Binary-understanding task benchmarks broaden the surface beyond decompilation
+
+#### BinMetric
+Paper:
+- *BinMetric: A Comprehensive Binary Analysis Benchmark for Large Language Models* (2025 / IJCAI 2025)
+
+High-signal findings:
+- includes **1,000 questions** over **20 real open-source projects**
+- covers **6 task categories**
+- tasks include:
+  - decompilation
+  - summarization
+  - assembly generation
+  - call-site reconstruction
+  - signature recovery
+  - algorithm classification
+
+Why it matters:
+- this benchmark family is more analyst-task-oriented than pure decompiler evaluation
+- it supports the KB’s view that reverse engineering should be benchmarked at multiple task layers, not only code reconstruction
+
+### C. Symbol/type/signature recovery is emerging as its own benchmark family
+
+#### R3-Bench
+Paper:
+- *R3-Bench: Reproducible Real-world Reverse Engineering Dataset for Symbol Recovery* (ASE 2025)
+
+High-signal findings:
+- explicitly focuses on **symbol recovery**
+- introduces **AST-Align** style alignment for richer semantic ground truth
+- spans **x86 and ARM** and **C/C++/Rust**
+- claims **4× more struct fields** than prior methods
+- claims **over 10 million functions** and a reproducible processing pipeline
+
+Why it matters:
+- this strongly supports treating symbol recovery as a separate benchmark family rather than a footnote under decompilation
+- it helps formalize analyst-relevant metadata recovery as its own evaluation object
+
+#### Type inference benchmarking in decompilers
+Signals:
+- 2025 benchmark work comparing multiple decompilers / type inference systems
+- public benchmark repository and evaluation scripts surfaced
+
+Why it matters:
+- type inference quality is becoming benchmarkable in a direct way
+- this reinforces the split between:
+  - decompilation quality
+  - type recovery quality
+  - symbol/signature recovery quality
+
+### D. Firmware RE benchmarks are becoming more context-centered
+
+#### Firmware corpora and context-recovery work
+Signals surfaced:
+- `fkie-cad/linux-firmware-corpus`
+- *Mens Sana In Corpore Sano: Sound Firmware Corpora for Vulnerability Research*
+- *Recovering Peripheral Maps and Protocols to Expedite Firmware Reverse Engineering*
+
+Why it matters:
+- firmware RE cannot be evaluated only by code recovery quality
+- environment realism, peripheral context, and protocol recovery increasingly matter
+- this supports the KB idea that firmware reversing is a context-recovery problem, not just an architecture problem
+
+### E. Protocol reverse engineering has its own benchmark pipeline
+
+#### Protocol RE survey and benchmark signals
+Signals surfaced:
+- hierarchical protocol reverse engineering work
+- LLM-oriented protocol analysis work
+- industrial-control protocol RE survey material
+- binary-analysis-based protocol inference work such as BinPRE
+- state-machine inference work in mixed protocol environments
+
+Why it matters:
+- protocol RE is best understood as a staged pipeline:
+  - trace/session collection
+  - clustering / separation
+  - field boundary inference
+  - field semantics inference
+  - state-machine recovery
+  - downstream validation
+- this differs substantially from decompilation benchmarks and deserves its own benchmark family
+
+### F. Malware-oriented corpora are relevant but not always RE-native
+
+#### Malware corpora signals
+Signals surfaced:
+- EMBER2024
+- AU-PEMal-2025
+- CIC-DGG-2025
+- Binary-30K (2025/2026)
+
+Why it matters:
+- many malware datasets are detection-oriented rather than reverse-engineering-oriented
+- they may still be useful for corpus diversity, metadata, CFG availability, or binary coverage
+- the KB should treat them as **RE-adjacent** unless they genuinely support analyst-style reverse-engineering tasks
+
+## 6. Emerging benchmark family structure
+A stable benchmark taxonomy is starting to emerge.
+
+### 1. Decompilation evaluation
+Measures:
+- semantic correctness
+- readability
+- recompilability
+- execution-backed validity
+
+### 2. Symbol / type / signature recovery
+Measures:
+- naming quality
+- type/layout recovery
+- prototype reconstruction
+- semantic anchor quality for navigation
+
+### 3. Task-level binary understanding
+Measures:
+- analyst-like tasks such as summarization, classification, call-site reconstruction, and signature reasoning
+
+### 4. Obfuscation / resilience evaluation
+Measures:
+- performance under semantics-preserving transformations
+- diffing and similarity robustness
+- deobfuscation effectiveness
+- unpacking/packer handling readiness
+
+### 5. Firmware / environment / context recovery
+Measures:
+- peripheral-map realism
+- MMIO or register inference
+- protocol recovery from firmware behavior
+- rehosting-enabling value
+
+### 6. Protocol reverse engineering
+Measures:
 - field boundary inference
-- field semantics inference
-- state-machine inference
-- downstream utility (e.g. fuzzing, traffic understanding, exploit surface discovery)
+- field semantic inference
+- protocol classification
+- state-machine recovery
+- downstream fuzzing/traffic-analysis payoff
 
-### 12. Firmware RE evaluation is trending toward context recovery
-Firmware-oriented work increasingly evaluates more than code lifting or decompiler quality.
+### 7. RE-adjacent corpora
+Measures less directly:
+- detection, classification, or generalized binary coverage rather than explicit expert-analyst RE utility
 
-A particularly relevant new signal is the ACSAC 2025 paper:
-- **Recovering Peripheral Maps and Protocols to Expedite Firmware Reverse Engineering**
+## 7. Analyst workflow implications
+This topic matters most when the analyst, researcher, or tool-builder is deciding:
+- what claims to trust
+- what tool or method class is worth investing in
+- what counts as success for a given task
+- whether a reported result likely transfers to practical reversing
 
-Even from currently accessible metadata alone, the framing is important: firmware reverse engineering often bottlenecks on recovering **which peripherals exist, how memory-mapped interfaces are used, and what protocols govern device interaction**. That is a different evaluation object from ordinary decompilation.
+It is especially important in these workflow moments:
 
-Implication for the KB:
-- firmware corpora should be tracked not only by ISA/platform coverage, but by how well they preserve **environmental context**, **peripheral realism**, and **rehosting/emulation relevance**.
+### During orientation
+It helps frame the problem correctly:
+- am I dealing with a decompilation problem?
+- a naming/type problem?
+- a dynamic-behavior problem?
+- a protocol/state problem?
+- an environment reconstruction problem?
 
-## Cross-cutting synthesis
+### During method selection
+It helps avoid misapplying the wrong benchmark family to the wrong task.
 
-### A. RE evaluation is fragmenting into specialized tracks
-A useful knowledge-base structure is emerging:
-- decompilation correctness and readability
-- type/signature/symbol recovery
-- binary-understanding tasks for LLMs
-- firmware corpus realism and peripheral/protocol recovery
-- malware corpora used for RE-adjacent research
-- protocol message/state-machine reconstruction
+### During result interpretation
+It helps analysts avoid being misled by:
+- attractive metrics on unrealistic tasks
+- large datasets with weak ground truth
+- benchmark wins that do not improve next-step decision quality
 
-### B. "Real-world" now has multiple meanings
-Recent work uses "real-world" in at least four different senses:
-- binaries sourced from real projects
-- functions covered by actual execution/fuzzing traces
-- tasks aligned with analyst decisions
-- corpora that preserve deployment context (firmware/peripherals/protocol traces)
+### During research planning
+It helps identify gaps where benchmark coverage is still weak, especially for:
+- mobile runtime workflows
+- anti-instrumentation resilience
+- environment reconstruction
+- long-horizon analyst assistance
 
-### C. Human-centric evaluation is becoming first-class
-One especially important trend is the move away from purely syntactic metrics. DecompileBench explicitly introduces runtime-aware and human-centric evaluation. That is a strong signal for this KB: expert-level RE knowledge should privilege semantic usefulness, analyst workflow fit, and recoverability of intent.
+## 8. Evaluation dimensions
+This page itself is about evaluation, so the most important dimensions here are:
 
-## Open questions
-- How should this KB distinguish training corpora from evaluation benchmarks?
-- Which benchmarks are actually reproducible on a modest research machine versus only on specialized infrastructure?
-- Which datasets are legally and operationally reusable for long-term personal study?
-- What are the best benchmark families per subdomain: desktop binaries, malware, firmware, mobile, protocol traces?
-- Which symbol-recovery datasets have publicly reproducible alignment pipelines versus opaque one-off extraction steps?
-- How should protocol RE evaluation weigh intrinsic metrics (field/type/state accuracy) versus downstream metrics (fuzzing coverage, bug yield, analyst time saved)?
-- For firmware RE, what minimal environmental metadata is needed before a corpus becomes genuinely useful for rehosting-oriented study?
+### Correctness of the benchmark target
+Does the benchmark actually measure the thing it claims to measure?
+
+### Ground-truth quality
+How strong, reproducible, and interpretable is the labeling or alignment process?
+
+### Analyst relevance
+Does the benchmark reflect something that matters to expert reverse engineering?
+
+### Downstream utility
+Does the benchmark connect to clustering, navigation, fuzzing, patch diffing, triage, or hypothesis testing?
+
+### Robustness relevance
+Does the benchmark reflect realistic transformations or constraints such as optimization, obfuscation, platform shifts, or access limitations?
+
+### Reproducibility
+Can others realistically rerun, inspect, and extend the benchmark?
+
+### Transferability
+Do results on this benchmark say something meaningful outside the benchmark itself?
+
+Among these, the most important for this topic are:
+- analyst relevance
+- ground-truth quality
+- downstream utility
+- transferability
+
+## 9. Cross-links to related topics
+
+### Closely related pages
+- `topics/symbol-type-and-signature-recovery.md`
+  - because symbol/type/signature recovery now appears to be its own benchmark family
+- `topics/obfuscation-deobfuscation-and-packed-binaries.md`
+  - because robustness and resilience benchmarks are increasingly central
+- `topics/firmware-and-protocol-context-recovery.md`
+  - because firmware/protocol work forces context-heavy evaluation rather than code-only evaluation
+- `topics/analyst-workflows-and-human-llm-teaming.md`
+  - because analyst workflow studies help judge whether a benchmark is truly analyst-relevant
+
+### Depends on framework pages
+- `topics/expert-re-overall-framework.md`
+- `topics/global-map-and-ontology.md`
+
+### Often confused with
+- general paper collection pages
+- tool comparison pages
+- corpus directories without evaluation interpretation
+
+## 10. Open questions
+- How should the KB distinguish **training corpora**, **benchmark corpora**, and **workflow-faithful evaluation sets** in a formally consistent way?
+- Which benchmark families are strong enough to support longitudinal tracking over time?
+- Which public benchmarks best reflect analyst usefulness rather than only ML-model convenience?
+- How should mobile runtime instrumentation and anti-instrumentation resistance be benchmarked, if at all?
+- Which firmware benchmarks preserve enough peripheral/protocol/environment context to matter for rehosting-oriented analysis?
+- Which protocol RE benchmarks best connect intrinsic field/state accuracy with downstream analyst payoff?
+- What benchmark families are still missing for long-horizon human–LLM reverse-engineering workflows?
+
+## 11. Suggested next expansions
+This topic may later split into several child pages:
+- `topics/decompilation-evaluation.md`
+- `topics/symbol-type-and-signature-benchmarks.md`
+- `topics/protocol-re-benchmark-taxonomy.md`
+- `topics/firmware-corpora-and-context-evaluation.md`
+- `topics/re-adjacent-malware-corpora.md`
+
+## 12. Source footprint / evidence quality note
+Current evidence quality is mixed but coherent.
+
+Strengths:
+- multiple strong benchmark signals across decompilation, symbol recovery, firmware, and protocol RE
+- enough material to justify a stable taxonomy direction
+- good alignment with the broader KB framework
+
+Limitations:
+- some items are currently supported by abstracts, search metadata, or repository structure more than full-paper deep reading
+- some benchmark families are clearer conceptually than they are operationally reproducible on modest local infrastructure
+
+Overall assessment:
+- the benchmark landscape is now well enough defined to support a mature topic page, even though several subfamilies still need deeper source passes
+
+## 13. Topic summary
+Benchmarks and datasets are the evaluation spine of the reverse-engineering expert KB.
+
+They matter not because they produce leaderboards, but because they reveal what different parts of the field are actually trying to recover, which kinds of ground truth are available, which claims are analyst-relevant, and where current evaluation still fails to capture real reverse-engineering work.
