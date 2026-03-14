@@ -98,13 +98,13 @@ These directories contain incremental research artifacts rather than canonical s
 
 ## Candidate next topic pages
 Priority 2 candidates include:
-- `topics/anti-tamper-and-protected-runtime-analysis.md`
 - `topics/analytic-provenance-and-evidence-management.md`
 - `topics/trust-calibration-and-verification-burden.md`
 
 ### Newly added Priority 2 pages
 - `topics/native-binary-reversing-baseline.md`
 - `topics/protocol-state-and-message-recovery.md`
+- `topics/anti-tamper-and-protected-runtime-analysis.md`
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.

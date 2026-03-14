@@ -1,0 +1,297 @@
+# Anti-Tamper and Protected-Runtime Analysis
+
+Topic class: topic synthesis
+Ontology layers: domain constraint family, workflow/sensemaking, support mechanism
+Maturity: structured
+Related pages:
+- topics/expert-re-overall-framework.md
+- topics/global-map-and-ontology.md
+- topics/obfuscation-deobfuscation-and-packed-binaries.md
+- topics/runtime-behavior-recovery.md
+- topics/native-binary-reversing-baseline.md
+- topics/mobile-reversing-and-runtime-instrumentation.md
+
+## 1. Topic identity
+
+### What this topic studies
+This topic studies reverse-engineering targets whose main difficulty lies not only in transformed code, but in active runtime resistance to observation, modification, replay, tracing, or controlled experimentation.
+
+It covers:
+- anti-debugging and anti-instrumentation behavior
+- protected runtime environments
+- anti-tamper checks and response logic
+- observation-hostile execution conditions
+- analyst strategies for recovering evidence under active resistance
+- the distinction between code protection and runtime protection
+
+### Why this topic matters
+Obfuscation is only one branch of analyst resistance.
+Some targets remain difficult not because the code is maximally unreadable, but because the runtime actively undermines observation.
+
+Examples include targets that:
+- detect debuggers or instrumentation
+- change behavior under analysis
+- gate functionality behind integrity checks
+- punish modification or replay
+- depend on trusted runtime state, device state, or environmental invariants
+
+This topic matters because expert reverse engineering often fails on protected targets not at the point of code reading, but at the point of stable evidence collection.
+
+### Ontology role
+This page mainly belongs to:
+- **domain constraint family**
+- **workflow/sensemaking**
+- **support mechanism**
+
+It is a domain page because protected runtimes impose a distinct analysis environment.
+It is a workflow page because the order and method of evidence collection change under active resistance.
+It is also a support-mechanism page because analysts depend on specialized tracing, staging, and observation strategies to make progress.
+
+### Page class
+- topic synthesis page
+
+### Maturity status
+- structured
+
+## 2. Core framing
+
+### Core claim
+Protected-runtime analysis should be treated as a distinct branch of reverse engineering where the main problem is often preserving observability and trust under active runtime resistance, not merely recovering transformed code.
+
+The key analyst question is frequently not:
+- what does this code say in isolation?
+
+It is:
+- under what conditions can I observe this target without collapsing or invalidating the behavior I need to study?
+- which protections are blocking evidence collection rather than only readability?
+- how can I separate normal target logic from anti-analysis logic?
+
+### What this topic is not
+This topic is **not**:
+- generic obfuscation only
+- malware evasion as a whole discipline
+- exploit development
+- defensive anti-tamper engineering documentation
+
+It is about analyst-centered reverse engineering under active runtime resistance.
+
+### Key distinctions
+Several distinctions should remain explicit.
+
+#### 1. Code protection vs runtime protection
+A target may be statically transformed, but the harder problem may be runtime detection or execution instability under observation.
+
+#### 2. Anti-analysis friction vs semantic complexity
+A target may be semantically ordinary but operationally painful because observation is unreliable.
+
+#### 3. Anti-tamper logic vs business logic
+Analysts need to distinguish protection paths from the functionality they are actually trying to understand.
+
+#### 4. Protected-runtime analysis vs ordinary dynamic validation
+In protected targets, obtaining runtime evidence may itself be the central challenge.
+
+#### 5. Observation success vs interpretation success
+Even if the analyst can attach or trace, the evidence may still be distorted by protective behavior.
+
+## 3. What this topic depends on
+This topic depends on several other KB concepts.
+
+- **Obfuscation and packed-binary evaluation**
+  - because many protected targets combine transformation-heavy code with runtime protection
+- **Runtime behavior recovery**
+  - because the central struggle is often to obtain trustworthy dynamic evidence
+- **Mobile reversing and instrumentation**
+  - because many mobile targets already exhibit anti-instrumentation and constrained-runtime behavior
+- **Native baseline workflows**
+  - because the protected branch is easier to understand when contrasted with ordinary native assumptions
+
+Without these dependencies, protected-runtime analysis either collapses into generic obfuscation or into vague anti-debug folklore.
+
+## 4. What this topic enables
+Strong understanding of this topic enables:
+- better recognition of when runtime resistance, not static unreadability, is the real bottleneck
+- more realistic planning of evidence-collection workflows
+- better separation of protection logic from core target logic
+- stronger reasoning about observability, trustworthiness, and experimental staging
+- clearer distinction between “cannot read” and “cannot observe safely” problems
+
+In workflow terms, this topic helps the analyst decide:
+- what is actually blocking progress: semantics, protection, or observability?
+- which runtime conditions are required for trustworthy evidence?
+- how should I sequence static, dynamic, and environmental work under active resistance?
+
+## 5. High-signal sources and findings
+
+### A. The current KB already implies a protected-runtime branch beyond obfuscation
+Synthesis across existing pages suggests:
+- obfuscation-heavy targets often push analysts toward resilient partial evidence rather than perfect recovery
+- mobile pages show that anti-instrumentation and constrained runtime conditions can dominate analysis difficulty
+- runtime behavior recovery shows that observability itself can be the key bottleneck
+
+Why it matters:
+- the KB already contains the conceptual ingredients of this topic; this page makes that branch explicit
+
+### B. Protected targets shift the burden from readability to observability
+Current synthesis from mobile, obfuscation, and runtime pages suggests:
+- some targets remain partially understandable statically, yet dynamic evidence is hard to collect or trust
+- this creates a distinct analyst workflow centered on observation-preserving strategy rather than only reconstruction quality
+
+Why it matters:
+- this supports treating protected-runtime analysis as more than a harder version of decompilation
+
+### C. Runtime protection changes what counts as a successful workflow
+In protected contexts, successful analysis often means:
+- obtaining stable observations under constrained conditions
+- learning which checks or environmental assumptions matter
+- recovering enough trustworthy behavior to progress, even if not all protections are fully neutralized
+
+Why it matters:
+- the workflow goal shifts from “full readability” to “stable, decision-relevant evidence”
+
+## 6. Emerging internal structure of the topic
+A stable internal decomposition is emerging.
+
+### 1. Anti-debugging and anti-instrumentation resistance
+Includes:
+- debugger detection
+- instrumentation detection
+- altered behavior under observation
+
+### 2. Integrity and tamper-response logic
+Includes:
+- integrity checks
+- self-verification paths
+- runtime behavior changes after modification
+
+### 3. Protected observation workflows
+Includes:
+- staging analysis safely
+- selective runtime evidence collection
+- distinguishing protection-related failure from target logic
+
+### 4. Domain-specific protected environments
+Includes:
+- mobile anti-instrumentation
+- protected native runtimes
+- future anti-cheat and trusted-execution-style targets
+
+### 5. Comparative role in the KB
+Includes:
+- extending obfuscation into runtime resistance
+- clarifying the boundary between code transformation and protected execution
+
+## 7. Analyst workflow implications
+This topic matters especially during:
+
+### Orientation
+The analyst first needs to determine:
+- is the main challenge code recovery, or runtime resistance?
+- what observations are currently trustworthy?
+- what behavior may already be distorted by analysis conditions?
+
+### Hypothesis formation
+Protected-target analysts often form hypotheses such as:
+- this failure path is anti-analysis, not business logic
+- this branch only appears under debugger/instrumentation conditions
+- this integrity check gates access to the behavior I actually care about
+
+### Focused experimentation
+Progress may depend on:
+- minimally disturbing observation strategies
+- staged runtime tests
+- comparing behavior under different analysis conditions
+- recording exactly what changed when the environment changed
+
+### Long-horizon analysis
+Analysts need to preserve:
+- which protections were observed
+- which runtime conditions affected evidence quality
+- what conclusions are valid only under specific analysis setups
+- what remains unknown because observation was unstable
+
+### Mistakes this topic helps prevent
+A strong protected-runtime model helps avoid:
+- assuming decompilation difficulty is the main problem when observation is the real bottleneck
+- treating anti-analysis logic as if it were core target logic
+- overtrusting runtime evidence gathered under unstable conditions
+- wasting effort on total semantic recovery when limited stable evidence would already move the analysis forward
+
+## 8. Evaluation dimensions
+The most important evaluation dimensions for this topic are:
+
+### Observability under resistance
+Can useful evidence be collected despite anti-analysis behavior?
+
+### Evidence trustworthiness
+How likely is the observed behavior to reflect the target’s real behavior rather than protection-induced distortion?
+
+### Workflow survivability
+Can the analyst continue making progress under protection pressure?
+
+### Comparative clarity
+Does the topic help distinguish protected-runtime problems from obfuscation-only or baseline-native problems?
+
+### Transferability
+Do strategies and distinctions transfer across mobile, native, and future protected-target domains?
+
+Among these, the especially central dimensions are:
+- observability under resistance
+- evidence trustworthiness
+- workflow survivability
+- comparative clarity
+
+## 9. Cross-links to related topics
+
+### Closely related pages
+- `topics/obfuscation-deobfuscation-and-packed-binaries.md`
+  - because code transformation and runtime protection often co-occur but should remain distinct
+- `topics/runtime-behavior-recovery.md`
+  - because protected targets make trustworthy runtime evidence especially difficult and especially important
+- `topics/mobile-reversing-and-runtime-instrumentation.md`
+  - because mobile is one of the clearest domains where anti-instrumentation pressure already matters
+- `topics/native-binary-reversing-baseline.md`
+  - because the protected-runtime branch is best understood against the baseline case
+
+### Depends on framework pages
+- `topics/expert-re-overall-framework.md`
+- `topics/global-map-and-ontology.md`
+
+### Often confused with
+- generic obfuscation
+- malware-only evasion studies
+- exploit-development or red-team tradecraft
+
+## 10. Open questions
+- Which sources best support a rigorous analyst-centered treatment of anti-tamper and protected-runtime analysis?
+- How should the KB represent the boundary between anti-analysis logic, anti-cheat logic, and general protected execution environments?
+- Which domains offer the best transferable lessons: mobile, anti-cheat, DRM-style protection, or malware resistance?
+- What evaluation vocabulary would best capture protected-runtime workflow success without collapsing into offensive tactics?
+- When should this topic split into anti-instrumentation, anti-tamper, and trusted-runtime child pages?
+
+## 11. Suggested next expansions
+This topic may later split into several child pages:
+- `topics/anti-instrumentation-and-anti-debugging.md`
+- `topics/integrity-checks-and-tamper-response.md`
+- `topics/protected-observation-workflows.md`
+- `topics/anti-cheat-and-trusted-runtime-analysis.md`
+
+## 12. Source footprint / evidence quality note
+Current evidence quality is structurally useful but still more synthesis-driven than source-dense.
+
+Strengths:
+- fills a real missing branch in the KB ontology
+- strongly supported by existing mobile, runtime, and obfuscation pages
+- useful for clarifying an important boundary in expert RE practice
+
+Limitations:
+- still needs a more dedicated source pass
+- current evidence is more conceptual than literature-saturated
+- should be deepened before being treated as mature
+
+Overall assessment:
+- this page is structurally important and coherent enough to live as `structured`, but it remains a clear candidate for future deepening
+
+## 13. Topic summary
+Anti-tamper and protected-runtime analysis gives the KB a clearer branch for targets that resist observation as much as understanding.
+
+It matters because many hard reverse-engineering problems are not defined only by transformed code, but by unstable evidence, anti-analysis behavior, and the analyst’s need to recover trustworthy observations under hostile runtime conditions.
