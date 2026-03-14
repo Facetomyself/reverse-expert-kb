@@ -7,6 +7,7 @@ Related pages:
 - topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
 - topics/runtime-behavior-recovery.md
+- topics/trace-guided-and-dbi-assisted-re.md
 - topics/anti-tamper-and-protected-runtime-analysis.md
 - topics/community-practice-signal-map.md
 

@@ -137,7 +137,7 @@ The manually supplied community cluster should be used first to deepen:
 - JSVMP and AST-based devirtualization ✅ (`topics/jsvmp-and-ast-based-devirtualization.md`)
 - anti-Frida / anti-instrumentation practice taxonomy ✅ (`topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md`)
 - Android linker / Binder / eBPF reversing ✅ (`topics/android-linker-binder-ebpf-observation-surfaces.md`)
-- trace-guided and DBI-assisted reverse engineering
+- trace-guided and DBI-assisted reverse engineering ✅ (`topics/trace-guided-and-dbi-assisted-re.md`)
 - mobile risk-control and device-fingerprint analysis
 
 ## Source anchor
