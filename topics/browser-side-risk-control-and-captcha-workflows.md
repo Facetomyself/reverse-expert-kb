@@ -205,6 +205,7 @@ Includes:
 - concrete notes:
   - `topics/reese84-and-utmvc-workflow-note.md`
   - `topics/cdp-guided-token-generation-analysis.md`
+  - `topics/datadome-geetest-kasada-workflow-note.md`
 
 ### 4. Replay, mutation, and environment-control workflows
 Includes:
