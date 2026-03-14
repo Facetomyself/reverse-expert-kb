@@ -3,6 +3,35 @@
 Command failures, exceptions, and unexpected behaviors.
 
 ---
+## [ERR-20260314-002] web_fetch-ssrn-403-and-pdf-raw-bytes
+
+**Logged**: 2026-03-14T07:42:30Z
+**Priority**: low
+**Status**: pending
+**Area**: docs
+
+### Summary
+During reverse-expert-kb source collection, SSRN abstract fetch returned a Cloudflare/holding-page 403 and direct PDF fetch from USENIX returned raw `%PDF` bytes instead of extracted text.
+
+### Error
+```text
+web_fetch SSRN abstract: 403 / "Just a moment..."
+web_fetch USENIX PDF: raw PDF bytes rather than readable extracted text
+```
+
+### Context
+- Operation attempted: collect readable source text for browser anti-debugging literature
+- Successful fallback: use USENIX presentation/landing page and other HTML sources instead of direct PDF/SSRN fetches
+- This is a recurring source-access pattern rather than a workflow blocker
+
+### Suggested Fix
+Prefer HTML landing pages / abstracts first for academic sources; treat direct PDF fetch and SSRN as fragile on this host and only use when extraction quality is acceptable.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/runs/
+
+---
 ## [ERR-20260313-001] official_grok2api_docker_image_entrypoint_mismatch
 
 **Logged**: 2026-03-13T13:40:00+08:00

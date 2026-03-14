@@ -126,8 +126,15 @@ Priority 2 candidates include:
 - `topics/browser-side-risk-control-and-captcha-workflows.md`
 - `topics/browser-fingerprint-and-state-dependent-token-generation.md`
 - `topics/browser-cdp-and-debugger-assisted-re.md`
+- `topics/browser-debugger-detection-and-countermeasures.md`
 - `topics/browser-environment-reconstruction.md`
 - `topics/js-wasm-mixed-runtime-re.md`
+
+This subtree is now best read as four coordinated browser analyst entry surfaces:
+- structural recovery (`jsvmp-and-ast-based-devirtualization`)
+- workflow/state recovery (`browser-side-risk-control-and-captcha-workflows` and `browser-fingerprint-and-state-dependent-token-generation`)
+- instrumentation and contested observability (`browser-cdp-and-debugger-assisted-re` and `browser-debugger-detection-and-countermeasures`)
+- environment and mixed-runtime execution (`browser-environment-reconstruction` and `js-wasm-mixed-runtime-re`)
 
 ### Mobile / protected-runtime practice subtree
 - `topics/mobile-protected-runtime-subtree-guide.md`
