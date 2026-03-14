@@ -304,7 +304,7 @@ The cron should gradually shift its emphasis.
 The next best order is now:
 
 1. cross-link and metadata cleanup pass across all mature pages
-2. `topics/native-binary-reversing-baseline.md`
+2. `topics/native-binary-reversing-baseline.md` ✅
 3. `topics/protocol-state-and-message-recovery.md`
 4. `topics/anti-tamper-and-protected-runtime-analysis.md`
 
