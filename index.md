@@ -113,8 +113,9 @@ Priority 2 candidates include:
 - `topics/protocol-state-and-message-recovery.md`
 - `topics/anti-tamper-and-protected-runtime-analysis.md`
 
-### Newly materialized child page
+### Newly materialized child pages
 - `topics/js-browser-runtime-reversing.md`
+- `topics/jsvmp-and-ast-based-devirtualization.md`
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.
