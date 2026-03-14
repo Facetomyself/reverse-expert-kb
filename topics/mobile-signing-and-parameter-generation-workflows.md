@@ -302,7 +302,6 @@ Among these, the especially central dimensions are:
 
 ## 11. Suggested next expansions
 This topic may later split into several child pages:
-- `topics/browser-fingerprint-and-state-dependent-token-generation.md`
 - `topics/mobile-challenge-and-verification-loop-analysis.md`
 - `topics/targeted-evidence-trust-calibration.md`
 
