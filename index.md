@@ -132,6 +132,7 @@ Priority 2 candidates include:
 - `topics/browser-parameter-path-localization-workflow-note.md`
 - `topics/browser-request-finalization-backtrace-workflow-note.md`
 - `topics/bytedance-web-request-signature-workflow-note.md`
+- `topics/xiaohongshu-web-signature-workflow-note.md`
 - `topics/kasada-x-kpsdk-request-attachment-workflow-note.md`
 - `topics/perimeterx-human-cookie-collector-workflow-note.md`
 - `topics/cdp-guided-token-generation-analysis.md`

@@ -168,6 +168,7 @@ Current concrete notes:
 - `topics/browser-request-finalization-backtrace-workflow-note.md`
 - `topics/acw-sc-v2-cookie-bootstrap-and-consumer-path-note.md`
 - `topics/bytedance-web-request-signature-workflow-note.md`
+- `topics/xiaohongshu-web-signature-workflow-note.md`
 - `topics/akamai-sensor-submission-and-cookie-validation-workflow-note.md`
 - `topics/kasada-x-kpsdk-request-attachment-workflow-note.md`
 
