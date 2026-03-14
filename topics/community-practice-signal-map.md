@@ -138,7 +138,7 @@ The manually supplied community cluster should be used first to deepen:
 - anti-Frida / anti-instrumentation practice taxonomy ✅ (`topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md`)
 - Android linker / Binder / eBPF reversing ✅ (`topics/android-linker-binder-ebpf-observation-surfaces.md`)
 - trace-guided and DBI-assisted reverse engineering ✅ (`topics/trace-guided-and-dbi-assisted-re.md`)
-- mobile risk-control and device-fingerprint analysis
+- mobile risk-control and device-fingerprint analysis ✅ (`topics/mobile-risk-control-and-device-fingerprint-analysis.md`)
 
 ## Source anchor
 Primary source note for this cluster:

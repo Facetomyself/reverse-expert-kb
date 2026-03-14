@@ -104,19 +104,27 @@ The mobile / protected-runtime subtree is especially strong for:
 - trace-guided analysis under observation pressure
 - connecting runtime evidence strategy back to higher-level analyst goals
 
+## 4. Mobile risk-control and device-fingerprint analysis
+- `topics/mobile-risk-control-and-device-fingerprint-analysis.md`
+
+Read this when the main problem is:
+- request behavior depends on device-state collection or app-side trust signals
+- signature or parameter recovery is entangled with environment-sensitive logic
+- captcha / slider / anti-bot workflows involve mobile-side runtime participation
+
 ## What this subtree is weaker at
 This subtree is currently weaker on:
 - dedicated iOS-only substructure
 - formal comparative literature for anti-instrumentation families
 - systematic mobile game / anti-cheat separation
-- explicit mobile risk-control / device-fingerprint child pages
+- finer child-page separation inside mobile risk-control and environment-state reasoning
 
 ## Suggested next expansions from this subtree
 The most natural next child pages include:
-- `topics/mobile-risk-control-and-device-fingerprint-analysis.md`
 - `topics/environment-state-checks-in-protected-runtimes.md`
 - `topics/observation-distortion-and-misleading-evidence.md`
 - `topics/ebpf-seccomp-and-svc-tracing-for-mobile-re.md`
+- `topics/mobile-signing-and-parameter-generation-workflows.md`
 
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:
