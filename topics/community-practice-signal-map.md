@@ -141,6 +141,7 @@ The manually supplied community cluster should be used first to deepen:
 - mobile risk-control and device-fingerprint analysis ✅ (`topics/mobile-risk-control-and-device-fingerprint-analysis.md`)
 - environment-state checks in protected runtimes ✅ (`topics/environment-state-checks-in-protected-runtimes.md`)
 - observation distortion and misleading evidence ✅ (`topics/observation-distortion-and-misleading-evidence.md`)
+- mobile signing and parameter-generation workflows ✅ (`topics/mobile-signing-and-parameter-generation-workflows.md`)
 
 ## Source anchor
 Primary source note for this cluster:
