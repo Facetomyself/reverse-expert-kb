@@ -132,7 +132,8 @@ Priority 2 candidates include:
 - `topics/browser-parameter-path-localization-workflow-note.md`
 - `topics/browser-request-finalization-backtrace-workflow-note.md`
 - `topics/bytedance-web-request-signature-workflow-note.md`
-- `topics/cdp-guided-token-generation-analysis.md`
+- `topics/perimeterx-human-cookie-collector-workflow-note.md`
+- `topics/cdp-guided-token-generation-analysis.md`}},{
 - `topics/browser-cdp-and-debugger-assisted-re.md`
 - `topics/browser-debugger-detection-and-countermeasures.md`
 - `topics/browser-environment-reconstruction.md`
@@ -150,6 +151,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - concrete cookie-bootstrap / consumer-path practice (`acw-sc-v2-cookie-bootstrap-and-consumer-path-note`)
 - concrete request-signature-family practice (`bytedance-web-request-signature-workflow-note`)
 - concrete sensor-submission / cookie-validation practice (`akamai-sensor-submission-and-cookie-validation-workflow-note`)
+- concrete collector / cookie-refresh / first-consumer practice (`perimeterx-human-cookie-collector-workflow-note`)
 
 ### Mobile / protected-runtime practice subtree
 - `topics/mobile-protected-runtime-subtree-guide.md`
