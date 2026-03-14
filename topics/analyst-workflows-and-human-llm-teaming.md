@@ -195,7 +195,39 @@ Why it matters:
 - this is a practical confirmation that workflow value depends on integration and orchestration, not just model intelligence
 - it supports treating disassembler integration and context management as first-class workflow design problems
 
-### E. Cognitive support and externalization deserve a first-class place
+### E. Analytic provenance and evidence externalization deserve a first-class place
+
+#### SensorRE / analytic provenance for software reverse engineers
+Sources:
+- *SensorRE: Provenance Support for Software Reverse Engineers* (Computers & Security 2020)
+- *Analytic Provenance for Software Reverse Engineers* (AFIT dissertation, 2020)
+
+High-signal findings:
+- positions reverse engineering as an open-ended exploration problem with multiple competing explanations active at once
+- argues that one core difficulty is not only discovering facts, but preserving the context of findings within the evolving overall task
+- introduces **SensorRE** as an analytic provenance system for reverse engineers
+- reports design input from **semi-structured expert interviews**
+- captures sensemaking actions and exposes them through views such as a **graph** and **storyboard**
+- reports study evidence with both experts and graduate students indicating that provenance support can improve exploration and is usable in practice
+
+Why it matters:
+- this is a direct RE-specific anchor for treating evidence trails, hypothesis history, and notebook-like externalization as core workflow support rather than optional polish
+- it strengthens the KB’s claim that expert RE depends on stabilizing reasoning over time, not only on producing local answers
+- it also suggests that provenance-aware interface design belongs alongside decompilers and instrumentation in the support stack
+
+#### reAnalyst and scalable RE activity capture
+Source:
+- *reAnalyst: Scalable Analysis of Reverse Engineering Activities* (2024)
+
+High-signal findings:
+- explicitly targets **scalable study of RE practice** rather than one-off anecdotal observation
+- combines tool-agnostic logging such as screenshots, keystrokes, active windows/processes, and optional participant annotations with semi-automated higher-level annotation
+- frames the bottleneck as the cost of lifting low-level logs into meaningful RE activities
+- makes the analysis pipeline itself a reusable research asset for studying strategies, anti-RE effects, and longitudinal change
+
+Why it matters:
+- this extends provenance from analyst support into a methodology for building better empirical knowledge about RE expertise itself
+- it suggests the KB should track not only workflow models, but also the instrumentation pipelines used to study those workflows
 
 #### Immersive sensemaking survey/synthesis
 Source:
@@ -222,11 +254,13 @@ Includes:
 - transitions between static and dynamic methods
 - expertise-dependent differences in behavior
 
-### 2. Evidence externalization and memory support
+### 2. Evidence externalization, analytic provenance, and memory support
 Includes:
 - note-taking and notebook systems
 - hypothesis logs
 - uncertainty tracking
+- provenance capture and replay
+- storyboard / graph views of analytic progress
 - memory-augmented and representation-aware workflows
 
 ### 3. Tooling and interface mediation
@@ -289,8 +323,9 @@ Large reverse-engineering tasks decay unless the analyst can preserve:
 - uncertainty boundaries
 - naming rationale
 - links between observations and conclusions
+- the order in which key discoveries were made and revised
 
-This is one of the strongest arguments for notebook-style and memory-augmented workflows.
+This is one of the strongest arguments for notebook-style, provenance-aware, and memory-augmented workflows.
 
 ### Mistakes this topic helps prevent
 A strong workflow model helps avoid:
@@ -364,6 +399,7 @@ Among these, the especially central dimensions are:
 This topic may later split into several child pages:
 - `topics/process-models-of-reverse-engineering.md`
 - `topics/notebook-and-memory-augmented-re.md`
+- `topics/analytic-provenance-and-evidence-management.md`
 - `topics/llm-sidekicks-in-re-workflows.md`
 - `topics/trust-calibration-and-verification-burden.md`
 - `topics/interface-design-for-re-automation.md`
