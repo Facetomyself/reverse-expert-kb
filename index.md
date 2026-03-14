@@ -99,6 +99,7 @@ These directories contain incremental research artifacts rather than canonical s
 - trust calibration and verification burden in human–LLM RE
 - domain-constrained reversing (mobile / firmware / protected targets)
 - benchmarks, datasets, and analyst-relevant evaluation
+- collaborative malware analysis, role differentiation, and reporting/handoff burden
 
 ## Open structural questions
 - How should a future native desktop baseline page be defined?
@@ -108,7 +109,7 @@ These directories contain incremental research artifacts rather than canonical s
 
 ## Candidate next topic pages
 Priority 2 candidates include:
-- `topics/collaborative-malware-analysis-and-role-differentiation.md`
+- none currently urgent enough to list as a single standout from this branch
 
 ### Newly added Priority 2 pages
 - `topics/analytic-provenance-and-evidence-management.md`
@@ -116,6 +117,7 @@ Priority 2 candidates include:
 - `topics/protocol-state-and-message-recovery.md`
 - `topics/anti-tamper-and-protected-runtime-analysis.md`
 - `topics/trust-calibration-and-verification-burden.md`
+- `topics/collaborative-malware-analysis-and-role-differentiation.md`
 
 ### Browser runtime subtree
 - `topics/browser-runtime-subtree-guide.md`
