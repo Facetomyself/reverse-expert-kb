@@ -78,6 +78,7 @@ These pages show how different target classes change what matters in reverse eng
 - `topics/mobile-reversing-and-runtime-instrumentation.md`
 - `topics/firmware-and-protocol-context-recovery.md`
 - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
+- `topics/malware-analysis-overlaps-and-analyst-goals.md`
 - `topics/js-browser-runtime-reversing.md`
 
 ### 4. Source and run material
@@ -107,7 +108,7 @@ These directories contain incremental research artifacts rather than canonical s
 
 ## Candidate next topic pages
 Priority 2 candidates include:
-- `topics/malware-analysis-overlaps-and-analyst-goals.md`
+- `topics/collaborative-malware-analysis-and-role-differentiation.md`
 
 ### Newly added Priority 2 pages
 - `topics/analytic-provenance-and-evidence-management.md`
