@@ -202,6 +202,7 @@ Includes:
 - anti-bot token refresh logic
 - challenge-response coupling to request state
 - see also: `topics/browser-fingerprint-and-state-dependent-token-generation.md`
+- concrete note: `topics/reese84-and-utmvc-workflow-note.md`
 
 ### 4. Replay, mutation, and environment-control workflows
 Includes:

@@ -5,6 +5,7 @@ Ontology layers: browser-runtime subdomain, request-shaping workflow, protected-
 Maturity: structured
 Related pages:
 - topics/browser-runtime-subtree-guide.md
+- topics/reese84-and-utmvc-workflow-note.md
 - topics/js-browser-runtime-reversing.md
 - topics/browser-side-risk-control-and-captcha-workflows.md
 - topics/browser-environment-reconstruction.md
@@ -295,8 +296,13 @@ Among these, the especially central dimensions are:
 - How should the KB best represent async timing and event-order dependence in browser token analysis?
 - What evaluation language best captures partial but useful reconstruction of state-dependent browser token workflows?
 
-## 11. Suggested next expansions
-This topic may later split into several child pages:
+## 11. Concrete workflow notes / next expansions
+This topic should be deepened not only by abstract children but by target-family workflow notes.
+
+Current concrete note:
+- `topics/reese84-and-utmvc-workflow-note.md`
+
+Other likely next expansions:
 - `topics/browser-debugger-detection-and-countermeasures.md`
 - `topics/js-wasm-boundary-tracing.md`
 - `topics/targeted-evidence-trust-calibration.md`

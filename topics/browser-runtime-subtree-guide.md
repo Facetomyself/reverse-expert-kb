@@ -155,6 +155,15 @@ Read this when the main problem is:
 - you need to recover the local input → transform → output chain for a token or field
 - environment reconstruction and live observation both seem necessary to explain the value
 
+### 8. Concrete target-family workflow notes
+Current concrete note:
+- `topics/reese84-and-utmvc-workflow-note.md`
+
+Read this when the main problem is:
+- you are working on a browser anti-bot token family and need a concrete first-pass workflow
+- you need breakpoint placement, compare-run strategy, and harness externalization guidance
+- the issue is not abstract taxonomy but how to approach a real target family
+
 ## Suggested next expansions from this subtree
 The most natural next child pages include:
 - `topics/js-wasm-boundary-tracing.md`
