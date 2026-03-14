@@ -135,6 +135,7 @@ Priority 2 candidates include:
 - `topics/environment-state-checks-in-protected-runtimes.md`
 - `topics/observation-distortion-and-misleading-evidence.md`
 - `topics/mobile-signing-and-parameter-generation-workflows.md`
+- `topics/mobile-challenge-and-verification-loop-analysis.md`
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.

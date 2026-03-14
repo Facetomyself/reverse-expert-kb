@@ -142,6 +142,7 @@ The manually supplied community cluster should be used first to deepen:
 - environment-state checks in protected runtimes ✅ (`topics/environment-state-checks-in-protected-runtimes.md`)
 - observation distortion and misleading evidence ✅ (`topics/observation-distortion-and-misleading-evidence.md`)
 - mobile signing and parameter-generation workflows ✅ (`topics/mobile-signing-and-parameter-generation-workflows.md`)
+- mobile challenge and verification-loop analysis ✅ (`topics/mobile-challenge-and-verification-loop-analysis.md`)
 
 ## Source anchor
 Primary source note for this cluster:
