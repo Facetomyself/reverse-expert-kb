@@ -7,6 +7,7 @@ Related pages:
 - topics/expert-re-overall-framework.md
 - topics/global-map-and-ontology.md
 - topics/analyst-workflows-and-human-llm-teaming.md
+- topics/community-practice-signal-map.md
 - topics/runtime-behavior-recovery.md
 - topics/benchmarks-datasets.md
 - topics/firmware-and-protocol-context-recovery.md
@@ -226,6 +227,22 @@ Current synthesis from Frida-related material suggests that mobile reversing als
 Why it matters:
 - in mobile RE, maintaining working instrumentation infrastructure is part of the craft itself
 
+### G. Practitioner community sources substantially deepen the mobile branch
+Source cluster:
+- `sources/community-forums/2026-03-14-52pojie-kanxue-manual-curation.md`
+- `topics/community-practice-signal-map.md`
+
+High-signal recurring patterns from 52pojie / Kanxue include:
+- Android reversing centered on Frida, objection, JNI/native hooks, linker behavior, Binder interception, and app-side signing/parameter extraction
+- repeated anti-Frida, anti-hook, anti-root, anti-jailbreak, and environment-detection casework
+- iOS environment setup, jailbreak/resign detection, Frida trace/hook practice, and plugin-based workflow extensions
+- Unity / IL2Cpp and mobile game protection as recurring practical subdomains
+- eBPF, seccomp, linker, SVC tracing, and related system-level observation tactics as part of advanced mobile analysis
+
+Why it matters:
+- these sources confirm that mobile RE is not just “Frida plus APK parsing”
+- the real practitioner workflow spans app layers, system layers, protection layers, and environment-control layers
+
 ## 6. Emerging internal structure of the topic
 A stable internal decomposition is emerging.
 
@@ -286,6 +303,12 @@ Progress often depends on:
 - tracing selected paths or threads
 - validating hypotheses under runtime conditions
 - iterating quickly between observation and model revision
+
+Practitioner-community material adds several repeated real-world patterns:
+- mixing Java/ObjC-layer hooks with native-layer hooks to correlate high-level and low-level behavior
+- using environment-detection findings to decide whether failures are analytical or protection-induced
+- treating Binder, linker, JNI, and loader behavior as practical observation surfaces rather than background internals
+- evolving from one-off Frida scripts toward more persistent, modular, or hidden instrumentation workflows
 
 ### Long-horizon analysis
 Analysts need to preserve:
@@ -380,6 +403,9 @@ Limitations:
 - mobile workflow literature still appears thinner and less consolidated than classical static-analysis benchmarking literature
 - some higher-value insights currently come from practitioner material and synthesis rather than dense benchmark ecosystems
 - anti-instrumentation and mitigation-aware analysis still need deeper dedicated coverage
+
+Additional note:
+- the manually ingested 52pojie / Kanxue cluster materially strengthens this page’s evidence base by adding repeated real-world cases around Frida practice, anti-Frida pressure, mobile environment detection, Unity/IL2Cpp, linker/Binder/eBPF tactics, and mobile protocol/signing analysis
 
 Overall assessment:
 - this topic is mature enough to serve as a core domain-constraint page in V1 of the KB
