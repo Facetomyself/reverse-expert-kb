@@ -208,6 +208,7 @@ Includes:
   - `topics/datadome-geetest-kasada-workflow-note.md`
   - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
   - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
+  - `topics/hcaptcha-callback-submit-and-siteverify-workflow-note.md`
 
 ### 4. Replay, mutation, and environment-control workflows
 Includes:
