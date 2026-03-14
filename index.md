@@ -127,6 +127,7 @@ Priority 2 candidates include:
 - `topics/browser-fingerprint-and-state-dependent-token-generation.md`
 - `topics/reese84-and-utmvc-workflow-note.md`
 - `topics/datadome-geetest-kasada-workflow-note.md`
+- `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
 - `topics/cdp-guided-token-generation-analysis.md`
 - `topics/browser-cdp-and-debugger-assisted-re.md`
 - `topics/browser-debugger-detection-and-countermeasures.md`
@@ -136,7 +137,7 @@ Priority 2 candidates include:
 
 This subtree is now best read as five coordinated browser analyst entry surfaces:
 - structural recovery (`jsvmp-and-ast-based-devirtualization`)
-- workflow/state recovery (`browser-side-risk-control-and-captcha-workflows`, `browser-fingerprint-and-state-dependent-token-generation`, and `reese84-and-utmvc-workflow-note`)
+- workflow/state recovery (`browser-side-risk-control-and-captcha-workflows`, `browser-fingerprint-and-state-dependent-token-generation`, `reese84-and-utmvc-workflow-note`, `datadome-geetest-kasada-workflow-note`, and `cloudflare-turnstile-widget-lifecycle-workflow-note`)
 - instrumentation and contested observability (`browser-cdp-and-debugger-assisted-re` and `browser-debugger-detection-and-countermeasures`)
 - environment and mixed-runtime execution (`browser-environment-reconstruction` and `js-wasm-mixed-runtime-re`)
 - concrete mixed-runtime practice (`js-wasm-boundary-tracing`)
