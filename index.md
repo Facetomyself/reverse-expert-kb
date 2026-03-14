@@ -9,6 +9,7 @@ Build a long-running, research-stage knowledge base about how to think like a re
 - tooling ecosystems
 - knowledge organization patterns
 - specialized domains (malware/mobile/firmware/protocol/anti-tamper)
+- runtime instrumentation and environment-constrained analysis
 - benchmarks, datasets, and corpora for evaluating RE knowledge and tooling
 
 ## Emerging structural axes
@@ -21,6 +22,13 @@ The KB now seems likely to need at least three orthogonal organization schemes:
 - firmware / embedded
 - protocol reverse engineering
 - anti-tamper / anti-cheat / obfuscation-heavy targets
+
+Recent mobile-focused material suggests that "mobile reversing" should not be treated as a thin platform label. It likely deserves its own substructure around:
+- Android vs iOS workflow differences
+- runtime instrumentation and tracing modes
+- access/environment constraints (root, jailbreak, gadget/preload, virtualization)
+- anti-instrumentation / anti-debugging friction
+- mitigation-aware analysis on modern platforms (for example arm64e/PAC-era iOS)
 
 ### 2. By evaluation object
 - decompilation output quality
@@ -42,6 +50,7 @@ This second axis is important because recent papers increasingly evaluate not ju
 - notebook / memory-augmented analysis flows
 - visualization and immersive-analysis support
 - automation interfaces shaped by analyst interaction needs
+- runtime instrumentation workflows and trace-driven inquiry
 
 Recent workflow-oriented literature now makes this axis concrete rather than speculative: observational RE studies, malware-analysis workflow taxonomies, and human–LLM teaming papers are enough to treat analyst-support research as a first-class organization scheme for the KB.
 
