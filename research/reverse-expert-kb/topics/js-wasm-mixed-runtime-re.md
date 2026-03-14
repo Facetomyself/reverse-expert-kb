@@ -292,9 +292,13 @@ Among these, the especially central dimensions are:
 - What evaluation patterns best capture mixed-runtime RE payoff in browser targets?
 - How much browser-state preservation is required for externalized wasm analysis to remain trustworthy?
 
-## 11. Suggested next expansions
-This topic may later split into several child pages:
+## 11. Concrete workflow notes / next expansions
+This topic should be deepened with practical child pages, not only abstract subdivisions.
+
+Current concrete workflow note:
 - `topics/js-wasm-boundary-tracing.md`
+
+Other likely next expansions:
 - `topics/wasm-externalization-and-harnessing.md`
 - `topics/browser-wasm-protection-patterns.md`
 
