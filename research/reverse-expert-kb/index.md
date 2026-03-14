@@ -118,6 +118,7 @@ Priority 2 candidates include:
 ### Newly materialized child pages
 - `topics/js-browser-runtime-reversing.md`
 - `topics/jsvmp-and-ast-based-devirtualization.md`
+- `topics/browser-side-risk-control-and-captcha-workflows.md`
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.
