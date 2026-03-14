@@ -374,3 +374,35 @@ Configure Brave Search for the gateway if broader search coverage is desired for
 - Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/
 
 ---
+## [ERR-20260314-001] search-and-fetch-sources
+
+**Logged**: 2026-03-14T07:17:58Z
+**Priority**: medium
+**Status**: pending
+**Area**: docs
+
+### Summary
+Grok-backed search-layer returned usable results but also emitted a JSON parse error; Brave-backed web_search is unavailable on this host due to missing API key; several PDF fetches returned raw PDF bytes rather than extracted text.
+
+### Error
+```text
+[grok] error: Extra data: line 3 column 1 (char 2844)
+web_search: missing_brave_api_key
+web_fetch on several PDFs returned raw %PDF bytes instead of readable extracted content
+```
+
+### Context
+- Operation attempted: literature/source collection for reverse-expert-kb cron workflow
+- Tools involved: search-layer/scripts/search.py, web_search, web_fetch
+- Environment: headless OpenClaw host; default search-layer policy currently prefers Grok source only unless others are explicitly enabled
+
+### Suggested Fix
+- Treat Grok parse-error-with-results as soft failure and continue using returned items
+- Prefer landing pages / abstracts over direct PDF fetches when readable extraction matters
+- Optionally configure Brave key if broader multi-source coverage is desired on this host
+
+### Metadata
+- Reproducible: yes
+- Related Files: skills/search-layer/SKILL.md, .learnings/ERRORS.md
+
+---
