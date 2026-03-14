@@ -143,7 +143,7 @@ Priority 2 candidates include:
 
 This subtree is now best read as coordinated browser analyst entry surfaces:
 - structural recovery (`jsvmp-and-ast-based-devirtualization`)
-- workflow/state recovery (`browser-side-risk-control-and-captcha-workflows`, `browser-fingerprint-and-state-dependent-token-generation`, `reese84-and-utmvc-workflow-note`, `datadome-geetest-kasada-workflow-note`, `geetest-v4-w-parameter-and-validate-workflow-note`, and `cloudflare-turnstile-widget-lifecycle-workflow-note`)
+- workflow/state recovery (`browser-side-risk-control-and-captcha-workflows`, `browser-fingerprint-and-state-dependent-token-generation`, `reese84-and-utmvc-workflow-note`, `datadome-geetest-kasada-workflow-note`, `datadome-cookie-challenge-workflow-note`, `geetest-v4-w-parameter-and-validate-workflow-note`, and `cloudflare-turnstile-widget-lifecycle-workflow-note`)
 - request-path and request-boundary recovery (`browser-parameter-path-localization-workflow-note` and `browser-request-finalization-backtrace-workflow-note`)
 - instrumentation and contested observability (`browser-cdp-and-debugger-assisted-re` and `browser-debugger-detection-and-countermeasures`)
 - environment and mixed-runtime execution (`browser-environment-reconstruction` and `js-wasm-mixed-runtime-re`)
@@ -178,4 +178,4 @@ This subtree is now best read as four coordinated mobile analyst entry surfaces:
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.
-The more stable the KB becomes, the more this page should behave like a guide rather than a dump of links.an a dump of links. of links.. of links.
+The more stable the KB becomes, the more this page should behave like a guide rather than a dump of links.an a dump of links. of links.. of links.. of links.
