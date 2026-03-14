@@ -205,6 +205,7 @@ Includes:
 - challenge escalation
 - app-side participation in verification loops
 - visible challenge versus hidden trust-decision stages
+- see also: `topics/mobile-challenge-and-verification-loop-analysis.md`
 
 ### 4. Environment-differential reasoning
 Includes:

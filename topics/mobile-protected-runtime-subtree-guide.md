@@ -143,10 +143,18 @@ Read this when the main problem is:
 - you need to distinguish input collection, transform chain, and final field placement
 - parameter changes across sessions or environments need to be explained rather than merely replayed
 
+## 8. Mobile challenge and verification-loop analysis
+- `topics/mobile-challenge-and-verification-loop-analysis.md`
+
+Read this when the main problem is:
+- a captcha / verification / anti-bot flow must be understood as a stateful loop rather than a single request
+- app-side preprocessing and backend validation need to be separated
+- retries, escalations, or challenge-state transitions are changing behavior over time
+
 ## Suggested next expansions from this subtree
 The most natural next child pages include:
 - `topics/ebpf-seccomp-and-svc-tracing-for-mobile-re.md`
-- `topics/mobile-challenge-and-verification-loop-analysis.md`
+- `topics/browser-fingerprint-and-state-dependent-token-generation.md`
 
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:

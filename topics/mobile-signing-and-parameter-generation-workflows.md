@@ -6,6 +6,7 @@ Maturity: structured
 Related pages:
 - topics/mobile-protected-runtime-subtree-guide.md
 - topics/mobile-risk-control-and-device-fingerprint-analysis.md
+- topics/mobile-challenge-and-verification-loop-analysis.md
 - topics/environment-state-checks-in-protected-runtimes.md
 - topics/protocol-state-and-message-recovery.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
