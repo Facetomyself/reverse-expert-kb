@@ -130,6 +130,7 @@ Priority 2 candidates include:
 - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
 - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
 - `topics/browser-parameter-path-localization-workflow-note.md`
+- `topics/browser-request-finalization-backtrace-workflow-note.md`
 - `topics/bytedance-web-request-signature-workflow-note.md`
 - `topics/cdp-guided-token-generation-analysis.md`
 - `topics/browser-cdp-and-debugger-assisted-re.md`
@@ -138,9 +139,10 @@ Priority 2 candidates include:
 - `topics/js-wasm-mixed-runtime-re.md`
 - `topics/js-wasm-boundary-tracing.md`
 
-This subtree is now best read as five coordinated browser analyst entry surfaces:
+This subtree is now best read as coordinated browser analyst entry surfaces:
 - structural recovery (`jsvmp-and-ast-based-devirtualization`)
 - workflow/state recovery (`browser-side-risk-control-and-captcha-workflows`, `browser-fingerprint-and-state-dependent-token-generation`, `reese84-and-utmvc-workflow-note`, `datadome-geetest-kasada-workflow-note`, and `cloudflare-turnstile-widget-lifecycle-workflow-note`)
+- request-path and request-boundary recovery (`browser-parameter-path-localization-workflow-note` and `browser-request-finalization-backtrace-workflow-note`)
 - instrumentation and contested observability (`browser-cdp-and-debugger-assisted-re` and `browser-debugger-detection-and-countermeasures`)
 - environment and mixed-runtime execution (`browser-environment-reconstruction` and `js-wasm-mixed-runtime-re`)
 - concrete mixed-runtime practice (`js-wasm-boundary-tracing`)
