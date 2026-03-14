@@ -109,28 +109,37 @@ Assessment:
 Even though the skeleton is strong, V1 is not fully finished yet.
 Several missing nodes should ideally be addressed before declaring the KB stable.
 
-### Priority 1 missing pages
-These are the most important missing pages for V1 completeness.
+### Priority 1 pages
+These are the most important pages for closing V1.
 
 #### 1. Decompilation and code reconstruction
-Suggested page:
+Page:
 - `topics/decompilation-and-code-reconstruction.md`
+
+Status:
+- now added and mature enough for V1
 
 Why it matters:
 - decompilation remains one of the central recovery-object families
-- the KB currently references it heavily but does not yet give it its own mature topic page
+- this page now closes a major structural gap in the KB
 
 #### 2. Runtime behavior recovery
-Suggested page:
+Page:
 - `topics/runtime-behavior-recovery.md`
+
+Status:
+- now added and mature enough for V1
 
 Why it matters:
 - the KB increasingly emphasizes runtime answerability, observability, traces, and focused experimentation
-- this idea is present across workflow and mobile pages, but lacks a dedicated synthesis page
+- this page now closes a major cross-cutting evidence and workflow gap
 
 #### 3. Notebook and memory-augmented reverse engineering
 Suggested page:
 - `topics/notebook-and-memory-augmented-re.md`
+
+Status:
+- still missing
 
 Why it matters:
 - evidence externalization and long-horizon cognitive stability are already central to the KB’s theory
@@ -249,9 +258,7 @@ Approximate current status:
 - `topics/firmware-and-protocol-context-recovery.md`
 - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
 
-### Missing but high-priority pages
-- `topics/decompilation-and-code-reconstruction.md`
-- `topics/runtime-behavior-recovery.md`
+### Remaining high-priority pages
 - `topics/notebook-and-memory-augmented-re.md`
 
 ## V1 completion rule
