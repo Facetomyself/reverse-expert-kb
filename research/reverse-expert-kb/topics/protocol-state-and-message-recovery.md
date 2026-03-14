@@ -6,6 +6,7 @@ Maturity: structured
 Related pages:
 - topics/expert-re-overall-framework.md
 - topics/global-map-and-ontology.md
+- topics/community-practice-signal-map.md
 - topics/firmware-and-protocol-context-recovery.md
 - topics/runtime-behavior-recovery.md
 - topics/benchmarks-datasets.md
@@ -171,6 +172,20 @@ Synthesis from firmware-context material suggests:
 Why it matters:
 - it widens the topic beyond traditional network trace workflows and ties it back to the KB’s environment-aware view of reverse engineering
 
+### E. Practitioner community sources show protocol RE is tightly coupled to app signing, risk-control, and traffic behavior in the wild
+Source cluster:
+- `sources/community-forums/2026-03-14-52pojie-kanxue-manual-curation.md`
+- `topics/community-practice-signal-map.md`
+
+High-signal recurring patterns from 52pojie / Kanxue include:
+- app signing and parameter-generation analysis where protocol understanding is inseparable from runtime observation and request semantics
+- websocket / JCE / app traffic / risk-control parameter work where message meaning matters more than packet structure alone
+- browser-side and mobile-side captcha / device-fingerprint / anti-bot flows that blend protocol structure, state logic, and anti-analysis conditions
+- repeated cases where the analyst must recover just enough message/state logic to replay, emulate, mutate, or bypass target behavior rather than fully formalize a protocol specification
+
+Why it matters:
+- these practitioner sources strongly confirm that protocol RE in practice is often an applied workflow for traffic reasoning, signing reconstruction, and stateful interaction control, not only a clean academic field-inference problem
+
 ## 6. Emerging internal structure of the topic
 A stable internal decomposition is emerging.
 
@@ -228,6 +243,12 @@ Progress often depends on:
 - checking whether inferred states explain observed traces
 - generating or mutating messages to probe protocol behavior
 - refining the model with new observations rather than freezing early assumptions
+
+Practitioner-community material adds several recurring real-world patterns:
+- correlating traffic captures with runtime hooks to infer which app-side functions generate or validate fields
+- treating signing parameters, device-fingerprint fields, and anti-bot challenge exchanges as protocol objects rather than only business logic
+- using replay, mutation, or controlled environment changes to decide whether apparent message structure is state-dependent, environment-dependent, or purely cosmetic
+- accepting partial protocol models that are sufficient for replay, fuzzing, or explanation before attempting complete semantic closure
 
 ### Long-horizon analysis
 Analysts need to preserve:
@@ -309,17 +330,18 @@ This topic may later split into several child pages:
 - `topics/protocol-re-for-fuzzing-and-generation.md`
 
 ## 12. Source footprint / evidence quality note
-Current evidence quality is structurally useful but still less source-dense than the more mature V1 core pages.
+Current evidence quality is structurally useful but now somewhat stronger than the initial split-out version.
 
 Strengths:
 - strong anchor from BinPRE and state-machine inference work
 - clear analytical need inside the KB structure
 - useful separation pressure on the existing firmware/context page
+- newly ingested 52pojie / Kanxue practitioner sources materially strengthen the applied side of the topic, especially around signing parameters, risk-control traffic, websocket/JCE analysis, and stateful replay-oriented workflows
 
 Limitations:
 - the topic still needs a deeper source pass for stronger maturity
-- practitioner workflow material is lighter than for some other KB branches
 - protocol RE literature is heterogeneous and can be hard to unify cleanly
+- practitioner material is now more present, but still needs more explicit normalization into subthemes such as field inference, state recovery, and traffic semantics
 
 Overall assessment:
 - this page is structurally valuable now and coherent enough to live as `structured`, but it should be deepened before being treated as fully mature
