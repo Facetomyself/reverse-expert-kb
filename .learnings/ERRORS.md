@@ -522,3 +522,33 @@ Prefer search-layer fallback sources as done here; keep recording tool gaps in r
 - Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/runs/2026-03-15-0200-akamai-sensor-cookie-workflow.md
 
 ---
+## [ERR-20260315-002] web-fetch-chinese-content-interstitials
+
+**Logged**: 2026-03-15T07:19:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+During reverse-expert-kb source gathering, `web_fetch` remained unreliable for some Chinese content platforms (Zhihu 403 interstitial, CSDN 521/empty), even when search-layer and GitHub/open-source sources were usable.
+
+### Error
+```text
+web_fetch zhihu: Web fetch failed (403)
+web_fetch csdn: Web fetch failed (521)
+```
+
+### Context
+- Operation attempted: source collection for a Xiaohongshu `x-s` / `x-t` / `x-s-common` workflow note
+- Inputs: Zhihu/CSDN practitioner posts, GitHub repos, search-layer Grok result cluster
+- Workaround used: rely on search-layer result snippets + readable GitHub pages + previously curated KB source notes, then write conservative workflow-centered synthesis instead of brittle internal claims
+
+### Suggested Fix
+When collecting practitioner material for Chinese reverse-engineering targets in this environment, expect some article hosts to block or degrade `web_fetch`. Prefer search-layer result clustering plus GitHub/open-source materials first, and treat blog/article hosts as best-effort corroboration rather than required inputs.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/sources/browser-runtime/2026-03-15-xiaohongshu-web-signature-workflow-notes.md
+- See Also: ERR-20260315-001
+
+---
