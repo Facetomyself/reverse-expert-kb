@@ -68,6 +68,7 @@ These pages define the central recovery objects, evaluation logic, and analyst w
 - `topics/analyst-workflows-and-human-llm-teaming.md`
 - `topics/notebook-and-memory-augmented-re.md`
 - `topics/analytic-provenance-and-evidence-management.md`
+- `topics/trust-calibration-and-verification-burden.md`
 - `topics/community-practice-signal-map.md`
 
 ### 3. Domain-constraint pages
@@ -93,6 +94,7 @@ These directories contain incremental research artifacts rather than canonical s
 - runtime evidence and observability
 - notebook / memory-augmented analysis
 - analytic provenance and evidence management
+- trust calibration and verification burden in human–LLM RE
 - domain-constrained reversing (mobile / firmware / protected targets)
 - benchmarks, datasets, and analyst-relevant evaluation
 
@@ -104,7 +106,6 @@ These directories contain incremental research artifacts rather than canonical s
 
 ## Candidate next topic pages
 Priority 2 candidates include:
-- `topics/trust-calibration-and-verification-burden.md`
 - `topics/malware-analysis-overlaps-and-analyst-goals.md`
 
 ### Newly added Priority 2 pages
@@ -112,6 +113,7 @@ Priority 2 candidates include:
 - `topics/native-binary-reversing-baseline.md`
 - `topics/protocol-state-and-message-recovery.md`
 - `topics/anti-tamper-and-protected-runtime-analysis.md`
+- `topics/trust-calibration-and-verification-burden.md`
 
 ### Newly materialized child pages
 - `topics/js-browser-runtime-reversing.md`
