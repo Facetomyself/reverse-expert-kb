@@ -306,7 +306,7 @@ This topic may later split into several child pages:
 - `topics/browser-cdp-and-debugger-assisted-re.md` ✅
 - `topics/browser-environment-reconstruction.md` ✅
 - `topics/browser-side-risk-control-and-captcha-workflows.md` ✅
-- `topics/js-wasm-mixed-runtime-re.md`
+- `topics/js-wasm-mixed-runtime-re.md` ✅
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is strong on practitioner signal and lighter on formal benchmark framing.
