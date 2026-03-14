@@ -48,6 +48,7 @@ This second axis is important because recent papers increasingly evaluate not ju
 - workflow and sensemaking models
 - human-LLM teaming in reverse engineering
 - notebook / memory-augmented analysis flows
+- analytic provenance / evidence-trail support
 - visualization and immersive-analysis support
 - automation interfaces shaped by analyst interaction needs
 - runtime instrumentation workflows and trace-driven inquiry
@@ -76,6 +77,12 @@ This third axis matters because expert reverse engineering is not only about out
 - `topics/firmware-and-protocol-context-recovery.md`
 - `topics/mobile-reversing-and-runtime-instrumentation.md`
 - `topics/analyst-workflows-and-human-llm-teaming.md`
+
+## Candidate next topic pages
+- `topics/analytic-provenance-and-evidence-management.md`
+- `topics/process-models-of-reverse-engineering.md`
+- `topics/notebook-and-memory-augmented-re.md`
+- `topics/trust-calibration-and-verification-burden.md`
 
 ## Emerging benchmark family split
 Recent runs suggest the KB should represent obfuscation-heavy reverse engineering as a dedicated benchmark/evaluation family rather than as a sub-bullet under malware or generic decompilation.
