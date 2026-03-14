@@ -1,178 +1,389 @@
 # Mobile Reversing and Runtime Instrumentation
 
-## Why this topic matters
-Mobile reverse engineering is not just desktop reversing on smaller binaries.
+Topic class: topic synthesis
+Ontology layers: domain constraint family, support mechanism, workflow/sensemaking
+Maturity: mature
+Related pages:
+- topics/expert-re-overall-framework.md
+- topics/global-map-and-ontology.md
+- topics/analyst-workflows-and-human-llm-teaming.md
+- topics/benchmarks-datasets.md
+- topics/firmware-and-protocol-context-recovery.md
 
-It is shaped by a different set of constraints and opportunities:
-- mixed runtime layers (managed + native + platform services)
-- heavy dependence on runtime instrumentation
-- stronger platform access constraints
-- anti-debugging / anti-instrumentation friction
-- code-signing, sandboxing, and entitlement constraints
-- growing importance of virtualization and environment control
-- on iOS especially, mitigation-aware analysis in the arm64e / PAC era
+## 1. Topic identity
 
-This makes mobile reversing a distinct expert domain rather than a minor subtopic under generic static analysis.
+### What this topic studies
+This topic studies mobile reverse engineering as a distinct expert domain, with special emphasis on runtime instrumentation, access strategy, layer selection, and environment constraints.
 
-## High-signal items collected so far
+It covers:
+- Android and iOS reversing as related but separate subdomains
+- managed/runtime/native/platform-layer analysis choices
+- Frida-style instrumentation and tracing
+- access conditions such as root, jailbreak, gadget, preload, and virtualization
+- anti-debugging and anti-instrumentation friction
+- mitigation-aware analysis on modern mobile platforms
 
-### 1. OWASP MASTG Frida page: runtime instrumentation is a core mobile RE primitive
+### Why this topic matters
+Mobile reverse engineering is not just desktop reversing applied to APKs or IPAs.
+
+It is shaped by:
+- mixed runtime layers
+- heavier dependence on dynamic instrumentation
+- stronger platform constraints
+- code-signing, entitlement, and sandbox restrictions
+- anti-debugging and anti-instrumentation pressure
+- practical environment-control problems
+
+This topic matters because expert mobile RE often turns less on static readability alone and more on whether the analyst can obtain, sustain, and trust the right runtime observations.
+
+### Ontology role
+This page mainly belongs to:
+- **domain constraint family**
+- **support mechanism**
+- **workflow/sensemaking**
+
+It is a domain page because mobile targets impose distinct constraints.
+It is also a support-mechanism page because instrumentation is central to progress.
+It is a workflow page because mobile reversing often depends on choosing the right analysis layer and deciding when to switch from static inspection to runtime interrogation.
+
+### Page class
+- topic synthesis page
+
+### Maturity status
+- mature
+
+## 2. Core framing
+
+### Core claim
+Mobile reverse engineering should be modeled as a runtime-centered workflow family, not merely as a platform-specific variation of generic binary analysis.
+
+In many mobile targets, the decisive expert skill is not only reading code, but choosing:
+- where to observe
+- how to gain an instrumentation foothold
+- which layer to interrogate first
+- how to manage anti-instrumentation friction
+- how much trust to place in what is observed under a constrained environment
+
+### What this topic is not
+This topic is **not**:
+- a generic mobile app security checklist
+- a Frida cheat sheet
+- a static APK/IPA unpacking guide
+- a broad mobile pentesting overview
+
+It is about analyst-centered mobile reverse engineering under real platform constraints.
+
+### Key distinctions
+Several distinctions should remain explicit.
+
+#### 1. Static recoverability vs runtime answerability
+Some mobile questions are far easier to answer dynamically than statically, especially when high-level runtime layers expose useful behavior directly.
+
+#### 2. Understandability vs hookability / traceability
+A target may be statically ugly but dynamically easy to interrogate, or statically readable but operationally difficult to observe.
+
+#### 3. Managed-layer vs native-layer vs platform-layer interrogation
+The right first observation layer is itself an expert decision.
+
+#### 4. Instrumentation capability vs environment control
+Even the best instrumentation tooling is constrained by root/jailbreak availability, gadget deployment, signing restrictions, virtualization realism, and anti-debug pressure.
+
+#### 5. Android vs iOS commonalities vs divergence
+The two ecosystems share instrumentation logic, but differ substantially in runtime models, tooling norms, code-signing rules, and mitigation details.
+
+## 3. What this topic depends on
+This topic depends on several other KB concepts.
+
+- **Workflow models**
+  - because mobile analysis often hinges on when to shift from orientation to focused runtime experimentation
+- **Evaluation framing**
+  - because mobile success should not be judged only by static output quality
+- **Runtime behavior as a recovery object**
+  - because traces, hooks, and observations are often the decisive evidence
+- **Domain constraint awareness**
+  - because access, signing, sandboxing, and anti-instrumentation materially shape what is possible
+
+Without those dependencies, mobile reversing gets flattened into a tool list instead of an expert domain.
+
+## 4. What this topic enables
+Strong understanding of this topic enables:
+- faster choice of the right observation layer
+- better decisions about static vs dynamic effort
+- more reliable extraction of runtime behavior
+- improved handling of instrumentation footholds and access constraints
+- better reasoning about anti-debugging and anti-instrumentation friction
+- stronger mitigation-aware analysis on modern iOS and other hardened mobile targets
+
+In workflow terms, this topic helps the analyst decide:
+- should I answer this with static analysis or runtime instrumentation?
+- where will the most informative evidence likely appear first?
+- what access conditions are required to make progress?
+- what kinds of observations are trustworthy under this setup?
+
+## 5. High-signal sources and findings
+
+### A. Frida material confirms runtime instrumentation as a core mobile RE primitive
+
+#### OWASP MASTG Frida page
 Source:
-- **TOOL-0031: Frida** (OWASP Mobile Application Security)
+- *TOOL-0031: Frida* (OWASP Mobile Application Security)
 
-Key useful points:
-- Frida supports dynamic instrumentation for Android and iOS by injecting a JavaScript runtime into the target process.
-- It exposes multiple analyst-relevant APIs:
-  - **Interceptor** for inline hook/trampoline-style interception
-  - **Stalker** for fine-grained tracing
-  - **Java** bridge for Android runtime inspection/manipulation
-  - **ObjC** bridge for iOS runtime inspection/manipulation
-- Frida operation modes are operationally important:
-  - **Injected** mode via frida-server on rooted/jailbroken devices
-  - **Embedded** mode via frida-gadget when root/jailbreak is unavailable
-  - **Preloaded** mode for autonomous loading from filesystem context
-- Frida 17 introduced meaningful changes in bridge packaging and API usage, which affects custom tooling longevity.
+High-signal findings:
+- Frida supports dynamic instrumentation on Android and iOS through injected JavaScript runtime logic
+- exposes multiple analyst-relevant APIs:
+  - **Interceptor** for targeted hooks
+  - **Stalker** for high-granularity tracing
+  - **Java** bridge for Android runtime objects/classes
+  - **ObjC** bridge for iOS runtime objects/classes
+- supports multiple deployment modes:
+  - injected mode via frida-server on rooted/jailbroken targets
+  - embedded mode via frida-gadget
+  - preload-style operation in suitable contexts
+- recent version shifts such as Frida 17 affect long-term script/tooling assumptions
 
 Why it matters:
-- mobile RE should be modeled as **static analysis + runtime instrumentation + access strategy**
-- expertise includes knowing not just what to hook, but how to gain a workable instrumentation foothold on the target platform
+- this strongly supports the idea that mobile RE is not only static package analysis
+- the instrumentation foothold itself becomes part of the problem definition
 
-### 2. Frida Stalker: tracing mode choice is an expert workflow decision
+### B. Tracing mode choice is an expert decision, not an implementation detail
+
+#### Frida Stalker documentation
 Source:
-- **Stalker** documentation from Frida
+- *Stalker* documentation from Frida
 
-Key useful points:
-- Stalker is Frida’s code tracing engine for following threads at function/block/instruction granularity.
-- It differs from ordinary inline hooks by using dynamic recompilation/copying of code blocks rather than patching original code in place.
-- Documentation explicitly emphasizes:
-  - transparency
-  - performance
-  - granularity
-  - architecture-specific details
-- It is especially relevant to **AArch64**, which matters directly for Android and iOS devices.
+High-signal findings:
+- Stalker provides code tracing at function/block/instruction granularity
+- uses dynamic recompilation/copying approaches rather than simple inline patching
+- documentation highlights transparency, performance, granularity, and architecture-specific behavior
+- especially relevant on AArch64, which matters directly to modern mobile targets
 
 Why it matters:
-- mobile RE needs to track a real decision boundary between:
-  - targeted hooks (`Interceptor`)
-  - high-granularity tracing (`Stalker`)
-  - detectability/stealth
-  - tracing overhead
-- this is a practical expert judgment, not just an implementation detail
+- the analyst must choose between:
+  - targeted hooks
+  - broader tracing
+  - stealth vs convenience
+  - lower overhead vs richer observability
+- this is a workflow and tradeoff problem, not merely a tooling detail
 
-### 3. Mobile targets often require layer selection before deep analysis
-Current evidence suggests that mobile analysts frequently choose which of three layers to attack first:
-- **managed/framework layer**
+### C. Layer selection is a core mobile expert skill
+Current high-signal synthesis from collected material suggests mobile targets commonly require choosing among at least three layers:
+
+- **managed / framework layer**
   - Java/Kotlin on Android
   - Objective-C/Swift on iOS
 - **native layer**
-  - JNI/native libraries, NDK code, C/C++ components
+  - JNI or native libraries
+  - C/C++ components
 - **platform mediation layer**
-  - sandbox, entitlements, loader behavior, private APIs, IPC, anti-debugging, code-signing constraints
+  - loaders, entitlements, IPC, sandboxing, signing behavior, anti-debugging hooks, and similar mechanisms
 
 Why it matters:
-- expert mobile reversing is often about selecting the right observation layer early
-- many practical questions can be answered faster with runtime hooks in the framework layer than by fully decompiling native components
-- conversely, security-sensitive paths may collapse into native code, forcing a different workflow
+- many practical questions are answerable more quickly in a managed/runtime layer than in deep native recovery
+- other questions collapse into native behavior or platform mediation and cannot be answered well from higher levels alone
 
-### 4. iOS reversing is heavily constrained by environment and platform protections
+### D. iOS reversing highlights environment control as part of expertise
+
+#### Corellium mobile/iOS reversing material
 Source:
-- **iOS App Reverse Engineering: Tools & Tactics** (Corellium article)
+- *iOS App Reverse Engineering: Tools & Tactics*
 
-Useful points despite vendor framing:
-- iOS RE is shaped by code signing, hardware-backed protections, and jailbreak restrictions.
-- Researchers increasingly rely on virtualized environments for repeatable iOS testing and dynamic analysis.
-- The article highlights practical use of tools such as Ghidra, Hopper, Frida, and r2frida.
-- It frames bypassing jailbreak detection, tracing API calls, and observing runtime behavior as standard analysis work rather than exotic edge cases.
+High-signal findings:
+- iOS analysis is strongly shaped by code signing, hardware-backed protections, jailbreak restrictions, and dynamic-analysis constraints
+- virtualization and controlled execution environments are presented as practically important
+- dynamic observation, tracing, and bypass work are treated as normal analysis concerns rather than edge cases
 
 Why it matters:
-- supports treating **analysis-environment control** as part of mobile RE expertise
-- suggests the KB should cover virtualization and access-enablement patterns, not only binary understanding
+- this supports a KB view in which environment control is a central part of expert mobile RE, especially on iOS
 
-### 5. PAC-era iOS adds a mitigation-aware reversing layer
+### E. Modern iOS reversing increasingly overlaps with mitigation-aware analysis
+
+#### Technical analysis of CVE-2025-31201
 Source:
-- **Technical analysis of CVE-2025-31201** (Epsilon Security)
+- Epsilon Security write-up on CVE-2025-31201 and arm64e/PAC-related analysis
 
-Current high-signal takeaways from partial extraction:
-- modern iOS reverse engineering increasingly intersects with **pointer authentication (PAC)** and **arm64e** behavior
-- patch-diff analysis can involve:
-  - Mach-O structure interpretation
-  - dyld/interposing behavior
+High-signal findings from current extraction:
+- modern iOS reversing increasingly intersects with:
+  - pointer authentication (PAC)
+  - arm64e-specific behavior
+  - Mach-O and loader reasoning
+  - dyld/interposition behavior
   - authenticated pointers and diversifiers
-  - IMP/selector swizzling mechanics
-  - page-permission subtleties
-- this is not generic binary reversing; it is **mitigation-aware reversing**
+  - subtle page-permission behavior
+- mitigation-aware patch diffing and runtime reasoning are becoming more relevant
 
 Why it matters:
-- the KB likely needs a future subtopic for:
-  - arm64e / PAC-aware reversing
-  - hardened runtime / dyld interposition interactions
-  - mitigation-aware patch diffing on Apple platforms
+- mobile RE is not static “binary reading plus Frida.”
+- on modern Apple platforms it also overlaps with mitigation-aware and platform-aware analysis
 
-### 6. Mobile RE success depends on hookability, not only readability
-A useful synthesis from these sources:
-- some targets are statically ugly but dynamically easy to interrogate
-- some are statically reasonable but operationally painful because instrumentation is blocked, detected, or brittle
-
-This suggests a useful distinction:
-- **understandability** — how readable the target is under static or decompiler-centric analysis
-- **hookability / traceability** — how easily the analyst can place and sustain runtime observations at useful layers
-
-For mobile reversing, this second dimension may be disproportionately important.
-
-### 7. Toolchain drift is part of the domain knowledge
-Frida 17 changes are a reminder that expert mobile RE also involves keeping up with:
-- bridge/runtime packaging changes
-- Java/ObjC/Swift bridge availability and bundling assumptions
-- script/API breakage across versions
-- whether community tutorials still match the current tool ecosystem
+### F. Toolchain drift is part of practical expertise
+Current synthesis from Frida-related material suggests that mobile reversing also requires managing:
+- API and bridge changes
+- evolving deployment assumptions
+- community tutorial drift
+- script breakage across versions
 
 Why it matters:
-- practical expertise includes maintaining working instrumentation infrastructure over time
-- this is especially relevant in mobile ecosystems where platform updates and tooling changes are frequent
+- in mobile RE, maintaining working instrumentation infrastructure is part of the craft itself
 
-## Cross-cutting synthesis
+## 6. Emerging internal structure of the topic
+A stable internal decomposition is emerging.
 
-### A. Mobile RE is best modeled as a runtime-centered workflow family
-A useful decomposition is:
-- static package/binary inspection
-- runtime foothold acquisition
-- layer selection (managed vs native vs platform)
-- targeted hooking or high-granularity tracing
-- anti-instrumentation / anti-debugging handling
-- iterative evidence extraction and patch validation
+### 1. Android runtime and layer-aware reversing
+Includes:
+- Java/Kotlin runtime interrogation
+- JNI/native interplay
+- managed-to-native transition analysis
 
-### B. Access conditions are part of the analysis problem
-For mobile platforms, analyst capability depends strongly on:
-- root/jailbreak availability
-- gadget/server/preload injection choices
-- emulator/virtualizer realism
+### 2. iOS runtime and environment-controlled reversing
+Includes:
+- Objective-C/Swift/runtime-layer observation
 - code-signing and entitlement constraints
-- whether local modification is feasible or whether non-invasive tracing is required
+- jailbreak vs virtualized workflow differences
+- PAC/arm64e-era mitigation-aware reasoning
 
-This makes environment setup more central than in many desktop RE workflows.
+### 3. Instrumentation and tracing patterns
+Includes:
+- targeted hooks
+- tracing strategies
+- deployment modes
+- script/tooling maintenance
 
-### C. iOS and Android should be related but separate subdomains
-They share runtime instrumentation patterns, but differ substantially in:
-- runtime models
-- platform protections
-- loader and signing behavior
-- public tooling culture
-- mitigation details such as PAC/arm64e on Apple platforms
+### 4. Access strategy and foothold acquisition
+Includes:
+- root/jailbreak availability
+- gadget/preload/server choices
+- virtualization and realism tradeoffs
+- anti-debug and anti-instrumentation friction
 
-### D. Mobile RE probably needs its own evaluation ideas
-Useful future evaluation objects might include:
+### 5. Evaluation and workflow transfer
+Includes:
 - instrumentation success rate
-- anti-detection resilience
 - time-to-observable-behavior
+- trace fidelity
 - layer-selection efficiency
-- trace stability under updates / protections
-- downstream payoff for vulnerability analysis or logic recovery
+- anti-detection resilience
 
-## Open questions
-- What are the best academic sources specifically on **mobile reverse-engineering workflows**, not just mobile app security testing?
-- Which papers best compare **static vs dynamic payoff** for Android and iOS reversing?
-- What benchmarkable datasets exist for **mobile runtime instrumentation**, if any?
-- How should the KB represent **anti-Frida / anti-instrumentation detection and bypass** without collapsing into purely offensive material?
-- Which public sources best explain **arm64e / PAC-aware reversing** at the analyst-workflow level rather than only exploit-development level?
-- What are the most reusable heuristics for deciding when to instrument the managed layer versus JNI/native code?
-- How should virtualization-based mobile RE be evaluated relative to physical-device workflows?
+## 7. Analyst workflow implications
+This topic matters especially during:
+
+### Orientation
+The analyst first needs to decide:
+- which layer is most informative
+- whether runtime observation is likely to dominate static recovery for this target
+- which access assumptions are realistic
+
+### Hypothesis formation
+Mobile workflows often involve questions such as:
+- is this logic best observed in Java/ObjC runtime state?
+- is the interesting behavior hidden in native libraries?
+- is platform mediation or anti-debug logic the real obstacle?
+
+### Focused experimentation
+This is where mobile reversing becomes especially distinct.
+Progress often depends on:
+- targeted hooks
+- tracing selected paths or threads
+- validating hypotheses under runtime conditions
+- iterating quickly between observation and model revision
+
+### Long-horizon analysis
+Analysts need to preserve:
+- which layer they inspected
+- what hooks/traces were used
+- which observations were stable vs environment-dependent
+- what anti-instrumentation behaviors were encountered
+
+### Mistakes this topic helps prevent
+A strong mobile RE model helps avoid:
+- overcommitting to static analysis when runtime layers are more informative
+- hooking the wrong layer first
+- misinterpreting behavior observed under an unstable or unrealistic environment
+- underestimating the cost of anti-instrumentation defenses
+- treating Android and iOS as workflow-identical
+
+## 8. Evaluation dimensions
+The most important evaluation dimensions for this topic are:
+
+### Instrumentation success
+Can the analyst obtain and maintain useful hooks or traces?
+
+### Layer-selection efficiency
+How quickly does the chosen observation layer lead to useful answers?
+
+### Observability / hookability
+How easy is it to place and sustain trustworthy runtime observations?
+
+### Environment realism
+Does the chosen setup produce behavior representative of the real target environment?
+
+### Anti-detection resilience
+Can the analysis workflow survive common anti-debugging or anti-instrumentation friction?
+
+### Workflow payoff
+Does the instrumentation strategy reduce time-to-answer or improve hypothesis quality?
+
+### Transferability
+Do lessons or methods transfer across Android/iOS versions, devices, or update cycles?
+
+Among these, the especially central dimensions are:
+- observability / hookability
+- environment realism
+- anti-detection resilience
+- workflow payoff
+
+## 9. Cross-links to related topics
+
+### Closely related pages
+- `topics/analyst-workflows-and-human-llm-teaming.md`
+  - because mobile reversing is especially workflow-sensitive and phase-aware
+- `topics/firmware-and-protocol-context-recovery.md`
+  - because both domains show that environment and context recovery can be more decisive than static code readability
+- `topics/benchmarks-datasets.md`
+  - because mobile runtime workflows remain comparatively under-benchmarked and need a better evaluation vocabulary
+
+### Depends on framework pages
+- `topics/expert-re-overall-framework.md`
+- `topics/global-map-and-ontology.md`
+
+### Often confused with
+- generic mobile app security testing
+- tool tutorials for Frida or jailbreak bypass
+- static APK/IPA unpacking workflows alone
+
+## 10. Open questions
+- What are the best academic sources focused specifically on mobile reverse-engineering workflows rather than broad mobile application security testing?
+- Which public datasets or benchmarks, if any, meaningfully capture instrumentation success, trace fidelity, or anti-instrumentation resilience?
+- How should the KB represent anti-Frida or anti-instrumentation literature without collapsing into a purely offensive framing?
+- What are the most reusable heuristics for choosing the managed layer versus native code versus platform mediation layer?
+- Which parts of PAC/arm64e-aware analysis should become their own subtopic rather than remain under mobile reversing broadly?
+- How should virtualized mobile analysis environments be evaluated against physical-device workflows?
+
+## 11. Suggested next expansions
+This topic may later split into several child pages:
+- `topics/android-runtime-instrumentation-workflows.md`
+- `topics/ios-runtime-instrumentation-and-environment-control.md`
+- `topics/anti-instrumentation-and-anti-debugging-in-mobile-targets.md`
+- `topics/arm64e-pac-and-mitigation-aware-ios-reversing.md`
+- `topics/layer-selection-in-mobile-re.md`
+
+## 12. Source footprint / evidence quality note
+Current evidence quality is coherent and good enough for a mature synthesis page.
+
+Strengths:
+- strong operational anchors from Frida-related documentation
+- clear workflow-level distinctions around layer selection and instrumentation
+- useful environment-control framing from iOS-focused material
+- strong alignment with the broader KB theory that runtime answerability can matter more than static recoverability
+
+Limitations:
+- mobile workflow literature still appears thinner and less consolidated than classical static-analysis benchmarking literature
+- some higher-value insights currently come from practitioner material and synthesis rather than dense benchmark ecosystems
+- anti-instrumentation and mitigation-aware analysis still need deeper dedicated coverage
+
+Overall assessment:
+- this topic is mature enough to serve as a core domain-constraint page in V1 of the KB
+
+## 13. Topic summary
+Mobile reversing and runtime instrumentation form one of the most important domain-constraint families in expert reverse engineering.
+
+This topic matters because it shows that expert analysis is often governed not only by code readability, but by access conditions, runtime observability, layer choice, and the analyst’s ability to extract stable evidence from a constrained execution environment.

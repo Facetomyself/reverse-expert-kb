@@ -66,10 +66,15 @@ This third axis matters because expert reverse engineering is not only about out
 - How should the KB distinguish training corpora from evaluation benchmarks?
 
 ## Current promising topic pages
+- `topics/expert-re-overall-framework.md`
+- `topics/global-map-and-ontology.md`
+- `topics/topic-template-and-normalization-guide.md`
+- `topics/v1-roadmap-and-maturity-criteria.md`
 - `topics/benchmarks-datasets.md`
 - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
 - `topics/symbol-type-and-signature-recovery.md`
 - `topics/firmware-and-protocol-context-recovery.md`
+- `topics/mobile-reversing-and-runtime-instrumentation.md`
 - `topics/analyst-workflows-and-human-llm-teaming.md`
 
 ## Emerging benchmark family split
