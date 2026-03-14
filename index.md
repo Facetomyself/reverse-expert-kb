@@ -132,6 +132,7 @@ Priority 2 candidates include:
 - `topics/android-linker-binder-ebpf-observation-surfaces.md`
 - `topics/trace-guided-and-dbi-assisted-re.md`
 - `topics/mobile-risk-control-and-device-fingerprint-analysis.md`
+- `topics/environment-state-checks-in-protected-runtimes.md`
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.

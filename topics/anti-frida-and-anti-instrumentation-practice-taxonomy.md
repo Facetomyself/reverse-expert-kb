@@ -5,6 +5,7 @@ Ontology layers: protected-runtime subdomain, mobile-practice branch, runtime re
 Maturity: structured
 Related pages:
 - topics/mobile-protected-runtime-subtree-guide.md
+- topics/environment-state-checks-in-protected-runtimes.md
 - topics/anti-tamper-and-protected-runtime-analysis.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
 - topics/runtime-behavior-recovery.md

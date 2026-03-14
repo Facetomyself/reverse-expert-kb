@@ -119,9 +119,16 @@ This subtree is currently weaker on:
 - systematic mobile game / anti-cheat separation
 - finer child-page separation inside mobile risk-control and environment-state reasoning
 
+## 5. Environment-state checks in protected runtimes
+- `topics/environment-state-checks-in-protected-runtimes.md`
+
+Read this when the main problem is:
+- root / jailbreak / emulator / resign / packaging / browser-state differences may be changing behavior
+- you need to distinguish execution gating from trust-scoring effects
+- environment-sensitive failure is currently being confused with anti-instrumentation failure
+
 ## Suggested next expansions from this subtree
 The most natural next child pages include:
-- `topics/environment-state-checks-in-protected-runtimes.md`
 - `topics/observation-distortion-and-misleading-evidence.md`
 - `topics/ebpf-seccomp-and-svc-tracing-for-mobile-re.md`
 - `topics/mobile-signing-and-parameter-generation-workflows.md`
