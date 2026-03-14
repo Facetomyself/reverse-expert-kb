@@ -126,6 +126,13 @@ Priority 2 candidates include:
 - `topics/browser-environment-reconstruction.md`
 - `topics/js-wasm-mixed-runtime-re.md`
 
+### Mobile / protected-runtime practice subtree
+- `topics/mobile-protected-runtime-subtree-guide.md`
+- `topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md`
+- `topics/android-linker-binder-ebpf-observation-surfaces.md`
+- `topics/trace-guided-and-dbi-assisted-re.md`
+- `topics/mobile-risk-control-and-device-fingerprint-analysis.md`
+
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.
 The more stable the KB becomes, the more this page should behave like a guide rather than a dump of links.
