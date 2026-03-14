@@ -135,15 +135,15 @@ Why it matters:
 - this page now closes a major cross-cutting evidence and workflow gap
 
 #### 3. Notebook and memory-augmented reverse engineering
-Suggested page:
+Page:
 - `topics/notebook-and-memory-augmented-re.md`
 
 Status:
-- still missing
+- now added and mature enough for V1
 
 Why it matters:
 - evidence externalization and long-horizon cognitive stability are already central to the KB’s theory
-- this deserves a dedicated page rather than remaining implicit inside workflow discussion
+- this page now closes the final Priority 1 workflow-support gap for V1
 
 ### Priority 2 missing pages
 These would strengthen V1, but are not strictly required before calling it stable.
@@ -259,7 +259,7 @@ Approximate current status:
 - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
 
 ### Remaining high-priority pages
-- `topics/notebook-and-memory-augmented-re.md`
+- none at Priority 1
 
 ## V1 completion rule
 The KB should count as V1-complete when all of the following are true:
