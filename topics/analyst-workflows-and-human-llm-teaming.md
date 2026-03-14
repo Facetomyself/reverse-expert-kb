@@ -8,6 +8,9 @@ Related pages:
 - topics/global-map-and-ontology.md
 - topics/topic-template-and-normalization-guide.md
 - topics/benchmarks-datasets.md
+- topics/decompilation-and-code-reconstruction.md
+- topics/runtime-behavior-recovery.md
+- topics/notebook-and-memory-augmented-re.md
 - topics/symbol-type-and-signature-recovery.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
 
