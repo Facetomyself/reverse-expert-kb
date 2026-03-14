@@ -317,3 +317,31 @@ Harden Grok response parsing in `search-layer` so partial-success cases do not a
 - Related Files: /root/.openclaw/workspace/skills/search-layer/scripts/search.py
 
 ---
+## [ERR-20260314-001] exec-printf-sh-dash
+
+**Logged**: 2026-03-14T03:16:00Z
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+Used `printf '--- ...'` under `/bin/sh` and hit dash option parsing because the format string began with `--`.
+
+### Error
+```sh
+/bin/sh: 3: printf: Illegal option --
+```
+
+### Context
+- Command attempted a simple directory listing prelude.
+- Shell is `/bin/sh` on Ubuntu, which is dash here.
+- Safer pattern is `printf '%s\n' '--- RUNS ---'` or `echo`.
+
+### Suggested Fix
+Avoid bare `printf` format strings starting with hyphens in POSIX sh/dash scripts.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/.learnings/ERRORS.md
+
+---
