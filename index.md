@@ -115,7 +115,8 @@ Priority 2 candidates include:
 - `topics/anti-tamper-and-protected-runtime-analysis.md`
 - `topics/trust-calibration-and-verification-burden.md`
 
-### Newly materialized child pages
+### Browser runtime subtree
+- `topics/browser-runtime-subtree-guide.md`
 - `topics/js-browser-runtime-reversing.md`
 - `topics/jsvmp-and-ast-based-devirtualization.md`
 - `topics/browser-side-risk-control-and-captcha-workflows.md`
