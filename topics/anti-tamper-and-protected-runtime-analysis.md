@@ -148,6 +148,63 @@ In protected contexts, successful analysis often means:
 Why it matters:
 - the workflow goal shifts from “full readability” to “stable, decision-relevant evidence”
 
+### D. Software-protection literature gives this topic a stronger evaluation vocabulary
+Recent software-protection literature adds a useful framing layer beyond practitioner folklore.
+In the man-at-the-end (MATE) model, the attacker/analyst controls the execution environment, so protection quality cannot be judged only by whether code looks scrambled.
+What matters is also:
+- which assets are being protected
+- which analyst actions are being delayed, redirected, or made unreliable
+- what evidence remains observable under hostile-runtime assumptions
+- how protection claims are evaluated and compared
+
+Why it matters:
+- this helps the KB describe protected targets in terms of assets, attacker powers, observability, and protection effect, instead of collapsing everything into “anti-debug” or “obfuscation”
+
+### E. Evaluation-methodology work suggests that protected-runtime analysis needs evidence-oriented metrics
+Work on evaluation methodologies in software protection is useful here because it highlights a recurring weakness in the field: many protection claims are difficult to compare rigorously, and evaluation often under-specifies attacker goals, assets, and success criteria.
+For analyst-centered reverse engineering, this implies that protected-runtime workflow success should be described with dimensions such as:
+- evidence availability
+- evidence distortion risk
+- analyst effort displacement
+- required environment control
+- transferability across targets and protection families
+
+Why it matters:
+- it gives this topic a more disciplined way to talk about protection pressure without drifting into vague “hard/easy to reverse” language
+
+### F. Virtualization-based obfuscation is a bridge case between unreadable code and hostile runtime
+Sources around VMAttack are useful because they show a concrete middle ground:
+- the target is not merely packed once and restored to ordinary code
+- the analyst often faces an interpreter/bytecode layer plus noisy execution traces
+- progress depends on combining static and dynamic evidence, ranking useful trace regions, clustering repetitive operations, and iteratively simplifying observations
+
+This is important because virtualization-based protection sits directly on the boundary between:
+- code transformation
+- trace pollution
+- partial observability
+- analyst-guided deobfuscation workflow
+
+Why it matters:
+- this strengthens the bridge from the existing obfuscation page to the current protected-runtime page and shows why protected-runtime analysis is not just a “more obfuscated” variant of the same problem
+
+### G. Anti-cheat case studies provide a useful protected-runtime subdomain with explicit tradeoffs
+Recent anti-cheat literature is valuable not because game security is the whole topic, but because it makes the tradeoffs unusually explicit.
+Kernel-level anti-cheat systems are analyzed in terms of:
+- privilege level
+- stealth or intrusiveness
+- integrity-monitoring scope
+- privacy and system-integrity risk
+- rootkit-like properties vs ordinary defensive monitoring
+
+For the KB, this is useful as a case where analysts must reason about:
+- deep execution privilege
+- environmental asymmetry
+- trust and privacy costs of observation/control mechanisms
+- the difference between anti-tamper goals and legitimate program logic
+
+Why it matters:
+- anti-cheat gives a concrete, transferable example of protected-runtime analysis where environment, privilege, and observability matter as much as semantics
+
 ## 6. Emerging internal structure of the topic
 A stable internal decomposition is emerging.
 
@@ -266,6 +323,8 @@ Among these, the especially central dimensions are:
 - How should the KB represent the boundary between anti-analysis logic, anti-cheat logic, and general protected execution environments?
 - Which domains offer the best transferable lessons: mobile, anti-cheat, DRM-style protection, or malware resistance?
 - What evaluation vocabulary would best capture protected-runtime workflow success without collapsing into offensive tactics?
+- How should MATE-style protection evaluation concepts be translated into analyst-centered RE language without inheriting defender-only framing?
+- Which metrics best distinguish unreadability, unhookability, and evidence distortion as separate analyst burdens?
 - When should this topic split into anti-instrumentation, anti-tamper, and trusted-runtime child pages?
 
 ## 11. Suggested next expansions
@@ -276,20 +335,22 @@ This topic may later split into several child pages:
 - `topics/anti-cheat-and-trusted-runtime-analysis.md`
 
 ## 12. Source footprint / evidence quality note
-Current evidence quality is structurally useful but still more synthesis-driven than source-dense.
+Current evidence quality is now stronger than the initial synthesis-only version, but still uneven across subareas.
 
 Strengths:
 - fills a real missing branch in the KB ontology
 - strongly supported by existing mobile, runtime, and obfuscation pages
+- now has clearer conceptual support from software-protection evaluation literature, virtualization-obfuscation work, and anti-cheat case-study literature
 - useful for clarifying an important boundary in expert RE practice
 
 Limitations:
-- still needs a more dedicated source pass
-- current evidence is more conceptual than literature-saturated
-- should be deepened before being treated as mature
+- still needs a denser pass on anti-instrumentation and integrity-check case studies
+- source quality is mixed across academic surveys, practitioner writeups, and tool/project documentation
+- evaluation vocabulary is improved but not yet normalized across all related KB pages
+- should be deepened further before being treated as mature
 
 Overall assessment:
-- this page is structurally important and coherent enough to live as `structured`, but it remains a clear candidate for future deepening
+- this page is structurally important and better grounded than before, and remains appropriate as `structured` with a clear path toward a later maturity upgrade
 
 ## 13. Topic summary
 Anti-tamper and protected-runtime analysis gives the KB a clearer branch for targets that resist observation as much as understanding.
