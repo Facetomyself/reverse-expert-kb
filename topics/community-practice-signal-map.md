@@ -134,8 +134,8 @@ The manually supplied community cluster should be used first to deepen:
 
 ## Likely future child pages justified by this cluster
 - JS/browser runtime reversing ✅ (`topics/js-browser-runtime-reversing.md`)
-- JSVMP and AST-based devirtualization
-- anti-Frida / anti-instrumentation practice taxonomy
+- JSVMP and AST-based devirtualization ✅ (`topics/jsvmp-and-ast-based-devirtualization.md`)
+- anti-Frida / anti-instrumentation practice taxonomy ✅ (`topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md`)
 - Android linker / Binder / eBPF reversing
 - trace-guided and DBI-assisted reverse engineering
 - mobile risk-control and device-fingerprint analysis
