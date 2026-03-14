@@ -121,6 +121,7 @@ Priority 2 candidates include:
 - `topics/browser-side-risk-control-and-captcha-workflows.md`
 - `topics/browser-cdp-and-debugger-assisted-re.md`
 - `topics/browser-environment-reconstruction.md`
+- `topics/js-wasm-mixed-runtime-re.md`
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.
