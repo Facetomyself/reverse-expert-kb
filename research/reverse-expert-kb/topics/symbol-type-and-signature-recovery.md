@@ -7,7 +7,9 @@ Related pages:
 - topics/expert-re-overall-framework.md
 - topics/global-map-and-ontology.md
 - topics/benchmarks-datasets.md
+- topics/decompilation-and-code-reconstruction.md
 - topics/analyst-workflows-and-human-llm-teaming.md
+- topics/notebook-and-memory-augmented-re.md
 - topics/obfuscation-deobfuscation-and-packed-binaries.md
 
 ## 1. Topic identity

@@ -6,7 +6,9 @@ Maturity: mature
 Related pages:
 - topics/expert-re-overall-framework.md
 - topics/global-map-and-ontology.md
+- topics/decompilation-and-code-reconstruction.md
 - topics/symbol-type-and-signature-recovery.md
+- topics/runtime-behavior-recovery.md
 - topics/obfuscation-deobfuscation-and-packed-binaries.md
 - topics/firmware-and-protocol-context-recovery.md
 

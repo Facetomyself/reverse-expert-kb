@@ -7,9 +7,10 @@ Related pages:
 - topics/expert-re-overall-framework.md
 - topics/global-map-and-ontology.md
 - topics/analyst-workflows-and-human-llm-teaming.md
+- topics/decompilation-and-code-reconstruction.md
+- topics/notebook-and-memory-augmented-re.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
 - topics/firmware-and-protocol-context-recovery.md
-- topics/decompilation-and-code-reconstruction.md
 
 ## 1. Topic identity
 

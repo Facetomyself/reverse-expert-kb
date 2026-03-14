@@ -8,6 +8,8 @@ Related pages:
 - topics/global-map-and-ontology.md
 - topics/benchmarks-datasets.md
 - topics/symbol-type-and-signature-recovery.md
+- topics/runtime-behavior-recovery.md
+- topics/notebook-and-memory-augmented-re.md
 - topics/analyst-workflows-and-human-llm-teaming.md
 - topics/obfuscation-deobfuscation-and-packed-binaries.md
 
