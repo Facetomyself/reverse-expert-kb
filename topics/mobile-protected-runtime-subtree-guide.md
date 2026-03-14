@@ -161,6 +161,7 @@ Current concrete notes:
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
 - `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
 - `topics/android-observation-surface-selection-workflow-note.md`
+- `topics/environment-differential-diagnosis-workflow-note.md`
 
 Read `mobile-signature-location-and-preimage-recovery-workflow-note` when the main problem is:
 - you have one app-side signature or anti-risk field and need a concrete first-pass workflow
@@ -176,6 +177,11 @@ Read `android-observation-surface-selection-workflow-note` when the main problem
 - direct app-layer hooks are weak, detected, or semantically unhelpful
 - you need to choose among linker / Binder / eBPF / trace-oriented observation surfaces
 - you need narrow-slice collection and explicit reconnection of lower-layer evidence back to app meaning
+
+Read `environment-differential-diagnosis-workflow-note` when the main problem is:
+- behavior drifts across device, packaging, session, or observation conditions
+- you need to tell whether the drift is execution, trust, session, or observation drift
+- you need a triage layer that routes you to the right deeper workflow note instead of patching blindly
 
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:
