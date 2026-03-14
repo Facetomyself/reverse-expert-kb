@@ -6,6 +6,7 @@ Maturity: structured
 Related pages:
 - topics/expert-re-overall-framework.md
 - topics/global-map-and-ontology.md
+- topics/community-practice-signal-map.md
 - topics/obfuscation-deobfuscation-and-packed-binaries.md
 - topics/runtime-behavior-recovery.md
 - topics/native-binary-reversing-baseline.md
@@ -148,6 +149,21 @@ In protected contexts, successful analysis often means:
 Why it matters:
 - the workflow goal shifts from “full readability” to “stable, decision-relevant evidence”
 
+### D. Practitioner community sources show protected-runtime pressure is a mainstream case, not a niche edge case
+Source cluster:
+- `sources/community-forums/2026-03-14-52pojie-kanxue-manual-curation.md`
+- `topics/community-practice-signal-map.md`
+
+High-signal recurring patterns from 52pojie / Kanxue include:
+- anti-Frida, anti-hook, anti-debug, CRC/integrity-check, root/jailbreak/signature-detection casework across Android and iOS
+- protected SDK, device-environment, and sandbox-detection analysis where the key difficulty is unstable observability rather than unreadable semantics
+- Chromium / CDP debugger-detection counter-work and browser-environment resistance in JS/web targets
+- SO-protection, VMP, OLLVM, and anti-analysis combinations where runtime distortion and code transformation co-occur
+- anti-cheat-like and protected-platform examples where privilege level, hidden instrumentation, and environment asymmetry matter as much as code logic
+
+Why it matters:
+- these practitioner sources strongly confirm that protected-runtime analysis is a broad operational branch of RE, not just a conceptual extension of obfuscation
+
 ### D. Software-protection literature gives this topic a stronger evaluation vocabulary
 Recent software-protection literature adds a useful framing layer beyond practitioner folklore.
 In the man-at-the-end (MATE) model, the attacker/analyst controls the execution environment, so protection quality cannot be judged only by whether code looks scrambled.
@@ -259,6 +275,12 @@ Progress may depend on:
 - comparing behavior under different analysis conditions
 - recording exactly what changed when the environment changed
 
+Practitioner-community casework adds several recurring patterns here:
+- distinguishing anti-analysis-triggered failure from ordinary control-flow failure
+- comparing attach/no-attach, hook/no-hook, rooted/non-rooted, jailbroken/non-jailbroken, or signed/resigned states to isolate protection behavior
+- escalating from simple runtime checks to trace-guided and DBI-assisted observation when direct hooks are unstable or detected
+- preserving environment conditions, bypass steps, and evidence-quality differences so later conclusions stay calibrated
+
 ### Long-horizon analysis
 Analysts need to preserve:
 - which protections were observed
@@ -339,8 +361,8 @@ Current evidence quality is now stronger than the initial synthesis-only version
 
 Strengths:
 - fills a real missing branch in the KB ontology
-- strongly supported by existing mobile, runtime, and obfuscation pages
-- now has clearer conceptual support from software-protection evaluation literature, virtualization-obfuscation work, and anti-cheat case-study literature
+- strongly supported by existing mobile, runtime, obfuscation, and newly ingested practitioner-community sources
+- now has clearer conceptual support from software-protection evaluation literature, virtualization-obfuscation work, anti-cheat case-study literature, and real anti-Frida / anti-debug / environment-detection case clusters
 - useful for clarifying an important boundary in expert RE practice
 
 Limitations:
