@@ -163,11 +163,12 @@ Current concrete notes:
 - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
 - `topics/browser-parameter-path-localization-workflow-note.md`
 - `topics/acw-sc-v2-cookie-bootstrap-and-consumer-path-note.md`
+- `topics/bytedance-web-request-signature-workflow-note.md`
 
 Read this branch when the main problem is:
 - you are working on a browser anti-bot or captcha family and need a concrete first-pass workflow
 - you need breakpoint placement, compare-run strategy, and harness externalization guidance
-- you need to distinguish whether the target is mainly state/sensor-driven, artifact/packing-driven, token-contract-driven, or parameter-path localization driven
+- you need to distinguish whether the target is mainly state/sensor-driven, artifact/packing-driven, token-contract-driven, request-signature-family driven, or parameter-path localization driven
 - the issue is not abstract taxonomy but how to approach a real target family
 
 ## Suggested next expansions from this subtree

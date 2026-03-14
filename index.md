@@ -130,6 +130,7 @@ Priority 2 candidates include:
 - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
 - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
 - `topics/browser-parameter-path-localization-workflow-note.md`
+- `topics/bytedance-web-request-signature-workflow-note.md`
 - `topics/cdp-guided-token-generation-analysis.md`
 - `topics/browser-cdp-and-debugger-assisted-re.md`
 - `topics/browser-debugger-detection-and-countermeasures.md`
@@ -145,6 +146,7 @@ This subtree is now best read as five coordinated browser analyst entry surfaces
 - concrete mixed-runtime practice (`js-wasm-boundary-tracing`)
 - concrete widget/session/iframe lifecycle practice (`cloudflare-turnstile-widget-lifecycle-workflow-note` and `arkose-funcaptcha-session-and-iframe-workflow-note`)
 - concrete cookie-bootstrap / consumer-path practice (`acw-sc-v2-cookie-bootstrap-and-consumer-path-note`)
+- concrete request-signature-family practice (`bytedance-web-request-signature-workflow-note`)
 
 ### Mobile / protected-runtime practice subtree
 - `topics/mobile-protected-runtime-subtree-guide.md`
