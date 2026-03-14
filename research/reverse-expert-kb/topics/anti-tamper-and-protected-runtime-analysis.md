@@ -6,6 +6,7 @@ Maturity: structured
 Related pages:
 - topics/expert-re-overall-framework.md
 - topics/global-map-and-ontology.md
+- topics/mobile-protected-runtime-subtree-guide.md
 - topics/community-practice-signal-map.md
 - topics/obfuscation-deobfuscation-and-packed-binaries.md
 - topics/runtime-behavior-recovery.md
