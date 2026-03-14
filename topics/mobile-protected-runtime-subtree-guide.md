@@ -135,10 +135,18 @@ Read this when the main problem is:
 - you need to distinguish missing evidence from misleading evidence
 - traces, hooks, or environment changes may be altering semantics rather than simply exposing them
 
+## 7. Mobile signing and parameter-generation workflows
+- `topics/mobile-signing-and-parameter-generation-workflows.md`
+
+Read this when the main problem is:
+- app-side request validity depends on locally generated parameters or signatures
+- you need to distinguish input collection, transform chain, and final field placement
+- parameter changes across sessions or environments need to be explained rather than merely replayed
+
 ## Suggested next expansions from this subtree
 The most natural next child pages include:
 - `topics/ebpf-seccomp-and-svc-tracing-for-mobile-re.md`
-- `topics/mobile-signing-and-parameter-generation-workflows.md`
+- `topics/mobile-challenge-and-verification-loop-analysis.md`
 
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:

@@ -6,6 +6,7 @@ Maturity: structured
 Related pages:
 - topics/expert-re-overall-framework.md
 - topics/global-map-and-ontology.md
+- topics/mobile-signing-and-parameter-generation-workflows.md
 - topics/community-practice-signal-map.md
 - topics/firmware-and-protocol-context-recovery.md
 - topics/runtime-behavior-recovery.md
