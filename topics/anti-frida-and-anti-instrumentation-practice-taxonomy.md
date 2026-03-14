@@ -205,6 +205,7 @@ Includes:
 - altered behavior under instrumentation
 - delayed or partial failure
 - misleading evidence rather than clean blocking
+- see also: `topics/observation-distortion-and-misleading-evidence.md`
 
 ### 5. Strategy adaptation layer
 Includes:
