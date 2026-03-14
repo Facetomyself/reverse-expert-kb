@@ -293,12 +293,12 @@ Among these, the especially central dimensions are:
 ## 11. Concrete workflow notes / next expansions
 This topic should grow through concrete analyst workflow pages as well as structural children.
 
-Concrete workflow note now present:
+Concrete workflow notes now present:
 - `topics/js-wasm-boundary-tracing.md`
+- `topics/cdp-guided-token-generation-analysis.md`
 
 Other likely next expansions:
 - `topics/browser-debugger-detection-and-countermeasures.md`
-- `topics/cdp-guided-token-generation-analysis.md`
 - `topics/network-runtime-correlation-in-browser-re.md`
 
 ## 12. Source footprint / evidence quality note

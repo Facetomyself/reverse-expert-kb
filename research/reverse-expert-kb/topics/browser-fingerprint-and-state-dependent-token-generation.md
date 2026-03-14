@@ -299,8 +299,9 @@ Among these, the especially central dimensions are:
 ## 11. Concrete workflow notes / next expansions
 This topic should be deepened not only by abstract children but by target-family workflow notes.
 
-Current concrete note:
+Current concrete notes:
 - `topics/reese84-and-utmvc-workflow-note.md`
+- `topics/cdp-guided-token-generation-analysis.md`
 
 Other likely next expansions:
 - `topics/browser-debugger-detection-and-countermeasures.md`
