@@ -375,6 +375,8 @@ Among these, the especially central dimensions are:
   - because semantic anchors heavily influence navigation and note quality
 - `topics/mobile-reversing-and-runtime-instrumentation.md`
   - because runtime-centered domains make workflow transitions especially visible
+- `topics/record-replay-and-omniscient-debugging.md`
+  - because execution-history tooling reduces evidence fragility and changes effect-to-cause workflow patterns
 - `topics/firmware-and-protocol-context-recovery.md`
   - because context-heavy domains highlight why workflow cannot be modeled as code reading alone
 
