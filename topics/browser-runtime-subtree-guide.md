@@ -165,7 +165,7 @@ Current concrete notes:
 Read this branch when the main problem is:
 - you are working on a browser anti-bot or captcha family and need a concrete first-pass workflow
 - you need breakpoint placement, compare-run strategy, and harness externalization guidance
-- you need to distinguish whether the target is mainly state/sensor-driven, artifact/packing-driven, or token-contract-driven
+- you need to distinguish whether the target is mainly state/sensor-driven, artifact/packing-driven, token-contract-driven, or parameter-path localization driven
 - the issue is not abstract taxonomy but how to approach a real target family
 
 ## Suggested next expansions from this subtree
@@ -187,4 +187,5 @@ Its pages should be read as a coordinated set of analyst entry surfaces into bro
 - interaction workflow recovery
 - instrumentation / observability
 - environment reconstruction
+- mixed-runtime semanticson
 - mixed-runtime semantics

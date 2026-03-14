@@ -129,6 +129,7 @@ Priority 2 candidates include:
 - `topics/datadome-geetest-kasada-workflow-note.md`
 - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
 - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
+- `topics/browser-parameter-path-localization-workflow-note.md`
 - `topics/cdp-guided-token-generation-analysis.md`
 - `topics/browser-cdp-and-debugger-assisted-re.md`
 - `topics/browser-debugger-detection-and-countermeasures.md`
@@ -166,4 +167,4 @@ This subtree is now best read as four coordinated mobile analyst entry surfaces:
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.
-The more stable the KB becomes, the more this page should behave like a guide rather than a dump of links.
+The more stable the KB becomes, the more this page should behave like a guide rather than a dump of links.an a dump of links.
