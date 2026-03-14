@@ -161,6 +161,8 @@ Current concrete notes:
 - `topics/datadome-geetest-kasada-workflow-note.md`
 - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
 - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
+- `topics/browser-parameter-path-localization-workflow-note.md`
+- `topics/acw-sc-v2-cookie-bootstrap-and-consumer-path-note.md`
 
 Read this branch when the main problem is:
 - you are working on a browser anti-bot or captcha family and need a concrete first-pass workflow

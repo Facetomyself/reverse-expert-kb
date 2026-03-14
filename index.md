@@ -144,6 +144,7 @@ This subtree is now best read as five coordinated browser analyst entry surfaces
 - environment and mixed-runtime execution (`browser-environment-reconstruction` and `js-wasm-mixed-runtime-re`)
 - concrete mixed-runtime practice (`js-wasm-boundary-tracing`)
 - concrete widget/session/iframe lifecycle practice (`cloudflare-turnstile-widget-lifecycle-workflow-note` and `arkose-funcaptcha-session-and-iframe-workflow-note`)
+- concrete cookie-bootstrap / consumer-path practice (`acw-sc-v2-cookie-bootstrap-and-consumer-path-note`)
 
 ### Mobile / protected-runtime practice subtree
 - `topics/mobile-protected-runtime-subtree-guide.md`
