@@ -157,13 +157,19 @@ The most natural next child pages include:
 - `topics/browser-fingerprint-and-state-dependent-token-generation.md`
 
 ### 9. Concrete mobile workflow notes
-Current concrete note:
+Current concrete notes:
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
+- `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
 
-Read this when the main problem is:
+Read `mobile-signature-location-and-preimage-recovery-workflow-note` when the main problem is:
 - you have one app-side signature or anti-risk field and need a concrete first-pass workflow
 - you need attachment-path-first reasoning instead of generic signing taxonomy
 - you need preimage-recovery, Java↔JNI split, compare-run strategy, and failure diagnosis guidance
+
+Read `mobile-challenge-trigger-and-loop-slice-workflow-note` when the main problem is:
+- the app enters a challenge / captcha / verification branch and you need a concrete first-pass workflow
+- you need trigger-boundary-first reasoning instead of focusing only on visible challenge content
+- you need loop-slice selection, pre/post state capture, role-labeled protocol modeling, and failure diagnosis guidance
 
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:
