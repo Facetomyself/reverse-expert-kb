@@ -207,6 +207,7 @@ Includes:
   - `topics/cdp-guided-token-generation-analysis.md`
   - `topics/datadome-geetest-kasada-workflow-note.md`
   - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
+  - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
 
 ### 4. Replay, mutation, and environment-control workflows
 Includes:
