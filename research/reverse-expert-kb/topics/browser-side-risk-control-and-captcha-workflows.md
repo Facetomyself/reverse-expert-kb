@@ -6,6 +6,7 @@ Maturity: structured
 Related pages:
 - topics/js-browser-runtime-reversing.md
 - topics/mobile-risk-control-and-device-fingerprint-analysis.md
+- topics/mobile-challenge-and-verification-loop-analysis.md
 - topics/protocol-state-and-message-recovery.md
 - topics/runtime-behavior-recovery.md
 - topics/anti-tamper-and-protected-runtime-analysis.md
