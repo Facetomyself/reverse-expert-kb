@@ -493,3 +493,32 @@ Configure Brave Search credentials if direct web_search is desired, or remember 
 - Related Files: /root/.openclaw/workspace/skills/search-layer/SKILL.md
 
 ---
+## [ERR-20260315-001] web-search-and-fetch-integration
+
+**Logged**: 2026-03-15T02:18:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Brave-backed `web_search` was unavailable due to missing API key, and one public page fetch returned a 403 interstitial during KB source gathering.
+
+### Error
+```text
+web_search: missing_brave_api_key
+web_fetch: Web fetch failed (403) ... Just a moment...
+```
+
+### Context
+- Operation attempted: external source gathering for reverse-expert-kb Akamai workflow research
+- Inputs: Brave searches for Akamai Bot Manager workflow; web fetch of Stack Overflow discussion
+- Environment: OpenClaw main session / cron maintenance run
+
+### Suggested Fix
+Prefer search-layer fallback sources as done here; keep recording tool gaps in run reports. If broader web search is needed later, configure Brave API key or rely on Grok/Exa/Tavily-backed search-layer paths.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/runs/2026-03-15-0200-akamai-sensor-cookie-workflow.md
+
+---

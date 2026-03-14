@@ -149,6 +149,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - concrete widget/session/iframe lifecycle practice (`cloudflare-turnstile-widget-lifecycle-workflow-note`, `arkose-funcaptcha-session-and-iframe-workflow-note`, and `hcaptcha-callback-submit-and-siteverify-workflow-note`)
 - concrete cookie-bootstrap / consumer-path practice (`acw-sc-v2-cookie-bootstrap-and-consumer-path-note`)
 - concrete request-signature-family practice (`bytedance-web-request-signature-workflow-note`)
+- concrete sensor-submission / cookie-validation practice (`akamai-sensor-submission-and-cookie-validation-workflow-note`)
 
 ### Mobile / protected-runtime practice subtree
 - `topics/mobile-protected-runtime-subtree-guide.md`
