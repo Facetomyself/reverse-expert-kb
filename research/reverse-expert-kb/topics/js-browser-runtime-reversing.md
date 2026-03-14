@@ -6,6 +6,7 @@ Maturity: structured
 Related pages:
 - topics/expert-re-overall-framework.md
 - topics/global-map-and-ontology.md
+- topics/browser-runtime-subtree-guide.md
 - topics/runtime-behavior-recovery.md
 - topics/obfuscation-deobfuscation-and-packed-binaries.md
 - topics/anti-tamper-and-protected-runtime-analysis.md
@@ -208,6 +209,10 @@ Includes:
 - JS ↔ wasm interaction
 - wasm-backed parameter generation
 - mixed static/dynamic analysis of browser-executed modules
+
+### 6. Subtree navigation and coordination
+For subtree-level navigation, see:
+- `topics/browser-runtime-subtree-guide.md`
 
 ## 7. Analyst workflow implications
 This topic matters especially during:
