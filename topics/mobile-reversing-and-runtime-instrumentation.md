@@ -7,6 +7,7 @@ Related pages:
 - topics/expert-re-overall-framework.md
 - topics/global-map-and-ontology.md
 - topics/analyst-workflows-and-human-llm-teaming.md
+- topics/runtime-behavior-recovery.md
 - topics/benchmarks-datasets.md
 - topics/firmware-and-protocol-context-recovery.md
 

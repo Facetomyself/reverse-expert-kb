@@ -10,6 +10,7 @@ Related pages:
 - topics/runtime-behavior-recovery.md
 - topics/symbol-type-and-signature-recovery.md
 - topics/decompilation-and-code-reconstruction.md
+- topics/v1-review-and-consistency-pass.md
 
 ## 1. Topic identity
 

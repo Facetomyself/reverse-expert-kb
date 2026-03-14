@@ -7,6 +7,7 @@ Related pages:
 - topics/expert-re-overall-framework.md
 - topics/global-map-and-ontology.md
 - topics/benchmarks-datasets.md
+- topics/runtime-behavior-recovery.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
 - topics/analyst-workflows-and-human-llm-teaming.md
 

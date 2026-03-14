@@ -149,13 +149,15 @@ Several distinctions now appear repeatedly across pages and function as part of 
 ## Remaining consistency risks
 The KB is coherent, but not perfectly uniform yet.
 
-### 1. Cross-links are present but not yet systematic enough
-Many mature pages reference related pages, but the KB could still benefit from a more deliberate link mesh.
+### 1. Cross-links were present but needed a more systematic mesh
+Many mature pages already referenced related pages, but the KB benefited from a deliberate link sweep.
 
-The next pass should ensure that each mature topic page consistently links to:
-- at least one framework page
-- at least two peer topic pages
-- one contrastive or adjacent domain page where useful
+Status after this pass:
+- mature pages now more consistently link to framework pages
+- core topic pages now more consistently link to peer recovery/workflow pages
+- domain pages now more consistently link back to runtime/workflow/evaluation complements
+
+Further improvement is still possible, but the link mesh is now substantially better aligned with the ontology.
 
 ### 2. Maturity labels are present, but canonical status is still conservative
 Most mature pages are correctly labeled as mature.
