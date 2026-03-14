@@ -127,9 +127,16 @@ Read this when the main problem is:
 - you need to distinguish execution gating from trust-scoring effects
 - environment-sensitive failure is currently being confused with anti-instrumentation failure
 
+## 6. Observation distortion and misleading evidence
+- `topics/observation-distortion-and-misleading-evidence.md`
+
+Read this when the main problem is:
+- the target still runs, but the evidence surface may no longer be trustworthy
+- you need to distinguish missing evidence from misleading evidence
+- traces, hooks, or environment changes may be altering semantics rather than simply exposing them
+
 ## Suggested next expansions from this subtree
 The most natural next child pages include:
-- `topics/observation-distortion-and-misleading-evidence.md`
 - `topics/ebpf-seccomp-and-svc-tracing-for-mobile-re.md`
 - `topics/mobile-signing-and-parameter-generation-workflows.md`
 

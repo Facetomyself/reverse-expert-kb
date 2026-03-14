@@ -5,6 +5,7 @@ Ontology layers: protected-runtime subdomain, environment-sensitive semantics, r
 Maturity: structured
 Related pages:
 - topics/mobile-protected-runtime-subtree-guide.md
+- topics/observation-distortion-and-misleading-evidence.md
 - topics/anti-tamper-and-protected-runtime-analysis.md
 - topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md
 - topics/mobile-risk-control-and-device-fingerprint-analysis.md
