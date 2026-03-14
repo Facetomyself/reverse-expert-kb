@@ -288,6 +288,8 @@ Among these, the especially central dimensions are:
   - because runtime evidence is phase-sensitive and depends on good externalization
 - `topics/mobile-reversing-and-runtime-instrumentation.md`
   - because mobile is a major domain where runtime answerability dominates
+- `topics/record-replay-and-omniscient-debugging.md`
+  - because revisitable execution history changes how runtime evidence can be preserved and queried
 - `topics/firmware-and-protocol-context-recovery.md`
   - because context-rich domains often require dynamic observation to recover practical structure
 

@@ -267,9 +267,14 @@ The KB should count as V1-complete when all of the following are true:
 1. The framework layer is stable.
 2. The cross-cutting core topic layer is stable.
 3. The domain-constraint layer is stable.
-4. At least two of the three Priority 1 missing pages are added and normalized.
+4. The Priority 1 topic set is complete and normalized.
 5. Cross-links between pages are sufficient that the KB can be navigated as a system.
 6. Hourly runs are no longer primarily discovering structure, but mostly filling known gaps.
+
+Current assessment:
+- Conditions 1–4 are now satisfied.
+- Condition 5 is substantially improved but still worth another dedicated sweep.
+- Condition 6 appears to be the right operating target going forward.
 
 That last condition matters.
 V1 is not only about page count.
@@ -296,17 +301,18 @@ The cron should gradually shift its emphasis.
 - maintain benchmark and literature freshness
 
 ## Recommended next build order
-The next best order is:
+The next best order is now:
 
-1. `topics/decompilation-and-code-reconstruction.md`
-2. `topics/runtime-behavior-recovery.md`
-3. `topics/notebook-and-memory-augmented-re.md`
-4. optional cleanup pass for cross-links and maturity labels across all mature pages
+1. cross-link and metadata cleanup pass across all mature pages
+2. `topics/native-binary-reversing-baseline.md`
+3. `topics/protocol-state-and-message-recovery.md`
+4. `topics/anti-tamper-and-protected-runtime-analysis.md`
 
 This order preserves coherence:
-- decompilation completes a major recovery-object gap
-- runtime behavior completes a major cross-cutting evidence gap
-- notebook/memory-augmented RE completes a major workflow-support gap
+- cleanup strengthens V1 before expanding it
+- native baseline adds a useful default comparison case
+- protocol split sharpens a page that is already structurally dense
+- protected-runtime analysis extends the obfuscation branch without destabilizing the core
 
 ## What success looks like after V1
 After V1, the KB should feel like:
