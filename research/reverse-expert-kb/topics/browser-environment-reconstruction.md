@@ -5,6 +5,7 @@ Ontology layers: browser-runtime subdomain, environment reconstruction, runtime 
 Maturity: structured
 Related pages:
 - topics/js-browser-runtime-reversing.md
+- topics/environment-state-checks-in-protected-runtimes.md
 - topics/browser-cdp-and-debugger-assisted-re.md
 - topics/browser-side-risk-control-and-captcha-workflows.md
 - topics/runtime-behavior-recovery.md
