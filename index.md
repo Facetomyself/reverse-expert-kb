@@ -76,6 +76,7 @@ These pages show how different target classes change what matters in reverse eng
 - `topics/mobile-reversing-and-runtime-instrumentation.md`
 - `topics/firmware-and-protocol-context-recovery.md`
 - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
+- `topics/js-browser-runtime-reversing.md`
 
 ### 4. Source and run material
 These directories contain incremental research artifacts rather than canonical synthesis pages.
@@ -111,6 +112,9 @@ Priority 2 candidates include:
 - `topics/native-binary-reversing-baseline.md`
 - `topics/protocol-state-and-message-recovery.md`
 - `topics/anti-tamper-and-protected-runtime-analysis.md`
+
+### Newly materialized child page
+- `topics/js-browser-runtime-reversing.md`
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.

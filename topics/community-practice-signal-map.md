@@ -133,7 +133,7 @@ The manually supplied community cluster should be used first to deepen:
 - protocol state and message recovery
 
 ## Likely future child pages justified by this cluster
-- JS/browser runtime reversing
+- JS/browser runtime reversing ✅ (`topics/js-browser-runtime-reversing.md`)
 - JSVMP and AST-based devirtualization
 - anti-Frida / anti-instrumentation practice taxonomy
 - Android linker / Binder / eBPF reversing
