@@ -120,6 +120,7 @@ Priority 2 candidates include:
 - `topics/jsvmp-and-ast-based-devirtualization.md`
 - `topics/browser-side-risk-control-and-captcha-workflows.md`
 - `topics/browser-cdp-and-debugger-assisted-re.md`
+- `topics/browser-environment-reconstruction.md`
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.

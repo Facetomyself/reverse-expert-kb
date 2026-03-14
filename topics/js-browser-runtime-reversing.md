@@ -304,7 +304,7 @@ Among these, the especially central dimensions are:
 This topic may later split into several child pages:
 - `topics/jsvmp-and-ast-based-devirtualization.md` ✅
 - `topics/browser-cdp-and-debugger-assisted-re.md` ✅
-- `topics/browser-environment-reconstruction.md`
+- `topics/browser-environment-reconstruction.md` ✅
 - `topics/browser-side-risk-control-and-captcha-workflows.md` ✅
 - `topics/js-wasm-mixed-runtime-re.md`
 
