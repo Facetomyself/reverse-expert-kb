@@ -128,6 +128,7 @@ Priority 2 candidates include:
 - `topics/reese84-and-utmvc-workflow-note.md`
 - `topics/datadome-geetest-kasada-workflow-note.md`
 - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
+- `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
 - `topics/cdp-guided-token-generation-analysis.md`
 - `topics/browser-cdp-and-debugger-assisted-re.md`
 - `topics/browser-debugger-detection-and-countermeasures.md`
@@ -141,6 +142,7 @@ This subtree is now best read as five coordinated browser analyst entry surfaces
 - instrumentation and contested observability (`browser-cdp-and-debugger-assisted-re` and `browser-debugger-detection-and-countermeasures`)
 - environment and mixed-runtime execution (`browser-environment-reconstruction` and `js-wasm-mixed-runtime-re`)
 - concrete mixed-runtime practice (`js-wasm-boundary-tracing`)
+- concrete widget/session/iframe lifecycle practice (`cloudflare-turnstile-widget-lifecycle-workflow-note` and `arkose-funcaptcha-session-and-iframe-workflow-note`)
 
 ### Mobile / protected-runtime practice subtree
 - `topics/mobile-protected-runtime-subtree-guide.md`

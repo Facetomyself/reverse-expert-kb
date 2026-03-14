@@ -304,6 +304,7 @@ Current concrete notes:
 - `topics/cdp-guided-token-generation-analysis.md`
 - `topics/datadome-geetest-kasada-workflow-note.md`
 - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
+- `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
 
 Other likely next expansions:
 - `topics/browser-debugger-detection-and-countermeasures.md`
