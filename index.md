@@ -40,6 +40,7 @@ A useful reading order is:
    - `topics/runtime-behavior-recovery.md`
    - `topics/analyst-workflows-and-human-llm-teaming.md`
    - `topics/notebook-and-memory-augmented-re.md`
+   - `topics/analytic-provenance-and-evidence-management.md`
 
 4. **Read the domain-constraint pages**
    - `topics/mobile-reversing-and-runtime-instrumentation.md`
@@ -66,6 +67,7 @@ These pages define the central recovery objects, evaluation logic, and analyst w
 - `topics/runtime-behavior-recovery.md`
 - `topics/analyst-workflows-and-human-llm-teaming.md`
 - `topics/notebook-and-memory-augmented-re.md`
+- `topics/analytic-provenance-and-evidence-management.md`
 - `topics/community-practice-signal-map.md`
 
 ### 3. Domain-constraint pages
@@ -89,6 +91,7 @@ These directories contain incremental research artifacts rather than canonical s
 - code reconstruction and semantic recovery
 - runtime evidence and observability
 - notebook / memory-augmented analysis
+- analytic provenance and evidence management
 - domain-constrained reversing (mobile / firmware / protected targets)
 - benchmarks, datasets, and analyst-relevant evaluation
 
@@ -100,10 +103,11 @@ These directories contain incremental research artifacts rather than canonical s
 
 ## Candidate next topic pages
 Priority 2 candidates include:
-- `topics/analytic-provenance-and-evidence-management.md`
 - `topics/trust-calibration-and-verification-burden.md`
+- `topics/malware-analysis-overlaps-and-analyst-goals.md`
 
 ### Newly added Priority 2 pages
+- `topics/analytic-provenance-and-evidence-management.md`
 - `topics/native-binary-reversing-baseline.md`
 - `topics/protocol-state-and-message-recovery.md`
 - `topics/anti-tamper-and-protected-runtime-analysis.md`
