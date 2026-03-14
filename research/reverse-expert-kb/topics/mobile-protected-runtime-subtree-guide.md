@@ -160,6 +160,7 @@ The most natural next child pages include:
 Current concrete notes:
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
 - `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
+- `topics/android-observation-surface-selection-workflow-note.md`
 
 Read `mobile-signature-location-and-preimage-recovery-workflow-note` when the main problem is:
 - you have one app-side signature or anti-risk field and need a concrete first-pass workflow
@@ -170,6 +171,11 @@ Read `mobile-challenge-trigger-and-loop-slice-workflow-note` when the main probl
 - the app enters a challenge / captcha / verification branch and you need a concrete first-pass workflow
 - you need trigger-boundary-first reasoning instead of focusing only on visible challenge content
 - you need loop-slice selection, pre/post state capture, role-labeled protocol modeling, and failure diagnosis guidance
+
+Read `android-observation-surface-selection-workflow-note` when the main problem is:
+- direct app-layer hooks are weak, detected, or semantically unhelpful
+- you need to choose among linker / Binder / eBPF / trace-oriented observation surfaces
+- you need narrow-slice collection and explicit reconnection of lower-layer evidence back to app meaning
 
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:

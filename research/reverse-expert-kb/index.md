@@ -144,6 +144,7 @@ This subtree is now best read as five coordinated browser analyst entry surfaces
 - `topics/mobile-protected-runtime-subtree-guide.md`
 - `topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md`
 - `topics/android-linker-binder-ebpf-observation-surfaces.md`
+- `topics/android-observation-surface-selection-workflow-note.md`
 - `topics/trace-guided-and-dbi-assisted-re.md`
 - `topics/mobile-risk-control-and-device-fingerprint-analysis.md`
 - `topics/environment-state-checks-in-protected-runtimes.md`
@@ -154,7 +155,7 @@ This subtree is now best read as five coordinated browser analyst entry surfaces
 - `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
 
 This subtree is now best read as four coordinated mobile analyst entry surfaces:
-- observability under resistance (`anti-frida-and-anti-instrumentation-practice-taxonomy`, `android-linker-binder-ebpf-observation-surfaces`, and `trace-guided-and-dbi-assisted-re`)
+- observability under resistance (`anti-frida-and-anti-instrumentation-practice-taxonomy`, `android-linker-binder-ebpf-observation-surfaces`, `android-observation-surface-selection-workflow-note`, and `trace-guided-and-dbi-assisted-re`)
 - environment and evidence trust (`environment-state-checks-in-protected-runtimes` and `observation-distortion-and-misleading-evidence`)
 - request-shaping and signature recovery (`mobile-signing-and-parameter-generation-workflows` and `mobile-signature-location-and-preimage-recovery-workflow-note`)
 - distributed risk / challenge workflows (`mobile-risk-control-and-device-fingerprint-analysis`, `mobile-challenge-and-verification-loop-analysis`, and `mobile-challenge-trigger-and-loop-slice-workflow-note`)
