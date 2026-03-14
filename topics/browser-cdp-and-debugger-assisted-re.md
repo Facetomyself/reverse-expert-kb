@@ -187,6 +187,7 @@ Includes:
 - token or signature generation tracing
 - challenge-state transitions
 - browser-side field observation
+- JS↔wasm boundary tracing for mixed-runtime targets
 - path narrowing through live inspection
 
 ### 3. Counter-debugger and anti-observation handling
@@ -289,8 +290,13 @@ Among these, the especially central dimensions are:
 - Which parts of browser debugger workflows are transferable to other runtime-reversing domains?
 - What formal evaluation concepts best describe debugger-assisted RE payoff in browser targets?
 
-## 11. Suggested next expansions
-This topic may later split into several child pages:
+## 11. Concrete workflow notes / next expansions
+This topic should grow through concrete analyst workflow pages as well as structural children.
+
+Concrete workflow note now present:
+- `topics/js-wasm-boundary-tracing.md`
+
+Other likely next expansions:
 - `topics/browser-debugger-detection-and-countermeasures.md`
 - `topics/cdp-guided-token-generation-analysis.md`
 - `topics/network-runtime-correlation-in-browser-re.md`
