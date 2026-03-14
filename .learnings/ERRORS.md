@@ -345,3 +345,32 @@ Avoid bare `printf` format strings starting with hyphens in POSIX sh/dash script
 - Related Files: /root/.openclaw/workspace/.learnings/ERRORS.md
 
 ---
+## [ERR-20260314-001] web_search missing_brave_api_key
+
+**Logged**: 2026-03-14T04:16:00Z
+**Priority**: medium
+**Status**: pending
+**Area**: config
+
+### Summary
+Brave-backed `web_search` is unavailable in this environment because the Brave API key is not configured.
+
+### Error
+```
+missing_brave_api_key
+web_search (brave) needs a Brave Search API key. Run `openclaw configure --section web` to store it, or set BRAVE_API_KEY in the Gateway environment.
+```
+
+### Context
+- Operation attempted: web_search during hourly reverse-expert-kb research cron
+- Fallback used: search-layer via local script with Grok source plus direct page fetches
+- Impact: research can continue, but Brave multi-source coverage is reduced
+
+### Suggested Fix
+Configure Brave Search for the gateway if broader search coverage is desired for future research runs.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/
+
+---
