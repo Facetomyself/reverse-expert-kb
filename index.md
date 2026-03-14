@@ -46,6 +46,7 @@ A useful reading order is:
    - `topics/mobile-reversing-and-runtime-instrumentation.md`
    - `topics/firmware-and-protocol-context-recovery.md`
    - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
+   - `topics/malware-analysis-overlaps-and-analyst-goals.md`
 
 ## Layered topic map
 
