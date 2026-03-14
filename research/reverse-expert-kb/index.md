@@ -71,6 +71,8 @@ This third axis matters because expert reverse engineering is not only about out
 - `topics/global-map-and-ontology.md`
 - `topics/topic-template-and-normalization-guide.md`
 - `topics/v1-roadmap-and-maturity-criteria.md`
+- `topics/decompilation-and-code-reconstruction.md`
+- `topics/runtime-behavior-recovery.md`
 - `topics/benchmarks-datasets.md`
 - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
 - `topics/symbol-type-and-signature-recovery.md`
