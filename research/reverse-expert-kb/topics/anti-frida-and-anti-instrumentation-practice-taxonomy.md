@@ -7,6 +7,7 @@ Related pages:
 - topics/anti-tamper-and-protected-runtime-analysis.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
 - topics/runtime-behavior-recovery.md
+- topics/android-linker-binder-ebpf-observation-surfaces.md
 - topics/browser-cdp-and-debugger-assisted-re.md
 - topics/community-practice-signal-map.md
 
