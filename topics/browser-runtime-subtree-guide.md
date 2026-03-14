@@ -166,6 +166,7 @@ Current concrete notes:
 - `topics/browser-request-finalization-backtrace-workflow-note.md`
 - `topics/acw-sc-v2-cookie-bootstrap-and-consumer-path-note.md`
 - `topics/bytedance-web-request-signature-workflow-note.md`
+- `topics/akamai-sensor-submission-and-cookie-validation-workflow-note.md`
 
 Read this branch when the main problem is:
 - you are working on a browser anti-bot or captcha family and need a concrete first-pass workflow
