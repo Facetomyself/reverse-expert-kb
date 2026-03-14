@@ -9,6 +9,7 @@ Related pages:
 - topics/browser-runtime-subtree-guide.md
 - topics/runtime-behavior-recovery.md
 - topics/obfuscation-deobfuscation-and-packed-binaries.md
+- topics/browser-debugger-detection-and-countermeasures.md
 - topics/anti-tamper-and-protected-runtime-analysis.md
 - topics/protocol-state-and-message-recovery.md
 - topics/community-practice-signal-map.md
@@ -161,6 +162,7 @@ Signals from the supplied practitioner list and Kanxue browser work include:
 Why it matters:
 - browser RE has a distinct instrumentation surface that deserves explicit treatment in the KB
 - CDP / DevTools-level workflows are practical equivalents of runtime instrumentation in this domain
+- the mirrored resistance problem is now handled explicitly in `topics/browser-debugger-detection-and-countermeasures.md`
 
 ### D. Parameter/signature recovery often lives between runtime execution and protocol behavior
 Practitioner examples repeatedly center on:
@@ -211,7 +213,15 @@ Includes:
 - wasm-backed parameter generation
 - mixed static/dynamic analysis of browser-executed modules
 
-### 6. Subtree navigation and coordination
+### 6. Browser anti-debugging and observation pressure
+Includes:
+- DevTools-open detection
+- debugger trap abuse
+- CDP-side-effect and instrumentation-surface detection
+- countermeasure selection under browser observation pressure
+- see also: `topics/browser-debugger-detection-and-countermeasures.md`
+
+### 7. Subtree navigation and coordination
 For subtree-level navigation, see:
 - `topics/browser-runtime-subtree-guide.md`
 

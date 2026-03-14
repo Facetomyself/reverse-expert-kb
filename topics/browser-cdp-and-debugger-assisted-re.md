@@ -7,6 +7,7 @@ Related pages:
 - topics/js-browser-runtime-reversing.md
 - topics/runtime-behavior-recovery.md
 - topics/browser-side-risk-control-and-captcha-workflows.md
+- topics/browser-debugger-detection-and-countermeasures.md
 - topics/anti-tamper-and-protected-runtime-analysis.md
 - topics/jsvmp-and-ast-based-devirtualization.md
 - topics/community-practice-signal-map.md
@@ -159,6 +160,7 @@ Signals from the practitioner cluster include repeated emphasis on:
 Why it matters:
 - browser CDP/debugger analysis overlaps directly with protected-runtime analysis
 - observability itself may need protection-aware handling
+- see also: `topics/browser-debugger-detection-and-countermeasures.md` for the dedicated counter-observation page
 
 ### D. Debugger-assisted RE often works best as a complement to AST and protocol reasoning
 Synthesis from the existing browser subtree suggests:

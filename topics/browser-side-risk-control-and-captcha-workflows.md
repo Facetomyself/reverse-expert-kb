@@ -9,6 +9,7 @@ Related pages:
 - topics/mobile-challenge-and-verification-loop-analysis.md
 - topics/protocol-state-and-message-recovery.md
 - topics/runtime-behavior-recovery.md
+- topics/browser-debugger-detection-and-countermeasures.md
 - topics/anti-tamper-and-protected-runtime-analysis.md
 - topics/jsvmp-and-ast-based-devirtualization.md
 - topics/community-practice-signal-map.md
@@ -215,6 +216,7 @@ Includes:
 - anti-replay logic
 - virtualized browser-side protection
 - obfuscated or wasm-backed challenge logic
+- see also: `topics/browser-debugger-detection-and-countermeasures.md`
 
 ## 7. Analyst workflow implications
 This topic matters especially during:

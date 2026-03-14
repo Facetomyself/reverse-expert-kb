@@ -8,6 +8,7 @@ Related pages:
 - topics/jsvmp-and-ast-based-devirtualization.md
 - topics/browser-side-risk-control-and-captcha-workflows.md
 - topics/browser-cdp-and-debugger-assisted-re.md
+- topics/browser-debugger-detection-and-countermeasures.md
 - topics/browser-environment-reconstruction.md
 - topics/js-wasm-mixed-runtime-re.md
 - topics/community-practice-signal-map.md
@@ -69,10 +70,19 @@ Read this when the main problem is:
 Read this when the main problem is:
 - locating live value-generation paths
 - using breakpoints / stepping / CDP / DevTools for evidence
-- debugger-visible behavior and counter-detection
-- network/runtime correlation inside browser execution
+- runtime/network correlation inside browser execution
+- deciding where debugger-assisted inspection gives the highest leverage
 
-### 4. Browser environment reconstruction
+### 4. Browser debugger detection and countermeasures
+- `topics/browser-debugger-detection-and-countermeasures.md`
+
+Read this when the main problem is:
+- the target appears to notice DevTools, breakpoints, or instrumentation
+- debugger-visible behavior may be distorted, suppressed, or classified as risky
+- you need to distinguish visible DevTools checks from CDP-side-effect or automation-surface detection
+- the right next move may be quieter instrumentation or a different browser surface rather than more breakpoints
+
+### 5. Browser environment reconstruction
 - `topics/browser-environment-reconstruction.md`
 
 Read this when the main problem is:
@@ -82,7 +92,7 @@ Read this when the main problem is:
 - building a minimal harness for controlled execution
 - separating functional environment needs from anti-analysis checks
 
-### 5. JS / WASM mixed runtime RE
+### 6. JS / WASM mixed runtime RE
 - `topics/js-wasm-mixed-runtime-re.md`
 
 Read this when the main problem is:
@@ -100,22 +110,25 @@ Typical path:
 1. Start at `js-browser-runtime-reversing.md`
 2. Move to `browser-side-risk-control-and-captcha-workflows.md`
 3. Use `browser-cdp-and-debugger-assisted-re.md` to observe live value paths
-4. Use `browser-environment-reconstruction.md` if the logic must be replayed or externalized
-5. Use `jsvmp-and-ast-based-devirtualization.md` if JSVMP or flattening blocks further progress
+4. If the target reacts to observation, move to `browser-debugger-detection-and-countermeasures.md`
+5. Use `browser-environment-reconstruction.md` if the logic must be replayed or externalized
+6. Use `jsvmp-and-ast-based-devirtualization.md` if JSVMP or flattening blocks further progress
 
 ### Common path B: JSVMP-heavy browser target
 Typical path:
 1. Start at `js-browser-runtime-reversing.md`
 2. Move to `jsvmp-and-ast-based-devirtualization.md`
 3. Use `browser-cdp-and-debugger-assisted-re.md` to align transformed structure with live behavior
-4. Use `browser-environment-reconstruction.md` if replay or external harnessing becomes necessary
+4. If debugger-visible execution looks unstable or defensive, move to `browser-debugger-detection-and-countermeasures.md`
+5. Use `browser-environment-reconstruction.md` if replay or external harnessing becomes necessary
 
 ### Common path C: wasm-backed target
 Typical path:
 1. Start at `js-browser-runtime-reversing.md`
 2. Move to `js-wasm-mixed-runtime-re.md`
 3. Use `browser-cdp-and-debugger-assisted-re.md` to inspect JS↔wasm boundary behavior
-4. Use `browser-environment-reconstruction.md` if wasm must be externalized under controlled conditions
+4. If instrumentation appears visible or untrustworthy, move to `browser-debugger-detection-and-countermeasures.md`
+5. Use `browser-environment-reconstruction.md` if wasm must be externalized under controlled conditions
 
 ## What this subtree is best at
 The browser-runtime subtree is especially strong for:
@@ -125,6 +138,7 @@ The browser-runtime subtree is especially strong for:
 - environment reconstruction and externalization
 - JSVMP and AST-based deobfuscation
 - browser-domain instrumentation via CDP / debugger surfaces
+- debugger-detection and observation-pressure reasoning
 
 ## What this subtree is weaker at
 This subtree is currently weaker on:
@@ -133,7 +147,7 @@ This subtree is currently weaker on:
 - deeper normalization of JS/wasm protection patterns
 - systematic separation between browser-only and hybrid mobile-webview cases
 
-### 6. Browser fingerprint and state-dependent token generation
+### 7. Browser fingerprint and state-dependent token generation
 - `topics/browser-fingerprint-and-state-dependent-token-generation.md`
 
 Read this when the main problem is:
@@ -143,9 +157,9 @@ Read this when the main problem is:
 
 ## Suggested next expansions from this subtree
 The most natural next child pages include:
-- `topics/browser-debugger-detection-and-countermeasures.md`
 - `topics/js-wasm-boundary-tracing.md`
 - `topics/targeted-evidence-trust-calibration.md`
+- `topics/cdp-side-effect-and-automation-signal-analysis.md`
 
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:
