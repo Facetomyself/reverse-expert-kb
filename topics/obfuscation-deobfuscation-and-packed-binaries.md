@@ -6,6 +6,7 @@ Maturity: mature
 Related pages:
 - topics/expert-re-overall-framework.md
 - topics/global-map-and-ontology.md
+- topics/community-practice-signal-map.md
 - topics/benchmarks-datasets.md
 - topics/decompilation-and-code-reconstruction.md
 - topics/symbol-type-and-signature-recovery.md
@@ -242,6 +243,21 @@ Why it matters:
 - packed binaries often require a distinct first phase of analysis: detect, classify, unpack, or dump correctly
 - this should not be collapsed into generic decompilation or malware notes
 
+### I. Practitioner community sources add strong realism for deobfuscation workflows
+Source cluster:
+- `sources/community-forums/2026-03-14-52pojie-kanxue-manual-curation.md`
+- `topics/community-practice-signal-map.md`
+
+High-signal recurring patterns from 52pojie / Kanxue include:
+- JSVMP-heavy JS/web targets analyzed through AST transforms, runtime environment recreation, and custom devirtualization tooling
+- Android and native VMP casework where analysts combine static reading, trace guidance, and execution observation rather than relying on one method alone
+- repeated OLLVM flattening, string-obfuscation, and microcode-assisted restoration workflows
+- SO-protection, shelling, dump/unpack, and staged deprotection work treated as part of ordinary analyst practice
+- custom or semi-automated tool-building for devirtualization, trace reduction, and protected-code simplification
+
+Why it matters:
+- these practitioner sources strongly confirm that real deobfuscation work is often workflow-rich, tool-augmented, and iterative rather than a single-pass “undo the obfuscator” step
+
 ## 6. Emerging internal structure of the topic
 A stable internal decomposition is emerging.
 
@@ -297,6 +313,12 @@ Progress may depend on:
 - using similarity or diffing signals that survive transformation
 - validating hypotheses dynamically when static semantics are too degraded
 - accepting partial recovery instead of aiming immediately for complete readability
+
+Practitioner-community material adds several recurring real-world patterns:
+- AST-driven deobfuscation for JSVMP and browser-side virtualized JS targets
+- microcode, trace, or custom-lifter assistance when flattening and virtualization overwhelm direct reading
+- staged unpacking / dump / simplify / relabel workflows instead of one-shot recovery
+- combining local structural anchors, runtime traces, and analyst-written tooling to recover just enough stable meaning to continue
 
 ### Long-horizon analysis
 Analysts need to preserve:
@@ -384,6 +406,7 @@ Strengths:
 - realistic corpus signals from Quarkslab-related work
 - explicit robustness and similarity-resilience benchmark lines
 - deobfuscation realism now visible as its own benchmark family
+- strong practitioner reinforcement from the newly ingested 52pojie / Kanxue cluster, especially around JSVMP, OLLVM, VMP, shelling/unpacking, trace-guided simplification, and analyst-built tooling
 - clear workflow relevance to protected-target analysis
 
 Limitations:
