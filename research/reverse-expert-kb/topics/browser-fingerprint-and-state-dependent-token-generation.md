@@ -303,6 +303,7 @@ Current concrete notes:
 - `topics/reese84-and-utmvc-workflow-note.md`
 - `topics/cdp-guided-token-generation-analysis.md`
 - `topics/datadome-geetest-kasada-workflow-note.md`
+- `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
 
 Other likely next expansions:
 - `topics/browser-debugger-detection-and-countermeasures.md`
