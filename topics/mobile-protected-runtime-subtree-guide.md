@@ -156,6 +156,15 @@ The most natural next child pages include:
 - `topics/ebpf-seccomp-and-svc-tracing-for-mobile-re.md`
 - `topics/browser-fingerprint-and-state-dependent-token-generation.md`
 
+### 9. Concrete mobile workflow notes
+Current concrete note:
+- `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
+
+Read this when the main problem is:
+- you have one app-side signature or anti-risk field and need a concrete first-pass workflow
+- you need attachment-path-first reasoning instead of generic signing taxonomy
+- you need preimage-recovery, Java↔JNI split, compare-run strategy, and failure diagnosis guidance
+
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:
 - `sources/community-forums/2026-03-14-52pojie-kanxue-manual-curation.md`
