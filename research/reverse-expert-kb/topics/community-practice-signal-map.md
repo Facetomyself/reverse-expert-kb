@@ -143,6 +143,7 @@ The manually supplied community cluster should be used first to deepen:
 - observation distortion and misleading evidence ✅ (`topics/observation-distortion-and-misleading-evidence.md`)
 - mobile signing and parameter-generation workflows ✅ (`topics/mobile-signing-and-parameter-generation-workflows.md`)
 - mobile challenge and verification-loop analysis ✅ (`topics/mobile-challenge-and-verification-loop-analysis.md`)
+- browser fingerprint and state-dependent token generation ✅ (`topics/browser-fingerprint-and-state-dependent-token-generation.md`)
 
 ## Source anchor
 Primary source note for this cluster:
