@@ -125,6 +125,7 @@ Priority 2 candidates include:
 - `topics/jsvmp-and-ast-based-devirtualization.md`
 - `topics/browser-side-risk-control-and-captcha-workflows.md`
 - `topics/browser-fingerprint-and-state-dependent-token-generation.md`
+- `topics/reese84-and-utmvc-workflow-note.md`
 - `topics/browser-cdp-and-debugger-assisted-re.md`
 - `topics/browser-debugger-detection-and-countermeasures.md`
 - `topics/browser-environment-reconstruction.md`
