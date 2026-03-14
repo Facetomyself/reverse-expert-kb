@@ -8,8 +8,12 @@ mkdir -p "$REPORT_DIR"
 TS="$(date '+%Y-%m-%d-%H%M%S')"
 REPORT="$REPORT_DIR/$TS.md"
 
+LOW_SPACE_PCT=15
+LOW_SPACE_BYTES=$((5 * 1024 * 1024 * 1024))
+
 ROOT_AVAIL_BEFORE="$(df -B1 --output=avail / | tail -n1 | tr -d ' ')"
 WS_AVAIL_BEFORE="$(df -B1 --output=avail "$WORKSPACE" | tail -n1 | tr -d ' ')"
+ROOT_USE_PCT_BEFORE="$(df --output=pcent / | tail -n1 | tr -dc '0-9')"
 
 removed_items=()
 removed_bytes=0
@@ -43,11 +47,121 @@ safe_rm_file() {
   record_remove "$file" "$bytes"
 }
 
+cleanup_workspace_caches() {
+  while IFS= read -r -d '' dir; do
+    log "- remove cache dir: $dir"
+    safe_rm_rf_dir "$dir"
+  done < <(find "$WORKSPACE" -xdev \( \
+    -name '__pycache__' -o \
+    -name '.pytest_cache' -o \
+    -name '.mypy_cache' -o \
+    -name '.ruff_cache' -o \
+    -name '.cache' \
+  \) -type d -print0 2>/dev/null)
+}
+
+cleanup_workspace_build_dirs() {
+  while IFS= read -r -d '' dir; do
+    log "- remove stale build dir: $dir"
+    safe_rm_rf_dir "$dir"
+  done < <(find "$WORKSPACE" -xdev \( \
+    -name dist -o \
+    -name build -o \
+    -name out -o \
+    -name target \
+  \) -type d -mtime +7 -print0 2>/dev/null)
+}
+
+cleanup_workspace_old_logs() {
+  while IFS= read -r -d '' file; do
+    log "- remove old workspace log/tmp file: $file"
+    safe_rm_file "$file"
+  done < <(find "$WORKSPACE" -xdev -type f \( \
+    -name '*.log' -o \
+    -name '*.log.*' -o \
+    -name '*.out' -o \
+    -name '*.tmp' \
+  \) -mtime +14 -print0 2>/dev/null)
+}
+
+cleanup_tmp() {
+  while IFS= read -r -d '' file; do
+    log "- remove old /tmp file: $file"
+    safe_rm_file "$file"
+  done < <(find /tmp -xdev -user root -type f -mtime +7 -print0 2>/dev/null)
+
+  while IFS= read -r -d '' dir; do
+    rmdir "$dir" 2>/dev/null || true
+  done < <(find /tmp -xdev -user root -type d -empty -mtime +7 -print0 2>/dev/null)
+}
+
+cleanup_pressure_caches() {
+  log "### Pressure cleanup mode"
+  log "- root filesystem is under configured pressure threshold"
+
+  if command -v apt-get >/dev/null 2>&1; then
+    log "- apt cache cleanup: apt-get clean"
+    apt-get clean >> "$REPORT" 2>&1 || log "  - apt-get clean failed"
+  fi
+
+  if [ -d /var/tmp ]; then
+    while IFS= read -r -d '' file; do
+      log "- remove old /var/tmp file: $file"
+      safe_rm_file "$file"
+    done < <(find /var/tmp -xdev -user root -type f -mtime +14 -print0 2>/dev/null)
+
+    while IFS= read -r -d '' dir; do
+      rmdir "$dir" 2>/dev/null || true
+    done < <(find /var/tmp -xdev -user root -type d -empty -mtime +14 -print0 2>/dev/null)
+  fi
+
+  if command -v journalctl >/dev/null 2>&1; then
+    log "- journal cleanup: journalctl --vacuum-time=14d"
+    journalctl --vacuum-time=14d >> "$REPORT" 2>&1 || log "  - journal cleanup failed"
+  fi
+
+  if command -v docker >/dev/null 2>&1; then
+    log "- docker cache cleanup: docker system prune -f --volumes"
+    docker system prune -f --volumes >> "$REPORT" 2>&1 || log "  - docker prune failed"
+  fi
+
+  if command -v npm >/dev/null 2>&1; then
+    log "- npm cache cleanup: npm cache clean --force"
+    npm cache clean --force >> "$REPORT" 2>&1 || log "  - npm cache clean failed"
+  fi
+
+  if command -v pip >/dev/null 2>&1; then
+    log "- pip cache cleanup: pip cache purge"
+    pip cache purge >> "$REPORT" 2>&1 || log "  - pip cache purge failed"
+  fi
+
+  if command -v pip3 >/dev/null 2>&1; then
+    log "- pip3 cache cleanup: pip3 cache purge"
+    pip3 cache purge >> "$REPORT" 2>&1 || log "  - pip3 cache purge failed"
+  fi
+
+  if command -v uv >/dev/null 2>&1; then
+    log "- uv cache cleanup: uv cache clean"
+    uv cache clean >> "$REPORT" 2>&1 || log "  - uv cache clean failed"
+  fi
+}
+
+pressure_cleanup_needed() {
+  if [ "$ROOT_USE_PCT_BEFORE" -ge $((100 - LOW_SPACE_PCT)) ]; then
+    return 0
+  fi
+  if [ "$ROOT_AVAIL_BEFORE" -le "$LOW_SPACE_BYTES" ]; then
+    return 0
+  fi
+  return 1
+}
+
 log "# Nightly system check and cleanup"
 log ""
 log "- Timestamp: $(date --iso-8601=seconds)"
 log "- Host: $(hostname)"
 log "- Goal: inspect memory/storage and clean safe stale build/cache/log artifacts"
+log "- Pressure thresholds: available <= ${LOW_SPACE_BYTES} bytes OR root usage >= $((100 - LOW_SPACE_PCT))%"
 log ""
 log "## Memory snapshot"
 log '```'
@@ -61,7 +175,7 @@ log '```'
 log ""
 log "## Large directories snapshot"
 log '```'
-du -sh "$WORKSPACE" "$WORKSPACE/research" /var/log /tmp 2>/dev/null | sort -h >> "$REPORT" || true
+du -sh "$WORKSPACE" "$WORKSPACE/research" /var/log /tmp /var/tmp 2>/dev/null | sort -h >> "$REPORT" || true
 log '```'
 log ""
 log "## Top workspace directories"
@@ -71,53 +185,21 @@ log '```'
 log ""
 log "## Cleanup actions"
 
-# 1) Workspace cache directories — safe to remove.
-while IFS= read -r -d '' dir; do
-  log "- remove cache dir: $dir"
-  safe_rm_rf_dir "$dir"
-done < <(find "$WORKSPACE" -xdev \( \
-  -name '__pycache__' -o \
-  -name '.pytest_cache' -o \
-  -name '.mypy_cache' -o \
-  -name '.ruff_cache' -o \
-  -name '.cache' \
-\) -type d -print0 2>/dev/null)
+cleanup_workspace_caches
+cleanup_workspace_build_dirs
+cleanup_workspace_old_logs
+cleanup_tmp
 
-# 2) Common build artifact directories inside workspace, only if stale.
-while IFS= read -r -d '' dir; do
-  log "- remove stale build dir: $dir"
-  safe_rm_rf_dir "$dir"
-done < <(find "$WORKSPACE" -xdev \( \
-  -name dist -o \
-  -name build -o \
-  -name out -o \
-  -name target \
-\) -type d -mtime +7 -print0 2>/dev/null)
-
-# 3) Old workspace log-like files.
-while IFS= read -r -d '' file; do
-  log "- remove old workspace log/tmp file: $file"
-  safe_rm_file "$file"
-done < <(find "$WORKSPACE" -xdev -type f \( \
-  -name '*.log' -o \
-  -name '*.log.*' -o \
-  -name '*.out' -o \
-  -name '*.tmp' \
-\) -mtime +14 -print0 2>/dev/null)
-
-# 4) Old root-owned temporary files in /tmp.
-while IFS= read -r -d '' file; do
-  log "- remove old /tmp file: $file"
-  safe_rm_file "$file"
-done < <(find /tmp -xdev -user root -type f -mtime +7 -print0 2>/dev/null)
-
-# 5) Empty old directories in /tmp after file cleanup.
-while IFS= read -r -d '' dir; do
-  rmdir "$dir" 2>/dev/null || true
-done < <(find /tmp -xdev -user root -type d -empty -mtime +7 -print0 2>/dev/null)
+if pressure_cleanup_needed; then
+  cleanup_pressure_caches
+else
+  log "### Pressure cleanup mode"
+  log "- skipped: root filesystem is not under configured pressure threshold"
+fi
 
 ROOT_AVAIL_AFTER="$(df -B1 --output=avail / | tail -n1 | tr -d ' ')"
 WS_AVAIL_AFTER="$(df -B1 --output=avail "$WORKSPACE" | tail -n1 | tr -d ' ')"
+ROOT_USE_PCT_AFTER="$(df --output=pcent / | tail -n1 | tr -dc '0-9')"
 ROOT_FREED=$((ROOT_AVAIL_AFTER - ROOT_AVAIL_BEFORE))
 WS_FREED=$((WS_AVAIL_AFTER - WS_AVAIL_BEFORE))
 
@@ -127,13 +209,15 @@ log "- Removed items count: ${#removed_items[@]}"
 log "- Estimated removed bytes (sum of deleted items): $removed_bytes"
 log "- Root filesystem freed bytes: $ROOT_FREED"
 log "- Workspace filesystem freed bytes: $WS_FREED"
+log "- Root usage before: ${ROOT_USE_PCT_BEFORE}%"
+log "- Root usage after: ${ROOT_USE_PCT_AFTER}%"
 if [ ${#removed_items[@]} -gt 0 ]; then
   log "- Removed paths:"
   for item in "${removed_items[@]}"; do
     log "  - $item"
   done
 else
-  log "- No files needed removal tonight."
+  log "- No direct file removals were needed tonight."
 fi
 log ""
 log "## Filesystem snapshot (after cleanup)"
