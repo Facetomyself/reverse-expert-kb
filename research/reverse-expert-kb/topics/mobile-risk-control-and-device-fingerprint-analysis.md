@@ -197,6 +197,7 @@ Includes:
 - app-side parameter construction
 - local cryptographic or obfuscated transforms
 - coupling between runtime state and final request values
+- see also: `topics/mobile-signing-and-parameter-generation-workflows.md`
 
 ### 3. Challenge / verification workflow analysis
 Includes:

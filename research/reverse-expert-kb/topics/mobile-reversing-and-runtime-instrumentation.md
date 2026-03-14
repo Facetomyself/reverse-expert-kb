@@ -8,6 +8,7 @@ Related pages:
 - topics/global-map-and-ontology.md
 - topics/mobile-protected-runtime-subtree-guide.md
 - topics/mobile-risk-control-and-device-fingerprint-analysis.md
+- topics/mobile-signing-and-parameter-generation-workflows.md
 - topics/analyst-workflows-and-human-llm-teaming.md
 - topics/community-practice-signal-map.md
 - topics/runtime-behavior-recovery.md
