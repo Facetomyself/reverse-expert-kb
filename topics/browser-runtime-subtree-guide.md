@@ -133,12 +133,19 @@ This subtree is currently weaker on:
 - deeper normalization of JS/wasm protection patterns
 - systematic separation between browser-only and hybrid mobile-webview cases
 
+### 6. Browser fingerprint and state-dependent token generation
+- `topics/browser-fingerprint-and-state-dependent-token-generation.md`
+
+Read this when the main problem is:
+- browser-side request values depend on fingerprint inputs, timing, retry state, or other browser-local context
+- you need to recover the local input → transform → output chain for a token or field
+- environment reconstruction and live observation both seem necessary to explain the value
+
 ## Suggested next expansions from this subtree
 The most natural next child pages include:
 - `topics/browser-debugger-detection-and-countermeasures.md`
-- `topics/browser-token-and-signature-generation-workflows.md`
-- `topics/browser-fingerprint-and-environment-field-analysis.md`
 - `topics/js-wasm-boundary-tracing.md`
+- `topics/targeted-evidence-trust-calibration.md`
 
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:

@@ -203,6 +203,7 @@ Includes:
 - anti-bot challenge logic
 - fingerprint-related fields
 - browser-side protocol/state coupling
+- see also: `topics/browser-fingerprint-and-state-dependent-token-generation.md`
 
 ### 5. wasm-assisted browser reverse engineering
 Includes:
