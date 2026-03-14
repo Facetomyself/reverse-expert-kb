@@ -126,6 +126,7 @@ Priority 2 candidates include:
 - `topics/browser-side-risk-control-and-captcha-workflows.md`
 - `topics/browser-fingerprint-and-state-dependent-token-generation.md`
 - `topics/reese84-and-utmvc-workflow-note.md`
+- `topics/cdp-guided-token-generation-analysis.md`
 - `topics/browser-cdp-and-debugger-assisted-re.md`
 - `topics/browser-debugger-detection-and-countermeasures.md`
 - `topics/browser-environment-reconstruction.md`
@@ -148,7 +149,14 @@ This subtree is now best read as five coordinated browser analyst entry surfaces
 - `topics/environment-state-checks-in-protected-runtimes.md`
 - `topics/observation-distortion-and-misleading-evidence.md`
 - `topics/mobile-signing-and-parameter-generation-workflows.md`
+- `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
 - `topics/mobile-challenge-and-verification-loop-analysis.md`
+
+This subtree is now best read as four coordinated mobile analyst entry surfaces:
+- observability under resistance (`anti-frida-and-anti-instrumentation-practice-taxonomy`, `android-linker-binder-ebpf-observation-surfaces`, and `trace-guided-and-dbi-assisted-re`)
+- environment and evidence trust (`environment-state-checks-in-protected-runtimes` and `observation-distortion-and-misleading-evidence`)
+- request-shaping and signature recovery (`mobile-signing-and-parameter-generation-workflows` and `mobile-signature-location-and-preimage-recovery-workflow-note`)
+- distributed risk / challenge workflows (`mobile-risk-control-and-device-fingerprint-analysis` and `mobile-challenge-and-verification-loop-analysis`)
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.
