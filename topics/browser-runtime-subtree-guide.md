@@ -159,6 +159,7 @@ Read this when the main problem is:
 Current concrete notes:
 - `topics/reese84-and-utmvc-workflow-note.md`
 - `topics/datadome-geetest-kasada-workflow-note.md`
+- `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
 
 Read this branch when the main problem is:
 - you are working on a browser anti-bot or captcha family and need a concrete first-pass workflow
