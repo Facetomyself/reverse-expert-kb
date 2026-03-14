@@ -9,6 +9,7 @@ Related pages:
 - topics/analyst-workflows-and-human-llm-teaming.md
 - topics/decompilation-and-code-reconstruction.md
 - topics/notebook-and-memory-augmented-re.md
+- topics/community-practice-signal-map.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
 - topics/firmware-and-protocol-context-recovery.md
 
@@ -179,6 +180,22 @@ Synthesis from workflow material suggests:
 Why it matters:
 - this topic is not about collecting more traces; it is about collecting decision-relevant evidence
 
+### F. Practitioner community sources show how broad the runtime-evidence branch really is
+Source cluster:
+- `sources/community-forums/2026-03-14-52pojie-kanxue-manual-curation.md`
+- `topics/community-practice-signal-map.md`
+
+High-signal recurring patterns from 52pojie / Kanxue include:
+- Frida-based hook, trace, and anti-detection workflows across Android and iOS
+- CDP / debugger-assisted browser-side runtime observation for JS/web reverse engineering
+- trace-guided bypass of CRC, anti-analysis, and protection logic
+- DBI / lifting / trace tooling such as QBDI, Unicorn, VMLifter, and related custom trace frameworks
+- repeated use of runtime observation to recover app signing, device fingerprint, risk-control, and protocol behavior
+
+Why it matters:
+- these practitioner sources strongly confirm that runtime behavior recovery is not a narrow validation technique
+- in the wild, it is one of the main ways experts make progress against modern web, mobile, protected, and protocol-bearing targets
+
 ## 6. Emerging internal structure of the topic
 A stable internal decomposition is emerging.
 
@@ -235,6 +252,12 @@ Progress depends on:
 - trace-guided narrowing
 - state or message observation
 - iterative loop between hypothesis and confirmation
+
+Practitioner-community casework adds several concrete patterns here:
+- browser/CDP-assisted inspection when JS/web targets hide logic behind runtime execution
+- Frida trace and hook selection when app behavior is layered across Java/ObjC, native, and platform paths
+- DBI or trace-assisted narrowing when anti-analysis or obfuscation makes static structure unreliable
+- recordable evidence trails for bypass attempts, protocol states, and parameter generation paths
 
 ### Long-horizon analysis
 Runtime evidence should be preserved with context:
@@ -329,9 +352,12 @@ Strengths:
 - clear importance within the KB’s broader theory of next-step trustworthy evidence
 
 Limitations:
-- the topic currently draws more from cross-topic synthesis than from a single dense benchmark literature of its own
+- the topic currently draws more from cross-topic synthesis and practitioner clustering than from a single dense benchmark literature of its own
 - more direct sources on runtime evidence management and trace interpretation would strengthen the page
 - benchmark formalization for this topic remains underdeveloped
+
+Additional note:
+- the newly ingested 52pojie / Kanxue cluster materially strengthens the page’s practitioner evidence base, especially for web JS runtime reversing, Frida-heavy mobile workflows, and trace-guided anti-analysis work
 
 Overall assessment:
 - this topic is mature enough to serve as a core recovery-and-workflow bridge page in V1 of the KB
