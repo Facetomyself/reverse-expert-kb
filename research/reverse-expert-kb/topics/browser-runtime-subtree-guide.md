@@ -159,6 +159,7 @@ Read this when the main problem is:
 Current concrete notes:
 - `topics/reese84-and-utmvc-workflow-note.md`
 - `topics/datadome-geetest-kasada-workflow-note.md`
+- `topics/datadome-cookie-challenge-workflow-note.md`
 - `topics/geetest-v4-w-parameter-and-validate-workflow-note.md`
 - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
 - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
