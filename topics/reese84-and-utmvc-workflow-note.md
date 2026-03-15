@@ -80,11 +80,13 @@ Capture:
 - when the field first appears
 - whether it changes between retries
 - whether it is linked to challenge or navigation transitions
+- for `___utmvc`-side cases, whether `_Incapsula_Resource` is the bootstrap script URL, the first POST consumer, or both
 
 Useful outputs from this step:
 - a shortlist of candidate requests
 - a timeline of when the field is present / absent / changed
 - a basic session comparison table
+- one bootstrap-to-consumer chain for the current run
 
 Example comparison template:
 
@@ -103,16 +105,29 @@ run C: altered browser state / missing env assumption
   request Z -> field missing or malformed
 ```
 
+For `___utmvc`-style targets, also try to normalize a concrete path like:
+
+```text
+initial HTML / protected page
+  -> script src or inline bootstrap references /_Incapsula_Resource
+  -> challenge script unwraps into real JS
+  -> document.cookie writes ___utmvc=...
+  -> POST or follow-up request to /_Incapsula_Resource consumes that state
+  -> first protected request changes server behavior
+```
+
 This already tells you whether the field is:
 - load-time generated
 - retry-sensitive
 - challenge-sensitive
 - environment-sensitive
+- serving as a bootstrap cookie versus a later request-coupled payload
 
-### Step 2: find the write site, not just string references
+### Step 2: find the bootstrap and write site, not just string references
 Do not begin with “search all JS for the token name” unless the field name is truly stable and unique.
 
 Higher-yield entry points are usually:
+- challenge script URL discovery in HTML or initial responses
 - cookie write sites
 - header/body construction sites
 - network wrapper functions
@@ -120,6 +135,8 @@ Higher-yield entry points are usually:
 - setters called right before request dispatch
 
 Typical browser observation strategy:
+- if the family looks Imperva/Incapsula-like, first search for `/_Incapsula_Resource` in the page or response stream
+- breakpoint on the bootstrap response / eval / unwrap boundary when the challenge script is served as an obfuscated blob
 - breakpoint on `document.cookie` setter path if cookie-backed
 - breakpoint around request construction wrappers (`fetch`, `XMLHttpRequest`, custom wrapper)
 - breakpoint on response handlers if server response triggers refresh
@@ -127,25 +144,29 @@ Typical browser observation strategy:
 
 Why this works:
 - the final attachment point is often much easier to find than the buried transform core
+- bootstrap script entry is often easier to localize than the full token algorithm
 - once the final write site is found, stack-walking often reveals the generation chain quickly
 
 ### Step 3: classify the chain stage you are seeing
 When you hit a suspicious function, ask:
+- is this locating or unwrapping the bootstrap script?
 - is this collecting inputs?
 - is this transforming inputs?
 - is this formatting or encoding output?
 - is this only attaching an already-generated value?
+- is this a response-driven refresh rather than first generation?
 
 This avoids confusing final serialization code for the real token logic.
 
 A useful minimal staging model is:
 
 ```text
-browser state / fingerprint inputs
+bootstrap script / response seed
+    -> browser state / fingerprint inputs
     -> wrapper collection layer
     -> transform / mix / encode layer
-    -> request-attachment layer
-    -> network emission
+    -> cookie or request-attachment layer
+    -> network emission / first consumer request
 ```
 
 ## 5. Breakpoint and inspection strategy
@@ -192,6 +213,18 @@ Look for:
 - feature collection bundles
 - navigator / screen / timing / canvas / webgl / storage usage
 - collection objects passed downstream into a token builder
+
+### E. Bootstrap unwrap / response-seeded refresh points
+Use when:
+- the target script is delivered as a challenge/bootstrap resource rather than as a stable static bundle
+- `___utmvc` or related cookie state seems to appear only after a bootstrap response
+- you suspect the current run is on a refresh path rather than the first-generation path
+
+Look for:
+- script URL discovery in initial HTML (`/_Incapsula_Resource`-style anchors for Imperva-family cases)
+- hex/blob decode boundaries before readable JS appears
+- `eval` or equivalent unwrap boundaries that convert a response blob into a running challenge script
+- response handlers that rewrite cookie state or restart the loop after the first consumer request
 
 ## 6. Compare-run methodology
 A single run is usually too misleading for this family.
@@ -277,10 +310,12 @@ Likely causes:
 - response-driven refresh
 - hidden challenge state
 - time/state inputs not captured
+- the first successful request was only a bootstrap consumer and not the steady-state protected request
 
 Next move:
 - compare first-generation vs second-generation call stacks
 - inspect response handlers and state updates between the two
+- verify whether the first meaningful consumer is `_Incapsula_Resource`, the protected endpoint, or a later request family
 
 ### Failure mode 2: externalized harness output is structurally similar but rejected
 Likely causes:
@@ -363,6 +398,11 @@ Primary grounding for this note comes from the manually curated practitioner clu
 - browser fingerprint parameter generation
 - browser environment reconstruction
 - CDP/debugger-assisted browser reversing
+
+This run also strengthened the page with a more concrete Imperva/Incapsula-oriented source cluster:
+- `sources/browser-runtime/2026-03-16-reese84-utmvc-bootstrap-and-first-consumer-notes.md`
+- Yoghurtbot’s `___utmvc` deobfuscation writeup, which gives a practical `_Incapsula_Resource` bootstrap anchor and concrete unwrap/decode cues
+- supporting confirmation from a commercial `___utmvc` integration doc that searching HTML for a `/_Incapsula_Resource` script URL is often a useful first localization step
 
 This page is still a synthesis note rather than a single-target lab notebook, but it is intentionally much closer to concrete practice than a generic taxonomy page.
 

@@ -156,6 +156,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - concrete widget/session/iframe lifecycle practice (`cloudflare-turnstile-widget-lifecycle-workflow-note`, `arkose-funcaptcha-session-and-iframe-workflow-note`, `hcaptcha-callback-submit-and-siteverify-workflow-note`, and `recaptcha-v3-and-invisible-workflow-note`)
 - concrete clearance-cookie / HTML-seeding / first-consumer practice (`cloudflare-clearance-cookie-and-js-challenge-workflow-note`)
 - concrete cookie-bootstrap / consumer-path practice (`acw-sc-v2-cookie-bootstrap-and-consumer-path-note`)
+- concrete Imperva-family bootstrap / `_Incapsula_Resource` / first-consumer practice (`reese84-and-utmvc-workflow-note`)
 - concrete request-signature-family practice (`bytedance-web-request-signature-workflow-note`, `tiktok-web-signature-workflow-note`)
 - concrete served-player / transform-chain / throttling-diagnosis practice (`youtube-player-signature-and-nsig-workflow-note`)
 - concrete sensor-submission / cookie-validation practice (`akamai-sensor-submission-and-cookie-validation-workflow-note`)
