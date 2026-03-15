@@ -164,6 +164,8 @@ Current concrete notes:
 - `topics/environment-differential-diagnosis-workflow-note.md`
 - `topics/android-network-trust-and-pinning-localization-workflow-note.md`
 - `topics/cronet-request-ownership-and-mixed-stack-diagnosis-workflow-note.md`
+- `topics/webview-native-mixed-request-ownership-workflow-note.md`
+- `topics/webview-native-bridge-payload-recovery-workflow-note.md`
 
 Read `mobile-signature-location-and-preimage-recovery-workflow-note` when the main problem is:
 - you have one app-side signature or anti-risk field and need a concrete first-pass workflow
@@ -199,6 +201,11 @@ Read `webview-native-mixed-request-ownership-workflow-note` when the main proble
 - the app is hybrid and both WebView/page logic and native code appear to touch the same backend or request family
 - you need to separate intent owner, bridge boundary, transport owner, and response consumer
 - you need WebView/native ownership diagnosis before committing to page-only hooks, native-only hooks, trust-path localization, or signature recovery
+
+Read `webview-native-bridge-payload-recovery-workflow-note` when the main problem is:
+- hybrid ownership is already suspected and the next bottleneck is recovering what actually crosses the WebView/native bridge
+- you need to distinguish object bridges, message-channel bridges, and custom-URL/navigation handoff
+- you need payload-shape capture before native normalization, request ownership, signing, or trust-path analysis
 
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:
