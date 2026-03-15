@@ -190,6 +190,11 @@ Read `attestation-verdict-to-policy-state-workflow-note` when the main problem i
 - you need to separate verdict decode, verdict-to-policy mapping, and retry/fallback handling instead of stopping at the first attestation callback
 - you need to prove which state write, gate, or scheduler actually changes later behavior before deepening challenge-loop, trust-drift, or request-consequence analysis
 
+Read `result-code-and-enum-to-policy-mapping-workflow-note` when the main problem is:
+- parsed objects or callbacks already expose one or more result codes / enums, but the reduction from those values into a smaller local policy bucket is still unclear
+- decompiled output looks flattened or misleading and you may need switch-reconstruction-first reasoning instead of more parser hooks
+- you need to separate raw code visibility, normalization, policy mapping, and scheduler/state consequences before deeper challenge-loop or attestation-consequence work
+
 Read `android-observation-surface-selection-workflow-note` when the main problem is:
 - direct app-layer hooks are weak, detected, or semantically unhelpful
 - you need to choose among linker / Binder / eBPF / trace-oriented observation surfaces
