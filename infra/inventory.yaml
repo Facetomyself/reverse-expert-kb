@@ -16,8 +16,8 @@ hosts:
       projects: infra/hosts/oracle-proxy/PROJECTS.md
 
   - name: oracle-docker-proxy
-    ssh_alias: unknown
-    provider: oracle?
+    ssh_alias: oracle-docker_proxy
+    provider: oracle
     role:
       - shared-docker-proxy-host
       - registry-proxy-or-mirror

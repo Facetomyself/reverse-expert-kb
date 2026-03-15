@@ -43,3 +43,14 @@
   - Raw Brave-backed `web_search` is currently unavailable/unconfigured here; prefer the `search-layer` skill path for research.
   - `web_fetch` is unreliable for some academic/PDF/anti-bot sources and some Chinese content platforms; prefer HTML landing pages, abstracts, GitHub pages, and official docs when readable extraction matters.
   - For GitHub work on this host, `gh` is old enough that newer examples/subcommands/JSON fields may fail; verify locally instead of assuming current upstream CLI behavior.
+  - Host inventory correction: SSH alias `oracle-open_claw` / IP `64.110.106.11` is this local machine, not a separate remote Oracle host to audit next. The Cloudflare export note on `dev.zhangxuemin.work` (`n8n`) is stale and should not be treated as current role truth without fresh verification.
+
+- 2026-03-15: Tavily proxy/search-layer integration is now wired end-to-end.
+  - On oracle-proxy, the Tavily proxy Web console runs at `http://proxy.zhangxuemin.work:9874` with admin password `Zxm971004`.
+  - The Tavily registration pipeline is now connected to the proxy: historical keys were imported, and newly registered keys auto-upload into the proxy pool.
+  - Inside the oracle-proxy registration container, the working proxy target is `PROXY_URL = "http://host.docker.internal:9874"`; for external/client use, prefer the public domain `http://proxy.zhangxuemin.work:9874`.
+  - On this host, `~/.openclaw/credentials/search.json` now configures Tavily for the `search-layer` skill in object form with:
+    - `apiUrl`: `http://proxy.zhangxuemin.work:9874/api`
+    - `apiKey`: the current Tavily proxy token
+  - `skills/search-layer/scripts/search.py` was updated to support Tavily object credentials (`apiUrl` + `apiKey`) and a custom Tavily base URL instead of assuming only the official `https://api.tavily.com` endpoint.
+  - Verified locally: `search.py --mode answer --source tavily` now returns results successfully through `proxy.zhangxuemin.work:9874`.
