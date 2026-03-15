@@ -1,0 +1,89 @@
+generated_at: 2026-03-15
+hosts:
+  - name: oracle-proxy
+    provider: oracle
+    ssh_alias: oracle-proxy
+    ip: 158.178.236.241
+    lifecycle: active
+    reachability: reachable
+    importance: tier1
+    roles:
+      - tavily-proxy
+      - tavily-registration
+      - grok-services
+      - cliproxy
+    notes:
+      - proxy.zhangxuemin.work is the primary documented domain
+      - heavily documented and currently operational
+
+  - name: oracle-docker-proxy
+    provider: oracle
+    ssh_alias: oracle-docker_proxy
+    ip: 129.150.61.78
+    lifecycle: active
+    reachability: reachable
+    importance: tier1
+    roles:
+      - registry-proxy
+      - registry-ui
+      - hubcmd-ui
+      - caddy-front-door
+    notes:
+      - registry-ui currently has OCI manifest compatibility issues
+      - Harbor files exist but Harbor runtime is inactive
+
+  - name: ali-cloud
+    provider: alibaba
+    ssh_alias: ali-cloud
+    ip: 106.15.239.221
+    lifecycle: active
+    reachability: reachable
+    importance: tier2
+    roles:
+      - 1panel
+      - easyimage
+      - camoufox-remote
+    notes:
+      - 1Panel controls host port 80
+      - camoufox websocket endpoint on 39222
+
+  - name: oracle-mail
+    provider: oracle
+    ssh_alias: oracle-mail
+    ip: 140.83.52.216
+    lifecycle: retired
+    reachability: reachable
+    importance: tier3
+    roles:
+      - former-mail-host
+      - retired-mailu
+      - retired-moemail
+    notes:
+      - dormant local mail stacks archived to /root/retired-services/2026-03-15/
+      - active temporary mail now handled by a Cloudflare-based deployment
+
+  - name: self-server
+    provider: unknown
+    ssh_alias: self-server
+    ip: 211.144.221.229
+    lifecycle: unknown
+    reachability: unreachable_from_openclaw
+    importance: tier3
+    roles:
+      - china-server
+    notes:
+      - TCP and SSH timeout observed on 2026-03-15
+      - likely network path / target availability issue, not SSH key mismatch
+
+  - name: oracle-open_claw
+    provider: oracle
+    ssh_alias: oracle-open_claw
+    ip: 64.110.106.11
+    lifecycle: active
+    reachability: local
+    importance: tier0
+    roles:
+      - current-openclaw-host
+    notes:
+      - this is the local machine, not a separate next remote audit target
+      - Cloudflare dev.zhangxuemin.work comment is stale

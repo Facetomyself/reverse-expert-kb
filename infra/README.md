@@ -72,4 +72,13 @@ infra/
 
 ## 当前覆盖
 
-- `oracle-proxy`：已建立第一版完整文档
+- `oracle-proxy`：已建立较完整文档
+- `oracle-docker-proxy`：已建立较完整文档
+- `ali-cloud`：已建立第一、二轮文档
+- `oracle-mail`：已建立首轮文档并标记为退役
+- `self-server`：已确认当前不可达
+- `oracle-open_claw`：已明确是本机，不作为下一台远程主机
+
+另见：
+- `infra/OVERVIEW.md` — 全局运维地图 / 状态总览
+- `infra/host-status.yaml` — 结构化主机状态表
