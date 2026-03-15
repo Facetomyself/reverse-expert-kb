@@ -208,6 +208,84 @@ Includes:
 - what mobile adds in local state richness and packaging constraints
 - how app-mediated loops differ from browser-mediated loops
 
+## 6A. Practical operator chain inside a mobile challenge case
+The challenge subtree is more useful when read as an operational chain rather than a loose collection of related notes.
+
+A common mobile case now fits this pattern:
+
+```text
+protected request or user action
+  -> trigger response or trigger-state write appears
+  -> response object / callback / verdict becomes visible
+  -> result codes / enums / sibling flags are reduced into a smaller local policy bucket
+  -> policy bucket drives challenge / retry / degrade / allow consequence
+  -> validation slice and post-validation refresh determine whether the loop exits or repeats
+```
+
+This matters because analysts often stop at the wrong layer:
+- they find the visible challenge and ignore the trigger
+- or they find the parsed response and ignore the first meaningful native consumer
+- or they find one result code and ignore the later reduction into a smaller policy bucket
+- or they validate one request and ignore the post-validation state refresh that actually decides whether the loop closes
+
+The subtree now supports a more disciplined read order:
+1. localize the trigger boundary
+2. localize the first meaningful response-side consumer
+3. localize result-code / enum-to-policy reduction if the consequence is still unclear
+4. model the validation slice and post-validation consequence
+5. compare runs at the boundary that first diverges, not only at the visible challenge artifact
+
+## 6B. Concrete scenario patterns the parent page should normalize
+The parent page should not remain purely abstract. The most reusable concrete scenario patterns now include:
+
+### Scenario 1: challenge appears after a previously normal request family
+Typical analyst object:
+- first trigger response
+- first local state write indicating `challenge_pending` or equivalent
+
+Best follow-on notes:
+- `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
+- `topics/mobile-response-consumer-localization-workflow-note.md`
+
+### Scenario 2: response object is visible, but the challenge consequence is still unexplained
+Typical analyst object:
+- parsed protobuf / JSON / callback payload already known
+- many consumers exist, but only one changes later behavior
+
+Best follow-on notes:
+- `topics/mobile-response-consumer-localization-workflow-note.md`
+- `topics/result-code-and-enum-to-policy-mapping-workflow-note.md`
+
+### Scenario 3: raw result codes are visible, but later challenge or retry behavior still differs
+Typical analyst object:
+- one or more result codes / enums / booleans are already visible
+- decompiled control flow looks flattened or misleading
+- the first app-local policy bucket is still unknown
+
+Best follow-on notes:
+- `topics/result-code-and-enum-to-policy-mapping-workflow-note.md`
+- `topics/attestation-verdict-to-policy-state-workflow-note.md`
+
+### Scenario 4: validation succeeds syntactically, but the loop still repeats or degrades
+Typical analyst object:
+- visible validation request appears correct
+- loop consequence differs across runs
+- post-validation state refresh, retry scheduler, or trust state is still unclear
+
+Best follow-on notes:
+- `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
+- `topics/environment-differential-diagnosis-workflow-note.md`
+
+### Scenario 5: same visible challenge, different outcomes across devices/sessions/setups
+Typical analyst object:
+- challenge artifact looks similar
+- later consequence differs
+- drift may be trust, session, environment, or observation driven
+
+Best follow-on notes:
+- `topics/environment-differential-diagnosis-workflow-note.md`
+- `topics/observation-distortion-and-misleading-evidence.md`
+
 ## 7. Analyst workflow implications
 This topic matters especially during:
 
@@ -237,12 +315,24 @@ Analysts need to preserve:
 - how retries or environment changes changed challenge behavior
 - which parts of acceptance logic remain local, remote, or ambiguous
 
+### Practical workflow implications now normalized in the subtree
+The challenge parent page should now steer analysts toward a narrower, more practical sequence of questions:
+- where was the first trigger boundary?
+- what was the first meaningful native consumer of the trigger response?
+- which result code / enum / sibling field combination collapsed into the first local policy bucket?
+- which state write, retry scheduler, or challenge bootstrap made that bucket operational?
+- what post-validation consequence proves the loop changed state rather than merely rendered UI?
+
+This moves the challenge branch away from generic “captcha analysis” and closer to real mobile operator workflow.
+
 ### Mistakes this topic helps prevent
 A strong verification-loop model helps avoid:
 - overfocusing on the challenge payload while ignoring its trigger conditions
 - replaying one step without understanding loop state
 - confusing local preprocessing with backend acceptance logic
 - treating retry-dependent or escalation-dependent behavior as random instability
+- stopping at parsed response visibility instead of locating the first consequence-driving consumer
+- stopping at one visible result code even though the real reduction into policy happens later
 
 ## 8. Evaluation dimensions
 The most important evaluation dimensions for this topic are:
@@ -281,6 +371,14 @@ Among these, the especially central dimensions are:
   - because browser and mobile verification workflows share structure while differing in local execution environment
 - `topics/environment-state-checks-in-protected-runtimes.md`
   - because environment-sensitive state often changes challenge issuance or acceptance behavior
+- `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
+  - because trigger localization and minimal-loop-slice selection are now the practical first entry surface for many live challenge cases
+- `topics/mobile-response-consumer-localization-workflow-note.md`
+  - because many challenge cases stall after response parsing until the first consequence-driving native consumer is localized
+- `topics/result-code-and-enum-to-policy-mapping-workflow-note.md`
+  - because challenge and retry behavior often stays unexplained until visible response fields are reduced into a smaller local policy bucket
+- `topics/environment-differential-diagnosis-workflow-note.md`
+  - because the same visible challenge often leads to different outcomes only when compared across devices, sessions, packaging states, or observation setups
 
 ### Depends on framework pages
 - `topics/expert-re-overall-framework.md`
@@ -296,9 +394,13 @@ Among these, the especially central dimensions are:
 - Which mobile challenge patterns are most structurally similar to browser-side captcha workflows?
 - How should the KB represent loops where the visible challenge is less important than the hidden trust-state transition that triggered it?
 - What evaluation language best captures partial but useful reconstruction of verification systems?
+- When should this parent page grow a dedicated child note for post-validation state refresh and delayed scheduler ownership?
+- When is a concrete compare-run note on policy-bucket differential diagnosis justified instead of continuing to enrich the existing challenge and environment workflow notes?
 
 ## 11. Suggested next expansions
-This topic may later split into several child pages:
+This topic may later split into several child pages, but only where a concrete operator workflow clearly justifies the split:
+- `topics/post-validation-state-refresh-and-delayed-consequence-workflow-note.md`
+- `topics/policy-bucket-compare-run-diagnosis-workflow-note.md`
 - `topics/browser-fingerprint-and-state-dependent-token-generation.md`
 - `topics/ebpf-seccomp-and-svc-tracing-for-mobile-re.md`
 - `topics/targeted-evidence-trust-calibration.md`
