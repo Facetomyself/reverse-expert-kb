@@ -213,6 +213,11 @@ Read `webview-native-bridge-payload-recovery-workflow-note` when the main proble
 - you need to distinguish object bridges, message-channel bridges, and custom-URL/navigation handoff
 - you need payload-shape capture before native normalization, request ownership, signing, or trust-path analysis
 
+Read `webview-cookie-header-bootstrap-handoff-workflow-note` when the main problem is:
+- page-side cookies, hidden bootstrap state, or JS-produced header material clearly influence native behavior
+- no explicit object bridge is visible, but native requests appear to consume page-seeded state
+- you need to localize the first native consumer through `CookieManager`, header merge/interceptor paths, or bootstrap-store reads before deeper signing or ownership work
+
 Read `webview-native-response-handoff-and-page-consumption-workflow-note` when the main problem is:
 - native code already retrieves or computes a meaningful result, but the decisive next behavior still happens on the page side
 - you need to distinguish `evaluateJavascript(...)`, message-channel posting, and reload/bootstrap refresh as native→page return families
