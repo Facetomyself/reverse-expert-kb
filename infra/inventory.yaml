@@ -39,3 +39,20 @@ hosts:
       host: infra/hosts/oracle-docker-proxy/HOST.md
       network: infra/hosts/oracle-docker-proxy/NETWORK.md
       projects: infra/hosts/oracle-docker-proxy/PROJECTS.md
+
+  - name: oracle-mail
+    ssh_alias: oracle-mail
+    provider: oracle
+    role:
+      - mail-host
+      - dormant-mailu-deployment
+      - moemail-working-tree
+    public_ip: 140.83.52.216
+    domains:
+      - mail.zhangxuemin.work
+      - autoconfig.zhangxuemin.work
+      - autodiscover.zhangxuemin.work
+    docs:
+      host: infra/hosts/oracle-mail/HOST.md
+      network: infra/hosts/oracle-mail/NETWORK.md
+      projects: infra/hosts/oracle-mail/PROJECTS.md

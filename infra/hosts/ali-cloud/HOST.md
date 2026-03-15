@@ -1,0 +1,45 @@
+# ali-cloud
+
+## 1. Identity
+- Host label: `ali-cloud`
+- Static hostname: `iZuf658qfolzlj2t1l53uyZ`
+- Provider: Alibaba Cloud ECS
+- Primary role: lightweight app host with 1Panel-managed app(s) and a standalone camoufox remote service
+- SSH alias: `ali-cloud`
+- Main purpose: 承载 1Panel、EasyImages 图床，以及一个独立的 `camoufox-remote` 浏览器/自动化服务
+
+## 2. System Baseline
+- OS: Ubuntu 24.04.3 LTS
+- Kernel: `6.8.0-90-generic`
+- Architecture: `x86_64`
+- Hardware vendor: Alibaba Cloud
+- Hardware model: Alibaba Cloud ECS
+
+## 3. Usage Pattern
+- Host style: control-panel-managed pet host
+- Change sensitivity: medium; at least one app is managed through 1Panel app lifecycle
+- Operational preference: distinguish 1Panel-managed assets from manually deployed assets before making changes
+
+## 4. Access Notes
+- Main SSH alias: `ali-cloud`
+- Expected user: `root`
+- SSH auth: key-based login via local SSH config entry using `IdentityFile ~/.ssh/ali-cloud`
+
+## 5. High-Level Service Map
+Current observed runtime:
+- `1panel.service` active
+- `easyimage` container active on `10086`
+- `camoufox-remote` container active on `39222`
+- host port `80` is owned by `1panel`
+
+## 6. Machine-Level Infrastructure Notes
+- 1Panel is installed under `/opt/1panel`
+- 1Panel database present at `/opt/1panel/db/1Panel.db`
+- 1Panel logs under `/opt/1panel/log/`
+- `camoufox-remote` appears manually deployed under `/opt/camoufox-remote`
+
+## 7. Documentation Scope
+This host should document:
+- 1Panel itself as the machine control plane
+- EasyImages app deployment under 1Panel
+- standalone camoufox remote service
