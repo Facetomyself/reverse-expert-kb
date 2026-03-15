@@ -207,6 +207,21 @@ Think of it like a human reviewing their journal and updating their mental model
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 
+## Self-Improvement Triage
+
+When deciding where to record something in `.learnings/`, use this simple split:
+
+- **It failed / broke / returned unexpected behavior** → log to `.learnings/ERRORS.md`
+- **We learned a rule, correction, better approach, or important constraint** → log to `.learnings/LEARNINGS.md`
+- **The human wants a capability that does not exist yet** → log to `.learnings/FEATURE_REQUESTS.md`
+
+Quick rule:
+- "It should have worked, but didn't" = error
+- "Now we know how to do this better next time" = learning
+- "We want this ability in the future" = feature request
+
+If a situation contains both a failure and a durable lesson, record the failure first, then promote the prevention rule into `LEARNINGS.md` / `TOOLS.md` / `AGENTS.md` / `MEMORY.md` as appropriate.
+
 ## Research / Source Collection Rules
 
 For recurring research and knowledge-base work on this host:
