@@ -208,6 +208,7 @@ Includes:
   - `topics/datadome-geetest-kasada-workflow-note.md`
   - `topics/datadome-cookie-challenge-workflow-note.md`
   - `topics/geetest-v4-w-parameter-and-validate-workflow-note.md`
+  - `topics/slider-captcha-state-capture-and-trace-comparison-workflow-note.md`
   - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
   - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
   - `topics/hcaptcha-callback-submit-and-siteverify-workflow-note.md`
