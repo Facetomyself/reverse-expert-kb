@@ -199,3 +199,26 @@ If you want the **lowest-risk first wave**, do this order:
 5. Audit `backup` and `pend`
 
 That gives the best ratio of cleanup value to breakage risk.
+
+### Practical recommendation right now
+Based on current host audit + Cloudflare Email Routing docs:
+
+#### Safe to preserve
+- Cloudflare MX records for `zhangxuemin.work`
+- SPF records supporting current Cloudflare / SES paths
+- current active infra hostnames (`proxy`, `hub`, `ghcr`, `gcr`, `quay`, `k8sgcr`, `mcr`, `nvcr`, `elastic`, `hubcmd`)
+
+#### Very likely first deletion/repoint candidates
+- `mail.zhangxuemin.work`
+- `autoconfig.zhangxuemin.work`
+- `autodiscover.zhangxuemin.work`
+- `_autodiscover._tcp.zhangxuemin.work`
+- `_imaps._tcp.zhangxuemin.work`
+- `_pop3s._tcp.zhangxuemin.work`
+- `_submissions._tcp.zhangxuemin.work`
+- `_25._tcp.mail.zhangxuemin.work` TLSA records
+
+#### Only keep the old mail-family records if ALL are true
+- you still have real mail clients configured against your own IMAP/POP3/SMTP hostnames
+- those clients still need autoconfiguration/discovery
+- you intend to revive or maintain a self-hosted mail stack instead of relying only on Cloudflare-side routing/forwarding

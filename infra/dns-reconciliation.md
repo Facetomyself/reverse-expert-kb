@@ -39,6 +39,12 @@
 
 ## 2. MX / mail-related reconciliation
 
+Important external-reference conclusion:
+- Cloudflare Email Routing documentation indicates the service requires appropriate `MX` and `TXT` records in DNS.
+- It does not, by itself, require legacy self-hosted mail client discovery records like `mail`, `autoconfig`, or `autodiscover` merely to forward mail.
+- That means the old self-hosted mail-family records should be evaluated as client-protocol compatibility records, not as core Cloudflare Email Routing requirements.
+
+
 | Record | Current reading | Status | Notes |
 |---|---|---|---|
 | `zhangxuemin.work MX -> route*.mx.cloudflare.net` | 指向 Cloudflare 邮件路由 | **看起来匹配当前策略** | 与“临时邮箱在 Cloudflare 侧”方向一致 |
