@@ -1,0 +1,16 @@
+hosts:
+  - name: oracle-proxy
+    ssh_alias: oracle-proxy
+    provider: oracle
+    role:
+      - reverse-proxy-adjacent-utility-host
+      - tavily-registration-and-proxy
+      - grok-related-services
+      - cli-proxy
+    public_ip: 158.178.236.241
+    domains:
+      - proxy.zhangxuemin.work
+    docs:
+      host: infra/hosts/oracle-proxy/HOST.md
+      network: infra/hosts/oracle-proxy/NETWORK.md
+      projects: infra/hosts/oracle-proxy/PROJECTS.md
