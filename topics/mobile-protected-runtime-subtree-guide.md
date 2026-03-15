@@ -207,6 +207,11 @@ Read `webview-native-bridge-payload-recovery-workflow-note` when the main proble
 - you need to distinguish object bridges, message-channel bridges, and custom-URL/navigation handoff
 - you need payload-shape capture before native normalization, request ownership, signing, or trust-path analysis
 
+Read `webview-native-response-handoff-and-page-consumption-workflow-note` when the main problem is:
+- native code already retrieves or computes a meaningful result, but the decisive next behavior still happens on the page side
+- you need to distinguish `evaluateJavascript(...)`, message-channel posting, and reload/bootstrap refresh as native→page return families
+- you need to separate outbound native emission from the first meaningful page callback, store, hidden-field, or request-helper consumer
+
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:
 - `sources/community-forums/2026-03-14-52pojie-kanxue-manual-curation.md`
