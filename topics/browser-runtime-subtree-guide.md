@@ -175,6 +175,7 @@ Current concrete notes:
 - `topics/youtube-player-signature-and-nsig-workflow-note.md`
 - `topics/akamai-sensor-submission-and-cookie-validation-workflow-note.md`
 - `topics/kasada-x-kpsdk-request-attachment-workflow-note.md`
+- `topics/perimeterx-human-cookie-collector-workflow-note.md`
 
 Read this branch when the main problem is:
 - you are working on a browser anti-bot or captcha family and need a concrete first-pass workflow
@@ -201,6 +202,4 @@ Its pages should be read as a coordinated set of analyst entry surfaces into bro
 - interaction workflow recovery
 - instrumentation / observability
 - environment reconstruction
-- mixed-runtime semanticson
-- mixed-runtime semanticsson
 - mixed-runtime semantics
