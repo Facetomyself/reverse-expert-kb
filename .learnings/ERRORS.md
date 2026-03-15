@@ -656,3 +656,33 @@ When collecting practitioner material for Chinese reverse-engineering targets in
 - See Also: ERR-20260315-001, ERR-20260315-003
 
 ---
+## [ERR-20260315-001] registry-ui-live-debug-container-stopped
+
+**Logged**: 2026-03-15T12:00:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+A live-debug command path for `registry-ui` failed because the target container transitioned to stopped state between earlier inspection and later `docker exec` probes.
+
+### Error
+```
+cannot exec in a stopped state: unknown
+```
+
+### Context
+- Operation attempted: deeper in-container probing with `docker exec registry-ui ...`
+- Environment: `oracle-docker_proxy` on host `24-7-10-2055`
+- Prior state: `registry-ui` had been running earlier and exposed via host port `50000`
+- Follow-up evidence: public `ui.zhangxuemin.work` had already been returning `502`, and earlier local probing saw connection reset behavior
+
+### Suggested Fix
+Before using `docker exec` in iterative diagnostics, re-check container liveness with `docker ps -a --filter name=<container>` or `docker inspect ... .State.Status`. For unstable services, capture status + logs first, then exec only if still running.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: infra/hosts/oracle-docker-proxy/projects/registry-ui.md
+- See Also: none
+
+---
