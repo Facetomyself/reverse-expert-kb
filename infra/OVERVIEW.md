@@ -184,9 +184,12 @@
 - 那台机器现在是否真的提供该服务
 - 哪些 DNS 记录已经陈旧
 
+当前这一步已经落地到：`infra/dns-reconciliation.md`
+
 ---
 
 ## 6. Cross-links
 - Host inventory: `infra/inventory.yaml`
 - Machine status table: `infra/host-status.yaml`
+- DNS reconciliation: `infra/dns-reconciliation.md`
 - Per-host runbooks under `infra/hosts/`
