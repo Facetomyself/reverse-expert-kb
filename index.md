@@ -175,12 +175,13 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
 - `topics/android-network-trust-and-pinning-localization-workflow-note.md`
 
-This subtree is now best read as five coordinated mobile analyst entry surfaces:
+This subtree is now best read as six coordinated mobile analyst entry surfaces:
 - observability under resistance (`anti-frida-and-anti-instrumentation-practice-taxonomy`, `android-linker-binder-ebpf-observation-surfaces`, `android-observation-surface-selection-workflow-note`, and `trace-guided-and-dbi-assisted-re`)
 - environment and evidence trust (`environment-state-checks-in-protected-runtimes`, `environment-differential-diagnosis-workflow-note`, and `observation-distortion-and-misleading-evidence`)
 - request-shaping and signature recovery (`mobile-signing-and-parameter-generation-workflows` and `mobile-signature-location-and-preimage-recovery-workflow-note`)
 - distributed risk / challenge workflows (`mobile-risk-control-and-device-fingerprint-analysis`, `mobile-challenge-and-verification-loop-analysis`, and `mobile-challenge-trigger-and-loop-slice-workflow-note`)
 - network trust-path localization (`android-network-trust-and-pinning-localization-workflow-note`), which acts as the practical entry note when the first bottleneck is routing-vs-trust-vs-native-validation diagnosis rather than parameter recovery or challenge-loop analysis
+- request-ownership and mixed-stack diagnosis (`cronet-request-ownership-and-mixed-stack-diagnosis-workflow-note`), which acts as the practical entry note when Java-visible request assembly no longer matches the true transport owner and the analyst must separate plain OkHttp, OkHttp-plus-Cronet, direct Cronet/native, and mixed-family ownership before going deeper
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.

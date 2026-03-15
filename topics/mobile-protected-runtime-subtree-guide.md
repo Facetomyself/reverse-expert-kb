@@ -163,6 +163,7 @@ Current concrete notes:
 - `topics/android-observation-surface-selection-workflow-note.md`
 - `topics/environment-differential-diagnosis-workflow-note.md`
 - `topics/android-network-trust-and-pinning-localization-workflow-note.md`
+- `topics/cronet-request-ownership-and-mixed-stack-diagnosis-workflow-note.md`
 
 Read `mobile-signature-location-and-preimage-recovery-workflow-note` when the main problem is:
 - you have one app-side signature or anti-risk field and need a concrete first-pass workflow
@@ -188,6 +189,11 @@ Read `android-network-trust-and-pinning-localization-workflow-note` when the mai
 - the app’s decisive request path is blocked by routing, TLS trust, or certificate pinning uncertainty
 - you need to distinguish OkHttp/Java trust paths from Cronet/Flutter/native validation paths
 - you need stack-classification-first reasoning, trust-registration anchors, and failure diagnosis for partial/unreliable universal bypass coverage
+
+Read `cronet-request-ownership-and-mixed-stack-diagnosis-workflow-note` when the main problem is:
+- Java-visible OkHttp/Retrofit request assembly no longer matches the real transport behavior of the target request
+- you need to tell whether the case is plain OkHttp, OkHttp-plus-Cronet transport, direct Cronet/native, or mixed by request family
+- you need owner-selection-boundary reasoning before committing to deeper trust hooks, native tracing, or signature-path recovery
 
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:
