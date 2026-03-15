@@ -192,4 +192,6 @@
 - Host inventory: `infra/inventory.yaml`
 - Machine status table: `infra/host-status.yaml`
 - DNS reconciliation: `infra/dns-reconciliation.md`
+- DNS cleanup plan: `infra/dns-cleanup-plan.md`
+- DNS first wave: `infra/dns-first-wave.md`
 - Per-host runbooks under `infra/hosts/`

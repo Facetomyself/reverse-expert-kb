@@ -82,3 +82,6 @@ infra/
 另见：
 - `infra/OVERVIEW.md` — 全局运维地图 / 状态总览
 - `infra/host-status.yaml` — 结构化主机状态表
+- `infra/dns-reconciliation.md` — DNS / 主机 / 服务对账
+- `infra/dns-cleanup-plan.md` — DNS 清理执行计划
+- `infra/dns-first-wave.md` — 第一波 DNS 变更清单
