@@ -171,6 +171,7 @@ Current concrete notes:
 - `topics/bytedance-web-request-signature-workflow-note.md`
 - `topics/tiktok-web-signature-workflow-note.md`
 - `topics/xiaohongshu-web-signature-workflow-note.md`
+- `topics/youtube-player-signature-and-nsig-workflow-note.md`
 - `topics/akamai-sensor-submission-and-cookie-validation-workflow-note.md`
 - `topics/kasada-x-kpsdk-request-attachment-workflow-note.md`
 
