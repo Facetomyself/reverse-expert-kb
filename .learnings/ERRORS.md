@@ -716,3 +716,32 @@ Before using `docker exec` in iterative diagnostics, re-check container liveness
 - See Also: none
 
 ---
+
+## [ERR-20260315-001] search-layer-grok
+
+**Logged**: 2026-03-15T09:16:00Z
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Grok backend in search-layer returned empty/non-JSON output during KB research search, while Tavily still produced usable results.
+
+### Error
+```
+[grok] error: Expecting value: line 1 column 1 (char 0)
+```
+
+### Context
+- Command/operation attempted: search-layer search.py deep tutorial query for reCAPTCHA workflow research
+- Input or parameters used: --source grok,tavily with three reCAPTCHA-focused queries
+- Environment details if relevant: OpenClaw workspace hourly KB maintenance run
+
+### Suggested Fix
+Treat Grok as degraded for this run; continue with Tavily/official docs and inspect Grok response handling later if recurrence continues.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: skills/search-layer/scripts/search.py
+
+---
