@@ -53,10 +53,24 @@ Likely represented by:
 ## Known issue
 - `ui.zhangxuemin.work` -> `localhost:50000` currently fails locally with `Recv failure: Connection reset by peer`, which aligns with the external `HTTP 502` from Caddy.
 
+## Harbor stack / adjacent deployment clue
+On-host, a full Harbor deployment tree exists under `/root/harbor`, including:
+- `/root/harbor/docker-compose.yml`
+- `/root/harbor/harbor.yml`
+- `/root/harbor/common/...`
+
+This suggests the machine may have both:
+- a custom Caddy-fronted registry-proxy stack (`dqzboy/registry`, `registry-ui`, `hubcmd-ui`)
+- and a Harbor deployment footprint using `/data/...`
+
+## Current project docs
+- `projects/caddy.md`
+- `projects/registry-proxies.md`
+- `projects/registry-ui.md`
+- `projects/hubcmd-ui.md`
+
 ## Next operational step
-Create project-specific docs under `infra/hosts/oracle-docker-proxy/projects/` for:
-- `caddy`
-- `registry-ui`
-- registry proxy stack
-- `hubcmd-ui`
-Then inspect `/root/harbor/docker-compose.yml` and related data volumes.
+Deepen the relationship between the custom registry proxy stack and `/root/harbor` by checking:
+- whether Harbor containers are currently running or dormant
+- how `/data/registry-proxy/*` relates to `/data/registry`
+- whether the registry UI issue is app-version/media-type related rather than infrastructure-level
