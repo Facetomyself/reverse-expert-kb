@@ -3,6 +3,36 @@
 Command failures, exceptions, and unexpected behaviors.
 
 ---
+## [ERR-20260315-006] web-fetch-doc-redirect-fragility-on-official-docs
+
+**Logged**: 2026-03-15T07:17:59Z
+**Priority**: low
+**Status**: pending
+**Area**: docs
+
+### Summary
+During reverse-expert-kb source gathering, `web_fetch` failed on some official documentation URLs because redirect chains exceeded the tool limit, even though the final canonical pages were public and readable when fetched directly.
+
+### Error
+```text
+web_fetch: Too many redirects (limit: 3)
+```
+
+### Context
+- Operation attempted: fetch Android Developers WebView bridge documentation and Android WebView API reference during hybrid WebView/native bridge workflow research
+- Initial URLs used stable official docs, but the fetcher hit redirect chains and aborted
+- Workaround used: continue with search-layer results and manually fetch the final canonical OWASP MASTG path directly when available
+- This is a source-access fragility issue, not a blocker for conservative KB synthesis
+
+### Suggested Fix
+When `web_fetch` hits redirect limits on official docs, try the final canonical path directly or fall back to search-layer/result snippets instead of retrying the same redirecting URL.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/
+- See Also: ERR-20260315-003
+
+---
 ## [ERR-20260315-005] exact-edit-miss-on-drifted-kb-navigation
 
 **Logged**: 2026-03-15T10:19:30+08:00
