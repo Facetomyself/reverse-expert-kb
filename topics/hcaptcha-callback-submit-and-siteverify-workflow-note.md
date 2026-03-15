@@ -22,6 +22,7 @@ In practice, the more useful object is the workflow boundary chain:
 - execute timing or passive challenge start
 - callback or hidden-field token handoff
 - host-page submit / AJAX consumer path
+- first accepted consumer request
 - backend siteverify or app verification outcome
 - expiration / retry / local-validation transitions
 
@@ -153,6 +154,38 @@ request role:
 backend verify:
   server calls /siteverify with response=<token>
 ```
+
+### Step 4A: identify the first accepted consumer request
+Do not stop at the first form submit or AJAX request that merely carries the token.
+A recurring practical boundary is the **first later request, redirect, or state refresh that becomes accepted only after the hCaptcha transition succeeds**.
+
+What to record:
+- whether the token-carrying request itself returns the final allow/deny decision or only refreshes trust state
+- which later request, route, or AJAX family first stops failing, degrading, or looping
+- whether accepted and failed runs diverge first at token submission time or only one step later
+- whether local validation, callback success, and backend verify all look correct while the protected action still fails downstream
+
+Representative compare-run sketch:
+```text
+run A:
+  callback(token)
+  POST /login carries h-captcha-response
+  redirect to /account succeeds
+
+run B:
+  callback(token)
+  POST /login carries h-captcha-response
+  redirect to /account returns challenge / degraded state
+
+practical reading:
+  callback and submit visibility were not enough;
+  the first accepted consumer request localized the real acceptance boundary
+```
+
+Why this matters:
+- some targets use the token-carrying submit as a validation/update edge rather than the true protected consumer
+- the first accepted downstream consumer often gives the cleanest compare-run evidence
+- this keeps the workflow aligned with the KB-wide four-boundary chain rather than stopping at token appearance or submission
 
 ### Step 5: map failure transitions
 Treat hCaptcha as a small state machine.
