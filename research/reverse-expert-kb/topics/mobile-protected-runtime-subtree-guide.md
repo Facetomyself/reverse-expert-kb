@@ -195,6 +195,12 @@ Read `result-code-and-enum-to-policy-mapping-workflow-note` when the main proble
 - decompiled output looks flattened or misleading and you may need switch-reconstruction-first reasoning instead of more parser hooks
 - you need to separate raw code visibility, normalization, policy mapping, and scheduler/state consequences before deeper challenge-loop or attestation-consequence work
 
+Together, the challenge-facing middle layer of the mobile subtree now reads as:
+- `mobile-challenge-trigger-and-loop-slice-workflow-note` for trigger boundary and minimal loop-slice selection
+- `mobile-response-consumer-localization-workflow-note` for parser/callback/state-consumer localization after the trigger response is known
+- `result-code-and-enum-to-policy-mapping-workflow-note` for the narrower reduction from visible fields into the first app-local policy bucket
+- `environment-differential-diagnosis-workflow-note` when the same visible challenge or response family still diverges across devices, sessions, packaging states, or observation setups
+
 Read `android-observation-surface-selection-workflow-note` when the main problem is:
 - direct app-layer hooks are weak, detected, or semantically unhelpful
 - you need to choose among linker / Binder / eBPF / trace-oriented observation surfaces
