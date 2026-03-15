@@ -78,6 +78,7 @@ Current observed state:
 ### Symptom: `ui.zhangxuemin.work` returns `502`
 Known current explanation:
 - backend on `127.0.0.1:50000` is not serving healthy HTTP responses consistently
+- service may also fully stop/crash during failure windows
 
 ### Symptom: tag detail page crashes
 Observed pattern:
@@ -98,4 +99,6 @@ Interpretation:
 - Depends on `reg-docker-hub`
 
 ## 13. Change History
+- 2026-03-15: First documented from inspect/log analysis; known unhealthy state recorded.
+ History
 - 2026-03-15: First documented from inspect/log analysis; known unhealthy state recorded.

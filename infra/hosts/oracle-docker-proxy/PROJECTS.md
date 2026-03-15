@@ -59,9 +59,14 @@ On-host, a full Harbor deployment tree exists under `/root/harbor`, including:
 - `/root/harbor/harbor.yml`
 - `/root/harbor/common/...`
 
-This suggests the machine may have both:
+Important current conclusion:
+- Harbor deployment files and data paths exist
+- but no Harbor containers are currently running
+- the currently exposed registry services are the custom Caddy-fronted `dqzboy/*` stack, not active Harbor runtime containers
+
+This suggests the machine has both:
 - a custom Caddy-fronted registry-proxy stack (`dqzboy/registry`, `registry-ui`, `hubcmd-ui`)
-- and a Harbor deployment footprint using `/data/...`
+- and a dormant or at least currently inactive Harbor deployment footprint using `/data/...`
 
 ## Current project docs
 - `projects/caddy.md`

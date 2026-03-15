@@ -113,6 +113,24 @@ Check:
 
 ## 12. Dependencies / Cross-links
 - Fronted by `projects/caddy.md`
+- Coexists on the same host with a full Harbor installation footprint under `/root/harbor`, but the currently exposed `reg-*` containers are the custom `dqzboy/registry` stack rather than active Harbor containers
+
+## 13. Change History
+- 2026-03-15: First documented from container inspection.
+hostname fails
+Check:
+- Caddy hostname mapping
+- matching host port listener
+- target `reg-*` container status
+- corresponding `/data/registry-proxy/registry-*.yml`
+
+### Symptom: storage growth / cache confusion
+Check:
+- `/data/registry-proxy/registry/data`
+- whether shared storage layout is intentional and acceptable
+
+## 12. Dependencies / Cross-links
+- Fronted by `projects/caddy.md`
 - Likely related to Harbor stack under `/root/harbor`, but exact coupling still needs confirmation
 
 ## 13. Change History
