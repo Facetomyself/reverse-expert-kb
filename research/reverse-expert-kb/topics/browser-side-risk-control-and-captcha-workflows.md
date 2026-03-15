@@ -215,8 +215,9 @@ Includes:
   - `topics/akamai-sensor-submission-and-cookie-validation-workflow-note.md`
   - `topics/tiktok-web-signature-workflow-note.md`
   - `topics/xiaohongshu-web-signature-workflow-note.md`
+  - `topics/youtube-player-signature-and-nsig-workflow-note.md`
   - `topics/kasada-x-kpsdk-request-attachment-workflow-note.md`
-- `topics/perimeterx-human-cookie-collector-workflow-note.md`
+  - `topics/perimeterx-human-cookie-collector-workflow-note.md`
 
 ### 4. Replay, mutation, and environment-control workflows
 Includes:

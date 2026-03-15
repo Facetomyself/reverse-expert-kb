@@ -3,6 +3,36 @@
 Command failures, exceptions, and unexpected behaviors.
 
 ---
+## [ERR-20260315-005] exact-edit-miss-on-drifted-kb-navigation
+
+**Logged**: 2026-03-15T10:19:30+08:00
+**Priority**: low
+**Status**: pending
+**Area**: docs
+
+### Summary
+A precise `edit` call failed during reverse-expert-kb navigation updates because the expected bullet block in `index.md` had drifted and no longer matched the exact old text.
+
+### Error
+```text
+Could not find the exact text in /root/.openclaw/workspace/research/reverse-expert-kb/index.md.
+The old text must match exactly including all whitespace and newlines.
+```
+
+### Context
+- Operation attempted: insert the new YouTube workflow-note link into the browser subtree list in `index.md`
+- The failure did not block work; a targeted read of the surrounding section made it easy to repair with a second exact edit
+- This is a recurring workflow gotcha when repeatedly editing evolving Markdown indices with exact-match replacement
+
+### Suggested Fix
+When updating fast-moving KB navigation pages with `edit`, read the local surrounding block first or anchor on a smaller/more stable exact string instead of a larger assumed stanza.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/index.md
+- See Also: ERR-20260315-003
+
+---
 ## [ERR-20260315-003] host-research-source-access-fragility-cluster
 
 **Logged**: 2026-03-15T09:45:00+08:00

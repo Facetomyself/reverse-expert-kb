@@ -134,6 +134,7 @@ Priority 2 candidates include:
 - `topics/browser-request-finalization-backtrace-workflow-note.md`
 - `topics/bytedance-web-request-signature-workflow-note.md`
 - `topics/xiaohongshu-web-signature-workflow-note.md`
+- `topics/youtube-player-signature-and-nsig-workflow-note.md`
 - `topics/kasada-x-kpsdk-request-attachment-workflow-note.md`
 - `topics/perimeterx-human-cookie-collector-workflow-note.md`
 - `topics/cdp-guided-token-generation-analysis.md`
@@ -153,6 +154,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - concrete widget/session/iframe lifecycle practice (`cloudflare-turnstile-widget-lifecycle-workflow-note`, `arkose-funcaptcha-session-and-iframe-workflow-note`, and `hcaptcha-callback-submit-and-siteverify-workflow-note`)
 - concrete cookie-bootstrap / consumer-path practice (`acw-sc-v2-cookie-bootstrap-and-consumer-path-note`)
 - concrete request-signature-family practice (`bytedance-web-request-signature-workflow-note`, `tiktok-web-signature-workflow-note`)
+- concrete served-player / transform-chain / throttling-diagnosis practice (`youtube-player-signature-and-nsig-workflow-note`)
 - concrete sensor-submission / cookie-validation practice (`akamai-sensor-submission-and-cookie-validation-workflow-note`)
 - concrete request-role / `X-KPSDK-*` attachment / invisible-challenge practice (`kasada-x-kpsdk-request-attachment-workflow-note`)
 - concrete collector / cookie-refresh / first-consumer practice (`perimeterx-human-cookie-collector-workflow-note`)
