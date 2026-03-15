@@ -163,6 +163,7 @@ Current concrete notes:
 - `topics/geetest-v4-w-parameter-and-validate-workflow-note.md`
 - `topics/slider-captcha-state-capture-and-trace-comparison-workflow-note.md`
 - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
+- `topics/cloudflare-clearance-cookie-and-js-challenge-workflow-note.md`
 - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
 - `topics/hcaptcha-callback-submit-and-siteverify-workflow-note.md`
 - `topics/recaptcha-v3-and-invisible-workflow-note.md`
@@ -180,7 +181,7 @@ Current concrete notes:
 Read this branch when the main problem is:
 - you are working on a browser anti-bot or captcha family and need a concrete first-pass workflow
 - you need breakpoint placement, compare-run strategy, and harness externalization guidance
-- you need to distinguish whether the target is mainly state/sensor-driven, artifact/packing-driven, token-contract-driven, collector/cookie-refresh driven, request-signature-family driven, parameter-path-localization driven, or request-boundary-backtrace driven
+- you need to distinguish whether the target is mainly state/sensor-driven, artifact/packing-driven, token-contract-driven, collector/cookie-refresh driven, clearance-cookie / HTML-seeding driven, request-signature-family driven, parameter-path-localization driven, or request-boundary-backtrace driven
 - the issue is not abstract taxonomy but how to approach a real target family
 
 ## Suggested next expansions from this subtree
