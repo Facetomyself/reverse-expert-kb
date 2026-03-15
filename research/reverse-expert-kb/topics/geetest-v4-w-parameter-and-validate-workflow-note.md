@@ -214,6 +214,7 @@ What to record:
 Backend docs make the canonical server-side validation boundary explicit:
 - endpoint: `gcaptcha4.geetest.com/validate`
 - core fields: `lot_number`, `captcha_output`, `pass_token`, `gen_time`, `captcha_id`, `sign_token`
+- this is exactly why analysts should avoid collapsing the browser-side `w` problem into the later server validation contract
 
 That means a useful practical chain is:
 
@@ -460,3 +461,5 @@ widget mode + challenge timing
 ```
 
 It matters because analysts often stall at either “I saw the slider” or “I found an encrypted blob,” while the more useful answer is: this is when the challenge starts, this is where the answer is still structured, this is how success leaves the widget, this request redeems it, and this is where accepted and failed runs first diverged.
+seful answer is: this is when the challenge starts, this is where the answer is still structured, this is how success leaves the widget, this request redeems it, and this is where accepted and failed runs first diverged.
+uccess leaves the widget, this request redeems it, and this is where accepted and failed runs first diverged.
