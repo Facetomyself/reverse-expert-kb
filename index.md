@@ -152,7 +152,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - concrete mixed-runtime practice (`js-wasm-boundary-tracing`)
 - concrete widget/session/iframe lifecycle practice (`cloudflare-turnstile-widget-lifecycle-workflow-note`, `arkose-funcaptcha-session-and-iframe-workflow-note`, and `hcaptcha-callback-submit-and-siteverify-workflow-note`)
 - concrete cookie-bootstrap / consumer-path practice (`acw-sc-v2-cookie-bootstrap-and-consumer-path-note`)
-- concrete request-signature-family practice (`bytedance-web-request-signature-workflow-note`)
+- concrete request-signature-family practice (`bytedance-web-request-signature-workflow-note`, `tiktok-web-signature-workflow-note`)
 - concrete sensor-submission / cookie-validation practice (`akamai-sensor-submission-and-cookie-validation-workflow-note`)
 - concrete request-role / `X-KPSDK-*` attachment / invisible-challenge practice (`kasada-x-kpsdk-request-attachment-workflow-note`)
 - concrete collector / cookie-refresh / first-consumer practice (`perimeterx-human-cookie-collector-workflow-note`)
@@ -180,4 +180,4 @@ This subtree is now best read as four coordinated mobile analyst entry surfaces:
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.
-The more stable the KB becomes, the more this page should behave like a guide rather than a dump of links.an a dump of links. of links.. of links.. of links.
+The more stable the KB becomes, the more this page should behave like a guide rather than a dump of links.an a dump of links. of links.. of links.. of links.. of links.
