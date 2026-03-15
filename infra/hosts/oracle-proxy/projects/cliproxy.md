@@ -26,11 +26,18 @@ Observed deployment source:
 - Container command: `./CLIProxyAPI`
 - Container env observed:
   - `TZ=Asia/Shanghai`
+- Auth backend style: local file-based auth material under mounted auth directory
 - Consumers: local tooling such as summarize / OpenAI-compatible CLI clients on this host
 
 ## 5. Purpose and Workflow
 Acts as a stable compatibility layer so local tools can talk to one endpoint while upstream model/provider details stay abstracted.
 Likely use case on this host: local CLI tools target `http://proxy.zhangxuemin.work:8317/v1` instead of talking to upstream model services directly.
+
+Observed behavior from logs:
+- serves OpenAI-compatible `POST /v1/chat/completions`
+- requests are actively using OAuth-backed auth files
+- model examples seen in logs include `gpt-5.4`
+- auth refresh / onboarding logic exists for at least `codex` and `antigravity` providers
 
 ## 6. Configuration
 Known:
@@ -38,9 +45,20 @@ Known:
 - auth material directory on host: `/root/containers/cliproxy/auth-dir`
 - update helper script exists: `/root/update_cliproxy.sh`
 
+Known config shape from update script template:
+- `address`
+- `port`
+- `auth-dir`
+- `api-keys`
+- `debug`
+- `usage-statistics-enabled`
+
+Operational rule:
+- `auth-dir` contains highly sensitive OAuth/session material. Document its location, but do **not** copy file contents into notes or chat.
+
 Unknown / TBD:
-- full config schema of `config.yaml`
-- upstream provider mappings inside cliproxy
+- full upstream routing policy inside `config.yaml`
+- exact meaning of all provider-specific auth files
 
 ## 7. Operations
 
@@ -83,3 +101,4 @@ Check:
 
 ## 13. Change History
 - 2026-03-15: documented first-pass container and access information
+ss container and access information

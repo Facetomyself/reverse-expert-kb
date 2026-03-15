@@ -15,3 +15,7 @@
   - sing-box / xray machine-level network stack
   - grok2api compose/runtime details
   - cliproxy host-side config and mounts
+- Third-pass documentation improvements:
+  - cliproxy now documented as an OAuth/auth-file-backed OpenAI-compatible proxy with safe operational notes
+  - grok2api now documents health endpoints, OpenAPI surface, admin route families, and local persistence layout
+  - explicitly noted that auth/token material exists on-host and must not be copied into general infra notes
