@@ -25,6 +25,7 @@
 ## 4. Access Notes
 - Main SSH alias: `Unknown`
 - Expected user: `Unknown`
+- SSH reachability: host is reachable on SSH, but current attempt with `root@129.150.61.78` failed with `Permission denied (publickey,password)`
 - Discovery clue: Cloudflare DNS 中以下域名均指向 `129.150.61.78`
   - `backup.zhangxuemin.work`
   - `elastic.zhangxuemin.work`

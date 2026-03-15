@@ -26,11 +26,20 @@ Likely represented by:
 
 ## Current status
 - Host identity: not yet confirmed by SSH
-- Runtime topology: not yet confirmed
+- Runtime topology: partially inferred from external probes
+- Front-door reverse proxy: likely Caddy
 - Project docs: not yet created
 
+## Confirmed external behavior
+- `hub.zhangxuemin.work` returns `HTTP 200` behind Caddy
+- `ghcr.zhangxuemin.work` returns `HTTP 200` behind Caddy
+- `gcr.zhangxuemin.work` returns `HTTP 200` behind Caddy
+- `quay.zhangxuemin.work` returns `HTTP 200` behind Caddy
+- `ui.zhangxuemin.work` currently returns `HTTP 502` behind Caddy
+
 ## Next operational step
-SSH into the machine behind `129.150.61.78`, then create:
+Obtain the correct SSH identity/user for the machine behind `129.150.61.78`, then create:
 - project-specific docs under `infra/hosts/oracle-docker-proxy/projects/`
 - host-level service map
+- Caddy config and backend mapping
 - port-to-domain mapping
