@@ -175,6 +175,9 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/mobile-challenge-and-verification-loop-analysis.md`
 - `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
 - `topics/android-network-trust-and-pinning-localization-workflow-note.md`
+- `topics/cronet-request-ownership-and-mixed-stack-diagnosis-workflow-note.md`
+- `topics/webview-native-mixed-request-ownership-workflow-note.md`
+- `topics/webview-native-bridge-payload-recovery-workflow-note.md`
 
 This subtree is now best read as six coordinated mobile analyst entry surfaces:
 - observability under resistance (`anti-frida-and-anti-instrumentation-practice-taxonomy`, `android-linker-binder-ebpf-observation-surfaces`, `android-observation-surface-selection-workflow-note`, and `trace-guided-and-dbi-assisted-re`)
@@ -184,6 +187,7 @@ This subtree is now best read as six coordinated mobile analyst entry surfaces:
 - network trust-path localization (`android-network-trust-and-pinning-localization-workflow-note`), which acts as the practical entry note when the first bottleneck is routing-vs-trust-vs-native-validation diagnosis rather than parameter recovery or challenge-loop analysis
 - request-ownership and mixed-stack diagnosis (`cronet-request-ownership-and-mixed-stack-diagnosis-workflow-note`), which acts as the practical entry note when Java-visible request assembly no longer matches the true transport owner and the analyst must separate plain OkHttp, OkHttp-plus-Cronet, direct Cronet/native, and mixed-family ownership before going deeper
 - hybrid WebView/native ownership diagnosis (`webview-native-mixed-request-ownership-workflow-note`), which acts as the practical entry note when both page logic and native code appear to participate in the same backend behavior and the analyst must separate intent owner, bridge boundary, transport owner, and response consumer before deepening hooks
+- hybrid bridge payload recovery (`webview-native-bridge-payload-recovery-workflow-note`), which acts as the practical entry note when ownership is already suspected and the next bottleneck is recovering object-bridge, message-channel, or custom-URL handoff payloads before native normalization destroys structure
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.
