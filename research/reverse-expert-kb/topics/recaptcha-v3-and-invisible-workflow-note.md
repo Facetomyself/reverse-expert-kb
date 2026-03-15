@@ -25,6 +25,7 @@ The more useful object is the full workflow boundary chain:
 - callback, hidden-field, or direct-token handoff
 - first real host-page consumer
 - request carrying the token
+- first accepted consumer request
 - backend `siteverify` outcome
 - expiry, duplicate-use, score, and action mismatch diagnosis
 
@@ -172,7 +173,38 @@ backend expectations:
   score >= threshold
 ```
 
-### Step 5: classify backend verification failure mode
+### Step 5: identify the first accepted consumer request
+This family especially rewards separating the token-carrying request from the **first later request or route transition that actually benefits from acceptance**.
+
+What to record:
+- whether the request carrying the token is itself the decisive allow/deny edge or only the verification/update edge
+- which later request, redirect, SPA route, or data fetch first becomes accepted after successful verification
+- whether accepted and failed runs first diverge at the token-carrying request or at a later consumer request
+- for v3, whether the later consumer path changes because of score/action policy rather than raw token syntax
+
+Representative compare-run sketch:
+```text
+run A:
+  grecaptcha.execute(...).then(token)
+  POST /api/login carries recaptchaToken
+  follow-up GET /api/session accepted
+
+run B:
+  grecaptcha.execute(...).then(token)
+  POST /api/login carries recaptchaToken
+  follow-up GET /api/session denied / low-score-routed / challenged
+
+practical reading:
+  visible execute + token + submit were still not enough;
+  the first accepted consumer request localized the real policy consequence
+```
+
+Why this matters:
+- v3 especially can succeed syntactically while later policy still differs by `action`, score, hostname, or session context
+- invisible flows can verify cleanly yet still fail at the next route or request if host-page wiring remains incomplete
+- this boundary often provides the cleanest compare-run evidence for backend policy effects
+
+### Step 6: classify backend verification failure mode
 This family especially rewards separating client-side success from backend acceptance.
 
 Common backend-side causes:

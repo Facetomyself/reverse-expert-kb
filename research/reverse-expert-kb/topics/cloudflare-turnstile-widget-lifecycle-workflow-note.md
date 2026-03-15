@@ -19,6 +19,7 @@ The practical object is broader:
 - challenge execution timing
 - callback or hidden-field token handoff
 - application-side request submission
+- first accepted consumer request
 - backend validation outcome
 - reset / retry / timeout / expiration transitions
 
@@ -116,6 +117,38 @@ What to record:
 Why this matters:
 - a valid-looking token can still fail because the backend redemption contract is wrong, delayed, or replayed
 - a one-time token often creates misleading “worked once, failed later” evidence
+
+### Step 3A: identify the first accepted consumer request
+Do not stop at the first request that merely carries the token.
+In real targets, the decisive boundary is often the **first later request or navigation that stops being blocked, degraded, or empty because the token was accepted**.
+
+What to record:
+- the first request after solve/submit whose outcome changes materially
+- whether the page consumes only `cf-turnstile-response` or also session/form/runtime state
+- whether accepted and failed runs first diverge at the token-carrying request or only at a later consumer request
+- whether the page receives a success response but still needs a follow-up request, redirect, or state refresh before the protected action works
+
+Representative compare-run sketch:
+```text
+run A:
+  callback(token)
+  POST /signup carries cf-turnstile-response
+  follow-up POST /api/account accepted
+
+run B:
+  callback(token)
+  POST /signup carries cf-turnstile-response
+  follow-up POST /api/account still blocked / empty / challenged
+
+practical reading:
+  token submission visibility alone was not enough;
+  the first accepted consumer request localized the true boundary
+```
+
+Why this matters:
+- some pages treat the token-carrying submit as only a refresh/validation edge
+- the practical analyst question is often which later request actually benefits from that transition
+- this boundary is where accepted and failed runs frequently become easiest to compare
 
 ### Step 4: map lifecycle transitions
 Treat Turnstile as a small state machine.

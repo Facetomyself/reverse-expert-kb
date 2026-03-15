@@ -182,6 +182,7 @@ Read this branch when the main problem is:
 - you are working on a browser anti-bot or captcha family and need a concrete first-pass workflow
 - you need breakpoint placement, compare-run strategy, and harness externalization guidance
 - you need to distinguish whether the target is mainly state/sensor-driven, artifact/packing-driven, token-contract-driven, collector/cookie-refresh driven, clearance-cookie / HTML-seeding driven, request-signature-family driven, parameter-path-localization driven, or request-boundary-backtrace driven
+- you need to localize the boundary chain from visible artifact to first accepted consumer request rather than stopping at token/cookie visibility
 - the issue is not abstract taxonomy but how to approach a real target family
 
 ## Suggested next expansions from this subtree
