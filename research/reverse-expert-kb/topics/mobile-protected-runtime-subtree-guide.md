@@ -165,6 +165,7 @@ Current concrete notes:
 - `topics/android-network-trust-and-pinning-localization-workflow-note.md`
 - `topics/cronet-request-ownership-and-mixed-stack-diagnosis-workflow-note.md`
 - `topics/webview-native-mixed-request-ownership-workflow-note.md`
+- `topics/webview-custom-scheme-and-navigation-handoff-workflow-note.md`
 - `topics/webview-native-bridge-payload-recovery-workflow-note.md`
 
 Read `mobile-signature-location-and-preimage-recovery-workflow-note` when the main problem is:
@@ -201,6 +202,11 @@ Read `webview-native-mixed-request-ownership-workflow-note` when the main proble
 - the app is hybrid and both WebView/page logic and native code appear to touch the same backend or request family
 - you need to separate intent owner, bridge boundary, transport owner, and response consumer
 - you need WebView/native ownership diagnosis before committing to page-only hooks, native-only hooks, trust-path localization, or signature recovery
+
+Read `webview-custom-scheme-and-navigation-handoff-workflow-note` when the main problem is:
+- no useful object bridge is visible, but page actions still clearly trigger native behavior
+- you need to tell whether custom schemes, deep links, route changes, or URL-carried command state are the real page→native handoff
+- you need raw navigation-target capture and first native parser localization before deeper payload, signing, or request-ownership work
 
 Read `webview-native-bridge-payload-recovery-workflow-note` when the main problem is:
 - hybrid ownership is already suspected and the next bottleneck is recovering what actually crosses the WebView/native bridge

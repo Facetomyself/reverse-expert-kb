@@ -745,3 +745,31 @@ Treat Grok as degraded for this run; continue with Tavily/official docs and insp
 - Related Files: skills/search-layer/scripts/search.py
 
 ---
+## [ERR-20260315-WEBFETCH-ANDROID-DOCS] web_fetch
+
+**Logged**: 2026-03-15T10:17:54Z
+**Priority**: medium
+**Status**: pending
+**Area**: docs
+
+### Summary
+`web_fetch` failed with repeated redirect loops on Android Developers reference pages during KB source collection.
+
+### Error
+```
+Too many redirects (limit: 3)
+```
+
+### Context
+- Operation attempted: fetch Android WebView / WebViewClient / WebMessagePort docs for grounding a hybrid WebView practical workflow note
+- URLs included `developer.android.com/reference/android/webkit/WebView`, `.../WebViewClient#shouldOverrideUrlLoading(...)`, and `.../WebMessagePort`
+- Existing KB source notes plus search-layer results were sufficient to continue conservatively without forcing brittle claims
+
+### Suggested Fix
+Prefer search-layer result synthesis and existing curated source notes when Android reference pages trip redirect limits in `web_fetch`; if needed, fall back to browser/manual docs fetch instead of repeated `web_fetch` retries.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: research/reverse-expert-kb/sources/mobile-runtime-instrumentation/2026-03-15-webview-native-bridge-payload-recovery-notes.md
+
+---
