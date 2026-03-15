@@ -35,9 +35,23 @@ Observed external probes on 2026-03-15:
 - `https://quay.zhangxuemin.work` -> `HTTP/2 200`, `server: Caddy`, `via: 1.1 Caddy`
 - `https://ui.zhangxuemin.work` -> `HTTP/2 502`, `server: Caddy`
 
+Observed on-host listeners / mapping:
+- Caddy listens on `*:80` and `*:443`
+- Caddy admin API listens on `127.0.0.1:2019`
+- `ui.zhangxuemin.work` -> `localhost:50000`
+- `hub.zhangxuemin.work` -> `localhost:51000`
+- `ghcr.zhangxuemin.work` -> `localhost:52000`
+- `gcr.zhangxuemin.work` -> `localhost:53000`
+- `k8sgcr.zhangxuemin.work` -> `localhost:54000`
+- `k8s.zhangxuemin.work` -> `localhost:55000`
+- `quay.zhangxuemin.work` -> `localhost:56000`
+- `mcr.zhangxuemin.work` -> `localhost:57000`
+- `elastic.zhangxuemin.work` -> `localhost:58000`
+- `nvcr.zhangxuemin.work` -> `localhost:59000`
+- `hubcmd.zhangxuemin.work` -> `localhost:30080`
+
 ## 4. To Be Confirmed
-- actual listening ports
-- exact Caddy deployment location/config
-- backend targets behind each domain
-- whether `ui.zhangxuemin.work` backend is currently down/misconfigured
-- nginx/traefik/cloudflared/sing-box involvement behind or alongside Caddy
+- whether `backup.zhangxuemin.work` has been removed from Caddy or handled elsewhere
+- why `ui.zhangxuemin.work` backend on `50000` resets local connections
+- exact data volumes for each registry proxy
+- any nginx/traefik/cloudflared involvement behind or alongside Caddy

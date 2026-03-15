@@ -25,9 +25,9 @@ Likely represented by:
 - `elastic.zhangxuemin.work`
 
 ## Current status
-- Host identity: not yet confirmed by SSH
-- Runtime topology: partially inferred from external probes
-- Front-door reverse proxy: likely Caddy
+- Host identity: confirmed by SSH
+- Runtime topology: confirmed at front-door and container-port level
+- Front-door reverse proxy: Caddy (`/etc/caddy/Caddyfile`)
 - Project docs: not yet created
 
 ## Confirmed external behavior
@@ -37,9 +37,26 @@ Likely represented by:
 - `quay.zhangxuemin.work` returns `HTTP 200` behind Caddy
 - `ui.zhangxuemin.work` currently returns `HTTP 502` behind Caddy
 
+## Confirmed runtime components
+- `registry-ui` -> host `50000` -> container `8080`
+- `hubcmd-ui` -> host `30080` -> container `3000`
+- `reg-docker-hub` -> host `51000` -> container `5000`
+- `reg-ghcr` -> host `52000` -> container `5000`
+- `reg-gcr` -> host `53000` -> container `5000`
+- `reg-k8s-gcr` -> host `54000` -> container `5000`
+- `reg-k8s` -> host `55000` -> container `5000`
+- `reg-quay` -> host `56000` -> container `5000`
+- `reg-mcr` -> host `57000` -> container `5000`
+- `reg-elastic` -> host `58000` -> container `5000`
+- `reg-nvcr` -> host `59000` -> container `5000`
+
+## Known issue
+- `ui.zhangxuemin.work` -> `localhost:50000` currently fails locally with `Recv failure: Connection reset by peer`, which aligns with the external `HTTP 502` from Caddy.
+
 ## Next operational step
-Obtain the correct SSH identity/user for the machine behind `129.150.61.78`, then create:
-- project-specific docs under `infra/hosts/oracle-docker-proxy/projects/`
-- host-level service map
-- Caddy config and backend mapping
-- port-to-domain mapping
+Create project-specific docs under `infra/hosts/oracle-docker-proxy/projects/` for:
+- `caddy`
+- `registry-ui`
+- registry proxy stack
+- `hubcmd-ui`
+Then inspect `/root/harbor/docker-compose.yml` and related data volumes.
