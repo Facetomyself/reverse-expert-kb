@@ -36,9 +36,10 @@ It is:
 This page is therefore a practical workflow note centered on:
 
 ```text
-sensor/client script
-  -> collector / XHR submission
-  -> cookie or state update
+HTML/bootstrap script
+  -> sensor/client script fetch and config recovery
+  -> cookie or state write / refresh
+  -> collector / solve / XHR submission
   -> challenge-success handoff if present
   -> first behavior-changing consumer request
 ```
@@ -47,10 +48,10 @@ sensor/client script
 A representative target shape looks like this:
 
 ```text
-page bootstrap
-  -> PX/HUMAN client script loads (3rd-party or first-party route)
-  -> browser collects signals / state and calls collector path
-  -> `_px*` cookie/storage family is created or refreshed
+page bootstrap / HTML script tag
+  -> PX/HUMAN client script or first-party init.js route becomes visible
+  -> browser-side script sets or refreshes `_px*` cookie/storage state
+  -> browser collects signals / state and calls collector or solve path
   -> challenge / ABR flow may run if risk is high
   -> later app/API request is allowed, challenged less, or changes response shape
 ```
@@ -68,12 +69,13 @@ Common analyst situations:
 
 ## 3. Analyst goal
 The goal is not merely to “get the cookie.”
-The goal is to recover the **collector-to-consumer path**:
+The goal is to recover the **bootstrap-to-consumer path** and to prove which boundary actually changes acceptance:
 
 ```text
-sensor/client bootstrap
-  -> collector submission boundary
-  -> cookie/storage update boundary
+HTML/bootstrap script
+  -> script/config recovery boundary
+  -> cookie/storage write or refresh boundary
+  -> collector / solve submission boundary
   -> challenge callback or block-page handoff (if present)
   -> first application request whose server behavior changes materially
 ```
@@ -81,11 +83,13 @@ sensor/client bootstrap
 A good output from this workflow looks like:
 
 ```text
-first-party init.js bootstraps HUMAN client
-  -> collector POST on /<app>/xhr/ refreshes short-lived `_px3` state and uses `_pxvid`
+HTML script tag exposes app/site identifier and bootstrap route
+  -> first-party init.js or challenge script bootstraps HUMAN client
+  -> script sets or refreshes visible `_px*` state
+  -> collector/solve POST on /<app>/xhr/ refreshes short-lived acceptance state and uses visitor/session identifiers
   -> challenge success triggers host-page callback
   -> next GET /api/listing stops returning hold/challenge behavior
-  -> replay fails when collector state refresh is stale, even though `_pxvid` is still visible
+  -> replay fails when collector state refresh is stale, even though `_pxvid` or other visible cookies are still present
 ```
 
 That is more useful than either:
@@ -94,14 +98,14 @@ That is more useful than either:
 
 ## 4. Concrete workflow
 
-### Step 1: identify the deployment edge
+### Step 1: identify the deployment edge and bootstrap surface
 Start by deciding which deployment surface you are actually looking at:
 - third-party client/script path
 - first-party `init.js` + `xhr/*` collector routes
 - challenge/block-page or ABR JSON flow
 
 Record:
-- the script URL or route family
+- the HTML script tag or bootstrap URL that introduces the PX/HUMAN client
 - whether the page embeds an app/site identifier
 - whether first-party routes sit under the protected site origin
 - whether challenge/block behavior appears immediately or only after a later request
@@ -111,34 +115,41 @@ Useful note format:
 ```text
 deployment surface:
   first-party collector mode
-script/bootstrap:
-  /<appid>/init.js
+bootstrap:
+  HTML script tag -> /<appid>/init.js
 collector:
   /<appid>/xhr/
 challenge:
   only on elevated-risk path
 ```
 
-### Step 2: map the cookie/storage family, but do not stop there
+Why this matters:
+- for this family, the script/bootstrap edge often tells you the app id, route family, and whether the visible cookie was created by the script itself before any solve/collector request
+- it prevents confusing the later solve request with the earlier bootstrap/write boundary
+
+### Step 2: map the cookie/storage family, but do not stop at visibility
 Record when these change:
 - `_px`, `_px2`, `_px3`
 - `_pxvid`
 - `pxcts`
 - `_pxhd`
+- `_pxde`
 - relevant local/session storage keys if present
 
 For each state element, record:
 - when it first appears
+- whether it is written by the bootstrap script itself or only after a collector/solve request
 - whether it rotates often or stays long-lived
 - whether it appears before or after collector activity
 - whether it changes after challenge success
 
 Why this matters:
 - the state family tells you **which transitions to compare**
-- but visible presence of `_px3` or `_pxvid` is not enough to prove the workflow is solved
+- but visible presence of `_px3`, `_pxvid`, or `_pxhd` is not enough to prove the workflow is solved
+- you want to distinguish script-set bootstrap state from later validated or refreshed state
 
-### Step 3: localize the collector submission boundary
-This is usually the most useful first practical hook.
+### Step 3: localize the collector or solve submission boundary
+This is usually the most useful first practical hook after the bootstrap/write edge.
 Look for:
 - first-party `/<app>/xhr/*`
 - third-party collector calls
@@ -150,6 +161,7 @@ At this boundary, inspect:
 - associated cookie state before and after the request
 - whether request counters, UUID/session identifiers, or challenge identifiers travel with the request
 - whether response side effects update cookies, local state, or host-page flow flags
+- whether this request is better understood as a "solve/validation" step for already-visible cookie state rather than the original point of cookie creation
 
 This boundary is often more informative than deep early deobfuscation.
 
@@ -203,11 +215,14 @@ Ask:
 Use when:
 - you need to identify app/site id and route family quickly
 - you are not yet sure whether the deployment is first-party or third-party
+- you need to prove whether visible cookie state starts at script execution rather than at the later collector request
 
 Inspect:
-- script URL and load order
+- HTML script tag and script URL
+- script load order
 - any app-id-like values or config blobs
 - whether the script prepares first-party `init.js` / `xhr/*` style routes
+- whether initial cookie writes happen during or immediately after script execution
 
 ### B. Collector / XHR submission boundary
 Use when:
@@ -268,19 +283,20 @@ Inspect:
 ### Collector-to-consumer recording template
 ```text
 bootstrap:
-  /<appid>/init.js
+  HTML script tag -> /<appid>/init.js
+  script-set state: _pxvid present, _px3 absent or stale
 
-collector boundary:
+collector / solve boundary:
   POST /<appid>/xhr/
   before cookies: _pxvid present, _px3 old
-  after cookies: _px3 refreshed
+  after cookies: _px3 refreshed, challenge-linked state accepted
 
 challenge handoff:
   _pxOnCaptchaSuccess(true)
 
 first consumer request:
   GET /api/listings
-  accepted only after fresh collector transition
+  accepted only after fresh collector/solve transition
 ```
 
 ### State-family scratch schema
@@ -398,10 +414,15 @@ That is more useful for the current KB direction than another abstract anti-bot 
 Grounding for this page comes from:
 - `sources/browser-runtime/2026-03-15-perimeterx-human-cookie-collector-notes.md`
 - official HUMAN documentation on:
-  - cookie and storage names (`_px`, `_px2`, `_px3`, `_pxvid`, `pxcts`, `_pxhd`, `_pxff_*`)
+  - cookie and storage names (`_px`, `_px2`, `_px3`, `_pxvid`, `pxcts`, `_pxhd`, `_pxff_*`, `_pxde`)
   - first-party routes (`/<app>/init.js`, `/<app>/xhr/*`)
   - challenge/ABR boundaries and `_pxOnCaptchaSuccess`
 - public practitioner repositories around PerimeterX reverse/solver work, used conservatively for workflow-shape evidence rather than universal field semantics
+
+The strengthened practical claims supported by this source mix are:
+- the HTML/bootstrap edge often reveals the app/site identifier and route family
+- script execution and cookie-state creation should be separated from later solve/collector validation
+- the meaningful analysis chain is usually bootstrap script -> state write -> collector/solve request -> first accepted consumer
 
 This page intentionally avoids overclaiming exact internals for every version or deployment.
 

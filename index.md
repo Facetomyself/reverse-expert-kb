@@ -161,7 +161,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - concrete served-player / transform-chain / throttling-diagnosis practice (`youtube-player-signature-and-nsig-workflow-note`)
 - concrete sensor-submission / cookie-validation practice (`akamai-sensor-submission-and-cookie-validation-workflow-note`)
 - concrete request-role / `X-KPSDK-*` attachment / invisible-challenge practice (`kasada-x-kpsdk-request-attachment-workflow-note`)
-- concrete collector / cookie-refresh / first-consumer practice (`perimeterx-human-cookie-collector-workflow-note`)
+- concrete bootstrap-script / collector-or-solve / cookie-refresh / first-consumer practice (`perimeterx-human-cookie-collector-workflow-note`)
 
 ### Mobile / protected-runtime practice subtree
 - `topics/mobile-protected-runtime-subtree-guide.md`

@@ -29,6 +29,20 @@ High-signal results used:
 
 ## Practical facts extracted
 
+### 0. A stronger target-family chain is visible than the earlier note captured
+The newer source pass suggests the page should emphasize a more explicit practical sequence:
+
+```text
+HTML / bootstrap script tag
+  -> PX app-id or first-party init.js route becomes visible
+  -> browser-side script sets or refreshes `_px*` state
+  -> collector / solve request carries request/session identifiers and current state
+  -> response validates or refreshes cookie/state family
+  -> first later application request changes from blocked/challenged to accepted
+```
+
+This is more actionable than treating PerimeterX as just a generic cookie family.
+
 ### 1. Browser-visible cookie family is an analyst entry surface, not the whole answer
 The HUMAN cookie/storage documentation gives a concrete browser-facing state family:
 - `_px`, `_px2`, `_px3` for short-lived session/risk state
@@ -85,16 +99,23 @@ Analyst implication:
     -> next application request that stops being blocked
 - this creates a clean bridge between challenge-page analysis and later application request analysis
 
-### 5. Practitioner repos reinforce a collector/payload/cookie framing
+### 5. Practitioner repos reinforce a bootstrap/solve/cookie/consumer framing
 The public reverse/solver repos are uneven in quality and should not be treated as authoritative truth, but they still reinforce a recurring practical framing:
-- locate the loaded PX challenge/client script
-- identify payload fields sent to the solve/collector path
-- treat values such as app/site id, sequence/request counters, visitor/session identifiers, and cookie-bound state as a family rather than a single parameter
+- locate the HTML-loaded PX challenge/client script and recover the visible app/site identifier
+- identify where the script itself sets the first cookie/state artifact
+- distinguish the later solve/collector request from the earlier script bootstrap
+- treat values such as app/site id, version tag, UUID/session identifiers, request counters, `_pxhd`, `_px3`, `_pxvid`, and related state as a family rather than a single parameter
+
+One practitioner repo also explicitly frames the observable order as:
+- HTML script tag reveals the PxAppId
+- challenge script fetch follows
+- script sets the PX cookie state
+- later solve request is the path that effectively validates or whitelists the challenge-linked cookie state
 
 Conservative analyst takeaway:
 - for KB purposes, these repos are more useful as evidence for workflow shape than for exact field semantics
-- the repeatable workflow is still strong enough to justify a concrete note centered on:
-  sensor script -> collector submission -> cookie/state update -> first behavior-changing consumer request
+- the repeatable workflow is strong enough to justify a concrete note centered on:
+  bootstrap script -> cookie/state write -> solve/collector submission -> validated state -> first behavior-changing consumer request
 
 ## Resulting synthesis for KB integration
 A dedicated practical workflow page is justified for PerimeterX / HUMAN because the source cluster supports a specific analyst entry pattern:
