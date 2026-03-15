@@ -135,6 +135,7 @@ Priority 2 candidates include:
 - `topics/bytedance-web-request-signature-workflow-note.md`
 - `topics/xiaohongshu-web-signature-workflow-note.md`
 - `topics/youtube-player-signature-and-nsig-workflow-note.md`
+- `topics/akamai-sensor-submission-and-cookie-validation-workflow-note.md`
 - `topics/kasada-x-kpsdk-request-attachment-workflow-note.md`
 - `topics/perimeterx-human-cookie-collector-workflow-note.md`
 - `topics/cdp-guided-token-generation-analysis.md`
