@@ -179,6 +179,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/mobile-response-consumer-localization-workflow-note.md`
 - `topics/result-code-and-enum-to-policy-mapping-workflow-note.md`
 - `topics/attestation-verdict-to-policy-state-workflow-note.md`
+- `topics/post-validation-state-refresh-and-delayed-consequence-workflow-note.md`
 - `topics/android-network-trust-and-pinning-localization-workflow-note.md`
 - `topics/cronet-request-ownership-and-mixed-stack-diagnosis-workflow-note.md`
 - `topics/webview-native-mixed-request-ownership-workflow-note.md`
@@ -190,7 +191,7 @@ This subtree is now best read as six coordinated mobile analyst entry surfaces:
 - observability under resistance (`anti-frida-and-anti-instrumentation-practice-taxonomy`, `android-linker-binder-ebpf-observation-surfaces`, `android-observation-surface-selection-workflow-note`, and `trace-guided-and-dbi-assisted-re`)
 - environment and evidence trust (`environment-state-checks-in-protected-runtimes`, `environment-differential-diagnosis-workflow-note`, and `observation-distortion-and-misleading-evidence`)
 - request-shaping and signature recovery (`mobile-signing-and-parameter-generation-workflows` and `mobile-signature-location-and-preimage-recovery-workflow-note`)
-- distributed risk / challenge workflows (`mobile-risk-control-and-device-fingerprint-analysis`, `mobile-challenge-and-verification-loop-analysis`, `mobile-challenge-trigger-and-loop-slice-workflow-note`, and `mobile-response-consumer-localization-workflow-note` / `result-code-and-enum-to-policy-mapping-workflow-note` as the practical middle layer between trigger visibility and first consequence-driving policy state)
+- distributed risk / challenge workflows (`mobile-risk-control-and-device-fingerprint-analysis`, `mobile-challenge-and-verification-loop-analysis`, `mobile-challenge-trigger-and-loop-slice-workflow-note`, `mobile-response-consumer-localization-workflow-note`, `result-code-and-enum-to-policy-mapping-workflow-note`, and `post-validation-state-refresh-and-delayed-consequence-workflow-note` as the practical chain from trigger visibility through first consequence-driving policy state into real loop closure or delayed re-entry)
 - response-side native consumer localization (`mobile-response-consumer-localization-workflow-note`), which acts as the practical entry note when the relevant request/response family is already known but the first native branch, state write, or follow-up scheduler that changes behavior is still hidden behind parsing, normalization, and callback fan-out
 - attestation-verdict-to-policy-state localization (`attestation-verdict-to-policy-state-workflow-note`), which acts as the practical entry note when an integrity / attestation / device-verdict family is already visible but the first local branch that turns verdict material into allow, degrade, retry, block, or challenge behavior is still unclear
 - result-code / enum-to-policy mapping localization (`result-code-and-enum-to-policy-mapping-workflow-note`), which acts as the practical entry note when parsed objects or callbacks already expose result codes or enums but the app’s reduction from those values into a smaller local policy bucket is still hidden behind normalization helpers, switch lowering, or later state/scheduler logic
