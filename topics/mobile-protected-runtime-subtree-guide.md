@@ -166,6 +166,7 @@ Current concrete notes:
 - `topics/cronet-request-ownership-and-mixed-stack-diagnosis-workflow-note.md`
 - `topics/mobile-response-consumer-localization-workflow-note.md`
 - `topics/attestation-verdict-to-policy-state-workflow-note.md`
+- `topics/post-validation-state-refresh-and-delayed-consequence-workflow-note.md`
 - `topics/webview-native-mixed-request-ownership-workflow-note.md`
 - `topics/webview-custom-scheme-and-navigation-handoff-workflow-note.md`
 - `topics/webview-native-bridge-payload-recovery-workflow-note.md`
@@ -195,10 +196,16 @@ Read `result-code-and-enum-to-policy-mapping-workflow-note` when the main proble
 - decompiled output looks flattened or misleading and you may need switch-reconstruction-first reasoning instead of more parser hooks
 - you need to separate raw code visibility, normalization, policy mapping, and scheduler/state consequences before deeper challenge-loop or attestation-consequence work
 
+Read `post-validation-state-refresh-and-delayed-consequence-workflow-note` when the main problem is:
+- a validation or verdict path is already visible and even looks successful, but the loop still repeats, degrades, or stays unexplained
+- you need to distinguish immediate result handling from later state refresh, delayed handlers, retry queues, or deferred refresh requests
+- you need to prove which delayed boundary actually closes the loop, reopens the challenge, or schedules the next protected action
+
 Together, the challenge-facing middle layer of the mobile subtree now reads as:
 - `mobile-challenge-trigger-and-loop-slice-workflow-note` for trigger boundary and minimal loop-slice selection
 - `mobile-response-consumer-localization-workflow-note` for parser/callback/state-consumer localization after the trigger response is known
 - `result-code-and-enum-to-policy-mapping-workflow-note` for the narrower reduction from visible fields into the first app-local policy bucket
+- `post-validation-state-refresh-and-delayed-consequence-workflow-note` for the final step where visible validation success still does not explain whether the loop exits, retries, degrades, or reopens
 - `environment-differential-diagnosis-workflow-note` when the same visible challenge or response family still diverges across devices, sessions, packaging states, or observation setups
 
 Read `android-observation-surface-selection-workflow-note` when the main problem is:
