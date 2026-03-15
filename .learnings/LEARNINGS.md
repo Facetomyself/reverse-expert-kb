@@ -47,7 +47,7 @@ Docker build fails on Apple Silicon due to platform mismatch
 
 **Logged**: 2026-03-14T15:48:00+08:00
 **Priority**: high
-**Status**: pending
+**Status**: promoted
 **Area**: docs
 
 ### Summary
@@ -66,12 +66,17 @@ Shift future KB work toward:
 
 ### Metadata
 - Source: user_feedback
-- Related Files: research/reverse-expert-kb/, .learnings/LEARNINGS.md
+- Related Files: research/reverse-expert-kb/, .learnings/LEARNINGS.md, AGENTS.md, MEMORY.md
 - Tags: kb, correction, reverse-engineering, methodology, case-driven
 - Pattern-Key: kb.avoid.abstract_only_synthesis
 - Recurrence-Count: 1
 - First-Seen: 2026-03-14
 - Last-Seen: 2026-03-14
+- Promoted: AGENTS.md, MEMORY.md
+
+### Resolution
+- **Resolved**: 2026-03-15T09:00:00+08:00
+- **Notes**: Promoted the direction change into workspace execution rules and long-term memory so future KB work stays practical and case-driven.
 
 ---
 
