@@ -14,3 +14,28 @@ hosts:
       host: infra/hosts/oracle-proxy/HOST.md
       network: infra/hosts/oracle-proxy/NETWORK.md
       projects: infra/hosts/oracle-proxy/PROJECTS.md
+
+  - name: oracle-docker-proxy
+    ssh_alias: unknown
+    provider: oracle?
+    role:
+      - shared-docker-proxy-host
+      - registry-proxy-or-mirror
+      - ui-entrypoint
+    public_ip: 129.150.61.78
+    domains:
+      - backup.zhangxuemin.work
+      - elastic.zhangxuemin.work
+      - gcr.zhangxuemin.work
+      - ghcr.zhangxuemin.work
+      - hubcmd.zhangxuemin.work
+      - hub.zhangxuemin.work
+      - k8sgcr.zhangxuemin.work
+      - mcr.zhangxuemin.work
+      - nvcr.zhangxuemin.work
+      - quay.zhangxuemin.work
+      - ui.zhangxuemin.work
+    docs:
+      host: infra/hosts/oracle-docker-proxy/HOST.md
+      network: infra/hosts/oracle-docker-proxy/NETWORK.md
+      projects: infra/hosts/oracle-docker-proxy/PROJECTS.md
