@@ -3,6 +3,35 @@
 Command failures, exceptions, and unexpected behaviors.
 
 ---
+## [ERR-20260315-007] web-fetch-failed-on-protobuf-definition-source
+
+**Logged**: 2026-03-15T14:18:30Z
+**Priority**: low
+**Status**: pending
+**Area**: docs
+
+### Summary
+During reverse-expert-kb mobile response-consumer research, `web_fetch` failed on a promising protobuf-definition recovery article, so the run proceeded with the stronger accessible source cluster and kept the synthesis conservative.
+
+### Error
+```text
+web_fetch: fetch failed
+```
+
+### Context
+- Operation attempted: fetch `https://arkadiyt.com/2024/03/03/reverse-engineering-protobuf-definitiions-from-compiled-binaries`
+- Task: hourly reverse-expert-kb maintenance run focused on Android response-consumer localization
+- Workaround used: continue with accessible protobuf/tooling references (`pbtk`, SysDream), Android reversing workflow material, and conservative workflow-centered synthesis instead of making strong protobuf-internals claims
+
+### Suggested Fix
+When one secondary research source fails but the source cluster is still strong enough, record the fetch failure and continue with conservative synthesis rather than stalling or overclaiming.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/sources/mobile-runtime-instrumentation/2026-03-15-mobile-response-consumer-localization-notes.md
+- See Also: ERR-20260315-003
+
+---
 ## [ERR-20260315-006] web-fetch-doc-redirect-fragility-on-official-docs
 
 **Logged**: 2026-03-15T07:17:59Z
