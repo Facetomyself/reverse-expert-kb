@@ -178,6 +178,11 @@ Read `mobile-challenge-trigger-and-loop-slice-workflow-note` when the main probl
 - you need trigger-boundary-first reasoning instead of focusing only on visible challenge content
 - you need loop-slice selection, pre/post state capture, role-labeled protocol modeling, and failure diagnosis guidance
 
+Read `mobile-response-consumer-localization-workflow-note` when the main problem is:
+- the relevant request/response family is already known, but the first native branch or state transition that changes behavior is still hidden behind parsing and callback fan-out
+- you need to separate raw response bytes, parser boundary, normalized object boundary, and first meaningful consumer
+- you need to prove which callback, dispatcher, state write, or request scheduler actually matters before deepening challenge-loop or signing analysis
+
 Read `android-observation-surface-selection-workflow-note` when the main problem is:
 - direct app-layer hooks are weak, detected, or semantically unhelpful
 - you need to choose among linker / Binder / eBPF / trace-oriented observation surfaces
