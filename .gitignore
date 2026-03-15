@@ -23,3 +23,6 @@ maintenance/nightly-system-checks/
 # Nested skill repo metadata
 skills/self-improving-agent/.git/
 skills/self-improving-agent/.learnings/
+
+# Keep nested self-improving-agent as independent repo
+skills/self-improving-agent/
