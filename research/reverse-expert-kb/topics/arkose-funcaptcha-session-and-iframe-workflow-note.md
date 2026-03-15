@@ -23,7 +23,8 @@ In practice, the valuable object is usually the workflow boundary chain:
 - challenge shown or suppressed,
 - session token handoff,
 - iframe/lightbox message flow if present,
-- backend verification,
+- backend verification or update request,
+- first accepted consumer request,
 - reset / retry / failure transitions.
 
 That makes Arkose a strong fit for the KB’s concrete, case-driven pivot.
@@ -129,7 +130,7 @@ run C: failure/reset path
 
 This separates token generation, token handoff, and token redemption.
 
-### Step 4: anchor the backend verification request
+### Step 4: anchor the backend verification or update request
 Once the token handoff edge is visible, identify the request that actually consumes the session token.
 
 What to record:
@@ -137,11 +138,51 @@ What to record:
 - whether the host page bundles other app/session state with it
 - whether verification happens immediately after callback or later
 - whether challenge suppression and visible challenge completion both hit the same backend path
+- whether the request is the final allow/deny edge or only a verification/update edge
 - whether failure occurs before or after reset/hide transitions
 
 Why this matters:
 - a visible token is not the whole story
 - backend verification is a distinct boundary and may be where the real failure sits
+- some targets treat this request as a trust-update step rather than the first request whose acceptance materially changes app behavior
+
+### Step 4A: identify the first accepted consumer request
+Do not stop at `onCompleted(response)`, `challenge-complete`, or even the first backend request carrying the session token.
+A recurring practical boundary is the **first later request, redirect, route transition, or session/data fetch that becomes accepted only after the Arkose transition succeeds**.
+
+What to record:
+- whether the token-carrying verify/update request itself returns the final allow/deny decision or only refreshes trust state
+- which later request, redirect, SPA route, or session fetch first stops failing, degrading, or looping
+- whether accepted and failed runs diverge first at token visibility time, verify/update time, or only one step later
+- whether suppressed and visible-challenge paths converge on the same first accepted downstream consumer
+
+Representative compare-run sketch:
+
+```text
+run A: suppressed path
+  challenge-suppressed / onSuppress(response)
+  POST /verify-session carries sessionToken
+  GET /account/bootstrap accepted
+
+run B: visible challenge path
+  challenge-complete / onCompleted(response)
+  POST /verify-session carries sessionToken
+  GET /account/bootstrap accepted
+
+run C: still-broken path
+  challenge-complete / onCompleted(response)
+  POST /verify-session carries sessionToken
+  GET /account/bootstrap still challenged / degraded / empty
+
+practical reading:
+  token visibility and verify submission were not enough;
+  the first accepted consumer request localized the real acceptance boundary
+```
+
+Why this matters:
+- Arkose docs are strong on callback/message and verify semantics, but the real app consequence can still appear only in the next downstream consumer
+- this is often the cleanest compare-run anchor when callback/message behavior looks identical
+- it aligns Arkose with the KB-wide four-boundary chain used across the other browser widget-family notes
 
 ### Step 5: map lifecycle transitions as a state machine
 Treat Arkose as a small session machine.
@@ -263,6 +304,19 @@ Inspect:
 - exact request carrying token to backend
 - sibling fields added by the host page
 - timing relative to completion or suppression callback
+- whether this request is itself the decisive allow/deny boundary or only a trust-update edge before a later consumer request
+
+### F. First accepted consumer request boundary
+Use when:
+- callback/message visibility and verify/update request visibility already look correct
+- the application still behaves differently across accepted and failed runs
+- the real question is which later route, session fetch, or protected API first benefits from successful Arkose classification
+
+Inspect:
+- first downstream request after verify/update whose response/body/state materially changes
+- first redirect or SPA route transition that only succeeds after the Arkose path completes
+- whether suppressed and visible-challenge paths converge on the same downstream consumer
+- whether pre-reset and post-reset sessions diverge here rather than at token visibility time
 
 ## 6. Practical compare-run methodology
 A single successful observation is often misleading.
@@ -274,6 +328,7 @@ Change one axis at a time:
 - inline/direct integration vs iframe/lightbox path
 - first completion vs post-reset completion
 - immediate backend verify vs delayed verify
+- verify/update success vs first downstream accepted consumer behavior
 - recoverable warning/error path vs hard failure path
 
 ### What to record
@@ -282,7 +337,8 @@ For each run, record:
 - start trigger (`run`, selector, or message)
 - whether challenge was shown or suppressed
 - token handoff surface
-- backend verification request timing
+- backend verification/update request timing
+- first downstream request or route that actually changed behavior
 - whether `reset()` happened
 - whether session appeared new after reset
 
@@ -300,10 +356,12 @@ Likely causes:
 - backend verification request is missing expected app/session context
 - host-page consumer is transforming or routing token differently than assumed
 - verification path differs between suppressed and interactive sessions
+- the verify/update request succeeds syntactically but the first downstream consumer request still remains blocked or degraded
 
 Next move:
 - inspect the exact host-page request that consumes the token
 - compare suppressed vs challenge-complete verification requests
+- localize the first downstream request or route whose behavior should have changed if acceptance really took effect
 
 ### Failure mode 2: visible challenge never appears, but flow still completes
 Likely causes:
@@ -350,6 +408,10 @@ Arkose analysis often depends on preserving:
 - iframe/frame messaging order when hosted integration is used
 
 Compared with some heavier token-family targets, the first high-value move is often lifecycle-boundary tracing rather than deep transform recovery.
+In practice, that means separating:
+- callback/message token visibility,
+- verify/update submission,
+- and the first accepted downstream consumer request.
 That said, environment drift can still matter once challenge classification, suppression, or page-side risk handling is tied to runtime context.
 
 ## 9. Representative code / pseudocode / harness fragments
@@ -395,7 +457,8 @@ run:
   start edge: postMessage challenge-open
   token handoff: challenge-complete payload.sessionToken
   backend verify: POST /account/verify
-  path: challenge shown -> complete -> verify accepted
+  first accepted consumer: GET /account/bootstrap
+  path: challenge shown -> complete -> verify accepted -> bootstrap accepted
   retry behavior: reset() after completion creates new session
 ```
 
@@ -406,17 +469,19 @@ Once the first-pass lifecycle map exists, verify:
 - whether `reset()` creates a fully new session in the target integration
 - whether callback wiring changes across navigation or SPA transitions
 - whether backend verification is immediate, deferred, or wrapped in additional app logic
+- which first downstream consumer request, redirect, or session fetch actually proves acceptance mattered
 
 ## 11. What this page adds to the KB
 This page adds another practical browser scenario pattern the KB needed:
 - how to analyze a protection family around config, callback, iframe, and backend-handoff edges
 - how to distinguish visible challenge state from session-token semantics
-- how to localize message boundaries and verification boundaries
+- how to localize message boundaries, verification boundaries, and the first accepted downstream consumer
 - how to diagnose suppression, reset, retry, and verification confusion
 
 ## 12. Source footprint / evidence note
 Primary grounding for this page comes from:
 - `sources/browser-runtime/2026-03-14-arkose-funcaptcha-lifecycle-notes.md`
+- `sources/browser-runtime/2026-03-16-arkose-first-consumer-and-iframe-boundary-notes.md`
 - official Arkose Labs docs on client API, callbacks, response objects, Verify API, and iframe setup
 
 This page is intentionally a practical workflow note built from integration/lifecycle semantics.
@@ -425,4 +490,4 @@ It is not an exploit recipe and does not claim undocumented internal challenge a
 ## 13. Topic summary
 Arkose / FunCaptcha session and iframe workflow note is a concrete browser workflow page for cases where the real job is to map client setup, challenge suppression/show state, session-token handoff, iframe messaging, backend verification, and reset/retry behavior without confusing those layers.
 
-It matters because many Arkose investigations stall not from lack of a visible token, but from misunderstanding where the token becomes host-page data, how iframe/lightbox events carry session state, when reset creates a new session, and where backend verification actually decides the outcome.
+It matters because many Arkose investigations stall not from lack of a visible token, but from misunderstanding where the token becomes host-page data, how iframe/lightbox events carry session state, when reset creates a new session, where backend verification actually decides the outcome, and which later request first proves that acceptance changed real application behavior.

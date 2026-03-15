@@ -3,6 +3,35 @@
 Command failures, exceptions, and unexpected behaviors.
 
 ---
+## [ERR-20260316-002] kb-source-note-path-drift
+
+**Logged**: 2026-03-16T07:19:30+08:00
+**Priority**: low
+**Status**: pending
+**Area**: docs
+
+### Summary
+A reverse-expert-kb maintenance run tried to read an Arkose source-note path using an expected date/name pattern that had drifted from the actual file name.
+
+### Error
+```text
+ENOENT: no such file or directory, access '/root/.openclaw/workspace/research/reverse-expert-kb/sources/browser-runtime/2026-03-15-arkose-funcaptcha-session-and-iframe-notes.md'
+```
+
+### Context
+- Operation attempted: load the recent Arkose source notes before improving the concrete Arkose workflow page
+- Actual file present: `/root/.openclaw/workspace/research/reverse-expert-kb/sources/browser-runtime/2026-03-14-arkose-funcaptcha-lifecycle-notes.md`
+- Impact: low; the run continued by listing matching files, reading the actual source note, and refreshing official Arkose docs directly
+
+### Suggested Fix
+When reusing expected KB source-note filenames in recurring maintenance runs, list matching files first or anchor on topic keywords rather than assuming the next date-stamped path.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/sources/browser-runtime/2026-03-14-arkose-funcaptcha-lifecycle-notes.md
+- See Also: ERR-20260315-005
+
+---
 ## [ERR-20260315-007] web-fetch-failed-on-protobuf-definition-source
 
 **Logged**: 2026-03-15T14:18:30Z
