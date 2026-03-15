@@ -127,6 +127,7 @@ Priority 2 candidates include:
 - `topics/browser-fingerprint-and-state-dependent-token-generation.md`
 - `topics/reese84-and-utmvc-workflow-note.md`
 - `topics/datadome-geetest-kasada-workflow-note.md`
+- `topics/slider-captcha-state-capture-and-trace-comparison-workflow-note.md`
 - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
 - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
 - `topics/browser-parameter-path-localization-workflow-note.md`
@@ -144,7 +145,7 @@ Priority 2 candidates include:
 
 This subtree is now best read as coordinated browser analyst entry surfaces:
 - structural recovery (`jsvmp-and-ast-based-devirtualization`)
-- workflow/state recovery (`browser-side-risk-control-and-captcha-workflows`, `browser-fingerprint-and-state-dependent-token-generation`, `reese84-and-utmvc-workflow-note`, `datadome-geetest-kasada-workflow-note`, `datadome-cookie-challenge-workflow-note`, `geetest-v4-w-parameter-and-validate-workflow-note`, and `cloudflare-turnstile-widget-lifecycle-workflow-note`)
+- workflow/state recovery (`browser-side-risk-control-and-captcha-workflows`, `browser-fingerprint-and-state-dependent-token-generation`, `reese84-and-utmvc-workflow-note`, `datadome-geetest-kasada-workflow-note`, `datadome-cookie-challenge-workflow-note`, `geetest-v4-w-parameter-and-validate-workflow-note`, `slider-captcha-state-capture-and-trace-comparison-workflow-note`, and `cloudflare-turnstile-widget-lifecycle-workflow-note`)
 - request-path and request-boundary recovery (`browser-parameter-path-localization-workflow-note` and `browser-request-finalization-backtrace-workflow-note`)
 - instrumentation and contested observability (`browser-cdp-and-debugger-assisted-re` and `browser-debugger-detection-and-countermeasures`)
 - environment and mixed-runtime execution (`browser-environment-reconstruction` and `js-wasm-mixed-runtime-re`)
