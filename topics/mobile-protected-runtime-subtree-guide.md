@@ -164,6 +164,8 @@ Current concrete notes:
 - `topics/environment-differential-diagnosis-workflow-note.md`
 - `topics/android-network-trust-and-pinning-localization-workflow-note.md`
 - `topics/cronet-request-ownership-and-mixed-stack-diagnosis-workflow-note.md`
+- `topics/mobile-response-consumer-localization-workflow-note.md`
+- `topics/attestation-verdict-to-policy-state-workflow-note.md`
 - `topics/webview-native-mixed-request-ownership-workflow-note.md`
 - `topics/webview-custom-scheme-and-navigation-handoff-workflow-note.md`
 - `topics/webview-native-bridge-payload-recovery-workflow-note.md`
@@ -182,6 +184,11 @@ Read `mobile-response-consumer-localization-workflow-note` when the main problem
 - the relevant request/response family is already known, but the first native branch or state transition that changes behavior is still hidden behind parsing and callback fan-out
 - you need to separate raw response bytes, parser boundary, normalized object boundary, and first meaningful consumer
 - you need to prove which callback, dispatcher, state write, or request scheduler actually matters before deepening challenge-loop or signing analysis
+
+Read `attestation-verdict-to-policy-state-workflow-note` when the main problem is:
+- an integrity / attestation / device-verdict family is already visible, but the first local branch that turns verdict material into allow, degrade, retry, block, or challenge behavior is still unclear
+- you need to separate verdict decode, verdict-to-policy mapping, and retry/fallback handling instead of stopping at the first attestation callback
+- you need to prove which state write, gate, or scheduler actually changes later behavior before deepening challenge-loop, trust-drift, or request-consequence analysis
 
 Read `android-observation-surface-selection-workflow-note` when the main problem is:
 - direct app-layer hooks are weak, detected, or semantically unhelpful
