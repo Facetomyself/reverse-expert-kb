@@ -195,6 +195,11 @@ Read `cronet-request-ownership-and-mixed-stack-diagnosis-workflow-note` when the
 - you need to tell whether the case is plain OkHttp, OkHttp-plus-Cronet transport, direct Cronet/native, or mixed by request family
 - you need owner-selection-boundary reasoning before committing to deeper trust hooks, native tracing, or signature-path recovery
 
+Read `webview-native-mixed-request-ownership-workflow-note` when the main problem is:
+- the app is hybrid and both WebView/page logic and native code appear to touch the same backend or request family
+- you need to separate intent owner, bridge boundary, transport owner, and response consumer
+- you need WebView/native ownership diagnosis before committing to page-only hooks, native-only hooks, trust-path localization, or signature recovery
+
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:
 - `sources/community-forums/2026-03-14-52pojie-kanxue-manual-curation.md`
