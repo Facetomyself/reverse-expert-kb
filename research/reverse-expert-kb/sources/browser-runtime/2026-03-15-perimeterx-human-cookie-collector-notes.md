@@ -91,12 +91,26 @@ The docs for Advanced Blocking Response describe JSON fields like:
 
 They also mention `_pxOnCaptchaSuccess` as a host-page callback edge.
 
+An additional useful source this run is the official sample/documentation cluster around ABR callback handling:
+- `https://github.com/PerimeterX/perimeterx-abr-samples`
+- `https://github.com/PerimeterX/perimeterx-chrome-extension-demo/blob/master/README.md`
+- HUMAN docs on challenge customization and testing that explicitly discuss overriding or wiring `window._pxOnCaptchaSuccess`
+
+Why this matters:
+- it strengthens the claim that challenge success should be treated as a **host-page handoff boundary**, not just a UI event
+- it gives firmer support for tracing what code runs after success and which later request actually benefits
+
 Analyst implication:
 - for interactive challenge cases, a practical path is:
   challenge bootstrap JSON / block script
     -> host-page callback or message edge
-    -> cookie or state update
+    -> cookie or state update or refresh
     -> next application request that stops being blocked
+- if `_pxOnCaptchaSuccess` exists, inspect whether it:
+  - reloads the page
+  - triggers a collector refresh
+  - unlocks UI state only
+  - directly issues the first accepted consumer request
 - this creates a clean bridge between challenge-page analysis and later application request analysis
 
 ### 5. Practitioner repos reinforce a bootstrap/solve/cookie/consumer framing

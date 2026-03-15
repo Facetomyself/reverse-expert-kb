@@ -220,6 +220,83 @@ Includes:
   - `topics/kasada-x-kpsdk-request-attachment-workflow-note.md`
   - `topics/perimeterx-human-cookie-collector-workflow-note.md`
 
+### Practical operator routing: the four-boundary chain
+Across the strongest concrete browser target-family notes, a useful normalization is emerging:
+
+```text
+bootstrap anchor
+  -> state write or state exposure boundary
+  -> validation / refresh / solve boundary
+  -> first accepted consumer request
+```
+
+This is a better operator-routing frame than asking only whether a target is “captcha,” “anti-bot,” or “signature-based.”
+
+#### Boundary 1: bootstrap anchor
+This is the earliest concrete entry surface that tells the analyst which family is actually in play.
+Examples:
+- HTML-loaded challenge or sensor script
+- widget render/init call
+- first-party `init.js` route
+- bootstrap HTML/resource that seeds later cookie or token state
+
+Questions:
+- what script/widget/resource first introduces the protected flow?
+- does it reveal app/site id, route family, or a concrete request role?
+- does it already create visible state, or only set up later execution?
+
+#### Boundary 2: state write or state exposure
+This is the earliest point where the workflow becomes observable as meaningful browser state.
+Examples:
+- cookie creation or refresh (`_abck`, `_px3`, `cf_clearance`, `___utmvc`)
+- token object creation before final packing
+- challenge/session object becoming visible in JS memory
+- widget callback arguments that expose later request inputs
+
+Questions:
+- which state is merely visible, and which state is freshly accepted?
+- is the state written by bootstrap code itself or by a later validation step?
+- what state is long-lived identifier material versus short-lived acceptance material?
+
+#### Boundary 3: validation / refresh / solve
+This is often the decisive workflow boundary.
+Examples:
+- sensor/collector submission
+- challenge solve POST
+- widget verification callback that causes a token refresh
+- request-family signer or validator call that converts structured inputs into an accepted request contract
+
+Questions:
+- what request or callback actually refreshes/validates the state?
+- what structured preimage still exists one layer earlier?
+- what counters, UUIDs, timestamps, cookies, or browser inputs travel here?
+
+#### Boundary 4: first accepted consumer request
+This is the most commonly missed boundary in browser anti-bot analysis.
+Examples:
+- first app/API request that stops being blocked
+- first request whose body changes from empty/degraded to accepted
+- first protected navigation that only succeeds after a fresh solve/refresh step
+
+Questions:
+- which later request actually benefits from the transition?
+- does the request consume only cookies/tokens, or also hidden session/runtime state?
+- do accepted and failed runs diverge first here even when visible state looks similar?
+
+#### Why this routing model matters
+It helps prevent several common mistakes:
+- stopping at visible cookie or token presence
+- treating the solve/validation request as the final goal rather than a step toward the consumer request
+- deobfuscating large scripts before stabilizing the concrete workflow chain
+- missing the distinction between bootstrap-created state and later validated/refreshed state
+
+It also makes the concrete notes line up better:
+- Akamai: sensor script -> `_abck`/`bm_sz` state -> verification POST -> first accepted consumer
+- PerimeterX / HUMAN: bootstrap/init.js -> `_px*` state -> collector/solve/callback -> first accepted consumer
+- Reese84 / `___utmvc`: bootstrap resource -> cookie write -> validation/refresh edge -> first accepted consumer
+- Turnstile / Arkose / hCaptcha / reCAPTCHA: widget/bootstrap -> token/state exposure -> verification/submit callback -> first accepted consumer
+- request-signature families such as TikTok / Xiaohongshu: request role bootstrap -> structured preimage exposure -> signer/finalization boundary -> first accepted consumer request
+
 ### 4. Replay, mutation, and environment-control workflows
 Includes:
 - request replay

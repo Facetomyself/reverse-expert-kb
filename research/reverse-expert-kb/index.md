@@ -125,6 +125,15 @@ Priority 2 candidates include:
 - `topics/jsvmp-and-ast-based-devirtualization.md`
 - `topics/browser-side-risk-control-and-captcha-workflows.md`
 - `topics/browser-fingerprint-and-state-dependent-token-generation.md`
+
+A practical routing rule now reinforced across the browser subtree:
+- prefer concrete boundary chains over family labels alone
+- anchor concrete notes around:
+  - bootstrap anchor
+  - state write or state exposure boundary
+  - validation / refresh / solve boundary
+  - first accepted consumer request
+- use this especially for Akamai, PerimeterX / HUMAN, Reese84 / `___utmvc`, Turnstile / Arkose / hCaptcha / reCAPTCHA, and request-signature-family notes like TikTok / Xiaohongshu
 - `topics/reese84-and-utmvc-workflow-note.md`
 - `topics/datadome-geetest-kasada-workflow-note.md`
 - `topics/slider-captcha-state-capture-and-trace-comparison-workflow-note.md`
