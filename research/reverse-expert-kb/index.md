@@ -129,6 +129,7 @@ Priority 2 candidates include:
 - `topics/datadome-geetest-kasada-workflow-note.md`
 - `topics/slider-captcha-state-capture-and-trace-comparison-workflow-note.md`
 - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
+- `topics/cloudflare-clearance-cookie-and-js-challenge-workflow-note.md`
 - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
 - `topics/browser-parameter-path-localization-workflow-note.md`
 - `topics/browser-request-finalization-backtrace-workflow-note.md`
@@ -153,6 +154,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - environment and mixed-runtime execution (`browser-environment-reconstruction` and `js-wasm-mixed-runtime-re`)
 - concrete mixed-runtime practice (`js-wasm-boundary-tracing`)
 - concrete widget/session/iframe lifecycle practice (`cloudflare-turnstile-widget-lifecycle-workflow-note`, `arkose-funcaptcha-session-and-iframe-workflow-note`, `hcaptcha-callback-submit-and-siteverify-workflow-note`, and `recaptcha-v3-and-invisible-workflow-note`)
+- concrete clearance-cookie / HTML-seeding / first-consumer practice (`cloudflare-clearance-cookie-and-js-challenge-workflow-note`)
 - concrete cookie-bootstrap / consumer-path practice (`acw-sc-v2-cookie-bootstrap-and-consumer-path-note`)
 - concrete request-signature-family practice (`bytedance-web-request-signature-workflow-note`, `tiktok-web-signature-workflow-note`)
 - concrete served-player / transform-chain / throttling-diagnosis practice (`youtube-player-signature-and-nsig-workflow-note`)
