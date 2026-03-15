@@ -179,6 +179,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/webview-native-mixed-request-ownership-workflow-note.md`
 - `topics/webview-custom-scheme-and-navigation-handoff-workflow-note.md`
 - `topics/webview-native-bridge-payload-recovery-workflow-note.md`
+- `topics/webview-cookie-header-bootstrap-handoff-workflow-note.md`
 
 This subtree is now best read as six coordinated mobile analyst entry surfaces:
 - observability under resistance (`anti-frida-and-anti-instrumentation-practice-taxonomy`, `android-linker-binder-ebpf-observation-surfaces`, `android-observation-surface-selection-workflow-note`, and `trace-guided-and-dbi-assisted-re`)
@@ -190,6 +191,7 @@ This subtree is now best read as six coordinated mobile analyst entry surfaces:
 - hybrid WebView/native ownership diagnosis (`webview-native-mixed-request-ownership-workflow-note`), which acts as the practical entry note when both page logic and native code appear to participate in the same backend behavior and the analyst must separate intent owner, bridge boundary, transport owner, and response consumer before deepening hooks
 - hybrid navigation/custom-scheme handoff localization (`webview-custom-scheme-and-navigation-handoff-workflow-note`), which acts as the practical entry note when no useful object bridge is visible and the analyst must test whether custom schemes, deep links, route changes, or URL-carried command state are the real page→native handoff boundary
 - hybrid bridge payload recovery (`webview-native-bridge-payload-recovery-workflow-note`), which acts as the practical entry note when ownership is already suspected and the next bottleneck is recovering object-bridge, message-channel, or custom-URL handoff payloads before native normalization destroys structure
+- hybrid cookie/header/bootstrap state handoff localization (`webview-cookie-header-bootstrap-handoff-workflow-note`), which acts as the practical entry note when page-side state clearly influences native behavior but no explicit object bridge is visible and the analyst must localize the first native consumer through cookie reads, header merges, or bootstrap-store pulls before deeper signing or ownership work
 - hybrid native→page return-path and page-consumer diagnosis (`webview-native-response-handoff-and-page-consumption-workflow-note`), which acts as the practical entry note when native code already obtains a meaningful result but the decisive next behavior still happens inside the page and the analyst must separate outbound native emission from the first meaningful page consumer
 
 ## Notes
