@@ -3,6 +3,73 @@
 Command failures, exceptions, and unexpected behaviors.
 
 ---
+## [ERR-20260315-003] host-research-source-access-fragility-cluster
+
+**Logged**: 2026-03-15T09:45:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: docs
+
+### Summary
+On this host, recurring research/source-gathering failures cluster around fragile `web_fetch` extraction for academic PDFs, anti-bot/interstitial pages, and some Chinese content platforms; Grok-backed search may also emit parse-noise after returning usable results.
+
+### Error
+```text
+Representative pattern:
+- web_fetch returns 403 / interstitial / degraded extraction
+- direct PDF fetch returns raw %PDF bytes instead of readable text
+- some Chinese article hosts fail with 403/521
+- search-layer Grok backend may emit trailing parse noise after usable results
+```
+
+### Context
+- Recurred across reverse-expert-kb collection runs and related source-gathering tasks
+- Failures often did not fully block work because fallback sources still existed
+- Main operational risk is wasting time forcing brittle fetch paths or overclaiming from weak sources
+
+### Suggested Fix
+Treat this as a host-level workflow constraint:
+- prefer HTML landing pages, abstracts, rendered GitHub pages, and official docs before direct PDFs
+- treat anti-bot/interstitial-prone article hosts as best-effort corroboration
+- use search-layer/source clustering plus conservative workflow-centered synthesis when direct extraction is weak
+- treat Grok parse-noise with usable results as a soft failure, not an automatic blocker
+
+### Metadata
+- Reproducible: yes
+- Related Files: AGENTS.md, TOOLS.md, MEMORY.md, /root/.openclaw/workspace/research/reverse-expert-kb/
+- Cluster-Members: ERR-20260314-002, ERR-20260314-001, ERR-20260313-003, ERR-20260314-001, ERR-20260315-001, ERR-20260315-002
+
+---
+## [ERR-20260315-004] brave-web-search-unconfigured-cluster
+
+**Logged**: 2026-03-15T09:45:30+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: config
+
+### Summary
+Raw Brave-backed `web_search` is repeatedly unavailable in this environment because the Brave API key is not configured for the gateway/tool path.
+
+### Error
+```text
+missing_brave_api_key
+web_search (brave) needs a Brave Search API key.
+```
+
+### Context
+- Recurred across KB research and auxiliary source-gathering runs
+- Work was usually able to continue through `search-layer` or other fallback paths
+- This is now a stable environment fact, not a surprising one-off failure
+
+### Suggested Fix
+Do not assume raw Brave `web_search` is available on this host. Prefer `search-layer` for research. Only configure Brave later if direct Brave coverage is specifically needed.
+
+### Metadata
+- Reproducible: yes
+- Related Files: TOOLS.md, MEMORY.md, /root/.openclaw/workspace/skills/search-layer/SKILL.md
+- Cluster-Members: ERR-20260314-001, ERR-20260314-001, ERR-20260314-001, ERR-20260315-001
+
+---
 ## [ERR-20260315-001] web_fetch-github-raw-404-during-kb-source-expansion
 
 **Logged**: 2026-03-15T01:18:00+08:00
@@ -58,6 +125,7 @@ Prefer HTML landing pages / abstracts first for academic sources; treat direct P
 ### Metadata
 - Reproducible: yes
 - Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/runs/
+- See Also: ERR-20260315-003
 
 ---
 ## [ERR-20260313-001] official_grok2api_docker_image_entrypoint_mismatch
@@ -304,6 +372,7 @@ For recurring research workflows on this host, prefer search-layer first, treat 
 ### Metadata
 - Reproducible: yes
 - Related Files: research/reverse-expert-kb/runs/2026-03-14-0100.md
+- See Also: ERR-20260315-003, ERR-20260315-004
 
 ---
 ## [ERR-20260314-001] git-commit-missing-identity
@@ -372,6 +441,7 @@ Harden Grok response parsing in `search-layer` so partial-success cases do not a
 ### Metadata
 - Reproducible: unknown
 - Related Files: /root/.openclaw/workspace/skills/search-layer/scripts/search.py
+- See Also: ERR-20260315-003
 
 ---
 ## [ERR-20260314-001] exec-printf-sh-dash
@@ -429,6 +499,7 @@ Configure Brave Search for the gateway if broader search coverage is desired for
 ### Metadata
 - Reproducible: yes
 - Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/
+- See Also: ERR-20260315-004
 
 ---
 ## [ERR-20260314-001] search-and-fetch-sources
@@ -461,6 +532,7 @@ web_fetch on several PDFs returned raw %PDF bytes instead of readable extracted 
 ### Metadata
 - Reproducible: yes
 - Related Files: skills/search-layer/SKILL.md, .learnings/ERRORS.md
+- See Also: ERR-20260315-003, ERR-20260315-004
 
 ---
 
@@ -491,6 +563,7 @@ Configure Brave Search credentials if direct web_search is desired, or remember 
 ### Metadata
 - Reproducible: yes
 - Related Files: /root/.openclaw/workspace/skills/search-layer/SKILL.md
+- See Also: ERR-20260315-004
 
 ---
 ## [ERR-20260315-001] web-search-and-fetch-integration
@@ -520,6 +593,7 @@ Prefer search-layer fallback sources as done here; keep recording tool gaps in r
 ### Metadata
 - Reproducible: yes
 - Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/runs/2026-03-15-0200-akamai-sensor-cookie-workflow.md
+- See Also: ERR-20260315-003, ERR-20260315-004
 
 ---
 ## [ERR-20260315-002] web-fetch-chinese-content-interstitials
@@ -549,6 +623,6 @@ When collecting practitioner material for Chinese reverse-engineering targets in
 ### Metadata
 - Reproducible: yes
 - Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/sources/browser-runtime/2026-03-15-xiaohongshu-web-signature-workflow-notes.md
-- See Also: ERR-20260315-001
+- See Also: ERR-20260315-001, ERR-20260315-003
 
 ---
