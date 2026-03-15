@@ -417,6 +417,9 @@ Grounding for this page comes from:
   - cookie and storage names (`_px`, `_px2`, `_px3`, `_pxvid`, `pxcts`, `_pxhd`, `_pxff_*`, `_pxde`)
   - first-party routes (`/<app>/init.js`, `/<app>/xhr/*`)
   - challenge/ABR boundaries and `_pxOnCaptchaSuccess`
+- official PerimeterX/HUMAN sample material around ABR callback handling:
+  - `https://github.com/PerimeterX/perimeterx-abr-samples`
+  - `https://github.com/PerimeterX/perimeterx-chrome-extension-demo/blob/master/README.md`
 - public practitioner repositories around PerimeterX reverse/solver work, used conservatively for workflow-shape evidence rather than universal field semantics
 
 The strengthened practical claims supported by this source mix are:
@@ -438,3 +441,4 @@ bootstrap script
 ```
 
 It matters because analysts often stop at visible `_px*` cookies or challenge pages, while the more useful answer is: this is the bootstrap route, this collector transition refreshes the meaningful state, this callback hands success back to the app, and this is the first request where accepted vs blocked behavior actually diverges.
+p route, this collector transition refreshes the meaningful state, this callback hands success back to the app, and this is the first request where accepted vs blocked behavior actually diverges.
