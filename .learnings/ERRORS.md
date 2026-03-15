@@ -802,3 +802,35 @@ Prefer search-layer result synthesis and existing curated source notes when Andr
 - Related Files: research/reverse-expert-kb/sources/mobile-runtime-instrumentation/2026-03-15-webview-native-bridge-payload-recovery-notes.md
 
 ---
+## [ERR-20260316-001] web_fetch-android-developers-redirects
+
+**Logged**: 2026-03-15T18:18:00Z
+**Priority**: medium
+**Status**: pending
+**Area**: docs
+
+### Summary
+`web_fetch` hit redirect-limit failures on several `developer.android.com` pages during reverse-expert-kb source collection.
+
+### Error
+```text
+Too many redirects (limit: 3)
+```
+
+### Context
+- Operation attempted: fetch Android Developers reference/guides to support a KB workflow note
+- URLs attempted:
+  - https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started
+  - https://developer.android.com/reference/android/os/Handler
+  - https://developer.android.com/reference/android/app/AlarmManager
+- Environment detail: this host already has fragile `web_fetch` behavior on some sites; failure happened during KB autosync research run
+
+### Suggested Fix
+When Android Developers pages are needed, prefer search-layer summaries plus conservative workflow-centered synthesis, or use alternate mirrors / browser fetch if stronger sourcing is required.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: TOOLS.md, research/reverse-expert-kb/runs/2026-03-16-0200-post-validation-state-refresh-and-delayed-consequence.md
+- See Also: ERR-20260315-001
+
+---

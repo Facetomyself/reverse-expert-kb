@@ -273,7 +273,7 @@ Typical analyst object:
 - post-validation state refresh, retry scheduler, or trust state is still unclear
 
 Best follow-on notes:
-- `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
+- `topics/post-validation-state-refresh-and-delayed-consequence-workflow-note.md`
 - `topics/environment-differential-diagnosis-workflow-note.md`
 
 ### Scenario 5: same visible challenge, different outcomes across devices/sessions/setups
@@ -377,6 +377,8 @@ Among these, the especially central dimensions are:
   - because many challenge cases stall after response parsing until the first consequence-driving native consumer is localized
 - `topics/result-code-and-enum-to-policy-mapping-workflow-note.md`
   - because challenge and retry behavior often stays unexplained until visible response fields are reduced into a smaller local policy bucket
+- `topics/post-validation-state-refresh-and-delayed-consequence-workflow-note.md`
+  - because many challenge cases remain unexplained after visible validation success until the first delayed state refresh, retry queue, or follow-up request owner is localized
 - `topics/environment-differential-diagnosis-workflow-note.md`
   - because the same visible challenge often leads to different outcomes only when compared across devices, sessions, packaging states, or observation setups
 
@@ -399,7 +401,6 @@ Among these, the especially central dimensions are:
 
 ## 11. Suggested next expansions
 This topic may later split into several child pages, but only where a concrete operator workflow clearly justifies the split:
-- `topics/post-validation-state-refresh-and-delayed-consequence-workflow-note.md`
 - `topics/policy-bucket-compare-run-diagnosis-workflow-note.md`
 - `topics/browser-fingerprint-and-state-dependent-token-generation.md`
 - `topics/ebpf-seccomp-and-svc-tracing-for-mobile-re.md`
