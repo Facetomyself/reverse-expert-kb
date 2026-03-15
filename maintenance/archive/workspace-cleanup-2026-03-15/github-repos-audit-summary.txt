@@ -1,0 +1,52 @@
+GitHub repo audit for @Facetomyself — total 70 repos
+FetchedAt: 2026-03-13T01:48:15.550303+00:00
+
+Public: 60 | Private: 10 | Archived: 0 | Forks: 43
+Active repos stale >180d: 26 | stale >365d: 5
+Missing description: 14 | Missing topics: 70 | Missing license: 42
+
+Top public repos by stars:
+- Facetomyself/landchina ⭐1 (lang=JavaScript, last push=153d)
+- Facetomyself/AntiCAP-WebApi-docker ⭐1 (lang=HTML, last push=190d)
+- Facetomyself/html_parse ⭐1 (lang=Python, last push=203d)
+- Facetomyself/grok2api_sdk ⭐0 (lang=Python, last push=6d)
+- Facetomyself/YSbrowser ⭐0 (lang=None, last push=16d)
+- Facetomyself/never-jscore ⭐0 (lang=Rust, last push=35d)
+- Facetomyself/Kiro-auto-register ⭐0 (lang=TypeScript, last push=54d)
+- Facetomyself/onehu_scrapy ⭐0 (lang=HTML, last push=55d)
+- Facetomyself/lotspeed ⭐0 (lang=Shell, last push=84d)
+- Facetomyself/ppt-master ⭐0 (lang=Python, last push=84d)
+
+Most stale active repos (>365d since push):
+- Facetomyself/zsxq-share (last push=1192d, updated=139d, private=False)
+- Facetomyself/WeChatOpenDevTools-Python (last push=543d, updated=401d, private=False)
+- Facetomyself/aiostream (last push=498d, updated=345d, private=False)
+- Facetomyself/frp-guide (last push=458d, updated=308d, private=False)
+- Facetomyself/FastapiProject (last push=427d, updated=427d, private=True)
+
+High-priority cleanup candidates (public, not archived, missing license/desc/topics):
+- Facetomyself/landchina (missing: license, topics)
+- Facetomyself/AntiCAP-WebApi-docker (missing: topics)
+- Facetomyself/html_parse (missing: license, topics)
+- Facetomyself/grok2api_sdk (missing: license, description, topics)
+- Facetomyself/YSbrowser (missing: license, topics)
+- Facetomyself/never-jscore (missing: license, topics)
+- Facetomyself/Kiro-auto-register (missing: license, topics)
+- Facetomyself/onehu_scrapy (missing: license, description, topics)
+- Facetomyself/lotspeed (missing: license, topics)
+- Facetomyself/ppt-master (missing: topics)
+- Facetomyself/tgbot-verify (missing: topics)
+- Facetomyself/liKeYun_ylb (missing: topics)
+- Facetomyself/sync-your-cookie (missing: topics)
+- Facetomyself/PqJs (missing: topics)
+- Facetomyself/WeSpy (missing: description, topics)
+- Facetomyself/AyugeSpiderTools (missing: topics)
+- Facetomyself/airProxyPool (missing: license, topics)
+- Facetomyself/Mailu_verify_dev (missing: license, topics)
+- Facetomyself/english-dictionary-web (missing: topics)
+- Facetomyself/cursor-reg (missing: license, topics)
+- Facetomyself/xianyu-auto-reply (missing: license, topics)
+- Facetomyself/AntiCAP (missing: topics)
+- Facetomyself/pcapng_analysis (missing: license, topics)
+- Facetomyself/codex-config (missing: license, topics)
+- Facetomyself/sperm (missing: topics)

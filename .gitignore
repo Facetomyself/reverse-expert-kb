@@ -1,0 +1,13 @@
+# Local tool state
+.clawhub/
+.openclaw/
+
+# Python caches
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+
+# Local temp workdirs
+_tmp/
+tmp/

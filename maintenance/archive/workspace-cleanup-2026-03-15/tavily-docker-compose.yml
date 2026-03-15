@@ -1,0 +1,41 @@
+services:
+  camoufox:
+    build:
+      context: ./camoufox
+      dockerfile: Dockerfile
+    container_name: tavily-camoufox
+    restart: unless-stopped
+    environment:
+      CAMOU_HEADLESS: "true"
+      CAMOU_PORT: "9222"
+      CAMOU_WS_PATH: camoufox
+    expose:
+      - "9222"
+
+  camoufox-adapter:
+    build:
+      context: ./adapter
+      dockerfile: Dockerfile
+    container_name: tavily-camoufox-adapter
+    restart: unless-stopped
+    depends_on:
+      - camoufox
+    environment:
+      CAMOUFOX_WS_URL: ws://camoufox:9222/camoufox
+    ports:
+      - "16072:5072"
+
+  tavily-key-generator:
+    build: .
+    container_name: tavily-key-generator
+    restart: "no"
+    depends_on:
+      - camoufox-adapter
+    volumes:
+      - ./config.py:/app/config.py:ro
+      - ./output:/app/output
+    environment:
+      TZ: Asia/Shanghai
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: ["python", "main.py"]
