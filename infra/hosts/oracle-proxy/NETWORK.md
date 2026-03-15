@@ -31,7 +31,42 @@
 - API base: `http://proxy.zhangxuemin.work:9874/api`
 - Internal proxy target used by scheduler container: `http://host.docker.internal:9874`
 
-## 5. Notes / Caveats
+## 5. Nginx / Proxy Layer Notes
+### System nginx
+- `nginx.service` is active
+- enabled site: `/etc/nginx/sites-enabled/default`
+- current config is the Debian default static site:
+  - `listen 80 default_server`
+  - `root /var/www/html`
+  - `server_name _`
+- No meaningful reverse-proxy mapping was found in system nginx during this pass
+
+### sing-box embedded nginx
+- `sing-box.service` also owns nginx processes via `/etc/sing-box/nginx.conf`
+- This strongly suggests a separate proxy/subscription delivery layer independent of system nginx
+
+## 6. Tunnel / Proxy Stack Notes
+### sing-box
+- Config root: `/etc/sing-box/conf/`
+- Notable subscription artifacts:
+  - `/etc/sing-box/subscribe/*`
+- Cert paths observed:
+  - `/etc/sing-box/cert/cert.pem`
+  - `/etc/sing-box/cert/private.key`
+- Treat ports `30001`, `30004-30011` as sing-box-owned until proven otherwise
+
+### xray
+- Config root: `/etc/v2ray-agent/xray/conf`
+- Active ports observed:
+  - `*:14391`
+  - `127.0.0.1:45987`
+- Recent logs show accepted traffic forwarded toward local `127.0.0.1:45987`
+
+### cloudflared
+- Local listener previously observed on `127.0.0.1:20241`
+- Exact tunnel config still TBD
+
+## 7. Notes / Caveats
 - This host does **not** currently have `ufw` installed (`ufw: command not found` at snapshot time).
 - Several ports are directly bound on `0.0.0.0`; future hardening review is recommended.
-- Network documentation is only partially complete; nginx / cloudflared / sing-box / xray mappings still need a dedicated pass.
+- Network documentation is now better than the first pass, but cloudflared and full sing-box/xray semantics still need a dedicated audit.

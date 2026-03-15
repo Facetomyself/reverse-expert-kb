@@ -10,3 +10,8 @@
   - verified fresh registrations auto-upload to proxy
   - created a working proxy token and verified `/api/search`
 - Updated local search-layer to consume Tavily through `proxy.zhangxuemin.work:9874/api`.
+- Deepened oracle-proxy documentation with second-pass details for:
+  - system nginx vs sing-box-owned nginx distinction
+  - sing-box / xray machine-level network stack
+  - grok2api compose/runtime details
+  - cliproxy host-side config and mounts

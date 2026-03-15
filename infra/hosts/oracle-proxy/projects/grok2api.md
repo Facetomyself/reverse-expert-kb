@@ -22,23 +22,42 @@ Observed repo structure includes:
 - `logs/`
 - application source under `app/` and `src/`
 
+Compose file path:
+- `/root/grok2api/docker-compose.yml`
+
 ## 4. Runtime Topology
 - Host exposure: `0.0.0.0:8000 -> 8000/tcp`
-- Container image: `grok2api-official-local:latest`
+- Container image default: `ghcr.io/tqzhr/grok2api:latest`
+- Running image observed: `grok2api-official-local:latest`
+- Healthcheck: internal `GET /health`
+- Container mounts:
+  - `./data:/app/data`
+  - `./logs:/app/logs`
+  - `./camoufox_override:/app/camoufox_override:ro`
 - Likely acts as the backend behind `http://proxy.zhangxuemin.work:8000/v1` used elsewhere on this infrastructure
 
 ## 5. Purpose and Workflow
 Known from surrounding infrastructure usage:
 - local tools and proxies on this host use a Grok/OpenAI-compatible API path via port `8000`
 - this project appears to be the local Grok API service backing that path
+- it supports local storage mode by default and can optionally use redis / pgsql / mysql profiles, though those are not active by default in the observed runtime
 
 ## 6. Configuration
-Documented to inspect later:
-- `.env`
-- `config.defaults.toml`
-- compose env bindings
+Key compose/runtime facts:
+- `SERVER_HOST=0.0.0.0`
+- `SERVER_PORT=8000`
+- `SERVER_STORAGE_TYPE=local`
+- `CAMOUFOX_OVERRIDE_DIR=/app/camoufox_override`
+- default timezone: `Asia/Shanghai`
 
-At this stage, only surface-level deployment facts are documented.
+Observed `config.defaults.toml` highlights:
+- `[app] app_url = "http://127.0.0.1:8000"`
+- `[app] admin_username = "admin"`
+- `[grok] timeout = 120`
+- `[register] solver_url = "http://127.0.0.1:5072"`
+- optional register-related fields exist for worker domain / email / solver integration
+
+This project is now documented beyond the first surface pass, but still deserves a future app-level audit.
 
 ## 7. Operations
 

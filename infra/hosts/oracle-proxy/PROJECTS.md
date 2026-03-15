@@ -9,6 +9,7 @@
 | Grok Register Stack | running | `:15072` adapter | 独立 Grok Turnstile solver stack | Tier 2 | `./projects/grok-register.md` |
 | Grok2API | running | `:8000` | Grok API bridge/service | Tier 2 | `./projects/grok2api.md` |
 | CLIProxy | running | `:8317` | OpenAI-compatible CLI proxy for local tools | Tier 2 | `./projects/cliproxy.md` |
+| Network Stack | running | machine-level | nginx / sing-box / xray / cloudflared infrastructure | Infra | `./projects/network-stack.md` |
 
 ## Relationship Snapshot
 

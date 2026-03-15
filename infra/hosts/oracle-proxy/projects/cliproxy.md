@@ -14,26 +14,33 @@
 - Observed endpoint family used elsewhere: `http://proxy.zhangxuemin.work:8317/v1`
 
 ## 3. Deployment Layout
-Currently only container/runtime facts are documented.
-Underlying compose/unit file is not yet captured in this first pass.
+Observed deployment source:
+- Host path: `/root/containers/cliproxy`
+- Mounted config: `/root/containers/cliproxy/config.yaml` -> `/CLIProxyAPI/config.yaml`
+- Mounted auth dir: `/root/containers/cliproxy/auth-dir` -> `/root/.cli-proxy-api`
+- Helper/update script observed: `/root/update_cliproxy.sh`
 
 ## 4. Runtime Topology
 - Host exposure: `0.0.0.0:8317 -> 8317/tcp`
+- Container image: `eceasy/cli-proxy-api:latest`
+- Container command: `./CLIProxyAPI`
 - Container env observed:
   - `TZ=Asia/Shanghai`
 - Consumers: local tooling such as summarize / OpenAI-compatible CLI clients on this host
 
 ## 5. Purpose and Workflow
 Acts as a stable compatibility layer so local tools can talk to one endpoint while upstream model/provider details stay abstracted.
+Likely use case on this host: local CLI tools target `http://proxy.zhangxuemin.work:8317/v1` instead of talking to upstream model services directly.
 
 ## 6. Configuration
 Known:
-- container env currently observed is minimal
+- main config file on host: `/root/containers/cliproxy/config.yaml`
+- auth material directory on host: `/root/containers/cliproxy/auth-dir`
+- update helper script exists: `/root/update_cliproxy.sh`
 
 Unknown / TBD:
-- exact compose or systemd source
-- upstream routing rules
-- config file location
+- full config schema of `config.yaml`
+- upstream provider mappings inside cliproxy
 
 ## 7. Operations
 
