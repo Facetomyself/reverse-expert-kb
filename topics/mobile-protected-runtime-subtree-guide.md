@@ -162,6 +162,7 @@ Current concrete notes:
 - `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
 - `topics/android-observation-surface-selection-workflow-note.md`
 - `topics/environment-differential-diagnosis-workflow-note.md`
+- `topics/android-network-trust-and-pinning-localization-workflow-note.md`
 
 Read `mobile-signature-location-and-preimage-recovery-workflow-note` when the main problem is:
 - you have one app-side signature or anti-risk field and need a concrete first-pass workflow
@@ -182,6 +183,11 @@ Read `environment-differential-diagnosis-workflow-note` when the main problem is
 - behavior drifts across device, packaging, session, or observation conditions
 - you need to tell whether the drift is execution, trust, session, or observation drift
 - you need a triage layer that routes you to the right deeper workflow note instead of patching blindly
+
+Read `android-network-trust-and-pinning-localization-workflow-note` when the main problem is:
+- the app’s decisive request path is blocked by routing, TLS trust, or certificate pinning uncertainty
+- you need to distinguish OkHttp/Java trust paths from Cronet/Flutter/native validation paths
+- you need stack-classification-first reasoning, trust-registration anchors, and failure diagnosis for partial/unreliable universal bypass coverage
 
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:
