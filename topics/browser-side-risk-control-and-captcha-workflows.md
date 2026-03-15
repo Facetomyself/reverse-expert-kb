@@ -212,6 +212,7 @@ Includes:
   - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
   - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
   - `topics/hcaptcha-callback-submit-and-siteverify-workflow-note.md`
+  - `topics/recaptcha-v3-and-invisible-workflow-note.md`
   - `topics/akamai-sensor-submission-and-cookie-validation-workflow-note.md`
   - `topics/tiktok-web-signature-workflow-note.md`
   - `topics/xiaohongshu-web-signature-workflow-note.md`
