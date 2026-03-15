@@ -165,6 +165,7 @@ Current concrete notes:
 - `topics/cloudflare-turnstile-widget-lifecycle-workflow-note.md`
 - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
 - `topics/hcaptcha-callback-submit-and-siteverify-workflow-note.md`
+- `topics/recaptcha-v3-and-invisible-workflow-note.md`
 - `topics/browser-parameter-path-localization-workflow-note.md`
 - `topics/browser-request-finalization-backtrace-workflow-note.md`
 - `topics/acw-sc-v2-cookie-bootstrap-and-consumer-path-note.md`
