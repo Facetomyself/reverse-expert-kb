@@ -3,6 +3,44 @@
 Command failures, exceptions, and unexpected behaviors.
 
 ---
+## [ERR-20260316-003] bulk-source-fetch-wrapper-and-search-skill-helper-path
+
+**Logged**: 2026-03-16T13:18:30+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: docs
+
+### Summary
+A shell-based bulk fetch wrapper failed, and the search-layer skill documentation implied a `scripts/fetch.py` helper path that does not exist in the local workspace copy.
+
+### Error
+```text
+xargs: warning: options --max-args and --replace/-I/-i are mutually exclusive, ignoring previous --max-args value
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+IndexError: list index out of range
+sh: 7: https://...: not found
+
+python3: can't open file '/root/.openclaw/workspace/skills/search-layer/scripts/fetch.py': [Errno 2] No such file or directory
+```
+
+### Context
+- Operation attempted: bulk-fetch a small set of WebView references for reverse-expert-kb source consolidation
+- Inputs used: several official/practical Android WebView URLs
+- Local search-layer scripts directory contains `search.py`, `fetch_thread.py`, `chain_tracker.py`, `grok_compat_check.py`, and `relevance_gate.py`, but no `fetch.py`
+- Workaround used: switch to first-class `web_fetch` and direct per-URL handling
+
+### Suggested Fix
+- Prefer first-class `web_fetch` for direct page extraction on this host instead of assuming a local helper script exists
+- For multiple URLs, use simpler shell loops or one-tool-per-URL patterns rather than brittle `xargs` + heredoc wrappers
+- Consider updating `skills/search-layer/SKILL.md` or local notes if this missing helper path is meant to be avoided in future runs
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/skills/search-layer/SKILL.md, /root/.openclaw/workspace/.learnings/ERRORS.md
+- See Also: ERR-20260315-006
+
+---
 ## [ERR-20260316-002] kb-source-note-path-drift
 
 **Logged**: 2026-03-16T07:19:30+08:00
