@@ -117,6 +117,50 @@ Reactions are lightweight social signals. Humans use them constantly — they sa
 
 Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
 
+## SSH / Remote Host Knowledge Base
+
+SSH、远程主机、运维排障相关信息不要只留在聊天和临时记忆里；统一落到 `infra/` 这套知识库。
+
+### Trigger rule
+当用户提到以下任一内容时，优先把它当作基础设施 / 远程主机任务处理：
+- `ssh`
+- `远程`
+- `服务器` / `主机` / `host` / `server`
+- 已知 SSH alias（如 `oracle-proxy`、`oracle-docker_proxy`、`ali-cloud`、`oracle-mail`、`self-server`）
+- 某台机器的公网 IP、域名、端口、反代、容器、systemd 服务
+
+### Required read path
+遇到这类任务时，默认按下面顺序取资料：
+1. `infra/inventory.yaml` — 先定位主机、SSH alias、文档入口
+2. `infra/host-status.yaml` — 看 reachability / lifecycle / importance
+3. `infra/hosts/<host>/HOST.md` — 看主机身份、SSH 入口、系统基线、运维注意事项
+4. 需要时再读：
+   - `infra/hosts/<host>/NETWORK.md`
+   - `infra/hosts/<host>/PROJECTS.md`
+   - `infra/hosts/<host>/projects/*.md`
+   - `infra/hosts/<host>/CHANGELOG.md`
+   - `infra/OVERVIEW.md`
+
+### Required write path
+凡是新确认、修正、复盘出来的 SSH / 远程主机信息，都要尽量写回：
+- 主机索引 / 文档指针 → `infra/inventory.yaml`
+- 当前状态 / reachability / lifecycle → `infra/host-status.yaml`
+- 主机基线 / SSH 入口 / 注意事项 → `infra/hosts/<host>/HOST.md`
+- 端口 / 域名 / 暴露关系 → `infra/hosts/<host>/NETWORK.md`
+- 项目运维 → `infra/hosts/<host>/projects/*.md`
+- 重要变更 / 迁移 / 下线 / 修复 → `infra/hosts/<host>/CHANGELOG.md`
+
+不要只在 `MEMORY.md` 里记这类细节；`MEMORY.md` 只保留高层事实，`infra/` 才是 SSH / 运维知识的唯一真源。
+
+### GitHub sync policy
+`infra/` 是需要长期保存和跨会话继承的运维知识库，应同步到独立的 GitHub 私有仓库。
+
+规则：
+- 凡是修改 `infra/` 中 SSH / 主机 / 运维相关文档，完成后要立即提交。
+- `infra/` 仓库启用提交后自动 push；本地提交完成后应自动同步到 GitHub 私有仓库。
+- 如远端未配置、push 失败或认证异常，先修复同步链路，再继续把新的基础设施知识只留在本地。
+- 对外同步时避免提交密码、token 全值、私钥等敏感凭据；写位置、来源、取用方式即可。
+
 **🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
 
 **📝 Platform Formatting:**

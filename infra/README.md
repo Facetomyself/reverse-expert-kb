@@ -70,6 +70,16 @@ infra/
 - `Admin password: see credential store`
 - `Token configured in ~/.openclaw/credentials/...`
 
+## GitHub Sync
+
+`infra/` 目录应作为可持续维护的独立知识库，同步到 GitHub 私有仓库。
+
+推荐约定：
+- `infra/` 自身是单独 git 仓库
+- 每次修改后立即提交
+- 通过仓库 hook 在提交后自动 `git push origin HEAD`
+- 只同步运维文档、结构化清单和项目手册；不要把密码、token 全值、私钥写入仓库
+
 ## 当前覆盖
 
 - `oracle-proxy`：已建立较完整文档
