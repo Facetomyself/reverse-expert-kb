@@ -248,11 +248,13 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/firmware-and-protocol-context-recovery.md`
 - `topics/protocol-state-and-message-recovery.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+- `topics/peripheral-mmio-effect-proof-workflow-note.md`
 
-This branch should now be read as a practical bridge from firmware/protocol synthesis into one recurring operator bottleneck:
+This branch should now be read as a practical bridge from firmware/protocol synthesis into two recurring operator bottlenecks:
 - environment/context recovery (`firmware-and-protocol-context-recovery`)
 - message/state recovery (`protocol-state-and-message-recovery`)
 - parser-to-state consequence localization (`protocol-parser-to-state-edge-localization-workflow-note`), which acts as the practical entry note when message families and candidate parsers are already visible but the first state write, reply-family selector, queue/timer insertion, or peripheral action that actually predicts later behavior is still unclear
+- peripheral/MMIO effect proof (`peripheral-mmio-effect-proof-workflow-note`), which acts as the practical entry note when candidate peripheral ranges, register families, or hardware-facing handlers are already visible but the first effect-bearing write, queue/DMA/interrupt arm, or status-latch edge still has to be proved before rehosting, modeling, or deeper static work becomes trustworthy
 
 This subtree is now best read as nine coordinated mobile analyst entry surfaces:
 - iOS environment-gate diagnosis (`ios-packaging-jailbreak-and-runtime-gate-workflow-note`), which acts as the practical entry note when the case is clearly iOS-shaped but the analyst still needs to separate packaging/resign drift, jailbreak-environment probes, instrumentation visibility, device-realism drift, and later trust/session consequences before deepening hooks or bypasses
