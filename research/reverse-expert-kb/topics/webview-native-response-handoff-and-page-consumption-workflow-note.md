@@ -210,7 +210,8 @@ Record explicitly:
 
 ```text
 native result produced at:
-page listener / callback registered at:
+document-start observer present at:
+page listener / callback / port registered at:
 route mounted or remounted at:
 reload / reinit observed at:
 first meaningful page consumer fired at:
@@ -229,6 +230,39 @@ native result is correct
 ```
 
 This is especially important in SPA-like or hybrid flows where route changes, WebView reloads, or bootstrap refresh can silently invalidate an otherwise correct native return.
+
+### Step 7: test a listener-first hypothesis before deepening payload analysis
+A recurring practical mistake is to assume that visible bridge exposure or visible `evaluateJavascript(...)` emission proves the page-side consumer could have received it in time.
+
+Treat this as a separate question:
+
+```text
+was the first meaningful page listener / port / route-local callback ready
+before the native emission that mattered?
+```
+
+Useful diagnosis contrasts:
+- **document-start observer present early** vs **observer only added after page-load-style anchors**
+- **listener attached before app script or route setup** vs **listener attached after remount/reset**
+- **first native emission captured** vs **only later repeated emissions captured**
+
+Why this matters:
+- WebView-level load completion can be too coarse in SPA-like targets
+- route-local callbacks/stores can remount after the last visible `onPageFinished` boundary
+- message-port and postMessage-style paths can miss only the first useful message, while later traffic still looks healthy
+
+A compact scratch template:
+
+```text
+early observer available:
+listener/port registered:
+route-local consumer ready:
+first native emission:
+first meaningful page consumer:
+first request-driving effect:
+```
+
+If the accepted run only works when an observer or listener exists earlier than in the failed run, prioritize lifecycle timing and registration order before spending more time on payload semantics.
 
 ## 5. Where to place breakpoints / hooks
 
@@ -277,7 +311,18 @@ Inspect:
 - whether multiple callbacks consume the same native result differently
 - whether listener registration exists only after a specific lifecycle boundary, route mount, or reload completion point
 
-### D. First request-driving consumer boundary
+### D. Early listener / document-start observer boundary
+Use when:
+- bridge visibility is known, but the first meaningful consumer may not exist early enough
+- SPA-like route remounts or message-port ordering are plausible bottlenecks
+
+Inspect:
+- whether observer/listener code exists at document-start or only after later load anchors
+- when route-local callback/store registration actually occurs
+- whether the first meaningful native emission can happen before the relevant listener is attached
+- whether only later repeated emissions are observable, creating a false impression that payload shape is the problem
+
+### E. First request-driving consumer boundary
 Use when:
 - you know which callback/store receives the native result
 - you need to see whether it actually causes the protected action
@@ -287,7 +332,7 @@ Inspect:
 - hidden field / store reads immediately before request assembly
 - whether the consumer calls a page-owned XHR/fetch path or triggers another bridge round trip
 
-### E. Console / visible-side-effect boundary
+### F. Console / visible-side-effect boundary
 Use when:
 - deeper JS instrumentation is costly or unstable
 - page console output or visible state transitions can still help separate operational consumers from UI-only ones
@@ -390,6 +435,17 @@ Next move:
 - align native emission with page load / route-mount / callback-registration timing
 - compare whether the same emission is followed by fresh listener registration or state reset
 
+### Failure mode 7: bridge visibility is real, but the first useful message is still missed
+Likely causes:
+- the bridge object exists, but the route-local or message-port listener attached too late
+- `onPageFinished` or another coarse page-load anchor is being mistaken for actual consumer readiness
+- the first meaningful native emission occurs before document-start or early-listener-equivalent coverage exists
+
+Next move:
+- compare a listener-first run against a later-attached-observer run
+- record document-start observer timing, listener/port registration timing, and first native emission timing separately
+- treat late observer placement as a diagnosis target before spending more effort on payload decoding
+
 ## 8. Environment assumptions
 Hybrid Android apps often split one logical loop across:
 1. page-triggered intent
@@ -440,6 +496,7 @@ Grounding for this page comes mainly from:
 - `sources/mobile-runtime-instrumentation/2026-03-15-webview-native-response-handoff-notes.md`
 - `sources/mobile-runtime-instrumentation/2026-03-16-webview-native-response-handoff-hardening-notes.md`
 - `sources/mobile-runtime-instrumentation/2026-03-16-webview-bridge-visibility-and-page-consumer-timing-notes.md`
+- `sources/mobile-runtime-instrumentation/2026-03-16-document-start-listener-first-webview-notes.md`
 - Android WebView / WebMessage API references surfaced through search
 - Android WebView debugging guidance around JavaScript console capture
 - OWASP MASTG bridge examples as anchor for bridge surface terminology
