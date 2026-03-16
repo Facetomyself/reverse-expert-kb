@@ -294,6 +294,8 @@ A practical routing rule is now worth making explicit:
   - `topics/native-semantic-anchor-stabilization-workflow-note.md`
 - when imports/strings/xrefs/callbacks already expose several plausible routes and the next bottleneck is operational proof, prefer proving one representative interface-to-state-to-effect chain before broadening the subsystem map:
   - `topics/native-interface-to-state-proof-workflow-note.md`
+- when registrations, callbacks, message pumps, completions, or reactor-loop helpers are already visible but behavioral ownership still breaks at async dispatch boundaries, localize the first consequence-bearing event-loop consumer before mapping more framework plumbing:
+  - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is more synthesis-driven than source-dense.
