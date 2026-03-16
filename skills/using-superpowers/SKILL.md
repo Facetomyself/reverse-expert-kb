@@ -1,115 +1,99 @@
 ---
 name: using-superpowers
-description: Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions
+description: Lightweight skill-routing guidance for OpenClaw. Use when improving how skills are selected and applied across conversations, auditing whether the current environment is over- or under-using skills, or when you want a simple policy for checking relevant skills before complex or repetitive tasks without forcing heavy meta-process on every trivial interaction.
 ---
 
-<SUBAGENT-STOP>
-If you were dispatched as a subagent to execute a specific task, skip this skill.
-</SUBAGENT-STOP>
+# Using Superpowers
 
-<EXTREMELY-IMPORTANT>
-If you think there is even a 1% chance a skill might apply to what you are doing, you ABSOLUTELY MUST invoke the skill.
+This skill is a **lightweight routing guide**, not a hard gate in front of every sentence.
 
-IF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT.
+Its purpose is to keep skill usage disciplined without making ordinary work clumsy.
 
-This is not negotiable. This is not optional. You cannot rationalize your way out of this.
-</EXTREMELY-IMPORTANT>
+## Core idea
 
-## Instruction Priority
+Prefer using a relevant skill when it clearly helps, especially for:
+- recurring workflows
+- multi-step tasks
+- fragile operations
+- domain-specific tasks
+- anything with an established checklist or proven procedure
 
-Superpowers skills override default system prompt behavior, but **user instructions always take precedence**:
+Do **not** force a heavy skill-check ritual for every tiny read-only interaction.
 
-1. **User's explicit instructions** (CLAUDE.md, GEMINI.md, AGENTS.md, direct requests) — highest priority
-2. **Superpowers skills** — override default system behavior where they conflict
-3. **Default system prompt** — lowest priority
+## OpenClaw-adapted rule
 
-If CLAUDE.md, GEMINI.md, or AGENTS.md says "don't use TDD" and a skill says "always use TDD," follow the user's instructions. The user is in control.
+In this environment:
+- follow the system/developer instructions for skill discovery
+- when a task clearly matches a skill, read that skill and follow it
+- when several skills might apply, choose the most specific one
+- when no skill clearly applies, proceed normally without unnecessary meta-overhead
 
-## How to Access Skills
+This skill should not override clearer platform-level rules about how skills are loaded.
 
-**In Claude Code:** Use the `Skill` tool. When you invoke a skill, its content is loaded and presented to you—follow it directly. Never use the Read tool on skill files.
+## Good use cases
 
-**In Gemini CLI:** Skills activate via the `activate_skill` tool. Gemini loads skill metadata at session start and activates the full content on demand.
+Reach for a skill early when the task is:
+- repetitive
+- error-prone
+- operationally sensitive
+- likely to benefit from a stored workflow
+- likely to be repeated in future cron jobs, infra tasks, repo maintenance, or content workflows
 
-**In other environments:** Check your platform's documentation for how skills are loaded.
+Examples:
+- GitHub issue/PR work → `github` / `gh-issues`
+- weather requests → `weather`
+- skill design or cleanup → `skill-creator`
+- Oracle host fleet checks → `oracle-fleet-maintenance`
+- reverse KB autosync / review → `reverse-kb-autosync`
 
-## Platform Adaptation
+## When not to overdo it
 
-Skills use Claude Code tool names. Non-CC platforms: see `references/codex-tools.md` (Codex) for tool equivalents. Gemini CLI users get the tool mapping loaded automatically via GEMINI.md.
+Do not let skill-routing become busywork.
 
-# Using Skills
+Usually you can proceed directly for:
+- tiny factual replies
+- simple file reads
+- short status checks
+- straightforward follow-up questions
+- obvious one-off actions with no matching specialized skill
 
-## The Rule
+## Practical routing heuristic
 
-**Invoke relevant or requested skills BEFORE any response or action.** Even a 1% chance a skill might apply means that you should invoke the skill to check. If an invoked skill turns out to be wrong for the situation, you don't need to use it.
+Use this simple test:
 
-```dot
-digraph skill_flow {
-    "User message received" [shape=doublecircle];
-    "About to EnterPlanMode?" [shape=doublecircle];
-    "Already brainstormed?" [shape=diamond];
-    "Invoke brainstorming skill" [shape=box];
-    "Might any skill apply?" [shape=diamond];
-    "Invoke Skill tool" [shape=box];
-    "Announce: 'Using [skill] to [purpose]'" [shape=box];
-    "Has checklist?" [shape=diamond];
-    "Create TodoWrite todo per item" [shape=box];
-    "Follow skill exactly" [shape=box];
-    "Respond (including clarifications)" [shape=doublecircle];
+1. Is there a clearly matching skill for this task?
+   - If yes, use it.
+2. If not, is the task complex, repeated, or fragile enough that a skill probably should guide it?
+   - If yes, look for the most specific fit.
+3. If no, proceed normally.
 
-    "About to EnterPlanMode?" -> "Already brainstormed?";
-    "Already brainstormed?" -> "Invoke brainstorming skill" [label="no"];
-    "Already brainstormed?" -> "Might any skill apply?" [label="yes"];
-    "Invoke brainstorming skill" -> "Might any skill apply?";
+## Red flags
 
-    "User message received" -> "Might any skill apply?";
-    "Might any skill apply?" -> "Invoke Skill tool" [label="yes, even 1%"];
-    "Might any skill apply?" -> "Respond (including clarifications)" [label="definitely not"];
-    "Invoke Skill tool" -> "Announce: 'Using [skill] to [purpose]'";
-    "Announce: 'Using [skill] to [purpose]'" -> "Has checklist?";
-    "Has checklist?" -> "Create TodoWrite todo per item" [label="yes"];
-    "Has checklist?" -> "Follow skill exactly" [label="no"];
-    "Create TodoWrite todo per item" -> "Follow skill exactly";
-}
-```
+These are signs of under-using skills:
+- redoing the same workflow from scratch repeatedly
+- forgetting an established checklist
+- mixing up where to write operational knowledge
+- hand-rolling a recurring cron workflow that should become a skill
+- repeatedly making the same operational mistakes
 
-## Red Flags
+These are signs of over-using skills:
+- turning every tiny interaction into a meta-routing exercise
+- loading broad process skills for simple direct tasks
+- spending more effort choosing a skill than doing the work
 
-These thoughts mean STOP—you're rationalizing:
+## Preferred behavior
 
-| Thought | Reality |
-|---------|---------|
-| "This is just a simple question" | Questions are tasks. Check for skills. |
-| "I need more context first" | Skill check comes BEFORE clarifying questions. |
-| "Let me explore the codebase first" | Skills tell you HOW to explore. Check first. |
-| "I can check git/files quickly" | Files lack conversation context. Check for skills. |
-| "Let me gather information first" | Skills tell you HOW to gather information. |
-| "This doesn't need a formal skill" | If a skill exists, use it. |
-| "I remember this skill" | Skills evolve. Read current version. |
-| "This doesn't count as a task" | Action = task. Check for skills. |
-| "The skill is overkill" | Simple things become complex. Use it. |
-| "I'll just do this one thing first" | Check BEFORE doing anything. |
-| "This feels productive" | Undisciplined action wastes time. Skills prevent this. |
-| "I know what that means" | Knowing the concept ≠ using the skill. Invoke it. |
+Aim for:
+- **skills early for meaningful workflows**
+- **directness for trivial tasks**
+- **specific skills over broad generic ones**
+- **platform-native loading behavior over imported assumptions from other tools**
 
-## Skill Priority
+## Bottom line
 
-When multiple skills could apply, use this order:
+Use skills as leverage, not ceremony.
 
-1. **Process skills first** (brainstorming, debugging) - these determine HOW to approach the task
-2. **Implementation skills second** (frontend-design, mcp-builder) - these guide execution
-
-"Let's build X" → brainstorming first, then implementation skills.
-"Fix this bug" → debugging first, then domain-specific skills.
-
-## Skill Types
-
-**Rigid** (TDD, debugging): Follow exactly. Don't adapt away discipline.
-
-**Flexible** (patterns): Adapt principles to context.
-
-The skill itself tells you which.
-
-## User Instructions
-
-Instructions say WHAT, not HOW. "Add X" or "Fix Y" doesn't mean skip workflows.
+The right outcome is:
+- fewer repeated mistakes
+- more reuse of good workflows
+- less unnecessary meta-process
