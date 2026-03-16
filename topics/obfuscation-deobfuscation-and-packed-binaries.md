@@ -398,6 +398,12 @@ This topic may later split into several child pages:
 - `topics/function-similarity-under-transformation.md`
 - `topics/packer-detection-and-unpacking-readiness.md`
 - `topics/anti-tamper-and-protected-runtime-analysis.md`
+- `topics/vm-trace-to-semantic-anchor-workflow-note.md`
+
+A practical bridge page now exists for a recurring operator bottleneck:
+- `topics/vm-trace-to-semantic-anchor-workflow-note.md`
+
+Use it when virtualization, flattening, or handler churn is already visible and some execution-derived evidence exists, but the analyst still needs to reduce that churn into one stable semantic anchor plus one consequence-bearing handler/state edge before deeper static reconstruction becomes trustworthy.
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is coherent and strong enough for a mature synthesis page.
