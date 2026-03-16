@@ -290,9 +290,10 @@ This topic may later split into several child pages:
 - `topics/native-interface-to-state-proof-workflow-note.md`
 
 A practical routing rule is now worth making explicit:
-when static structure is already rich but the next move is still unclear, prefer proving one representative interface-to-state-to-effect chain before broadening the subsystem map.
-Read:
-- `topics/native-interface-to-state-proof-workflow-note.md`
+- when static structure is readable but local meanings are still too slippery, stabilize one candidate semantic anchor before broad relabeling:
+  - `topics/native-semantic-anchor-stabilization-workflow-note.md`
+- when imports/strings/xrefs/callbacks already expose several plausible routes and the next bottleneck is operational proof, prefer proving one representative interface-to-state-to-effect chain before broadening the subsystem map:
+  - `topics/native-interface-to-state-proof-workflow-note.md`
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is more synthesis-driven than source-dense.
