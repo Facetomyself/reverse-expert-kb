@@ -179,6 +179,35 @@ Useful boundaries include:
 
 That boundary usually yields more than broad simultaneous logging across all layers.
 
+### Step 6: test whether ownership is solved but page lifecycle still explains the failure
+This is the practical hybrid pitfall that often appears one step after ownership classification.
+
+You may already know that:
+- the final protected request is native-owned
+- the bridge handoff is real
+- WebView-only hooks were incomplete for good reasons
+
+And the case can still stall, because the remaining divergence is not transport ownership anymore.
+It is page lifecycle or page-side consumption.
+
+Representative shape:
+
+```text
+page action
+  -> JS/native bridge handoff
+  -> native transport path clearly owns decisive request
+  -> native response / token / config is returned toward page
+  -> page listener / route / bootstrap state is not yet ready, is reinitialized, or consumes the result differently
+  -> analyst over-attributes the failure to native ownership or signing even though page lifecycle timing is still decisive
+```
+
+Ask explicitly:
+- does the page register the relevant listener or callback only after a load-complete / route-mount boundary?
+- does the same native request succeed, yet later page behavior still diverges because the page was reloaded, remounted, or reset?
+- is the app repeatedly reinjecting the same native result into the page without stable progress?
+
+If the answer is yes, route forward into native→page response handoff and page-consumer diagnosis instead of staying only in native transport code.
+
 ## 5. Where to place breakpoints / hooks
 
 ### A. WebView navigation / page bootstrap boundary
@@ -338,6 +367,17 @@ Likely causes:
 Next move:
 - return to the ownership template and localize the first decisive boundary for one request family only
 
+### Failure mode 6: native transport ownership is proven, but behavior still diverges
+Likely causes:
+- ownership was solved, but the decisive difference moved to native→page return timing or page-side consumption
+- page listener registration, route mount, bootstrap refresh, or reload/reinit behavior now explains the divergence better than request ownership does
+- analysts keep deepening native transport or signing code even though the request is no longer the real mystery
+
+Next move:
+- test whether the same native-owned request is followed by different page-consumer timing or state-reset behavior
+- inspect whether native results are being reinjected into a page that is still mounting, reloading, or has not yet registered the relevant consumer
+- route into `topics/webview-native-response-handoff-and-page-consumption-workflow-note.md` when the ownership question is already closed but the page-side consequence is not
+
 ## 8. Environment assumptions
 Hybrid Android apps often blur four layers that analysts should separate:
 1. page/UI ownership
@@ -367,6 +407,8 @@ Then route forward based on what you find:
   - `topics/android-observation-surface-selection-workflow-note.md`
 - if the next bottleneck is request signing or token-path recovery after bridge handoff:
   - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
+- if ownership is already clear, but the remaining divergence is when or how native results are consumed back on the page side:
+  - `topics/webview-native-response-handoff-and-page-consumption-workflow-note.md`
 
 This page is meant to sit early in hybrid-app mobile investigations, before analysts over-commit to the wrong side of the app.
 

@@ -438,6 +438,11 @@ Grounding for this page comes from cross-synthesis of existing concrete browser 
 
 An exploratory search this run for JSONP/callback-style browser protection workflows produced mostly generic security material rather than strong reverse-engineering practitioner evidence, so this page intentionally consolidates the better-grounded request-boundary pattern already supported by the KB.
 
+A small but important extension also matters for hybrid mobile/WebView cases:
+- sometimes the request-finalization edge only becomes visible after native code successfully returns result material back into the page
+- in those cases, token visibility or even native transport success is still not the real endpoint of analysis
+- the decisive compare-run boundary is the first page-owned request-finalization edge that appears after native→page handoff succeeds
+
 ## 12. Topic summary
 Browser request-finalization backtrace is the practical workflow of starting from the one request that actually changes server behavior, then walking backward through final assembly, immediate producers, and upstream state dependencies until the analyst can explain why the request succeeds, fails, or drifts.
 
