@@ -260,6 +260,7 @@ Progress often depends on:
 - validating protocol assumptions against behavior
 - focusing effort on in-use context rather than nominal hardware completeness
 - once one message family is isolated, localizing the first parser-to-state or parser-to-peripheral consequence edge rather than collecting a wider but shallower corpus of similar traffic
+- once one candidate MMIO/register family is visible, localizing the first effect-bearing write, arm, or status-latch edge rather than widening register labeling without consequence proof
 
 ### Long-horizon analysis
 Analysts need to preserve:
@@ -338,6 +339,11 @@ This topic may later split into several child pages:
 - `topics/protocol-state-machine-recovery.md`
 - `topics/rehosting-and-context-aware-fuzzing.md`
 - `topics/firmware-corpora-and-environment-metadata.md`
+
+A practical bridge page now exists for one recurring operator bottleneck:
+- `topics/peripheral-mmio-effect-proof-workflow-note.md`
+
+Use it when candidate peripheral ranges, MMIO/register families, or hardware-facing handlers are already visible, but the analysis still stalls until the first effect-bearing write, queue/DMA/interrupt arm, or status-latch edge is proved.
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is coherent and strong enough for a mature synthesis page.
