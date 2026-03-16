@@ -443,6 +443,37 @@ A small but important extension also matters for hybrid mobile/WebView cases:
 - in those cases, token visibility or even native transport success is still not the real endpoint of analysis
 - the decisive compare-run boundary is the first page-owned request-finalization edge that appears after native→page handoff succeeds
 
+### Mini hybrid case pattern: request-finalization only becomes visible after lifecycle-correct reinjection
+A recurring hybrid case now worth making explicit:
+
+```text
+page seeds cookie/bootstrap state
+  -> native code reads and uses it
+  -> native request/result looks correct
+  -> native result is reinjected into the page
+  -> only after the correct listener / route / store is ready does a page-owned request-finalization edge appear
+```
+
+Practical implication:
+- if the page-owned request never appears in the failed run, do not assume the browser-side request helper is absent or the final field algorithm is wrong
+- first test whether native→page reinjection happened at a lifecycle-correct moment and whether the relevant page consumer was mounted before the request-finalization edge should have existed
+
+Useful compare-run note:
+
+```text
+accepted run:
+  native result returned at:
+  page consumer ready at:
+  first page-owned request finalization at:
+
+failed run:
+  native result returned at:
+  page consumer ready at:
+  first page-owned request finalization at:
+```
+
+This keeps the browser request-finalization note connected to real hybrid cases without pretending every browser request boundary is purely browser-native in origin.
+
 ## 12. Topic summary
 Browser request-finalization backtrace is the practical workflow of starting from the one request that actually changes server behavior, then walking backward through final assembly, immediate producers, and upstream state dependencies until the analyst can explain why the request succeeds, fails, or drifts.
 

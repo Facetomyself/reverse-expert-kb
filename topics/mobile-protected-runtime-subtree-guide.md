@@ -249,6 +249,7 @@ Read `webview-cookie-header-bootstrap-handoff-workflow-note` when the main probl
 - page-side cookies, hidden bootstrap state, or JS-produced header material clearly influence native behavior
 - no explicit object bridge is visible, but native requests appear to consume page-seeded state
 - you need to localize the first native consumer through `CookieManager`, header merge/interceptor paths, or bootstrap-store reads before deeper signing or ownership work
+- you also need a compact compare-run way to distinguish stale page-seeded snapshots from later page-consumer timing failures after native use already looks correct
 
 Read `webview-native-response-handoff-and-page-consumption-workflow-note` when the main problem is:
 - native code already retrieves or computes a meaningful result, but the decisive next behavior still happens on the page side
