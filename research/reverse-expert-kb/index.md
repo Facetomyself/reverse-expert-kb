@@ -249,13 +249,15 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/firmware-and-protocol-context-recovery.md`
 - `topics/protocol-state-and-message-recovery.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+- `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 
-This branch should now be read as a practical bridge from firmware/protocol synthesis into three recurring operator bottlenecks:
+This branch should now be read as a practical bridge from firmware/protocol synthesis into four recurring operator bottlenecks:
 - environment/context recovery (`firmware-and-protocol-context-recovery`)
 - message/state recovery (`protocol-state-and-message-recovery`)
 - parser-to-state consequence localization (`protocol-parser-to-state-edge-localization-workflow-note`), which acts as the practical entry note when message families and candidate parsers are already visible but the first state write, reply-family selector, queue/timer insertion, or peripheral action that actually predicts later behavior is still unclear
+- replay-precondition / state-gate localization (`protocol-replay-precondition-and-state-gate-workflow-note`), which acts as the practical entry note when parser visibility and some field roles already exist, but structurally plausible replay, mutation, or stateful experimentation still fails because the decisive local acceptance gate still hides behind session phase, freshness, pending-request ownership, capability reduction, or another narrow protocol-state precondition
 - peripheral/MMIO effect proof (`peripheral-mmio-effect-proof-workflow-note`), which acts as the practical entry note when candidate peripheral ranges, register families, or hardware-facing handlers are already visible but the first effect-bearing write, queue/DMA/interrupt arm, or status-latch edge still has to be proved before rehosting, modeling, or deeper static work becomes trustworthy
 - ISR/deferred-worker consequence proof (`isr-and-deferred-worker-consequence-proof-workflow-note`), which acts as the practical entry note when trigger visibility and even some peripheral-effect visibility already exist, but the decisive boundary is later: the first interrupt/completion/deferred-worker handoff that turns earlier hardware-facing activity into durable state, reply, scheduler, or policy behavior
 
