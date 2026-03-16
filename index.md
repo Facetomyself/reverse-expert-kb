@@ -154,11 +154,13 @@ This branch should now be read as a practical bridge from malware-overlap synthe
 - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 - `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
+- `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
 
-This branch should now be read as a practical bridge from mature protected/deobfuscation synthesis into two recurring operator bottlenecks:
+This branch should now be read as a practical bridge from mature protected/deobfuscation synthesis into three recurring operator bottlenecks:
 - broad protected/deobfuscation framing and evaluation (`obfuscation-deobfuscation-and-packed-binaries`)
 - trace-to-semantic-anchor reduction (`vm-trace-to-semantic-anchor-workflow-note`), which acts as the practical entry note when virtualization, flattening, or handler churn is already visible but the analyst still needs one stable semantic anchor plus one consequence-bearing handler/state edge before deeper static reconstruction becomes trustworthy
 - dispatcher-to-state-edge reduction (`flattened-dispatcher-to-state-edge-workflow-note`), which acts as the practical entry note when the dispatcher or flattened region is already recognizable and the next bottleneck is identifying the first durable state object, reduction helper, or dispatcher-exit family that predicts later behavior and yields a trustworthy smaller static target
+- packed-stub-to-OEP handoff reduction (`packed-stub-to-oep-and-first-real-module-workflow-note`), which acts as the practical entry note when shelling, packing, or staged bootstrap is already visible but the next bottleneck is proving one trustworthy OEP-like boundary plus one downstream ordinary-code anchor that yields a reusable post-unpack dump or smaller static target
 
 ### Browser runtime subtree
 - `topics/browser-runtime-subtree-guide.md`
