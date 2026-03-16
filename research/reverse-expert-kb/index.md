@@ -196,6 +196,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/webview-native-mixed-request-ownership-workflow-note.md`
 - `topics/webview-custom-scheme-and-navigation-handoff-workflow-note.md`
 - `topics/webview-native-bridge-payload-recovery-workflow-note.md`
+  - now explicitly warns that a correct page→native payload does not prove the case is solved if the later native→page return still misses listener registration, route mount, or stable page-state timing
 - `topics/webview-cookie-header-bootstrap-handoff-workflow-note.md`
 
 This subtree is now best read as six coordinated mobile analyst entry surfaces:

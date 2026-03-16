@@ -201,6 +201,35 @@ native result
 
 This classification tells you where to go next.
 
+### Step 6: run a lifecycle-ready compare before blaming payload corruption
+When the native payload looks semantically correct but behavior still diverges, compare two runs at the same return boundary:
+- accepted or baseline-like run
+- failed, replay, or instrumented run
+
+Record explicitly:
+
+```text
+native result produced at:
+page listener / callback registered at:
+route mounted or remounted at:
+reload / reinit observed at:
+first meaningful page consumer fired at:
+first request-driving effect at:
+```
+
+What usually matters here is not just payload correctness, but ordering.
+A useful diagnosis chain is:
+
+```text
+native result is correct
+  -> outbound emission is visible
+  -> page listener not yet ready OR page state was reset
+  -> payload appears to "fail"
+  -> real issue is lifecycle timing, remount, or stale bootstrap/store state
+```
+
+This is especially important in SPA-like or hybrid flows where route changes, WebView reloads, or bootstrap refresh can silently invalidate an otherwise correct native return.
+
 ## 5. Where to place breakpoints / hooks
 
 ### A. Native outbound emission boundary
