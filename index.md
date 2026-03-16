@@ -183,6 +183,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/android-linker-binder-ebpf-observation-surfaces.md`
 - `topics/android-observation-surface-selection-workflow-note.md`
 - `topics/trace-guided-and-dbi-assisted-re.md`
+- `topics/trace-slice-to-handler-reconstruction-workflow-note.md`
 - `topics/mobile-risk-control-and-device-fingerprint-analysis.md`
 - `topics/environment-state-checks-in-protected-runtimes.md`
 - `topics/environment-differential-diagnosis-workflow-note.md`
@@ -203,8 +204,9 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
   - now explicitly warns that a correct page→native payload does not prove the case is solved if the later native→page return still misses listener registration, route mount, or stable page-state timing
 - `topics/webview-cookie-header-bootstrap-handoff-workflow-note.md`
 
-This subtree is now best read as six coordinated mobile analyst entry surfaces:
+This subtree is now best read as seven coordinated mobile analyst entry surfaces:
 - observability under resistance (`anti-frida-and-anti-instrumentation-practice-taxonomy`, `android-linker-binder-ebpf-observation-surfaces`, `android-observation-surface-selection-workflow-note`, and `trace-guided-and-dbi-assisted-re`)
+- trace-slice reduction and handler reconstruction (`trace-slice-to-handler-reconstruction-workflow-note`), which acts as the practical entry note when execution can be captured but the analyst still needs to reduce one narrow slice into the first consequence-bearing handler, state write, or scheduler edge instead of collecting more trace churn
 - environment and evidence trust (`environment-state-checks-in-protected-runtimes`, `environment-differential-diagnosis-workflow-note`, and `observation-distortion-and-misleading-evidence`)
 - request-shaping and signature recovery (`mobile-signing-and-parameter-generation-workflows` and `mobile-signature-location-and-preimage-recovery-workflow-note`)
 - distributed risk / challenge workflows (`mobile-risk-control-and-device-fingerprint-analysis`, `mobile-challenge-and-verification-loop-analysis`, `mobile-challenge-trigger-and-loop-slice-workflow-note`, `mobile-response-consumer-localization-workflow-note`, `result-code-and-enum-to-policy-mapping-workflow-note`, and `post-validation-state-refresh-and-delayed-consequence-workflow-note` as the practical chain from trigger visibility through first consequence-driving policy state into real loop closure or delayed re-entry)

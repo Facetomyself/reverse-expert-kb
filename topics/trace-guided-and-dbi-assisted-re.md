@@ -300,6 +300,16 @@ This topic may later split into several child pages:
 - `topics/execution-derived-lifting.md`
 - `topics/trace-guided-simplification-of-virtualized-code.md`
 - `topics/targeted-trace-collection-strategies.md`
+- `topics/trace-slice-to-handler-reconstruction-workflow-note.md`
+
+A concrete first practical bridge now exists for this branch:
+- `topics/trace-slice-to-handler-reconstruction-workflow-note.md`
+
+Use it when the bottleneck is no longer “should I trace at all?” but rather:
+- how to choose one narrow trace slice
+- how to reduce repetitive dispatcher/protection churn into role-labeled regions
+- how to localize the first consequence-bearing handler, state write, or scheduler edge
+- how to hand the trace result back into one concrete static next move
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is strong on practitioner signal and lighter on formal comparative literature.
