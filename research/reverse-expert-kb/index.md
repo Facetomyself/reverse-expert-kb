@@ -172,6 +172,10 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - concrete sensor-submission / cookie-validation practice (`akamai-sensor-submission-and-cookie-validation-workflow-note`)
 - concrete request-role / `X-KPSDK-*` attachment / invisible-challenge practice (`kasada-x-kpsdk-request-attachment-workflow-note`)
 - concrete bootstrap-script / collector-or-solve / cookie-refresh / first-consumer practice (`perimeterx-human-cookie-collector-workflow-note`)
+- hybrid WebView/mobile loop-closure practice is now explicitly strengthened around a recurring concrete diagnosis chain: page-seeded cookie/header/bootstrap state may enter native code correctly, yet the decisive browser/page request-finalization edge only appears after lifecycle-correct native→page reinjection and a ready page-side consumer. Read this chain in order when applicable:
+  - `topics/webview-cookie-header-bootstrap-handoff-workflow-note.md`
+  - `topics/webview-native-response-handoff-and-page-consumption-workflow-note.md`
+  - `topics/browser-request-finalization-backtrace-workflow-note.md`
 
 ### Mobile / protected-runtime practice subtree
 - `topics/mobile-protected-runtime-subtree-guide.md`

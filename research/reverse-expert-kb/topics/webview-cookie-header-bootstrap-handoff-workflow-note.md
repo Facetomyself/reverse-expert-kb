@@ -213,6 +213,45 @@ Ask explicitly:
 
 If yes, pair this note with the native→page response handoff workflow rather than continuing only into deeper signing logic.
 
+### Compact compare-run template: stale bootstrap handoff vs later page-consumer timing
+When a case looks solved at the cookie/bootstrap handoff boundary but the app still loops or degrades, record both the handoff moment and the later page-consumer moment in one table-like note.
+
+```text
+accepted run
+  page bootstrap seeded at:
+  cookie/bootstrap object version or key fields:
+  first native read at:
+  request using that state at:
+  native result returned at:
+  page listener / route / store consumer ready at:
+  first meaningful page-owned effect at:
+
+failed run
+  page bootstrap seeded at:
+  cookie/bootstrap object version or key fields:
+  first native read at:
+  request using that state at:
+  native result returned at:
+  page listener / route / store consumer ready at:
+  first meaningful page-owned effect at:
+```
+
+Use this template to separate two easy-to-confuse failure families:
+- **stale handoff**: native code read an older cookie/bootstrap snapshot than the one that should have driven the request
+- **late or missing page consumption**: native use and even native return looked correct, but the page-side consumer was not ready, was remounted, or re-read a different bootstrap state
+
+A compact operator rule:
+
+```text
+correct cookie/bootstrap handoff
+  != solved loop
+
+also verify:
+  freshness of the page-seeded snapshot
+  time gap between seed and native read
+  time gap between native return and page-consumer readiness
+```
+
 ## 5. Where to place breakpoints / hooks
 
 ### A. Page-side state appearance boundary
