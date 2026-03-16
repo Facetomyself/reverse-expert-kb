@@ -297,6 +297,11 @@ It also makes the concrete notes line up better:
 - Turnstile / Arkose / hCaptcha / reCAPTCHA: widget/bootstrap -> token/state exposure -> verification/submit callback -> first accepted consumer
 - request-signature families such as TikTok / Xiaohongshu: request role bootstrap -> structured preimage exposure -> signer/finalization boundary -> first accepted consumer request
 
+A practical sub-rule is now clear across widget-family notes:
+- do not stop at callback success, hidden-field population, or message token visibility
+- do not stop automatically at the first token-carrying submit/verify request either
+- explicitly ask whether that request is only a validation/update edge, and whether the strongest compare-run boundary is the next downstream consumer request
+
 ### 4. Replay, mutation, and environment-control workflows
 Includes:
 - request replay

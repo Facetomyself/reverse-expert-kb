@@ -49,7 +49,7 @@ This workflow is useful when at least one of these is true:
 Representative target shapes:
 - query/header request-signature families (`X-Bogus`, `x-s`, `_signature`, etc.)
 - cookie-bootstrap-plus-request families (`acw_sc__v2` + sibling params)
-- widget/session-token redemption requests (Turnstile, Arkose)
+- widget/session-token redemption requests (Turnstile, hCaptcha, Arkose)
 - browser fingerprint/risk-control flows where one protected request is the first stable anchor
 
 ## 3. Analyst goal
@@ -74,6 +74,16 @@ POST /api/verify is the first redemption request
   -> replay fails when bootstrap cache is stale, not because token formatting is wrong
 ```
 
+And in widget-family cases, an even better output often extends one step further:
+
+```text
+callback / hidden-field / message token visibility
+  -> verify or submit request carries token
+  -> first downstream accepted consumer request changes behavior
+```
+
+That extension matters when a token-carrying submit looks correct, but the first protected page/data request still shows whether acceptance really propagated.
+
 That artifact is more operationally useful than either “the token exists” or “the algorithm is obfuscated.”
 
 ## 4. Concrete workflow
@@ -83,6 +93,7 @@ Pick one request whose outcome actually matters.
 Good anchors are requests that:
 - stop a challenge loop
 - redeem a widget/session token
+- carry `cf-turnstile-response`, `h-captcha-response`, or an Arkose session token into host-page verification/update logic
 - switch the response from challenge to content
 - change response code/body class
 - introduce or stop a retry/escalation path
@@ -190,6 +201,30 @@ This often reveals whether you are facing:
 - trust/environment drift
 - observation distortion
 
+### Step 7: if the request is only a validation/update edge, follow through to the first accepted consumer
+In widget-family and challenge-family targets, the first token-carrying request is not always the strongest anchor.
+Sometimes it is only a validation/update edge, and the real proof appears one request later.
+
+Common pattern:
+
+```text
+callback / hidden field / message token visibility
+  -> token-carrying submit or verify request
+  -> first downstream consumer request that stops failing, looping, or returning degraded data
+```
+
+Typical cases:
+- Turnstile callback or hidden field looks correct, but the next account/bootstrap request proves whether acceptance propagated
+- hCaptcha submit carries `h-captcha-response`, but the later redirect or API fetch is the first real consumer of successful verification
+- Arkose `challenge-complete` / `onCompleted` token and verify request both look fine, but the later session/bootstrap fetch still exposes the decisive divergence
+
+What to record:
+- whether the token-carrying request itself returns the final decision or only updates trust/session state
+- which later request, redirect, or SPA route first changes behavior
+- whether accepted and failed runs diverge first at submit/verify time or only at the downstream consumer
+
+This prevents stopping too early at a request that is visible but not yet conclusive.
+
 ## 5. Where to place breakpoints / hooks
 
 ### A. Final transport wrapper
@@ -243,6 +278,16 @@ Inspect:
 - which object/store is updated
 - whether the same request later consumes that updated state
 - whether the update is one-shot, rotating, or expiry-sensitive
+
+### E. First accepted consumer request boundary
+Use when:
+- a token-carrying submit/verify request is visible, but it is unclear whether it is the final decision edge
+- callback success, hidden-field visibility, or verify submission all look correct, yet real app behavior still diverges
+
+Inspect:
+- first redirect, session bootstrap, protected API, or route transition after the validation/update edge
+- whether accepted and failed runs first diverge here rather than at token visibility time
+- whether the consumer depends only on the visible token or also on upstream session/bootstrap/runtime state
 
 ## 6. Representative code / pseudocode / harness fragments
 
@@ -328,9 +373,11 @@ Likely cause:
 - hidden sibling field drift
 - trust/environment drift
 - request role changed subtly
+- the token-carrying submit/verify request was only an intermediate validation edge, not the first real consumer
 
 Next move:
 - compare the whole final request contract and upstream state reads
+- follow through to the first downstream accepted consumer request
 - do not stop at the named token string
 
 ### Failure mode 4: static cleanup balloons out of control
