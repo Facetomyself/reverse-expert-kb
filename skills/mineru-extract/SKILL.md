@@ -89,6 +89,16 @@ It prints a JSON summary to **stderr** with paths:
   - Fallback: provide an HTML file or a PDF/long screenshot; then implement “upload + parse” flow with MinerU batch upload endpoints.
   - Always report the failing URL + MinerU `err_msg` and keep an original-source link in outputs.
 
+## Practical note for this workspace
+
+Until `MINERU_TOKEN` is configured, downstream callers (for example `content-extract`) should treat MinerU as an optional fallback path that may be unavailable.
+
+## References
+
+- MinerU API docs: https://mineru.net/apiManage/docs
+- MinerU output files: https://opendatalab.github.io/MinerU/reference/output_files/
+ways report the failing URL + MinerU `err_msg` and keep an original-source link in outputs.
+
 ## References
 
 - MinerU API docs: https://mineru.net/apiManage/docs
