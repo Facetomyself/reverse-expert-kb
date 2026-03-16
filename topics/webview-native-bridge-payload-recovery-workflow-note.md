@@ -366,6 +366,17 @@ Likely causes:
 Next move:
 - route into request ownership or preimage recovery workflows based on the first native consumer
 
+### Failure mode 6: bridge payload looks correct, but the app still does not advance
+Likely causes:
+- downstream native→page return fires before listener registration or route mount
+- bridge object visibility changed only after a later page load
+- page store/bootstrap state was reset or remounted between handoff and consumption
+
+Next move:
+- compare accepted vs failed runs at both the page→native handoff and the later native→page return boundary
+- treat lifecycle timing as a first-class hypothesis rather than assuming wrong payload contents
+- route into `topics/webview-native-response-handoff-and-page-consumption-workflow-note.md` when the remaining bottleneck is page-consumer readiness
+
 ## 8. Environment assumptions
 Hybrid Android apps often split work across:
 1. page-triggered intent
@@ -424,5 +435,8 @@ This page intentionally stays conservative:
 
 ## 13. Topic summary
 WebView / native bridge payload recovery is a practical workflow for hybrid Android cases where the page and native sides clearly interact, but the decisive analyst need is to capture what crosses the bridge before structure is lost.
+
+It matters because analysts often hook too early on the page side or too late on the native side. The faster route is usually to identify the bridge family, capture registration and invocation, preserve the last structured payload, and then follow the first native consumer into request ownership, trust, or signature recovery as needed.
+ow for hybrid Android cases where the page and native sides clearly interact, but the decisive analyst need is to capture what crosses the bridge before structure is lost.
 
 It matters because analysts often hook too early on the page side or too late on the native side. The faster route is usually to identify the bridge family, capture registration and invocation, preserve the last structured payload, and then follow the first native consumer into request ownership, trust, or signature recovery as needed.
