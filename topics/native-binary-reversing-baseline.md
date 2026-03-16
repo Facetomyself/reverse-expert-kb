@@ -287,6 +287,12 @@ This topic may later split into several child pages:
 - `topics/call-graph-and-interface-oriented-native-re.md`
 - `topics/static-first-reversing-workflows.md`
 - `topics/native-target-runtime-validation-patterns.md`
+- `topics/native-interface-to-state-proof-workflow-note.md`
+
+A practical routing rule is now worth making explicit:
+when static structure is already rich but the next move is still unclear, prefer proving one representative interface-to-state-to-effect chain before broadening the subsystem map.
+Read:
+- `topics/native-interface-to-state-proof-workflow-note.md`
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is more synthesis-driven than source-dense.
