@@ -1,28 +1,27 @@
 ---
 name: search-layer
 description: >
-  DEFAULT search tool for ALL search/lookup needs. Multi-source search and deduplication
-  layer with intent-aware scoring. Integrates Brave Search (web_search), Exa, Tavily,
-  and Grok to provide high-coverage, high-quality results. Automatically classifies
-  query intent and adjusts search strategy, scoring weights, and result synthesis.
-  Use for ANY query that requires web search — factual lookups, research, news,
-  comparisons, resource finding, "what is X", status checks, etc. Do NOT use raw
-  web_search directly; always route through this skill.
+  Default search skill for web lookups, research, status checks, comparisons, and resource finding.
+  Multi-source search and deduplication layer with intent-aware scoring around Grok, Tavily, Exa,
+  and optional Brave/web_search. Use when a task needs web search, source clustering, or result synthesis.
+  Prefer this over raw web_search in this workspace unless there is a specific reason not to.
 ---
 
 # Search Layer v2.2 — 意图感知多源检索协议
 
 > 本机默认（此部署）
-> - 仅使用 ~/.openclaw/credentials/search.json 中配置的凭据运行各搜索源。
+> - 仅使用 `~/.openclaw/credentials/search.json` 中配置的凭据运行各搜索源。
 > - 未显式指定来源时，默认仅使用 Grok 渠道（等价于 `--source grok`）。如需启用 Exa/Tavily，请在命令中明确传入 `--source exa` 或 `--source exa,tavily,grok`。
+> - 本机原始 Brave `web_search` 不稳定/未配置，不要把它当作默认可靠主路径；优先使用 `search.py` 路线。
+> - Tavily 可通过本机配置的自定义 `apiUrl + apiKey` 走代理；不要假设只能访问官方 Tavily API。
 >
 > 示例（默认 Grok）：
 > ```bash
-> python3 search-layer/scripts/search.py "OpenClaw 最新进展" --mode deep --intent status --freshness pw
+> python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py "OpenClaw 最新进展" --mode deep --intent status --freshness pw
 > # 等价于: --source grok
 > ```
 
-四源同级：Brave (`web_search`) + Exa + Tavily + Grok。按意图自动选策略、调权重、做合成。
+逻辑上支持 Brave (`web_search`) + Exa + Tavily + Grok；但在当前主机上，应以 `search.py` 驱动的配置化来源为主，再把 Brave 视为可选补充而不是默认依赖。
 
 ## 执行流程
 
@@ -102,7 +101,7 @@ web_search(query="Deno 2.0 latest 2026", freshness="pw")
 对子查询调用 search.py，传入意图和 freshness：
 
 ```bash
-python3 /home/node/.openclaw/workspace/skills/search-layer/scripts/search.py \
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py \
   --queries "子查询1" "子查询2" "子查询3" \
   --mode deep \
   --intent status \
@@ -170,6 +169,8 @@ python3 search.py --extract-refs-urls "https://github.com/owner/repo/issues/123"
 ### 方式 2: fetch-thread（单 URL 深度抓取）
 
 对单个 URL 拉取完整讨论流 + 结构化引用：
+
+> 注意：本地工作区副本当前**没有** `scripts/fetch.py` 这类通用 helper。需要抓讨论流或引用链时，请直接使用已存在的 `fetch_thread.py` / `search.py --extract-refs` 路线，不要假设还有额外 fetch helper。
 
 ```bash
 python3 fetch_thread.py "https://github.com/owner/repo/issues/123" --format json
@@ -279,10 +280,11 @@ search.py "query" --mode deep --intent tutorial --domain-boost dev.to,freecodeca
 
 ## 降级策略
 
-- Exa 429/5xx → 继续 Brave + Tavily + Grok
-- Tavily 429/5xx → 继续 Brave + Exa + Grok
-- Grok 超时/错误 → 继续 Brave + Exa + Tavily
-- search.py 整体失败 → 仅用 Brave `web_search`（始终可用）
+- Exa 429/5xx → 继续其他已配置来源（通常是 Grok / Tavily）
+- Tavily 429/5xx → 继续其他已配置来源（通常是 Grok / Exa）
+- Grok 超时/错误 → 继续其他已配置来源（通常是 Tavily / Exa）
+- `search.py` 某一来源失败时，不要阻塞整条搜索链；优先保留部分成功结果
+- 若本机 `web_search` 不可用或未配置，不要把 Brave 当作必然兜底；可退回到 `search.py` 的剩余来源、已有 source cluster、直接 fetch、或保守综合
 - **永远不要因为某个源失败而阻塞主流程**
 
 ---
