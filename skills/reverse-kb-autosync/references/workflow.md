@@ -123,7 +123,7 @@ Each run should usually do some mix of:
 1. Read current structure and recent work
 2. Choose a practical, high-value scope
 3. Add or improve KB pages
-4. Update navigation when structure changes
+4. Update navigation when structure changes, but do it with small robust edits and best-effort tolerance
 5. Write one run report
 6. Commit changes if any
 7. Sync subtree to GitHub
@@ -162,6 +162,32 @@ Useful subtree guides include:
 ## Anti-drift rule
 
 Before creating a new abstract page, ask whether the same effort would be better spent on one of these instead:
+- a concrete scenario page
+- a case-study page
+- a methodology page with operator steps
+- a workflow cookbook page
+- a code-backed note
+- a branch consolidation / route guide page
+
+Bias toward the concrete option unless there is a strong structural reason not to.
+seful subtree guides include:
+- `research/reverse-expert-kb/topics/browser-runtime-subtree-guide.md`
+- `research/reverse-expert-kb/topics/mobile-protected-runtime-subtree-guide.md`
+
+---
+
+## Anti-drift rule
+
+Before creating a new abstract page, ask whether the same effort would be better spent on one of these instead:
+- a concrete scenario page
+- a case-study page
+- a methodology page with operator steps
+- a workflow cookbook page
+- a code-backed note
+- a branch consolidation / route guide page
+
+Bias toward the concrete option unless there is a strong structural reason not to.
+age, ask whether the same effort would be better spent on one of these instead:
 - a concrete scenario page
 - a case-study page
 - a methodology page with operator steps

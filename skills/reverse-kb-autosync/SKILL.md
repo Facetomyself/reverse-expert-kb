@@ -37,3 +37,5 @@ Every run should normally produce:
 - archival sync via `scripts/sync-reverse-expert-kb.sh`
 
 If logging to `.learnings/ERRORS.md` fails, treat it as best-effort only and do not fail the whole run.
+
+Navigation/index maintenance should also be treated with a stability-first mindset: prefer small, robust, locally re-read updates over brittle exact-match edits across large drifting blocks.
