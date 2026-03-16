@@ -123,6 +123,16 @@ Priority 2 candidates include:
 - `topics/native-binary-reversing-baseline.md`
 - `topics/native-interface-to-state-proof-workflow-note.md`
 
+### Runtime-evidence practical branch
+- `topics/runtime-behavior-recovery.md`
+- `topics/record-replay-and-omniscient-debugging.md`
+- `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
+
+This branch should now be read as a practical bridge from runtime-evidence synthesis into one recurring operator bottleneck:
+- broad runtime answerability and observability framing (`runtime-behavior-recovery`)
+- execution-history and replay tradeoffs (`record-replay-and-omniscient-debugging`)
+- causal-write / reverse-causality localization (`causal-write-and-reverse-causality-localization-workflow-note`), which acts as the practical entry note when one suspicious late effect is already visible and the analyst needs the first causal write, branch, or state edge that predicts it before broadening into more static reconstruction, provenance cleanup, or wider trace review
+
 This branch should now be read as a practical bridge from baseline native synthesis into one recurring operator bottleneck:
 - static-first orientation and semantic navigation (`native-binary-reversing-baseline`)
 - representative interface-path proof (`native-interface-to-state-proof-workflow-note`), which acts as the practical entry note when imports/strings/xrefs/callbacks already expose several plausible routes but the first consequence-bearing state edge and one downstream effect still need to be proved before the subsystem map becomes trustworthy
