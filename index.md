@@ -204,6 +204,16 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
   - now explicitly warns that a correct page→native payload does not prove the case is solved if the later native→page return still misses listener registration, route mount, or stable page-state timing
 - `topics/webview-cookie-header-bootstrap-handoff-workflow-note.md`
 
+### Firmware / protocol practical branch
+- `topics/firmware-and-protocol-context-recovery.md`
+- `topics/protocol-state-and-message-recovery.md`
+- `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+
+This branch should now be read as a practical bridge from firmware/protocol synthesis into one recurring operator bottleneck:
+- environment/context recovery (`firmware-and-protocol-context-recovery`)
+- message/state recovery (`protocol-state-and-message-recovery`)
+- parser-to-state consequence localization (`protocol-parser-to-state-edge-localization-workflow-note`), which acts as the practical entry note when message families and candidate parsers are already visible but the first state write, reply-family selector, queue/timer insertion, or peripheral action that actually predicts later behavior is still unclear
+
 This subtree is now best read as seven coordinated mobile analyst entry surfaces:
 - observability under resistance (`anti-frida-and-anti-instrumentation-practice-taxonomy`, `android-linker-binder-ebpf-observation-surfaces`, `android-observation-surface-selection-workflow-note`, and `trace-guided-and-dbi-assisted-re`)
 - trace-slice reduction and handler reconstruction (`trace-slice-to-handler-reconstruction-workflow-note`), which acts as the practical entry note when execution can be captured but the analyst still needs to reduce one narrow slice into the first consequence-bearing handler, state write, or scheduler edge instead of collecting more trace churn
