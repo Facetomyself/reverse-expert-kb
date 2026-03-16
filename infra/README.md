@@ -77,8 +77,15 @@ infra/
 推荐约定：
 - `infra/` 自身是单独 git 仓库
 - 每次修改后立即提交
-- 通过仓库 hook 在提交后自动 `git push origin HEAD`
+- 通过仓库 hook 在提交后自动 push
+- 如自动 push 异常，手动运行 `bin/sync-infra.sh`
 - 只同步运维文档、结构化清单和项目手册；不要把密码、token 全值、私钥写入仓库
+
+建议优先查看：
+- `QUICKMAP.md`
+- `inventory.yaml`
+- `host-status.yaml`
+- `OVERVIEW.md`
 
 ## 当前覆盖
 
