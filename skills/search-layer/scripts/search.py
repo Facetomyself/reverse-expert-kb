@@ -628,14 +628,23 @@ def execute_search(query: str, mode: str, keys: dict, num: int,
                     all_results.extend(res)
 
     elif mode == "answer":
-        if "tavily" not in keys or not _want("tavily"):
-            print('{"warning": "Tavily API key not found"}', file=sys.stderr)
-        else:
+        if "tavily" in keys and _want("tavily"):
             tav = search_tavily(query, keys["tavily"], num,
                                 include_answer=True, freshness=freshness,
                                 base_url=keys.get("tavily_url"))
             all_results = tav["results"]
             answer_text = tav.get("answer")
+        elif has_grok and _want("grok"):
+            # Graceful fallback: allow answer mode to return Grok search results
+            # when Tavily is unavailable or explicitly excluded by --source.
+            print('{"warning": "answer mode fell back to grok search results because tavily is unavailable or filtered out"}', file=sys.stderr)
+            all_results = search_grok(query, grok_url, grok_key, grok_model, num, freshness)
+        elif "exa" in keys and _want("exa"):
+            # Secondary fallback: return Exa results instead of failing empty.
+            print('{"warning": "answer mode fell back to exa search results because tavily/grok are unavailable or filtered out"}', file=sys.stderr)
+            all_results = search_exa(query, keys["exa"], num)
+        else:
+            print('{"warning": "No usable source available for answer mode"}', file=sys.stderr)
 
     return all_results, answer_text
 
@@ -701,7 +710,7 @@ def main():
     ap.add_argument("--queries", nargs="+", default=None,
                     help="Multiple queries to execute in parallel")
     ap.add_argument("--mode", choices=["fast", "deep", "answer"], default="deep",
-                    help="fast=Exa only | deep=Exa+Tavily | answer=Tavily with AI answer")
+                    help="fast=Exa only | deep=Exa+Tavily+Grok | answer=prefer Tavily, fallback to Grok/Exa if needed")
     ap.add_argument("--num", type=int, default=5,
                     help="Results per source per query (default 5)")
     ap.add_argument("--intent",
@@ -812,3 +821,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
