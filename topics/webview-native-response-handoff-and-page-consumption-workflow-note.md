@@ -439,10 +439,11 @@ It is intentionally closer to real hybrid-app debugging than to a general commun
 Grounding for this page comes mainly from:
 - `sources/mobile-runtime-instrumentation/2026-03-15-webview-native-response-handoff-notes.md`
 - `sources/mobile-runtime-instrumentation/2026-03-16-webview-native-response-handoff-hardening-notes.md`
+- `sources/mobile-runtime-instrumentation/2026-03-16-webview-bridge-visibility-and-page-consumer-timing-notes.md`
 - Android WebView / WebMessage API references surfaced through search
 - Android WebView debugging guidance around JavaScript console capture
 - OWASP MASTG bridge examples as anchor for bridge surface terminology
-- practical communication examples showing `evaluateJavascript(...)`, JSON-wrapped callback results, lifecycle timing concerns, and console interception
+- practical communication examples showing `evaluateJavascript(...)`, JSON-wrapped callback results, lifecycle timing concerns, bridge persistence across reload boundaries, and console interception
 
 This page intentionally stays conservative:
 - it does not claim one universal native→page return family
@@ -451,5 +452,9 @@ This page intentionally stays conservative:
 
 ## 13. Topic summary
 WebView / native response handoff and page-consumption diagnosis is a practical workflow for hybrid Android cases where native code obtains a meaningful result, but the decisive next behavior still happens on the page side.
+
+It matters because analysts often stop after proving native retrieval. The faster route is usually to capture the outbound native emission, identify whether it returns through JS injection, message channels, or reload/bootstrap refresh, localize the first page consumer, classify whether that consumer is UI-only or operational, and then follow the resulting request or state transition from there.
+st or state transition from there.
+ hybrid Android cases where native code obtains a meaningful result, but the decisive next behavior still happens on the page side.
 
 It matters because analysts often stop after proving native retrieval. The faster route is usually to capture the outbound native emission, identify whether it returns through JS injection, message channels, or reload/bootstrap refresh, localize the first page consumer, classify whether that consumer is UI-only or operational, and then follow the resulting request or state transition from there.
