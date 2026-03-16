@@ -192,6 +192,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/android-observation-surface-selection-workflow-note.md`
 - `topics/trace-guided-and-dbi-assisted-re.md`
 - `topics/trace-slice-to-handler-reconstruction-workflow-note.md`
+- `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 - `topics/mobile-risk-control-and-device-fingerprint-analysis.md`
 - `topics/environment-state-checks-in-protected-runtimes.md`
 - `topics/environment-differential-diagnosis-workflow-note.md`
@@ -222,9 +223,10 @@ This branch should now be read as a practical bridge from firmware/protocol synt
 - message/state recovery (`protocol-state-and-message-recovery`)
 - parser-to-state consequence localization (`protocol-parser-to-state-edge-localization-workflow-note`), which acts as the practical entry note when message families and candidate parsers are already visible but the first state write, reply-family selector, queue/timer insertion, or peripheral action that actually predicts later behavior is still unclear
 
-This subtree is now best read as seven coordinated mobile analyst entry surfaces:
+This subtree is now best read as eight coordinated mobile analyst entry surfaces:
 - observability under resistance (`anti-frida-and-anti-instrumentation-practice-taxonomy`, `android-linker-binder-ebpf-observation-surfaces`, `android-observation-surface-selection-workflow-note`, and `trace-guided-and-dbi-assisted-re`)
 - trace-slice reduction and handler reconstruction (`trace-slice-to-handler-reconstruction-workflow-note`), which acts as the practical entry note when execution can be captured but the analyst still needs to reduce one narrow slice into the first consequence-bearing handler, state write, or scheduler edge instead of collecting more trace churn
+- VM/flattened-trace semantic-anchor reduction (`vm-trace-to-semantic-anchor-workflow-note`), which acts as the practical entry note when virtualization, flattening, or handler churn is already visible and the analyst must reduce repetitive execution into one stable semantic anchor plus one consequence-bearing handler/state edge before deeper static reconstruction becomes trustworthy
 - environment and evidence trust (`environment-state-checks-in-protected-runtimes`, `environment-differential-diagnosis-workflow-note`, and `observation-distortion-and-misleading-evidence`)
 - request-shaping and signature recovery (`mobile-signing-and-parameter-generation-workflows` and `mobile-signature-location-and-preimage-recovery-workflow-note`)
 - distributed risk / challenge workflows (`mobile-risk-control-and-device-fingerprint-analysis`, `mobile-challenge-and-verification-loop-analysis`, `mobile-challenge-trigger-and-loop-slice-workflow-note`, `mobile-response-consumer-localization-workflow-note`, `result-code-and-enum-to-policy-mapping-workflow-note`, and `post-validation-state-refresh-and-delayed-consequence-workflow-note` as the practical chain from trigger visibility through first consequence-driving policy state into real loop closure or delayed re-entry)
