@@ -340,13 +340,16 @@ This topic may later split into several child pages:
 - `topics/rehosting-and-context-aware-fuzzing.md`
 - `topics/firmware-corpora-and-environment-metadata.md`
 
-Practical bridge pages now exist for two recurring operator bottlenecks:
+Practical bridge pages now exist for three recurring operator bottlenecks:
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 
 Use the peripheral/MMIO note when candidate peripheral ranges, MMIO/register families, or hardware-facing handlers are already visible, but the analysis still stalls until the first effect-bearing write, queue/DMA/interrupt arm, or status-latch edge is proved.
 
 Use the ISR/deferred-worker note when trigger and peripheral-effect visibility already exist, but the real decisive boundary is later: the first interrupt/completion/deferred-worker handoff that turns earlier hardware-facing activity into durable state, reply, scheduler, or policy behavior.
+
+Use the reply-emission/transport-handoff note when protocol/firmware handling is already locally understood far enough to show acceptance or reply-object creation, but the analyst still needs to prove where that accepted result is serialized, queued, committed, or handed to the transport/peripheral side as one real output behavior.
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is coherent and strong enough for a mature synthesis page.
