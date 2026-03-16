@@ -158,6 +158,8 @@ The most natural next child pages include:
 ### 9. Concrete mobile workflow notes
 Current concrete notes:
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
+- `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
+- `topics/ios-result-callback-to-policy-state-workflow-note.md`
 - `topics/unity-il2cpp-state-ownership-and-persistence-workflow-note.md`
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
 - `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
@@ -182,6 +184,11 @@ Read `ios-objc-swift-native-owner-localization-workflow-note` when the main prob
 - the iOS case is already reachable enough to study, but several ObjC / Swift / native surfaces still look plausible and the first consequence-bearing owner is unclear
 - visible selectors, delegates, Swift methods, or native helpers exist, but you still need to separate trigger surface, reduction boundary, reusable worker, and real owner
 - you need one representative iOS flow, one candidate owner, and one downstream effect before deepening signature, response-consumer, or native proof work
+
+Read `ios-result-callback-to-policy-state-workflow-note` when the main problem is:
+- the iOS case already exposes a delegate callback, completion block, Swift result wrapper, `NSError`, or native-return wrapper, but the first behavior-changing local policy state is still unclear
+- callback or result visibility exists, yet you still need to separate callback surface, result normalization, policy mapping, and first behavior-changing consumer
+- you need one representative iOS flow, one candidate policy-mapping boundary, and one downstream effect before deepening challenge-loop, attestation-consequence, or signature/request work
 
 Read `unity-il2cpp-state-ownership-and-persistence-workflow-note` when the main problem is:
 - the case is clearly Unity / IL2Cpp-shaped, but the real state owner is still unclear
