@@ -1,5 +1,28 @@
 # oracle-proxy / Change Log
 
+## 2026-03-16
+- Recorded that `/root/OpenAi` was migrated from the current OpenClaw host to `oracle-proxy` for storage only.
+- Explicitly marked the migrated `OpenAi` directory as **not running** and **not part of the active service map**.
+- Added dedicated archive note: `./projects/openai-migrated.md`.
+- Future operational checks on `oracle-proxy` should treat `/root/OpenAi` as migrated material unless process / port / container evidence proves otherwise.
+- Performed a read-only host health check over SSH. Current snapshot: uptime ~17 days, root disk 40% used, memory healthy (~9.1 GiB available), and main long-lived containers (`proxy-tavily-proxy-1`, `tavily-scheduler`, `tavily-camoufox*`, `grok-register-camoufox*`, `grok2api`, `cliproxy`) all appeared up. No immediate resource-pressure signal observed.
+- Confirmed Tavily proxy admin password on-host is `Zxm971004` via `/root/tavily-key-generator/proxy/.env` and retained env-driven password loading instead of hardcoding compose.
+- Confirmed Tavily generator on-host config now uses `EMAIL_ADMIN_PASSWORD = "Zxm971004"`, `EMAIL_SITE_PASSWORD = "Zxm971004"`, and `PROXY_ADMIN_PASSWORD = "Zxm971004"` in `/root/tavily-key-generator/config.py`.
+- Changed Tavily generator batch size from `RUN_COUNT = 1` to `RUN_COUNT = 5` while keeping `RUN_THREADS = 1`.
+- Changed Tavily scheduler cadence from `TAVILY_INTERVAL_SECONDS = 2160` to `10800`, making the effective behavior approximately one 5-attempt batch every 3 hours.
+- Recreated `tavily-scheduler` and verified fresh startup logs show `interval=10800s` and `配置: 5 个账户 / 1 线程`.
+- Verified proxy health after the change: local `/api/stats` returned HTTP 200 with a non-empty key pool (`keys_total=45`, `keys_active=45`).
+- Documented `ExaFree` on this host under `/root/ExaFree` and added dedicated project note `./projects/exafree.md`.
+- Set ExaFree `.env` admin key to `Zxm971004` and fixed compose env wiring so the running container actually reads `ADMIN_KEY` and `SESSION_SECRET_KEY` from `.env`.
+- Confirmed ExaFree runtime config now uses:
+  - `basic.register_default_count = 5`
+  - `retry.scheduled_refresh_enabled = true`
+  - `retry.scheduled_refresh_cron = "*/180"`
+  - `retry.refresh_batch_size = 5`
+  - `retry.refresh_batch_interval_minutes = 36`
+- Operationally this means ExaFree is configured for an approximate 3-hour cadence with 5-account waves, not a strict exact-rate scheduler.
+- Verified ExaFree health after the change: local `http://127.0.0.1:7860/health` returned HTTP 200 with `{"status":"ok"}`.
+
 ## 2026-03-15
 - Documented oracle-proxy host baseline, network surface, and main deployed projects.
 - Finalized Tavily chain integration:

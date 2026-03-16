@@ -6,7 +6,7 @@
 - Provider: Oracle Cloud
 - Primary role: utility / proxy / registration host
 - SSH alias: `oracle-proxy`
-- Main purpose: 承载 Tavily 注册与代理、Grok 相关求解/转发组件、CLI proxy 等对外或半对外服务
+- Main purpose: 承载 Tavily 注册与代理、ExaFree 注册服务、Grok 相关求解/转发组件、CLI proxy 等对外或半对外服务
 
 ## 2. System Baseline
 - OS: Ubuntu 20.04.6 LTS (Focal)
@@ -41,6 +41,7 @@
 - `grok-register-camoufox` / `grok-register-camoufox-adapter` — Grok 独立求解链路
 - `grok2api` — Grok API bridge on port 8000
 - `cliproxy` — CLI proxy service on port 8317
+- `exafree` — Exa 注册 / 刷新 / 管理面板服务 on port 7860
 - `nginx` — 系统级默认 Nginx（当前只见默认站点 `/var/www/html`）
 - `sing-box` — 独立代理/订阅栈，自带一套专用 nginx 和多协议入站配置
 - `xray` — 独立代理服务，使用 `/etc/v2ray-agent/xray/conf`
@@ -75,6 +76,11 @@
 - Grok/Grok2API 的基本运维入口
 - cliproxy 的基本入口
 - 机器级网络服务的第一轮角色说明
+
+## 8. Non-Running Migrated Material
+- `/root/OpenAi`：2026-03-16 从当前 OpenClaw 主机迁移到本机保存
+- 当前状态：**仅迁移存放，未启动、未接入现有服务图、未视为线上运行项目**
+- 运维含义：以后如果在本机看到该目录，不应默认推断它正在提供服务；必须单独检查进程、容器、端口或 systemd 后再下结论
 
 后续仍需补全：
 - sing-box / xray 的协议细节与用途拆分
