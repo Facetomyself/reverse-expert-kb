@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""content-extract: deterministic MinerU-only extractor for OpenClaw.
+"""content-extract: MinerU-backed fallback extractor wrapper for OpenClaw.
 
 Why this exists:
 - OpenClaw's `web_fetch` is a tool, not available inside scripts.
-- This script provides a stable "fallback engine" that the agent can call
-  after probing with `web_fetch`.
+- Agent-level routing may decide a URL needs high-fidelity fallback parsing.
+- This script provides a stable fallback engine wrapper once that decision is made.
 
 It wraps mineru-extract's MCP-aligned script and returns a compact JSON contract.
 

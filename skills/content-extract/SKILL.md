@@ -80,6 +80,20 @@ python3 mineru-extract/scripts/mineru_parse_documents.py \
 - 如果 MinerU 成功：必须把 `markdown_path`（本地路径）写进 `sources`，方便复查。
 - 如果两条链路都失败：必须明确失败原因，并给出下一步（例如：让 Boss 提供可访问镜像链接 / 允许我用浏览器 relay 导出 HTML / 走上传 HTML 文件解析的兜底方案）。
 
+## 本 skill 当前不做什么
+
+- 不跑 MCP Server（避免常驻服务与运维负担）
+- 不试图绕过登录/验证码（这属于访问层问题；我们只做解析层和工作流路由）
+- 不在脚本内部直接调用 `web_fetch` probe（probe 决策当前仍在 agent 层）
+- 不假装本地已经启用了 MinerU；若缺 `MINERU_TOKEN`，这条 fallback 路线会明确失败并返回原因
+
+## References
+
+- MinerU API docs: https://mineru.net/apiManage/docs
+- MinerU output files: https://opendatalab.github.io/MinerU/reference/output_files/
+lab.github.io/MinerU/reference/output_files/
+像链接 / 允许我用浏览器 relay 导出 HTML / 走上传 HTML 文件解析的兜底方案）。
+
 ## 本 skill 自身不做什么
 
 - 不跑 MCP Server（避免常驻服务与运维负担）
