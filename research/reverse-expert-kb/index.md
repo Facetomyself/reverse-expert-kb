@@ -223,6 +223,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 ### Mobile / protected-runtime practice subtree
 - `topics/mobile-protected-runtime-subtree-guide.md`
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
+- `topics/ios-result-callback-to-policy-state-workflow-note.md`
 - `topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md`
 - `topics/android-linker-binder-ebpf-observation-surfaces.md`
 - `topics/android-observation-surface-selection-workflow-note.md`
@@ -268,9 +269,10 @@ This branch should now be read as a practical bridge from firmware/protocol synt
 - peripheral/MMIO effect proof (`peripheral-mmio-effect-proof-workflow-note`), which acts as the practical entry note when candidate peripheral ranges, register families, or hardware-facing handlers are already visible but the first effect-bearing write, queue/DMA/interrupt arm, or status-latch edge still has to be proved before rehosting, modeling, or deeper static work becomes trustworthy
 - ISR/deferred-worker consequence proof (`isr-and-deferred-worker-consequence-proof-workflow-note`), which acts as the practical entry note when trigger visibility and even some peripheral-effect visibility already exist, but the decisive boundary is later: the first interrupt/completion/deferred-worker handoff that turns earlier hardware-facing activity into durable state, reply, scheduler, or policy behavior
 
-This subtree is now best read as nine coordinated mobile analyst entry surfaces:
+This subtree is now best read as ten coordinated mobile analyst entry surfaces:
 - iOS environment-gate diagnosis (`ios-packaging-jailbreak-and-runtime-gate-workflow-note`), which acts as the practical entry note when the case is clearly iOS-shaped but the analyst still needs to separate packaging/resign drift, jailbreak-environment probes, instrumentation visibility, device-realism drift, and later trust/session consequences before deepening hooks or bypasses
 - iOS post-gate owner localization (`ios-objc-swift-native-owner-localization-workflow-note`), which acts as the practical bridge note when selectors, Swift wrappers, or native helpers are already visible but the analyst still needs to prove which ObjC / Swift / native boundary actually owns the first consequence-bearing state write, request-finalization step, or policy effect
+- iOS callback/result-to-policy localization (`ios-result-callback-to-policy-state-workflow-note`), which acts as the practical bridge note when delegate callbacks, completion blocks, Swift result wrappers, `NSError` paths, or native-return wrappers are already visible but the analyst still needs to prove which reduction actually turns visible result material into one behavior-changing local policy state
 - observability under resistance (`anti-frida-and-anti-instrumentation-practice-taxonomy`, `android-linker-binder-ebpf-observation-surfaces`, `android-observation-surface-selection-workflow-note`, and `trace-guided-and-dbi-assisted-re`)
 - Unity / IL2Cpp state-ownership and persistence proof (`unity-il2cpp-state-ownership-and-persistence-workflow-note`), which acts as the practical entry note when metadata-visible classes, wrappers, or setters already exist but the real object owner, overwrite/refresh boundary, or persistence consequence is still unclear
 - trace-slice reduction and handler reconstruction (`trace-slice-to-handler-reconstruction-workflow-note`), which acts as the practical entry note when execution can be captured but the analyst still needs to reduce one narrow slice into the first consequence-bearing handler, state write, or scheduler edge instead of collecting more trace churn
