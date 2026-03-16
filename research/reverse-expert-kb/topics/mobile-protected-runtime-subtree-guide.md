@@ -161,6 +161,7 @@ Current concrete notes:
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
 - `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
 - `topics/android-observation-surface-selection-workflow-note.md`
+- `topics/trace-slice-to-handler-reconstruction-workflow-note.md`
 - `topics/environment-differential-diagnosis-workflow-note.md`
 - `topics/android-network-trust-and-pinning-localization-workflow-note.md`
 - `topics/cronet-request-ownership-and-mixed-stack-diagnosis-workflow-note.md`
@@ -212,6 +213,11 @@ Read `android-observation-surface-selection-workflow-note` when the main problem
 - direct app-layer hooks are weak, detected, or semantically unhelpful
 - you need to choose among linker / Binder / eBPF / trace-oriented observation surfaces
 - you need narrow-slice collection and explicit reconnection of lower-layer evidence back to app meaning
+
+Read `trace-slice-to-handler-reconstruction-workflow-note` when the main problem is:
+- you can capture execution, but still need to reduce one narrow trace slice into the first consequence-bearing handler, state write, or scheduler edge
+- dispatcher churn, VM/protection noise, or integrity-heavy paths are obscuring the real branch that changes behavior
+- you need compare-run discipline and a concrete handoff from trace evidence back into one static next target instead of another giant trace
 
 Read `environment-differential-diagnosis-workflow-note` when the main problem is:
 - behavior drifts across device, packaging, session, or observation conditions
