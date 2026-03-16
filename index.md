@@ -142,6 +142,7 @@ A practical routing rule now reinforced across the browser subtree:
 - `topics/arkose-funcaptcha-session-and-iframe-workflow-note.md`
 - `topics/browser-parameter-path-localization-workflow-note.md`
 - `topics/browser-request-finalization-backtrace-workflow-note.md`
+  - now explicitly positioned as the bridge note for cases where callback/hidden-field/message token visibility and token-carrying submit/verify are both visible, but the first downstream accepted consumer request is still the decisive compare-run boundary
 - `topics/bytedance-web-request-signature-workflow-note.md`
 - `topics/xiaohongshu-web-signature-workflow-note.md`
 - `topics/youtube-player-signature-and-nsig-workflow-note.md`
