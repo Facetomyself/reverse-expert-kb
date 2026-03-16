@@ -119,6 +119,14 @@ Priority 2 candidates include:
 - `topics/trust-calibration-and-verification-burden.md`
 - `topics/collaborative-malware-analysis-and-role-differentiation.md`
 
+### Native desktop/server practical branch
+- `topics/native-binary-reversing-baseline.md`
+- `topics/native-interface-to-state-proof-workflow-note.md`
+
+This branch should now be read as a practical bridge from baseline native synthesis into one recurring operator bottleneck:
+- static-first orientation and semantic navigation (`native-binary-reversing-baseline`)
+- representative interface-path proof (`native-interface-to-state-proof-workflow-note`), which acts as the practical entry note when imports/strings/xrefs/callbacks already expose several plausible routes but the first consequence-bearing state edge and one downstream effect still need to be proved before the subsystem map becomes trustworthy
+
 ### Browser runtime subtree
 - `topics/browser-runtime-subtree-guide.md`
 - `topics/js-browser-runtime-reversing.md`
