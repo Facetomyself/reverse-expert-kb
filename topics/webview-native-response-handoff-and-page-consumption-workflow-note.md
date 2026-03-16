@@ -119,6 +119,7 @@ Signs:
 - native side posts messages via `postWebMessage(...)` or `WebMessagePort.postMessage(...)`
 - page side has a message listener, channel port, or bridge wrapper that receives envelopes
 - payloads may be more structured than ad-hoc JS injection strings
+- this family is easy to under-recognize if the analyst only searched for `addJavascriptInterface(...)` names
 
 #### Case C: URL/reload/bootstrap refresh return path
 Signs:
@@ -138,6 +139,7 @@ Typical useful payload shapes:
 - command envelope posted over a message channel
 - route/query/bootstrap object encoded into reload or loadUrl path
 - token/config tuple inserted into a global/page store initializer
+- callback return values that are JSON-wrapped at the transport boundary and need normalization before compare-run reasoning
 
 Representative capture template:
 
@@ -244,6 +246,7 @@ Inspect:
 - message event wrappers
 - global/store initialization code around page bootstrap
 - whether multiple callbacks consume the same native result differently
+- whether listener registration exists only after a specific lifecycle boundary, route mount, or reload completion point
 
 ### D. First request-driving consumer boundary
 Use when:
@@ -264,6 +267,7 @@ Inspect:
 - console messages correlated to native injection
 - DOM or hidden-field changes
 - whether those changes are followed by meaningful requests or only visual updates
+- whether `WebChromeClient.onConsoleMessage(...)`-style visibility gives a cheap confirmation that the page actually received and acted on the native emission
 
 ## 6. Representative code / pseudocode / harness fragments
 
@@ -316,8 +320,10 @@ Next move:
 Likely causes:
 - injected script is only a wrapper that forwards into a deeper callback/store path
 - callback names are visible, but operational consumer is still downstream
+- callback return material is JSON-wrapped and compare-run reasoning is being done on the wrapper rather than the semantic payload
 
 Next move:
+- normalize callback-wrapper structure before diffing payloads
 - trace the first callback or store write after injection
 - separate UI updates from request-driving behavior
 
@@ -344,6 +350,16 @@ Likely causes:
 
 Next move:
 - inspect `loadUrl(...)`, route mutation, bootstrap/global-store writes, and page initialization reads around the same transition
+
+### Failure mode 6: the payload looks correct, but page behavior is inconsistent across runs
+Likely causes:
+- native emission fires before the relevant page listener, route mount, or bootstrap state exists
+- the page is being reloaded or reinitialized, so the analyst is watching repeated reinjection rather than stable consumption
+
+Next move:
+- test lifecycle timing explicitly instead of assuming payload corruption
+- align native emission with page load / route-mount / callback-registration timing
+- compare whether the same emission is followed by fresh listener registration or state reset
 
 ## 8. Environment assumptions
 Hybrid Android apps often split one logical loop across:
@@ -393,9 +409,11 @@ It is intentionally closer to real hybrid-app debugging than to a general commun
 ## 12. Source footprint / evidence note
 Grounding for this page comes mainly from:
 - `sources/mobile-runtime-instrumentation/2026-03-15-webview-native-response-handoff-notes.md`
+- `sources/mobile-runtime-instrumentation/2026-03-16-webview-native-response-handoff-hardening-notes.md`
 - Android WebView / WebMessage API references surfaced through search
+- Android WebView debugging guidance around JavaScript console capture
 - OWASP MASTG bridge examples as anchor for bridge surface terminology
-- practical communication examples showing `evaluateJavascript(...)`, JSON-wrapped callback results, and console interception
+- practical communication examples showing `evaluateJavascript(...)`, JSON-wrapped callback results, lifecycle timing concerns, and console interception
 
 This page intentionally stays conservative:
 - it does not claim one universal native→page return family

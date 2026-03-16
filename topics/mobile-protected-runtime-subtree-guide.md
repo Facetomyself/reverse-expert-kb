@@ -252,6 +252,7 @@ Read `webview-native-response-handoff-and-page-consumption-workflow-note` when t
 - native code already retrieves or computes a meaningful result, but the decisive next behavior still happens on the page side
 - you need to distinguish `evaluateJavascript(...)`, message-channel posting, and reload/bootstrap refresh as native→page return families
 - you need to separate outbound native emission from the first meaningful page callback, store, hidden-field, or request-helper consumer
+- you need lifecycle-aware diagnosis for cases where the payload looks right but consumer registration, reload/reinit timing, or page-state reset still explains the failure better than token corruption does
 
 ## Source anchor
 The subtree is strongly justified by the practitioner cluster documented in:
