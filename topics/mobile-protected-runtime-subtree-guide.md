@@ -114,9 +114,8 @@ Read this when the main problem is:
 
 ## What this subtree is weaker at
 This subtree is currently weaker on:
-- dedicated iOS-only substructure
 - formal comparative literature for anti-instrumentation families
-- systematic mobile game / anti-cheat separation
+- deeper follow-on notes for mobile game / anti-cheat-like protected-runtime cases beyond one new practical entry note
 - finer child-page separation inside mobile risk-control and environment-state reasoning
 
 ## 5. Environment-state checks in protected runtimes
@@ -159,6 +158,7 @@ The most natural next child pages include:
 ### 9. Concrete mobile workflow notes
 Current concrete notes:
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
+- `topics/unity-il2cpp-state-ownership-and-persistence-workflow-note.md`
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
 - `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
 - `topics/android-observation-surface-selection-workflow-note.md`
@@ -177,6 +177,11 @@ Read `ios-packaging-jailbreak-and-runtime-gate-workflow-note` when the main prob
 - the case is clearly iOS-shaped, but the first decisive environment gate is still unclear
 - you need to separate packaging/resign drift, jailbreak-environment probes, instrumentation visibility, device-realism drift, and later trust/session consequences
 - you need one representative flow, one compare pair, one first divergence boundary, and one proved gate family before deeper hooks, bypasses, or request analysis
+
+Read `unity-il2cpp-state-ownership-and-persistence-workflow-note` when the main problem is:
+- the case is clearly Unity / IL2Cpp-shaped, but the real state owner is still unclear
+- obvious setters, wrappers, or metadata-visible methods fire, yet the value still reverts, gets overwritten, or fails to persist
+- you need to separate feature trigger, managed entry, state owner, overwrite/refresh/serialization boundary, and one visible persist/reject effect before deeper save, anti-cheat, or native-plugin work
 
 Read `mobile-signature-location-and-preimage-recovery-workflow-note` when the main problem is:
 - you have one app-side signature or anti-risk field and need a concrete first-pass workflow
