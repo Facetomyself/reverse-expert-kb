@@ -158,6 +158,7 @@ The most natural next child pages include:
 
 ### 9. Concrete mobile workflow notes
 Current concrete notes:
+- `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
 - `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
 - `topics/android-observation-surface-selection-workflow-note.md`
@@ -171,6 +172,11 @@ Current concrete notes:
 - `topics/webview-native-mixed-request-ownership-workflow-note.md`
 - `topics/webview-custom-scheme-and-navigation-handoff-workflow-note.md`
 - `topics/webview-native-bridge-payload-recovery-workflow-note.md`
+
+Read `ios-packaging-jailbreak-and-runtime-gate-workflow-note` when the main problem is:
+- the case is clearly iOS-shaped, but the first decisive environment gate is still unclear
+- you need to separate packaging/resign drift, jailbreak-environment probes, instrumentation visibility, device-realism drift, and later trust/session consequences
+- you need one representative flow, one compare pair, one first divergence boundary, and one proved gate family before deeper hooks, bypasses, or request analysis
 
 Read `mobile-signature-location-and-preimage-recovery-workflow-note` when the main problem is:
 - you have one app-side signature or anti-risk field and need a concrete first-pass workflow
