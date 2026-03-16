@@ -127,6 +127,16 @@ This branch should now be read as a practical bridge from baseline native synthe
 - static-first orientation and semantic navigation (`native-binary-reversing-baseline`)
 - representative interface-path proof (`native-interface-to-state-proof-workflow-note`), which acts as the practical entry note when imports/strings/xrefs/callbacks already expose several plausible routes but the first consequence-bearing state edge and one downstream effect still need to be proved before the subsystem map becomes trustworthy
 
+### Malware practical branch
+- `topics/malware-analysis-overlaps-and-analyst-goals.md`
+- `topics/collaborative-malware-analysis-and-role-differentiation.md`
+- `topics/staged-malware-execution-to-consequence-proof-workflow-note.md`
+
+This branch should now be read as a practical bridge from malware-overlap synthesis into one recurring operator bottleneck:
+- malware goal and triage framing (`malware-analysis-overlaps-and-analyst-goals`)
+- collaboration / handoff burden (`collaborative-malware-analysis-and-role-differentiation`)
+- staged execution to first proved consequence (`staged-malware-execution-to-consequence-proof-workflow-note`), which acts as the practical entry note when unpack/decrypt/inject/config stages are already visible but the first local handoff that actually predicts payload entry, persistence, comms, or sleep/degrade behavior still needs to be proved before deeper static work, reporting, or detection handoff becomes trustworthy
+
 ### Browser runtime subtree
 - `topics/browser-runtime-subtree-guide.md`
 - `topics/js-browser-runtime-reversing.md`
