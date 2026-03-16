@@ -122,6 +122,7 @@ Priority 2 candidates include:
 ### Native desktop/server practical branch
 - `topics/native-binary-reversing-baseline.md`
 - `topics/native-interface-to-state-proof-workflow-note.md`
+- `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 
 ### Runtime-evidence practical branch
 - `topics/runtime-behavior-recovery.md`
@@ -133,10 +134,11 @@ This branch should now be read as a practical bridge from runtime-evidence synth
 - execution-history and replay tradeoffs (`record-replay-and-omniscient-debugging`)
 - causal-write / reverse-causality localization (`causal-write-and-reverse-causality-localization-workflow-note`), which acts as the practical entry note when one suspicious late effect is already visible and the analyst needs the first causal write, branch, or state edge that predicts it before broadening into more static reconstruction, provenance cleanup, or wider trace review
 
-This branch should now be read as a practical bridge from baseline native synthesis into two recurring operator bottlenecks:
+This branch should now be read as a practical bridge from baseline native synthesis into three recurring operator bottlenecks:
 - static-first orientation and semantic navigation (`native-binary-reversing-baseline`)
 - semantic-anchor stabilization (`native-semantic-anchor-stabilization-workflow-note`), which acts as the practical entry note when pseudocode, names, types, and signatures are readable enough to navigate but the first trustworthy semantic anchor still has to be stabilized before wider relabeling or deeper proof work becomes reliable
 - representative interface-path proof (`native-interface-to-state-proof-workflow-note`), which acts as the practical entry note when imports/strings/xrefs/callbacks already expose several plausible routes but the first consequence-bearing state edge and one downstream effect still need to be proved before the subsystem map becomes trustworthy
+- async callback/consumer proof (`native-callback-registration-to-event-loop-consumer-workflow-note`), which acts as the practical entry note when registrations, message pumps, completions, or reactor-loop helpers are already visible but the first consequence-bearing callback delivery or event-loop consumer still has to be proved before the subsystem map becomes behaviorally trustworthy
 
 ### Malware practical branch
 - `topics/malware-analysis-overlaps-and-analyst-goals.md`
