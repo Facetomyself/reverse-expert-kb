@@ -259,6 +259,7 @@ Includes:
 Includes:
 - Objective-C/Swift/runtime-layer observation
 - post-gate owner localization across ObjC / Swift / native boundaries
+- callback/result-to-policy consequence localization once delegate/completion visibility exists
 - code-signing and entitlement constraints
 - jailbreak vs virtualized workflow differences
 - PAC/arm64e-era mitigation-aware reasoning
