@@ -259,6 +259,7 @@ Progress often depends on:
 - reconstructing enough environment to emulate or rehost
 - validating protocol assumptions against behavior
 - focusing effort on in-use context rather than nominal hardware completeness
+- once one message family is isolated, localizing the first parser-to-state or parser-to-peripheral consequence edge rather than collecting a wider but shallower corpus of similar traffic
 
 ### Long-horizon analysis
 Analysts need to preserve:

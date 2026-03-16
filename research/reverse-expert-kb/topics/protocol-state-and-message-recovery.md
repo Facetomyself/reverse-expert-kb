@@ -250,6 +250,7 @@ Practitioner-community material adds several recurring real-world patterns:
 - treating signing parameters, device-fingerprint fields, and anti-bot challenge exchanges as protocol objects rather than only business logic
 - using replay, mutation, or controlled environment changes to decide whether apparent message structure is state-dependent, environment-dependent, or purely cosmetic
 - accepting partial protocol models that are sufficient for replay, fuzzing, or explanation before attempting complete semantic closure
+- localizing the first parser-to-state consequence edge once a message family is already known, instead of stopping at parser visibility or widening traffic collection indefinitely
 
 ### Long-horizon analysis
 Analysts need to preserve:
@@ -329,6 +330,7 @@ This topic may later split into several child pages:
 - `topics/protocol-state-machine-recovery.md`
 - `topics/trace-clustering-and-session-separation.md`
 - `topics/protocol-re-for-fuzzing-and-generation.md`
+- `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is structurally useful but now somewhat stronger than the initial split-out version.
