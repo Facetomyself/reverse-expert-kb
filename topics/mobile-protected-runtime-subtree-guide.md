@@ -243,6 +243,7 @@ Read `webview-native-bridge-payload-recovery-workflow-note` when the main proble
 - hybrid ownership is already suspected and the next bottleneck is recovering what actually crosses the WebView/native bridge
 - you need to distinguish object bridges, message-channel bridges, and custom-URL/navigation handoff
 - you need payload-shape capture before native normalization, request ownership, signing, or trust-path analysis
+- you also need to avoid confusing a structurally correct page→native payload with later lifecycle-timing failures in the native→page return leg
 
 Read `webview-cookie-header-bootstrap-handoff-workflow-note` when the main problem is:
 - page-side cookies, hidden bootstrap state, or JS-produced header material clearly influence native behavior
