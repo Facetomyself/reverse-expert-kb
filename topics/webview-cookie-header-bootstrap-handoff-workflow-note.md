@@ -191,6 +191,28 @@ Once the handoff is localized, the next best move is usually the **first native 
 
 That boundary usually preserves more explanation than dropping immediately into later token/signature logic.
 
+### Step 6: test whether the real issue is bootstrap freshness or later page re-consumption
+This is the symmetry point with native→page return-path analysis.
+
+Sometimes you correctly localize page-seeded state entering native code, yet the case still stalls because the state handoff is only half the loop.
+
+Representative shape:
+
+```text
+page bootstrap / cookie update / hidden state appears
+  -> native code pulls or mirrors that state
+  -> native request path uses it correctly
+  -> native result or updated session state must later be re-consumed by the page
+  -> page reload, remount, route reset, or stale bootstrap data still causes the visible failure
+```
+
+Ask explicitly:
+- is the page-seeded state fresh at the moment native code reads it, or is native code consuming a stale cookie/bootstrap snapshot?
+- after native use succeeds, does the page still need a later reload/bootstrap refresh or callback consumption step to make progress?
+- are repeated cookie/header/bootstrap reads actually evidence of a reload/reinit loop rather than proof that the state itself is wrong?
+
+If yes, pair this note with the native→page response handoff workflow rather than continuing only into deeper signing logic.
+
 ## 5. Where to place breakpoints / hooks
 
 ### A. Page-side state appearance boundary
@@ -343,6 +365,17 @@ Likely causes:
 Next move:
 - route into mixed request ownership, signature-location, or native→page response workflows
 
+### Failure mode 6: cookie/bootstrap handoff looks correct, but progress still loops or degrades
+Likely causes:
+- native code is reading stale page-seeded state from a previous bootstrap moment
+- native transport succeeds, but the decisive next step depends on later page-side refresh, callback consumption, or route reinit
+- repeated `CookieManager` or store reads are being mistaken for proof of state correctness when they may instead indicate a reload/reseed loop
+
+Next move:
+- compare when the page state was seeded vs when native code consumed it
+- test whether a later native→page return or page bootstrap refresh is the actual missing boundary
+- avoid treating repeated cookie/header reads as the endpoint of analysis if the page still has not advanced behaviorally
+
 ## 8. Environment assumptions
 Hybrid Android apps often split one logical loop across:
 1. page-side state acquisition
@@ -377,6 +410,7 @@ Then route forward based on what you find:
   - `topics/webview-native-response-handoff-and-page-consumption-workflow-note.md`
 
 This page is meant to sit between broad hybrid ownership diagnosis and deeper request/signing analysis.
+It should also be read symmetrically with the native→page note when the same case includes both page-seeded native state and a later native result that must be re-consumed by the page.
 
 ## 11. What this page adds to the KB
 This page adds grounded material the mobile subtree needed more of:

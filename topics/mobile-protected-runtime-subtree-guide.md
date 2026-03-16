@@ -232,6 +232,7 @@ Read `webview-native-mixed-request-ownership-workflow-note` when the main proble
 - the app is hybrid and both WebView/page logic and native code appear to touch the same backend or request family
 - you need to separate intent owner, bridge boundary, transport owner, and response consumer
 - you need WebView/native ownership diagnosis before committing to page-only hooks, native-only hooks, trust-path localization, or signature recovery
+- you also need a reminder that solving ownership does not end the case if later page lifecycle timing, reload/reinit, or native→page consequence still explains the divergence better than transport does
 
 Read `webview-custom-scheme-and-navigation-handoff-workflow-note` when the main problem is:
 - no useful object bridge is visible, but page actions still clearly trigger native behavior
