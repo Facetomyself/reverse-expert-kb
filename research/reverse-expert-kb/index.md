@@ -222,6 +222,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 
 ### Mobile / protected-runtime practice subtree
 - `topics/mobile-protected-runtime-subtree-guide.md`
+- `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
 - `topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md`
 - `topics/android-linker-binder-ebpf-observation-surfaces.md`
 - `topics/android-observation-surface-selection-workflow-note.md`
@@ -267,6 +268,7 @@ This branch should now be read as a practical bridge from firmware/protocol synt
 
 This subtree is now best read as nine coordinated mobile analyst entry surfaces:
 - iOS environment-gate diagnosis (`ios-packaging-jailbreak-and-runtime-gate-workflow-note`), which acts as the practical entry note when the case is clearly iOS-shaped but the analyst still needs to separate packaging/resign drift, jailbreak-environment probes, instrumentation visibility, device-realism drift, and later trust/session consequences before deepening hooks or bypasses
+- iOS post-gate owner localization (`ios-objc-swift-native-owner-localization-workflow-note`), which acts as the practical bridge note when selectors, Swift wrappers, or native helpers are already visible but the analyst still needs to prove which ObjC / Swift / native boundary actually owns the first consequence-bearing state write, request-finalization step, or policy effect
 - observability under resistance (`anti-frida-and-anti-instrumentation-practice-taxonomy`, `android-linker-binder-ebpf-observation-surfaces`, `android-observation-surface-selection-workflow-note`, and `trace-guided-and-dbi-assisted-re`)
 - Unity / IL2Cpp state-ownership and persistence proof (`unity-il2cpp-state-ownership-and-persistence-workflow-note`), which acts as the practical entry note when metadata-visible classes, wrappers, or setters already exist but the real object owner, overwrite/refresh boundary, or persistence consequence is still unclear
 - trace-slice reduction and handler reconstruction (`trace-slice-to-handler-reconstruction-workflow-note`), which acts as the practical entry note when execution can be captured but the analyst still needs to reduce one narrow slice into the first consequence-bearing handler, state write, or scheduler edge instead of collecting more trace churn

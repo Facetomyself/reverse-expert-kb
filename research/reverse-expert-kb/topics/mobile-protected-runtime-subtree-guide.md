@@ -178,6 +178,11 @@ Read `ios-packaging-jailbreak-and-runtime-gate-workflow-note` when the main prob
 - you need to separate packaging/resign drift, jailbreak-environment probes, instrumentation visibility, device-realism drift, and later trust/session consequences
 - you need one representative flow, one compare pair, one first divergence boundary, and one proved gate family before deeper hooks, bypasses, or request analysis
 
+Read `ios-objc-swift-native-owner-localization-workflow-note` when the main problem is:
+- the iOS case is already reachable enough to study, but several ObjC / Swift / native surfaces still look plausible and the first consequence-bearing owner is unclear
+- visible selectors, delegates, Swift methods, or native helpers exist, but you still need to separate trigger surface, reduction boundary, reusable worker, and real owner
+- you need one representative iOS flow, one candidate owner, and one downstream effect before deepening signature, response-consumer, or native proof work
+
 Read `unity-il2cpp-state-ownership-and-persistence-workflow-note` when the main problem is:
 - the case is clearly Unity / IL2Cpp-shaped, but the real state owner is still unclear
 - obvious setters, wrappers, or metadata-visible methods fire, yet the value still reverts, gets overwritten, or fails to persist

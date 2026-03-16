@@ -258,6 +258,7 @@ Includes:
 ### 2. iOS runtime and environment-controlled reversing
 Includes:
 - Objective-C/Swift/runtime-layer observation
+- post-gate owner localization across ObjC / Swift / native boundaries
 - code-signing and entitlement constraints
 - jailbreak vs virtualized workflow differences
 - PAC/arm64e-era mitigation-aware reasoning
