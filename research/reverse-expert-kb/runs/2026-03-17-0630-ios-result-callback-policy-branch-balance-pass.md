@@ -169,9 +169,13 @@ Good future branch-balance candidates now include:
 - only a selective further iOS deepening if it adds a new operator bottleneck rather than another thin variant of callback or WebView timing work
 
 ## Commit / sync status
-At report-writing time, KB files changed and should be committed.
-After commit, the autosync workflow should run `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh`.
-If sync fails, local KB progress should remain intact and the failure should be noted here.
+Completed after report writing:
+- local commit created in `/root/.openclaw/workspace`:
+  - `73bd13b` — `kb: add ios result-to-policy workflow note`
+- required sync command completed successfully:
+  - `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh`
+- sync result:
+  - `Synced research/reverse-expert-kb -> https://github.com/Facetomyself/reverse-expert-kb (branch main)`
 
 ## Outcome
 This run materially improved the reverse KB by adding a missing practical iOS bridge note, tightening subtree routing, and making the iOS branch more internally complete without slipping back into abstract taxonomy growth or repetitive browser/mobile-webview micro-deepening.
