@@ -213,11 +213,12 @@ This run:
 
 ### Final status update
 - final local commit in `/root/.openclaw/workspace`:
-  - pending
+  - `01a48f8` — `kb: add decrypted artifact first-consumer workflow note`
 - required sync command:
   - `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh`
 - sync result:
-  - pending
+  - completed successfully on the first pass
+  - archival state updated successfully for `https://github.com/Facetomyself/reverse-expert-kb` on `main`
 
 ## Outcome
 This run materially improved the reverse KB by adding a missing artifact-to-consumer workflow bridge, tightening the protected/deobfuscation branch’s internal routing, and keeping branch balance pointed toward practical, case-driven analyst bottlenecks rather than drifting back into already-dense browser/mobile micro-variants.
