@@ -232,15 +232,19 @@ Best move:
 - prove that path first instead of maximizing whole-program understanding
 
 ## 7. What this note adds to the native branch
-This note makes the native desktop/server branch more operational.
+This note now acts as the **middle practical native step**.
 
-The native baseline page explains that static-first structure is often available.
-This workflow note explains what to do **after** that advantage exists but before the subsystem is trustworthy:
+The native branch should usually be read in this order:
+- `topics/native-semantic-anchor-stabilization-workflow-note.md` first when readable structure still lacks one trustworthy local meaning
+- `topics/native-interface-to-state-proof-workflow-note.md` next when one anchor is stable enough and several interface routes still compete
+- `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md` later when one route is already plausible but direct call-graph reasoning breaks at async delivery boundaries
+
+This workflow note therefore explains what to do after code is readable enough to navigate and at least one local anchor is trustworthy, but before the subsystem is operationally trustworthy:
 - pick one representative entry family
 - localize one consequence-bearing edge
 - prove one effect
 
-That keeps the native branch practical instead of leaving it as a comparison-only page.
+That keeps the native branch practical instead of leaving it as a comparison-only page or a loose set of sibling notes.
 
 ## 8. Failure modes this note helps prevent
 - reading ever more decompiled code without choosing a proof target
