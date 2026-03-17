@@ -26,5 +26,11 @@ Suggested command:
 cd /root/.openclaw/workspace && python3 ops-assistant/checks/run_fleet_check.py
 ```
 
+## Activation status
+Enabled on 2026-03-17:
+- `ops-assistant:high-frequency`
+- cadence: every 10 minutes
+- delivery mode: none (Telegram alerts only via `send_alerts.py` and the dedicated `telegram:alerts` bot)
+
 ## Approval note
-Per current safety policy, cron creation is pending explicit user approval.
+Cron creation was explicitly approved by the user on 2026-03-17 after validating `run_fleet_check.py` syntax and runtime behavior.
