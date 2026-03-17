@@ -1,0 +1,78 @@
+updated_at: 2026-03-17
+hosts:
+  oracle-proxy:
+    documented_projects:
+      - name: Tavily Proxy
+        match:
+          containers: [proxy-tavily-proxy-1]
+          compose_paths: [/root/tavily-key-generator/proxy/docker-compose.yml]
+      - name: Tavily Key Generator
+        match:
+          containers: [tavily-scheduler, tavily-camoufox, tavily-camoufox-adapter]
+          compose_paths: [/root/tavily-key-generator/docker-compose.yml]
+      - name: ExaFree
+        match:
+          containers: [exafree]
+          compose_paths: [/root/ExaFree/docker-compose.yml]
+      - name: Grok Register Stack
+        match:
+          containers: [grok-register-camoufox, grok-register-camoufox-adapter]
+          compose_paths: [/root/grok-register/docker/docker-compose.yml, /root/grok-register-standalone/docker-compose.yml]
+      - name: Grok2API
+        match:
+          containers: [grok2api]
+          compose_paths: [/root/grok2api/docker-compose.yml, /root/grok2api-official/docker-compose.yml]
+      - name: CLIProxy
+        match:
+          containers: [cliproxy]
+          compose_paths: []
+      - name: OpenAi (migrated)
+        match:
+          containers: []
+          compose_paths: [/root/OpenAi/docker-compose.yml]
+          status: archive
+
+  oracle-docker-proxy:
+    documented_projects:
+      - name: Registry Proxies
+        match:
+          container_prefixes: [reg-]
+          compose_paths: []
+      - name: registry-ui
+        match:
+          containers: [registry-ui]
+          compose_paths: []
+      - name: hubcmd-ui
+        match:
+          containers: [hubcmd-ui]
+          compose_paths: []
+      - name: Harbor footprint
+        match:
+          compose_paths: [/root/harbor/docker-compose.yml]
+          status: dormant
+
+  ali-cloud:
+    documented_projects:
+      - name: EasyImages
+        match:
+          containers: [easyimage]
+          compose_paths: [/opt/1panel/apps/easyimage2/easyimage2/docker-compose.yml]
+      - name: camoufox-remote
+        match:
+          containers: [camoufox-remote]
+          compose_paths: []
+      - name: 1Panel control plane
+        match:
+          systemd: [1panel.service]
+          infra_only: true
+
+  oracle-mail:
+    documented_projects:
+      - name: Mailu deployment footprint
+        match:
+          compose_paths: [/root/mailu/docker-compose.yml]
+          status: retired
+      - name: moemail repository
+        match:
+          paths: [/root/moemail]
+          status: retired
