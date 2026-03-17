@@ -19,11 +19,11 @@ Cadence: daily
 Purpose:
 - deeper reconciliation report
 - undocumented project detection
-- drift summary accumulation
+- project-entity analysis
 
 Suggested command:
 ```bash
-cd /root/.openclaw/workspace && python3 ops-assistant/checks/run_fleet_check.py
+cd /root/.openclaw/workspace && python3 ops-assistant/checks/run_entity_reconcile.py
 ```
 
 ## Activation status
