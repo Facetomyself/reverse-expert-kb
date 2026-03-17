@@ -340,10 +340,13 @@ This topic may later split into several child pages:
 - `topics/rehosting-and-context-aware-fuzzing.md`
 - `topics/firmware-corpora-and-environment-metadata.md`
 
-Practical bridge pages now exist for three recurring operator bottlenecks:
+Practical bridge pages now exist for four recurring operator bottlenecks:
+- `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+
+Use the ingress/receive-path note when inbound traffic, mailbox activity, socket reads, ring/descriptor activity, or receive callbacks are already visible, but the analyst still has not proved which local receive handoff actually owns the bytes and feeds the parser-relevant object, queue, or deferred receive worker.
 
 Use the peripheral/MMIO note when candidate peripheral ranges, MMIO/register families, or hardware-facing handlers are already visible, but the analysis still stalls until the first effect-bearing write, queue/DMA/interrupt arm, or status-latch edge is proved.
 

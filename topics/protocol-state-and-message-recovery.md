@@ -331,10 +331,13 @@ This topic may later split into several child pages:
 - `topics/trace-clustering-and-session-separation.md`
 - `topics/protocol-re-for-fuzzing-and-generation.md`
 
-Practical bridge pages now exist for three recurring operator bottlenecks:
+Practical bridge pages now exist for four recurring operator bottlenecks:
+- `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+
+Use the ingress/receive-path note when inbound traffic, receive callbacks, queue/ring activity, framing/reassembly, or deferred receive work are already visible, but the first local receive owner that actually feeds the parser-relevant object or handler family is still unclear.
 
 Use the parser-to-state note when one message family, parser, or dispatch region is already visible, but the first state write, reply-family selector, queue/timer insertion, or peripheral action that actually predicts later behavior is still unclear.
 
