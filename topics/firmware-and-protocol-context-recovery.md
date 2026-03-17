@@ -219,6 +219,8 @@ Includes:
 - mapping access patterns to protocols
 - linking peripheral usage to communication semantics
 - used-vs-unused context discrimination
+- diagnosing why traffic or protocol behavior is not visible from the current surface before assuming the protocol itself is opaque
+- relocating to the nearest trustworthy structure/plaintext owner, which may be an endpoint, framework object, write/read boundary, or content-manifest pipeline rather than the raw wire
 
 ### 3. Protocol field and semantic inference
 Includes:
@@ -238,6 +240,7 @@ Includes:
 - emulation realism
 - fuzzing support
 - analyst time reduction
+- extension from protocol visibility into downstream artifact recovery, such as manifest/key/content pipelines where the analyst’s real object is not the packet alone but the content object unlocked by that protocol
 
 ## 7. Analyst workflow implications
 This topic matters especially during:
@@ -340,11 +343,14 @@ This topic may later split into several child pages:
 - `topics/rehosting-and-context-aware-fuzzing.md`
 - `topics/firmware-corpora-and-environment-metadata.md`
 
-Practical bridge pages now exist for four recurring operator bottlenecks:
+Practical bridge pages now exist for five recurring operator bottlenecks:
+- `topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+
+Use the capture-failure/boundary-relocation note when the decisive protocol or content-bearing traffic still is not legible from the current surface and the analyst must first prove whether the case is dominated by proxy bypass, trust-path mismatch, non-HTTP/private-overlay boundaries, environment-conditioned visibility, or a deeper manifest/key/content pipeline before narrower parser or peripheral work makes sense.
 
 Use the ingress/receive-path note when inbound traffic, mailbox activity, socket reads, ring/descriptor activity, or receive callbacks are already visible, but the analyst still has not proved which local receive handoff actually owns the bytes and feeds the parser-relevant object, queue, or deferred receive worker.
 
