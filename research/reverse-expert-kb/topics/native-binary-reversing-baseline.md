@@ -13,6 +13,7 @@ Related pages:
 - topics/firmware-and-protocol-context-recovery.md
 - topics/obfuscation-deobfuscation-and-packed-binaries.md
 - topics/native-practical-subtree-guide.md
+- topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md
 
 ## 1. Topic identity
 
@@ -297,14 +298,17 @@ A practical routing rule is now worth making explicit:
   - `topics/native-semantic-anchor-stabilization-workflow-note.md`
 - once one semantic anchor is trustworthy enough to navigate, and imports/strings/xrefs/callbacks expose several plausible routes, prefer proving one representative interface-to-state-to-effect chain before broadening the subsystem map:
   - `topics/native-interface-to-state-proof-workflow-note.md`
-- once one interface family is plausible but behavioral ownership breaks at async dispatch boundaries, localize the first consequence-bearing event-loop consumer before mapping more framework plumbing:
+- once one route is plausible enough but plugin/module loaders, export resolution, or provider installation still leave ownership unclear, reduce that loader path into one first real module consumer before widening into broader framework mapping:
+  - `topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md`
+- once one interface family or loaded-module owner is plausible but behavioral ownership still breaks at async dispatch boundaries, localize the first consequence-bearing event-loop consumer before mapping more framework plumbing:
   - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 
 This branch should now be read as a practical native ladder:
-- subtree navigation and bottleneck selection (`native-practical-subtree-guide`), which acts as the branch entry surface when the analyst first needs to decide whether the current native bottleneck is semantic instability, route overabundance, or async ownership break
+- subtree navigation and bottleneck selection (`native-practical-subtree-guide`), which acts as the branch entry surface when the analyst first needs to decide whether the current native bottleneck is semantic instability, route overabundance, module-owner uncertainty, or async ownership break
 - semantic-anchor stabilization first when code is readable but meaning is still unstable
 - interface-path proof second when the next bottleneck is choosing one representative operational route
-- callback/event-loop consumer proof third when the route is plausible but ownership breaks at queue, callback, completion, or dispatch boundaries
+- plugin-loader / first-real-module-consumer reduction third when the route is plausible but loader/provider boundaries still hide the real owner
+- callback/event-loop consumer proof fourth when the route or module owner is plausible but ownership still breaks at queue, callback, completion, or dispatch boundaries
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is more synthesis-driven than source-dense.
