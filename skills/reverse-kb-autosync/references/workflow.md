@@ -140,6 +140,15 @@ Every run report should include:
 5. Candidate topic pages to create or improve
 6. Next-step research directions
 7. Concrete scenario notes or actionable tactics added this run
+8. Search audit (for any run that used search)
+
+For search-bearing runs, the `Search audit` section should at minimum include:
+- `Search sources requested:` `exa,tavily,grok`
+- `Search sources succeeded:` ...
+- `Search sources failed:` ...
+- `Exa endpoint:` ...
+- `Tavily endpoint:` ...
+- `Grok endpoint:` ...
 
 When a branch-balance review is performed, include a clearly labeled section for it.
 
@@ -179,6 +188,24 @@ seful subtree guides include:
 ## Anti-drift rule
 
 Before creating a new abstract page, ask whether the same effort would be better spent on one of these instead:
+- a concrete scenario page
+- a case-study page
+- a methodology page with operator steps
+- a workflow cookbook page
+- a code-backed note
+- a branch consolidation / route guide page
+
+Bias toward the concrete option unless there is a strong structural reason not to.
+age, ask whether the same effort would be better spent on one of these instead:
+- a concrete scenario page
+- a case-study page
+- a methodology page with operator steps
+- a workflow cookbook page
+- a code-backed note
+- a branch consolidation / route guide page
+
+Bias toward the concrete option unless there is a strong structural reason not to.
+ether the same effort would be better spent on one of these instead:
 - a concrete scenario page
 - a case-study page
 - a methodology page with operator steps
