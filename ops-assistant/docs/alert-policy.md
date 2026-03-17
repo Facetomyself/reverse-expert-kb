@@ -1,8 +1,13 @@
 # Alert Policy
 
 ## Channel
-- Primary: Telegram
+- Primary: Telegram (dedicated alerts bot account: `telegram:alerts`)
 - Email: not enabled in v1
+
+## Routing
+- 日常聊天 bot 与运维告警 bot 分离
+- 运维告警统一优先发往 Telegram `alerts` account
+- 当前接收目标：用户 Telegram 私聊 `5585354085`
 
 ## Severity
 

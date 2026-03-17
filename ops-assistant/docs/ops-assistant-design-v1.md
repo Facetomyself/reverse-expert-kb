@@ -123,6 +123,8 @@
 
 ### 当前告警通道
 - **Telegram**（唯一主告警通道）
+- 使用独立 Telegram bot/account：`telegram:alerts`
+- 当前已验证可向用户私聊 `5585354085` 主动推送
 
 ### 告警等级
 
