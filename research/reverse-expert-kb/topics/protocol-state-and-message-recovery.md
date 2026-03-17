@@ -12,6 +12,7 @@ Related pages:
 - topics/runtime-behavior-recovery.md
 - topics/benchmarks-datasets.md
 - topics/native-binary-reversing-baseline.md
+- topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
 
 ## 1. Topic identity
 

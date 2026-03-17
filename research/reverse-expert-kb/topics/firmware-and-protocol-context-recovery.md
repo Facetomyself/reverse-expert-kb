@@ -10,6 +10,7 @@ Related pages:
 - topics/runtime-behavior-recovery.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
 - topics/analyst-workflows-and-human-llm-teaming.md
+- topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
 
 ## 1. Topic identity
 
