@@ -120,7 +120,9 @@ Priority 2 candidates include:
 - `topics/collaborative-malware-analysis-and-role-differentiation.md`
 
 ### Native desktop/server practical branch
+- `topics/native-practical-subtree-guide.md`
 - `topics/native-binary-reversing-baseline.md`
+- `topics/native-semantic-anchor-stabilization-workflow-note.md`
 - `topics/native-interface-to-state-proof-workflow-note.md`
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 
@@ -135,6 +137,7 @@ This branch should now be read as a practical bridge from runtime-evidence synth
 - causal-write / reverse-causality localization (`causal-write-and-reverse-causality-localization-workflow-note`), which acts as the practical entry note when one suspicious late effect is already visible and the analyst needs the first causal write, branch, or state edge that predicts it before broadening into more static reconstruction, provenance cleanup, or wider trace review
 
 This branch should now be read as a practical bridge from baseline native synthesis into an ordered operator ladder:
+- subtree navigation and bottleneck selection (`native-practical-subtree-guide`), which acts as the branch entry surface when the analyst first needs to decide whether the current native bottleneck is semantic instability, route overabundance, or async ownership break
 - static-first orientation and semantic navigation (`native-binary-reversing-baseline`)
 - semantic-anchor stabilization (`native-semantic-anchor-stabilization-workflow-note`), which acts as the first practical entry note when pseudocode, names, types, and signatures are readable enough to navigate but the first trustworthy semantic anchor still has to be stabilized before wider relabeling or deeper proof work becomes reliable
 - representative interface-path proof (`native-interface-to-state-proof-workflow-note`), which acts as the usual second native step when one semantic anchor is stable enough and imports/strings/xrefs/callbacks expose several plausible routes, but the first consequence-bearing state edge and one downstream effect still need to be proved before the subsystem map becomes trustworthy

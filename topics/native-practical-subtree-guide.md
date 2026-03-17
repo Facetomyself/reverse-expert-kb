@@ -1,0 +1,202 @@
+# Native Practical Subtree Guide
+
+Topic class: subtree guide
+Ontology layers: native baseline practice branch, workflow routing, operator ladder
+Maturity: structured-practical
+Related pages:
+- topics/native-binary-reversing-baseline.md
+- topics/native-semantic-anchor-stabilization-workflow-note.md
+- topics/native-interface-to-state-proof-workflow-note.md
+- topics/native-callback-registration-to-event-loop-consumer-workflow-note.md
+- topics/runtime-behavior-recovery.md
+
+## 1. Why this guide exists
+This guide exists because the KB’s native practical branch already has several useful workflow notes, but until now it has been easier to read as a small set of siblings than as a clear operator ladder.
+
+The branch already had practical entry surfaces for:
+- readable native code whose first trustworthy semantic anchor is still unstable
+- plausible interface paths whose first consequence-bearing state edge is still unproved
+- async callback, completion, queue, or event-loop structure whose first behavior-changing consumer is still unclear
+
+What was missing was the compact routing rule that answers:
+- where should I start when a case is clearly native-baseline shaped?
+- which note comes next after the current bottleneck is reduced?
+- when am I still stabilizing meaning versus when am I proving one operational route versus one async consumer?
+
+This page makes the branch read more like the malware, protocol, and protected-runtime practical subtrees:
+- a branch entry surface
+- a small set of recurring bottleneck families
+- a compact ladder for turning readable native structure into one smaller trustworthy working map
+
+## 2. Core claim
+Native practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of three recurring families:
+
+1. **semantic-anchor instability**
+   - code is readable enough to navigate, but names, types, signatures, object roles, or subsystem labels are still too slippery to trust
+2. **interface-path overabundance**
+   - one semantic anchor is stable enough, but several imports/strings/xrefs/callbacks/handlers still expose too many plausible routes and no one consequence-bearing path has been proved yet
+3. **async ownership break**
+   - one route is already plausible, but direct call-graph reading breaks at registration, queue, completion, callback, or event-loop delivery boundaries and the first consequence-bearing consumer is still unclear
+
+A compact operator ladder for this branch is:
+
+```text
+choose the current native bottleneck
+  -> reduce it to one smaller trustworthy object or route
+  -> prove one consequence-bearing edge or downstream effect
+  -> hand back one more reliable subsystem map
+```
+
+The subtree is strongest when read as:
+- **anchor** one trustworthy semantic meaning
+- **prove** one representative interface-to-state route
+- **deliver** one async callback or event-loop consumer chain
+
+## 3. How to choose the right entry note
+### Start with `native-semantic-anchor-stabilization-workflow-note`
+Use:
+- `topics/native-semantic-anchor-stabilization-workflow-note.md`
+
+Start here when:
+- pseudocode is readable enough to navigate
+- names, recovered types, signatures, object roles, or subsystem labels still feel plausible but unproved
+- the next bottleneck is choosing one trustworthy semantic anchor before broader relabeling or deeper proof work
+- one narrow proof could collapse ambiguity across several nearby functions, fields, or helpers
+
+Do **not** start here when:
+- one semantic anchor is already trustworthy enough and the real problem is that several interface paths still compete
+- the current ambiguity really lives at async delivery boundaries rather than local meaning
+- the case is still dominated by protection churn, environment reconstruction, or protocol-state recovery instead of ordinary native interpretation
+
+### Start with `native-interface-to-state-proof-workflow-note`
+Use:
+- `topics/native-interface-to-state-proof-workflow-note.md`
+
+Start here when:
+- one semantic anchor is already stable enough to navigate
+- imports, strings, xrefs, callbacks, command handlers, parser entries, or dispatch shims expose several plausible operational routes
+- the next bottleneck is proving one representative path from interface entry through one consequence-bearing state edge into one downstream effect
+- the best next output is one grounded route, not a broader subsystem survey
+
+Do **not** start here when:
+- the first trustworthy semantic anchor is still missing
+- direct call-graph reading is already broken mainly by queue/callback/event-loop delivery rather than by too many entry families
+- the target is better framed as protocol parser-to-state work, malware stage-to-consequence proof, or protected-runtime reduction
+
+### Start with `native-callback-registration-to-event-loop-consumer-workflow-note`
+Use:
+- `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
+
+Start here when:
+- one interface family or route is already plausible
+- registrations, completions, callback tables, message pumps, observer lists, queues, or event-loop reducers are visible enough to study
+- the main uncertainty is no longer choosing the route, but proving which async delivery or callback consumer first changes later behavior
+- the next useful output is one proved chain from event source or registration through dispatch reduction into one consequence-bearing consumer
+
+Do **not** start here when:
+- the real bottleneck is still choosing the right interface family
+- the earlier semantic-anchor problem is still unresolved
+- the case is mainly mobile/WebView, firmware/protocol, or protected-runtime shaped rather than ordinary native async ownership
+
+## 4. Compact ladder across the branch
+A useful way to read the branch is as three common bottleneck families that often chain into one another.
+
+### A. Readable structure -> trustworthy semantic anchor
+Typical question:
+- which label, type, object role, signature, or subsystem meaning would most reduce nearby ambiguity if I could prove it against one real consequence?
+
+Primary note:
+- `topics/native-semantic-anchor-stabilization-workflow-note.md`
+
+Possible next handoff:
+- `topics/native-interface-to-state-proof-workflow-note.md`
+- `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
+
+### B. Stable anchor -> representative interface-to-state proof
+Typical question:
+- which entry family, handler, parser, command path, or exported surface should I prove first so the subsystem becomes operationally trustworthy?
+
+Primary note:
+- `topics/native-interface-to-state-proof-workflow-note.md`
+
+Possible next handoff:
+- `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
+- `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+- `topics/malware-reporting-and-handoff-evidence-packaging-workflow-note.md`
+
+### C. Plausible route -> async callback/event-loop consumer proof
+Typical question:
+- which posted task, delivered callback, completion, or event-loop consumer first changes later behavior in a way that makes the route trustworthy?
+
+Primary note:
+- `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
+
+Possible next handoff:
+- `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
+- `topics/runtime-behavior-recovery.md`
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+
+## 5. The branch’s practical routing rule
+When a case is clearly native-baseline shaped, ask these in order:
+
+1. **Is code readable, but the first trustworthy local meaning still unstable?**
+   - if yes, start with semantic-anchor stabilization
+2. **Is one semantic anchor stable enough, but several entry or handler routes still compete?**
+   - if yes, start with interface-to-state proof
+3. **Is one route already plausible, but ownership now breaks at queue/callback/event-loop delivery?**
+   - if yes, continue into callback-consumer proof
+
+If more than one feels true, prefer the earliest boundary that still blocks later work.
+That usually means:
+- stabilize one semantic anchor before comparing many interface paths
+- prove one representative interface route before mapping a whole event framework
+- prove one consequence-bearing consumer before cataloging sibling callbacks or neighboring handlers
+
+## 6. What this branch is strongest at
+This branch is currently strongest at practical notes for:
+- turning readable but semantically slippery native structure into one trustworthy anchor
+- turning several plausible interface paths into one proved state/effect chain
+- turning visible async framework structure into one consequence-bearing consumer proof
+
+That makes the branch good at cases where the main problem is not broad taxonomy or missing visibility, but choosing one proof-worthy reduction step inside a mostly readable native target.
+
+## 7. What this branch is still weaker at
+This branch is still weaker than browser/mobile in some areas:
+- it has had less explicit subtree-level routing until now
+- Windows/Linux/macOS-specific operator differences are still lightly integrated
+- it still relies more on workflow notes than on a denser native synthesis stack
+- some recurring native subareas such as service-control managers, plugin loaders, and GUI message frameworks could later justify narrower route guides if source pressure accumulates
+
+That means the right near-term maintenance pattern is usually:
+- branch-shape repair
+- conservative navigation strengthening
+- concrete workflow deepening only when a real native operator gap appears
+
+## 8. Common mistakes this guide prevents
+This guide is meant to prevent several recurring branch-level mistakes:
+- broad relabeling before one semantic anchor has survived proof pressure
+- jumping into async callback mapping while the real bottleneck is still choosing the right interface family
+- treating all three native practical notes as parallel choices rather than a common progression
+- widening subsystem coverage before one consequence-bearing chain is grounded
+- drifting toward broader browser/mobile/protected-runtime work just because those branches already have denser source pressure
+
+## 9. How this guide connects to the rest of the KB
+Use this subtree when the case is best described as:
+- a relatively ordinary native binary where code is readable enough to navigate, but the current bottleneck is still choosing one trustworthy anchor, one representative route, or one consequence-bearing async consumer
+
+Then route outward as soon as the case becomes more specifically shaped:
+- to `topics/runtime-behavior-recovery.md` when broader observability or proof strategy is still the main issue
+- to `topics/causal-write-and-reverse-causality-localization-workflow-note.md` when one late effect is already visible and the real need is backward localization
+- to `topics/protocol-state-and-message-recovery.md` when the real object has become protocol-state or parser-state recovery
+- to `topics/malware-practical-subtree-guide.md` when the case is operationally malware-shaped rather than baseline-native
+- to `topics/protected-runtime-practical-subtree-guide.md` when resistance, packing, or integrity logic becomes the real branch entry problem
+
+## 10. Topic summary
+This subtree guide turns the native practical branch into a clearer operator ladder.
+
+The compact reading is:
+- anchor one trustworthy semantic meaning
+- prove one representative interface-to-state route
+- prove one async callback or event-loop consumer chain
+
+That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which native workflow note to read first.
