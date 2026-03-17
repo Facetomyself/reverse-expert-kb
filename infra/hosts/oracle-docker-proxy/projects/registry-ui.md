@@ -77,8 +77,8 @@ Current observed state:
 ## 11. Failure Modes / Troubleshooting
 ### Symptom: `ui.zhangxuemin.work` returns `502`
 Known current explanation:
-- backend on `127.0.0.1:50000` is not serving healthy HTTP responses consistently
-- service may also fully stop/crash during failure windows
+- backend on `127.0.0.1:50000` is not serving healthy HTTP responses consistently for some requests
+- current evidence points to application-level failures on specific manifest handling rather than Caddy or registry-port failure
 
 ### Symptom: tag detail page crashes
 Observed pattern:
@@ -96,6 +96,13 @@ Interpretation:
 
 ## 12. Dependencies / Cross-links
 - Fronted by `projects/caddy.md`
+- Depends on `reg-docker-hub`
+
+## 13. Change History
+- 2026-03-15: First documented from inspect/log analysis; known unhealthy state recorded.
+ History
+- 2026-03-15: First documented from inspect/log analysis; known unhealthy state recorded.
+cts/caddy.md`
 - Depends on `reg-docker-hub`
 
 ## 13. Change History

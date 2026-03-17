@@ -1,5 +1,16 @@
 # oracle-proxy / Change Log
 
+## 2026-03-17
+- Confirmed several compose-era directories on `oracle-proxy` were only historical leftovers and no longer needed:
+  - `/root/AntiCAP-WebApi-docker`
+  - `/root/FlareSolverr`
+  - `/root/ProxyCat`
+  - `/root/clove`
+  - `/root/gpt-load`
+  - `/root/backups/grok2api-20260313-133823`
+- Cleaned the above paths from the host instead of promoting them into active project docs.
+- Future ops-assistant drift scans should treat those paths as removed historical residue, not active undocumented project candidates.
+
 ## 2026-03-16
 - Recorded that `/root/OpenAi` was migrated from the current OpenClaw host to `oracle-proxy` for storage only.
 - Explicitly marked the migrated `OpenAi` directory as **not running** and **not part of the active service map**.

@@ -176,3 +176,8 @@ Checks:
   - schedulerized deployment confirmed
   - auto-upload path fixed to use `host.docker.internal:9874`
   - verified fresh registration can auto-upload to proxy
+- 2026-03-16:
+  - confirmed runtime config uses `EMAIL_ADMIN_PASSWORD = "Zxm971004"`, `EMAIL_SITE_PASSWORD = "Zxm971004"`, and `PROXY_ADMIN_PASSWORD = "Zxm971004"`
+  - changed batch target to `RUN_COUNT = 5`
+  - changed scheduler cadence to `TAVILY_INTERVAL_SECONDS = 10800` (~3 hours per batch)
+  - effective behavior is now approximately 5 registration attempts every 3 hours, not a strict rate guarantee

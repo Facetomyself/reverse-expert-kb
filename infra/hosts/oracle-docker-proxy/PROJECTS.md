@@ -31,27 +31,35 @@ Likely represented by:
 - Project docs: not yet created
 
 ## Confirmed external behavior
+Observed on 2026-03-16:
 - `hub.zhangxuemin.work` returns `HTTP 200` behind Caddy
 - `ghcr.zhangxuemin.work` returns `HTTP 200` behind Caddy
-- `gcr.zhangxuemin.work` returns `HTTP 200` behind Caddy
-- `quay.zhangxuemin.work` returns `HTTP 200` behind Caddy
+- `mcr.zhangxuemin.work` returns `HTTP 200` behind Caddy
+- `gcr.zhangxuemin.work` currently returns `HTTP 502` behind Caddy
+- `quay.zhangxuemin.work` currently returns `HTTP 502` behind Caddy
 - `ui.zhangxuemin.work` currently returns `HTTP 502` behind Caddy
+- `hubcmd.zhangxuemin.work` currently returns `HTTP 502` behind Caddy
+- `nvcr.zhangxuemin.work` currently returns `HTTP 502` behind Caddy
+- `elastic.zhangxuemin.work` currently returns `HTTP 502` behind Caddy
 
 ## Confirmed runtime components
-- `registry-ui` -> host `50000` -> container `8080`
-- `hubcmd-ui` -> host `30080` -> container `3000`
+Currently running on 2026-03-16:
 - `reg-docker-hub` -> host `51000` -> container `5000`
 - `reg-ghcr` -> host `52000` -> container `5000`
-- `reg-gcr` -> host `53000` -> container `5000`
-- `reg-k8s-gcr` -> host `54000` -> container `5000`
 - `reg-k8s` -> host `55000` -> container `5000`
-- `reg-quay` -> host `56000` -> container `5000`
 - `reg-mcr` -> host `57000` -> container `5000`
-- `reg-elastic` -> host `58000` -> container `5000`
-- `reg-nvcr` -> host `59000` -> container `5000`
+
+Currently absent from `docker ps` and with backend ports refusing local connections on 2026-03-16:
+- `registry-ui` -> expected host `50000`
+- `hubcmd-ui` -> expected host `30080`
+- `reg-gcr` -> expected host `53000`
+- `reg-k8s-gcr` -> expected host `54000`
+- `reg-quay` -> expected host `56000`
+- `reg-elastic` -> expected host `58000`
+- `reg-nvcr` -> expected host `59000`
 
 ## Known issue
-- `ui.zhangxuemin.work` -> `localhost:50000` currently fails locally with `Recv failure: Connection reset by peer`, which aligns with the external `HTTP 502` from Caddy.
+- The current problem is broader than the earlier `registry-ui`-only diagnosis: several Caddy routes now point at inactive local backends, so today's `HTTP 502` responses line up with missing listeners rather than only OCI manifest/UI compatibility behavior.
 
 ## Harbor stack / adjacent deployment clue
 On-host, a full Harbor deployment tree exists under `/root/harbor`, including:
