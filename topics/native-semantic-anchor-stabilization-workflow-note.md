@@ -255,7 +255,8 @@ Best move:
 This note now acts as the **first practical native step** once decompilation and metadata make the code navigable.
 
 The native branch should usually be read in this order:
-- `topics/native-semantic-anchor-stabilization-workflow-note.md` first when code is readable but the first trustworthy local meaning is still unstable
+- `topics/native-practical-subtree-guide.md` first when the case is clearly native-shaped but the current bottleneck still needs to be classified
+- `topics/native-semantic-anchor-stabilization-workflow-note.md` first practical native note when code is readable but the first trustworthy local meaning is still unstable
 - `topics/native-interface-to-state-proof-workflow-note.md` next when one anchor is stable enough and the next bottleneck is choosing one representative operational route
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md` later when one route is plausible but ownership breaks at callback, queue, completion, or event-loop boundaries
 

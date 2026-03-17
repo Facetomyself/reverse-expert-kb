@@ -12,6 +12,7 @@ Related pages:
 - topics/mobile-reversing-and-runtime-instrumentation.md
 - topics/firmware-and-protocol-context-recovery.md
 - topics/obfuscation-deobfuscation-and-packed-binaries.md
+- topics/native-practical-subtree-guide.md
 
 ## 1. Topic identity
 
@@ -290,6 +291,8 @@ This topic may later split into several child pages:
 - `topics/native-interface-to-state-proof-workflow-note.md`
 
 A practical routing rule is now worth making explicit:
+- when a case is clearly native-baseline shaped but the next practical step is still unclear, start with the subtree guide:
+  - `topics/native-practical-subtree-guide.md`
 - when static structure is readable but local meanings are still too slippery, stabilize one candidate semantic anchor before broad relabeling:
   - `topics/native-semantic-anchor-stabilization-workflow-note.md`
 - once one semantic anchor is trustworthy enough to navigate, and imports/strings/xrefs/callbacks expose several plausible routes, prefer proving one representative interface-to-state-to-effect chain before broadening the subsystem map:
@@ -298,6 +301,7 @@ A practical routing rule is now worth making explicit:
   - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 
 This branch should now be read as a practical native ladder:
+- subtree navigation and bottleneck selection (`native-practical-subtree-guide`), which acts as the branch entry surface when the analyst first needs to decide whether the current native bottleneck is semantic instability, route overabundance, or async ownership break
 - semantic-anchor stabilization first when code is readable but meaning is still unstable
 - interface-path proof second when the next bottleneck is choosing one representative operational route
 - callback/event-loop consumer proof third when the route is plausible but ownership breaks at queue, callback, completion, or dispatch boundaries
