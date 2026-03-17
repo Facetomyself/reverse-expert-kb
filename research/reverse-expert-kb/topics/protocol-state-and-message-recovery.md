@@ -202,6 +202,8 @@ Includes:
 - field boundaries
 - type and role inference for fields
 - semantic labeling of message components
+- recognizing when the nearest trustworthy object is a serializer, framework response wrapper, framed-RPC contract, or content-manifest pipeline rather than the raw packet bytes alone
+- distinguishing serialization structure from crypto wrapping before committing to a recovery path
 
 ### 3. State-machine recovery
 Includes:
@@ -216,6 +218,7 @@ Includes:
 - message generation or mutation
 - traffic understanding
 - behavior reproduction and explanation
+- endpoint-redirection, transparent-interception, or content-pipeline recovery workflows where protocol understanding is used to reach the next artifact rather than to stop at packet semantics
 
 ### 5. Relation to other KB domains
 Includes:
@@ -331,11 +334,14 @@ This topic may later split into several child pages:
 - `topics/trace-clustering-and-session-separation.md`
 - `topics/protocol-re-for-fuzzing-and-generation.md`
 
-Practical bridge pages now exist for four recurring operator bottlenecks:
+Practical bridge pages now exist for five recurring operator bottlenecks:
+- `topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+
+Use the capture-failure/boundary-relocation note when the important traffic or protocol object is still not meaningfully visible from the current surface and the real bottleneck is proving whether the case is dominated by proxy bypass, trust-path mismatch, private overlay boundaries, environment-conditioned visibility, or a manifest/key/content pipeline that must be followed deeper before parser/state work becomes trustworthy.
 
 Use the ingress/receive-path note when inbound traffic, receive callbacks, queue/ring activity, framing/reassembly, or deferred receive work are already visible, but the first local receive owner that actually feeds the parser-relevant object or handler family is still unclear.
 
