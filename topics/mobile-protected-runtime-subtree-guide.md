@@ -261,6 +261,11 @@ Read `trace-slice-to-handler-reconstruction-workflow-note` when the main problem
 - dispatcher churn, VM/protection noise, or integrity-heavy paths are obscuring the real branch that changes behavior
 - you need compare-run discipline and a concrete handoff from trace evidence back into one static next target instead of another giant trace
 
+Read `runtime-table-and-initialization-obligation-recovery-workflow-note` when the main problem is:
+- repaired static artifacts, dumped SOs, or offline reconstructions still look damaged or under-initialized, but live/runtime state exposes truer tables, initialized images, or command-sequenced state
+- emulation or replay is close-but-wrong and you need to decide whether the real missing object is one runtime table family, one earlier init command, one side-condition callback, or one environment obligation
+- you need a compact workflow for turning execution-assisted evidence into one smaller truthful target instead of doing more broad trace collection or over-rewriting the core transform
+
 Read `environment-differential-diagnosis-workflow-note` when the main problem is:
 - behavior drifts across device, packaging, session, or observation conditions
 - you need to tell whether the drift is execution, trust, session, or observation drift
