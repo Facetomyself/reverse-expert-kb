@@ -216,6 +216,8 @@ Includes:
 - selecting functions, states, messages, or events to watch
 - choosing between targeted hooks and broader traces
 - deciding which layer is most informative
+- relocating the observation topology itself when ordinary proxy, attach, or app-layer hooks are misleading, too visible, or semantically late
+- choosing among framework-plaintext owners, socket/write-read boundaries, lower syscall-adjacent traces, transparent interception, VPN/WireGuard-style observation, or controlled endpoint redirection depending on where the next trustworthy object actually appears
 
 ### 4. Trace interpretation and evidence integration
 Includes:
@@ -258,6 +260,8 @@ Practitioner-community casework adds several concrete patterns here:
 - Frida trace and hook selection when app behavior is layered across Java/ObjC, native, and platform paths
 - DBI or trace-assisted narrowing when anti-analysis or obfuscation makes static structure unreliable
 - recordable evidence trails for bypass attempts, protocol states, and parameter generation paths
+- request/protocol recovery by localizing the nearest structure- or plaintext-owner rather than worshipping the wire
+- value-generation work that treats requests and browser/mobile artifacts as field pipelines or artifact pipelines, not monolithic blobs
 
 ### Long-horizon analysis
 Runtime evidence should be preserved with context:
@@ -306,6 +310,8 @@ Among these, the especially central dimensions are:
 ## 9. Cross-links to related topics
 
 ### Closely related pages
+- `topics/runtime-evidence-practical-subtree-guide.md`
+  - because the runtime-evidence subtree guide is now the branch entry surface when the analyst first needs to classify whether the bottleneck is observation/layer selection, capture stability, or late-effect reverse-causality work
 - `topics/decompilation-and-code-reconstruction.md`
   - because runtime behavior often validates or refines static reconstruction
 - `topics/analyst-workflows-and-human-llm-teaming.md`
@@ -364,5 +370,7 @@ Overall assessment:
 
 ## 13. Topic summary
 Runtime behavior recovery is one of the key bridges between plausible static interpretation and trustworthy reverse-engineering understanding.
+
+Use `topics/runtime-evidence-practical-subtree-guide.md` as the branch entry surface when the case is clearly runtime-evidence shaped, but the current operator bottleneck still needs to be classified as observation/layer-selection uncertainty, capture-stability/replay-worthiness uncertainty, or late-effect-to-causal-boundary localization before choosing a narrower workflow note.
 
 This topic matters because expert analysts often make the most progress not by reading more code, but by observing the right behavior, at the right layer, for the right reason, and then integrating that evidence back into a stable working model of the target.

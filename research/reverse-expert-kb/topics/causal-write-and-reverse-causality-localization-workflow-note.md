@@ -4,6 +4,7 @@ Topic class: concrete workflow note
 Ontology layers: runtime-evidence practice branch, record-replay bridge, causality-tracing workflow
 Maturity: structured-practical
 Related pages:
+- topics/runtime-evidence-practical-subtree-guide.md
 - topics/runtime-behavior-recovery.md
 - topics/record-replay-and-omniscient-debugging.md
 - topics/analytic-provenance-and-evidence-management.md
