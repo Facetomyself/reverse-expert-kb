@@ -235,6 +235,7 @@ Best move:
 This note now acts as the **middle practical native step**.
 
 The native branch should usually be read in this order:
+- `topics/native-practical-subtree-guide.md` first when the case is clearly native-shaped but the bottleneck still needs branch-level routing
 - `topics/native-semantic-anchor-stabilization-workflow-note.md` first when readable structure still lacks one trustworthy local meaning
 - `topics/native-interface-to-state-proof-workflow-note.md` next when one anchor is stable enough and several interface routes still compete
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md` later when one route is already plausible but direct call-graph reasoning breaks at async delivery boundaries
