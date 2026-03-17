@@ -197,14 +197,15 @@ Read `ios-result-callback-to-policy-state-workflow-note` when the main problem i
 - you need one representative iOS flow, one candidate policy-mapping boundary, and one downstream effect before deepening challenge-loop, attestation-consequence, or signature/request work
 
 Together, the iOS practical branch should now usually be read as an ordered ladder rather than a flat set of sibling notes:
-- `ios-packaging-jailbreak-and-runtime-gate-workflow-note` first, when the case is still dominated by broad iOS setup, observation topology, install/sign path, packaging, realism, instrumentation-visibility, or early-vs-late drift uncertainty
-- `ios-objc-swift-native-owner-localization-workflow-note` second, when the case is already reachable enough to study but the first consequence-bearing ObjC / Swift / native owner is still unclear in a broadly iOS-shaped path
+- `ios-traffic-topology-relocation-workflow-note` first when the immediate uncertainty is still whether the current network-observation surface is truthful enough to see the decisive request family at all
+- `ios-packaging-jailbreak-and-runtime-gate-workflow-note` next, when the case is still dominated by broader iOS setup, observation topology, install/sign path, packaging, realism, instrumentation-visibility, or early-vs-late drift uncertainty beyond that narrower traffic-visibility issue
+- `ios-objc-swift-native-owner-localization-workflow-note` after that, when the case is already reachable enough to study but the first consequence-bearing ObjC / Swift / native owner is still unclear in a broadly iOS-shaped path
 - `ios-flutter-cross-runtime-owner-localization-workflow-note` as the specialized continuation when the ownership problem is clearly cross-runtime and Flutter/Dart execution is part of the real owner search rather than just shell context
 - `ios-result-callback-to-policy-state-workflow-note` later, when callback/result visibility already exists and the remaining bottleneck is proving the first local policy state or behavior-changing consumer
 
 A compact way to remember the ladder is:
-- **topology** first — choose the observation or execution surface that actually makes the flow legible
-- **gate** second — stabilize install/signing/tooling/environment prerequisites enough that evidence is trustworthy
+- **traffic topology** first — choose the network-observation surface that actually reveals the decisive request family
+- **gate** second — stabilize install/signing/tooling/environment prerequisites enough that broader runtime evidence is trustworthy
 - **owner** third — prove the first ObjC / Swift / native (or cross-runtime) boundary that actually owns the consequence
 - **policy consumer** fourth in spirit — once owner visibility exists, reduce callback/result material into the first behavior-changing consumer
 
