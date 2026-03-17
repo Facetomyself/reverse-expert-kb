@@ -334,12 +334,15 @@ This topic may later split into several child pages:
 - `topics/trace-clustering-and-session-separation.md`
 - `topics/protocol-re-for-fuzzing-and-generation.md`
 
-Practical bridge pages now exist for five recurring operator bottlenecks:
+A subtree guide and practical bridge pages now exist for the protocol/firmware operator ladder:
+- `topics/protocol-firmware-practical-subtree-guide.md`
 - `topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+
+Use the subtree guide first when the analyst still needs to classify whether the real bottleneck is broad protocol framing, boundary selection, ingress ownership, parser/state consequence, acceptance gating, output handoff, or a later hardware-side consequence path.
 
 Use the capture-failure/boundary-relocation note when the important traffic or protocol object is still not meaningfully visible from the current surface and the real bottleneck is proving whether the case is dominated by proxy bypass, trust-path mismatch, private overlay boundaries, environment-conditioned visibility, or a manifest/key/content pipeline that must be followed deeper before parser/state work becomes trustworthy.
 

@@ -269,6 +269,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/webview-cookie-header-bootstrap-handoff-workflow-note.md`
 
 ### Firmware / protocol practical branch
+- `topics/protocol-firmware-practical-subtree-guide.md`
 - `topics/firmware-and-protocol-context-recovery.md`
 - `topics/protocol-state-and-message-recovery.md`
 - `topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md`
@@ -279,7 +280,8 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 
-This branch should now be read as a practical bridge from firmware/protocol synthesis into seven recurring operator bottlenecks:
+This branch should now be read as a practical bridge from firmware/protocol synthesis into a subtree guide plus seven recurring operator bottlenecks:
+- subtree entry and routing (`protocol-firmware-practical-subtree-guide`), which acts as the compact branch entry note for choosing whether the current bottleneck is still broad context/object-of-recovery framing, boundary selection, ingress ownership, parser/state consequence, acceptance gating, output handoff, or hardware-side effect proof
 - environment/context recovery (`firmware-and-protocol-context-recovery`)
 - message/state recovery (`protocol-state-and-message-recovery`)
 - capture-failure diagnosis and boundary relocation (`protocol-capture-failure-and-boundary-relocation-workflow-note`), which acts as the practical entry note when the important traffic or protocol object is still not meaningfully visible from the current surface and the analyst must first prove whether the case is dominated by proxy bypass, trust-path mismatch, non-HTTP/private-overlay boundaries, environment-conditioned visibility, or a deeper manifest/key/content pipeline
