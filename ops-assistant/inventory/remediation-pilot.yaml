@@ -1,0 +1,16 @@
+updated_at: 2026-03-18
+pilot_targets:
+  oracle-open_claw:
+    systemd:
+      - openclaw-gateway
+
+  oracle-proxy:
+    containers:
+      - proxy-tavily-proxy-1
+      - tavily-scheduler
+
+rules:
+  max_attempts_per_run: 1
+  require_post_check: true
+  notify_via_alerts_bot: true
+  cron_auto_enabled: false
