@@ -206,7 +206,11 @@ trigger surface
   -> one later effect
 ```
 
-At that point, route forward:
+At that point, route forward.
+In the common iOS practical ladder, the usual next stop is:
+- `topics/ios-result-callback-to-policy-state-workflow-note.md` when callback/result visibility already exists and the remaining bottleneck is proving the first behavior-changing local policy state or consumer
+
+Other valid handoffs include:
 - if the owner is a request builder or finalizer, continue into signature / attachment / request-path work
 - if the owner is a policy mapper, continue into enum/result/policy work
 - if the owner is a response-side consumer, continue into consumer localization
