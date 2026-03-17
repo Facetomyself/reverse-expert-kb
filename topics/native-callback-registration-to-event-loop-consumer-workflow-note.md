@@ -248,10 +248,11 @@ The native branch now has a more realistic ordered progression:
 - `topics/native-practical-subtree-guide.md` first when the case is clearly native-shaped but the current bottleneck still needs branch-level routing
 - `topics/native-semantic-anchor-stabilization-workflow-note.md` first when code is readable but meanings are still too slippery
 - `topics/native-interface-to-state-proof-workflow-note.md` second when several interface routes exist and one representative proof chain is needed
-- `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md` third when one route is already plausible but async registration/dispatch structure still hides the first consequence-bearing consumer
+- `topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md` third when plugin/module loader structure is visible but the real loaded-module owner is still unclear
+- `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md` fourth when one route or loaded-module owner is already plausible but async registration/dispatch structure still hides the first consequence-bearing consumer
 
 This page is therefore usually a **continuation note**, not the default first native practical stop.
-Use it after semantic-anchor and interface-path work are solved enough that the remaining ambiguity really lives at queue, callback, completion, or event-loop boundaries.
+Use it after semantic-anchor, interface-path, and when relevant loaded-module-owner work are solved enough that the remaining ambiguity really lives at queue, callback, completion, or event-loop boundaries.
 
 ## 8. Failure modes this note helps prevent
 - treating registration sites as if they already prove ownership
