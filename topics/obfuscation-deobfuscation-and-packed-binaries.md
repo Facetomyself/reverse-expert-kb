@@ -404,12 +404,15 @@ Practical bridge pages now exist for recurring operator bottlenecks:
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 - `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
+- `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
 
 Use `topics/vm-trace-to-semantic-anchor-workflow-note.md` when virtualization, flattening, or handler churn is already visible and some execution-derived evidence exists, but the analyst still needs to reduce that churn into one stable semantic anchor plus one consequence-bearing handler/state edge before deeper static reconstruction becomes trustworthy.
 
 Use `topics/flattened-dispatcher-to-state-edge-workflow-note.md` when the dispatcher or flattened region is already recognizable, but the practical bottleneck is now smaller and more concrete: identifying the first durable state object, reduction helper, or dispatcher-exit family that predicts later behavior and gives static follow-up a trustworthy next target.
 
 Use `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md` when shelling, packing, or staged bootstrap is already visible and the next bottleneck is not broad packer recognition but proving one trustworthy OEP-like handoff plus one downstream ordinary-code anchor that yields a reusable post-unpack dump or static target.
+
+Use `topics/decrypted-artifact-to-first-consumer-workflow-note.md` when strings, config, code blobs, bytecode, tables, or normalized buffers are already readable enough to study and the real bottleneck is now proving the first ordinary consumer that uses that recovered artifact in a way that predicts later request, parser, policy, scheduler, or payload behavior.
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is coherent and strong enough for a mature synthesis page.

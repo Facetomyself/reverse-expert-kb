@@ -357,6 +357,17 @@ This topic may later split into several child pages:
 - `topics/protected-observation-workflows.md`
 - `topics/anti-cheat-and-trusted-runtime-analysis.md`
 
+Practical bridge pages now exist for recurring protected-runtime bottlenecks:
+- `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
+- `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
+- `topics/integrity-check-to-tamper-consequence-workflow-note.md`
+
+Use the packed-stub/OEP note when staged bootstrap, shelling, or loader churn is already visible and the immediate bottleneck is one trustworthy post-unpack handoff.
+
+Use the decrypted-artifact/first-consumer note when some strings, config, code, tables, bytecode, or normalized buffers are already readable enough to inspect, but the analyst still has not proved the first ordinary consumer that turns that recovered artifact into request, parser, policy, scheduler, or payload behavior.
+
+Use the integrity-tripwire note when the checks themselves are already visible and the missing next object is the first reduced result or branch that turns those checks into a real behavior change.
+
 ## 12. Source footprint / evidence quality note
 Current evidence quality is now stronger than the initial synthesis-only version, but still uneven across subareas.
 
