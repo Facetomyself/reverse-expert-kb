@@ -8,6 +8,7 @@ Related pages:
 - topics/protocol-state-and-message-recovery.md
 - topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md
 - topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
+- topics/protocol-content-pipeline-recovery-workflow-note.md
 - topics/protocol-ingress-ownership-and-receive-path-workflow-note.md
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
@@ -319,15 +320,17 @@ When a case is clearly firmware/protocol shaped, ask these in order:
    - if yes, start with capture-failure / boundary relocation
 3. **Is the object visible, but still too layered to treat as one trustworthy contract?**
    - if yes, start with layer-peeling / contract recovery
-4. **Is inbound traffic visible, but the first local receive owner still unclear?**
+4. **Is the first authenticated API body visible, but the real object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder?**
+   - if yes, start with content-pipeline recovery
+5. **Is inbound traffic visible, but the first local receive owner still unclear?**
    - if yes, start with ingress ownership
-5. **Is parser or dispatch visibility present, but the first state/effect consequence still unclear?**
+6. **Is parser or dispatch visibility present, but the first state/effect consequence still unclear?**
    - if yes, start with parser-to-state localization
-6. **Is replay or mutation structurally plausible, but still not accepted?**
+7. **Is replay or mutation structurally plausible, but still not accepted?**
    - if yes, start with replay-precondition / state-gate localization
-7. **Is local acceptance visible, but one real emitted output still unproved?**
+8. **Is local acceptance visible, but one real emitted output still unproved?**
    - if yes, start with reply-emission / transport handoff
-8. **Has the case already crossed into peripheral or interrupt/deferred consequences?**
+9. **Has the case already crossed into peripheral or interrupt/deferred consequences?**
    - if yes, choose MMIO effect proof or ISR/deferred consequence proof depending on whether the first effect-bearing hardware edge or the later durable completion-driven reduction is still missing
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
@@ -388,6 +391,7 @@ This subtree guide turns the firmware/protocol practical branch into a clearer o
 The compact reading is:
 - choose the right boundary
 - peel the right layered object into one smaller trustworthy contract
+- continue through manifest/handle/key/chunk ladders when the real object is a content pipeline
 - prove the right inbound owner
 - localize the first parser/state consequence
 - prove the first acceptance gate

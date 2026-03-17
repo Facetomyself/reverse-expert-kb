@@ -13,6 +13,7 @@ Related pages:
 - topics/benchmarks-datasets.md
 - topics/native-binary-reversing-baseline.md
 - topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
+- topics/protocol-content-pipeline-recovery-workflow-note.md
 
 ## 1. Topic identity
 
@@ -346,6 +347,8 @@ A subtree guide and practical bridge pages now exist for the protocol/firmware o
 Use the subtree guide first when the analyst still needs to classify whether the real bottleneck is broad protocol framing, boundary selection, ingress ownership, parser/state consequence, acceptance gating, output handoff, or a later hardware-side consequence path.
 
 Use the capture-failure/boundary-relocation note when the important traffic or protocol object is still not meaningfully visible from the current surface and the real bottleneck is proving whether the case is dominated by proxy bypass, trust-path mismatch, private overlay boundaries, environment-conditioned visibility, or a manifest/key/content pipeline that must be followed deeper before parser/state work becomes trustworthy.
+
+Use the content-pipeline-recovery note when the top-level authenticated API request is already visible enough, but the real analyst object continues through a manifest, playlist, signed URL bundle, content handle, key path, chunk map, or segment ladder and one representative artifact still cannot be recovered end-to-end.
 
 Use the ingress/receive-path note when inbound traffic, receive callbacks, queue/ring activity, framing/reassembly, or deferred receive work are already visible, but the first local receive owner that actually feeds the parser-relevant object or handler family is still unclear.
 
