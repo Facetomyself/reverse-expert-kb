@@ -213,6 +213,7 @@ Includes:
 - deciding when less intrusive observation yields more explanatory power
 - localizing the true owner first across Java/ObjC, native, SDK-router, or Flutter/Dart boundaries before over-investing in one implementation layer
 - recognizing when near-correct outputs signal missing initialization, runtime tables, or side-condition commands rather than a wrong core algorithm family
+- handing those close-but-wrong cases to `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when the next useful object is one truthful runtime artifact or minimal init chain rather than more broad signing taxonomy
 
 ## 7. Analyst workflow implications
 This topic matters especially during:
@@ -286,6 +287,7 @@ Among these, the especially central dimensions are:
 - `topics/mobile-reversing-and-runtime-instrumentation.md`
   - because runtime observation is often the fastest route to recovering chain stages
 - `topics/anti-tamper-and-protected-runtime-analysis.md`
+- `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
   - because the relevant path may be obfuscated or protection-sensitive
 
 ### Depends on framework pages

@@ -366,6 +366,7 @@ Practical bridge pages now exist for recurring protected-runtime bottlenecks:
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
 - `topics/integrity-check-to-tamper-consequence-workflow-note.md`
+- `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 
 Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry surface when the case is clearly protected-runtime shaped, but the current operator bottleneck still needs to be classified as packed/bootstrap handoff, artifact-consumer proof, integrity/tamper consequence proof, or the nearby VM/dispatcher branch before choosing a narrower workflow note.
 
@@ -374,6 +375,8 @@ Use the packed-stub/OEP note when staged bootstrap, shelling, or loader churn is
 Use the decrypted-artifact/first-consumer note when some strings, config, code, tables, bytecode, or normalized buffers are already readable enough to inspect, but the analyst still has not proved the first ordinary consumer that turns that recovered artifact into request, parser, policy, scheduler, or payload behavior.
 
 Use the integrity-tripwire note when the checks themselves are already visible and the missing next object is the first reduced result or branch that turns those checks into a real behavior change.
+
+Use the runtime-table / initialization-obligation note when repaired dumps, static tables, or offline reconstructions still look damaged or under-initialized, live/runtime state looks truer, and the missing next object is one minimal init chain, runtime table family, initialized image, or side-condition obligation that explains why replay is close-but-wrong.
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is now stronger than the initial synthesis-only version, but still uneven across subareas.
