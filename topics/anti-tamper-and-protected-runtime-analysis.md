@@ -230,12 +230,16 @@ Includes:
 - debugger detection
 - instrumentation detection
 - altered behavior under observation
+- changing instrumentation topology altogether when ordinary attach/spawn or app-local hooks are the thing being detected
+- separating direct tool-presence checks from higher-level environment, Java-hook-side-effect, or topology-sensitive checks
 
 ### 2. Integrity and tamper-response logic
 Includes:
 - integrity checks
 - self-verification paths
 - runtime behavior changes after modification
+- constructor / loader / `JNI_OnLoad`-time security surfaces whose leverage sits before later runtime behavior spreads
+- integrity-view mismatches where the decisive analyst move may be shadowing the detector-visible view rather than patching every check site
 
 ### 3. Protected observation workflows
 Includes:
@@ -358,9 +362,12 @@ This topic may later split into several child pages:
 - `topics/anti-cheat-and-trusted-runtime-analysis.md`
 
 Practical bridge pages now exist for recurring protected-runtime bottlenecks:
+- `topics/protected-runtime-practical-subtree-guide.md`
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
 - `topics/integrity-check-to-tamper-consequence-workflow-note.md`
+
+Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry surface when the case is clearly protected-runtime shaped, but the current operator bottleneck still needs to be classified as packed/bootstrap handoff, artifact-consumer proof, integrity/tamper consequence proof, or the nearby VM/dispatcher branch before choosing a narrower workflow note.
 
 Use the packed-stub/OEP note when staged bootstrap, shelling, or loader churn is already visible and the immediate bottleneck is one trustworthy post-unpack handoff.
 
