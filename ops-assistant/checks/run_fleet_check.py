@@ -81,7 +81,14 @@ def main():
         'alerts': alerts,
         'checks': results,
     }
-    (STATE_DIR / 'last-run.json').write_text(json.dumps(state, ensure_ascii=False, indent=2))
+    last_run = STATE_DIR / 'last-run.json'
+    last_run.write_text(json.dumps(state, ensure_ascii=False, indent=2))
+    rules_script = ROOT / 'checks' / 'apply_alert_rules.py'
+    if rules_script.exists():
+        p = subprocess.run(['python3', str(rules_script)], text=True, capture_output=True)
+        if p.returncode == 0 and p.stdout.strip():
+            print(p.stdout)
+            return
     print(json.dumps(state, ensure_ascii=False, indent=2))
 
 

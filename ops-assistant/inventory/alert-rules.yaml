@@ -1,0 +1,37 @@
+updated_at: 2026-03-17
+host_rules:
+  self-server:
+    reachability_mode: observe_only
+    suppress_p1: true
+    emit_note: known-unreachable-from-openclaw
+
+  oracle-mail:
+    lifecycle: retired
+    suppress_stale_hints: true
+    emit_note: retired-host
+
+hint_rules:
+  1panel:
+    treat_as_infra_service: true
+    suppress_stale_on_hosts:
+      - ali-cloud
+      - oracle-proxy
+
+  reg-:
+    normalize_to: registry-runtime
+
+  harbor:
+    suppress_stale_on_hosts:
+      - oracle-docker-proxy
+
+  registry-ui:
+    suppress_stale_on_hosts:
+      - oracle-docker-proxy
+
+  hubcmd:
+    suppress_stale_on_hosts:
+      - oracle-docker-proxy
+
+  registry:
+    suppress_stale_on_hosts:
+      - oracle-docker-proxy
