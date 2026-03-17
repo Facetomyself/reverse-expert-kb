@@ -4,6 +4,7 @@ Topic class: topic synthesis
 Ontology layers: support mechanism, workflow/sensemaking, object of recovery
 Maturity: emerging
 Related pages:
+- topics/runtime-evidence-practical-subtree-guide.md
 - topics/runtime-behavior-recovery.md
 - topics/analyst-workflows-and-human-llm-teaming.md
 - topics/notebook-and-memory-augmented-re.md

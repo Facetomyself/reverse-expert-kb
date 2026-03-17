@@ -127,13 +127,15 @@ Priority 2 candidates include:
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 
 ### Runtime-evidence practical branch
+- `topics/runtime-evidence-practical-subtree-guide.md`
 - `topics/runtime-behavior-recovery.md`
 - `topics/record-replay-and-omniscient-debugging.md`
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
 
-This branch should now be read as a practical bridge from runtime-evidence synthesis into one recurring operator bottleneck:
+This branch should now be read as a practical bridge from runtime-evidence synthesis into three recurring operator bottlenecks:
+- subtree navigation and bottleneck selection (`runtime-evidence-practical-subtree-guide`), which acts as the branch entry surface when the analyst first needs to decide whether the current runtime-evidence bottleneck is observation/layer-selection uncertainty, capture-stability/replay-worthiness uncertainty, or late-effect-to-causal-boundary localization
 - broad runtime answerability and observability framing (`runtime-behavior-recovery`)
-- execution-history and replay tradeoffs (`record-replay-and-omniscient-debugging`)
+- execution-history and replay tradeoffs (`record-replay-and-omniscient-debugging`), which acts as the practical entry note when live reruns are too fragile or expensive and one representative execution needs to be stabilized before narrower causal work becomes trustworthy
 - causal-write / reverse-causality localization (`causal-write-and-reverse-causality-localization-workflow-note`), which acts as the practical entry note when one suspicious late effect is already visible and the analyst needs the first causal write, branch, or state edge that predicts it before broadening into more static reconstruction, provenance cleanup, or wider trace review
 
 This branch should now be read as a practical bridge from baseline native synthesis into an ordered operator ladder:
