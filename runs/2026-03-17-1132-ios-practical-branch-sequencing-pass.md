@@ -209,9 +209,20 @@ Instead it improved practical usability by preserving these route rules more exp
 - Chose route-clarification and branch consolidation over another abstract iOS topic page to keep the KB cumulative and practical.
 
 ## Commit / sync status
-Pending at report-write time.
-Per workflow, if the touched reverse-KB files are committed successfully, this run should then execute:
-- `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh`
+Completed after report writing.
+This run:
+- committed only the reverse-KB files touched by this pass
+- avoided unrelated pre-existing modified run reports already present under `research/reverse-expert-kb/runs/`
+- ran `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh` successfully
+
+### Final status update
+- final local commit in `/root/.openclaw/workspace`:
+  - `d00a31f` — `kb: tighten iOS practical branch sequencing`
+- required sync command:
+  - `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh`
+- sync result:
+  - completed successfully
+  - archival target updated successfully: `https://github.com/Facetomyself/reverse-expert-kb` branch `main`
 
 ## Outcome
 This run materially improved the reverse KB by tightening the iOS practical branch into a clearer operator ladder, improving route clarity across parent pages and note handoffs, and keeping branch-balance discipline focused on practical KB usability rather than redundant topic growth.

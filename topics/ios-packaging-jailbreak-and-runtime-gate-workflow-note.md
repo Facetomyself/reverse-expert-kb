@@ -43,30 +43,56 @@ The central practical question is usually:
 
 ```text
 Which early boundary is really changing the case:
-packaging / entitlement state,
+observation / traffic topology,
+packaging / entitlement / install-path state,
 jailbreak-environment probes,
 instrumentation visibility,
 virtualization realism,
 or a later trust/session consequence that only looks local?
 ```
 
+A compact iOS practical triage rule is now:
+- **topology** — where can the real traffic / runtime / callback boundary actually be observed?
+- **gate** — which early install, packaging, jailbreak, toolchain, or environment condition must be satisfied first?
+- **owner** — after the gate is stable enough, which later ObjC / Swift / native boundary really owns the consequence?
+
+This page is about the middle item, but it should be read with the reminder that many apparently "gate"-shaped iOS failures are still topology mistakes first.
+
 Until that boundary is localized, deeper hooks and patching are often wasted effort.
 
-## 3. The five gate families to separate explicitly
+## 3. The six gate families to separate explicitly
 
-### A. Packaging / resign / entitlement gate
-This family covers cases where the meaningful difference appears because the app no longer sees the expected bundle, signature, entitlement, or launch environment.
+### A. Observation / traffic-topology gate
+This family covers cases where the target behavior is already happening, but the analyst is standing on the wrong observation surface.
+On iOS this often appears when ordinary proxy capture is bypassed or classified, and the real progress move is to relocate traffic visibility below app-visible proxy settings.
+
+Typical signs:
+- ordinary HTTP proxy capture misses the decisive traffic while the app otherwise works
+- there is no clean local SSL/pinning failure, but visible traffic is obviously incomplete
+- VPN / WireGuard / transparent MITM topology suddenly reveals the real request family without changing app logic much
+- analyst conclusions about "no request" or "request not sent" turn out to mean only "not visible from the current surface"
+
+What to capture:
+- the first place where changing topology, rather than patching trust code, makes the case legible
+
+Treat this as a gate because it changes whether later evidence can be trusted at all.
+
+### B. Packaging / resign / entitlement / install-path gate
+This family covers cases where the meaningful difference appears because the app no longer sees the expected bundle, signature, entitlement, installation path, or launch environment.
 
 Typical signs:
 - early capability failure
 - helper or framework behavior diverges right after startup
 - feature availability changes before the target protected flow begins
 - one build/package shape reaches farther than another without obvious logic changes
+- Apple ID signing vs certificate sign vs TrollStore vs jailbreak-side install produce different reachable depth or different tool stability
+- rootful vs rootless assumptions leak into where tools land, how services start, or which package/runtime paths later remain trustworthy
 
 What to capture:
 - the first branch or helper that converts package/runtime metadata into allow, degrade, or abort behavior
+- whether installation/signing path is part of the gate surface rather than unrelated setup trivia
 
-### B. Jailbreak / filesystem / process-environment gate
+### C. Jailbreak / filesystem / process-environment gate
 This family covers cases where the app reads environment clues such as paths, processes, URL schemes, writable locations, or sandbox anomalies.
 
 Typical signs:
@@ -77,7 +103,7 @@ Typical signs:
 What to capture:
 - the first probe result bucket or policy write that predicts later behavior better than any single probe call
 
-### C. Instrumentation / debugger visibility gate
+### D. Instrumentation / debugger visibility gate
 This family covers cases where direct hooks, tracing, or runtime tooling become visible enough to alter execution or evidence quality.
 
 Typical signs:
@@ -88,7 +114,7 @@ Typical signs:
 What to capture:
 - the first local edge where observation state changes behavior or evidence trustworthiness
 
-### D. Virtualization / device-realism gate
+### E. Virtualization / device-realism gate
 This family covers cases where the target reacts differently because the execution environment is not realistic enough even without explicit hook visibility.
 
 Typical signs:
@@ -99,7 +125,7 @@ Typical signs:
 What to capture:
 - the first local or remote boundary where environment realism starts to change the case
 
-### E. Later trust / session consequence mistaken for an early gate
+### F. Later trust / session consequence mistaken for an early gate
 This family covers cases where the app’s early local behavior looks suspicious, but the decisive difference actually appears later in a trust-scoring, session-refresh, or backend-coupled consequence.
 
 Typical signs:
@@ -120,9 +146,19 @@ Examples:
 - login to first protected request
 - target action to first challenged/accepted response
 
+Before comparing deep runtime behavior, confirm that the observation topology is good enough for this flow.
+On iOS that often means deciding whether the relevant surface is:
+- ordinary proxy capture
+- VPN / NE / WireGuard full-tunnel capture
+- transparent MITM below app-visible proxy settings
+- live runtime callback/hook visibility rather than traffic visibility alone
+
 Then build one compare pair with one changed condition only, such as:
 - original packaging vs resigned packaging
+- Apple ID sign vs TrollStore or jailbreak-side install
+- rootful vs rootless operational setup
 - minimal setup vs hook-enabled setup
+- ordinary proxy capture vs VPN/WireGuard observation topology
 - one device vs one virtualized environment
 - one jailbreak state vs one more stock-like state
 
@@ -152,13 +188,14 @@ initial gate guess:
 
 ### Step 3: Classify the divergence into one gate family first
 Use the earliest divergence to assign a provisional class:
-- packaging / entitlement gate
+- observation / traffic-topology gate
+- packaging / entitlement / install-path gate
 - jailbreak / environment gate
 - instrumentation visibility gate
 - virtualization / realism gate
 - later trust / session consequence
 
-Do not let “jailbreak detection” become the default label for everything.
+Do not let “jailbreak detection” become the default label for everything, and do not confuse "current capture surface missed it" with "the app never did it".
 
 ### Step 4: Localize the first reduction edge that predicts later behavior
 The useful edge is often not the raw probe call.
@@ -197,11 +234,26 @@ Do not keep piling all iOS problems into one page.
 
 ## 5. Practical scenario patterns
 
-### Scenario A: Resigned build seems fine statically, but target flow degrades early
+### Scenario A: Ordinary proxy capture looks incomplete, but the app otherwise behaves normally
 Pattern:
 
 ```text
-resigned / repackaged app launches
+app runs target flow
+  -> visible proxy traffic is partial or misleading
+  -> no clean local trust error appears
+  -> VPN / WireGuard / transparent MITM makes the real request family visible
+```
+
+Best move:
+- classify this as an observation / topology gate first
+- relocate the capture surface before spending effort on trust-bypass assumptions
+- only after the real request family is visible decide whether deeper trust-path work is still necessary
+
+### Scenario B: Resigned or differently installed build seems fine statically, but target flow degrades early
+Pattern:
+
+```text
+resigned / repackaged / differently installed app launches
   -> early helper or feature path changes
   -> target action still exists
   -> later capability or request path is weakened
@@ -209,9 +261,10 @@ resigned / repackaged app launches
 
 Best move:
 - localize the first package/runtime metadata reduction into a feature or policy gate
+- treat install path as part of the gate surface, not unrelated housekeeping
 - do not stop at proving that resigning occurred
 
-### Scenario B: “Jailbreak detection” is visible, but later request outcome is the real difference
+### Scenario C: “Jailbreak detection” is visible, but later request outcome is the real difference
 Pattern:
 
 ```text
@@ -225,7 +278,7 @@ Best move:
 - downgrade confidence in a pure local-gate explanation
 - treat the visible probes as inputs and find the first local or remote policy consequence
 
-### Scenario C: Hook-enabled runs diverge, but minimal runs do not
+### Scenario D: Hook-enabled runs diverge, but minimal runs do not
 Pattern:
 
 ```text
@@ -238,7 +291,7 @@ Best move:
 - classify as possible instrumentation visibility or observation drift first
 - prove the earliest path change before adding more hooks
 
-### Scenario D: Virtualized environment reaches a different trust state without obvious crash
+### Scenario E: Virtualized environment reaches a different trust state without obvious crash
 Pattern:
 
 ```text
@@ -253,8 +306,10 @@ Best move:
 
 ## 6. Breakpoint / hook placement guidance
 Useful anchors include:
+- the first observation surface that actually shows the decisive traffic or callback family
 - early environment-probe helpers
 - metadata / entitlement / package-state normalization helpers
+- install-path or packaging-state readers
 - first aggregate decision over multiple probe results
 - first mode/feature/policy write after environment evaluation
 - first alert / warning / disable-feature branch
@@ -269,7 +324,7 @@ If evidence is noisy, anchor on:
 ## 7. Failure patterns this note helps prevent
 
 ### 1. Treating every iOS divergence as jailbreak detection
-Many real cases are packaging, entitlement, realism, instrumentation-visibility, or later trust/session issues.
+Many real cases are observation-topology, packaging, install-path, entitlement, realism, instrumentation-visibility, or later trust/session issues.
 
 ### 2. Proving probe calls but not proving consequence
 A file/path/process check is not yet leverage if the first policy write or later effect is still unknown.
