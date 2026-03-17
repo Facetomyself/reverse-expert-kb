@@ -26,6 +26,6 @@
 - ali-cloud: stale hints -> 1panel
 - oracle-docker-proxy: undocumented hints -> reg-
 - oracle-docker-proxy: stale hints -> harbor, hubcmd, registry, registry-ui
-- oracle-proxy: undocumented hints -> anticap, camoufox, flaresolverr, proxycat
+- oracle-proxy: undocumented hints -> camoufox
 - oracle-proxy: stale hints -> 1panel, openai
 
