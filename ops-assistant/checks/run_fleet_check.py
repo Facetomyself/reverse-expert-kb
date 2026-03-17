@@ -19,9 +19,13 @@ CHECKS = [
 
 
 def run_py(script, out_path):
-    p = subprocess.run(['python3', str(script)], text=True, capture_output=True)
-    out_path.write_text(p.stdout if p.stdout else '')
-    return {'code': p.returncode, 'stderr': p.stderr.strip(), 'out': str(out_path)}
+    try:
+        p = subprocess.run(['python3', str(script)], text=True, capture_output=True, timeout=180)
+        out_path.write_text(p.stdout if p.stdout else '')
+        return {'code': p.returncode, 'stderr': p.stderr.strip(), 'out': str(out_path)}
+    except subprocess.TimeoutExpired as e:
+        out_path.write_text(e.stdout if e.stdout else '')
+        return {'code': 124, 'stderr': f'timeout after 180s: {script.name}', 'out': str(out_path)}
 
 
 def build_summary():
