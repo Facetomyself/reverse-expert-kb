@@ -1,0 +1,58 @@
+generated_from: infra/inventory.yaml
+updated_at: 2026-03-17
+hosts:
+  - name: oracle-open_claw
+    role: tier0-local-openclaw-host
+    source_of_truth: infra/host-status.yaml
+    enabled: true
+    check_profile: local-core
+    alert_profile: core
+
+  - name: oracle-proxy
+    ssh_alias: oracle-proxy
+    enabled: true
+    check_profile: remote-core
+    alert_profile: core
+    expected_roles:
+      - tavily-registration-and-proxy
+      - exafree-registration-service
+      - grok-related-services
+      - cli-proxy
+
+  - name: oracle-docker-proxy
+    ssh_alias: oracle-docker_proxy
+    enabled: true
+    check_profile: remote-core
+    alert_profile: core
+    expected_roles:
+      - shared-docker-proxy-host
+      - registry-proxy-or-mirror
+      - ui-entrypoint
+
+  - name: ali-cloud
+    ssh_alias: ali-cloud
+    enabled: true
+    check_profile: remote-standard
+    alert_profile: standard
+    expected_roles:
+      - 1panel-managed-host
+      - image-hosting
+      - remote-browser-endpoint
+
+  - name: oracle-mail
+    ssh_alias: oracle-mail
+    enabled: true
+    check_profile: retired-observe
+    alert_profile: retired
+    expected_roles:
+      - mail-host
+      - dormant-mailu-deployment
+      - moemail-working-tree
+
+  - name: self-server
+    ssh_alias: self-server
+    enabled: true
+    check_profile: unreachable-observe
+    alert_profile: exception
+    expected_roles:
+      - china-server
