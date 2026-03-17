@@ -1,0 +1,39 @@
+updated_at: 2026-03-17
+auto_remediation:
+  oracle-proxy:
+    systemd: []
+    containers:
+      - proxy-tavily-proxy-1
+      - tavily-scheduler
+      - tavily-camoufox
+      - tavily-camoufox-adapter
+    compose_projects:
+      - /root/tavily-key-generator/proxy
+      - /root/tavily-key-generator
+
+  oracle-docker-proxy:
+    systemd:
+      - caddy
+    containers: []
+    compose_projects: []
+
+  ali-cloud:
+    systemd: []
+    containers: []
+    compose_projects: []
+
+  oracle-open_claw:
+    systemd:
+      - openclaw-gateway
+    containers: []
+    compose_projects: []
+
+forbidden:
+  all_hosts:
+    - firewall
+    - sshd
+    - reboot
+    - apt-upgrade
+    - delete-volume
+    - delete-database
+    - destructive-rm
