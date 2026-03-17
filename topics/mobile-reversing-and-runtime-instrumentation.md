@@ -258,11 +258,20 @@ Includes:
 ### 2. iOS runtime and environment-controlled reversing
 Includes:
 - Objective-C/Swift/runtime-layer observation
-- post-gate owner localization across ObjC / Swift / native boundaries
-- callback/result-to-policy consequence localization once delegate/completion visibility exists
+- an ordered practical ladder from environment-gate diagnosis to post-gate owner localization to callback/result-to-policy consequence localization
 - code-signing and entitlement constraints
 - jailbreak vs virtualized workflow differences
 - PAC/arm64e-era mitigation-aware reasoning
+
+The iOS practical branch should now usually be read in this order:
+- `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
+- `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
+- `topics/ios-result-callback-to-policy-state-workflow-note.md`
+
+That ordered route helps separate three different operator bottlenecks that are easy to collapse together:
+- broad setup/gate uncertainty
+- post-gate consequence ownership across ObjC / Swift / native boundaries
+- narrower callback/result-to-policy consequence proof once visibility already exists
 
 ### 3. Instrumentation and tracing patterns
 Includes:

@@ -182,7 +182,11 @@ The goal is not broad bypass first.
 The goal is one trustworthy cause-and-effect chain.
 
 ### Step 6: Route to the right next note only after the gate is proved
-Once the gate family is localized, hand off to one narrower task:
+Once the gate family is localized, hand off to one narrower task.
+In the common iOS practical ladder, the usual next stop is:
+- `topics/ios-objc-swift-native-owner-localization-workflow-note.md` when the setup is now reachable enough but the first consequence-bearing ObjC / Swift / native owner is still unclear
+
+Other valid handoffs include:
 - observation-surface change
 - challenge-loop analysis
 - request/signature localization
