@@ -13,15 +13,22 @@
 - Recreated `tavily-scheduler` and verified fresh startup logs show `interval=10800s` and `配置: 5 个账户 / 1 线程`.
 - Verified proxy health after the change: local `/api/stats` returned HTTP 200 with a non-empty key pool (`keys_total=45`, `keys_active=45`).
 - Documented `ExaFree` on this host under `/root/ExaFree` and added dedicated project note `./projects/exafree.md`.
-- Set ExaFree `.env` admin key to `Zxm971004` and fixed compose env wiring so the running container actually reads `ADMIN_KEY` and `SESSION_SECRET_KEY` from `.env`.
-- Confirmed ExaFree runtime config now uses:
-  - `basic.register_default_count = 5`
-  - `retry.scheduled_refresh_enabled = true`
-  - `retry.scheduled_refresh_cron = "*/180"`
-  - `retry.refresh_batch_size = 5`
-  - `retry.refresh_batch_interval_minutes = 36`
-- Operationally this means ExaFree is configured for an approximate 3-hour cadence with 5-account waves, not a strict exact-rate scheduler.
+- Set ExaFree `.env` admin key to deployed value `Zxm971004` and verified the running container is healthy on port `7860`.
+- Switched ExaFree registration behavior to a low-volume jittered host-side schedule:
+  - `basic.register_default_count = 1`
+  - cron wakes every 30 minutes
+  - each run sleeps a random `0-15` minutes before acting
+  - each run attempts only one registration
+  - overlapping runs / active register tasks are skipped
 - Verified ExaFree health after the change: local `http://127.0.0.1:7860/health` returned HTTP 200 with `{"status":"ok"}`.
+- Verified ExaFree web UI auth is separate from `ADMIN_KEY`: the portal uses `/auth/login` with username/password, while legacy admin-key auth still uses `/login`.
+- Reset the on-host ExaFree `admin` web password to restore portal access; secret value intentionally omitted from infra docs.
+- Connected local `search-layer` Exa source to ExaFree using an ExaFree user API key rather than an official direct Exa key.
+- Standardized the local integration contract:
+  - `~/.openclaw/credentials/search.json` now supports object-form Exa config: `exa.apiUrl + exa.apiKey`
+  - local `skills/search-layer/scripts/search.py` routes object-form Exa config to `POST {apiUrl}/search`
+  - ExaFree auth for search-layer uses a user API key, not `ADMIN_KEY` and not the web admin password
+- Verified local Exa path works end-to-end with `search.py "OpenAI latest news" --mode fast --source exa --num 3` returning Exa-sourced results through ExaFree.
 
 ## 2026-03-15
 - Documented oracle-proxy host baseline, network surface, and main deployed projects.

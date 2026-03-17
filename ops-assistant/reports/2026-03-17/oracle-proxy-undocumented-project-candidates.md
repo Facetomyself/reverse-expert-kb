@@ -96,9 +96,18 @@ High-confidence undocumented dormant project candidates on `oracle-proxy`:
 Archive-only candidate:
 - grok2api backup footprint under `/root/backups/`
 
-## Recommendation
-Do not immediately add all five into `infra/hosts/oracle-proxy/PROJECTS.md` as active projects.
-Instead:
-1. record them first as dormant / undocumented candidates
-2. decide which still matter operationally
-3. only then normalize them into dedicated `projects/*.md` entries or an archive section
+## Resolution
+On 2026-03-17 the user confirmed these are historical leftovers and no longer needed.
+They were therefore scheduled for cleanup on-host instead of being normalized into active `infra` project entries.
+
+Cleanup targets:
+- `/root/AntiCAP-WebApi-docker`
+- `/root/FlareSolverr`
+- `/root/ProxyCat`
+- `/root/clove`
+- `/root/gpt-load`
+- `/root/backups/grok2api-20260313-133823`
+
+Operational consequence:
+- future drift scans should no longer flag these paths once cleanup is complete
+- they should not be promoted into active project docs
