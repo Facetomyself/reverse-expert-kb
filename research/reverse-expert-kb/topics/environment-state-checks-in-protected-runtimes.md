@@ -206,6 +206,7 @@ Includes:
 - one-variable-at-a-time variation
 - comparison across controlled runtime states
 - deciding whether a given check affects execution, trust, or both
+- diagnosing whether apparent traffic-visibility failure, hook instability, or verification drift is really caused by proxy/VPN state, install/signing path, rootful-rootless split, region/device gating, or other environment axes rather than by the nominal algorithm under study
 
 ### 5. Functional vs protective environment modeling
 Includes:

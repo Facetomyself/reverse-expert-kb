@@ -71,6 +71,7 @@ Typical signs:
 - there is no clean local SSL/pinning failure, but visible traffic is obviously incomplete
 - VPN / WireGuard / transparent MITM topology suddenly reveals the real request family without changing app logic much
 - analyst conclusions about "no request" or "request not sent" turn out to mean only "not visible from the current surface"
+- a non-jailbroken setup plus full-tunnel/VPN observation reaches farther than a more invasive but semantically poorer proxy-only setup
 
 What to capture:
 - the first place where changing topology, rather than patching trust code, makes the case legible
@@ -87,6 +88,7 @@ Typical signs:
 - one build/package shape reaches farther than another without obvious logic changes
 - Apple ID signing vs certificate sign vs TrollStore vs jailbreak-side install produce different reachable depth or different tool stability
 - rootful vs rootless assumptions leak into where tools land, how services start, or which package/runtime paths later remain trustworthy
+- a large fraction of later "analysis instability" disappears once install/signing path and deployment topology are normalized
 
 What to capture:
 - the first branch or helper that converts package/runtime metadata into allow, degrade, or abort behavior

@@ -279,6 +279,9 @@ Includes:
 - tracing strategies
 - deployment modes
 - script/tooling maintenance
+- execution-assisted replay/emulation flows (for example unidbg- or Chomper-shaped workflows) when direct static reading is less productive than controlled invocation plus intermediate-state capture
+- command-router / initialization-sequencing practice, where the real bottleneck is not the final target call but the minimal earlier state needed to make that call truthful
+- runtime-table and initialized-image extraction when live artifacts are more trustworthy than damaged static dumps
 
 ### 4. Access strategy and foothold acquisition
 Includes:
@@ -286,6 +289,7 @@ Includes:
 - gadget/preload/server choices
 - virtualization and realism tradeoffs
 - anti-debug and anti-instrumentation friction
+- instrumentation-topology choice as a first-class decision: attach/spawn, embedded gadget, dependency-based load, transparent network-path relocation, VPN/WireGuard-style observation, and other ways of changing how evidence becomes visible instead of only changing what is hooked afterward
 
 ### 5. Evaluation and workflow transfer
 Includes:
@@ -325,8 +329,10 @@ Progress often depends on:
 Practitioner-community material adds several repeated real-world patterns:
 - mixing Java/ObjC-layer hooks with native-layer hooks to correlate high-level and low-level behavior
 - using environment-detection findings to decide whether failures are analytical or protection-induced
-- treating Binder, linker, JNI, and loader behavior as practical observation surfaces rather than background internals
+- treating Binder, linker, JNI, loader, seccomp/SVC, eBPF, and lower transport boundaries as practical observation surfaces rather than background internals
 - evolving from one-off Frida scripts toward more persistent, modular, or hidden instrumentation workflows
+- relocating the observation topology itself when ordinary proxy, attach, or app-layer hook paths are misleading or too visible
+- reducing cross-runtime targets (for example Flutter or mixed SDK/router-heavy apps) to one consequence-bearing owner before deeper algorithm work
 
 ### Long-horizon analysis
 Analysts need to preserve:

@@ -192,6 +192,7 @@ Includes:
 - intermediate processing stages
 - obfuscated or wrapped transforms
 - local encryption, hashing, encoding, or packing stages
+- execution-assisted reduction into minimal reproducible pipelines when direct static readability is poor but the transform family and small supporting artifacts (tables, constants, remainder-case rules, init obligations) can be recovered dynamically
 
 ### 3. Output and field-role mapping
 Includes:
@@ -210,6 +211,8 @@ Includes:
 - intercepting preimage vs intermediate vs final output
 - static location of code vs runtime provenance of values
 - deciding when less intrusive observation yields more explanatory power
+- localizing the true owner first across Java/ObjC, native, SDK-router, or Flutter/Dart boundaries before over-investing in one implementation layer
+- recognizing when near-correct outputs signal missing initialization, runtime tables, or side-condition commands rather than a wrong core algorithm family
 
 ## 7. Analyst workflow implications
 This topic matters especially during:

@@ -186,6 +186,8 @@ Includes:
 - loaded module names
 - process / thread / string indicators
 - known hook footprints
+- port / D-Bus / frida-server topology clues
+- Java-hook-side-effect clues such as prettyMethod-like anomalies or other runtime changes caused by high-level hook insertion rather than by mere tool presence
 
 ### 2. Environment-state resistance
 Includes:
@@ -199,6 +201,8 @@ Includes:
 - loader or SO-loading checks
 - protected initialization paths
 - anti-tamper conditions around code loading
+- constructor / `.init_proc` / `JNI_OnLoad`-time security components whose main leverage lies before later runtime surfaces spread through the app
+- checksum / CRC / section-view comparisons where the detector’s visible memory/file view matters as much as the check function itself
 
 ### 4. Observation-distortion tactics
 Includes:
@@ -213,6 +217,8 @@ Includes:
 - staged comparison across runtime conditions
 - trace-guided fallback
 - preserving reliable evidence under protection pressure
+- changing instrumentation topology altogether (for example embedded gadget or dependency-based loading instead of ordinary attach/spawn)
+- moving to alternative observation surfaces such as linker, Binder, seccomp/SVC, eBPF, framework-plaintext boundaries, or transparent network-path interception when direct hooks become too visible or semantically late
 
 ## 7. Analyst workflow implications
 This topic matters especially during:

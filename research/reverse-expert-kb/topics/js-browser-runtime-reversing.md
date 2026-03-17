@@ -198,6 +198,8 @@ Includes:
 - reproducing browser state or APIs
 - nodejs-side code reuse and execution emulation
 - handling environment-dependent logic or anti-analysis checks
+- observability-first reconstruction, where property access, prototype usage, and state writes are monitored before large-scale stubbing
+- recognizing when manual stubs should give way to stronger browser harnesses or runtime-faithful sandboxes because behavior executes locally but verification still fails remotely
 
 ### 4. Token / signature / risk-control workflow analysis
 Includes:
