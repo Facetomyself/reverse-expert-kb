@@ -265,25 +265,23 @@ That is healthy directionally because it keeps the KB centered on:
 - `research/reverse-expert-kb/sources/firmware-protocol/2026-03-17-protocol-replay-precondition-and-state-gate-notes.md`
 - `research/reverse-expert-kb/runs/2026-03-17-0130-protocol-replay-precondition-branch-balance-pass.md`
 
-### Commit intent
-Commit only the reverse-KB files touched by this run.
-Do not mix in unrelated workspace or pre-existing reverse-KB changes.
+### Commit result
+Committed only the reverse-KB files touched by this run.
+Did not mix in unrelated workspace or pre-existing reverse-KB changes.
 
-### Pre-commit note
-Pre-existing unrelated modifications were already present in:
+Pre-existing unrelated modifications remained intentionally excluded:
 - `research/reverse-expert-kb/runs/2026-03-16-0300-reese84-utmvc-bootstrap-and-first-consumer.md`
 - `research/reverse-expert-kb/runs/2026-03-17-0034-native-semantic-anchor-branch-balance-pass.md`
 
-Those files should be intentionally left out of this run’s commit.
+Local commit created in `/root/.openclaw/workspace`:
+- `8ddcd17` — `kb: add protocol replay precondition workflow note`
 
-### Sync intent
-After commit, run:
+### Archival sync result
+Required sync command completed successfully:
 - `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh`
 
-If sync fails:
-- preserve local KB progress
-- mention the failure briefly in this run report
-- do not roll back the KB improvement
+Sync result:
+- `Synced research/reverse-expert-kb -> https://github.com/Facetomyself/reverse-expert-kb (branch main)`
 
 ## 13. Bottom line
 This autosync run improved the reverse KB by deepening the protocol practical branch with a missing acceptance-localization note.

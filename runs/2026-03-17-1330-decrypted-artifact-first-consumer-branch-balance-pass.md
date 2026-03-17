@@ -212,12 +212,14 @@ This run:
 - ran `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh` successfully
 
 ### Final status update
-- final local commit in `/root/.openclaw/workspace`:
+- final local commits in `/root/.openclaw/workspace`:
   - `01a48f8` — `kb: add decrypted artifact first-consumer workflow note`
+  - `e485a3e` — `kb: finalize decrypted artifact workflow run report`
 - required sync command:
   - `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh`
 - sync result:
-  - completed successfully on the first pass
+  - initial sync completed successfully on the first pass
+  - after the run-report metadata finalization commit, the sync script was re-run successfully so the archive matches the final subtree state
   - archival state updated successfully for `https://github.com/Facetomyself/reverse-expert-kb` on `main`
 
 ## Outcome

@@ -191,9 +191,15 @@ Read `ios-result-callback-to-policy-state-workflow-note` when the main problem i
 - you need one representative iOS flow, one candidate policy-mapping boundary, and one downstream effect before deepening challenge-loop, attestation-consequence, or signature/request work
 
 Together, the iOS practical branch should now usually be read as an ordered three-step ladder rather than a flat set of sibling notes:
-- `ios-packaging-jailbreak-and-runtime-gate-workflow-note` first, when the case is still dominated by broad iOS setup, packaging, realism, instrumentation-visibility, or early-vs-late drift uncertainty
+- `ios-packaging-jailbreak-and-runtime-gate-workflow-note` first, when the case is still dominated by broad iOS setup, observation topology, install/sign path, packaging, realism, instrumentation-visibility, or early-vs-late drift uncertainty
 - `ios-objc-swift-native-owner-localization-workflow-note` second, when the case is already reachable enough to study but the first consequence-bearing ObjC / Swift / native owner is still unclear
 - `ios-result-callback-to-policy-state-workflow-note` third, when callback/result visibility already exists and the remaining bottleneck is proving the first local policy state or behavior-changing consumer
+
+A compact way to remember the ladder is:
+- **topology** first — choose the observation or execution surface that actually makes the flow legible
+- **gate** second — stabilize install/signing/tooling/environment prerequisites enough that evidence is trustworthy
+- **owner** third — prove the first ObjC / Swift / native (or cross-runtime) boundary that actually owns the consequence
+- **policy consumer** fourth in spirit — once owner visibility exists, reduce callback/result material into the first behavior-changing consumer
 
 Read `unity-il2cpp-state-ownership-and-persistence-workflow-note` when the main problem is:
 - the case is clearly Unity / IL2Cpp-shaped, but the real state owner is still unclear

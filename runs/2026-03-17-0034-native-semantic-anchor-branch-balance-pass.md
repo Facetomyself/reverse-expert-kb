@@ -245,7 +245,15 @@ Planned local preservation for this run:
 - this run report
 
 ### Git / sync actions
-Planned after writing this report:
-1. commit only the reverse-KB files changed by this run
-2. run `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh`
-3. update this report with the final commit/sync result
+Completed after writing this report:
+1. committed only the reverse-KB files changed by this run
+2. ran `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh`
+3. updated this report with the final commit/sync result
+
+### Final sync result
+- Commit created locally in `/root/.openclaw/workspace`:
+  - `163c549` — `kb: add native semantic-anchor workflow note`
+- Required sync command completed successfully:
+  - `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh`
+- Sync result:
+  - `Synced research/reverse-expert-kb -> https://github.com/Facetomyself/reverse-expert-kb (branch main)`
