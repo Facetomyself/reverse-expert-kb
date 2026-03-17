@@ -19,6 +19,13 @@ hint_rules:
 
   reg-:
     normalize_to: registry-runtime
+    suppress_on_hosts:
+      - oracle-docker-proxy
+
+  camoufox:
+    normalize_to: registration-support-runtime
+    suppress_on_hosts:
+      - oracle-proxy
 
   harbor:
     suppress_stale_on_hosts:

@@ -28,6 +28,8 @@ def main():
         hr = host_rules.get(host, {})
         if 'stale hints' in rest and hr.get('suppress_stale_hints'):
             continue
+        if 'documented project missing in runtime' in rest and host == 'ali-cloud' and '1Panel control plane' in rest:
+            continue
         suppressed = False
         for hint, cfg in hint_rules.items():
             if hint in rest:
@@ -35,6 +37,9 @@ def main():
                     suppressed = True
                     break
                 if host in (cfg.get('suppress_stale_on_hosts') or []):
+                    suppressed = True
+                    break
+                if host in (cfg.get('suppress_on_hosts') or []):
                     suppressed = True
                     break
         if not suppressed:
