@@ -153,11 +153,12 @@ This branch should now be read as a practical bridge from baseline native synthe
 - `topics/malware-sleep-jitter-and-environment-gate-workflow-note.md`
 - `topics/malware-reporting-and-handoff-evidence-packaging-workflow-note.md`
 
-This branch should now be read as a practical bridge from malware-overlap synthesis into three recurring operator bottlenecks:
-- subtree navigation and laddering (`malware-practical-subtree-guide`), which acts as the branch entry surface when the analyst needs to decide whether the current malware bottleneck is first-consequence proof, gated progression, or evidence packaging/handoff
+This branch should now be read as a practical bridge from malware-overlap synthesis into four recurring operator bottlenecks:
+- subtree navigation and laddering (`malware-practical-subtree-guide`), which acts as the branch entry surface when the analyst needs to decide whether the current malware bottleneck is first-consequence proof, config-driven capability reduction, gated progression, or evidence packaging/handoff
 - malware goal and triage framing (`malware-analysis-overlaps-and-analyst-goals`)
 - collaboration / handoff burden (`collaborative-malware-analysis-and-role-differentiation`)
 - staged execution to first proved consequence (`staged-malware-execution-to-consequence-proof-workflow-note`), which acts as the practical entry note when unpack/decrypt/inject/config stages are already visible but the first local handoff that actually predicts payload entry, persistence, comms, or sleep/degrade behavior still needs to be proved before deeper static work, reporting, or detection handoff becomes trustworthy
+- config-to-capability reduction (`malware-config-to-capability-bucket-workflow-note`), which acts as the practical entry note when decoded or normalized config material is already visible enough to inspect but the first local reducer or consumer that turns raw config richness into one smaller request family, capability bucket, scheduler policy, plugin path, or persistence mode is still unproved
 - sleep / jitter / environment-gate localization (`malware-sleep-jitter-and-environment-gate-workflow-note`), which acts as the practical entry note when staged or environment-sensitive malware is already visible enough to study and the analyst now needs to prove the first local continue vs sleep / jitter / degrade / suppress gate that actually predicts whether payload, persistence, or first-request behavior happens under the current conditions
 - reporting / handoff evidence packaging (`malware-reporting-and-handoff-evidence-packaging-workflow-note`), which acts as the practical entry note when a useful malware finding already exists but the result is still too trace-heavy, assumption-heavy, or analyst-private to survive handoff cleanly to another reverser, CTI, detection engineering, incident response, or reporting consumer
 
