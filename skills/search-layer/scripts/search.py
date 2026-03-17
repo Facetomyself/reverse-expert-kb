@@ -275,7 +275,11 @@ def get_keys():
             with open(cred_path) as f:
                 cred = json.load(f)
             if v := cred.get("exa"):
-                keys["exa"] = v
+                if isinstance(v, dict):
+                    keys["exa"] = v.get("apiKey", "")
+                    keys["exa_url"] = v.get("apiUrl", "")
+                else:
+                    keys["exa"] = v
             if v := cred.get("tavily"):
                 if isinstance(v, dict):
                     keys["tavily"] = v.get("apiKey", "")
@@ -482,11 +486,18 @@ def search_grok(query: str, api_url: str, api_key: str, model: str = "grok-4.1-f
 
 
 @_throttled
-def search_exa(query: str, key: str, num: int = 5) -> list:
+def search_exa(query: str, key: str, num: int = 5, base_url: str = None) -> list:
     try:
+        endpoint = (base_url.rstrip("/") + "/search") if base_url else "https://api.exa.ai/search"
+        headers = {"Content-Type": "application/json"}
+        if base_url:
+            headers["Authorization"] = f"Bearer {key}"
+            headers["x-api-key"] = key
+        else:
+            headers["x-api-key"] = key
         r = requests.post(
-            "https://api.exa.ai/search",
-            headers={"x-api-key": key, "Content-Type": "application/json"},
+            endpoint,
+            headers=headers,
             json={"query": query, "numResults": num, "type": "auto"},
             timeout=20,
         )
@@ -582,6 +593,7 @@ def execute_search(query: str, mode: str, keys: dict, num: int,
     """Execute search for a single query. Returns (results_list, answer_text).
     If sources is set, only run those sources (e.g. {'grok', 'exa', 'tavily'})."""
     all_results = []
+    results_by_source = {}
     answer_text = None
 
     # Source filter helper
@@ -596,9 +608,11 @@ def execute_search(query: str, mode: str, keys: dict, num: int,
 
     if mode == "fast":
         if "exa" in keys and _want("exa"):
-            all_results = search_exa(query, keys["exa"], num)
+            all_results = search_exa(query, keys["exa"], num, keys.get("exa_url"))
+            results_by_source["exa"] = list(all_results)
         elif has_grok and _want("grok"):
             all_results = search_grok(query, grok_url, grok_key, grok_model, num, freshness)
+            results_by_source["grok"] = list(all_results)
         else:
             print('{"warning": "No API keys found for fast mode"}',
                   file=sys.stderr)
@@ -607,7 +621,7 @@ def execute_search(query: str, mode: str, keys: dict, num: int,
         with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
             futures = {}
             if "exa" in keys and _want("exa"):
-                futures[pool.submit(search_exa, query, keys["exa"], num)] = "exa"
+                futures[pool.submit(search_exa, query, keys["exa"], num, keys.get("exa_url"))] = "exa"
             if "tavily" in keys and _want("tavily"):
                 futures[pool.submit(
                     search_tavily, query, keys["tavily"], num,
@@ -623,8 +637,11 @@ def execute_search(query: str, mode: str, keys: dict, num: int,
                     print(f"[{name}] error: {e}", file=sys.stderr)
                     continue
                 if isinstance(res, dict):
-                    all_results.extend(res.get("results", []))
+                    src_results = res.get("results", [])
+                    results_by_source[name] = list(src_results)
+                    all_results.extend(src_results)
                 else:
+                    results_by_source[name] = list(res)
                     all_results.extend(res)
 
     elif mode == "answer":
@@ -633,20 +650,23 @@ def execute_search(query: str, mode: str, keys: dict, num: int,
                                 include_answer=True, freshness=freshness,
                                 base_url=keys.get("tavily_url"))
             all_results = tav["results"]
+            results_by_source["tavily"] = list(tav["results"])
             answer_text = tav.get("answer")
         elif has_grok and _want("grok"):
             # Graceful fallback: allow answer mode to return Grok search results
             # when Tavily is unavailable or explicitly excluded by --source.
             print('{"warning": "answer mode fell back to grok search results because tavily is unavailable or filtered out"}', file=sys.stderr)
             all_results = search_grok(query, grok_url, grok_key, grok_model, num, freshness)
+            results_by_source["grok"] = list(all_results)
         elif "exa" in keys and _want("exa"):
             # Secondary fallback: return Exa results instead of failing empty.
             print('{"warning": "answer mode fell back to exa search results because tavily/grok are unavailable or filtered out"}', file=sys.stderr)
-            all_results = search_exa(query, keys["exa"], num)
+            all_results = search_exa(query, keys["exa"], num, keys.get("exa_url"))
+            results_by_source["exa"] = list(all_results)
         else:
             print('{"warning": "No usable source available for answer mode"}', file=sys.stderr)
 
-    return all_results, answer_text
+    return all_results, answer_text, results_by_source
 
 
 # ---------------------------------------------------------------------------
@@ -761,10 +781,11 @@ def main():
 
     # Execute all queries (parallel if multiple)
     all_results = []
+    results_by_source = {}
     answer_text = None
 
     if len(queries) == 1:
-        results, answer_text = execute_search(
+        results, answer_text, results_by_source = execute_search(
             queries[0], args.mode, keys, args.num,
             include_answer=(args.mode == "answer"),
             freshness=args.freshness,
@@ -782,8 +803,10 @@ def main():
                 for q in queries
             }
             for fut in concurrent.futures.as_completed(futures):
-                results, ans = fut.result()
+                results, ans, per_source = fut.result()
                 all_results.extend(results)
+                for src, items in (per_source or {}).items():
+                    results_by_source.setdefault(src, []).extend(items)
                 if ans and not answer_text:
                     answer_text = ans
 
@@ -804,6 +827,7 @@ def main():
         "queries": queries,
         "count": len(deduped),
         "results": deduped,
+        "resultsBySource": results_by_source,
     }
     if answer_text:
         output["answer"] = answer_text
