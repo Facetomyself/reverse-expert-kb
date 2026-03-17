@@ -40,6 +40,11 @@ In those cases, route to the narrower page instead.
 In practical iOS reversing, once the target is reachable enough to study, the best next move is often **not** to hook more layers.
 It is to localize the first boundary that actually owns a durable consequence.
 
+A compact continuation rule from the updated iOS branch is:
+- first confirm the observation/execution **topology** is good enough to see the real flow
+- then stabilize the first runtime **gate** (packaging, install path, jailbreak/tooling, realism, or trust drift)
+- only then push hard on **owner** localization across ObjC / Swift / native boundaries
+
 The central question is usually:
 
 ```text
@@ -247,7 +252,22 @@ Best move:
 - test whether the native routine is a reusable worker or the first durable owner
 - prefer the boundary that best predicts the later effect
 
-### Scenario C: Native request helper is easy to hook, but request ownership is still ambiguous
+### Scenario C: Cross-runtime iOS target (for example Flutter) exposes many plausible owners
+Pattern:
+
+```text
+iOS shell / framework setup visible
+  -> Flutter / Dart runtime also clearly participates
+  -> repack or static rewrite path is unstable or fails
+  -> analyst still needs the one method family that owns the target field or effect
+```
+
+Best move:
+- stop treating repack success as mandatory
+- move to the runtime that actually executes and recover candidate owners there
+- localize one consequence-bearing Dart / ObjC / native owner instead of remaining trapped in framework setup churn
+
+### Scenario D: Native request helper is easy to hook, but request ownership is still ambiguous
 Pattern:
 
 ```text
@@ -260,7 +280,7 @@ Best move:
 - move one step up and localize the reduction boundary that chooses this request family
 - then prove the first finalization/attachment owner for the target action only
 
-### Scenario D: Environment or attestation callback is visible, but the real consequence is later
+### Scenario E: Environment or attestation callback is visible, but the real consequence is later
 Pattern:
 
 ```text
@@ -299,10 +319,13 @@ Lower-level code often looks important while still being only a worker.
 ### 3. Mixing trigger, reducer, worker, and owner into one blob
 If those roles are collapsed, the path becomes impossible to prove cleanly.
 
-### 4. Expanding hooks before freezing one flow
+### 4. Treating repack or framework-rewrite success as mandatory for cross-runtime cases
+If the live runtime already executes the target logic, owner recovery there is often more valuable than forcing a brittle rebuilt artifact.
+
+### 5. Expanding hooks before freezing one flow
 Without one representative flow, layer comparisons become noise.
 
-### 5. Proving reachability but not consequence
+### 6. Proving reachability but not consequence
 A boundary matters only when it predicts a later state change, request shape, or visible effect.
 
 ## 8. Relationship to nearby pages

@@ -180,4 +180,9 @@ Planned after writing this report:
 3. if sync fails, preserve local progress and update this report with the failure
 
 ### Final sync result
-- Pending at report write time; to be updated after commit and sync commands complete.
+- Commit created locally in `/root/.openclaw/workspace`:
+  - `4efed35` — `kb: sharpen reese84/utmvc bootstrap consumer path`
+- Required sync command completed successfully:
+  - `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh`
+- Sync result:
+  - `Synced research/reverse-expert-kb -> https://github.com/Facetomyself/reverse-expert-kb (branch main)`
