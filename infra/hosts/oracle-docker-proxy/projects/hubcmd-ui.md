@@ -60,3 +60,5 @@ Check:
 
 ## 13. Change History
 - 2026-03-15: First documented from runtime inspection.
+- 2026-03-17: Reclassified as historical/deleted after user clarified it had already been abandoned due to host performance constraints.
+ runtime inspection.
