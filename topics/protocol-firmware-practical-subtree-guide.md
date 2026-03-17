@@ -7,6 +7,7 @@ Related pages:
 - topics/firmware-and-protocol-context-recovery.md
 - topics/protocol-state-and-message-recovery.md
 - topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md
+- topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
 - topics/protocol-ingress-ownership-and-receive-path-workflow-note.md
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
@@ -68,6 +69,7 @@ choose the current firmware/protocol bottleneck
 
 The subtree is strongest when read as:
 - **see** the right boundary
+- **peel** the visible object into one smaller trustworthy contract
 - **own** the right inbound object
 - **reduce** one parser/state consequence
 - **accept** one interaction under the right local precondition
@@ -112,7 +114,21 @@ Start here when:
 - the nearest trustworthy object may be transparent interception, socket plaintext, a serializer/framer object, or a content-manifest boundary rather than the current packet view
 
 Do **not** start here when:
-- inbound traffic is already visible enough and the missing edge is now local receive ownership or parser/state consequence
+- inbound traffic is already visible enough and the missing edge is now layer peeling, local receive ownership, or parser/state consequence
+
+### Start with `protocol-layer-peeling-and-contract-recovery-workflow-note`
+Use:
+- `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
+
+Start here when:
+- traffic, buffers, wrapper objects, or artifacts are already visible enough to inspect
+- but the visible object still mixes framing, compression, serialization, crypto wrapping, RPC shell, or content-pipeline continuation
+- the next useful output is one smaller trustworthy contract such as a schema candidate, service/method shell, serializer preimage, or manifest/key/content ladder
+- the analyst still needs to decide which layer should be treated as the practical protocol object before parser/state or replay work is attempted
+
+Do **not** start here when:
+- the current surface is still too weak and the real bottleneck is boundary relocation itself
+- the smallest trustworthy contract already exists and the missing edge is now receive ownership, parser/state consequence, acceptance gating, or output handoff
 
 ### Start with `protocol-ingress-ownership-and-receive-path-workflow-note`
 Use:
@@ -120,11 +136,13 @@ Use:
 
 Start here when:
 - inbound traffic, reads, callbacks, queue/ring activity, or device-side receive behavior is already visible
+- the visible object is already peeled enough that the next uncertainty is ownership rather than decoding layers
 - the main uncertainty is which local receive handoff actually owns the bytes and feeds parser-relevant handling
 - one compare pair already exists and the next useful output is one proved receive owner
 
 Do **not** start here when:
 - the main problem is still selecting a better visibility boundary
+- the visible object still needs one more layer peel before ownership claims are meaningful
 - the receive owner is already known and the missing edge is later parser/state consequence or acceptance gating
 
 ### Start with `protocol-parser-to-state-edge-localization-workflow-note`
@@ -194,7 +212,7 @@ Do **not** start here when:
 - the real bottleneck is earlier in parser/state or replay-gate work
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as seven common bottleneck families that often chain into one another.
+A useful way to read the branch is as eight common bottleneck families that often chain into one another.
 
 ### A. Broad firmware/protocol uncertainty -> correct recovery object
 Typical question:
@@ -216,11 +234,24 @@ Primary note:
 - `topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md`
 
 Possible next handoff:
+- `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - content or artifact follow-on work when the object is a manifest/key/content pipeline
 
-### C. Visible inbound activity -> first local receive owner
+### C. Visible layered object -> smaller trustworthy contract
+Typical question:
+- what layer ordering turns the current blob, wrapper payload, or API result into one message/schema/service/preimage/artifact contract I can actually reason about?
+
+Primary note:
+- `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
+
+Possible next handoff:
+- `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
+- `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+- content or artifact continuation work when the real product is manifest/key/content
+
+### D. Visible inbound activity -> first local receive owner
 Typical question:
 - which local queue, ring, framing commit, callback, or deferred receive worker first takes ownership of the inbound object?
 
@@ -231,7 +262,7 @@ Possible next handoff:
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 
-### D. Parser visibility -> first state or effect consequence
+### E. Parser visibility -> first state or effect consequence
 Typical question:
 - what first state write, reply-family selector, queue/timer insertion, or peripheral action actually predicts later behavior?
 
@@ -243,7 +274,7 @@ Possible next handoff:
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 
-### E. Structurally plausible replay -> accepted interaction
+### F. Structurally plausible replay -> accepted interaction
 Typical question:
 - which first local phase, freshness, pending-request, capability, or state gate decides whether the interaction really advances?
 
@@ -254,7 +285,7 @@ Possible next handoff:
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 
-### F. Accepted local path -> real output behavior
+### G. Accepted local path -> real output behavior
 Typical question:
 - where does accepted local state become one real emitted reply, serializer path, queue commit, descriptor submission, or transport-visible send?
 
@@ -266,7 +297,7 @@ Possible next handoff:
 - serializer/framing recovery
 - peripheral-send or transport modeling
 
-### G. Peripheral or completion visibility -> durable hardware-side consequence
+### H. Peripheral or completion visibility -> durable hardware-side consequence
 Typical question:
 - which first MMIO write, arm, status-latch, ISR reduction, or deferred-worker consequence actually predicts later durable behavior?
 
@@ -286,20 +317,23 @@ When a case is clearly firmware/protocol shaped, ask these in order:
    - if yes, start with firmware/protocol synthesis
 2. **Is the important traffic or artifact still not meaningfully visible from the current surface?**
    - if yes, start with capture-failure / boundary relocation
-3. **Is inbound traffic visible, but the first local receive owner still unclear?**
+3. **Is the object visible, but still too layered to treat as one trustworthy contract?**
+   - if yes, start with layer-peeling / contract recovery
+4. **Is inbound traffic visible, but the first local receive owner still unclear?**
    - if yes, start with ingress ownership
-4. **Is parser or dispatch visibility present, but the first state/effect consequence still unclear?**
+5. **Is parser or dispatch visibility present, but the first state/effect consequence still unclear?**
    - if yes, start with parser-to-state localization
-5. **Is replay or mutation structurally plausible, but still not accepted?**
+6. **Is replay or mutation structurally plausible, but still not accepted?**
    - if yes, start with replay-precondition / state-gate localization
-6. **Is local acceptance visible, but one real emitted output still unproved?**
+7. **Is local acceptance visible, but one real emitted output still unproved?**
    - if yes, start with reply-emission / transport handoff
-7. **Has the case already crossed into peripheral or interrupt/deferred consequences?**
+8. **Has the case already crossed into peripheral or interrupt/deferred consequences?**
    - if yes, choose MMIO effect proof or ISR/deferred consequence proof depending on whether the first effect-bearing hardware edge or the later durable completion-driven reduction is still missing
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
 That usually means:
 - choose the right boundary before arguing about parser semantics
+- peel one visible layered object before claiming you already have the practical protocol object
 - prove one receive owner before cataloging many parser candidates
 - prove one parser/state consequence before sketching a larger protocol theory
 - prove one acceptance gate before overfitting replay generation
@@ -307,7 +341,8 @@ That usually means:
 
 ## 6. What this branch is strongest at
 This branch is currently strongest at practical guidance for:
-- separating visibility/boundary problems from parser/state problems
+- separating visibility/boundary problems from layer-peeling problems
+- separating layer-peeling from parser/state problems
 - separating receive ownership from parser consequence
 - separating parser consequence from acceptance gating
 - separating local acceptance from committed output behavior
@@ -321,7 +356,7 @@ This branch is still weaker than browser/mobile in some areas:
 - it has had less explicit subtree-level routing until now
 - child-note density is improving, but practical route summaries were still too implicit before this guide
 - deeper dedicated branches for field inference, state-machine recovery, and rehosting/fuzzing are still suggested rather than fully split
-- there is still room for later practical leaves around transparent interception proof, socket-boundary overlay recovery, or manifest/key/content continuation if repeated source pressure justifies them
+- there is still room for later practical leaves around service-contract extraction, schema externalization, or tool-assisted protocol artifact generation if repeated source pressure justifies them
 
 That means the right near-term maintenance pattern is usually:
 - branch-shape repair
@@ -331,6 +366,7 @@ That means the right near-term maintenance pattern is usually:
 ## 8. Common mistakes this guide prevents
 This guide is meant to prevent several recurring branch-level mistakes:
 - treating all protocol problems as parser problems when the current surface is still wrong
+- confusing visible bytes with a trustworthy contract before framing/transform/serialization layers are peeled
 - jumping into replay before the first acceptance gate is proved
 - widening into full transport or hardware taxonomy before one effect-bearing edge is grounded
 - treating receive ownership, parser consequence, acceptance gating, output handoff, and interrupt-side consequence as one undifferentiated blob
@@ -338,7 +374,7 @@ This guide is meant to prevent several recurring branch-level mistakes:
 
 ## 9. How this guide connects to the rest of the KB
 Use this subtree when the case is best described as:
-- a protocol/firmware investigation where the next bottleneck is still choosing the right visibility boundary, local owner, state/effect edge, acceptance gate, output handoff, or hardware-side consequence
+- a protocol/firmware investigation where the next bottleneck is still choosing the right visibility boundary, peeling a visible layered object into a smaller trustworthy contract, proving the local owner, localizing a state/effect edge, proving an acceptance gate, proving an output handoff, or proving a hardware-side consequence
 
 Then route outward as soon as the case becomes more specifically shaped:
 - to `topics/runtime-evidence-practical-subtree-guide.md` when the real bottleneck is execution-history stabilization or reverse-causality proof
@@ -351,6 +387,7 @@ This subtree guide turns the firmware/protocol practical branch into a clearer o
 
 The compact reading is:
 - choose the right boundary
+- peel the right layered object into one smaller trustworthy contract
 - prove the right inbound owner
 - localize the first parser/state consequence
 - prove the first acceptance gate
