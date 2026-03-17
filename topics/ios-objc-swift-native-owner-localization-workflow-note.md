@@ -7,6 +7,7 @@ Related pages:
 - topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
 - topics/mobile-protected-runtime-subtree-guide.md
+- topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md
 - topics/mobile-signature-location-and-preimage-recovery-workflow-note.md
 - topics/mobile-response-consumer-localization-workflow-note.md
 - topics/result-code-and-enum-to-policy-mapping-workflow-note.md
@@ -252,23 +253,7 @@ Best move:
 - test whether the native routine is a reusable worker or the first durable owner
 - prefer the boundary that best predicts the later effect
 
-### Scenario C: Cross-runtime iOS target (for example Flutter) exposes many plausible owners
-Pattern:
-
-```text
-iOS shell / framework setup visible
-  -> Flutter / Dart runtime also clearly participates
-  -> repack or static rewrite path is unstable or fails
-  -> analyst still needs the one method family that owns the target field or effect
-```
-
-Best move:
-- stop treating repack success as mandatory
-- move to the runtime that actually executes and recover candidate owners there
-- localize one consequence-bearing Dart / ObjC / native owner instead of remaining trapped in framework setup churn
-- if needed, prefer live runtime dumping / symbol recovery over brittle rebuild success criteria
-
-### Scenario D: Native request helper is easy to hook, but request ownership is still ambiguous
+### Scenario C: Native request helper is easy to hook, but request ownership is still ambiguous
 Pattern:
 
 ```text
@@ -320,18 +305,17 @@ Lower-level code often looks important while still being only a worker.
 ### 3. Mixing trigger, reducer, worker, and owner into one blob
 If those roles are collapsed, the path becomes impossible to prove cleanly.
 
-### 4. Treating repack or framework-rewrite success as mandatory for cross-runtime cases
-If the live runtime already executes the target logic, owner recovery there is often more valuable than forcing a brittle rebuilt artifact.
-
-### 5. Expanding hooks before freezing one flow
+### 4. Expanding hooks before freezing one flow
 Without one representative flow, layer comparisons become noise.
 
-### 6. Proving reachability but not consequence
+### 5. Proving reachability but not consequence
 A boundary matters only when it predicts a later state change, request shape, or visible effect.
 
 ## 8. Relationship to nearby pages
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
   - use first when the case is still blocked by broad setup/gate uncertainty
+- `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md`
+  - use when the ownership problem is clearly cross-runtime and Flutter/Dart execution is part of the real owner search rather than just shell context
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
   - use when the proved owner is clearly a signature/attachment/preimage path
 - `topics/mobile-response-consumer-localization-workflow-note.md`

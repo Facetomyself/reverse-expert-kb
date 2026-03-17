@@ -159,6 +159,7 @@ The most natural next child pages include:
 Current concrete notes:
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
+- `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md`
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 - `topics/unity-il2cpp-state-ownership-and-persistence-workflow-note.md`
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
@@ -185,15 +186,21 @@ Read `ios-objc-swift-native-owner-localization-workflow-note` when the main prob
 - visible selectors, delegates, Swift methods, or native helpers exist, but you still need to separate trigger surface, reduction boundary, reusable worker, and real owner
 - you need one representative iOS flow, one candidate owner, and one downstream effect before deepening signature, response-consumer, or native proof work
 
+Read `ios-flutter-cross-runtime-owner-localization-workflow-note` when the main problem is:
+- the iOS case is clearly Flutter/Dart shaped and several runtimes all look relevant, but the first consequence-bearing owner is still unclear
+- repack/rewrite/static instrumentation attempts are brittle enough that the better move may be live-runtime owner recovery in the runtime that actually executes
+- you need to separate iOS shell trigger, Flutter bridge/router, Dart owner, and native worker before deepening signature/preimage or ordinary native proof work
+
 Read `ios-result-callback-to-policy-state-workflow-note` when the main problem is:
 - the iOS case already exposes a delegate callback, completion block, Swift result wrapper, `NSError`, or native-return wrapper, but the first behavior-changing local policy state is still unclear
 - callback or result visibility exists, yet you still need to separate callback surface, result normalization, policy mapping, and first behavior-changing consumer
 - you need one representative iOS flow, one candidate policy-mapping boundary, and one downstream effect before deepening challenge-loop, attestation-consequence, or signature/request work
 
-Together, the iOS practical branch should now usually be read as an ordered three-step ladder rather than a flat set of sibling notes:
+Together, the iOS practical branch should now usually be read as an ordered ladder rather than a flat set of sibling notes:
 - `ios-packaging-jailbreak-and-runtime-gate-workflow-note` first, when the case is still dominated by broad iOS setup, observation topology, install/sign path, packaging, realism, instrumentation-visibility, or early-vs-late drift uncertainty
-- `ios-objc-swift-native-owner-localization-workflow-note` second, when the case is already reachable enough to study but the first consequence-bearing ObjC / Swift / native owner is still unclear
-- `ios-result-callback-to-policy-state-workflow-note` third, when callback/result visibility already exists and the remaining bottleneck is proving the first local policy state or behavior-changing consumer
+- `ios-objc-swift-native-owner-localization-workflow-note` second, when the case is already reachable enough to study but the first consequence-bearing ObjC / Swift / native owner is still unclear in a broadly iOS-shaped path
+- `ios-flutter-cross-runtime-owner-localization-workflow-note` as the specialized continuation when the ownership problem is clearly cross-runtime and Flutter/Dart execution is part of the real owner search rather than just shell context
+- `ios-result-callback-to-policy-state-workflow-note` later, when callback/result visibility already exists and the remaining bottleneck is proving the first local policy state or behavior-changing consumer
 
 A compact way to remember the ladder is:
 - **topology** first — choose the observation or execution surface that actually makes the flow legible
