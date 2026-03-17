@@ -1,0 +1,234 @@
+# Protected-Runtime Practical Subtree Guide
+
+Topic class: subtree guide
+Ontology layers: protected-runtime practice branch, deobfuscation / anti-tamper routing, operator ladder
+Maturity: structured-practical
+Related pages:
+- topics/anti-tamper-and-protected-runtime-analysis.md
+- topics/obfuscation-deobfuscation-and-packed-binaries.md
+- topics/vm-trace-to-semantic-anchor-workflow-note.md
+- topics/flattened-dispatcher-to-state-edge-workflow-note.md
+- topics/packed-stub-to-oep-and-first-real-module-workflow-note.md
+- topics/decrypted-artifact-to-first-consumer-workflow-note.md
+- topics/integrity-check-to-tamper-consequence-workflow-note.md
+
+## 1. Why this guide exists
+This guide exists because the KB’s protected / deobfuscation branch already has several strong practical notes, but until now it has been easier to read as a flat list of sibling pages than as a usable operator ladder.
+
+The branch already had practical entry surfaces for:
+- VM or flattened execution that is visible but still semantically noisy
+- packed or staged bootstrap where the first trustworthy post-unpack handoff is still unclear
+- decrypted artifacts that are readable but not yet tied to their first ordinary consumer
+- integrity / self-check logic that is visible but not yet tied to its first real consequence
+
+What was missing was the compact routing rule that answers:
+- where should I start when a target is clearly protected-runtime shaped?
+- which note comes next after the current bottleneck is reduced?
+- when am I still in protection churn versus when have I reached a reusable static or runtime target?
+
+This page makes that branch read more like the malware, protocol, and mobile practical subtrees:
+- a branch entry surface
+- a small set of recurring bottleneck families
+- a compact ladder for moving from protected churn toward one smaller trustworthy target
+
+## 2. Core claim
+Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of four recurring families:
+
+1. **trace / dispatcher churn**
+   - visible VM, flattened control flow, handler churn, or repetitive protected execution is the main problem
+2. **packed / staged bootstrap handoff**
+   - a stub, shell, decrypt/copy/fixup loop, or staged loader is already visible, but the first trustworthy post-unpack handoff is still unclear
+3. **artifact-to-consumer proof**
+   - strings, config, tables, bytecode, or normalized buffers are already readable enough to inspect, but the first ordinary consumer is still missing
+4. **integrity / tamper consequence proof**
+   - checks are visible, but the first reduced result or consequence-bearing tripwire is still unclear
+
+A compact operator ladder for this branch is:
+
+```text
+choose the current protection-shaped bottleneck
+  -> reduce it to one smaller trustworthy object
+  -> prove one consequence-bearing edge or downstream effect
+  -> hand back one quieter static/runtime target
+```
+
+The subtree is strongest when read as:
+- **anchor** noisy execution when trace/dispatcher churn dominates
+- **handoff** out of staged startup when packing/bootstrap dominates
+- **consume** recovered artifacts when readable material exists but ordinary use is still unproved
+- **tripwire** the first behavior-changing integrity consequence when checks are already visible
+
+## 3. How to choose the right entry note
+### Start with `vm-trace-to-semantic-anchor-workflow-note`
+Use:
+- `topics/vm-trace-to-semantic-anchor-workflow-note.md`
+
+Start here when:
+- virtualization, flattening, handler churn, or noisy protected execution is already visible
+- some trace, DBI, replay, or runtime-guided evidence already exists
+- the next bottleneck is reducing repetitive execution into one stable semantic anchor plus one consequence-bearing handler/state edge
+
+Do **not** start here when:
+- the dominant uncertainty is still the packed/bootstrap handoff
+- the dominant uncertainty is already one integrity consequence branch
+- the main issue is no longer execution churn, because a readable artifact is already in hand
+
+### Start with `packed-stub-to-oep-and-first-real-module-workflow-note`
+Use:
+- `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
+
+Start here when:
+- a stub, shell, decrypt/copy/fixup loop, import-repair stage, or staged loader is already visible
+- the real bottleneck is one trustworthy OEP-like boundary plus one first ordinary-code anchor downstream from it
+- the analyst needs one reusable post-unpack dump, image state, module/object cluster, or first real consumer target
+
+Do **not** start here when:
+- there is no real loader/stub handoff problem and the target is already post-unpack
+- unpacking is solved enough, but later VM/flattened execution still dominates
+- the readable object already exists and the real bottleneck is its consumer
+
+### Start with `decrypted-artifact-to-first-consumer-workflow-note`
+Use:
+- `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
+
+Start here when:
+- strings, config, bytecode, tables, decrypted buffers, normalized blobs, or recovered code artifacts are already readable enough to inspect
+- the analyst still does not know which ordinary parser, policy, scheduler, request builder, or payload consumer first makes them behaviorally relevant
+- the next useful output is one first consumer routine, state write, or downstream operational edge
+
+Do **not** start here when:
+- the artifact itself is still too unstable because unpacking or trace churn is unresolved
+- integrity-result reduction is the dominant hidden boundary rather than artifact use
+
+### Start with `integrity-check-to-tamper-consequence-workflow-note`
+Use:
+- `topics/integrity-check-to-tamper-consequence-workflow-note.md`
+
+Start here when:
+- CRC, checksum, self-hash, signature, anti-patch, anti-hook, or other integrity logic is already visible
+- the key unknown is the first reduced result, state bucket, or consequence-bearing tripwire that predicts later degrade / decoy / suppress / exit behavior
+- the best next output is one reducer helper, state flag, or branch worthy of compare-run proof
+
+Do **not** start here when:
+- the real bottleneck is still identifying where protected execution hands off into ordinary code
+- the target is dominated by flattened execution churn rather than visible integrity logic
+- the case is already better framed as a mobile-specific attestation/result-to-policy problem
+
+## 4. Compact ladder across the branch
+A useful way to read the branch is as four common bottleneck families that often chain into one another.
+
+### A. Trace or dispatcher churn -> semantic anchor
+Typical question:
+- which small stable thing predicts later behavior better than the raw protected execution does?
+
+Primary note:
+- `topics/vm-trace-to-semantic-anchor-workflow-note.md`
+
+Possible next handoff:
+- `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
+- `topics/native-semantic-anchor-stabilization-workflow-note.md`
+- `topics/native-interface-to-state-proof-workflow-note.md`
+
+### B. Packed startup -> trustworthy post-unpack handoff
+Typical question:
+- where does loader churn end and reusable post-unpack analysis begin?
+
+Primary note:
+- `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
+
+Possible next handoff:
+- `topics/vm-trace-to-semantic-anchor-workflow-note.md` when unpacking is solved but later protected execution still dominates
+- `topics/native-semantic-anchor-stabilization-workflow-note.md` when the post-unpack region is readable but semantically slippery
+- `topics/decrypted-artifact-to-first-consumer-workflow-note.md` when the handoff yields one readable artifact whose first consumer is still unclear
+
+### C. Readable artifact -> first ordinary consumer
+Typical question:
+- what first parser, policy, scheduler, request, or payload consumer proves this recovered artifact actually matters?
+
+Primary note:
+- `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
+
+Possible next handoff:
+- `topics/native-interface-to-state-proof-workflow-note.md`
+- `topics/browser-request-finalization-backtrace-workflow-note.md`
+- `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+
+### D. Integrity logic -> first consequence-bearing tripwire
+Typical question:
+- what first reduced result or branch turns visible checks into real behavioral change?
+
+Primary note:
+- `topics/integrity-check-to-tamper-consequence-workflow-note.md`
+
+Possible next handoff:
+- `topics/environment-differential-diagnosis-workflow-note.md` when compare conditions still dominate trust
+- `topics/attestation-verdict-to-policy-state-workflow-note.md` when the case is really a mobile verdict-to-policy problem
+- `topics/native-interface-to-state-proof-workflow-note.md` when the tripwire has already reduced into an ordinary consequence consumer
+
+## 5. The branch’s practical routing rule
+When a case is clearly protected-runtime shaped, ask these in order:
+
+1. **Am I still stuck in protected execution churn?**
+   - if yes, start with semantic-anchor or dispatcher/state-edge reduction
+2. **Am I still stuck proving the post-unpack handoff?**
+   - if yes, start with packed-stub -> OEP
+3. **Do I already have a readable recovered artifact, but no ordinary consumer?**
+   - if yes, start with decrypted-artifact -> first consumer
+4. **Are checks already visible, but the first behavior-changing consequence is still hidden?**
+   - if yes, start with integrity-check -> tamper consequence
+
+If more than one feels true, prefer the earliest boundary that still blocks later work.
+That usually means:
+- resolve packed/bootstrap handoff before artifact-consumer proof
+- resolve trace/dispatcher churn before claiming artifact semantics
+- resolve integrity result reduction before treating later degrade/decoy behavior as explained
+
+## 6. What this branch is strongest at
+This branch is currently strongest at practical notes for:
+- reducing virtualized or flattened execution into one semantic anchor or state edge
+- turning stub-heavy startup into one trustworthy post-unpack handoff
+- turning readable artifacts into one first ordinary consumer
+- turning visible integrity logic into one consequence-bearing tripwire
+
+That makes the branch good at cases where the main problem is not abstract taxonomy, but converting visible protection-related material into one quieter next object.
+
+## 7. What this branch is still weaker at
+This branch is still weaker than browser/mobile in some areas:
+- it has fewer compact route guides and branch-level summaries
+- it still relies more on practical notes than on a fully mature synthesis ladder
+- anti-cheat / trusted-runtime / privilege-heavy subareas remain more lightly integrated
+- there is still room for a later route-guide pass focused specifically on anti-instrumentation / anti-debug surface selection
+
+That means the right near-term maintenance pattern is usually:
+- branch-shape repair
+- conservative navigation strengthening
+- concrete workflow deepening only when a real operator gap appears
+
+## 8. Common mistakes this guide prevents
+This guide is meant to prevent several recurring branch-level mistakes:
+- treating all protected-runtime cases as “just obfuscation”
+- deepening one practical note without clarifying where it sits in the branch
+- mistaking visible checks or visible loaders for solved handoffs
+- creating more leaf pages when the real gap is branch routing
+- drifting back into browser/mobile growth just because those areas already have denser source pressure
+
+## 9. How this guide connects to the rest of the KB
+Use this subtree when the case is best described as:
+- active resistance, staged bootstrap, flattened/virtualized execution, integrity-sensitive behavior, or protected artifacts whose first reliable consumer is still unclear
+
+Then route outward as soon as the case becomes ordinary enough:
+- to `topics/native-semantic-anchor-stabilization-workflow-note.md` when code is readable but meaning is still unstable
+- to `topics/native-interface-to-state-proof-workflow-note.md` when one representative route-to-consequence chain is now the real bottleneck
+- to `topics/runtime-behavior-recovery.md` when broader evidence strategy is still the main issue
+- to `topics/mobile-protected-runtime-subtree-guide.md` when the target is clearly mobile/platform-constrained rather than generic protected-runtime
+
+## 10. Topic summary
+This subtree guide turns the protected-runtime / deobfuscation practical branch into a clearer operator ladder.
+
+The compact reading is:
+- anchor protected execution churn
+- hand off out of packed startup
+- prove the first ordinary consumer of recovered artifacts
+- prove the first consequence-bearing integrity tripwire
+
+That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which leaf note to read first.

@@ -157,6 +157,7 @@ This branch should now be read as a practical bridge from malware-overlap synthe
 - reporting / handoff evidence packaging (`malware-reporting-and-handoff-evidence-packaging-workflow-note`), which acts as the practical entry note when a useful malware finding already exists but the result is still too trace-heavy, assumption-heavy, or analyst-private to survive handoff cleanly to another reverser, CTI, detection engineering, incident response, or reporting consumer
 
 ### Deobfuscation / protected-runtime practical branch
+- `topics/protected-runtime-practical-subtree-guide.md`
 - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 - `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
@@ -164,7 +165,8 @@ This branch should now be read as a practical bridge from malware-overlap synthe
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
 - `topics/integrity-check-to-tamper-consequence-workflow-note.md`
 
-This branch should now be read as a practical bridge from mature protected/deobfuscation synthesis into five recurring operator bottlenecks:
+This branch should now be read as a practical bridge from mature protected/deobfuscation synthesis into a subtree guide plus five recurring operator bottlenecks:
+- subtree navigation and bottleneck selection (`protected-runtime-practical-subtree-guide`), which acts as the branch entry surface when the case is clearly protected-runtime shaped but the analyst first needs to classify whether the current bottleneck is trace/dispatcher churn, packed/bootstrap handoff, artifact-consumer proof, or integrity/tamper consequence proof
 - broad protected/deobfuscation framing and evaluation (`obfuscation-deobfuscation-and-packed-binaries`)
 - trace-to-semantic-anchor reduction (`vm-trace-to-semantic-anchor-workflow-note`), which acts as the practical entry note when virtualization, flattening, or handler churn is already visible but the analyst still needs one stable semantic anchor plus one consequence-bearing handler/state edge before deeper static reconstruction becomes trustworthy
 - dispatcher-to-state-edge reduction (`flattened-dispatcher-to-state-edge-workflow-note`), which acts as the practical entry note when the dispatcher or flattened region is already recognizable and the next bottleneck is identifying the first durable state object, reduction helper, or dispatcher-exit family that predicts later behavior and yields a trustworthy smaller static target

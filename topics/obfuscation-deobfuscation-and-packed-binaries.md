@@ -401,10 +401,13 @@ This topic may later split into several child pages:
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 
 Practical bridge pages now exist for recurring operator bottlenecks:
+- `topics/protected-runtime-practical-subtree-guide.md`
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 - `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
+
+Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry surface when the case is clearly protected-runtime or deobfuscation shaped, but the current bottleneck still needs to be classified as trace/dispatcher churn, packed/bootstrap handoff, artifact-consumer proof, or integrity/tamper consequence proof before choosing a narrower workflow note.
 
 Use `topics/vm-trace-to-semantic-anchor-workflow-note.md` when virtualization, flattening, or handler churn is already visible and some execution-derived evidence exists, but the analyst still needs to reduce that churn into one stable semantic anchor plus one consequence-bearing handler/state edge before deeper static reconstruction becomes trustworthy.
 
