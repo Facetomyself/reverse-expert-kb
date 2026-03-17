@@ -266,11 +266,13 @@ Includes:
 The iOS practical branch should now usually be read in this order:
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
+- `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md` when the ownership problem is clearly Flutter/Dart-shaped
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 
-That ordered route helps separate three different operator bottlenecks that are easy to collapse together:
+That ordered route helps separate four different operator bottlenecks that are easy to collapse together:
 - broad setup/gate uncertainty
 - post-gate consequence ownership across ObjC / Swift / native boundaries
+- specialized cross-runtime owner recovery when Flutter/Dart execution is part of the real owner search
 - narrower callback/result-to-policy consequence proof once visibility already exists
 
 ### 3. Instrumentation and tracing patterns
