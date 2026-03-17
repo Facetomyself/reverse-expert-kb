@@ -284,6 +284,7 @@ Includes:
 - deployment modes
 - script/tooling maintenance
 - execution-assisted replay/emulation flows (for example unidbg- or Chomper-shaped workflows) when direct static reading is less productive than controlled invocation plus intermediate-state capture
+- iOS owner-recovery continuations where live traces already expose the likely owner path and the real next bottleneck is reducing initialization/setup obligations and invocation contract until one truthful callable path exists
 - Flutter cross-runtime owner-localization practice, where the real bottleneck is not Java visibility or native helper visibility alone but proving which Dart/object boundary actually owns the artifact before deeper signature, transport, or replay work
 - command-router / initialization-sequencing practice, where the real bottleneck is not the final target call but the minimal earlier state needed to make that call truthful
 - runtime-table and initialized-image extraction when live artifacts are more trustworthy than damaged static dumps

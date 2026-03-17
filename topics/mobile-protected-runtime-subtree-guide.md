@@ -207,7 +207,8 @@ A compact way to remember the ladder is:
 - **traffic topology** first — choose the network-observation surface that actually reveals the decisive request family
 - **gate** second — stabilize install/signing/tooling/environment prerequisites enough that broader runtime evidence is trustworthy
 - **owner** third — prove the first ObjC / Swift / native (or cross-runtime) boundary that actually owns the consequence
-- **policy consumer** fourth in spirit — once owner visibility exists, reduce callback/result material into the first behavior-changing consumer
+- **controlled replay** fourth when needed — once the owner is plausible enough, reconstruct only the minimal truthful init/context obligations needed to call it in a controlled runtime
+- **policy consumer** fifth in spirit — once owner visibility or replay truth exists, reduce callback/result material into the first behavior-changing consumer
 
 Read `android-flutter-cross-runtime-owner-localization-workflow-note` when the main problem is:
 - the Android case is clearly Flutter/Dart shaped and several runtimes all look relevant, but the first consequence-bearing owner is still unclear
