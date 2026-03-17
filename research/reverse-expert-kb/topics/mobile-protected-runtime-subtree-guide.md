@@ -209,6 +209,11 @@ A compact way to remember the ladder is:
 - **owner** third — prove the first ObjC / Swift / native (or cross-runtime) boundary that actually owns the consequence
 - **policy consumer** fourth in spirit — once owner visibility exists, reduce callback/result material into the first behavior-changing consumer
 
+Read `android-flutter-cross-runtime-owner-localization-workflow-note` when the main problem is:
+- the Android case is clearly Flutter/Dart shaped and several runtimes all look relevant, but the first consequence-bearing owner is still unclear
+- Java-visible wrappers, engine/plugin routing, `libapp.so`, and native helpers all look plausible, but you still need to separate trigger surface, Flutter bridge, Dart owner, and native worker
+- repack/rewrite attempts are brittle enough that the better move may be live-runtime owner recovery in the runtime that actually executes
+
 Read `unity-il2cpp-state-ownership-and-persistence-workflow-note` when the main problem is:
 - the case is clearly Unity / IL2Cpp-shaped, but the real state owner is still unclear
 - obvious setters, wrappers, or metadata-visible methods fire, yet the value still reverts, gets overwritten, or fails to persist
