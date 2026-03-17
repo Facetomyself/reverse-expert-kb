@@ -244,12 +244,13 @@ Best move:
 - prove one downstream consequence from that subscriber rather than cataloging the whole observer graph
 
 ## 7. What this note adds to the native branch
-The native branch now has a more realistic progression:
-- `topics/native-semantic-anchor-stabilization-workflow-note.md` when code is readable but meanings are still too slippery
-- `topics/native-interface-to-state-proof-workflow-note.md` when several interface routes exist and one representative proof chain is needed
-- `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md` when async registration/dispatch structure is already visible but the first consequence-bearing consumer is still unclear
+The native branch now has a more realistic ordered progression:
+- `topics/native-semantic-anchor-stabilization-workflow-note.md` first when code is readable but meanings are still too slippery
+- `topics/native-interface-to-state-proof-workflow-note.md` second when several interface routes exist and one representative proof chain is needed
+- `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md` third when one route is already plausible but async registration/dispatch structure still hides the first consequence-bearing consumer
 
-This keeps the native branch practical for the common case where direct call-graph reasoning breaks at queue, callback, or event-loop boundaries.
+This page is therefore usually a **continuation note**, not the default first native practical stop.
+Use it after semantic-anchor and interface-path work are solved enough that the remaining ambiguity really lives at queue, callback, completion, or event-loop boundaries.
 
 ## 8. Failure modes this note helps prevent
 - treating registration sites as if they already prove ownership

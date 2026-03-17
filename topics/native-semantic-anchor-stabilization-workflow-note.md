@@ -252,13 +252,14 @@ Best move:
 - find the first consumer that reduces the parsed material into one smaller mode, state, or action family
 
 ## 8. What this note adds to the native branch
-This note makes the native branch more practical between two already-visible stages:
+This note now acts as the **first practical native step** once decompilation and metadata make the code navigable.
 
-- decompilation/metadata make the code navigable
-- interface-to-state proof makes one path operationally trustworthy
+The native branch should usually be read in this order:
+- `topics/native-semantic-anchor-stabilization-workflow-note.md` first when code is readable but the first trustworthy local meaning is still unstable
+- `topics/native-interface-to-state-proof-workflow-note.md` next when one anchor is stable enough and the next bottleneck is choosing one representative operational route
+- `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md` later when one route is plausible but ownership breaks at callback, queue, completion, or event-loop boundaries
 
-This page covers the middle state where the code is readable but the meanings are still too slippery.
-It gives the native branch a compact rule:
+This page therefore covers the earliest practical native bottleneck after basic readability:
 - stabilize one semantic anchor before widening labels or proving whole subsystems
 
 ## 9. Failure modes this note helps prevent

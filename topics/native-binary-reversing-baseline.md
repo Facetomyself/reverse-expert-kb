@@ -292,10 +292,15 @@ This topic may later split into several child pages:
 A practical routing rule is now worth making explicit:
 - when static structure is readable but local meanings are still too slippery, stabilize one candidate semantic anchor before broad relabeling:
   - `topics/native-semantic-anchor-stabilization-workflow-note.md`
-- when imports/strings/xrefs/callbacks already expose several plausible routes and the next bottleneck is operational proof, prefer proving one representative interface-to-state-to-effect chain before broadening the subsystem map:
+- once one semantic anchor is trustworthy enough to navigate, and imports/strings/xrefs/callbacks expose several plausible routes, prefer proving one representative interface-to-state-to-effect chain before broadening the subsystem map:
   - `topics/native-interface-to-state-proof-workflow-note.md`
-- when registrations, callbacks, message pumps, completions, or reactor-loop helpers are already visible but behavioral ownership still breaks at async dispatch boundaries, localize the first consequence-bearing event-loop consumer before mapping more framework plumbing:
+- once one interface family is plausible but behavioral ownership breaks at async dispatch boundaries, localize the first consequence-bearing event-loop consumer before mapping more framework plumbing:
   - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
+
+This branch should now be read as a practical native ladder:
+- semantic-anchor stabilization first when code is readable but meaning is still unstable
+- interface-path proof second when the next bottleneck is choosing one representative operational route
+- callback/event-loop consumer proof third when the route is plausible but ownership breaks at queue, callback, completion, or dispatch boundaries
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is more synthesis-driven than source-dense.
