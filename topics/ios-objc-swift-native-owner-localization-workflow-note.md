@@ -266,6 +266,7 @@ Best move:
 - stop treating repack success as mandatory
 - move to the runtime that actually executes and recover candidate owners there
 - localize one consequence-bearing Dart / ObjC / native owner instead of remaining trapped in framework setup churn
+- if needed, prefer live runtime dumping / symbol recovery over brittle rebuild success criteria
 
 ### Scenario D: Native request helper is easy to hook, but request ownership is still ambiguous
 Pattern:

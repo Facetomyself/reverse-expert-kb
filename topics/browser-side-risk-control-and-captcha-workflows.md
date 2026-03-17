@@ -187,6 +187,8 @@ Includes:
 - slider / click / gesture / silent challenge logic
 - client-side interaction traces
 - local validation or preprocessing
+- decomposing the challenge into acquisition, perception, reasoning, and final artifact-generation stages rather than treating the visual puzzle as one opaque task
+- recognizing when a seemingly interaction-heavy challenge is actually recoverable as a deterministic data-path or pure-compute pipeline
 
 ### 2. Fingerprint and device-environment field analysis
 Includes:
@@ -194,6 +196,8 @@ Includes:
 - fingerprint field generation
 - environment-dependent branching
 - anti-automation signals
+- distinguishing fingerprint surfaces that merely validate the client from those that directly participate in token/cookie/signature construction
+- detector-aware spoofing where prototype fidelity, `toString`, output stability, and repeated-read consistency matter as much as the nominal field values
 - see also: `topics/browser-fingerprint-and-state-dependent-token-generation.md`
 
 ### 3. Token and signature workflow analysis
@@ -308,6 +312,8 @@ Includes:
 - challenge mutation
 - controlled browser-state variation
 - narrowing by differential behavior
+- selecting among offline replay/reimplementation, stronger browser harnesses, and transport-stack replacement when local execution appears correct but server-side verification still fails
+- restoring a real debug plane in embedded or locked browser shells before overcommitting to external deobfuscation or brittle model work
 
 ### 5. Protection overlap
 Includes:
