@@ -305,15 +305,22 @@ This topic may later split into several child pages:
 - `topics/trace-guided-simplification-of-virtualized-code.md`
 - `topics/targeted-trace-collection-strategies.md`
 - `topics/trace-slice-to-handler-reconstruction-workflow-note.md`
+- `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 
-A concrete first practical bridge now exists for this branch:
+Concrete practical bridges now exist for this branch:
 - `topics/trace-slice-to-handler-reconstruction-workflow-note.md`
+- `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 
-Use it when the bottleneck is no longer “should I trace at all?” but rather:
+Use the trace-slice note when the bottleneck is no longer “should I trace at all?” but rather:
 - how to choose one narrow trace slice
 - how to reduce repetitive dispatcher/protection churn into role-labeled regions
 - how to localize the first consequence-bearing handler, state write, or scheduler edge
 - how to hand the trace result back into one concrete static next move
+
+Use the runtime-table / init-obligation note when the trace or execution-assisted workflow is already good enough to reveal that:
+- live/runtime tables, initialized images, or command-sequenced state are truer than the static artifact
+- replay or emulation is close-but-wrong rather than fundamentally lost
+- the next useful reduction is one missing init/table/side-condition obligation rather than broader trace collection
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is strong on practitioner signal and lighter on formal comparative literature.

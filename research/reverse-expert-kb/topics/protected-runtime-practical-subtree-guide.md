@@ -11,6 +11,7 @@ Related pages:
 - topics/packed-stub-to-oep-and-first-real-module-workflow-note.md
 - topics/decrypted-artifact-to-first-consumer-workflow-note.md
 - topics/integrity-check-to-tamper-consequence-workflow-note.md
+- topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
 
 ## 1. Why this guide exists
 This guide exists because the KB’s protected / deobfuscation branch already has several strong practical notes, but until now it has been easier to read as a flat list of sibling pages than as a usable operator ladder.
@@ -230,5 +231,6 @@ The compact reading is:
 - hand off out of packed startup
 - prove the first ordinary consumer of recovered artifacts
 - prove the first consequence-bearing integrity tripwire
+- stabilize one truthful runtime artifact and one minimal init obligation when static views are still lying
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which leaf note to read first.
