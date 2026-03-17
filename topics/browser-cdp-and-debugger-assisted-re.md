@@ -181,6 +181,7 @@ Includes:
 - console/runtime inspection
 - stack/callback inspection
 - network/runtime correlation
+- reopening the debug plane in embedded/locked browser shells when DevTools visibility is disabled by a narrow gate rather than by a deep structural limitation
 
 ### 2. Debugger-assisted value-path recovery
 Includes:
@@ -189,6 +190,8 @@ Includes:
 - browser-side field observation
 - JS↔wasm boundary tracing for mixed-runtime targets
 - path narrowing through live inspection
+- consequence-bearing write localization (for example cookie/signature/token writes) and stack-climb workflows
+- runtime-shape and artifact-pipeline inspection when the real question is not just where a value was computed, but which browser state surfaces participated in constructing it
 
 ### 3. Counter-debugger and anti-observation handling
 Includes:
@@ -200,6 +203,7 @@ Includes:
 Includes:
 - treating CDP as the browser analogue of a runtime instrumentation surface
 - integrating debugger work with AST, replay, and protocol reasoning
+- deciding when debugger-assisted observation is enough versus when environment reconstruction, stronger browser harnesses, or transport-stack replacement are required because execution succeeds locally but server-side verification still fails
 
 ## 7. Analyst workflow implications
 This topic matters especially during:

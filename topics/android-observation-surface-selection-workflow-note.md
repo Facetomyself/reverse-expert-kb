@@ -100,6 +100,7 @@ A good default mapping is:
 - syscall-adjacent or lower-boundary side effects
 - a quieter surface than app-layer hot hooks
 - evidence under heavy app-local anti-instrumentation pressure
+- one narrow anti-analysis family such as `/proc/self/maps`, `readlinkat`, task-name scans, seccomp-installed kill policies, or similar boundary behavior that may be easier to localize from side effects than from protected in-process code
 
 #### Choose targeted trace / DBI when you need:
 - execution-shape truth
@@ -125,6 +126,8 @@ slice A: tap login -> observe libraries loaded during the next 2 seconds
 slice B: trigger risk check -> observe Binder transactions until response returns
 slice C: call target native wrapper -> observe one syscall-adjacent burst
 slice D: invoke protected routine once -> collect one targeted path trace
+slice E: trigger anti-Frida / anti-debug suspicion once -> observe one `/proc` / `readlinkat` / task-name / seccomp-adjacent boundary burst
+slice F: reproduce packet-capture failure once -> compare ordinary proxy visibility vs one transparent-redirection or framework-plaintext slice
 ```
 
 Narrow slices are easier to compare, safer to interpret, and cheaper to repeat.

@@ -181,6 +181,8 @@ Includes:
 - path narrowing
 - hidden control-structure exposure
 - flattening or dispatch disambiguation
+- virtualized/flattened handler-family reduction into smaller semantic anchors rather than full literal interpreter understanding
+- using trace slices to identify standard-family transforms, table access, or initialization obligations before wider static cleanup
 
 ### 2. DBI-assisted observation
 Includes:
@@ -199,6 +201,8 @@ Includes:
 - CRC/integrity bypass context
 - VMP/OLLVM/virtualized-target analysis
 - anti-analysis-aware observation strategies
+- Trace-Block divergence debugging when emulation or execution-assisted replay is close-but-wrong and the real bottleneck is the first missing environment or IO precondition rather than the core transform family
+- runtime-table / memory-fingerprint extraction when damaged static artifacts are less trustworthy than executed state
 
 ### 5. Tool/strategy selection
 Includes:
