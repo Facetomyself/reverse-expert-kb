@@ -260,15 +260,17 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 ### Firmware / protocol practical branch
 - `topics/firmware-and-protocol-context-recovery.md`
 - `topics/protocol-state-and-message-recovery.md`
+- `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 
-This branch should now be read as a practical bridge from firmware/protocol synthesis into five recurring operator bottlenecks:
+This branch should now be read as a practical bridge from firmware/protocol synthesis into six recurring operator bottlenecks:
 - environment/context recovery (`firmware-and-protocol-context-recovery`)
 - message/state recovery (`protocol-state-and-message-recovery`)
+- ingress/receive-path ownership localization (`protocol-ingress-ownership-and-receive-path-workflow-note`), which acts as the practical entry note when inbound traffic, receive callbacks, queue/ring activity, framing/reassembly, or deferred receive work are already visible, but the first local receive owner that actually feeds the parser-relevant object or handler family is still unclear
 - parser-to-state consequence localization (`protocol-parser-to-state-edge-localization-workflow-note`), which acts as the practical entry note when message families and candidate parsers are already visible but the first state write, reply-family selector, queue/timer insertion, or peripheral action that actually predicts later behavior is still unclear
 - replay-precondition / state-gate localization (`protocol-replay-precondition-and-state-gate-workflow-note`), which acts as the practical entry note when parser visibility and some field roles already exist, but structurally plausible replay, mutation, or stateful experimentation still fails because the decisive local acceptance gate still hides behind session phase, freshness, pending-request ownership, capability reduction, or another narrow protocol-state precondition
 - reply-emission / transport-handoff localization (`protocol-reply-emission-and-transport-handoff-workflow-note`), which acts as the practical entry note when parser/state work and even local acceptance are already partly visible, but the analyst still needs to prove where an accepted path becomes one concrete emitted reply, serializer/framing path, queue/descriptor commit, or transport/peripheral send handoff
