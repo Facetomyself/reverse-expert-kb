@@ -141,6 +141,7 @@ This branch should now be read as a practical bridge from baseline native synthe
 - async callback/consumer proof (`native-callback-registration-to-event-loop-consumer-workflow-note`), which acts as the usual third native step when one route is already plausible but registrations, message pumps, completions, or reactor-loop helpers still hide the first consequence-bearing callback delivery or event-loop consumer that makes the subsystem map behaviorally trustworthy
 
 ### Malware practical branch
+- `topics/malware-practical-subtree-guide.md`
 - `topics/malware-analysis-overlaps-and-analyst-goals.md`
 - `topics/collaborative-malware-analysis-and-role-differentiation.md`
 - `topics/staged-malware-execution-to-consequence-proof-workflow-note.md`
@@ -148,6 +149,7 @@ This branch should now be read as a practical bridge from baseline native synthe
 - `topics/malware-reporting-and-handoff-evidence-packaging-workflow-note.md`
 
 This branch should now be read as a practical bridge from malware-overlap synthesis into three recurring operator bottlenecks:
+- subtree navigation and laddering (`malware-practical-subtree-guide`), which acts as the branch entry surface when the analyst needs to decide whether the current malware bottleneck is first-consequence proof, gated progression, or evidence packaging/handoff
 - malware goal and triage framing (`malware-analysis-overlaps-and-analyst-goals`)
 - collaboration / handoff burden (`collaborative-malware-analysis-and-role-differentiation`)
 - staged execution to first proved consequence (`staged-malware-execution-to-consequence-proof-workflow-note`), which acts as the practical entry note when unpack/decrypt/inject/config stages are already visible but the first local handoff that actually predicts payload entry, persistence, comms, or sleep/degrade behavior still needs to be proved before deeper static work, reporting, or detection handoff becomes trustworthy
