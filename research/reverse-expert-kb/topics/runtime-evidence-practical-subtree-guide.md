@@ -203,7 +203,22 @@ This subtree guide turns the runtime-evidence branch into a clearer operator lad
 
 The compact reading is:
 - choose the right observation surface
+- place one smaller hook family at the right truth boundary
 - stabilize execution history when live evidence is too fragile
 - walk backward from one visible late effect to one causal boundary
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing whether the right next move is more observation, more replay, or narrower reverse-causality proof.
+arrower reverse-causality proof.
+makes the branch easier to enter, easier to sequence, and less dependent on already knowing whether the right next move is more observation, more replay, or narrower reverse-causality proof.
+ttleneck is preserving, packaging, or handing off the evidence cleanly
+
+## 10. Topic summary
+This subtree guide turns the runtime-evidence branch into a clearer operator ladder.
+
+The compact reading is:
+- choose the right observation surface
+- stabilize execution history when live evidence is too fragile
+- walk backward from one visible late effect to one causal boundary
+
+That makes the branch easier to enter, easier to sequence, and less dependent on already knowing whether the right next move is more observation, more replay, or narrower reverse-causality proof.
+easier to enter, easier to sequence, and less dependent on already knowing whether the right next move is more observation, more replay, or narrower reverse-causality proof.
