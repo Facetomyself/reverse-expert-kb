@@ -261,15 +261,26 @@ A useful native reading order is now:
 This note is therefore best read as the native branch’s **dynamic-load / provider-ownership reduction step**.
 It helps when “plugin/module architecture” is the dominant middle bottleneck, but before the remaining work becomes pure async delivery proof.
 
-## 8. Failure modes this note helps prevent
+## 8. Practical handoff rule
+Leave this note and continue into the async-native continuation as soon as the main uncertainty stops being “which loaded component first becomes behaviorally real?” and becomes “which delivered callback, queue consumer, or event-loop path actually turns that ownership into later behavior?”
+
+The usual next stop is:
+- `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md` when one module/export/factory owner is already plausible enough, but retained callbacks, posted work, completion delivery, message pumps, or event reducers still hide the first consequence-bearing consumer
+
+A compact practical rule is:
+- stay in this note while the main uncertainty is still reducing loader/module visibility into one retained owner
+- leave this note once module ownership is good enough and the real bottleneck becomes async delivery or callback-consumer proof
+
+## 9. Failure modes this note helps prevent
 - treating successful load/init as if it already proved behavioral ownership
 - cataloging every plugin or export before proving one retained consumer
 - confusing module presence with module use
 - over-crediting the host bootstrap wrapper instead of the first reused provider object or handler table
 - stopping at `GetProcAddress` / `dlsym` rather than the first consequence-bearing consumer
+- staying too long in loader/provider analysis after the real bottleneck has shifted to async delivery or callback-consumer proof
 - widening to fallback/backends/sibling modules before one module-to-effect chain is grounded
 
-## 9. Compact operator checklist
+## 10. Compact operator checklist
 - Pick one loader question, not the whole plugin ecosystem.
 - Separate eligibility, resolution, registration, consumption, and effect.
 - Prefer retained provider objects/tables over ceremonial init success.

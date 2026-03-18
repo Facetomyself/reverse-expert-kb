@@ -254,6 +254,10 @@ The native branch now has a more realistic ordered progression:
 This page is therefore usually a **continuation note**, not the default first native practical stop.
 Use it after semantic-anchor, interface-path, and when relevant loaded-module-owner work are solved enough that the remaining ambiguity really lives at queue, callback, completion, or event-loop boundaries.
 
+A compact continuation rule is:
+- do not enter this note just because callbacks are visible somewhere in the subsystem
+- enter it when the route or owner question is already reduced enough that one event-source -> registration -> dispatch -> consumer proof is now the narrowest truthful next move
+
 ## 8. Failure modes this note helps prevent
 - treating registration sites as if they already prove ownership
 - cataloging the whole event framework before proving one behavior-changing consumer

@@ -248,15 +248,27 @@ This workflow note therefore explains what to do after code is readable enough t
 
 That keeps the native branch practical instead of leaving it as a comparison-only page or a loose set of sibling notes.
 
-## 8. Failure modes this note helps prevent
+## 8. Practical handoff rule
+Leave this note and continue into a narrower native continuation as soon as the current bottleneck stops being “which broad interface path should I prove first?”
+
+Two handoffs matter most:
+- move to `topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md` when one route is already plausible enough, but plugin/module loaders, export resolution, factory registration, or provider-installation logic still hide which loaded component first becomes behaviorally real
+- move to `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md` when one route or loaded-module owner is already plausible enough, but the remaining uncertainty now lives at queue, callback, completion, or event-loop delivery boundaries
+
+A compact practical rule is:
+- stay in this note while the main uncertainty is still route choice among several plausible interface families
+- leave this note once the route is good enough and the real bottleneck becomes either loaded-module ownership or async consumer proof
+
+## 9. Failure modes this note helps prevent
 - reading ever more decompiled code without choosing a proof target
 - treating imports/strings/xrefs as if they already proved operational importance
 - over-instrumenting the whole subsystem instead of proving one narrow edge
 - picking the prettiest function instead of the best consequence anchor
 - confusing parser visibility or callback visibility with behavior-changing leverage
+- staying too long in broad route-proof work after the real bottleneck has become loaded-module ownership or async consumer proof
 - broadening to sibling handlers before one path is actually grounded
 
-## 9. Compact operator checklist
+## 10. Compact operator checklist
 - Choose one interface family, not the whole subsystem.
 - Label entry shim, reduction node, state edge, and effect boundary.
 - Prefer the first durable state change over the deepest local semantics.
