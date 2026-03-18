@@ -254,6 +254,8 @@ Best move:
 ## 9. Relationship to nearby pages
 - `topics/firmware-and-protocol-context-recovery.md`
   - explains why context and downstream utility dominate many firmware cases
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+  - use that when the missing proof is still where accepted local state becomes one real outbound serializer / queue / transport handoff rather than a later completion-driven consequence
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
   - use that when the main missing edge is still the first effect-bearing MMIO/peripheral write itself
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`

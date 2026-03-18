@@ -258,6 +258,10 @@ Best move:
   - explains the broader message/state recovery family
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
   - use that when the decisive missing edge is still parser/state-side rather than peripheral-side
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+  - use that when the missing proof is still the first committed outbound serializer / queue / transport handoff rather than the first hardware-facing effect after it
+- `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
+  - continue there when the first MMIO/peripheral edge is already proved, but the durable reply/state/scheduler consequence still lives later in interrupt or deferred completion handling
 - `topics/native-interface-to-state-proof-workflow-note.md`
   - this page is the firmware/peripheral-side sibling for a similar consequence-first proof problem
 
