@@ -367,6 +367,7 @@ Practical bridge pages now exist for recurring protected-runtime bottlenecks:
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
 - `topics/integrity-check-to-tamper-consequence-workflow-note.md`
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
+- `topics/protected-runtime-observation-topology-selection-workflow-note.md`
 
 Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry surface when the case is clearly protected-runtime shaped, but the current operator bottleneck still needs to be classified as packed/bootstrap handoff, artifact-consumer proof, integrity/tamper consequence proof, or the nearby VM/dispatcher branch before choosing a narrower workflow note.
 
