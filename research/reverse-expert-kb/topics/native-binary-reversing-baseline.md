@@ -311,6 +311,7 @@ This branch should now be read as a practical native ladder:
 - callback/event-loop consumer proof fourth when the route or module owner is plausible but ownership still breaks at queue, callback, completion, or dispatch boundaries
 
 A practical sequencing reminder now worth preserving at the parent-page level is:
+- do not stay too long in broad semantic-anchor work once one anchor is already good enough and the real bottleneck has narrowed into representative route proof
 - do not stay too long in broad interface-path proof work once the real bottleneck has narrowed into loader/provider ownership
 - do not stay too long in loader/provider ownership work once the real bottleneck has narrowed into async delivery or callback-consumer proof
 - treat each handoff as a branch-routing decision, not just leaf-note detail, so analysts keep reducing the case toward one smaller trustworthy object instead of re-expanding the subsystem map
