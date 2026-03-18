@@ -206,6 +206,7 @@ Together, the iOS practical branch should now usually be read as an ordered ladd
 - `ios-packaging-jailbreak-and-runtime-gate-workflow-note` next, when the case is still dominated by broader iOS setup, observation topology, install/sign path, packaging, realism, instrumentation-visibility, or early-vs-late drift uncertainty beyond that narrower traffic-visibility issue
 - `ios-objc-swift-native-owner-localization-workflow-note` after that, when the case is already reachable enough to study but the first consequence-bearing ObjC / Swift / native owner is still unclear in a broadly iOS-shaped path
 - `ios-flutter-cross-runtime-owner-localization-workflow-note` as the specialized continuation when the ownership problem is clearly cross-runtime and Flutter/Dart execution is part of the real owner search rather than just shell context
+- `ios-chomper-owner-recovery-and-black-box-invocation-workflow-note` after owner proof when broad owner-localization work should stop and the real bottleneck is now minimal truthful init/context obligation recovery and reduced invocation contract
 - `ios-result-callback-to-policy-state-workflow-note` later, when callback/result visibility already exists and the remaining bottleneck is proving the first local policy state or behavior-changing consumer
 
 A compact way to remember the ladder is:

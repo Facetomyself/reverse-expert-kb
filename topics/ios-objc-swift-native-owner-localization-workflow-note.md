@@ -213,7 +213,9 @@ trigger surface
 ```
 
 At that point, route forward.
-In the common iOS practical ladder, the usual next stop is:
+In the common iOS practical ladder, do **not** stay here once the owner is already good enough and the real bottleneck has shifted.
+The usual next stops are:
+- `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md` when the owner path is already plausible enough but the next bottleneck is now minimal truthful init/context obligation recovery and reduced invocation contract
 - `topics/ios-result-callback-to-policy-state-workflow-note.md` when callback/result visibility already exists and the remaining bottleneck is proving the first behavior-changing local policy state or consumer
 
 Other valid handoffs include:

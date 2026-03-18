@@ -44,6 +44,7 @@ The stronger practical move is:
 ```text
 freeze one target artifact
   -> recover one plausible owner path from live runtime truth
+  -> stop broad owner-localization work once that owner is already good enough
   -> reconstruct only the minimal init/context obligations
   -> invoke the true owner in a controlled runtime
   -> prove that one replayed path yields the real artifact
