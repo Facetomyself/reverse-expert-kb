@@ -250,6 +250,7 @@ That usually means:
 - prove one broad gate family before deep owner search
 - prove one owner before building a replay harness
 - prove one truthful callable path before cataloging many setup helpers
+- if replay is already close-but-wrong, reduce one narrower runtime-table or initialization obligation before widening outward again
 - prove one policy-bearing consumer before widening callback coverage
 
 ## 6. What this branch is strongest at
@@ -299,6 +300,7 @@ The compact reading is:
 - stabilize the right runtime/setup gate
 - prove the right owner
 - reconstruct the smallest truthful callable path when needed
+- reduce one narrower runtime-table or initialization obligation when replay is already close-but-wrong
 - prove the right callback/result consumer
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which iOS workflow note to read first.

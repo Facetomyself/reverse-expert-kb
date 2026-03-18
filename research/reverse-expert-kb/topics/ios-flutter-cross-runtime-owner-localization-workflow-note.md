@@ -242,6 +242,7 @@ iOS shell trigger
 
 At that point, route forward:
 - if the owner is already plausible enough but the next bottleneck is now minimal truthful replay rather than broader owner choice, continue into `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md`
+- if controlled replay is already close-but-wrong and the remaining gap has narrowed into one runtime table family, initialized-image boundary, or minimal init/context obligation, continue into `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 - if the owner is request-field generation, continue into signature/preimage recovery
 - if the owner is broader native subsystem logic, continue into native proof work
 - if the owner is mostly ordinary ObjC / Swift control again, return to the iOS owner note
