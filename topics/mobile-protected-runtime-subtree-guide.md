@@ -184,6 +184,7 @@ Read `ios-packaging-jailbreak-and-runtime-gate-workflow-note` when the main prob
 - the case is clearly iOS-shaped, but the first decisive environment gate is still unclear
 - you need to separate packaging/resign drift, jailbreak-environment probes, instrumentation visibility, device-realism drift, and later trust/session consequences
 - you need one representative flow, one compare pair, one first divergence boundary, and one proved gate family before deeper hooks, bypasses, or request analysis
+- you specifically need to stop collapsing install/signing path, rootful-vs-rootless differences, Frida deployment coherence, or repack/rewrite instability into one vague early "jailbreak detection" story
 
 Read `ios-objc-swift-native-owner-localization-workflow-note` when the main problem is:
 - the iOS case is already reachable enough to study, but several ObjC / Swift / native surfaces still look plausible and the first consequence-bearing owner is unclear

@@ -51,6 +51,8 @@ iOS practical work is easiest to navigate when the analyst first classifies the 
 6. **callback/result-to-policy consequence uncertainty**
    - visible callbacks or result wrappers already exist, but the first behavior-changing consumer or local policy state is still unclear
 
+Inside family 2, a recurring practical reminder now deserves to stay explicit: do not collapse all early iOS setup into one vague "jailbroken vs not" bucket. Installation/signing path, rootful vs rootless mode, Frida deployment coherence, and rewrite/repack stability can each change whether later evidence is trustworthy.
+
 A compact operator ladder for this branch is:
 
 ```text
@@ -91,6 +93,7 @@ Start here when:
 - the case is clearly iOS-shaped, but broader packaging, signing, jailbreak, tooling, realism, or early-vs-late divergence still dominates
 - you can already reach or partly reach the flow, but still cannot trust whether the environment is stable enough for later ownership work
 - the next useful output is one representative flow, one compare pair, and one proved gate family
+- rootful vs rootless differences, install/signing path, Frida deployment coherence, or repack/rewrite instability still make it unclear whether later observations are even comparable
 
 Do **not** start here when:
 - the current problem is still primarily traffic-topology blindness

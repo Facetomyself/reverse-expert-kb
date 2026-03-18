@@ -278,6 +278,11 @@ That ordered route helps separate five different operator bottlenecks that are e
 - specialized cross-runtime owner recovery when Flutter/Dart execution is part of the real owner search
 - narrower callback/result-to-policy consequence proof once visibility already exists
 
+Within that iOS setup/gate stage, recent source-driven maintenance also hardened three recurring practical reminders:
+- install/signing path is part of the runtime gate surface rather than mere housekeeping
+- rootful vs rootless should be treated as different operational environments, not one generic "jailbroken" bucket
+- Frida deployment coherence and transport path can explain apparent instability before stronger anti-instrumentation claims are justified
+
 ### 3. Instrumentation and tracing patterns
 Includes:
 - targeted hooks
