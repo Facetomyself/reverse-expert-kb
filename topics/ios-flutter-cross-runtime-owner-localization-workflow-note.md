@@ -184,6 +184,8 @@ If repack/rewrite attempts are:
 
 then switch to **live-runtime owner recovery**.
 
+Treat this as a practical fallback rule, not as surrender: if reFlutter- or repack-shaped work is no longer yielding a stable runnable artifact, stop requiring rewrite success as a precondition for progress and localize the owner in the runtime that already proves the real flow still executes.
+
 This is the key practical rule.
 
 ### Step 4: recover candidate Dart owners from the live runtime
