@@ -243,8 +243,11 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 
 ### Mobile / protected-runtime practice subtree
 - `topics/mobile-protected-runtime-subtree-guide.md`
+- `topics/ios-practical-subtree-guide.md`
+- `topics/ios-traffic-topology-relocation-workflow-note.md`
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md`
+- `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md`
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 - `topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md`
 - `topics/android-linker-binder-ebpf-observation-surfaces.md`
@@ -301,6 +304,7 @@ This branch should now be read as a practical bridge from firmware/protocol synt
 - ISR/deferred-worker consequence proof (`isr-and-deferred-worker-consequence-proof-workflow-note`), which acts as the practical entry note when trigger visibility and even some peripheral-effect visibility already exist, but the decisive boundary is later: the first interrupt/completion/deferred-worker handoff that turns earlier hardware-facing activity into durable state, reply, scheduler, or policy behavior
 
 This subtree is now best read as coordinated mobile analyst entry surfaces:
+- iOS subtree routing (`ios-practical-subtree-guide`), which acts as the branch entry note when a case is clearly iOS-shaped but the analyst first needs to decide whether the current bottleneck is traffic-topology uncertainty, broad setup/gate uncertainty, post-gate owner uncertainty, specialized Flutter/Dart cross-runtime owner uncertainty, controlled-replay/init-obligation uncertainty, or callback/result-to-policy consequence uncertainty
 - iOS practical ladder: traffic-topology relocation (`ios-traffic-topology-relocation-workflow-note`) first when proxy-only visibility is still untrustworthy, then environment-gate diagnosis (`ios-packaging-jailbreak-and-runtime-gate-workflow-note`), then broad post-gate owner localization (`ios-objc-swift-native-owner-localization-workflow-note`), then specialized Flutter/cross-runtime owner recovery (`ios-flutter-cross-runtime-owner-localization-workflow-note`) when the true owner search spans iOS shell, Flutter bridge, Dart runtime, and native workers, then execution-assisted owner replay (`ios-chomper-owner-recovery-and-black-box-invocation-workflow-note`) when the owner path is already plausible enough and the real bottleneck is now minimal truthful replay, then callback/result-to-policy localization (`ios-result-callback-to-policy-state-workflow-note`) once visible result material already exists; together these notes separate traffic-observation topology uncertainty, broad setup/gate uncertainty, consequence ownership across ObjC / Swift / native boundaries, specialized cross-runtime owner proof, execution-assisted owner replay once live truth is good enough, and the narrower proof of the first behavior-changing local policy state
 - observability under resistance (`anti-frida-and-anti-instrumentation-practice-taxonomy`, `protected-runtime-observation-topology-selection-workflow-note`, `android-linker-binder-ebpf-observation-surfaces`, `android-observation-surface-selection-workflow-note`, and `trace-guided-and-dbi-assisted-re`)
 - Unity / IL2Cpp state-ownership and persistence proof (`unity-il2cpp-state-ownership-and-persistence-workflow-note`), which acts as the practical entry note when metadata-visible classes, wrappers, or setters already exist but the real object owner, overwrite/refresh boundary, or persistence consequence is still unclear

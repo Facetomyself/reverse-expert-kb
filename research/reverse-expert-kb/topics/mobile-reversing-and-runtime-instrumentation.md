@@ -263,11 +263,12 @@ Includes:
 - jailbreak vs virtualized workflow differences
 - PAC/arm64e-era mitigation-aware reasoning
 
-The iOS practical branch should now usually be read in this order:
+The iOS practical branch should now usually be read through `topics/ios-practical-subtree-guide.md`, then in this order:
 - `topics/ios-traffic-topology-relocation-workflow-note.md` when the first uncertainty is still whether the current network-observation surface is truthful enough to show the decisive request family at all
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md` when the ownership problem is clearly Flutter/Dart-shaped
+- `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md` when one owner path is already plausible enough and the real bottleneck is minimal truthful replay rather than broader owner choice
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 
 That ordered route helps separate five different operator bottlenecks that are easy to collapse together:
