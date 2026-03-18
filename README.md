@@ -12,6 +12,8 @@ The workflow should:
 - reflect on what is newly learned vs already known
 - write clean Markdown notes
 - keep downloaded/source material organized
+- steadily improve canonical topic pages, subtree guides, and practical workflow ladders inside the KB itself
+- prefer practical, case-driven workflow coverage over endless abstract taxonomy growth
 
 ## Structure
 

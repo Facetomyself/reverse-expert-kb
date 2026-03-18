@@ -294,6 +294,8 @@ Among these, the especially central dimensions are:
 ### Closely related pages
 - `topics/runtime-behavior-recovery.md`
   - because record/replay extends runtime answerability into revisitable evidence
+- `topics/hook-placement-and-observability-workflow-note.md`
+  - because replay is often the right continuation only after one truthful observation surface is already known and live reruns remain too fragile or expensive
 - `topics/analyst-workflows-and-human-llm-teaming.md`
   - because execution-history tooling changes how analysts externalize and revisit reasoning
 - `topics/notebook-and-memory-augmented-re.md`

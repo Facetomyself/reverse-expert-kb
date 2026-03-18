@@ -311,7 +311,9 @@ Among these, the especially central dimensions are:
 
 ### Closely related pages
 - `topics/runtime-evidence-practical-subtree-guide.md`
-  - because the runtime-evidence subtree guide is now the branch entry surface when the analyst first needs to classify whether the bottleneck is observation/layer selection, capture stability, or late-effect reverse-causality work
+  - because the runtime-evidence subtree guide is now the branch entry surface when the analyst first needs to classify whether the bottleneck is observation/layer selection, hook-placement truth-boundary choice, capture stability, or late-effect reverse-causality work
+- `topics/hook-placement-and-observability-workflow-note.md`
+  - because many runtime-evidence cases stop being broad observability questions once the analyst mainly needs to choose one truthful observation surface and one minimal hook family
 - `topics/decompilation-and-code-reconstruction.md`
   - because runtime behavior often validates or refines static reconstruction
 - `topics/analyst-workflows-and-human-llm-teaming.md`
