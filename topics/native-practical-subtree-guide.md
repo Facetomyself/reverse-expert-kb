@@ -185,6 +185,7 @@ When a case is clearly native-baseline shaped, ask these in order:
 If more than one feels true, prefer the earliest boundary that still blocks later work.
 That usually means:
 - stabilize one semantic anchor before comparing many interface paths
+- leave broad semantic-anchor work once one anchor is already good enough and the real bottleneck becomes choosing one representative interface route
 - prove one representative interface route before reducing loader/provider ambiguity
 - prove one loaded-module owner before mapping a whole event framework
 - prove one consequence-bearing consumer before cataloging sibling callbacks or neighboring handlers
