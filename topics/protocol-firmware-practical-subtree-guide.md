@@ -43,7 +43,7 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of eight recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of ten recurring families:
 
 1. **context / object-of-recovery framing uncertainty**
    - the analyst still needs to decide whether the real object is environment recovery, protocol structure, peripheral context, or downstream rehosting/fuzzing utility
@@ -51,15 +51,19 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - the important traffic or content-bearing object is still not meaningfully visible from the current surface
 3. **socket-boundary / private-overlay uncertainty**
    - broad visibility has improved enough that the next bottleneck is no longer whether traffic exists, but where the first truthful overlay object appears before deeper parser/state work
-4. **ingress ownership uncertainty**
+4. **layer-peeling / contract-recovery uncertainty**
+   - a visible object exists, but it still mixes framing, compression, serialization, crypto wrapping, RPC shell, or continuation structure and has not yet been reduced into one smaller trustworthy contract
+5. **content-pipeline continuation uncertainty**
+   - the first authenticated API family is visible, but the real analyst object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder
+6. **ingress ownership uncertainty**
    - inbound traffic is visible, but the first local receive owner that feeds parser-relevant handling is still unclear
-5. **parser-to-consequence uncertainty**
+7. **parser-to-consequence uncertainty**
    - the parser or dispatch region is visible, but the first state/reply/peripheral consequence edge is still unknown
-6. **acceptance / replay-precondition uncertainty**
+8. **acceptance / replay-precondition uncertainty**
    - structurally plausible replay or mutation still fails because one narrow state/precondition gate is unproved
-7. **reply-emission / output-handoff uncertainty**
+9. **reply-emission / output-handoff uncertainty**
    - local acceptance or reply-object creation is visible, but the first committed output path is still unclear
-8. **hardware-side effect / interrupt consequence uncertainty**
+10. **hardware-side effect / interrupt consequence uncertainty**
    - the path already reaches peripheral or interrupt/deferred boundaries, but the first durable effect-bearing write or later consequence handoff is still unproved
 
 A compact operator ladder for this branch is:
@@ -232,7 +236,7 @@ Do **not** start here when:
 - the real bottleneck is earlier in parser/state or replay-gate work
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as nine common bottleneck families that often chain into one another.
+A useful way to read the branch is as ten common bottleneck families that often chain into one another.
 
 ### A. Broad firmware/protocol uncertainty -> correct recovery object
 Typical question:
@@ -280,11 +284,23 @@ Primary note:
 - `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
 
 Possible next handoff:
+- `topics/protocol-content-pipeline-recovery-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
-- content or artifact continuation work when the real product is manifest/key/content
 
-### E. Visible inbound activity -> first local receive owner
+### E. Visible continuation object -> first trustworthy artifact ladder
+Typical question:
+- if the first authenticated API family is already visible, what continuation path turns a manifest/handle/key/chunk/segment ladder into one representative artifact proof?
+
+Primary note:
+- `topics/protocol-content-pipeline-recovery-workflow-note.md`
+
+Possible next handoff:
+- `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
+- artifact automation or downloader construction
+- key/crypto recovery for the artifact layer
+
+### F. Visible inbound activity -> first local receive owner
 Typical question:
 - which local queue, ring, framing commit, callback, or deferred receive worker first takes ownership of the inbound object?
 
@@ -295,7 +311,7 @@ Possible next handoff:
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 
-### F. Parser visibility -> first state or effect consequence
+### G. Parser visibility -> first state or effect consequence
 Typical question:
 - what first state write, reply-family selector, queue/timer insertion, or peripheral action actually predicts later behavior?
 
@@ -307,7 +323,7 @@ Possible next handoff:
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 
-### G. Structurally plausible replay -> accepted interaction
+### H. Structurally plausible replay -> accepted interaction
 Typical question:
 - which first local phase, freshness, pending-request, capability, or state gate decides whether the interaction really advances?
 
@@ -318,7 +334,7 @@ Possible next handoff:
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 
-### H. Accepted local path -> real output behavior
+### I. Accepted local path -> real output behavior
 Typical question:
 - where does accepted local state become one real emitted reply, serializer path, queue commit, descriptor submission, or transport-visible send?
 
@@ -330,7 +346,7 @@ Possible next handoff:
 - serializer/framing recovery
 - peripheral-send or transport modeling
 
-### I. Peripheral or completion visibility -> durable hardware-side consequence
+### J. Peripheral or completion visibility -> durable hardware-side consequence
 Typical question:
 - which first MMIO write, arm, status-latch, ISR reduction, or deferred-worker consequence actually predicts later durable behavior?
 
