@@ -318,6 +318,8 @@ Use this page when the bottleneck is:
 Then route outward based on what remains hard:
 - if runtime-observation strategy is still the bottleneck:
   - `topics/runtime-behavior-recovery.md`
+- if the truthful observation surface or minimal hook family is still the bottleneck:
+  - `topics/hook-placement-and-observability-workflow-note.md`
 - if replay / execution-history concepts or tooling tradeoffs are the main question:
   - `topics/record-replay-and-omniscient-debugging.md`
 - if the result needs stronger evidence linkage or handoff discipline:
