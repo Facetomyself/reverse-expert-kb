@@ -190,6 +190,9 @@ Typical question:
 Primary note:
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
 
+Routing reminder:
+- leave broad packed-startup work here once one trustworthy OEP-like boundary and one downstream ordinary-code anchor are already good enough
+
 Possible next handoff:
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md` when unpacking is solved but later protected execution still dominates
 - `topics/native-semantic-anchor-stabilization-workflow-note.md` when the post-unpack region is readable but semantically slippery
@@ -202,6 +205,9 @@ Typical question:
 
 Primary note:
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
+
+Routing reminder:
+- leave broad artifact-to-consumer work here once one first ordinary consumer and one downstream consequence-bearing handoff are already good enough
 
 Possible next handoff:
 - `topics/native-interface-to-state-proof-workflow-note.md`
@@ -216,6 +222,9 @@ Typical question:
 Primary note:
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 
+Routing reminder:
+- leave broad runtime-artifact / initialization-obligation work here once one truthful runtime artifact family and one smallest missing obligation are already good enough
+
 Possible next handoff:
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
 - `topics/native-interface-to-state-proof-workflow-note.md`
@@ -228,6 +237,9 @@ Typical question:
 
 Primary note:
 - `topics/integrity-check-to-tamper-consequence-workflow-note.md`
+
+Routing reminder:
+- leave broad integrity/tamper work here once one reduced result and one first consequence-bearing tripwire are already good enough
 
 Possible next handoff:
 - `topics/environment-differential-diagnosis-workflow-note.md` when compare conditions still dominate trust
