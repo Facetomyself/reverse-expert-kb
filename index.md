@@ -152,6 +152,7 @@ This branch should now be read as a practical bridge from baseline native synthe
 - `topics/malware-analysis-overlaps-and-analyst-goals.md`
 - `topics/collaborative-malware-analysis-and-role-differentiation.md`
 - `topics/staged-malware-execution-to-consequence-proof-workflow-note.md`
+- `topics/malware-config-to-capability-bucket-workflow-note.md`
 - `topics/malware-sleep-jitter-and-environment-gate-workflow-note.md`
 - `topics/malware-reporting-and-handoff-evidence-packaging-workflow-note.md`
 
