@@ -167,21 +167,24 @@ This branch should now be read as a practical bridge from malware-overlap synthe
 ### Deobfuscation / protected-runtime practical branch
 - `topics/protected-runtime-practical-subtree-guide.md`
 - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
+- `topics/protected-runtime-observation-topology-selection-workflow-note.md`
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 - `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
+- `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 - `topics/integrity-check-to-tamper-consequence-workflow-note.md`
 
-This branch should now be read as a practical bridge from mature protected/deobfuscation synthesis into a subtree guide plus five recurring operator bottlenecks:
-- subtree navigation and bottleneck selection (`protected-runtime-practical-subtree-guide`), which acts as the branch entry surface when the case is clearly protected-runtime shaped but the analyst first needs to classify whether the current bottleneck is trace/dispatcher churn, packed/bootstrap handoff, artifact-consumer proof, or integrity/tamper consequence proof
+This branch should now be read as a practical bridge from mature protected/deobfuscation synthesis into a subtree guide plus seven recurring operator bottlenecks:
+- subtree navigation and bottleneck selection (`protected-runtime-practical-subtree-guide`), which acts as the branch entry surface when the case is clearly protected-runtime shaped but the analyst first needs to classify whether the current bottleneck is observation-topology failure, trace/dispatcher churn, packed/bootstrap handoff, artifact-consumer proof, runtime-artifact / initialization-obligation recovery, or integrity/tamper consequence proof
 - broad protected/deobfuscation framing and evaluation (`obfuscation-deobfuscation-and-packed-binaries`)
+- observation-topology selection (`protected-runtime-observation-topology-selection-workflow-note`), which acts as the practical entry note when direct attach, spawn, app-local hooks, or ordinary instrumentation are themselves unstable, detected, semantically late, or misleading and the analyst first needs one more truthful boundary before narrower protected-runtime work becomes trustworthy
 - trace-to-semantic-anchor reduction (`vm-trace-to-semantic-anchor-workflow-note`), which acts as the practical entry note when virtualization, flattening, or handler churn is already visible but the analyst still needs one stable semantic anchor plus one consequence-bearing handler/state edge before deeper static reconstruction becomes trustworthy
 - dispatcher-to-state-edge reduction (`flattened-dispatcher-to-state-edge-workflow-note`), which acts as the practical entry note when the dispatcher or flattened region is already recognizable and the next bottleneck is identifying the first durable state object, reduction helper, or dispatcher-exit family that predicts later behavior and yields a trustworthy smaller static target
 - packed-stub-to-OEP handoff reduction (`packed-stub-to-oep-and-first-real-module-workflow-note`), which acts as the practical entry note when shelling, packing, or staged bootstrap is already visible but the next bottleneck is proving one trustworthy OEP-like boundary plus one downstream ordinary-code anchor that yields a reusable post-unpack dump or smaller static target
 - decrypted-artifact-to-first-consumer reduction (`decrypted-artifact-to-first-consumer-workflow-note`), which acts as the practical entry note when strings, config, code blobs, bytecode, tables, or normalized buffers are already visible enough to study and the next bottleneck is proving the first ordinary consumer that turns that recovered artifact into request, parser, policy, scheduler, or payload behavior
-- integrity-check-to-consequence reduction (`integrity-check-to-tamper-consequence-workflow-note`), which acts as the practical entry note when CRC, checksum, self-hash, signature, or anti-hook verification logic is already visible but the analyst still needs to prove the first reduced result, consequence-bearing tripwire, and one downstream effect that makes the next static or runtime target trustworthy
 - runtime-artifact / initialization-obligation recovery (`runtime-table-and-initialization-obligation-recovery-workflow-note`), which acts as the practical entry note when repaired dumps, static tables, or offline reconstructions still look damaged or under-initialized, live/runtime state looks truer, and the next bottleneck is isolating one minimal init chain, runtime table family, initialized image, or side-condition obligation that explains why replay is close-but-wrong
+- integrity-check-to-consequence reduction (`integrity-check-to-tamper-consequence-workflow-note`), which acts as the practical entry note when CRC, checksum, self-hash, signature, or anti-hook verification logic is already visible but the analyst still needs to prove the first reduced result, consequence-bearing tripwire, and one downstream effect that makes the next static or runtime target trustworthy
 
 ### Browser runtime subtree
 - `topics/browser-runtime-subtree-guide.md`
@@ -324,10 +327,6 @@ This subtree is now best read as coordinated mobile analyst entry surfaces:
 - hybrid bridge payload recovery (`webview-native-bridge-payload-recovery-workflow-note`), which acts as the practical entry note when ownership is already suspected and the next bottleneck is recovering object-bridge, message-channel, or custom-URL handoff payloads before native normalization destroys structure
 - hybrid cookie/header/bootstrap state handoff localization (`webview-cookie-header-bootstrap-handoff-workflow-note`), which acts as the practical entry note when page-side state clearly influences native behavior but no explicit object bridge is visible and the analyst must localize the first native consumer through cookie reads, header merges, or bootstrap-store pulls before deeper signing or ownership work; it now also explicitly treats stale bootstrap snapshots and later native→page re-consumption as common reasons a seemingly correct handoff still fails behaviorally
 - hybrid native→page return-path and page-consumer diagnosis (`webview-native-response-handoff-and-page-consumption-workflow-note`), which acts as the practical entry note when native code already obtains a meaningful result but the decisive next behavior still happens inside the page and the analyst must separate outbound native emission from the first meaningful page consumer, while also checking whether bridge visibility is being mistaken for consumer readiness, whether coarse page-load anchors are masking SPA/remount timing, and whether lifecycle timing, document-start-vs-late observer placement, listener/port registration order, or callback-wrapper normalization explains why a seemingly correct payload still does not advance behavior
-
-## Notes
-This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.
-The more stable the KB becomes, the more this page should behave like a guide rather than a dump of links.back-wrapper normalization explains why a seemingly correct payload still does not advance behavior
 
 ## Notes
 This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.
