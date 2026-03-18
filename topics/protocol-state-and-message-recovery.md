@@ -12,6 +12,7 @@ Related pages:
 - topics/runtime-behavior-recovery.md
 - topics/benchmarks-datasets.md
 - topics/native-binary-reversing-baseline.md
+- topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md
 - topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 
@@ -339,14 +340,17 @@ This topic may later split into several child pages:
 A subtree guide and practical bridge pages now exist for the protocol/firmware operator ladder:
 - `topics/protocol-firmware-practical-subtree-guide.md`
 - `topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md`
+- `topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 
-Use the subtree guide first when the analyst still needs to classify whether the real bottleneck is broad protocol framing, boundary selection, ingress ownership, parser/state consequence, acceptance gating, output handoff, or a later hardware-side consequence path.
+Use the subtree guide first when the analyst still needs to classify whether the real bottleneck is broad protocol framing, boundary selection, socket-boundary/private-overlay object recovery, ingress ownership, parser/state consequence, acceptance gating, output handoff, or a later hardware-side consequence path.
 
 Use the capture-failure/boundary-relocation note when the important traffic or protocol object is still not meaningfully visible from the current surface and the real bottleneck is proving whether the case is dominated by proxy bypass, trust-path mismatch, private overlay boundaries, environment-conditioned visibility, or a manifest/key/content pipeline that must be followed deeper before parser/state work becomes trustworthy.
+
+Use the socket-boundary/private-overlay note when broad visibility has improved enough that the next bottleneck is no longer whether traffic exists, but where the first truthful overlay object appears at socket write/read, serializer, or framing-adjacent boundaries before layer-peeling, ownership, or parser/state work can proceed cleanly.
 
 Use the content-pipeline-recovery note when the top-level authenticated API request is already visible enough, but the real analyst object continues through a manifest, playlist, signed URL bundle, content handle, key path, chunk map, or segment ladder and one representative artifact still cannot be recovered end-to-end.
 

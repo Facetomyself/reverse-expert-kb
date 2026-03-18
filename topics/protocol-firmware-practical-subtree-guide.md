@@ -7,6 +7,7 @@ Related pages:
 - topics/firmware-and-protocol-context-recovery.md
 - topics/protocol-state-and-message-recovery.md
 - topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md
+- topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md
 - topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 - topics/protocol-ingress-ownership-and-receive-path-workflow-note.md
@@ -42,21 +43,23 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of seven recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of eight recurring families:
 
 1. **context / object-of-recovery framing uncertainty**
    - the analyst still needs to decide whether the real object is environment recovery, protocol structure, peripheral context, or downstream rehosting/fuzzing utility
 2. **capture-failure / boundary-selection uncertainty**
    - the important traffic or content-bearing object is still not meaningfully visible from the current surface
-3. **ingress ownership uncertainty**
+3. **socket-boundary / private-overlay uncertainty**
+   - broad visibility has improved enough that the next bottleneck is no longer whether traffic exists, but where the first truthful overlay object appears before deeper parser/state work
+4. **ingress ownership uncertainty**
    - inbound traffic is visible, but the first local receive owner that feeds parser-relevant handling is still unclear
-4. **parser-to-consequence uncertainty**
+5. **parser-to-consequence uncertainty**
    - the parser or dispatch region is visible, but the first state/reply/peripheral consequence edge is still unknown
-5. **acceptance / replay-precondition uncertainty**
+6. **acceptance / replay-precondition uncertainty**
    - structurally plausible replay or mutation still fails because one narrow state/precondition gate is unproved
-6. **reply-emission / output-handoff uncertainty**
+7. **reply-emission / output-handoff uncertainty**
    - local acceptance or reply-object creation is visible, but the first committed output path is still unclear
-7. **hardware-side effect / interrupt consequence uncertainty**
+8. **hardware-side effect / interrupt consequence uncertainty**
    - the path already reaches peripheral or interrupt/deferred boundaries, but the first durable effect-bearing write or later consequence handoff is still unproved
 
 A compact operator ladder for this branch is:
@@ -70,6 +73,7 @@ choose the current firmware/protocol bottleneck
 
 The subtree is strongest when read as:
 - **see** the right boundary
+- **surface** the first truthful socket-boundary or serializer-adjacent overlay object when the wire is one layer too late
 - **peel** the visible object into one smaller trustworthy contract
 - **own** the right inbound object
 - **reduce** one parser/state consequence
@@ -117,6 +121,20 @@ Start here when:
 Do **not** start here when:
 - inbound traffic is already visible enough and the missing edge is now layer peeling, local receive ownership, or parser/state consequence
 
+### Start with `protocol-socket-boundary-and-private-overlay-recovery-workflow-note`
+Use:
+- `topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md`
+
+Start here when:
+- broad visibility has improved enough that the next bottleneck is no longer whether the traffic exists, but where the first truthful overlay object appears
+- socket write/read, serializer, marshaller, or framing-adjacent objects look more informative than the wire itself
+- the analyst needs one stable plaintext, pre-encryption, or post-decrypt/pre-parse object before deeper parser/state or replay work is worth attempting
+- the case is private-overlay-shaped and the cheapest truthful object is likely one layer earlier than packet capture
+
+Do **not** start here when:
+- the current surface is still too weak and the real bottleneck is broader boundary relocation itself
+- the overlay object is already visible enough and the next bottleneck is now one more layer peel, ingress ownership, parser/state consequence, acceptance gating, or output handoff
+
 ### Start with `protocol-layer-peeling-and-contract-recovery-workflow-note`
 Use:
 - `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
@@ -129,6 +147,7 @@ Start here when:
 
 Do **not** start here when:
 - the current surface is still too weak and the real bottleneck is boundary relocation itself
+- the cheapest truthful object still has not been surfaced and the real bottleneck is socket-boundary / private-overlay recovery
 - the smallest trustworthy contract already exists and the missing edge is now receive ownership, parser/state consequence, acceptance gating, or output handoff
 
 ### Start with `protocol-ingress-ownership-and-receive-path-workflow-note`
@@ -213,7 +232,7 @@ Do **not** start here when:
 - the real bottleneck is earlier in parser/state or replay-gate work
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as eight common bottleneck families that often chain into one another.
+A useful way to read the branch is as nine common bottleneck families that often chain into one another.
 
 ### A. Broad firmware/protocol uncertainty -> correct recovery object
 Typical question:
@@ -235,12 +254,25 @@ Primary note:
 - `topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md`
 
 Possible next handoff:
+- `topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md`
 - `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - content or artifact follow-on work when the object is a manifest/key/content pipeline
 
-### C. Visible layered object -> smaller trustworthy contract
+### C. Better visibility -> first truthful overlay object
+Typical question:
+- if traffic exists but the wire is still too collapsed, where is the first socket-boundary or serializer-adjacent object that is actually truthful enough to reason about?
+
+Primary note:
+- `topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md`
+
+Possible next handoff:
+- `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
+- `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
+- `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+
+### D. Visible layered object -> smaller trustworthy contract
 Typical question:
 - what layer ordering turns the current blob, wrapper payload, or API result into one message/schema/service/preimage/artifact contract I can actually reason about?
 
@@ -252,7 +284,7 @@ Possible next handoff:
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - content or artifact continuation work when the real product is manifest/key/content
 
-### D. Visible inbound activity -> first local receive owner
+### E. Visible inbound activity -> first local receive owner
 Typical question:
 - which local queue, ring, framing commit, callback, or deferred receive worker first takes ownership of the inbound object?
 
@@ -263,7 +295,7 @@ Possible next handoff:
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 
-### E. Parser visibility -> first state or effect consequence
+### F. Parser visibility -> first state or effect consequence
 Typical question:
 - what first state write, reply-family selector, queue/timer insertion, or peripheral action actually predicts later behavior?
 
@@ -275,7 +307,7 @@ Possible next handoff:
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 
-### F. Structurally plausible replay -> accepted interaction
+### G. Structurally plausible replay -> accepted interaction
 Typical question:
 - which first local phase, freshness, pending-request, capability, or state gate decides whether the interaction really advances?
 
@@ -286,7 +318,7 @@ Possible next handoff:
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 
-### G. Accepted local path -> real output behavior
+### H. Accepted local path -> real output behavior
 Typical question:
 - where does accepted local state become one real emitted reply, serializer path, queue commit, descriptor submission, or transport-visible send?
 
@@ -298,7 +330,7 @@ Possible next handoff:
 - serializer/framing recovery
 - peripheral-send or transport modeling
 
-### H. Peripheral or completion visibility -> durable hardware-side consequence
+### I. Peripheral or completion visibility -> durable hardware-side consequence
 Typical question:
 - which first MMIO write, arm, status-latch, ISR reduction, or deferred-worker consequence actually predicts later durable behavior?
 
@@ -318,24 +350,27 @@ When a case is clearly firmware/protocol shaped, ask these in order:
    - if yes, start with firmware/protocol synthesis
 2. **Is the important traffic or artifact still not meaningfully visible from the current surface?**
    - if yes, start with capture-failure / boundary relocation
-3. **Is the object visible, but still too layered to treat as one trustworthy contract?**
+3. **Has broad visibility improved, but the cheapest truthful object is likely at socket write/read, serializer, or another private-overlay boundary rather than at the wire itself?**
+   - if yes, start with socket-boundary / private-overlay recovery
+4. **Is the object visible, but still too layered to treat as one trustworthy contract?**
    - if yes, start with layer-peeling / contract recovery
-4. **Is the first authenticated API body visible, but the real object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder?**
+5. **Is the first authenticated API body visible, but the real object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder?**
    - if yes, start with content-pipeline recovery
-5. **Is inbound traffic visible, but the first local receive owner still unclear?**
+6. **Is inbound traffic visible, but the first local receive owner still unclear?**
    - if yes, start with ingress ownership
-6. **Is parser or dispatch visibility present, but the first state/effect consequence still unclear?**
+7. **Is parser or dispatch visibility present, but the first state/effect consequence still unclear?**
    - if yes, start with parser-to-state localization
-7. **Is replay or mutation structurally plausible, but still not accepted?**
+8. **Is replay or mutation structurally plausible, but still not accepted?**
    - if yes, start with replay-precondition / state-gate localization
-8. **Is local acceptance visible, but one real emitted output still unproved?**
+9. **Is local acceptance visible, but one real emitted output still unproved?**
    - if yes, start with reply-emission / transport handoff
-9. **Has the case already crossed into peripheral or interrupt/deferred consequences?**
+10. **Has the case already crossed into peripheral or interrupt/deferred consequences?**
    - if yes, choose MMIO effect proof or ISR/deferred consequence proof depending on whether the first effect-bearing hardware edge or the later durable completion-driven reduction is still missing
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
 That usually means:
 - choose the right boundary before arguing about parser semantics
+- surface one truthful socket-boundary or serializer-adjacent overlay object before over-trusting the wire
 - peel one visible layered object before claiming you already have the practical protocol object
 - prove one receive owner before cataloging many parser candidates
 - prove one parser/state consequence before sketching a larger protocol theory

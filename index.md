@@ -278,6 +278,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/firmware-and-protocol-context-recovery.md`
 - `topics/protocol-state-and-message-recovery.md`
 - `topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md`
+- `topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
@@ -285,11 +286,12 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 
-This branch should now be read as a practical bridge from firmware/protocol synthesis into a subtree guide plus eight recurring operator bottlenecks:
-- subtree entry and routing (`protocol-firmware-practical-subtree-guide`), which acts as the compact branch entry note for choosing whether the current bottleneck is still broad context/object-of-recovery framing, boundary selection, layer peeling / smaller-contract recovery, ingress ownership, parser/state consequence, acceptance gating, output handoff, or hardware-side effect proof
+This branch should now be read as a practical bridge from firmware/protocol synthesis into a subtree guide plus nine recurring operator bottlenecks:
+- subtree entry and routing (`protocol-firmware-practical-subtree-guide`), which acts as the compact branch entry note for choosing whether the current bottleneck is still broad context/object-of-recovery framing, boundary selection, socket-boundary/private-overlay object recovery, layer peeling / smaller-contract recovery, ingress ownership, parser/state consequence, acceptance gating, output handoff, or hardware-side effect proof
 - environment/context recovery (`firmware-and-protocol-context-recovery`)
 - message/state recovery (`protocol-state-and-message-recovery`)
 - capture-failure diagnosis and boundary relocation (`protocol-capture-failure-and-boundary-relocation-workflow-note`), which acts as the practical entry note when the important traffic or protocol object is still not meaningfully visible from the current surface and the analyst must first prove whether the case is dominated by proxy bypass, trust-path mismatch, non-HTTP/private-overlay boundaries, environment-conditioned visibility, or a deeper manifest/key/content pipeline
+- socket-boundary / private-overlay recovery (`protocol-socket-boundary-and-private-overlay-recovery-workflow-note`), which acts as the practical entry note when broad visibility has improved enough that the next bottleneck is surfacing the first truthful socket write/read, serializer, or framing-adjacent object before deeper layer peeling, ownership, or parser/state work
 - layer-peeling / smaller-contract recovery (`protocol-layer-peeling-and-contract-recovery-workflow-note`), which acts as the practical entry note when traffic, buffers, wrapper objects, or artifact-bearing responses are already visible enough to inspect but still mix framing, compression, serialization, crypto wrapping, RPC shell, or downstream content continuation, and the next bottleneck is isolating one smaller trustworthy contract before ownership, parser/state, or replay work becomes trustworthy
 - ingress/receive-path ownership localization (`protocol-ingress-ownership-and-receive-path-workflow-note`), which acts as the practical entry note when inbound traffic, receive callbacks, queue/ring activity, framing/reassembly, or deferred receive work are already visible, but the first local receive owner that actually feeds the parser-relevant object or handler family is still unclear
 - parser-to-state consequence localization (`protocol-parser-to-state-edge-localization-workflow-note`), which acts as the practical entry note when message families and candidate parsers are already visible but the first state write, reply-family selector, queue/timer insertion, or peripheral action that actually predicts later behavior is still unclear
