@@ -12,6 +12,7 @@ Related pages:
 - topics/decrypted-artifact-to-first-consumer-workflow-note.md
 - topics/integrity-check-to-tamper-consequence-workflow-note.md
 - topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
+- topics/protected-runtime-observation-topology-selection-workflow-note.md
 
 ## 1. Why this guide exists
 This guide exists because the KB’s protected / deobfuscation branch already has several strong practical notes, but until now it has been easier to read as a flat list of sibling pages than as a usable operator ladder.
@@ -225,6 +226,26 @@ Then route outward as soon as the case becomes ordinary enough:
 
 ## 10. Topic summary
 This subtree guide turns the protected-runtime / deobfuscation practical branch into a clearer operator ladder.
+
+The compact reading is:
+- reposition observation when the current topology is the bottleneck
+- anchor protected execution churn
+- hand off out of packed startup
+- prove the first ordinary consumer of recovered artifacts
+- prove the first consequence-bearing integrity tripwire
+- stabilize one truthful runtime artifact and one minimal init obligation when static views are still lying
+
+That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which leaf note to read first.
+d less dependent on already knowing which leaf note to read first.
+ note to read first.
+ churn
+- hand off out of packed startup
+- prove the first ordinary consumer of recovered artifacts
+- prove the first consequence-bearing integrity tripwire
+- stabilize one truthful runtime artifact and one minimal init obligation when static views are still lying
+
+That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which leaf note to read first.
+ladder.
 
 The compact reading is:
 - anchor protected execution churn
