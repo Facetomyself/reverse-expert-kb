@@ -63,6 +63,7 @@ Use this note when most of the following are true:
 Representative cases include:
 - protected Android crypto where white-box or table-driven transforms become legible only after runtime table extraction
 - SDK command-router work where the target command exists, but earlier init commands are still required before outputs become truthful
+- Android Flutter or mixed-runtime cases where one Dart/object owner is already plausible, but unidbg- or emulator-shaped replay stays close-but-wrong until one prerequisite command/state bucket, runtime table, or initialized-image boundary is recovered explicitly
 - packed or protected native targets where runtime memory contains a truer initialized image than the repaired static dump
 - trace-assisted standard-algorithm recognition where memory constants fingerprint the family before control-flow reconstruction is clean
 - mobile signing cases where the math looks right, but outputs drift because init state, runtime tables, or side conditions are still missing

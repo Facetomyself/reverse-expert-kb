@@ -294,6 +294,7 @@ Includes:
 - Flutter cross-runtime owner-localization practice, where the real bottleneck is not Java visibility or native helper visibility alone but proving which Dart/object boundary actually owns the artifact before deeper signature, transport, or replay work
 - command-router / initialization-sequencing practice, where the real bottleneck is not the final target call but the minimal earlier state needed to make that call truthful
 - runtime-table and initialized-image extraction when live artifacts are more trustworthy than damaged static dumps
+- an increasingly common Android protected-runtime continuation where the first Dart/object owner is already plausible, but unidbg- or emulator-shaped replay stays close-but-wrong until one runtime-table family, initialized-image boundary, or prerequisite command/state obligation is isolated explicitly
 
 ### 4. Access strategy and foothold acquisition
 Includes:

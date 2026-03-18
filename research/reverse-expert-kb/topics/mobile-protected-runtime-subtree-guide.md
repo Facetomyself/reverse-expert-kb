@@ -219,6 +219,7 @@ Read `android-flutter-cross-runtime-owner-localization-workflow-note` when the m
 - the Android case is clearly Flutter/Dart shaped and several runtimes all look relevant, but the first consequence-bearing owner is still unclear
 - Java-visible wrappers, engine/plugin routing, `libapp.so`, and native helpers all look plausible, but you still need to separate trigger surface, Flutter bridge, Dart owner, and native worker
 - repack/rewrite attempts are brittle enough that the better move may be live-runtime owner recovery in the runtime that actually executes
+- you specifically need to stop collapsing Java trigger visibility, Dart/object ownership, native worker visibility, and mixed transport behavior into one vague "Flutter/native" blob before deeper signature, trust-path, or replay work
 
 Read `unity-il2cpp-state-ownership-and-persistence-workflow-note` when the main problem is:
 - the case is clearly Unity / IL2Cpp-shaped, but the real state owner is still unclear
@@ -272,10 +273,17 @@ Read `trace-slice-to-handler-reconstruction-workflow-note` when the main problem
 - dispatcher churn, VM/protection noise, or integrity-heavy paths are obscuring the real branch that changes behavior
 - you need compare-run discipline and a concrete handoff from trace evidence back into one static next target instead of another giant trace
 
+A compact Android protected-runtime ladder that now appears often in practice is:
+- `android-flutter-cross-runtime-owner-localization-workflow-note` first when several runtimes still look relevant and the first Dart/object owner is not yet proved
+- `mobile-signature-location-and-preimage-recovery-workflow-note` next when the owner is already narrowed to one request/signature field path
+- `runtime-table-and-initialization-obligation-recovery-workflow-note` after that when the owner is plausible but replay or externalization remains close-but-wrong because runtime tables, initialized images, or prerequisite command/state setup are still missing
+- `trace-slice-to-handler-reconstruction-workflow-note` whenever the missing owner/worker or init obligation still cannot be proved without one narrower execution slice
+
 Read `runtime-table-and-initialization-obligation-recovery-workflow-note` when the main problem is:
 - repaired static artifacts, dumped SOs, or offline reconstructions still look damaged or under-initialized, but live/runtime state exposes truer tables, initialized images, or command-sequenced state
 - emulation or replay is close-but-wrong and you need to decide whether the real missing object is one runtime table family, one earlier init command, one side-condition callback, or one environment obligation
 - you need a compact workflow for turning execution-assisted evidence into one smaller truthful target instead of doing more broad trace collection or over-rewriting the core transform
+- the owner is already plausible enough, and the real next bottleneck is now proving one minimal init chain, command-router prerequisite, runtime-table family, or initialized-image boundary that makes replay truthful
 
 Read `environment-differential-diagnosis-workflow-note` when the main problem is:
 - behavior drifts across device, packaging, session, or observation conditions
