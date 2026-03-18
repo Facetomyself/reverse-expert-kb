@@ -341,6 +341,14 @@ Next move:
 Use this page when the bottleneck is:
 - **turning visible integrity/self-check logic into one consequence-bearing tripwire and one smaller trustworthy target**
 
+Practical handoff rule:
+- stay on this page while the missing proof is still the first reduced result plus one consequence-bearing tripwire that predicts later degrade, decoy, suppress, or exit behavior
+- leave broad integrity/tamper work here once one reduced result and one first consequence-bearing tripwire are already good enough
+- once that handoff is already good enough, the next bottleneck is usually one of:
+  - evidence-trust or environment-differential diagnosis around the same tripwire
+  - an ordinary downstream consumer or policy-state proof after the tripwire is localized
+  - a mobile verdict/result-to-policy continuation when the case is already platform-specific
+
 Then route outward based on what remains hard:
 - if the target is still better framed as a broader protected-runtime problem:
   - `topics/anti-tamper-and-protected-runtime-analysis.md`
@@ -350,6 +358,8 @@ Then route outward based on what remains hard:
   - `topics/environment-differential-diagnosis-workflow-note.md`
 - if trace reduction itself is still the main issue:
   - `topics/trace-slice-to-handler-reconstruction-workflow-note.md`
+- if the case has already reduced into an ordinary consequence consumer after the tripwire:
+  - `topics/native-interface-to-state-proof-workflow-note.md`
 - if the case is already a mobile-side result-to-policy problem rather than a generic integrity tripwire problem:
   - `topics/attestation-verdict-to-policy-state-workflow-note.md`
 
