@@ -157,9 +157,12 @@ The most natural next child pages include:
 
 ### 9. Concrete mobile workflow notes
 Current concrete notes:
+- `topics/ios-practical-subtree-guide.md`
+- `topics/ios-traffic-topology-relocation-workflow-note.md`
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md`
+- `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md`
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 - `topics/unity-il2cpp-state-ownership-and-persistence-workflow-note.md`
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
