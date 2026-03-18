@@ -280,9 +280,11 @@ This note is intentionally workflow-first.
 It is grounded by:
 - `topics/protocol-state-and-message-recovery.md`
 - `topics/firmware-and-protocol-context-recovery.md`
+- `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `sources/datasets-benchmarks/2026-03-14-firmware-protocol-context-notes.md`
 - `sources/community-forums/2026-03-14-52pojie-kanxue-manual-curation.md`
 - `sources/firmware-protocol/2026-03-16-protocol-parser-to-state-edge-localization-notes.md`
+- `sources/protocol-and-network-recovery/2026-03-17-sperm-protocol-network-batch-3-notes.md`
 
 The evidence base here is sufficient for a practical workflow note because the point is not to claim a universal parser architecture.
 The point is to normalize a recurring operator move that the KB previously lacked.
