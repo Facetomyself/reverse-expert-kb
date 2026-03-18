@@ -321,7 +321,9 @@ Among these, the especially central dimensions are:
 - `topics/mobile-reversing-and-runtime-instrumentation.md`
   - because mobile is a major domain where runtime answerability dominates
 - `topics/record-replay-and-omniscient-debugging.md`
-  - because revisitable execution history changes how runtime evidence can be preserved and queried
+  - because revisitable execution history changes how runtime evidence can be preserved and queried, but broad replay discussion should stop once one representative execution is already good enough and the real bottleneck becomes causal-boundary proof or evidence packaging
+- `topics/analytic-provenance-and-evidence-management.md`
+  - because runtime findings lose value quickly when the remaining bottleneck is no longer observation but evidence linkage, resumption discipline, or collaboration-ready packaging
 - `topics/firmware-and-protocol-context-recovery.md`
   - because context-rich domains often require dynamic observation to recover practical structure
 
