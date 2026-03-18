@@ -190,6 +190,24 @@ Often the right stopping point is:
 The goal is not maximal decoding.
 It is one smaller contract that unlocks the next experiment.
 
+### Practical handoff rule
+Stay on this note while the missing proof is still:
+- which visible layers are mixed together
+- which shallow peel explains the object best
+- which smaller trustworthy contract should be treated as the real protocol object
+
+Leave broad layer-peeling work once one smaller contract is already good enough and the real bottleneck has shifted into one narrower continuation such as:
+- `protocol-content-pipeline-recovery-workflow-note` when the contract already proves the current body is only a manifest/handle/key/chunk continuation seed and the real analyst object is now one representative artifact ladder
+- `protocol-ingress-ownership-and-receive-path-workflow-note` when the contract is already peeled enough and the next uncertainty is the first local receive owner
+- `protocol-parser-to-state-edge-localization-workflow-note` when the contract already exposes a parser/dispatch family and the next uncertainty is the first consequence-bearing state/reply/peripheral edge
+- `protocol-replay-precondition-and-state-gate-workflow-note` when replay is already structurally plausible and the real missing edge is acceptance rather than contract shape
+
+A recurring failure mode is staying too long in broad peel narration after one contract is already good enough:
+- more wrapper naming
+- more transform cataloging
+- more byte-shape commentary
+when the real bottleneck has already become artifact continuation, ownership, parser consequence, or acceptance.
+
 ## 6. Breakpoint / hook placement guidance
 Useful anchor classes:
 - response/request wrapper objects just above transport
