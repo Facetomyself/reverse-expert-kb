@@ -214,7 +214,8 @@ A compact way to remember the ladder is:
 - **gate** second — stabilize install/signing/tooling/environment prerequisites enough that broader runtime evidence is trustworthy
 - **owner** third — prove the first ObjC / Swift / native (or cross-runtime) boundary that actually owns the consequence
 - **controlled replay** fourth when needed — once the owner is plausible enough, reconstruct only the minimal truthful init/context obligations needed to call it in a controlled runtime
-- **policy consumer** fifth in spirit — once owner visibility or replay truth exists, reduce callback/result material into the first behavior-changing consumer
+- **runtime-table / init-obligation recovery** fifth when replay is already close-but-wrong — reduce one narrower runtime table family, initialized-image boundary, or missing init/context obligation before widening outward again
+- **policy consumer** sixth in spirit — once owner visibility or replay truth exists, reduce callback/result material into the first behavior-changing consumer
 
 Read `android-flutter-cross-runtime-owner-localization-workflow-note` when the main problem is:
 - the Android case is clearly Flutter/Dart shaped and several runtimes all look relevant, but the first consequence-bearing owner is still unclear
@@ -351,4 +352,6 @@ ain practice branch for preserving observability under active runtime resistance
 Its pages should be read as a coordinated set of analyst entry surfaces into a hard practical problem:
 - classify the resistance
 - choose a better observation layer
+- use traces when direct structure is still too ambiguous
+ layer
 - use traces when direct structure is still too ambiguous
