@@ -283,6 +283,10 @@ Typical question:
 Primary note:
 - `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
 
+Routing reminder:
+- stay here while the missing proof is still the first smaller trustworthy contract
+- leave broad layer-peeling work once one contract is already good enough and the real bottleneck becomes artifact continuation, receive ownership, parser/state consequence, or replay acceptance
+
 Possible next handoff:
 - `topics/protocol-content-pipeline-recovery-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
@@ -294,6 +298,10 @@ Typical question:
 
 Primary note:
 - `topics/protocol-content-pipeline-recovery-workflow-note.md`
+
+Routing reminder:
+- stay here while the missing proof is still one representative artifact ladder and its carry-over auth/path-derivation gates
+- leave broad content-pipeline work once one artifact ladder is already good enough and the real bottleneck becomes automation, key/crypto follow-up, or one narrower replay/acceptance gate
 
 Possible next handoff:
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`

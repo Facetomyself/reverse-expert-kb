@@ -216,6 +216,24 @@ Once the pipeline is reduced, route the result into one next task only:
 
 Do not keep reopening early control-plane analysis if the missing edge is now clearly downstream in the artifact ladder.
 
+### Practical handoff rule
+Stay on this note while the missing proof is still:
+- whether the first API body is only a continuation seed rather than the final object
+- which manifest/handle/key/path/chunk ladder actually produces one representative artifact
+- which carry-over auth, path-derivation, or continuation gate still blocks the first trustworthy artifact proof
+
+Leave broad content-pipeline work once one representative artifact ladder is already good enough and the real bottleneck has shifted into one narrower continuation such as:
+- artifact automation or downloader construction when the ladder is already reproducible enough
+- key/crypto recovery for the content layer when the only remaining blocker is decrypting or authenticating the downstream artifact
+- `protocol-replay-precondition-and-state-gate-workflow-note` when continuation requests are structurally right but still fail because one local/stateful gate is missing
+- broader parser/state or ownership work only when a later gate truly depends on protocol-state reduction rather than on unfinished artifact-continuation modeling
+
+A recurring failure mode is staying too long in manifest/chunk cataloging after one ladder is already good enough:
+- more playlist enumeration
+- more child-URL collection
+- more control-plane re-reading
+when the real bottleneck has already become automation, key recovery, or one narrower acceptance gate.
+
 ## 6. Breakpoint / hook placement guidance
 Useful anchor classes:
 - authenticated API requests that return content references rather than final bytes
