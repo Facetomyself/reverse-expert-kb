@@ -35,20 +35,28 @@ def build_summary():
     drift = json.loads((TMP_DIR/'ops_drift_scan.json').read_text())
     recon = json.loads((TMP_DIR/'ops_reconcile_projects.json').read_text())
     by = {}
-    for name, payload in [('host',host),('docker',docker),('systemd',systemd),('drift',drift)]:
+    for name, payload in [('host', host), ('docker', docker), ('systemd', systemd), ('drift', drift)]:
         for item in payload['results']:
             by.setdefault(item['host'], {})[name] = item
     recon_map = {x['host']: x for x in recon['results']}
     lines = ['# Fleet Summary', '']
     p1 = []
     p2 = []
+    host_overall = {}
     for hn in sorted(by):
         d = by[hn]
         ok = all(d[k].get('ok') for k in d)
+        host_overall[hn] = ok
         lines.append(f'## {hn}')
         lines.append(f"- overall: {'OK' if ok else 'ATTENTION'}")
-        if not ok:
-            p1.append(f'{hn}: reachability or core inspection failure')
+
+        if not d.get('host', {}).get('ok'):
+            p1.append(f'{hn}: reachability failure')
+        else:
+            failed_checks = [name for name in ('docker', 'systemd', 'drift') if not d.get(name, {}).get('ok', True)]
+            if failed_checks:
+                p2.append(f"{hn}: core inspection partial failure -> {', '.join(failed_checks)}")
+
         rr = recon_map.get(hn)
         if rr:
             if rr.get('undocumentedHints'):
@@ -68,7 +76,7 @@ def build_summary():
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
     out = REPORT_DIR / 'fleet-summary.md'
     out.write_text('\n'.join(lines) + '\n')
-    return out, {'p1': p1, 'p2': p2}
+    return out, {'p1': p1, 'p2': p2, 'overall': host_overall}
 
 
 def main():
@@ -91,7 +99,30 @@ def main():
     if rules_script.exists():
         p = subprocess.run(['python3', str(rules_script)], text=True, capture_output=True)
         if p.returncode == 0 and p.stdout.strip():
-            print(p.stdout)
+            filtered = json.loads(p.stdout)
+            lines = ['# Fleet Summary', '']
+            overall = filtered.get('alerts', {}).get('overall') or state.get('alerts', {}).get('overall') or {}
+            if not overall:
+                host = json.loads((TMP_DIR/'ops_host_health.json').read_text())
+                overall = {item['host']: item.get('ok') for item in host['results']}
+            for hn in sorted(overall):
+                ok = overall[hn]
+                lines.append(f'## {hn}')
+                lines.append(f"- overall: {'OK' if ok else 'ATTENTION'}")
+                lines.append('')
+            p1 = filtered.get('alerts', {}).get('p1', [])
+            p2 = filtered.get('alerts', {}).get('p2', [])
+            if p1 or p2:
+                lines += ['## Alert candidates (filtered)', '']
+                if p1:
+                    lines.append('### P1')
+                    lines += [f'- {x}' for x in p1]
+                if p2:
+                    lines.append('### P2')
+                    lines += [f'- {x}' for x in p2]
+                lines.append('')
+            summary_path.write_text('\n'.join(lines) + '\n')
+            print(json.dumps(filtered, ensure_ascii=False, indent=2))
             return
     print(json.dumps(state, ensure_ascii=False, indent=2))
 

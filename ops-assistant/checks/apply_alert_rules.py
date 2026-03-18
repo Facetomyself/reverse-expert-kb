@@ -45,7 +45,8 @@ def main():
         if not suppressed:
             p2.append(item)
 
-    state['alerts'] = {'p1': p1, 'p2': p2}
+    overall = state.get('alerts', {}).get('overall', {})
+    state['alerts'] = {'p1': p1, 'p2': p2, 'overall': overall}
     notes = []
     for host, cfg in host_rules.items():
         if cfg.get('emit_note'):
