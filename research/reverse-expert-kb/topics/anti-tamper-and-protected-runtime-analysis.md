@@ -363,13 +363,19 @@ This topic may later split into several child pages:
 
 Practical bridge pages now exist for recurring protected-runtime bottlenecks:
 - `topics/protected-runtime-practical-subtree-guide.md`
+- `topics/protected-runtime-observation-topology-selection-workflow-note.md`
+- `topics/vm-trace-to-semantic-anchor-workflow-note.md`
+- `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
-- `topics/integrity-check-to-tamper-consequence-workflow-note.md`
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
-- `topics/protected-runtime-observation-topology-selection-workflow-note.md`
+- `topics/integrity-check-to-tamper-consequence-workflow-note.md`
 
-Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry surface when the case is clearly protected-runtime shaped, but the current operator bottleneck still needs to be classified as observation-topology failure, packed/bootstrap handoff, artifact-consumer proof, runtime-artifact / initialization-obligation recovery, integrity/tamper consequence proof, or the nearby VM/dispatcher branch before choosing a narrower workflow note.
+Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry surface when the case is clearly protected-runtime shaped, but the current operator bottleneck still needs to be classified as observation-topology failure, trace/dispatcher churn, packed/bootstrap handoff, artifact-consumer proof, runtime-artifact / initialization-obligation recovery, integrity/tamper consequence proof, or one nearby ordinary post-protection continuation before choosing a narrower workflow note.
+
+Use the observation-topology note when direct attach, spawn, app-local hooks, or ordinary instrumentation are themselves unstable, detected, semantically late, or misleading and the analyst first needs one more truthful boundary before narrower protected-runtime work becomes trustworthy.
+
+Use the VM-trace / dispatcher notes when virtualization, flattening, handler churn, or repetitive protected execution is already visible and the missing next object is one stable semantic anchor, durable state object, or consequence-bearing state edge rather than another broad anti-tamper taxonomy.
 
 Use the packed-stub/OEP note when staged bootstrap, shelling, or loader churn is already visible and the immediate bottleneck is one trustworthy post-unpack handoff.
 
