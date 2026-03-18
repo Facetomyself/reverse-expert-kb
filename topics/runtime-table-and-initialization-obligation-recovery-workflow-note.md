@@ -364,12 +364,23 @@ Next move:
 Use this page when the bottleneck is:
 - **runtime state is truer than the static artifact, and the remaining task is isolating one missing initialization or side-condition obligation**
 
+Practical handoff rule:
+- stay on this page while the missing proof is still one runtime artifact family plus one minimal initialization, registration, or side-condition obligation that explains why replay is close-but-wrong
+- leave broad runtime-artifact / initialization-obligation work here once one truthful runtime artifact family and one smallest missing obligation are already good enough
+- once that handoff is already good enough, the next bottleneck is usually one of:
+  - the first ordinary consumer of that now-trustworthy runtime artifact
+  - an ordinary route-to-state proof downstream from the corrected replay
+  - a narrower mobile signing / parameter-generation continuation once the init debt is paid
+  - an integrity/tamper consequence question if the corrected replay now exposes the real tripwire
+
 Then route outward based on what remains hard:
 - to `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md` when the main uncertainty is still the post-unpack handoff or dump boundary
 - to `topics/decrypted-artifact-to-first-consumer-workflow-note.md` when the runtime artifact is already trustworthy and the missing step is now the first ordinary consumer
 - to `topics/trace-guided-and-dbi-assisted-re.md` when trace/DBI surface choice or trace-slice strategy is still the real problem
 - to `topics/mobile-signing-and-parameter-generation-workflows.md` when the broader target is mobile request shaping and the isolated init/table issue should be folded back into a generation-chain model
 - to `topics/runtime-behavior-recovery.md` when broader evidence-trust strategy still dominates
+- to `topics/native-interface-to-state-proof-workflow-note.md` when corrected replay has already reduced the case into one ordinary consequence path
+- to `topics/integrity-check-to-tamper-consequence-workflow-note.md` when corrected runtime truth now exposes a visible reducer or tripwire rather than a missing init obligation
 
 ## 11. What this page adds to the KB
 This page adds a missing practical bridge for a recurring operator bottleneck:

@@ -360,6 +360,14 @@ Next move:
 Use this page when the bottleneck is:
 - **turning visible decrypted/deobfuscated artifacts into one first ordinary consumer and one smaller trustworthy target**
 
+Practical handoff rule:
+- stay on this page while the missing proof is still the first ordinary consumer plus one consequence-bearing handoff after artifact recovery
+- leave broad artifact-to-consumer work here once one first ordinary consumer and one downstream consequence-bearing handoff are already good enough
+- once that handoff is already good enough, the next bottleneck is usually one of:
+  - ordinary route-to-state proof in the now-readable region
+  - one runtime-artifact or initialization obligation that explains why the artifact is still close-but-wrong
+  - one narrower browser, protocol, or mobile consumer-side continuation if the consumer family is now domain-specific
+
 Then route outward based on what remains hard:
 - if the target is still better framed as a broader protected-runtime or deobfuscation problem:
   - `topics/anti-tamper-and-protected-runtime-analysis.md`
@@ -372,8 +380,15 @@ Then route outward based on what remains hard:
 - if the issue is mainly runtime evidence selection or trace slicing:
   - `topics/runtime-behavior-recovery.md`
   - `topics/trace-slice-to-handler-reconstruction-workflow-note.md`
+- if the recovered artifact is still close-but-wrong because one runtime obligation is missing:
+  - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
+- if the now-readable region has already reduced into an ordinary route-to-consequence question:
+  - `topics/native-interface-to-state-proof-workflow-note.md`
 - if the case is specifically about result objects or response families on mobile after transport visibility is already solved:
   - `topics/mobile-response-consumer-localization-workflow-note.md`
+- if the consumer family is already clearly browser- or protocol-shaped:
+  - `topics/browser-request-finalization-backtrace-workflow-note.md`
+  - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 
 ## 11. What this page adds to the KB
 This page adds a missing practical bridge in the protected-runtime / deobfuscation branch:

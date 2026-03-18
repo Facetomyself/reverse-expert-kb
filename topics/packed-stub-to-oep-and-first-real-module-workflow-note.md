@@ -350,6 +350,15 @@ Next move:
 Use this page when the bottleneck is:
 - **turning visible packed/stub-heavy startup into one trustworthy OEP candidate and one reusable post-unpack target**
 
+Practical handoff rule:
+- stay on this page while the missing proof is still the first trustworthy post-unpack boundary plus one downstream ordinary-code anchor
+- leave broad packed-startup work here once that OEP-like boundary and one first real module/import/object/consumer anchor are already good enough
+- once that handoff is already good enough, the next bottleneck is usually one of:
+  - semantic-anchor stabilization in the post-unpack region
+  - one first ordinary consumer of a recovered artifact
+  - one runtime-artifact or initialization obligation that explains why the recovered image is still close-but-wrong
+  - later protected execution churn that still needs VM/dispatcher reduction
+
 Then route outward based on what remains hard:
 - if the target is still better framed as a broader deobfuscation/protected-runtime problem:
   - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
@@ -358,6 +367,10 @@ Then route outward based on what remains hard:
   - `topics/record-replay-and-omniscient-debugging.md`
 - if the post-unpack region is now readable but semantic meaning is still slippery:
   - `topics/native-semantic-anchor-stabilization-workflow-note.md`
+- if the post-unpack handoff yields one readable artifact whose first ordinary consumer is still unclear:
+  - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
+- if the recovered image or dump is still under-initialized and live/runtime state looks truer:
+  - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 - if the post-unpack region has already reduced into a concrete route-to-consequence question:
   - `topics/native-interface-to-state-proof-workflow-note.md`
 - if the real problem remains flattened/virtualized execution after unpacking rather than startup packing itself:
