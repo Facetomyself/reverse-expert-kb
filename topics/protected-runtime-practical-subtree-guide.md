@@ -316,10 +316,11 @@ This subtree guide turns the protected-runtime / deobfuscation practical branch 
 
 The compact reading is:
 - reposition observation when the current topology is the bottleneck
-- anchor protected execution churn
+- anchor protected execution churn into one semantic anchor or state edge
 - hand off out of packed startup
 - prove the first ordinary consumer of recovered artifacts
 - stabilize one truthful runtime artifact and one minimal init obligation when static views are still lying
 - prove the first consequence-bearing integrity tripwire
+- then leave the branch once the remaining work is ordinary native, browser, protocol, mobile, or broader runtime-evidence continuation rather than protection-shaped uncertainty
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which leaf note to read first.
