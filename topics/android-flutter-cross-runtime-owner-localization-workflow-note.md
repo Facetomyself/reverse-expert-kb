@@ -243,6 +243,11 @@ At that point, route forward:
 - if the owner is native transport selection, continue into trust-path or mixed-stack ownership diagnosis
 - if the owner still depends on damaged runtime tables or missing init state, continue into runtime-table / init-obligation recovery
 
+A useful practical handoff rule is:
+- stay in this note until one Dart/object owner is specific enough to explain why the target helper or request family receives these exact inputs
+- leave this note once replay or externalization becomes the main bottleneck, especially when outputs are structurally right but still close-but-wrong
+- at that point, prefer proving one smaller missing obligation (runtime table, initialized image, earlier command, side-condition registration, or environment precondition) instead of re-opening the broader owner search
+
 Do not keep this page open once the owner is proved.
 
 ## 5. Practical scenario patterns
