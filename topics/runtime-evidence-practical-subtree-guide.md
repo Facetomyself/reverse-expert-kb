@@ -163,6 +163,9 @@ Possible next handoff:
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md` when one suspicious late effect is now stable enough to walk backward from
 - `topics/analytic-provenance-and-evidence-management.md` when the replay artifact now needs stronger evidence linkage or team handoff discipline
 
+Routing reminder:
+- leave broad replay/tooling discussion once one representative execution is already good enough and the real bottleneck becomes causal-boundary proof, branch-specific follow-up, or evidence packaging
+
 ### D. Visible late effect -> first causal boundary
 Typical question:
 - what first earlier write, branch, reduction, queue edge, or ownership handoff actually predicts the late effect I care about?
@@ -176,6 +179,9 @@ Possible next handoff:
 - `topics/staged-malware-execution-to-consequence-proof-workflow-note.md`
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 - `topics/analytic-provenance-and-evidence-management.md`
+
+Routing reminder:
+- leave broad reverse-causality work once one causal boundary is already good enough and the real bottleneck becomes branch-specific proof or evidence packaging
 
 ## 5. The branch’s practical routing rule
 When a case is clearly runtime-evidence shaped, ask these in order:
