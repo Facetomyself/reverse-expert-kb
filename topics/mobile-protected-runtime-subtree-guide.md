@@ -100,7 +100,7 @@ Typical path:
 The mobile / protected-runtime subtree is especially strong for:
 - anti-instrumentation reasoning
 - protected mobile runtime workflows
-- alternative observation-surface selection
+- observation-topology and observation-surface selection
 - trace-guided analysis under observation pressure
 - connecting runtime evidence strategy back to higher-level analyst goals
 
@@ -165,6 +165,7 @@ Current concrete notes:
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
 - `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
 - `topics/android-observation-surface-selection-workflow-note.md`
+- `topics/protected-runtime-observation-topology-selection-workflow-note.md`
 - `topics/trace-slice-to-handler-reconstruction-workflow-note.md`
 - `topics/environment-differential-diagnosis-workflow-note.md`
 - `topics/android-network-trust-and-pinning-localization-workflow-note.md`
@@ -323,6 +324,16 @@ The subtree is strongly justified by the practitioner cluster documented in:
 
 ## Bottom line
 The mobile / protected-runtime subtree is the KB’s main practice branch for preserving observability under active runtime resistance.
+
+Its pages should be read as a coordinated set of analyst entry surfaces into a hard practical problem:
+- classify the resistance
+- choose a better observation layer
+- use traces when direct structure is still too ambiguous
+into a hard practical problem:
+- classify the resistance
+- choose a better observation layer
+- use traces when direct structure is still too ambiguous
+ain practice branch for preserving observability under active runtime resistance.
 
 Its pages should be read as a coordinated set of analyst entry surfaces into a hard practical problem:
 - classify the resistance

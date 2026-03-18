@@ -432,7 +432,7 @@ Strengths:
 Limitations:
 - mobile workflow literature still appears thinner and less consolidated than classical static-analysis benchmarking literature
 - some higher-value insights currently come from practitioner material and synthesis rather than dense benchmark ecosystems
-- anti-instrumentation and mitigation-aware analysis still need deeper dedicated coverage
+- anti-instrumentation and mitigation-aware analysis still need deeper dedicated coverage, though the practical observation-topology branch is now better modeled than before
 
 Additional note:
 - the manually ingested 52pojie / Kanxue cluster materially strengthens this page’s evidence base by adding repeated real-world cases around Frida practice, anti-Frida pressure, mobile environment detection, Unity/IL2Cpp, linker/Binder/eBPF tactics, and mobile protocol/signing analysis
