@@ -298,3 +298,13 @@ The point is to normalize a recurring operator move that the KB previously lacke
 When protocol / firmware RE already has visible inbound traffic and some plausible parser or callback candidates, the next high-value move is sometimes not more traffic collection and not broader driver taxonomy.
 
 It is to localize the first **ingress / receive-path ownership boundary** that actually takes ownership of inbound bytes and turns them into one parser-relevant object, queue entry, deferred receive callback, or routed message whose later parse/state behavior can then be proved.
+
+## 13. Practical handoff rule
+Stay on this note while the missing proof is still the first local receive owner that actually commits inbound bytes into one parser-relevant object, queue entry, deferred receive callback, or routed handler family.
+
+Leave broad ingress/ownership work once that receive owner is already good enough and the real bottleneck has shifted to one of these narrower next steps:
+- `topics/protocol-parser-to-state-edge-localization-workflow-note.md` when the owner is known but the first state write, reply-family selector, queue/timer insertion, or peripheral consequence is still unproved
+- `topics/protocol-replay-precondition-and-state-gate-workflow-note.md` when the owner and some parser/state visibility are already good enough, but structurally plausible replay or mutation still fails because one narrower acceptance/precondition gate is still hiding
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md` when receive ownership, parser/state consequence, and local acceptance are already good enough, but the first committed outbound path is still missing
+
+A durable failure mode worth avoiding is staying too long in queue/ring/callback/driver narration after one receive owner is already good enough and the real unresolved question has become parser consequence or replay acceptance.

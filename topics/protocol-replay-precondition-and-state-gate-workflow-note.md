@@ -304,3 +304,13 @@ The point is to normalize a recurring operator move that the KB previously lacke
 When protocol RE already has parser and field visibility, the next high-value move is often not more field labeling and not a broader state-machine sketch.
 
 It is to localize the first **acceptance gate** that decides whether a structurally plausible replay, mutation, or stateful interaction is actually accepted, rejected, retried, challenged, or silently ignored.
+
+## 13. Practical handoff rule
+Stay on this note while the missing proof is still the first local acceptance gate that decides whether a structurally plausible replay, mutation, or stateful interaction advances, rejects, retries, challenges, degrades, or silently no-ops.
+
+Leave broad replay/acceptance work once one acceptance gate is already good enough and the real bottleneck has shifted to one of these narrower next steps:
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md` when accepted local state is already good enough, but the first concrete emitted reply, serializer/framing path, queue/descriptor commit, or transport/peripheral handoff is still unproved
+- `topics/peripheral-mmio-effect-proof-workflow-note.md` when acceptance and output handoff are already good enough, but the first hardware-facing write, queue/DMA/interrupt arm, or status-latch edge is still missing
+- `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md` when even some peripheral-effect visibility already exists, but the later durable consequence still hides in interrupt/completion/deferred handling
+
+A durable failure mode worth avoiding is staying too long in handshake/freshness/pending-slot discussion after one acceptance gate is already good enough and the real unresolved question has become emitted output, hardware-side effect, or later completion-driven consequence.
