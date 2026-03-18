@@ -263,15 +263,26 @@ The native branch should usually be read in this order:
 This page therefore covers the earliest practical native bottleneck after basic readability:
 - stabilize one semantic anchor before widening labels or proving whole subsystems
 
-## 9. Failure modes this note helps prevent
+## 9. Practical handoff rule
+Leave this note and continue into representative route proof as soon as the main uncertainty stops being “what does this local object / type / call family really mean?” and becomes “which operational path should I prove first now that one anchor is trustworthy enough to navigate?”
+
+The usual next stop is:
+- `topics/native-interface-to-state-proof-workflow-note.md` when one semantic anchor is already good enough, but several imports/strings/xrefs/callbacks/handlers still expose several plausible routes and the first consequence-bearing state edge and downstream effect are still unproved
+
+A compact practical rule is:
+- stay in this note while the main uncertainty is still stabilizing one candidate semantic anchor against one downstream consequence
+- leave this note once one anchor is good enough and the real bottleneck becomes route choice among several plausible interface families
+
+## 10. Failure modes this note helps prevent
 - polishing pseudocode without improving trust
 - spreading guessed names/types/signatures across a subsystem too early
 - confusing readability with semantic stabilization
 - proving a far-away effect before the local anchor is stable enough to interpret it
 - broad relabeling when one anonymous-but-trustworthy object would be better
 - keeping vivid but untested semantic stories because they sound plausible
+- staying too long in semantic-anchor work after one anchor is already good enough and the real bottleneck has shifted to representative route proof
 
-## 10. Compact operator checklist
+## 11. Compact operator checklist
 - Pick one candidate anchor family, not the whole subsystem.
 - Write candidates as predictions.
 - Find one reduction boundary.
@@ -279,7 +290,7 @@ This page therefore covers the earliest practical native bottleneck after basic 
 - Use one narrow proof move.
 - Keep only the anchor that survives proof pressure.
 
-## 11. Topic summary
+## 12. Topic summary
 In native baseline reversing, a frequent bottleneck is not missing structure but unstable meaning.
 
 The practical cure is to stop broad relabeling, choose one candidate semantic anchor, test whether it predicts one downstream consequence, and keep only the interpretation that survives proof pressure.
