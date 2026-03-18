@@ -315,8 +315,13 @@ Typical question:
 Primary note:
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 
+Routing reminder:
+- stay here while the missing proof is still the first local receive owner
+- leave broad ingress/ownership work once one receive owner is already good enough and the real bottleneck becomes parser/state consequence, replay acceptance, or later output-side proof
+
 Possible next handoff:
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+- `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 
 ### G. Parser visibility -> first state or effect consequence
@@ -325,6 +330,10 @@ Typical question:
 
 Primary note:
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+
+Routing reminder:
+- stay here while the missing proof is still the first consequence-bearing parser-adjacent edge
+- leave broad parser/state work once one consequence edge is already good enough and the real bottleneck becomes replay acceptance, reply/output handoff, or hardware-side effect proof
 
 Possible next handoff:
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
@@ -338,9 +347,14 @@ Typical question:
 Primary note:
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 
+Routing reminder:
+- stay here while the missing proof is still the first local acceptance gate
+- leave broad replay/acceptance work once one gate is already good enough and the real bottleneck becomes emitted output, hardware-side effect proof, or later interrupt/deferred consequence
+
 Possible next handoff:
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
+- `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 
 ### I. Accepted local path -> real output behavior
 Typical question:

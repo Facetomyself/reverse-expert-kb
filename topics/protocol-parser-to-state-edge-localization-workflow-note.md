@@ -293,3 +293,13 @@ The point is to normalize a recurring operator move that the KB previously lacke
 When protocol RE already has message visibility, the next high-value move is often not more traffic collection and not broader taxonomy.
 
 It is to localize the first **parser-to-state consequence edge** that actually predicts reply choice, state transition, deferred work, or hardware effect.
+
+## 13. Practical handoff rule
+Stay on this note while the missing proof is still the first parser-adjacent state write, reply-family selector, queue/timer insertion, deferred-work reduction, or peripheral action that actually predicts later behavior.
+
+Leave broad parser-to-state work once one consequence-bearing edge is already good enough and the real bottleneck has shifted to one of these narrower next steps:
+- `topics/protocol-replay-precondition-and-state-gate-workflow-note.md` when the first consequence edge is already known well enough, but structurally plausible replay, mutation, or stateful experimentation still fails because a narrower acceptance gate remains unproved
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md` when parser/state consequence and local acceptance are already good enough, but the first committed outbound reply/transport path is still missing
+- `topics/peripheral-mmio-effect-proof-workflow-note.md` when the useful proof has already crossed into a hardware-facing effect-bearing edge and the real missing object is now the first MMIO/peripheral consequence after parser/state reduction
+
+A durable failure mode worth avoiding is staying too long in field labels, parser fan-out narration, or abstract state-machine sketching after one consequence-bearing edge is already good enough and the real unresolved question has become acceptance, outbound emission, or hardware-side proof.
