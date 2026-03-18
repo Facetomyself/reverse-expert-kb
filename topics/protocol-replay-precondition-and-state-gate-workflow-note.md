@@ -291,9 +291,11 @@ This note is intentionally workflow-first.
 It is grounded by:
 - `topics/protocol-state-and-message-recovery.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+- `topics/protocol-content-pipeline-recovery-workflow-note.md`
 - `topics/runtime-behavior-recovery.md`
 - `topics/record-replay-and-omniscient-debugging.md`
 - `sources/firmware-protocol/2026-03-17-protocol-replay-precondition-and-state-gate-notes.md`
+- `sources/protocol-and-network-recovery/2026-03-17-sperm-protocol-network-batch-3-notes.md`
 
 The evidence base here is sufficient for a practical workflow note because the point is not to claim one universal protocol-state architecture.
 The point is to normalize a recurring operator move that the KB previously lacked.

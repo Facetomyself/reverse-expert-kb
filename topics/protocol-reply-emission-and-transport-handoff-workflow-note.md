@@ -293,6 +293,7 @@ It is grounded by:
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 - `sources/firmware-protocol/2026-03-17-protocol-reply-emission-and-transport-handoff-notes.md`
+- `sources/protocol-and-network-recovery/2026-03-17-sperm-protocol-network-batch-3-notes.md`
 
 The evidence base here is sufficient for a practical workflow note because the point is not to claim a universal serializer or transport architecture.
 The point is to normalize a recurring operator move that the KB previously lacked.
