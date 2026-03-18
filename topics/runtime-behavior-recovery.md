@@ -373,6 +373,6 @@ Overall assessment:
 ## 13. Topic summary
 Runtime behavior recovery is one of the key bridges between plausible static interpretation and trustworthy reverse-engineering understanding.
 
-Use `topics/runtime-evidence-practical-subtree-guide.md` as the branch entry surface when the case is clearly runtime-evidence shaped, but the current operator bottleneck still needs to be classified as observation/layer-selection uncertainty, capture-stability/replay-worthiness uncertainty, or late-effect-to-causal-boundary localization before choosing a narrower workflow note.
+Use `topics/runtime-evidence-practical-subtree-guide.md` as the branch entry surface when the case is clearly runtime-evidence shaped, but the current operator bottleneck still needs to be classified as observation/layer-selection uncertainty, smaller hook-placement / truth-boundary uncertainty, capture-stability/replay-worthiness uncertainty, or late-effect-to-causal-boundary localization before choosing a narrower workflow note.
 
 This topic matters because expert analysts often make the most progress not by reading more code, but by observing the right behavior, at the right layer, for the right reason, and then integrating that evidence back into a stable working model of the target.
