@@ -192,7 +192,7 @@ Primary note:
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
 
 Possible next handoff:
-- `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md`
+- `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md` when the owner is already good enough and the real bottleneck has shifted into minimal truthful init/context obligation recovery and reduced invocation contract
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 - request/signature or native proof pages when the owner narrows the case further
 
@@ -204,7 +204,7 @@ Primary note:
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md`
 
 Possible next handoff:
-- `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md`
+- `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md` when the owner is already plausible enough and the real bottleneck has shifted from owner choice into truthful callable-path recovery
 - request/signature recovery or native proof pages once the owner is proved
 
 ### E. Plausible owner -> truthful callable path
@@ -239,8 +239,8 @@ When a case is clearly iOS-shaped, ask these in order:
    - if yes, start with broad ObjC / Swift / native owner localization
 4. **Is that ownership problem clearly Flutter/Dart cross-runtime shaped?**
    - if yes, switch to the specialized Flutter/cross-runtime owner note
-5. **Is one owner already plausible enough, but the next bottleneck is making it callable truthfully?**
-   - if yes, continue into controlled replay / black-box invocation
+5. **Is one owner already plausible enough, and is the real bottleneck no longer owner choice but making that owner callable truthfully?**
+   - if yes, stop broad owner-localization work and continue into controlled replay / black-box invocation
 6. **Are callbacks or result wrappers already visible, but the first behavior-changing policy state still hidden?**
    - if yes, continue into result/callback-to-policy-state work
 

@@ -268,7 +268,7 @@ The iOS practical branch should now usually be read through `topics/ios-practica
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md` when the ownership problem is clearly Flutter/Dart-shaped
-- `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md` when one owner path is already plausible enough and the real bottleneck is minimal truthful replay rather than broader owner choice
+- `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md` when one owner path is already plausible enough, broad owner-localization work should stop, and the real bottleneck is now minimal truthful replay rather than broader owner choice
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 
 That ordered route helps separate five different operator bottlenecks that are easy to collapse together:
