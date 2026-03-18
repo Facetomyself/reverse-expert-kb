@@ -87,12 +87,13 @@ Typical signs:
 - feature availability changes before the target protected flow begins
 - one build/package shape reaches farther than another without obvious logic changes
 - Apple ID signing vs certificate sign vs TrollStore vs jailbreak-side install produce different reachable depth or different tool stability
-- rootful vs rootless assumptions leak into where tools land, how services start, or which package/runtime paths later remain trustworthy
+- rootful vs rootless assumptions leak into where tools land, how services start, what persists across reboot, or which package/runtime paths later remain trustworthy
 - a large fraction of later "analysis instability" disappears once install/signing path and deployment topology are normalized
 
 What to capture:
 - the first branch or helper that converts package/runtime metadata into allow, degrade, or abort behavior
 - whether installation/signing path is part of the gate surface rather than unrelated setup trivia
+- whether rootful vs rootless operation changes the tool layout, persistence model, or service path enough that later evidence should be treated as coming from different environments rather than one interchangeable "jailbroken" state
 
 ### C. Jailbreak / filesystem / process-environment gate
 This family covers cases where the app reads environment clues such as paths, processes, URL schemes, writable locations, or sandbox anomalies.
@@ -112,9 +113,11 @@ Typical signs:
 - hooks work in a minimal setup but not after more aggressive tracing
 - the app stays up, but downstream semantics drift under observation
 - path selection changes only when hooks, gadget, or trace coverage are enabled
+- host-side and device-side Frida versions, startup mode, or USB vs network service path differ across runs and the observed instability tracks those deployment differences better than target logic
 
 What to capture:
 - the first local edge where observation state changes behavior or evidence trustworthiness
+- whether the instability is really target resistance, or whether deployment-path incoherence made two runs operationally incomparable before any deeper anti-instrumentation claim was justified
 
 ### E. Virtualization / device-realism gate
 This family covers cases where the target reacts differently because the execution environment is not realistic enough even without explicit hook visibility.
@@ -163,6 +166,14 @@ Then build one compare pair with one changed condition only, such as:
 - ordinary proxy capture vs VPN/WireGuard observation topology
 - one device vs one virtualized environment
 - one jailbreak state vs one more stock-like state
+- matched Frida deployment vs mismatched version/startup/transport path
+
+For the compare pair, explicitly write down operational setup details that are easy to forget but often decisive on iOS:
+- install/signing path
+- rootful vs rootless mode
+- how Frida is launched and where it lives
+- whether transport is USB, network, or mixed
+- whether the service path is persistent, manual, or package-manager-provided
 
 Avoid drifting into many uncontrolled setups.
 
@@ -292,6 +303,22 @@ minimal setup behaves acceptably
 Best move:
 - classify as possible instrumentation visibility or observation drift first
 - prove the earliest path change before adding more hooks
+- rule out deployment incoherence first: mismatched Frida versions, different startup mode, or USB-vs-network transport changes can create fake "target resistance" if the runs are not operationally comparable
+
+### Scenario F: Flutter-oriented repack or rewrite keeps failing before the target flow
+Pattern:
+
+```text
+reFlutter / repack / framework rewrite looks promising
+  -> rebuilt artifact is brittle or will not run truthfully
+  -> live app still executes the target flow
+```
+
+Best move:
+- do not treat repack success as mandatory proof of progress
+- classify this first as a gate/setup-deployment issue unless an actual consequence-bearing owner is already proved elsewhere
+- switch to live-runtime owner recovery when the executing runtime is giving truer evidence than the rewritten artifact
+- hand off to `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md` once the case has been reduced enough that the real remaining problem is owner choice rather than broad setup drift
 
 ### Scenario E: Virtualized environment reaches a different trust state without obvious crash
 Pattern:
