@@ -261,6 +261,50 @@ A strong model of this topic helps avoid:
 - treating execution traces as raw logs instead of indexed evidence
 - assuming reverse stepping alone is enough without better query/navigation support
 - ignoring storage/overhead limits when capture strategy should be selective
+- staying in replay/tooling discussion after one representative execution is already good enough and the real bottleneck has shifted into causal-boundary proof or evidence packaging
+
+## 8. Practical handoff rule
+Stay on this page while the missing proof is still:
+- whether one representative execution can be captured or replayed faithfully enough to trust
+- whether live reruns are too fragile, expensive, or lossy to keep rediscovering the same state
+- whether indexed execution history would materially shrink the next causal question
+
+Leave this page once one representative execution is already good enough and the real bottleneck becomes narrower.
+
+Typical next moves are:
+- move to `topics/causal-write-and-reverse-causality-localization-workflow-note.md` when one suspicious late effect is already stable enough and the first causal write, branch, queue edge, or state reduction is now the real missing proof
+- move to `topics/analytic-provenance-and-evidence-management.md` when the execution history already exists but the remaining gap is evidence linkage, resumption discipline, or handoff packaging
+- move back into a branch-specific practical note when replay has already made the next narrower owner/parser/consumer question trustworthy enough to pursue directly
+
+A durable stop-rule worth preserving canonically is:
+- do not keep broad replay/tooling discussion alive once one representative run is already good enough and the case now needs one narrower causal boundary or one cleaner evidence package
+
+## 9. Evaluation dimensions
+The most important evaluation dimensions for this topic are:
+
+### Replay fidelity
+Does the replay preserve the execution properties the analyst needs to trust?
+
+### Evidence stability
+Does the system let analyst knowledge survive restarts and revisits?
+
+### Causality-tracing efficiency
+How quickly can the analyst move from effect back to cause?
+
+### Queryability / navigation quality
+Can the analyst ask useful cross-time questions without drowning in trace data?
+
+### Integration quality
+How well does the tooling connect to disassembly, decompilation, notes, and other workflow surfaces?
+
+### Capture cost
+Are recording overhead, trace size, index size, and platform constraints acceptable for the target?
+
+Among these, the especially central dimensions are:
+- evidence stability
+- causality-tracing efficiency
+- queryability / navigation quality
+- capture cost
 
 ## 8. Evaluation dimensions
 The most important evaluation dimensions for this topic are:

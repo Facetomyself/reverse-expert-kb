@@ -311,7 +311,23 @@ Best move:
 
 If those answers are still vague, the case probably needs a more upstream workflow note first.
 
-## 9. Relationship to nearby pages
+## 9. Practical handoff rule
+Stay on this page while the missing proof is still:
+- the first causal write, branch, queue edge, reducer, or state slot that predicts one visible late effect
+- one dependency edge showing that the chosen causal boundary actually matters downstream
+- one smaller next target that becomes trustworthy after the causal boundary is proved
+
+Leave this page once one causal boundary is already good enough and the real bottleneck becomes narrower.
+
+Typical next moves are:
+- move to `topics/analytic-provenance-and-evidence-management.md` or `topics/notebook-and-memory-augmented-re.md` when the causal edge is already proved but the remaining gap is preserving, packaging, or handing off the evidence cleanly
+- move to a branch-specific practical note when the proved causal boundary now points clearly at one smaller native, protocol, malware, or protected-runtime target
+- move back to `topics/hook-placement-and-observability-workflow-note.md` only if the supposed effect boundary or observation surface later proves too noisy or semantically late to trust
+
+A durable stop-rule worth preserving canonically is:
+- do not keep broad reverse-causality browsing alive once one causal boundary is already good enough and the case now mainly needs branch-specific proof work or evidence packaging
+
+## 10. Relationship to nearby pages
 Use this page when the bottleneck is:
 - **a visible late effect whose first causal write / branch / state edge is still unknown**
 
@@ -363,7 +379,7 @@ The page stays conservative:
 - it does not assume one vendor/tool is universally best
 - it treats reverse-causality localization as a reusable workflow pattern, not as a product feature checklist
 
-## 12. Bottom line
+## 13. Bottom line
 When a suspicious late effect is already visible, the high-value move is often not broader trace understanding.
 
 It is to localize the first causal write / branch / state edge that predicts that effect, prove one dependency, and return to a smaller, more trustworthy next target.
