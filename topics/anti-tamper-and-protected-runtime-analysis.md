@@ -369,7 +369,7 @@ Practical bridge pages now exist for recurring protected-runtime bottlenecks:
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 - `topics/protected-runtime-observation-topology-selection-workflow-note.md`
 
-Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry surface when the case is clearly protected-runtime shaped, but the current operator bottleneck still needs to be classified as packed/bootstrap handoff, artifact-consumer proof, integrity/tamper consequence proof, or the nearby VM/dispatcher branch before choosing a narrower workflow note.
+Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry surface when the case is clearly protected-runtime shaped, but the current operator bottleneck still needs to be classified as observation-topology failure, packed/bootstrap handoff, artifact-consumer proof, runtime-artifact / initialization-obligation recovery, integrity/tamper consequence proof, or the nearby VM/dispatcher branch before choosing a narrower workflow note.
 
 Use the packed-stub/OEP note when staged bootstrap, shelling, or loader churn is already visible and the immediate bottleneck is one trustworthy post-unpack handoff.
 
