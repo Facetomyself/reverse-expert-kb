@@ -348,7 +348,7 @@ Possible next handoff:
 
 ### J. Peripheral or completion visibility -> durable hardware-side consequence
 Typical question:
-- which first MMIO write, arm, status-latch, ISR reduction, or deferred-worker consequence actually predicts later durable behavior?
+- after reply-emission / transport-handoff proof is already good enough, which first MMIO write, arm, status-latch, ISR reduction, or deferred-worker consequence actually predicts later durable behavior?
 
 Primary notes:
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
@@ -391,7 +391,8 @@ That usually means:
 - prove one receive owner before cataloging many parser candidates
 - prove one parser/state consequence before sketching a larger protocol theory
 - prove one acceptance gate before overfitting replay generation
-- prove one output or interrupt-side consequence before widening hardware taxonomy
+- prove one output handoff before broadening into peripheral/MMIO or interrupt-side consequence proof
+- prove one peripheral or interrupt-side consequence before widening hardware taxonomy
 
 ## 6. What this branch is strongest at
 This branch is currently strongest at practical guidance for:

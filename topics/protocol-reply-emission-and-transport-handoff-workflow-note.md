@@ -302,3 +302,10 @@ The point is to normalize a recurring operator move that the KB previously lacke
 When protocol / firmware RE already has message visibility, parser visibility, and even some local acceptance proof, the next high-value move is sometimes not more packet collection and not broader state taxonomy.
 
 It is to localize the first **reply-emission / transport-handoff boundary** that actually turns accepted internal state into one externally visible reply, output packet, queue commit, or device-visible send behavior.
+
+A practical routing rule worth preserving is:
+- stop on this note when the missing proof is still the first committed outbound path
+- continue into `topics/peripheral-mmio-effect-proof-workflow-note.md` when the decisive uncertainty is now the first hardware-facing write, arm, descriptor, or status-latch edge after that handoff
+- continue into `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md` when the visible send or peripheral edge already exists, but the durable consequence only becomes trustworthy later inside interrupt/completion/deferred handling
+
+That keeps analysts from treating outbound serializer/queue proof, peripheral effect proof, and ISR/deferred consequence proof as one undifferentiated transport blob.
