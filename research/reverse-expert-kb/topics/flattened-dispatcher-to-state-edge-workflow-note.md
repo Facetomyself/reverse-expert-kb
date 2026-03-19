@@ -338,6 +338,14 @@ Next move:
 Use this page when the bottleneck is:
 - **turning flattened/dispatcher-heavy logic into one consequence-bearing state edge and one smaller static target**
 
+Practical handoff rule:
+- stay on this page while the missing proof is still one durable state object, reduction helper, or dispatcher-exit family plus one first consequence-bearing state edge inside a recognizable flattened region
+- leave broad trace/dispatcher work here once one durable state object and one consequence-bearing state edge are already good enough
+- once that handoff is already good enough, the next bottleneck is usually one of:
+  - one post-unpack handoff if the flattened/protected region is really still serving staged startup
+  - one ordinary semantic-anchor or route-to-state proof in a now-readable post-protection region
+  - one narrower recovered-artifact or downstream-consumer continuation once the dispatcher-side state edge is no longer the true blocker
+
 Then route outward based on what remains hard:
 - if the target is still better framed as a broader deobfuscation/protected-runtime problem:
   - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
@@ -348,8 +356,13 @@ Then route outward based on what remains hard:
   - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 - if the target is browser-side JSVMP or AST-hostile code:
   - `topics/jsvmp-and-ast-based-devirtualization.md`
-- if the flattened region has already reduced into an ordinary interface/state question:
+- if the next bottleneck is really a staged/bootstrap handoff rather than more dispatcher reduction:
+  - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
+- if the flattened region has already reduced into an ordinary native follow-up question:
+  - `topics/native-semantic-anchor-stabilization-workflow-note.md`
   - `topics/native-interface-to-state-proof-workflow-note.md`
+- if the reduction now exposes one recovered artifact whose first ordinary consumer is still unclear:
+  - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
 
 ## 11. What this page adds to the KB
 This page adds a missing practical bridge in the deobfuscation branch:

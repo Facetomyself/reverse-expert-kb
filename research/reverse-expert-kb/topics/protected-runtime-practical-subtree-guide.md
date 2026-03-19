@@ -178,10 +178,15 @@ Typical question:
 Primary note:
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 
+Routing reminder:
+- leave broad trace/semantic-anchor work here once one stable semantic anchor and one consequence-bearing handler/state edge are already good enough
+
 Possible next handoff:
 - `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
 - `topics/native-semantic-anchor-stabilization-workflow-note.md`
 - `topics/native-interface-to-state-proof-workflow-note.md`
+- `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md` when the protected execution was really still masking a staged/bootstrap handoff
+- `topics/decrypted-artifact-to-first-consumer-workflow-note.md` when the trace reduction yields one readable recovered artifact whose first ordinary consumer is still unclear
 
 ### C. Packed startup -> trustworthy post-unpack handoff
 Typical question:
