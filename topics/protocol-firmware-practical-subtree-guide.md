@@ -26,6 +26,9 @@ The branch already had practical entry surfaces for:
 - broad environment/context recovery framing
 - message/state recovery as a distinct recovery object
 - pre-parser capture-failure and boundary relocation
+- socket-boundary / private-overlay object recovery
+- layer-peeling / smaller-contract recovery
+- content-pipeline continuation when the first authenticated API only seeds a later artifact ladder
 - receive-path ownership proof
 - parser-to-state consequence localization
 - replay-precondition / acceptance-gate diagnosis
