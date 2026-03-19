@@ -190,6 +190,31 @@ Includes:
 - serving as the default comparison case
 - clarifying how other domain pages represent deviations from the baseline
 
+### 6. Native practical branch routing
+The native branch should now be read not only as a broad baseline-comparison page, but also as a practical four-family ladder that routes analysts toward the next smaller trustworthy proof boundary.
+
+The branch is now best entered through these recurring bottlenecks:
+- **semantic-anchor instability** when code is readable enough to navigate, but names, types, signatures, object roles, or subsystem meanings are still too slippery to trust
+- **interface-path overabundance** when one semantic anchor is already good enough, but imports/strings/xrefs/callbacks still expose several plausible routes and no one consequence-bearing path has been proved yet
+- **module-owner uncertainty** when one route is already plausible enough, but plugin/module loaders, export resolution, factory registration, or provider installation still leave several loaded components competing and the first real owner is still unclear
+- **async ownership break** when one route or owner is already plausible, but behavioral ownership now breaks at registration, queue, completion, callback, or event-loop delivery boundaries and the first consequence-bearing consumer is still unclear
+
+A compact operator ladder for this branch is:
+
+```text
+choose the current native bottleneck
+  -> reduce it to one smaller trustworthy object or route
+  -> prove one consequence-bearing edge or downstream effect
+  -> hand back one more reliable subsystem map
+```
+
+Read the branch in this order when helpful:
+- subtree routing and bottleneck selection (`topics/native-practical-subtree-guide.md`)
+- semantic-anchor stabilization (`topics/native-semantic-anchor-stabilization-workflow-note.md`)
+- representative interface-to-state proof (`topics/native-interface-to-state-proof-workflow-note.md`)
+- plugin-loader / first-real-module-consumer reduction (`topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md`)
+- callback-registration / event-loop consumer proof (`topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`)
+
 ## 7. Analyst workflow implications
 This topic matters especially during:
 
@@ -219,6 +244,12 @@ Dynamic work becomes important when:
 - value flow is ambiguous
 - state change timing matters
 - static reconstruction remains plausible but not decisive
+
+A practical routing rule worth preserving here is:
+- leave broad semantic-anchor work once one anchor is already good enough and the real bottleneck has narrowed into representative route proof
+- leave broad interface-path proof work once one representative route is already good enough and the real bottleneck has narrowed into loader/provider ownership or async consumer proof
+- leave broad loader/provider ownership work once one loaded component is already good enough and the real bottleneck has narrowed into async delivery or callback-consumer proof
+- leave broad async callback/event-loop work once one consequence-bearing consumer is already good enough and the real bottleneck has narrowed into reverse-causality, broader runtime-evidence strategy, or one narrower output-side continuation
 
 ### Mistakes this topic helps prevent
 A strong baseline model helps avoid:
