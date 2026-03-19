@@ -12,6 +12,10 @@ Related pages:
 - topics/community-practice-signal-map.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
 - topics/firmware-and-protocol-context-recovery.md
+- topics/runtime-evidence-practical-subtree-guide.md
+- topics/hook-placement-and-observability-workflow-note.md
+- topics/record-replay-and-omniscient-debugging.md
+- topics/causal-write-and-reverse-causality-localization-workflow-note.md
 
 ## 1. Topic identity
 
@@ -232,6 +236,31 @@ Includes:
 - protected-target dynamic confirmation
 - future native-baseline dynamic workflows
 
+### 6. Runtime-evidence practical branch routing
+The runtime-evidence branch should now be read not only as a broad concept page, but also as a practical four-family ladder that routes analysts toward the next smaller trustworthy proof boundary.
+
+The branch is now best entered through these recurring bottlenecks:
+- **observability / layer-selection uncertainty** when the analyst still does not know what to observe or at which layer the next trustworthy object will appear
+- **hook-placement / truth-boundary uncertainty** when runtime work is clearly needed and a broad layer is already plausible, but the next truthful observation surface or minimal hook family still competes with several neighbors
+- **capture-stability / replay-worthiness uncertainty** when the interesting behavior is transient, delayed, expensive, or too painful to keep rediscovering live and the real question is whether to stabilize one representative execution first
+- **late-effect to causal-boundary localization** when one suspicious late effect is already visible and revisitable enough, but the first earlier write, branch, queue edge, reducer, or state slot that predicts it is still unknown
+
+A compact operator ladder for this branch is:
+
+```text
+choose the current runtime-evidence bottleneck
+  -> secure the most trustworthy observation or replay surface
+  -> reduce one visible question or effect into one smaller proof boundary
+  -> hand back one smaller next target for native, protocol, malware, mobile, protected-runtime, or provenance work
+```
+
+Read the branch in this order when helpful:
+- subtree routing and bottleneck selection (`topics/runtime-evidence-practical-subtree-guide.md`), which acts as the branch entry surface when the analyst first needs to decide whether the case is still dominated by broad observability uncertainty, smaller truth-boundary choice, replay-worthiness, or backward causal localization
+- broad runtime answerability and observability framing (`topics/runtime-behavior-recovery.md`)
+- hook-placement and truthful observation-surface reduction (`topics/hook-placement-and-observability-workflow-note.md`)
+- execution-history / replay stabilization (`topics/record-replay-and-omniscient-debugging.md`)
+- reverse-causality / first-causal-boundary reduction (`topics/causal-write-and-reverse-causality-localization-workflow-note.md`)
+
 ## 7. Analyst workflow implications
 This topic matters especially during:
 
@@ -254,6 +283,12 @@ Progress depends on:
 - trace-guided narrowing
 - state or message observation
 - iterative loop between hypothesis and confirmation
+
+A practical routing rule worth preserving here is:
+- leave broad runtime-observation strategy once one broad layer is already plausible and the real uncertainty has narrowed into one smaller truth-boundary or hook-family choice
+- leave broad hook-placement work once one truthful observation surface is already good enough and the real bottleneck has become replay-worthiness or backward causal localization
+- leave broad replay/tooling discussion once one representative execution is already good enough and the real bottleneck has become causal-boundary proof, branch-specific follow-up, or evidence packaging
+- leave broad reverse-causality work once one causal boundary is already good enough and the real bottleneck has become narrower native, protocol, malware, mobile, protected-runtime, or provenance work
 
 Practitioner-community casework adds several concrete patterns here:
 - browser/CDP-assisted inspection when JS/web targets hide logic behind runtime execution
