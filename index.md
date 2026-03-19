@@ -191,7 +191,7 @@ This branch should now be read as a practical bridge from malware-overlap synthe
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 - `topics/integrity-check-to-tamper-consequence-workflow-note.md`
 
-This branch should now be read as a practical bridge from mature protected/deobfuscation synthesis into a subtree guide plus seven recurring operator bottlenecks:
+This branch should now be read as a practical bridge from mature protected/deobfuscation synthesis into a subtree guide plus six recurring protected-runtime operator bottlenecks:
 - subtree navigation and bottleneck selection (`protected-runtime-practical-subtree-guide`), which acts as the branch entry surface when the case is clearly protected-runtime shaped but the analyst first needs to classify whether the current bottleneck is observation-topology failure, trace/dispatcher churn, packed/bootstrap handoff, artifact-consumer proof, runtime-artifact / initialization-obligation recovery, or integrity/tamper consequence proof
 - broad protected/deobfuscation framing and evaluation (`obfuscation-deobfuscation-and-packed-binaries`)
 - observation-topology selection (`protected-runtime-observation-topology-selection-workflow-note`), which acts as the practical entry note when direct attach, spawn, app-local hooks, or ordinary instrumentation are themselves unstable, detected, semantically late, or misleading and the analyst first needs one more truthful boundary before narrower protected-runtime work becomes trustworthy
