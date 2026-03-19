@@ -382,6 +382,12 @@ Primary notes:
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 
+Routing reminder:
+- stay on peripheral/MMIO effect work while the missing proof is still the first hardware-facing effect-bearing edge
+- leave broad peripheral/MMIO effect work once one effect-bearing edge is already good enough and the real bottleneck becomes interrupt/deferred consequence proof, rehosting/model realism, or one narrower downstream continuation
+- stay on ISR/deferred consequence work while the missing proof is still the first durable interrupt/completion/deferred handoff
+- leave broad ISR/deferred consequence work once one durable consequence edge is already good enough and the real bottleneck becomes model realism, narrower protocol-state or reply-selection follow-up, or provenance/evidence packaging
+
 Possible next handoff:
 - rehosting model refinement
 - protocol-state refinement

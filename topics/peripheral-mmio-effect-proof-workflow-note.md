@@ -173,6 +173,23 @@ Once localized, route the result into one next task only:
 
 Do not immediately widen into full peripheral taxonomy unless the next experiment truly needs it.
 
+### Practical handoff rule
+Stay on this note while the missing proof is still the first hardware-facing effect-bearing edge:
+- the first write, mask reduction, mode-select edge, queue/DMA arm, or status-latch edge that makes the downstream peripheral-side behavior trustworthy
+- the first peripheral/MMIO effect that predicts later reply, interrupt, scheduler, or hardware-visible behavior better than parser/state proof alone
+- the first hardware-facing edge that must be proved before rehosting, modeling, or narrower static continuation becomes trustworthy
+
+Leave broad peripheral/MMIO effect work once one effect-bearing edge is already good enough and the real bottleneck has shifted into one narrower continuation such as:
+- `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md` when the first MMIO/peripheral edge is already proved but the durable reply/state/scheduler consequence only becomes trustworthy later inside interrupt/completion/deferred handling
+- rehosting or hardware-model refinement when one proved effect edge is already enough and the next task is now representing that edge correctly rather than proving more neighboring register families
+- narrower protocol-state or output-side follow-up when the peripheral effect is already good enough and the remaining uncertainty is no longer hardware-entry proof itself
+
+A recurring failure mode is staying too long in broad MMIO/register narration after one effect-bearing edge is already good enough:
+- cataloging neighboring accessor families
+- widening register labels
+- mapping additional peripheral helpers
+when the real bottleneck has already become interrupt/deferred consequence proof, model realism, or one narrower downstream continuation.
+
 ## 6. Breakpoint / hook placement guidance
 Useful anchor classes:
 - first trigger-family discriminator

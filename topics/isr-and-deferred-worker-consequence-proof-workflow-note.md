@@ -172,6 +172,23 @@ Once localized, route the result into one next task only:
 
 Do not immediately widen into full interrupt-controller or driver taxonomy unless the next experiment truly needs it.
 
+### Practical handoff rule
+Stay on this note while the missing proof is still the first durable interrupt/completion/deferred consequence:
+- the first ISR or deferred-worker reduction that turns an already-visible hardware-facing edge into one trustworthy state, reply, scheduler, or policy consequence
+- the first completion/status bucket whose local reduction predicts later durable behavior better than the earlier MMIO/peripheral edge alone
+- the first interrupt/deferred handoff that must be proved before rehosting, protocol-state reasoning, or replay realism becomes trustworthy
+
+Leave broad ISR/deferred consequence work once one durable consequence edge is already good enough and the real bottleneck has shifted into one narrower continuation such as:
+- rehosting or interrupt-model refinement when one proved ISR/deferred consequence is already enough and the next task is now representing that handoff correctly rather than proving more neighboring callback families
+- narrower protocol-state, reply-selection, or scheduler follow-up when the durable consequence is already good enough and the remaining uncertainty is no longer interrupt/deferred proof itself
+- provenance, runtime-evidence packaging, or another branch-specific continuation when the decisive consequence is already captured and the next need is preserving, reusing, or handing off that proof cleanly
+
+A recurring failure mode is staying too long in broad interrupt/callback narration after one consequence-bearing handoff is already good enough:
+- enumerating sibling ISR entries
+- widening callback maps
+- cataloging more completion helpers
+when the real bottleneck has already become model realism, narrower downstream proof, or evidence packaging.
+
 ## 6. Breakpoint / hook placement guidance
 Useful anchor classes:
 - first trigger-family discriminator
