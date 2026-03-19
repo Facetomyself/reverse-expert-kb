@@ -6,6 +6,7 @@ Maturity: practical
 Related pages:
 - topics/protocol-state-and-message-recovery.md
 - topics/firmware-and-protocol-context-recovery.md
+- topics/protocol-firmware-practical-subtree-guide.md
 - topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md
 - topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
@@ -42,6 +43,11 @@ In those cases, start with:
 
 ## 2. Core claim
 A recurring protocol RE bottleneck is that the analyst successfully recovers the **control-plane request**, but still treats that as if the case were solved.
+
+This note exists to preserve a practical branch distinction that is easy to compress away:
+- the first authenticated request may already be understood well enough
+- the real analyst object may still live downstream in one manifest/handle/key/path/chunk continuation ladder
+- the next useful proof is often one representative artifact ladder, not more first-hop protocol narration
 
 The higher-value target is often a **content pipeline**:
 
