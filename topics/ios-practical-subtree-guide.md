@@ -214,8 +214,14 @@ Typical question:
 Primary note:
 - `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md`
 
+Routing reminder:
+- leave broad replay / harness work here once one truthful callable path is already good enough
+- if replay is close-but-wrong, continue into `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
+- if replay or live invocation already exposes result material and the real gap is now the first behavior-changing local policy state, continue into `topics/ios-result-callback-to-policy-state-workflow-note.md`
+
 Possible next handoff:
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
+- `topics/ios-result-callback-to-policy-state-workflow-note.md`
 - narrower request/signature or consequence pages once controlled replay is truthful enough
 
 ### F. Visible callback/result -> first policy-bearing consumer
@@ -241,7 +247,9 @@ When a case is clearly iOS-shaped, ask these in order:
    - if yes, switch to the specialized Flutter/cross-runtime owner note
 5. **Is one owner already plausible enough, and is the real bottleneck no longer owner choice but making that owner callable truthfully?**
    - if yes, stop broad owner-localization work and continue into controlled replay / black-box invocation
-6. **Are callbacks or result wrappers already visible, but the first behavior-changing policy state still hidden?**
+6. **Is replay already good enough, but the remaining gap has narrowed into one runtime table family, initialized-image boundary, side-condition, or minimal init/context obligation?**
+   - if yes, leave broad replay work and continue into runtime-table / initialization-obligation recovery
+7. **Are callbacks or result wrappers already visible, but the first behavior-changing policy state still hidden?**
    - if yes, continue into result/callback-to-policy-state work
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
@@ -250,6 +258,7 @@ That usually means:
 - prove one broad gate family before deep owner search
 - prove one owner before building a replay harness
 - prove one truthful callable path before cataloging many setup helpers
+- leave broad replay/harness work once one truthful callable path is already good enough and the real bottleneck has shifted
 - if replay is already close-but-wrong, reduce one narrower runtime-table or initialization obligation before widening outward again
 - prove one policy-bearing consumer before widening callback coverage
 
