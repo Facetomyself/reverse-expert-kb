@@ -363,10 +363,16 @@ Typical question:
 Primary note:
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 
+Routing reminder:
+- stay here while the missing proof is still the first committed outbound path
+- leave broad reply-emission / transport-handoff work once one outbound path is already good enough and the real bottleneck becomes hardware-side effect proof, later interrupt/deferred consequence proof, or one narrower output-side continuation
+
 Possible next handoff:
 - harness refinement
 - serializer/framing recovery
 - peripheral-send or transport modeling
+- `topics/peripheral-mmio-effect-proof-workflow-note.md`
+- `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 
 ### J. Peripheral or completion visibility -> durable hardware-side consequence
 Typical question:

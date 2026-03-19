@@ -179,6 +179,24 @@ Once localized, route the result into one next task only:
 
 Do not immediately widen into full protocol formalization or full driver taxonomy unless the next experiment truly needs it.
 
+### Practical handoff rule
+Stay on this note while the missing proof is still the first committed outbound path:
+- the first reply-family reduction that survives into emission
+- the first serializer/framing path that actually commits an outbound object
+- the first queue/descriptor/send-slot edge that predicts whether the reply really leaves
+- the first transport/peripheral handoff that turns accepted local handling into one real output behavior
+
+Leave broad reply-emission / transport-handoff work once one committed outbound path is already good enough and the real bottleneck has shifted into one narrower continuation such as:
+- `topics/peripheral-mmio-effect-proof-workflow-note.md` when the first output handoff is already proved and the remaining uncertainty is now the first hardware-facing write, DMA/queue arm, descriptor-visible effect, or status-latch edge that makes the downstream device-side consequence trustworthy
+- `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md` when the visible send or peripheral edge is already good enough but the durable consequence only becomes trustworthy later inside interrupt/completion/deferred handling
+- narrower serializer/framing or harness work when the outbound commit boundary is already good enough and the next task is no longer proving whether the reply really leaves
+
+A recurring failure mode is staying too long in broad output-side narration after one outbound path is already good enough:
+- cataloging sibling serializer helpers
+- mapping neighboring queue families
+- expanding generic driver/send taxonomy
+when the real bottleneck has already become hardware-side effect proof, later interrupt/deferred consequence proof, or one narrower output-side continuation.
+
 ## 6. Breakpoint / hook placement guidance
 Useful anchor classes:
 - first accepted-path discriminator for the target message family

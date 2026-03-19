@@ -369,7 +369,7 @@ Use the peripheral/MMIO note when candidate peripheral ranges, MMIO/register fam
 
 Use the ISR/deferred-worker note when trigger and peripheral-effect visibility already exist, but the real decisive boundary is later: the first interrupt/completion/deferred-worker handoff that turns earlier hardware-facing activity into durable state, reply, scheduler, or policy behavior.
 
-Use the reply-emission/transport-handoff note when protocol/firmware handling is already locally understood far enough to show acceptance or reply-object creation, but the analyst still needs to prove where that accepted result is serialized, queued, committed, or handed to the transport/peripheral side as one real output behavior.
+Use the reply-emission/transport-handoff note when protocol/firmware handling is already locally understood far enough to show acceptance or reply-object creation, but the analyst still needs to prove where that accepted result is serialized, queued, committed, or handed to the transport/peripheral side as one real output behavior; leave broad output-side work there once one committed outbound path is already good enough and the real bottleneck becomes hardware-side effect proof, later interrupt/deferred consequence proof, or one narrower output-side continuation.
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is coherent and strong enough for a mature synthesis page.
