@@ -1,4 +1,4 @@
-generated_at: 2026-03-15
+generated_at: 2026-03-16
 hosts:
   - name: oracle-proxy
     provider: oracle
@@ -9,12 +9,14 @@ hosts:
     importance: tier1
     roles:
       - tavily-proxy
-      - tavily-registration
+      - tavily-registration-paused
+      - exafree
       - grok-services
       - cliproxy
     notes:
       - proxy.zhangxuemin.work is the primary documented domain
-      - heavily documented and currently operational
+      - ExaFree is running on host port 7860 with host-side cron automation for approximate 3-hour / 5-account registration batches
+      - Tavily proxy remains operational, but Tavily registration automation is intentionally paused as of 2026-03-19 to avoid repeated auto-attempts while upstream risk controls are active
 
   - name: oracle-docker-proxy
     provider: oracle
@@ -29,7 +31,8 @@ hosts:
       - hubcmd-ui
       - caddy-front-door
     notes:
-      - registry-ui currently has OCI manifest compatibility issues
+      - host is reachable and stable but remains a small-footprint box with low free RAM and some swap use
+      - as of 2026-03-16 only hub/ghcr/k8s/mcr backends were confirmed up; several other Caddy-mapped routes currently terminate in 502 due to inactive local backends
       - Harbor files exist but Harbor runtime is inactive
 
   - name: ali-cloud

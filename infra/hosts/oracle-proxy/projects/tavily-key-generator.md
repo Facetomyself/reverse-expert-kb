@@ -4,7 +4,7 @@
 - Project: Tavily Key Generator
 - Host: `oracle-proxy`
 - Purpose: 自动注册 Tavily 账号，产出新的 Tavily API keys，并自动上传到 Tavily Proxy
-- Runtime status: running
+- Runtime status: paused
 - Priority: Tier 1
 
 ## 2. Access / Entry Points
@@ -28,6 +28,16 @@ Components:
 - `tavily-camoufox`: browser runtime for solving / automation support
 - `tavily-camoufox-adapter`: adapter exposed as host port `16072`
 
+Status update as of 2026-03-17:
+- the dedicated Tavily camoufox support path should be treated as historical/deprecated for current operations because the signup path is currently broken upstream and this stack is no longer considered an active service target to maintain for production use
+
+Status update as of 2026-03-19:
+- Tavily registration automation is intentionally paused.
+- Current investigation result: the Auth0/Tavily signup flow was largely repaired to the correct path (`/u/login/identifier` → `/u/signup/identifier` → `/u/signup/password`), including email-page and password-page Turnstile solving.
+- Current blocker is no longer basic page automation; it is upstream risk control / anti-abuse enforcement. After password submission, Tavily currently returns: `Suspicious activity detected. For any help, Please contact support@tavily.com`.
+- To avoid repeated auto-attempts and noisy health-check drift, `tavily-scheduler`, `tavily-camoufox`, and `tavily-camoufox-adapter` were intentionally stopped and their restart policy disabled on 2026-03-19.
+- `proxy-tavily-proxy-1` remains the active production service; the registration side should be treated as paused troubleshooting tooling, not an active healthy generator.
+
 Key dependency chain:
 - email backend: `https://tmail.zhangxuemin.work`
 - CAPTCHA solver mode: `adapter`
@@ -35,15 +45,20 @@ Key dependency chain:
 - proxy upload target from inside container: `http://host.docker.internal:9874`
 
 ## 5. Purpose and Workflow
-Workflow:
-1. scheduler wakes up every 2160 seconds
+Historical/target workflow:
+1. scheduler wakes up periodically
 2. `python main.py` runs one registration cycle
-3. account created with `zhangxuemin.work` mailbox via private tmail worker
-4. Turnstile challenge solved through adapter stack
-5. verification email is parsed
-6. API key is extracted after login
-7. result appended to `output/api_keys.md`
+3. account is created with `zhangxuemin.work` mailbox via private tmail worker
+4. Turnstile challenge is solved through adapter stack
+5. registration completes and account reaches usable Tavily state
+6. API key is extracted after login / dashboard access
+7. result is appended to `output/api_keys.md`
 8. fresh key is auto-uploaded to Tavily Proxy
+
+Current reality as of 2026-03-19:
+- Steps 1-4 are mostly working again after flow repair.
+- The remaining blocker is between steps 4 and 5: after password submission, Tavily returns `Suspicious activity detected`, so the account does not advance into a usable state.
+- Verification email is not the primary current blocker anymore; risk control is.
 
 ## 6. Configuration
 Observed key settings in `config.py`:
@@ -76,6 +91,30 @@ cd /root/tavily-key-generator
 docker compose up -d
 ```
 
+### Current intentional pause state
+As of 2026-03-19, automatic registration is intentionally paused to avoid repeated upstream risk-control hits.
+
+Paused components:
+- `tavily-scheduler`
+- `tavily-camoufox`
+- `tavily-camoufox-adapter`
+
+Production component that should remain up:
+- `proxy-tavily-proxy-1`
+
+### Keep paused / verify paused state
+```bash
+ssh oracle-proxy
+docker ps -a --format 'table {{.Names}}\t{{.Status}}' | grep tavily
+```
+
+Expected paused state:
+- `tavily-scheduler` -> Exited
+- `tavily-camoufox` -> Exited
+- `tavily-camoufox-adapter` -> Exited
+- `proxy-tavily-proxy-1` -> Up
+```
+
 ### Rebuild stack
 ```bash
 ssh oracle-proxy
@@ -96,11 +135,18 @@ docker exec tavily-scheduler python main.py
 ```
 
 ## 8. Health Checks
-Healthy signs:
+Healthy signs (when the generator is intentionally enabled):
 - `tavily-scheduler` is `Up`
 - `output/api_keys.md` continues gaining new lines over time
 - scheduler logs show successful key extraction
 - logs include successful auto-upload to proxy
+
+Healthy signs (current paused mode as of 2026-03-19):
+- `tavily-scheduler` is intentionally `Exited`
+- `tavily-camoufox` is intentionally `Exited`
+- `tavily-camoufox-adapter` is intentionally `Exited`
+- `proxy-tavily-proxy-1` remains `Up`
+- no repeated registration attempts appear in logs
 
 Useful checks:
 ```bash

@@ -1,6 +1,22 @@
 # oracle-proxy / Change Log
 
+## 2026-03-19
+- Tavily registration automation was intentionally paused to avoid repeated upstream risk-control hits and to prevent future maintenance sweeps from treating the stopped registration containers as accidental drift.
+- On `oracle-proxy`, explicitly stopped and disabled restart for:
+  - `tavily-scheduler`
+  - `tavily-camoufox`
+  - `tavily-camoufox-adapter`
+- Left `proxy-tavily-proxy-1` running; the Tavily proxy service remains the active production component.
+- Investigation result documented: the Auth0/Tavily signup path itself was substantially repaired (`/u/login/identifier` → `/u/signup/identifier` → `/u/signup/password`), but upstream Tavily risk control now blocks progress after password submission with `Suspicious activity detected. For any help, Please contact support@tavily.com`.
+- Infra docs were updated so future host checks understand that Tavily registration is paused by design, not incidentally broken runtime drift.
+
+## 2026-03-18
+- Performed another read-only SSH health check. Current snapshot: uptime ~18 days, load low (`0.06 0.15 0.11`), root disk 53% used, memory comfortable (~9.2 GiB available), and the expected long-lived containers (`tavily-scheduler`, `proxy-tavily-proxy-1`, `exafree`, `grok2api`, `cliproxy`, Tavily/Grok solver support containers) all remained up.
+- Recorded an important machine-level doc drift fix: current `:80` ownership is `1panel` according to live `ss -ltnp`, so older notes that treated system `nginx` as the active port-80 front door are now stale and were updated.
+
 ## 2026-03-17
+- User clarified that camoufox-related support stacks on `oracle-proxy` should be treated as historical/auxiliary registration tooling rather than standalone active service surface for ops tracking.
+- Updated infra docs accordingly so ops-assistant does not treat Tavily/Grok camoufox support components as separate undocumented project residue.
 - Confirmed several compose-era directories on `oracle-proxy` were only historical leftovers and no longer needed:
   - `/root/AntiCAP-WebApi-docker`
   - `/root/FlareSolverr`
