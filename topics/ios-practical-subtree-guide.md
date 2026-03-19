@@ -182,7 +182,7 @@ Do **not** start here when:
 - the visible callback is still trapped inside broader setup drift or untrusted observation
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as six common bottleneck families that often chain into one another.
+A useful way to read the branch is as seven common bottleneck families that often chain into one another.
 
 ### A. Incomplete network picture -> truthful traffic surface
 Typical question:
