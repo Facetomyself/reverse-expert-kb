@@ -36,8 +36,8 @@
 ## 5. High-Level Service Map
 当前确认运行中的主要服务：
 - `proxy-tavily-proxy-1` — Tavily key pool + Web console + API proxy
-- `tavily-scheduler` — Tavily 自动注册调度器
-- `tavily-camoufox` / `tavily-camoufox-adapter` — Tavily 私有 Turnstile 求解链路
+- `tavily-scheduler` — Tavily 自动注册调度器（**2026-03-19 起主动暂停**）
+- `tavily-camoufox` / `tavily-camoufox-adapter` — Tavily 私有 Turnstile 求解链路（**2026-03-19 起主动暂停**）
 - `grok-register-camoufox` / `grok-register-camoufox-adapter` — Grok 独立求解链路
 - `grok2api` — Grok API bridge on port 8000
 - `cliproxy` — CLI proxy service on port 8317
@@ -48,11 +48,11 @@
 - `cloudflared` — 从监听端口看有本地实例痕迹，但当前 systemd 细节未取到完整配置
 
 ## 6. Machine-Level Infrastructure Notes
-### nginx
-- systemd `nginx.service` 运行中
-- 当前 `/etc/nginx/sites-enabled/default` 为 Debian 默认站点
-- 默认监听 `80`，根目录 `/var/www/html`
-- 目前没有在系统 nginx 配置中看到明确的 `proxy_pass` 映射到 Tavily / grok2api / cliproxy
+### nginx / 1Panel
+- systemd `nginx.service` 仍然存在于主机上，但本轮 `ss -ltnp` 看到 `0.0.0.0:80` 实际由 `1panel` 进程占用
+- 这说明较早文档里“系统 nginx 直接监听 80 并提供默认站点”的描述已经过时，至少当前公共 `:80` 前门应优先视为 `1panel` 所拥有
+- 当前机器上仍可见 Debian 默认站点配置痕迹（`/etc/nginx/sites-enabled/default`），但它不应再被当作当前 `:80` 实际入口的唯一依据
+- 目前仍未在系统 nginx 配置中确认到明确的 `proxy_pass` 映射到 Tavily / grok2api / cliproxy
 
 ### sing-box
 - systemd `sing-box.service` 运行中
