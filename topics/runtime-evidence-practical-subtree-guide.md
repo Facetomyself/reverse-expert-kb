@@ -19,17 +19,20 @@ The branch already had practical entry surfaces for:
 - hook-placement and truth-boundary selection when runtime work is clearly needed but the best observation surface is still unclear
 - record/replay and execution-history tradeoffs when live reruns are too fragile or expensive
 - reverse-causality localization when one suspicious late effect is already visible and revisitable enough
+- provenance / evidence-linkage continuation once one representative execution, compare-run result, or causal claim is already good enough and the real bottleneck is preserving how the evidence stays reusable
 
 What this guide needs to preserve canonically is the compact routing rule that answers:
 - when should I stay at broad runtime-observation strategy versus dropping into a narrower practical note?
 - when is the real problem still observation-surface choice rather than replay or reverse-causality?
 - when is the case really about capture stability and revisitable evidence rather than ordinary live hooks?
 - when is the next useful move to walk backward from one late effect instead of collecting more trace?
+- when should runtime-evidence work stop deepening technically and continue instead into evidence-linkage / provenance packaging?
 
 This page makes the branch read more like the native, protocol, malware, and protected-runtime practical subtrees:
 - a branch entry surface
 - a small set of recurring bottleneck families
 - a compact ladder for moving from broad runtime uncertainty toward one smaller causal or branch-specific target
+- one practical continuation surface for evidence reuse once the core technical proof is already good enough
 
 ## 2. Core claim
 Runtime-evidence practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of four recurring families:
@@ -57,6 +60,7 @@ The subtree is strongest when read as:
 - **place** one smaller hook family at the right truth boundary
 - **stabilize** one representative execution when live reruns are too fragile
 - **walk backward** from one visible late effect to one causal boundary that predicts it
+- **package** the evidence linkage once the technical proof is already good enough and the remaining bottleneck is reuse, handoff, or resumption
 
 ## 3. How to choose the right entry note
 ### Start with `runtime-behavior-recovery`
@@ -215,8 +219,8 @@ That makes the branch good at cases where the main problem is not raw tooling av
 ## 7. What this branch is still weaker at
 This branch is still weaker than browser/mobile in some areas:
 - it has fewer concrete child notes than the denser practical branches
-- provenance/externalization still sits partly adjacent rather than fully laddered inside this subtree
-- runtime-evidence packaging and notebook discipline could still use a tighter practical continuation guide
+- provenance/externalization is now recognized as a continuation surface, but it is still represented mostly through one adjacent cross-cutting page rather than a denser runtime-specific packaging stack
+- runtime-evidence packaging and notebook discipline could still use tighter practical continuation examples
 - there is still room for a later branch pass focused specifically on runtime-evidence packaging, compare-run preservation, or workflow-specific evidence handoff
 
 A practical continuity rule worth preserving now is:
