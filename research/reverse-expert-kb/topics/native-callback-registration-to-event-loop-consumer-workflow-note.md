@@ -258,7 +258,19 @@ A compact continuation rule is:
 - do not enter this note just because callbacks are visible somewhere in the subsystem
 - enter it when the route or owner question is already reduced enough that one event-source -> registration -> dispatch -> consumer proof is now the narrowest truthful next move
 
-## 8. Failure modes this note helps prevent
+## 8. Practical handoff rule
+Leave this note as soon as the main uncertainty stops being “which async delivery or callback consumer first changes behavior?” and becomes one narrower follow-on proof task.
+
+The most common next handoffs are:
+- move to `topics/causal-write-and-reverse-causality-localization-workflow-note.md` when one consequence-bearing consumer is already good enough and the real bottleneck becomes localizing the first causal write, branch, or state edge behind a later visible effect
+- move to `topics/runtime-behavior-recovery.md` when the remaining problem is no longer native async ownership itself, but broader observability, replay-worthiness, or evidence strategy across the surrounding runtime slice
+- move to `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md` when the native async consumer is already good enough and the real remaining bottleneck has narrowed into one emitted reply, serializer, transport handoff, or downstream protocol-side continuation
+
+A compact practical rule is:
+- stay in this note while the main uncertainty is still proving which queue/dispatch/consumer chain first owns the behavior
+- leave this note once one consequence-bearing consumer is already good enough and the real bottleneck becomes reverse-causality, broader runtime-evidence strategy, or one narrower output-side continuation
+
+## 9. Failure modes this note helps prevent
 - treating registration sites as if they already prove ownership
 - cataloging the whole event framework before proving one behavior-changing consumer
 - over-tracing every callback instead of choosing one consequence target
@@ -266,14 +278,14 @@ A compact continuation rule is:
 - stopping at framework dispatch helpers instead of the first consumer that changes behavior
 - broadening to sibling handlers before one async chain is grounded
 
-## 9. Compact operator checklist
+## 10. Compact operator checklist
 - Pick one event family, not the whole framework.
 - Separate source, registration, dispatch, consumer, and effect.
 - Prefer the first consequence-bearing consumer over the prettiest dispatch helper.
 - Use one narrow runtime proof, not maximal tracing.
 - Rewrite the subsystem map only after one async chain is proved.
 
-## 10. Topic summary
+## 11. Topic summary
 In native baseline reversing, async and callback-heavy targets often stall not because nothing is visible, but because visible registration and dispatch structure still do not reveal ownership.
 
 The practical cure is to separate registration from delivery, choose one candidate callback or loop-consumer chain, localize the first consequence-bearing consumer, and prove one downstream effect.

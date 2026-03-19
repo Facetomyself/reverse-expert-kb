@@ -314,6 +314,7 @@ A practical sequencing reminder now worth preserving at the parent-page level is
 - do not stay too long in broad semantic-anchor work once one anchor is already good enough and the real bottleneck has narrowed into representative route proof
 - do not stay too long in broad interface-path proof work once the real bottleneck has narrowed into loader/provider ownership
 - do not stay too long in loader/provider ownership work once the real bottleneck has narrowed into async delivery or callback-consumer proof
+- do not stay too long in broad async callback/event-loop work once one consequence-bearing consumer is already good enough and the real bottleneck has narrowed into reverse-causality, broader runtime-evidence strategy, or one narrower output-side continuation
 - treat each handoff as a branch-routing decision, not just leaf-note detail, so analysts keep reducing the case toward one smaller trustworthy object instead of re-expanding the subsystem map
 
 ## 12. Source footprint / evidence quality note

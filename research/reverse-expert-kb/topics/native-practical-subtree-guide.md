@@ -170,6 +170,9 @@ Possible next handoff:
 - `topics/runtime-behavior-recovery.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 
+Routing reminder:
+- leave broad async callback/event-loop work once one consequence-bearing consumer is already good enough and the real bottleneck becomes reverse-causality, broader runtime-evidence strategy, or one narrower output-side continuation
+
 ## 5. The branch’s practical routing rule
 When a case is clearly native-baseline shaped, ask these in order:
 
@@ -189,6 +192,7 @@ That usually means:
 - prove one representative interface route before reducing loader/provider ambiguity
 - prove one loaded-module owner before mapping a whole event framework
 - prove one consequence-bearing consumer before cataloging sibling callbacks or neighboring handlers
+- leave broad async callback/event-loop work once one consequence-bearing consumer is already good enough and the real bottleneck becomes reverse-causality, broader runtime-evidence strategy, or one narrower output-side continuation
 
 ## 6. What this branch is strongest at
 This branch is currently strongest at practical notes for:
