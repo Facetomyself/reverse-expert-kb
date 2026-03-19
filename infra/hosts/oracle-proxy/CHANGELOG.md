@@ -9,6 +9,11 @@
 - Left `proxy-tavily-proxy-1` running; the Tavily proxy service remains the active production component.
 - Investigation result documented: the Auth0/Tavily signup path itself was substantially repaired (`/u/login/identifier` → `/u/signup/identifier` → `/u/signup/password`), but upstream Tavily risk control now blocks progress after password submission with `Suspicious activity detected. For any help, Please contact support@tavily.com`.
 - Infra docs were updated so future host checks understand that Tavily registration is paused by design, not incidentally broken runtime drift.
+- Performed a read-mostly Codex / cliproxy performance investigation for slow CLI proxy calls.
+- Confirmed `cliproxy` host config currently includes a global socks5 outbound proxy and measured that it materially increases baseline upstream latency, but does not explain the full severity of observed slow requests by itself.
+- Ran a short controlled no-proxy experiment on `cliproxy`: backed up config, temporarily removed `proxy-url`, restarted the container, observed live traffic, then restored the original config.
+- Key result of the no-proxy experiment: real `POST /v1/chat/completions` traffic still commonly remained around low-20-second latency even without the configured proxy, so the dominant bottleneck is likely upstream/provider/account-pool behavior rather than proxy alone.
+- Additional operational finding: `POST /v1/responses` appears less stable than `POST /v1/chat/completions`, and management-side `wham/usage` fetches were repeatedly producing `EOF` / `context canceled` noise during the same period.
 
 ## 2026-03-18
 - Performed another read-only SSH health check. Current snapshot: uptime ~18 days, load low (`0.06 0.15 0.11`), root disk 53% used, memory comfortable (~9.2 GiB available), and the expected long-lived containers (`tavily-scheduler`, `proxy-tavily-proxy-1`, `exafree`, `grok2api`, `cliproxy`, Tavily/Grok solver support containers) all remained up.

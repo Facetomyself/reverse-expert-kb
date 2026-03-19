@@ -95,10 +95,50 @@ Check:
 - whether port `8317` is listening
 - whether upstream endpoint credentials changed
 
+### 2026-03-19 performance investigation: Codex requests slow
+Observed from live logs and targeted read-only testing:
+- Main user-facing slow path is `POST /v1/chat/completions`, mostly using model `gpt-5.4`
+- `POST /v1/responses` is lower-volume but noticeably less stable; multiple `400/500` failures were seen, including one extreme `3m28s` failed request on `gpt-5.3-codex`
+- Management-side `POST /v0/management/api-call` intermittently fails while fetching `https://chatgpt.com/backend-api/wham/usage`, with repeated `EOF` / `context canceled` / `502`
+- Some Codex auth files/tokens are unhealthy or expired; at least one live log entry showed `401 unauthorized` / `Your authentication token has been invalidated`
+
+Proxy-related findings:
+- Current host config includes a global outbound proxy line:
+  - `proxy-url: socks5://...@204.237.153.49:60088/`
+- Controlled same-host / same-account / same-upstream comparisons showed the proxy adds clear latency:
+  - `https://api.openai.com/v1/models`
+    - direct: about `0.32s ~ 0.44s`
+    - via configured socks5 proxy: about `1.73s ~ 3.00s`
+  - `https://chatgpt.com/backend-api/wham/usage`
+    - direct steady-state: about `0.80s`
+    - via configured socks5 proxy steady-state: about `1.8s ~ 2.0s`
+- Conclusion: the proxy materially increases baseline latency and jitter, but it does **not** fully explain the worst slow requests
+
+Temporary no-proxy experiment (completed and reverted):
+- Backed up `/root/containers/cliproxy/config.yaml`
+- Temporarily removed `proxy-url`
+- Restarted container and observed real traffic
+- Restored original config afterward
+
+Result of no-proxy experiment:
+- Basic upstream probe latency improved to direct-host levels
+- Real `POST /v1/chat/completions` requests still commonly landed around `21s ~ 23s`
+- Therefore the main bottleneck is not proxy alone; likely contributors are:
+  - upstream Codex generation latency
+  - auth/token quality differences inside the account pool
+  - occasional retries / provider-side instability
+  - `responses` path being less robust than `chat/completions`
+
+Practical triage guidance for future debugging:
+- First separate `chat/completions` vs `responses`; do not mix them into one “Codex is slow” bucket
+- Treat proxy tuning as a latency optimization, not a full fix
+- Inspect auth-file health / expiry / recent failures before blaming network alone
+- If a client can choose transport, compare `chat/completions` against `responses` explicitly
+
 ## 12. Dependencies / Cross-links
 - Related to local tooling that uses `http://proxy.zhangxuemin.work:8317/v1`
 - Related host docs: `../HOST.md`, `../NETWORK.md`
 
 ## 13. Change History
+- 2026-03-19: documented Codex performance investigation, including proxy-vs-direct measurements, temporary no-proxy experiment, and follow-up debugging guidance
 - 2026-03-15: documented first-pass container and access information
-ss container and access information
