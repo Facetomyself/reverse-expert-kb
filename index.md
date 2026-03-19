@@ -133,6 +133,7 @@ Priority 2 candidates include:
 - `topics/hook-placement-and-observability-workflow-note.md`
 - `topics/record-replay-and-omniscient-debugging.md`
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
+- `topics/analytic-provenance-and-evidence-management.md`
 
 This branch should now be read as a practical bridge from runtime-evidence synthesis into four recurring operator bottlenecks:
 - subtree navigation and bottleneck selection (`runtime-evidence-practical-subtree-guide`), which acts as the branch entry surface when the analyst first needs to decide whether the current runtime-evidence bottleneck is broad observation/layer-selection uncertainty, smaller hook-placement / truth-boundary uncertainty, capture-stability/replay-worthiness uncertainty, or late-effect-to-causal-boundary localization
