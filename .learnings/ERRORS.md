@@ -81,3 +81,35 @@ Reverse-KB autosync can now be forced into explicit multi-source mode with audit
 - Keep explicit source auditing in reverse-KB runs.
 - Treat Grok-only or Exa+Grok execution as degraded mode, not normal mode.
 - Fix Tavily proxy credentials/config before claiming full three-source execution.
+
+---
+
+## [ERR-20260319-001] ali-cloud docker compose invocation mismatch
+
+**Logged**: 2026-03-19T08:40:00Z
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Attempted to use `docker compose -f` on `ali-cloud`, but the host only has legacy `docker-compose`, not the Compose v2 plugin.
+
+### Error
+```
+unknown shorthand flag: 'f' in -f
+See 'docker --help'.
+```
+
+### Context
+- Command/operation attempted: start a temporary Camoufox replacement stack on `ali-cloud`
+- Environment details: remote host `ali-cloud` has `/usr/bin/docker-compose` but not `docker compose`
+- Follow-up complication: shortly after the failed attempt, SSH to `ali-cloud` began timing out during banner exchange, interrupting the replacement workflow.
+
+### Suggested Fix
+Before remote Docker orchestration on older hosts, explicitly detect whether the target supports `docker compose` or only `docker-compose`, and branch commands accordingly.
+
+### Metadata
+- Reproducible: yes
+- Related Files: TOOLS.md, infra/hosts/ali-cloud/PROJECTS.md
+
+---

@@ -32,6 +32,11 @@ Current observed runtime:
 - `camoufox-remote` container active on `39222`
 - host port `80` is owned by `1panel`
 
+Current Camoufox exposure model:
+- public websocket endpoint: `ws://106.15.239.221:39222/camoufox`
+- no documented fronting TLS or auth proxy on top of `39222`
+- service is manually maintained outside 1Panel app management
+
 ## 6. Machine-Level Infrastructure Notes
 - 1Panel is installed under `/opt/1panel`
 - 1Panel database present at `/opt/1panel/db/1Panel.db`

@@ -17,6 +17,10 @@ This host exposes a small application surface:
 - one app endpoint on `10086`
 - one remote browser/automation endpoint on `39222`
 
+For `39222`, the currently documented contract is a direct public websocket endpoint:
+- `ws://106.15.239.221:39222/camoufox`
+- no confirmed TLS termination or auth gateway currently documented in front of that port
+
 ## 4. To Be Confirmed
 - whether `1panel` also serves an admin UI on a non-obvious path or additional port
 - any bound domain names for `10086` / `39222`

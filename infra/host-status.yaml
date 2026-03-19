@@ -49,6 +49,8 @@ hosts:
     notes:
       - 1Panel controls host port 80
       - camoufox websocket endpoint on 39222
+      - current camoufox exposure is plain ws://<host>:39222/camoufox with no documented TLS/auth proxy in front
+      - host has legacy /usr/bin/docker-compose, not docker compose v2 plugin
 
   - name: oracle-mail
     provider: oracle
