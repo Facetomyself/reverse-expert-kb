@@ -171,6 +171,7 @@ This branch should now be read as a practical bridge from malware-overlap synthe
 
 ### Deobfuscation / protected-runtime practical branch
 - `topics/protected-runtime-practical-subtree-guide.md`
+- `topics/anti-tamper-and-protected-runtime-analysis.md`
 - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
 - `topics/protected-runtime-observation-topology-selection-workflow-note.md`
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`

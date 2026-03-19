@@ -225,6 +225,27 @@ Why it matters:
 ## 6. Emerging internal structure of the topic
 A stable internal decomposition is emerging.
 
+At the practical branch level, this topic now reads most truthfully as six recurring protected-runtime bottlenecks:
+1. observation-topology failure
+2. trace / dispatcher churn
+3. packed / staged bootstrap handoff
+4. artifact-to-consumer proof
+5. runtime-artifact / initialization-obligation recovery
+6. integrity / tamper consequence proof
+
+That practical ladder matters because the branch should no longer read as only:
+- generic anti-debugging
+- generic integrity logic
+- broad protected-observation folklore
+
+It should also preserve where the analyst is supposed to enter and leave the branch:
+- reposition observation when the current topology is itself the unstable thing
+- reduce noisy protected execution into one semantic anchor or one durable state edge
+- hand off out of staged bootstrap into one trustworthy post-protection target
+- prove the first ordinary consumer of one recovered artifact
+- recover the smallest runtime artifact or init obligation that explains close-but-wrong replay
+- reduce visible checks into one first consequence-bearing tripwire
+
 ### 1. Anti-debugging and anti-instrumentation resistance
 Includes:
 - debugger detection
@@ -232,6 +253,7 @@ Includes:
 - altered behavior under observation
 - changing instrumentation topology altogether when ordinary attach/spawn or app-local hooks are the thing being detected
 - separating direct tool-presence checks from higher-level environment, Java-hook-side-effect, or topology-sensitive checks
+- observation-topology choice as a first-class analyst decision rather than a side detail of hooking
 
 ### 2. Integrity and tamper-response logic
 Includes:
@@ -240,12 +262,16 @@ Includes:
 - runtime behavior changes after modification
 - constructor / loader / `JNI_OnLoad`-time security surfaces whose leverage sits before later runtime behavior spreads
 - integrity-view mismatches where the decisive analyst move may be shadowing the detector-visible view rather than patching every check site
+- reducing visible checks into one first consequence-bearing tripwire rather than broad check cataloging
 
-### 3. Protected observation workflows
+### 3. Protected observation and reduction workflows
 Includes:
 - staging analysis safely
 - selective runtime evidence collection
 - distinguishing protection-related failure from target logic
+- reducing trace / dispatcher churn into one stable semantic anchor or durable state edge
+- separating packed/bootstrap handoff problems from later artifact-consumer or integrity-consequence problems
+- recovering one smaller runtime artifact or initialization obligation when static views stay close-but-wrong
 
 ### 4. Domain-specific protected environments
 Includes:
@@ -257,6 +283,7 @@ Includes:
 Includes:
 - extending obfuscation into runtime resistance
 - clarifying the boundary between code transformation and protected execution
+- showing when a case should leave protected-runtime routing and continue as ordinary native, mobile, protocol, or runtime-evidence work
 
 ## 7. Analyst workflow implications
 This topic matters especially during:
@@ -373,17 +400,17 @@ Practical bridge pages now exist for recurring protected-runtime bottlenecks:
 
 Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry surface when the case is clearly protected-runtime shaped, but the current operator bottleneck still needs to be classified as observation-topology failure, trace/dispatcher churn, packed/bootstrap handoff, artifact-consumer proof, runtime-artifact / initialization-obligation recovery, integrity/tamper consequence proof, or one nearby ordinary post-protection continuation before choosing a narrower workflow note.
 
-Use the observation-topology note when direct attach, spawn, app-local hooks, or ordinary instrumentation are themselves unstable, detected, semantically late, or misleading and the analyst first needs one more truthful boundary before narrower protected-runtime work becomes trustworthy.
+Use the observation-topology note when direct attach, spawn, app-local hooks, or ordinary instrumentation are themselves unstable, detected, semantically late, or misleading and the analyst first needs one more truthful boundary before narrower protected-runtime work becomes trustworthy; leave broad observation-topology work there once one truer boundary is already good enough and the real bottleneck becomes trace reduction, packed/bootstrap handoff, artifact-consumer proof, runtime-obligation recovery, or integrity consequence proof.
 
-Use the VM-trace / dispatcher notes when virtualization, flattening, handler churn, or repetitive protected execution is already visible and the missing next object is one stable semantic anchor, durable state object, or consequence-bearing state edge rather than another broad anti-tamper taxonomy.
+Use the VM-trace / dispatcher notes when virtualization, flattening, handler churn, or repetitive protected execution is already visible and the missing next object is one stable semantic anchor, durable state object, or consequence-bearing state edge rather than another broad anti-tamper taxonomy; leave broad trace/dispatcher work there once one stable semantic anchor or one durable state edge is already good enough and the real bottleneck becomes packed/bootstrap handoff, ordinary native follow-up, artifact-consumer proof, or another narrower post-protection continuation.
 
-Use the packed-stub/OEP note when staged bootstrap, shelling, or loader churn is already visible and the immediate bottleneck is one trustworthy post-unpack handoff.
+Use the packed-stub/OEP note when staged bootstrap, shelling, or loader churn is already visible and the immediate bottleneck is one trustworthy post-unpack handoff; leave broad packed/bootstrap work there once one trustworthy OEP-like or first-real-module boundary is already good enough and the real bottleneck becomes post-protection semantic-anchor work, artifact-consumer proof, or runtime-obligation recovery.
 
-Use the decrypted-artifact/first-consumer note when some strings, config, code, tables, bytecode, or normalized buffers are already readable enough to inspect, but the analyst still has not proved the first ordinary consumer that turns that recovered artifact into request, parser, policy, scheduler, or payload behavior.
+Use the decrypted-artifact/first-consumer note when some strings, config, code, tables, bytecode, or normalized buffers are already readable enough to inspect, but the analyst still has not proved the first ordinary consumer that turns that recovered artifact into request, parser, policy, scheduler, or payload behavior; leave broad artifact-to-consumer work there once one first ordinary consumer and one downstream consequence-bearing handoff are already good enough and the real bottleneck becomes ordinary route proof, domain-specific consumer follow-up, or runtime-obligation recovery.
 
-Use the integrity-tripwire note when the checks themselves are already visible and the missing next object is the first reduced result or branch that turns those checks into a real behavior change.
+Use the integrity-tripwire note when the checks themselves are already visible and the missing next object is the first reduced result or branch that turns those checks into a real behavior change; leave broad integrity/tamper work there once one reduced result and one first consequence-bearing tripwire are already good enough and the real bottleneck becomes downstream consumer proof, environment-differential trust work, or platform-specific verdict-to-policy follow-up.
 
-Use the runtime-table / initialization-obligation note when repaired dumps, static tables, or offline reconstructions still look damaged or under-initialized, live/runtime state looks truer, and the missing next object is one minimal init chain, runtime table family, initialized image, or side-condition obligation that explains why replay is close-but-wrong.
+Use the runtime-table / initialization-obligation note when repaired dumps, static tables, or offline reconstructions still look damaged or under-initialized, live/runtime state looks truer, and the missing next object is one minimal init chain, runtime table family, initialized image, or side-condition obligation that explains why replay is close-but-wrong; leave broad runtime-artifact / initialization-obligation work there once one truthful runtime artifact family and one smallest missing obligation are already good enough and the real bottleneck becomes first-consumer proof, ordinary route proof, or narrower platform-specific continuation.
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is now stronger than the initial synthesis-only version, but still uneven across subareas.
