@@ -7,6 +7,7 @@ Related pages:
 - topics/mobile-reversing-and-runtime-instrumentation.md
 - topics/mobile-protected-runtime-subtree-guide.md
 - topics/ios-traffic-topology-relocation-workflow-note.md
+- topics/ios-environment-normalization-and-deployment-coherence-workflow-note.md
 - topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md
 - topics/ios-objc-swift-native-owner-localization-workflow-note.md
 - topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md
@@ -19,6 +20,7 @@ This guide exists because the KB’s iOS practical branch now has several useful
 
 The branch already had practical entry surfaces for:
 - traffic-observation topology repair when proxy-visible evidence is incomplete or misleading
+- environment normalization and deployment-coherence repair when install/signing path, rootful-vs-rootless mode, Frida recipe, or repack-vs-live-runtime choice still make runs incomparable
 - packaging / jailbreak / runtime-gate diagnosis when the app still diverges before later analysis is trustworthy
 - ObjC / Swift / native owner localization once the target flow is reachable enough to study
 - Flutter/Dart cross-runtime owner localization when iOS shell, engine routing, and Dart ownership all compete
@@ -35,23 +37,27 @@ This page makes the iOS branch read more like the KB’s stronger practical subt
 - a small set of recurring bottleneck families
 - a compact ladder for turning one reachable iOS flow into one smaller trustworthy working model
 
+A newer practical reminder is also now worth preserving canonically: before broad iOS gate diagnosis, some cases first need a narrower environment-normalization pass so install/signing path, rootful-vs-rootless differences, Frida deployment recipe, and repack-vs-live-runtime choice stop contaminating later comparisons.
+
 ## 2. Core claim
-iOS practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of six recurring families:
+iOS practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of seven recurring families:
 
 1. **traffic-topology uncertainty**
    - the user-visible action clearly performs network work, but the current observation surface is still too partial or misleading to trust
-2. **broad setup / runtime-gate uncertainty**
-   - the case is iOS-shaped, but packaging, signing, jailbreak environment, instrumentation visibility, or realism drift still dominates
-3. **post-gate owner uncertainty**
+2. **environment-normalization uncertainty**
+   - the case is iOS-shaped, but install/signing path, rootful-vs-rootless mode, Frida deployment recipe, or repack-vs-live-runtime choice still make runs operationally incomparable
+3. **broad setup / runtime-gate uncertainty**
+   - the case is iOS-shaped, but packaging, signing, jailbreak environment, instrumentation visibility, or realism drift still dominates even after basic normalization
+4. **post-gate owner uncertainty**
    - the flow is reachable enough to study, yet several ObjC / Swift / native boundaries still compete and the first consequence-bearing owner is unclear
-4. **cross-runtime owner uncertainty**
+5. **cross-runtime owner uncertainty**
    - the path is clearly Flutter/Dart shaped and the real owner search spans iOS shell, bridge/engine routing, Dart state, and native workers
-5. **controlled-replay / init-obligation uncertainty**
+6. **controlled-replay / init-obligation uncertainty**
    - one owner path is already plausible enough to target, but the next bottleneck is reconstructing minimal init/context obligations until one truthful callable path exists
-6. **callback/result-to-policy consequence uncertainty**
+7. **callback/result-to-policy consequence uncertainty**
    - visible callbacks or result wrappers already exist, but the first behavior-changing consumer or local policy state is still unclear
 
-Inside family 2, a recurring practical reminder now deserves to stay explicit: do not collapse all early iOS setup into one vague "jailbroken vs not" bucket. Installation/signing path, rootful vs rootless mode, Frida deployment coherence, and rewrite/repack stability can each change whether later evidence is trustworthy.
+Inside families 2 and 3, a recurring practical reminder now deserves to stay explicit: do not collapse all early iOS setup into one vague "jailbroken vs not" bucket. Installation/signing path, rootful vs rootless mode, Frida deployment coherence, and rewrite/repack stability can each change whether later evidence is trustworthy; some cases first need environment normalization before broader gate diagnosis is even meaningful.
 
 A compact operator ladder for this branch is:
 
@@ -65,6 +71,7 @@ iOS-shaped case
 
 The subtree is strongest when read as:
 - **see** one truthful traffic surface
+- **normalize** one comparable environment/deployment recipe
 - **stabilize** one trustworthy runtime/setup state
 - **own** one consequence-bearing path
 - **replay** one truthful callable owner path when static cleanup is no longer the cheapest next move
@@ -85,18 +92,33 @@ Do **not** start here when:
 - one decisive request family is already visible enough and the real bottleneck is now setup/gate, owner, or callback consequence
 - the case is not primarily network-surface shaped
 
+### Start with `ios-environment-normalization-and-deployment-coherence-workflow-note`
+Use:
+- `topics/ios-environment-normalization-and-deployment-coherence-workflow-note.md`
+
+Start here when:
+- the case is clearly iOS-shaped, but install/signing path, rootful-vs-rootless mode, Frida deployment recipe, or repack-vs-live-runtime choice still make runs operationally incomparable
+- you still cannot tell whether the current instability is target-shaped or setup-shaped
+- the next useful output is one representative flow and one compare pair that are actually comparable
+- the strongest immediate risk is blaming the target before the environment recipe is normalized
+
+Do **not** start here when:
+- the current problem is still primarily traffic-topology blindness
+- one comparable representative flow already exists and the real bottleneck has clearly shifted into a broader gate-family question, owner localization, or result-to-policy proof
+
 ### Start with `ios-packaging-jailbreak-and-runtime-gate-workflow-note`
 Use:
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
 
 Start here when:
 - the case is clearly iOS-shaped, but broader packaging, signing, jailbreak, tooling, realism, or early-vs-late divergence still dominates
-- you can already reach or partly reach the flow, but still cannot trust whether the environment is stable enough for later ownership work
+- you can already reach or partly reach the flow, and the environment is normalized enough that the remaining drift is now worth treating as a true gate-family problem
 - the next useful output is one representative flow, one compare pair, and one proved gate family
-- rootful vs rootless differences, install/signing path, Frida deployment coherence, or repack/rewrite instability still make it unclear whether later observations are even comparable
+- rootful vs rootless differences, install/signing path, Frida deployment coherence, or repack/rewrite instability are still relevant, but now as part of a real gate diagnosis rather than basic run incomparability
 
 Do **not** start here when:
 - the current problem is still primarily traffic-topology blindness
+- the case is not yet normalized enough for the compared runs to be operationally meaningful
 - the case is already stable enough that the real bottleneck is post-gate owner localization
 
 ### Start with `ios-objc-swift-native-owner-localization-workflow-note`
@@ -173,9 +195,20 @@ Possible next handoff:
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
 - trust-path / request-ownership notes once one decisive request family is visible
 
-### B. Reachable but unstable setup -> proved gate family
+### B. Incomparable setup -> one normalized representative flow
 Typical question:
-- which install/signing/tooling/jailbreak/realism boundary first explains why the flow diverges?
+- are these runs even operationally comparable, or am I still mixing install/signing, rootful/rootless, Frida recipe, and repack/live-runtime differences together?
+
+Primary note:
+- `topics/ios-environment-normalization-and-deployment-coherence-workflow-note.md`
+
+Possible next handoff:
+- `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
+- `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md`
+
+### C. Reachable but unstable setup -> proved gate family
+Typical question:
+- which install/signing/tooling/jailbreak/realism boundary first explains why the now-comparable flow diverges?
 
 Primary note:
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
@@ -184,7 +217,7 @@ Possible next handoff:
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md`
 
-### C. Reachable flow -> first consequence-bearing owner
+### D. Reachable flow -> first consequence-bearing owner
 Typical question:
 - which ObjC / Swift / native boundary first owns the state write, request-finalization step, or policy effect that actually matters?
 
@@ -196,7 +229,7 @@ Possible next handoff:
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 - request/signature or native proof pages when the owner narrows the case further
 
-### D. Cross-runtime confusion -> first Dart/object owner
+### E. Cross-runtime confusion -> first Dart/object owner
 Typical question:
 - which boundary first turns shell trigger plus Flutter routing into the actual artifact or consequence I care about?
 
@@ -207,7 +240,7 @@ Possible next handoff:
 - `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md` when the owner is already plausible enough and the real bottleneck has shifted from owner choice into truthful callable-path recovery
 - request/signature recovery or native proof pages once the owner is proved
 
-### E. Plausible owner -> truthful callable path
+### F. Plausible owner -> truthful callable path
 Typical question:
 - do I still need more code readability, or do I already know enough to reconstruct the smallest truthful invocation path?
 
@@ -224,7 +257,7 @@ Possible next handoff:
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 - narrower request/signature or consequence pages once controlled replay is truthful enough
 
-### F. Visible callback/result -> first policy-bearing consumer
+### G. Visible callback/result -> first policy-bearing consumer
 Typical question:
 - which callback / wrapper / mapper / consumer first turns visible result material into one local behavior change?
 
@@ -239,22 +272,25 @@ When a case is clearly iOS-shaped, ask these in order:
 
 1. **Is the decisive request family still invisible because the observation surface may be wrong?**
    - if yes, start with traffic-topology relocation
-2. **Is broader setup, signing, jailbreak, tooling, or realism drift still the earliest blocker?**
+2. **Are the compared runs still operationally incomparable because install/signing path, rootful-vs-rootless mode, Frida recipe, or repack-vs-live-runtime choice changed too much at once?**
+   - if yes, start with environment normalization and deployment-coherence repair
+3. **Is broader setup, signing, jailbreak, tooling, or realism drift still the earliest blocker even after normalization?**
    - if yes, start with packaging / jailbreak / runtime-gate diagnosis
-3. **Is the flow now reachable enough, but the first consequence-bearing owner still unclear?**
+4. **Is the flow now reachable enough, but the first consequence-bearing owner still unclear?**
    - if yes, start with broad ObjC / Swift / native owner localization
-4. **Is that ownership problem clearly Flutter/Dart cross-runtime shaped?**
+5. **Is that ownership problem clearly Flutter/Dart cross-runtime shaped?**
    - if yes, switch to the specialized Flutter/cross-runtime owner note
-5. **Is one owner already plausible enough, and is the real bottleneck no longer owner choice but making that owner callable truthfully?**
+6. **Is one owner already plausible enough, and is the real bottleneck no longer owner choice but making that owner callable truthfully?**
    - if yes, stop broad owner-localization work and continue into controlled replay / black-box invocation
-6. **Is replay already good enough, but the remaining gap has narrowed into one runtime table family, initialized-image boundary, side-condition, or minimal init/context obligation?**
+7. **Is replay already good enough, but the remaining gap has narrowed into one runtime table family, initialized-image boundary, side-condition, or minimal init/context obligation?**
    - if yes, leave broad replay work and continue into runtime-table / initialization-obligation recovery
-7. **Are callbacks or result wrappers already visible, but the first behavior-changing policy state still hidden?**
+8. **Are callbacks or result wrappers already visible, but the first behavior-changing policy state still hidden?**
    - if yes, continue into result/callback-to-policy-state work
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
 That usually means:
 - fix the traffic surface before arguing about trust or owner details
+- normalize one comparable environment/deployment recipe before diagnosing deeper gate logic
 - prove one broad gate family before deep owner search
 - prove one owner before building a replay harness
 - prove one truthful callable path before cataloging many setup helpers
@@ -306,6 +342,7 @@ This subtree guide turns the iOS practical branch into a clearer operator ladder
 
 The compact reading is:
 - choose the right traffic surface
+- normalize the right environment/deployment recipe
 - stabilize the right runtime/setup gate
 - prove the right owner
 - reconstruct the smallest truthful callable path when needed

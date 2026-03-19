@@ -159,6 +159,7 @@ The most natural next child pages include:
 Current concrete notes:
 - `topics/ios-practical-subtree-guide.md`
 - `topics/ios-traffic-topology-relocation-workflow-note.md`
+- `topics/ios-environment-normalization-and-deployment-coherence-workflow-note.md`
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md`
@@ -180,11 +181,16 @@ Current concrete notes:
 - `topics/webview-custom-scheme-and-navigation-handoff-workflow-note.md`
 - `topics/webview-native-bridge-payload-recovery-workflow-note.md`
 
+Read `ios-environment-normalization-and-deployment-coherence-workflow-note` when the main problem is:
+- the case is clearly iOS-shaped, but install/signing path, rootful-vs-rootless mode, Frida deployment recipe, or repack-vs-live-runtime choice still make runs operationally incomparable
+- you need one representative flow and one compare pair that are actually comparable before stronger target claims are made
+- you specifically need to stop blaming the target before the environment recipe is normalized
+
 Read `ios-packaging-jailbreak-and-runtime-gate-workflow-note` when the main problem is:
-- the case is clearly iOS-shaped, but the first decisive environment gate is still unclear
+- the case is clearly iOS-shaped, but the first decisive environment gate is still unclear after the compared runs are already operationally comparable enough
 - you need to separate packaging/resign drift, jailbreak-environment probes, instrumentation visibility, device-realism drift, and later trust/session consequences
 - you need one representative flow, one compare pair, one first divergence boundary, and one proved gate family before deeper hooks, bypasses, or request analysis
-- you specifically need to stop collapsing install/signing path, rootful-vs-rootless differences, Frida deployment coherence, or repack/rewrite instability into one vague early "jailbreak detection" story
+- you specifically need to stop collapsing install/signing path, rootful-vs-rootless differences, Frida deployment coherence, or repack/rewrite instability into one vague early "jailbreak detection" story once the basic run-comparability problem has already been reduced
 
 Read `ios-objc-swift-native-owner-localization-workflow-note` when the main problem is:
 - the iOS case is already reachable enough to study, but several ObjC / Swift / native surfaces still look plausible and the first consequence-bearing owner is unclear
@@ -203,19 +209,21 @@ Read `ios-result-callback-to-policy-state-workflow-note` when the main problem i
 
 Together, the iOS practical branch should now usually be read as an ordered ladder rather than a flat set of sibling notes:
 - `ios-traffic-topology-relocation-workflow-note` first when the immediate uncertainty is still whether the current network-observation surface is truthful enough to see the decisive request family at all
-- `ios-packaging-jailbreak-and-runtime-gate-workflow-note` next, when the case is still dominated by broader iOS setup, observation topology, install/sign path, packaging, realism, instrumentation-visibility, or early-vs-late drift uncertainty beyond that narrower traffic-visibility issue
-- `ios-objc-swift-native-owner-localization-workflow-note` after that, when the case is already reachable enough to study but the first consequence-bearing ObjC / Swift / native owner is still unclear in a broadly iOS-shaped path
+- `ios-environment-normalization-and-deployment-coherence-workflow-note` next, when install/signing path, rootful-vs-rootless mode, Frida deployment recipe, or repack-vs-live-runtime choice still make the compared runs operationally incomparable
+- `ios-packaging-jailbreak-and-runtime-gate-workflow-note` after that, when the case is still dominated by broader iOS setup, packaging, realism, instrumentation-visibility, or early-vs-late drift uncertainty even after basic normalization
+- `ios-objc-swift-native-owner-localization-workflow-note` next, when the case is already reachable enough to study but the first consequence-bearing ObjC / Swift / native owner is still unclear in a broadly iOS-shaped path
 - `ios-flutter-cross-runtime-owner-localization-workflow-note` as the specialized continuation when the ownership problem is clearly cross-runtime and Flutter/Dart execution is part of the real owner search rather than just shell context
 - `ios-chomper-owner-recovery-and-black-box-invocation-workflow-note` after owner proof when broad owner-localization work should stop and the real bottleneck is now minimal truthful init/context obligation recovery and reduced invocation contract
 - `ios-result-callback-to-policy-state-workflow-note` later, when callback/result visibility already exists and the remaining bottleneck is proving the first local policy state or behavior-changing consumer
 
 A compact way to remember the ladder is:
 - **traffic topology** first — choose the network-observation surface that actually reveals the decisive request family
-- **gate** second — stabilize install/signing/tooling/environment prerequisites enough that broader runtime evidence is trustworthy
-- **owner** third — prove the first ObjC / Swift / native (or cross-runtime) boundary that actually owns the consequence
-- **controlled replay** fourth when needed — once the owner is plausible enough, reconstruct only the minimal truthful init/context obligations needed to call it in a controlled runtime
-- **runtime-table / init-obligation recovery** fifth when replay is already close-but-wrong — reduce one narrower runtime table family, initialized-image boundary, or missing init/context obligation before widening outward again
-- **policy consumer** sixth in spirit — once owner visibility or replay truth exists, reduce callback/result material into the first behavior-changing consumer
+- **environment normalization** second — make one representative flow operationally comparable before stronger target claims
+- **gate** third — stabilize install/signing/tooling/environment prerequisites enough that broader runtime evidence is trustworthy
+- **owner** fourth — prove the first ObjC / Swift / native (or cross-runtime) boundary that actually owns the consequence
+- **controlled replay** fifth when needed — once the owner is plausible enough, reconstruct only the minimal truthful init/context obligations needed to call it in a controlled runtime
+- **runtime-table / init-obligation recovery** sixth when replay is already close-but-wrong — reduce one narrower runtime table family, initialized-image boundary, or missing init/context obligation before widening outward again
+- **policy consumer** seventh in spirit — once owner visibility or replay truth exists, reduce callback/result material into the first behavior-changing consumer
 
 Read `android-flutter-cross-runtime-owner-localization-workflow-note` when the main problem is:
 - the Android case is clearly Flutter/Dart shaped and several runtimes all look relevant, but the first consequence-bearing owner is still unclear
