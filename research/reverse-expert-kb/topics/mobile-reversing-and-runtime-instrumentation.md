@@ -271,7 +271,7 @@ The iOS practical branch should now usually be read through `topics/ios-practica
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md` when the ownership problem is clearly Flutter/Dart-shaped
 - `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md` when one owner path is already plausible enough, broad owner-localization work should stop, and the real bottleneck is now minimal truthful replay rather than broader owner choice
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when replay is already close-but-wrong and the remaining gap has narrowed into one runtime table family, initialized-image boundary, or minimal init/context obligation
-- `topics/ios-result-callback-to-policy-state-workflow-note.md`
+- `topics/ios-result-callback-to-policy-state-workflow-note.md` once controlled replay, black-box invocation, or narrower init-obligation repair is already good enough to expose truthful result material and the remaining bottleneck is the first behavior-changing local policy state
 
 That ordered route helps separate eight different operator bottlenecks that are easy to collapse together:
 - traffic-observation topology uncertainty

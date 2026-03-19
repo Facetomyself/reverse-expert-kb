@@ -264,6 +264,10 @@ Typical question:
 Primary note:
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 
+Routing reminder:
+- enter this stage once controlled replay, black-box invocation, or narrower init-obligation repair is already good enough to expose truthful result material
+- do not stay in broad replay or init-obligation work once the real missing proof is no longer owner callability but the first app-local policy consequence
+
 Possible next handoff:
 - challenge-loop, attestation, request-shaping, or native proof pages depending on the proved consumer
 
