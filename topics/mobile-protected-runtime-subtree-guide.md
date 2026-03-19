@@ -165,6 +165,7 @@ Current concrete notes:
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md`
 - `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md`
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
+- `topics/android-flutter-cross-runtime-owner-localization-workflow-note.md`
 - `topics/unity-il2cpp-state-ownership-and-persistence-workflow-note.md`
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
 - `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
@@ -176,10 +177,13 @@ Current concrete notes:
 - `topics/cronet-request-ownership-and-mixed-stack-diagnosis-workflow-note.md`
 - `topics/mobile-response-consumer-localization-workflow-note.md`
 - `topics/attestation-verdict-to-policy-state-workflow-note.md`
+- `topics/result-code-and-enum-to-policy-mapping-workflow-note.md`
 - `topics/post-validation-state-refresh-and-delayed-consequence-workflow-note.md`
 - `topics/webview-native-mixed-request-ownership-workflow-note.md`
 - `topics/webview-custom-scheme-and-navigation-handoff-workflow-note.md`
 - `topics/webview-native-bridge-payload-recovery-workflow-note.md`
+- `topics/webview-cookie-header-bootstrap-handoff-workflow-note.md`
+- `topics/webview-native-response-handoff-and-page-consumption-workflow-note.md`
 
 Read `ios-environment-normalization-and-deployment-coherence-workflow-note` when the main problem is:
 - the case is clearly iOS-shaped, but install/signing path, rootful-vs-rootless mode, Frida deployment recipe, or repack-vs-live-runtime choice still make runs operationally incomparable
@@ -351,15 +355,5 @@ Its pages should be read as a coordinated set of analyst entry surfaces into a h
 - classify the resistance
 - choose a better observation layer
 - use traces when direct structure is still too ambiguous
-into a hard practical problem:
-- classify the resistance
-- choose a better observation layer
-- use traces when direct structure is still too ambiguous
-ain practice branch for preserving observability under active runtime resistance.
-
-Its pages should be read as a coordinated set of analyst entry surfaces into a hard practical problem:
-- classify the resistance
-- choose a better observation layer
-- use traces when direct structure is still too ambiguous
- layer
-- use traces when direct structure is still too ambiguous
+- normalize environment, ownership, and trust-path questions before deeper replay or signing claims
+- reduce challenge, attestation, WebView, and cross-runtime cases into one smaller consequence-bearing boundary instead of keeping them as one vague mobile-protection blob
