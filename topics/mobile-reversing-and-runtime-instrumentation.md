@@ -265,6 +265,7 @@ Includes:
 
 The iOS practical branch should now usually be read through `topics/ios-practical-subtree-guide.md`, then in this order:
 - `topics/ios-traffic-topology-relocation-workflow-note.md` when the first uncertainty is still whether the current network-observation surface is truthful enough to show the decisive request family at all
+- `topics/ios-environment-normalization-and-deployment-coherence-workflow-note.md` when install/signing path, rootful-vs-rootless mode, Frida recipe, or repack-vs-live-runtime choice still make runs operationally incomparable
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md` when the ownership problem is clearly Flutter/Dart-shaped
@@ -272,8 +273,9 @@ The iOS practical branch should now usually be read through `topics/ios-practica
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when replay is already close-but-wrong and the remaining gap has narrowed into one runtime table family, initialized-image boundary, or minimal init/context obligation
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 
-That ordered route helps separate seven different operator bottlenecks that are easy to collapse together:
+That ordered route helps separate eight different operator bottlenecks that are easy to collapse together:
 - traffic-observation topology uncertainty
+- environment-normalization / deployment-coherence uncertainty
 - broad setup/gate uncertainty
 - post-gate consequence ownership across ObjC / Swift / native boundaries
 - specialized cross-runtime owner recovery when Flutter/Dart execution is part of the real owner search
@@ -281,7 +283,7 @@ That ordered route helps separate seven different operator bottlenecks that are 
 - narrower runtime-table / initialization-obligation recovery once replay is almost right
 - narrower callback/result-to-policy consequence proof once visibility already exists
 
-Within that iOS setup/gate stage, recent source-driven maintenance also hardened three recurring practical reminders:
+Within that iOS environment-normalization and setup/gate region, recent source-driven maintenance also hardened three recurring practical reminders:
 - install/signing path is part of the runtime gate surface rather than mere housekeeping
 - rootful vs rootless should be treated as different operational environments, not one generic "jailbroken" bucket
 - Frida deployment coherence and transport path can explain apparent instability before stronger anti-instrumentation claims are justified
