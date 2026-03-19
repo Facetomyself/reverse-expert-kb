@@ -269,13 +269,16 @@ The iOS practical branch should now usually be read through `topics/ios-practica
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md` when the ownership problem is clearly Flutter/Dart-shaped
 - `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md` when one owner path is already plausible enough, broad owner-localization work should stop, and the real bottleneck is now minimal truthful replay rather than broader owner choice
+- `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when replay is already close-but-wrong and the remaining gap has narrowed into one runtime table family, initialized-image boundary, or minimal init/context obligation
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 
-That ordered route helps separate five different operator bottlenecks that are easy to collapse together:
+That ordered route helps separate seven different operator bottlenecks that are easy to collapse together:
 - traffic-observation topology uncertainty
 - broad setup/gate uncertainty
 - post-gate consequence ownership across ObjC / Swift / native boundaries
 - specialized cross-runtime owner recovery when Flutter/Dart execution is part of the real owner search
+- controlled replay once one owner is already good enough
+- narrower runtime-table / initialization-obligation recovery once replay is almost right
 - narrower callback/result-to-policy consequence proof once visibility already exists
 
 Within that iOS setup/gate stage, recent source-driven maintenance also hardened three recurring practical reminders:

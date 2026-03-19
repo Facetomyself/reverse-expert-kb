@@ -210,8 +210,25 @@ At that point, route forward:
 - if the callable path already solves the operator goal, stop
 - if remaining drift is narrow, continue into runtime-table/init-obligation recovery
 - if replay proves the owner but not the underlying semantics, continue into trace-guided reduction only where needed
+- if replay already exposes visible callbacks, result wrappers, or policy-relevant state, continue into result/callback-to-policy consequence work instead of keeping the harness broad
 
 Do not keep expanding the harness after one truthful path exists.
+
+## 5. Practical handoff rule
+Stay on this page while the missing proof is still:
+- one truthful callable path for one already-plausible owner
+- one reduced invocation contract for that owner
+- or one small replay-side setup/init debt that can still be paid without reframing the case
+
+Leave broad replay / harness work here once one truthful callable path is already good enough.
+Once that replay proof is already good enough, the next bottleneck is usually one of:
+- `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when replay is close-but-wrong and the remaining gap has narrowed into one runtime table family, initialized-image boundary, side-condition, or minimal init/context obligation
+- `topics/ios-result-callback-to-policy-state-workflow-note.md` when replay or live invocation already exposes result material and the real missing proof is now the first behavior-changing local policy state
+- narrower request/signature, native-proof, or trace-guided reduction pages when the callable path is already trustworthy enough and the remaining gap is no longer broad replay itself
+
+A recurring failure mode is to keep broad Chomper/runtime-harness work alive after the real bottleneck has shifted into one smaller init-obligation repair, one result-to-policy consequence proof, or one narrower downstream technical page.
+
+## 6. Practical scenario patterns
 
 ## 5. Practical scenario patterns
 
