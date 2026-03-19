@@ -41,6 +41,8 @@ In those cases, route to the narrower page instead.
 In practical iOS reversing, once callback or result visibility exists, the next best move is often **not** to hook more callbacks.
 It is to localize the first reduction that turns visible result material into a durable policy state.
 
+A practical continuation rule is worth keeping explicit: this page becomes the right receiver once controlled replay, black-box invocation, or narrower init-obligation repair is already good enough to expose truthful result material, and the remaining bottleneck is no longer owner callability but the first app-local policy consequence.
+
 The central question is usually:
 
 ```text
@@ -326,6 +328,10 @@ A boundary matters only when it predicts one later state change, scheduler choic
   - use first when the case is still blocked by broad setup/gate uncertainty
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
   - use first when the real bottleneck is still choosing the true owner across ObjC / Swift / native layers
+- `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md`
+  - use first when one owner is already plausible but the missing proof is still truthful callability, reduced invocation contract, or minimal replay-side setup/init debt rather than local policy consequence
+- `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
+  - use first when replay is still close-but-wrong and the main gap is one narrower runtime table family, initialized-image boundary, side-condition, or minimal init/context obligation rather than result-to-policy reduction
 - `topics/mobile-response-consumer-localization-workflow-note.md`
   - use when the case is better framed as a broader response-side consumer problem rather than an iOS callback/result problem specifically
 - `topics/result-code-and-enum-to-policy-mapping-workflow-note.md`
