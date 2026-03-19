@@ -354,7 +354,7 @@ Use the capture-failure/boundary-relocation note when the important traffic or p
 
 Use the socket-boundary/private-overlay note when broad visibility has improved enough that the next bottleneck is no longer whether traffic exists, but where the first truthful overlay object appears at socket write/read, serializer, or framing-adjacent boundaries before layer-peeling, ownership, or parser/state work can proceed cleanly.
 
-Use the content-pipeline-recovery note when the top-level authenticated API request is already visible enough, but the real analyst object continues through a manifest, playlist, signed URL bundle, content handle, key path, chunk map, or segment ladder and one representative artifact still cannot be recovered end-to-end.
+Use the content-pipeline-recovery note when the top-level authenticated API request is already visible enough, but the real analyst object continues through a manifest, playlist, signed URL bundle, content handle, key path, chunk map, or segment ladder and one representative artifact still cannot be recovered end-to-end; leave broad content-pipeline work there once one representative artifact ladder is already good enough and the real bottleneck has shifted into downloader/automation work, key/crypto recovery, or one narrower replay/acceptance gate.
 
 Use the ingress/receive-path note when inbound traffic, receive callbacks, queue/ring activity, framing/reassembly, or deferred receive work are already visible, but the first local receive owner that actually feeds the parser-relevant object or handler family is still unclear.
 
