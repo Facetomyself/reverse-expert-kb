@@ -219,6 +219,10 @@ This branch is still weaker than browser/mobile in some areas:
 - runtime-evidence packaging and notebook discipline could still use a tighter practical continuation guide
 - there is still room for a later branch pass focused specifically on runtime-evidence packaging, compare-run preservation, or workflow-specific evidence handoff
 
+A practical continuity rule worth preserving now is:
+- once one representative execution, compare-run pair, or causal boundary is already good enough, do **not** keep the case in broad runtime-evidence routing just because the material is still messy
+- route into `topics/analytic-provenance-and-evidence-management.md` when the real missing value is preserving how the evidence, assumptions, and causal claim stay linked for later reuse rather than finding one more upstream runtime surface
+
 That means the right near-term maintenance pattern is usually:
 - branch-shape repair
 - conservative navigation strengthening

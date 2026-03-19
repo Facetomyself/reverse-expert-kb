@@ -17,6 +17,7 @@ Related pages:
 - topics/peripheral-mmio-effect-proof-workflow-note.md
 - topics/isr-and-deferred-worker-consequence-proof-workflow-note.md
 - topics/runtime-behavior-recovery.md
+- topics/analytic-provenance-and-evidence-management.md
 
 ## 1. Why this guide exists
 This guide exists because the KB’s firmware/protocol branch already has several useful practical notes, but it is still easier to read as a strong cluster of sibling pages than as a clear operator ladder.
@@ -307,6 +308,7 @@ Possible next handoff:
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - artifact automation or downloader construction
 - key/crypto recovery for the artifact layer
+- `topics/analytic-provenance-and-evidence-management.md` when one representative artifact ladder is already good enough but the remaining problem is preserving the claim, path assumptions, and proof slices so a later analyst can re-run or automate without rediscovering the same continuation logic
 
 ### F. Visible inbound activity -> first local receive owner
 Typical question:
@@ -354,6 +356,7 @@ Routing reminder:
 Possible next handoff:
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
+- `topics/analytic-provenance-and-evidence-management.md` when one consequence-bearing parser/state edge is already good enough and the main remaining problem is preserving exactly which inputs, state assumptions, and reduced proof slices justified the claim
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 
 ### I. Accepted local path -> real output behavior

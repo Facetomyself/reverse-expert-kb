@@ -66,6 +66,8 @@ It is also an evaluation page because provenance support should be judged by how
 ### Core claim
 Analytic provenance and evidence management should be treated as a distinct support layer in reverse engineering: not just generic note-taking, but explicit capture of how observations, analyst actions, hypotheses, and conclusions relate over time.
 
+In practical branch terms, this page should also be read as a **continuation surface** that becomes active once the hard part is no longer finding one more hook, parser edge, replay, or malware claim, but making already-won evidence survive delay, transfer, comparison, and downstream reuse.
+
 ### What this topic is not
 This topic is **not**:
 - generic personal note-taking alone
@@ -268,6 +270,21 @@ Provenance becomes especially valuable when:
 - bringing in an assistant or another analyst
 - documenting why a conclusion is trustworthy enough to act on
 
+### Practical continuation rule
+Use this page as the next branch step when the core technical bottleneck has already been reduced, but the result still fails one of these reuse tests:
+- another analyst cannot re-find the exact branch, artifact, causal edge, or compare-run boundary that justified the conclusion
+- the result mixes observed facts, inferred explanation, and unresolved gaps too tightly to survive handoff cleanly
+- replay artifacts, hook outputs, protocol captures, or malware packaging units still exist as local analyst knowledge instead of a reusable evidence trail
+- the next failure mode is likely re-verification drift, repeated rediscovery, or assistant overreach rather than missing one more upstream trace or parser proof
+
+In practice, this page is the right continuation after nearby branches such as:
+- `topics/runtime-evidence-practical-subtree-guide.md` once one representative execution, late-effect boundary, or compare-run result is already good enough and the remaining problem is evidence linkage, compare-run preservation, or collaboration-ready packaging
+- `topics/protocol-firmware-practical-subtree-guide.md` once one parser/state edge, replay gate, reply/output handoff, or hardware-side consequence is already good enough and the remaining problem is preserving how the claim, assumptions, and proof slices stay connected over time
+- `topics/malware-reporting-and-handoff-evidence-packaging-workflow-note.md` once the package is already small enough to survive transfer, but the real missing value is stronger linkage among observations, inferences, uncertainty, and downstream reuse
+- `topics/record-replay-and-omniscient-debugging.md` once one representative execution is already captured, but the remaining difficulty is no longer capture itself and is now how to preserve, revisit, compare, and justify what that execution proved
+
+Leave broad provenance work here once one reusable evidence trail is already good enough and the real bottleneck has shifted again into a narrower downstream technical continuation, trust-calibration dispute, or branch-specific follow-up.
+
 ### Mistakes this topic helps prevent
 A strong provenance model helps avoid:
 - losing rationale behind names or conclusions
@@ -275,6 +292,7 @@ A strong provenance model helps avoid:
 - forgetting failed hypotheses and repeating work
 - overtrusting assistant suggestions detached from evidence trails
 - collapsing long analyses into disconnected fragments
+- staying in vague "documentation cleanup" mode when the real need is one explicit reusable claim-and-evidence chain
 
 ## 8. Evaluation dimensions
 The most important evaluation dimensions for this topic are:
