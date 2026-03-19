@@ -352,6 +352,14 @@ Next move:
 Use this page when the bottleneck is:
 - **turning visible VM / flattened execution into one trustworthy semantic anchor and one consequence-bearing edge**
 
+Practical handoff rule:
+- stay on this page while the missing proof is still one stable semantic anchor plus one first consequence-bearing handler/state edge inside noisy protected execution
+- leave broad trace/semantic-anchor work here once one stable semantic anchor and one consequence-bearing handler/state edge are already good enough
+- once that handoff is already good enough, the next bottleneck is usually one of:
+  - one durable dispatcher/state-edge reduction inside a still-recognizable flattened region
+  - one ordinary semantic-anchor or route-to-state proof in a now-quieter post-protection region
+  - one packed/bootstrap or artifact-consumer continuation if the protected execution has already handed off into those narrower objects
+
 Then route outward based on what remains hard:
 - if you still need a broader protected-runtime framing:
   - `topics/anti-tamper-and-protected-runtime-analysis.md`
@@ -361,8 +369,14 @@ Then route outward based on what remains hard:
   - `topics/trace-slice-to-handler-reconstruction-workflow-note.md`
 - if replay / reverse-causality support is available:
   - `topics/record-replay-and-omniscient-debugging.md`
-- if the target is actually better framed as baseline native interface-path proof after reduction:
+- if the next bottleneck has narrowed into one durable state object or dispatcher-exit family inside a recognizable flattened region:
+  - `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
+- if the target is actually better framed as baseline native semantic-anchor or interface-path proof after reduction:
+  - `topics/native-semantic-anchor-stabilization-workflow-note.md`
   - `topics/native-interface-to-state-proof-workflow-note.md`
+- if the protected execution has already handed off into a post-unpack or recovered-artifact bottleneck:
+  - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
+  - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
 
 ## 11. What this page adds to the KB
 This page adds the missing practical bridge in the deobfuscation/protected-runtime branch:
