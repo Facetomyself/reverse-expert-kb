@@ -108,9 +108,32 @@ These directories contain incremental research artifacts rather than canonical s
 - benchmarks, datasets, and analyst-relevant evaluation
 - collaborative malware analysis, role differentiation, and reporting/handoff burden
 
+## Current branch-balance view
+The KB should now be maintained with explicit branch-balance awareness rather than simple leaf-count growth.
+
+Current practical branch picture:
+- **very strong / easy-to-overfeed**:
+  - browser runtime anti-bot / captcha / request-signature workflows
+  - mobile protected-runtime / WebView / challenge-loop workflows
+- **now materially established and worth preserving canonically**:
+  - native practical workflows
+  - protocol / firmware practical workflows
+  - malware practical workflows
+  - runtime-evidence practical workflows
+  - iOS practical workflows
+  - protected-runtime deobfuscation ladders
+- **main maintenance risk**:
+  - continuing to add convenient browser/mobile leaves while higher-level branch memory, parent-page routing, and cross-branch comparison drift out of sync
+
+A top-level maintenance rule worth keeping visible here is:
+- when a branch already has a coherent parent page, subtree guide, and several practical leaves, prefer **canonical synchronization**, **branch-balance repair**, or **cross-branch comparison cleanup** before adding another leaf by default
+- when choosing new work, bias toward thinner-but-valuable practical continuations rather than the easiest dense micro-branch
+
 ## Open structural questions
 - Which mature pages or branch summaries are now strong enough to be promoted from `mature` / `structured` to `canonical`?
+- Which top-level pages still under-describe the real center of gravity of the KB’s practical branches?
 - Where should the next maintenance pass prefer parent-page / index synchronization over adding another leaf note?
+- Which thinner practical branches still need one more concrete bridge note before they can be considered locally stable?
 - When should the firmware/context branch split further beyond the current protocol state/message and practical workflow surfaces?
 - Which V2 pages are most valuable without destabilizing the V1 structure or overfeeding already-dense branches?
 
