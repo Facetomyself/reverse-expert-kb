@@ -14,13 +14,14 @@ Observed externally on 2026-03-15:
 - `https://autodiscover.zhangxuemin.work` -> `HTTP 521` from Cloudflare
 
 ## 3. On-Host Listener Reality
-Currently listening services are minimal:
+Currently listening services include:
 - `22/tcp` (SSH)
+- `80/tcp` (Caddy container)
+- `443/tcp` + `443/udp` (Caddy container with HTTPS/HTTP3)
 - `111/tcp` (rpcbind)
 - local PCP monitoring ports
 
-No current listeners observed for:
-- `80/443`
+Still not observed / not reactivated as of 2026-03-20:
 - `25/465/587`
 - `110/995`
 - `143/993`
@@ -31,5 +32,8 @@ DNS says this should be a mail host, but runtime says the intended mail/web stac
 
 ## 5. To Be Confirmed
 - whether Mailu was intentionally shut down
+- whether this host is waiting for manual bring-up
+- whether some external dependency (certs, DNS, storage migration) blocked activation
+wn
 - whether this host is waiting for manual bring-up
 - whether some external dependency (certs, DNS, storage migration) blocked activation

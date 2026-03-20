@@ -56,16 +56,17 @@ hosts:
     provider: oracle
     ssh_alias: oracle-mail
     ip: 140.83.52.216
-    lifecycle: retired
+    lifecycle: active
     reachability: reachable
-    importance: tier3
+    importance: tier2
     roles:
-      - former-mail-host
-      - retired-mailu
-      - retired-moemail
+      - web-app-host
+      - outlook-email-plus
+      - archived-mail-stack-footprints
     notes:
-      - dormant local mail stacks archived to /root/retired-services/2026-03-15/
-      - active temporary mail now handled by a Cloudflare-based deployment
+      - `mail.zhangxuemin.work` now serves the Outlook Email Plus web app via Docker Compose + Caddy
+      - active containers live under /opt/outlook-email-plus
+      - historical Mailu/moemail footprints remain archived under /root/retired-services/2026-03-15/
 
   - name: self-server
     provider: unknown

@@ -40,9 +40,23 @@ Observed characteristics:
 - local `.env` present
 
 ## Current operational conclusion
-This host has a prepared Mailu mail-stack deployment plus a separate `moemail` codebase, but neither appears to be actively serving traffic right now.
+This host has been repurposed from a dormant/retired mail-stack machine into an active web-app host for `Outlook Email Plus`. Historical Mailu/moemail assets still matter as archived context, but the live public service on this host is now the containerized Outlook/IMAP management UI at `mail.zhangxuemin.work`.
 
 ## Next operational step
-- document Mailu as dormant/inactive rather than active
-- inspect why Mailu is down before any attempt to start it
-- inspect `moemail` README / deployment docs to understand whether it belongs on this host or is just a working tree
+- if Outlook OAuth is needed in production, verify the Microsoft app registration uses the exact redirect URI configured in `/opt/outlook-email-plus/.env`
+- decide later whether `autoconfig` / `autodiscover` should remain Cloudflare-only or be realigned to the host
+- keep archived mail-stack directories for rollback/reference only; do not assume mail protocols are active
+d characteristics:
+- Next.js app (`next 15.x`)
+- Cloudflare/Wrangler deployment tooling
+- DB migration scripts
+- email worker scripts
+- local `.env` present
+
+## Current operational conclusion
+This host had a prepared Mailu mail-stack deployment plus a separate `moemail` codebase, but neither was actively serving traffic. Per user instruction, both local stacks were retired/archived on 2026-03-15 because a different Cloudflare-based temporary mail deployment is now in use.
+
+## Next operational step
+- treat this host as a retired/staging mail host unless the user later decides to revive it
+- keep archived directories only for rollback/reference
+- avoid assuming DNS currently matches active service reality

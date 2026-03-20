@@ -33,17 +33,22 @@ Current observed runtime:
 - No running containers
 - No active host mail/web listeners on `25/80/443/143/993/...`
 
-On-disk project footprints:
-- `/root/mailu` — full Mailu compose deployment with `mailu.env`
-- `/root/moemail` — separate application/repository related to email handling
+Retired on-disk project footprints:
+- `/root/retired-services/2026-03-15/mailu` — archived dormant Mailu compose deployment
+- `/root/retired-services/2026-03-15/moemail` — archived separate email-related application/repository
 
 ## 6. Machine-Level Infrastructure Notes
 - firewalld inactive
-- no current evidence of active postfix/dovecot/nginx/mail web stack outside Docker
-- this host is currently not serving the expected public HTTPS/mail ports despite DNS pointing here
+- SELinux: `Enforcing`
+- no current evidence of active postfix/dovecot/nginx/httpd stack outside Docker
+- current public HTTPS service is containerized behind Caddy, not a host-installed web server
+- Oracle Linux base remains suitable for container-first deployments; this host is no longer "empty" on 80/443
 
 ## 7. Documentation Scope
 This host needs documentation for:
 - Mailu deployment layout and why it is dormant
+- moemail project purpose and deployment state
+- DNS vs actual runtime mismatch
+ is dormant
 - moemail project purpose and deployment state
 - DNS vs actual runtime mismatch
