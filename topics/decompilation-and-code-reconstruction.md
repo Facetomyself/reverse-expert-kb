@@ -247,6 +247,26 @@ A strong decompilation model helps avoid:
 - assuming local readability implies global navigability
 - ignoring the need for metadata recovery or runtime validation
 
+### Native practical continuation that decompilation should trigger
+A practical point now worth preserving more explicitly is that decompilation often matters because it enables the **next narrower native proof move**, not because it settles the case by itself.
+
+Once pseudocode is readable enough to navigate, native cases often branch into four recurring continuations:
+- **semantic-anchor stabilization** when names, types, signatures, object roles, or subsystem meanings are still readable-but-slippery and one smaller anchor must survive proof pressure before broad relabeling is safe
+- **representative interface-to-state proof** when one semantic anchor is already good enough, but several imports/strings/xrefs/callbacks still expose too many plausible routes and one consequence-bearing route must be proved first
+- **plugin-loader / first-real-module-consumer reduction** when route shape is already plausible, but loader/provider structure still hides which resolved module, export, or factory product actually becomes behaviorally real
+- **callback-registration / event-loop consumer proof** when route or owner shape is already plausible, but direct call-graph reading breaks at queue, callback, completion, or dispatch delivery and one consequence-bearing consumer must be localized
+
+That means a useful decompilation reading is often:
+
+```text
+readable pseudocode
+  -> choose the next smaller trustworthy native boundary
+  -> prove one consequence-bearing edge
+  -> then widen the subsystem map
+```
+
+This is one reason readable output should be evaluated by workflow payoff rather than appearance alone: good pseudocode is valuable when it makes the next proof boundary cheaper to choose and cheaper to test.
+
 ## 8. Evaluation dimensions
 The most important evaluation dimensions for this topic are:
 
