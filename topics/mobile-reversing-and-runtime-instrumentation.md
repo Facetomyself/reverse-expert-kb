@@ -273,6 +273,23 @@ The iOS practical branch should now usually be read through `topics/ios-practica
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when replay is already close-but-wrong and the remaining gap has narrowed into one runtime table family, initialized-image boundary, or minimal init/context obligation
 - `topics/ios-result-callback-to-policy-state-workflow-note.md` once controlled replay, black-box invocation, or narrower init-obligation repair is already good enough to expose truthful result material and the remaining bottleneck is the first behavior-changing local policy state
 
+At the parent-page layer, that iOS route is easier to remember as a compact operator ladder:
+- **see** one truthful traffic surface
+- **normalize** one comparable install/signing/deployment recipe
+- **stabilize** one real setup or gate family
+- **own** one consequence-bearing ObjC / Swift / native path
+- **replay** one truthful callable owner path when broader owner search is no longer the cheapest next move
+- **repair** one narrower runtime-table or initialization obligation when replay is already close-but-wrong
+- **consume** one callback/result into one local policy effect
+
+A parent-level routing rule now worth preserving explicitly is:
+- leave broad traffic-topology work once one decisive request family is already visible enough to compare meaningfully
+- leave broad environment-normalization work once runs are operationally comparable enough that deeper divergence can be treated as a real target-side gate
+- leave broad gate diagnosis once the flow is reachable enough and the real uncertainty has shifted into consequence ownership
+- leave broad owner-localization work once one owner path is already plausible enough and the real bottleneck is truthful callability rather than more owner catalogs
+- leave broad replay work once one callable path is already good enough and the remaining gap has narrowed into one runtime-table family, initialized-image boundary, or minimal init/context obligation
+- leave broad init-obligation work once truthful result material already exists and the real missing proof is the first behavior-changing local policy state
+
 That ordered route helps separate eight different operator bottlenecks that are easy to collapse together:
 - traffic-observation topology uncertainty
 - environment-normalization / deployment-coherence uncertainty
