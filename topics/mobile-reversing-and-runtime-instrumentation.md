@@ -267,6 +267,7 @@ The iOS practical branch should now usually be read through `topics/ios-practica
 - `topics/ios-traffic-topology-relocation-workflow-note.md` when the first uncertainty is still whether the current network-observation surface is truthful enough to show the decisive request family at all
 - `topics/ios-environment-normalization-and-deployment-coherence-workflow-note.md` when install/signing path, rootful-vs-rootless mode, Frida recipe, or repack-vs-live-runtime choice still make runs operationally incomparable
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
+- `topics/ios-trust-path-and-pinning-localization-workflow-note.md` when the decisive request family is visible enough but routing-vs-trust-vs-post-trust diagnosis on iOS is still unresolved
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md` when the ownership problem is clearly Flutter/Dart-shaped
 - `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md` when one owner path is already plausible enough, broad owner-localization work should stop, and the real bottleneck is now minimal truthful replay rather than broader owner choice
@@ -277,6 +278,7 @@ At the parent-page layer, that iOS route is easier to remember as a compact oper
 - **see** one truthful traffic surface
 - **normalize** one comparable install/signing/deployment recipe
 - **stabilize** one real setup or gate family
+- **localize** one decisive trust path when routing-vs-trust remains the blocker
 - **own** one consequence-bearing ObjC / Swift / native path
 - **replay** one truthful callable owner path when broader owner search is no longer the cheapest next move
 - **repair** one narrower runtime-table or initialization obligation when replay is already close-but-wrong
@@ -290,10 +292,11 @@ A parent-level routing rule now worth preserving explicitly is:
 - leave broad replay work once one callable path is already good enough and the remaining gap has narrowed into one runtime-table family, initialized-image boundary, or minimal init/context obligation
 - leave broad init-obligation work once truthful result material already exists and the real missing proof is the first behavior-changing local policy state
 
-That ordered route helps separate eight different operator bottlenecks that are easy to collapse together:
+That ordered route helps separate nine different operator bottlenecks that are easy to collapse together:
 - traffic-observation topology uncertainty
 - environment-normalization / deployment-coherence uncertainty
 - broad setup/gate uncertainty
+- iOS trust-path / pinning uncertainty once one decisive request family is already visible enough
 - post-gate consequence ownership across ObjC / Swift / native boundaries
 - specialized cross-runtime owner recovery when Flutter/Dart execution is part of the real owner search
 - controlled replay once one owner is already good enough
