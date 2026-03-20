@@ -288,6 +288,27 @@ Within that iOS environment-normalization and setup/gate region, recent source-d
 - rootful vs rootless should be treated as different operational environments, not one generic "jailbroken" bucket
 - Frida deployment coherence and transport path can explain apparent instability before stronger anti-instrumentation claims are justified
 
+The Android / hybrid practical branch also now reads more truthfully as a case-driven ladder rather than a flat bag of mobile notes.
+It is best entered through `topics/mobile-protected-runtime-subtree-guide.md`, then read as several recurring practical continuations that often chain together:
+- `topics/android-flutter-cross-runtime-owner-localization-workflow-note.md` when Java-visible triggers, Flutter bridge/plugin routing, `libapp.so`, and native helpers all look relevant, but the first Dart/object owner is still unclear
+- `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md` when one owner path is already plausible enough that the next bottleneck is no longer broad owner choice, but the exact signing/preimage chain still needs reduction
+- `topics/result-code-and-enum-to-policy-mapping-workflow-note.md` when parsed objects, callbacks, or app-visible enums already expose result material, but the first app-local policy bucket or scheduler consequence is still hidden behind normalization helpers, switch lowering, or later state writes
+- `topics/webview-cookie-header-bootstrap-handoff-workflow-note.md` when page-side state clearly influences native behavior, but no explicit bridge object is visible and the analyst must localize the first native consumer through cookie reads, header merges, or bootstrap-store pulls
+- `topics/webview-native-response-handoff-and-page-consumption-workflow-note.md` when native code already obtains a meaningful result, but the decisive next behavior still happens inside the page and the analyst must separate outbound native emission from the first meaningful page consumer
+
+That Android / hybrid route helps separate five recurring operator bottlenecks that are easy to collapse together:
+- mixed-runtime owner uncertainty across Java / Flutter / Dart / native boundaries
+- owner-to-signature/preimage reduction once the right owner path is already plausible enough
+- result-code / enum-to-policy reduction once visible result material exists but its first local behavioral consequence is still unclear
+- page-state-to-native bootstrap handoff localization when WebView state obviously matters but the first native consumer is still hidden
+- native-to-page return-path and page-consumer proof when native work is already visible but the decisive later consequence still lives in page-side consumption
+
+A compact way to remember the Android / hybrid continuation is:
+- **own** the first cross-runtime consequence-bearing object
+- **reduce** the first signing or policy bucket that turns visible material into smaller behavior claims
+- **handoff** page/bootstrap state into one native consumer when the bridge is implicit rather than explicit
+- **return** one native result into the first meaningful page-side consumer when the decisive consequence still happens after the app leaves native code again
+
 ### 3. Instrumentation and tracing patterns
 Includes:
 - targeted hooks
