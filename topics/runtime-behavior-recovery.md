@@ -238,7 +238,7 @@ Includes:
 - future native-baseline dynamic workflows
 
 ### 6. Runtime-evidence practical branch routing
-The runtime-evidence branch should now be read not only as a broad concept page, but also as a practical four-family ladder that routes analysts toward the next smaller trustworthy proof boundary.
+The runtime-evidence branch should now be read not only as a broad concept page, but also as a practical five-family ladder that routes analysts toward the next smaller trustworthy proof boundary.
 
 The branch is now best entered through these recurring bottlenecks:
 - **observability / layer-selection uncertainty** when the analyst still does not know what to observe or at which layer the next trustworthy object will appear
