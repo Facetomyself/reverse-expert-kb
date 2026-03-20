@@ -99,6 +99,11 @@ A recurring model now emerging from the collected material is:
 
 This means the KB should treat reverse engineering as a staged process rather than a bag of tactics.
 
+A practical extension now worth preserving is that domain families also tend to stabilize into their own recurring **operator ladders** once a reader has chosen the right branch. In other words, the KB should not stop at broad phase language such as orientation, hypothesis formation, and focused experimentation. It should also preserve the smaller branch-local question:
+- what is the next narrower trustworthy boundary for this kind of target?
+- what proof should come before branch expansion?
+- when should the analyst leave broad reading and continue into the next specific bottleneck family?
+
 ### 4. What constraints define the domain?
 This is the **domain-constraint** axis.
 
@@ -184,6 +189,13 @@ Likely subtopics:
 - protocol reverse engineering
 - malware-analysis overlaps
 - anti-tamper / anti-cheat style targets
+
+A practical reading that now deserves to be preserved more explicitly at the framework layer is:
+- **native baseline** is the ordinary readable-code comparison case where analysts often reduce uncertainty by stabilizing one semantic anchor, proving one representative interface-to-state route, reducing one loader/provider ownership chain, and then localizing one async callback or event-loop consumer
+- **protected-runtime** is the resistance-heavy case where observation topology, trace reduction, packed/bootstrap handoff, artifact-consumer proof, runtime-obligation recovery, and integrity/tamper consequence become the defining bottlenecks
+- **mobile** is the environment- and ownership-distributed case where observation topology, trust path, mixed-runtime ownership, response-side consequence, and challenge-loop closure often dominate earlier than broad static reading
+- **protocol / firmware** is the boundary- and state-recovery case where capture relocation, smaller-contract recovery, parser/state consequence, replay acceptance, reply/output, and hardware-side effect proof often dominate before broad semantic narration becomes useful
+- **malware overlaps** are the consequence-first and handoff-heavy cases where first staged consequence, config-to-capability reduction, first outbound-family proof, gate localization, and evidence packaging often matter more than broad taxonomy
 
 ### Module E. Evaluation framework
 This module should answer:
@@ -279,6 +291,7 @@ Do the ideas and metrics generalize across desktop, mobile, firmware, protocol, 
 - `topics/symbol-type-and-signature-recovery.md`
 
 ### Domain / context topics
+- `topics/native-binary-reversing-baseline.md`
 - `topics/firmware-and-protocol-context-recovery.md`
 - `topics/mobile-reversing-and-runtime-instrumentation.md`
 

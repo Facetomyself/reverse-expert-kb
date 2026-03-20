@@ -126,6 +126,22 @@ Priority 2 candidates include:
 - `topics/native-interface-to-state-proof-workflow-note.md`
 - `topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md`
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
+- `topics/decompilation-and-code-reconstruction.md`
+
+A compact native reading now worth preserving at the top level is:
+- decompilation is often the practical entry enabler for the native branch, but not the endpoint
+- once code is readable enough to navigate, the branch usually reduces through four recurring bottlenecks:
+  - semantic-anchor stabilization
+  - representative interface-to-state proof
+  - plugin-loader / first-real-module-consumer reduction
+  - callback-registration / event-loop consumer proof
+- the branch should therefore be remembered not only as “ordinary native binaries,” but as a practical ladder where readable pseudocode is converted into one smaller trustworthy proof boundary before broader subsystem expansion resumes
+
+This branch should now also be read as the default comparison case for the rest of the KB’s domain families:
+- less dominated by environment reconstruction than firmware/protocol
+- less dominated by access/instrumentation topology than mobile
+- less dominated by resistance churn than protected-runtime work
+- but still dependent on choosing the next smaller trustworthy object instead of widening the map too early
 
 This branch should now be read as a practical bridge from baseline native synthesis into four recurring operator bottlenecks plus one parent-page routing surface:
 - subtree navigation and bottleneck selection (`native-practical-subtree-guide`), which acts as the branch entry surface when the analyst first needs to decide whether the current native bottleneck is semantic instability, route overabundance, module-owner uncertainty, or async ownership break
