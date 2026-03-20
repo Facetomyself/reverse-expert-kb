@@ -192,6 +192,7 @@ Likely subtopics:
 
 A practical reading that now deserves to be preserved more explicitly at the framework layer is:
 - **native baseline** is the ordinary readable-code comparison case where analysts often reduce uncertainty by stabilizing one semantic anchor, proving one representative interface-to-state route, reducing one loader/provider ownership chain, and then localizing one async callback or event-loop consumer
+- **browser runtime** is the browser-executed and request-shaping case where structural recovery, challenge/state workflow proof, request-boundary localization, debugger-surface distortion, and environment-faithful replay often matter before broad script narration becomes useful
 - **protected-runtime** is the resistance-heavy case where observation topology, trace reduction, packed/bootstrap handoff, artifact-consumer proof, runtime-obligation recovery, and integrity/tamper consequence become the defining bottlenecks
 - **mobile** is the environment- and ownership-distributed case where observation topology, trust path, mixed-runtime ownership, response-side consequence, and challenge-loop closure often dominate earlier than broad static reading
 - **protocol / firmware** is the boundary- and state-recovery case where capture relocation, smaller-contract recovery, parser/state consequence, replay acceptance, reply/output, and hardware-side effect proof often dominate before broad semantic narration becomes useful
