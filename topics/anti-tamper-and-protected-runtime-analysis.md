@@ -248,6 +248,27 @@ It should also preserve where the analyst is supposed to enter and leave the bra
 - recover the smallest runtime artifact or init obligation that explains close-but-wrong replay
 - reduce visible checks into one first consequence-bearing tripwire
 
+A compact parent-page memory worth preserving is that the protected-runtime branch should now be remembered not only as a domain family, but as a practical seven-stage reduction ladder for converting protection-shaped uncertainty into one smaller trustworthy target:
+- first repair observation topology if the current attach/spawn/app-local posture is itself distorting the case
+- then stabilize one semantic anchor if protected execution is still mostly noisy churn
+- then reduce one recognizable dispatcher or protected state machine into one durable state edge
+- then hand off from packed/bootstrap churn into one trustworthy post-protection region
+- then prove the first ordinary consumer of one recovered artifact
+- then recover the one runtime artifact or init obligation that explains close-but-wrong replay
+- then reduce visible integrity logic into one first consequence-bearing tripwire
+
+This compact ladder is narrower than the full protected-runtime domain.
+It does **not** imply every case traverses every stage or that every protected target starts with observation-topology failure.
+It means the branch is now best taught as a route for shrinking protection-shaped uncertainty until the remaining work can leave this branch and continue as ordinary native, mobile, browser, protocol, or broader runtime-evidence analysis.
+
+A few anti-drift reminders follow from that ladder:
+- do not keep cataloging hooks if the real blocker is still choosing a truthful observation boundary
+- do not keep collecting trace churn once one stable semantic anchor is already good enough and the next problem is now a dispatcher/state edge or post-unpack handoff
+- do not keep narrating packer or VM family labels once one smaller ordinary-code target is already available
+- do not stop at a readable artifact if the first ordinary consumer is still unproved
+- do not keep rewriting offline reconstructions when one narrower runtime table or init obligation is the real missing object
+- do not call integrity logic "understood" until one reduced result and one downstream consequence are actually tied together
+
 ### 1. Anti-debugging and anti-instrumentation resistance
 Includes:
 - debugger detection
