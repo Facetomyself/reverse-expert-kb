@@ -353,9 +353,12 @@ A subtree guide and practical bridge pages now exist for the firmware/protocol o
 - `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
 - `topics/protocol-content-pipeline-recovery-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
+- `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+- `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
-- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+- `topics/analytic-provenance-and-evidence-management.md`
 
 Use the subtree guide first when the analyst still needs to classify whether the real bottleneck is broad context/object-of-recovery framing, boundary selection, socket-boundary/private-overlay object recovery, layer peeling / smaller-contract recovery, content-pipeline continuation, ingress ownership, parser/state consequence, acceptance gating, output handoff, or hardware-side consequence proof.
 
@@ -371,7 +374,13 @@ Use the peripheral/MMIO note when candidate peripheral ranges, MMIO/register fam
 
 Use the ISR/deferred-worker note when trigger and peripheral-effect visibility already exist, but the real decisive boundary is later: the first interrupt/completion/deferred-worker handoff that turns earlier hardware-facing activity into durable state, reply, scheduler, or policy behavior; leave broad ISR/deferred consequence work there once one durable consequence edge is already good enough and the real bottleneck has shifted into model realism, narrower downstream proof, or provenance/evidence packaging.
 
+Use the parser-to-state note when one message family, parser, or dispatch region is already visible, but the first state write, reply-family selector, queue/timer insertion, or peripheral action that actually predicts later behavior is still unclear.
+
+Use the replay-precondition/state-gate note when parser visibility and some field roles already exist, but structurally plausible replay, mutation, or stateful experimentation still fails because the first local acceptance gate, session-phase reduction, freshness check, pending-request ownership check, or capability-state precondition is still unproved.
+
 Use the reply-emission/transport-handoff note when protocol/firmware handling is already locally understood far enough to show acceptance or reply-object creation, but the analyst still needs to prove where that accepted result is serialized, queued, committed, or handed to the transport/peripheral side as one real output behavior; leave broad output-side work there once one committed outbound path is already good enough and the real bottleneck becomes hardware-side effect proof, later interrupt/deferred consequence proof, or one narrower output-side continuation.
+
+Use the provenance/evidence-management page when one parser/state edge, replay gate, reply/output handoff, or hardware-side consequence is already good enough and the remaining problem is preserving the exact assumptions, compare points, proof slices, and handoff packaging needed so later replay, automation, or analyst transfer does not collapse back into rediscovery.
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is coherent and strong enough for a mature synthesis page.
