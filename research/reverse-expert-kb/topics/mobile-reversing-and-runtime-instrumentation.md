@@ -292,16 +292,16 @@ A parent-level routing rule now worth preserving explicitly is:
 - leave broad replay work once one callable path is already good enough and the remaining gap has narrowed into one runtime-table family, initialized-image boundary, or minimal init/context obligation
 - leave broad init-obligation work once truthful result material already exists and the real missing proof is the first behavior-changing local policy state
 
-That ordered route helps separate nine different operator bottlenecks that are easy to collapse together:
+That ordered route helps separate eight primary operator bottlenecks that are easy to collapse together, plus one narrower continuation once replay is already almost right:
 - traffic-observation topology uncertainty
 - environment-normalization / deployment-coherence uncertainty
 - broad setup/gate uncertainty
 - iOS trust-path / pinning uncertainty once one decisive request family is already visible enough
 - post-gate consequence ownership across ObjC / Swift / native boundaries
 - specialized cross-runtime owner recovery when Flutter/Dart execution is part of the real owner search
-- controlled replay once one owner is already good enough
-- narrower runtime-table / initialization-obligation recovery once replay is almost right
+- controlled replay / init-obligation uncertainty once one owner is already good enough
 - narrower callback/result-to-policy consequence proof once visibility already exists
+- narrower runtime-table / initialization-obligation recovery as the common continuation when replay is almost right but still misses one runtime table family, initialized-image boundary, or minimal init/context obligation
 
 Within that iOS environment-normalization and setup/gate region, recent source-driven maintenance also hardened three recurring practical reminders:
 - install/signing path is part of the runtime gate surface rather than mere housekeeping
