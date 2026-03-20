@@ -286,32 +286,56 @@ Do the ideas and metrics generalize across desktop, mobile, firmware, protocol, 
 ## Current topic pages and where they fit
 ### Foundations / overall shape
 - `topics/expert-re-overall-framework.md`
+- `topics/global-map-and-ontology.md`
+- `topics/topic-template-and-normalization-guide.md`
+- `topics/v1-roadmap-and-maturity-criteria.md`
+- `topics/v1-review-and-consistency-pass.md`
 
-### Evaluation-oriented topics
+### Recovery-object and evaluation-oriented topics
 - `topics/benchmarks-datasets.md`
-- `topics/obfuscation-deobfuscation-and-packed-binaries.md`
+- `topics/decompilation-and-code-reconstruction.md`
 - `topics/symbol-type-and-signature-recovery.md`
+- `topics/runtime-behavior-recovery.md`
+- `topics/analytic-provenance-and-evidence-management.md`
+- `topics/trust-calibration-and-verification-burden.md`
+- `topics/obfuscation-deobfuscation-and-packed-binaries.md`
 
 ### Domain / context topics
 - `topics/native-binary-reversing-baseline.md`
-- `topics/firmware-and-protocol-context-recovery.md`
+- `topics/js-browser-runtime-reversing.md`
 - `topics/mobile-reversing-and-runtime-instrumentation.md`
+- `topics/firmware-and-protocol-context-recovery.md`
+- `topics/anti-tamper-and-protected-runtime-analysis.md`
+- `topics/malware-analysis-overlaps-and-analyst-goals.md`
 
 ### Workflow / human-support topics
 - `topics/analyst-workflows-and-human-llm-teaming.md`
+- `topics/notebook-and-memory-augmented-re.md`
+- `topics/community-practice-signal-map.md`
+
+A maintenance rule worth preserving at the framework layer is:
+- once a branch has a coherent parent page, subtree guide, and several practical leaves, the framework should preserve that branch as part of the KB’s real shape rather than continuing to narrate the project as if only a few early pages exist
+- framework-level stale page lists are a real form of KB drift because they teach the wrong maturity model even when lower layers are healthy
 
 ## What a V1 should look like
-A reasonable V1 of this KB should include:
-- one stable foundations page
-- one explicit global map of topic relationships
-- one shared evaluation schema used across topic pages
-- 8–12 mature topic pages
+A reasonable V1 of this KB should now be read as already having reached its basic structural milestone.
+
+At this stage, V1 should preserve:
+- a stable foundations layer
+- an explicit global map of topic relationships
+- a shared evaluation schema used across topic pages
+- a mature set of recovery-object, workflow, and domain pages
 - clear distinction between:
   - raw source notes
   - run reports
   - topic syntheses
   - canonical framework pages
-- enough cross-linking that readers can move from one topic family to its dependencies and contrasts
+- enough cross-linking that readers can move from one topic family to its dependencies, contrasts, and practical branch continuations
+
+The practical maintenance pressure is therefore no longer mainly “create the first V1 pages,” but:
+- keep canonical surfaces honest about what already exists
+- preserve branch-balance memory as dense practical branches mature
+- prevent framework pages from lagging behind subtree-guide and parent-page reality
 
 ## What could go wrong if structure is not enforced
 Without deliberate structure, this KB risks becoming:
@@ -323,13 +347,13 @@ Without deliberate structure, this KB risks becoming:
 
 That is why canonical framework pages are necessary.
 
-## Immediate next steps
-1. Add a global map / ontology page linking all current topic families.
-2. Normalize current topic pages to a shared template.
-3. Add explicit cross-links among topic pages.
-4. Separate source-note conventions from topic-synthesis conventions.
-5. Define V1 maturity criteria per topic.
-6. Continue hourly runs, but shift them toward filling structural gaps rather than only broadening coverage.
+## Current maintenance priorities
+1. Keep framework, ontology, index, parent pages, and subtree guides synchronized as mature branches continue to stabilize.
+2. Prefer canonical synchronization, branch-balance repair, and cross-branch comparison cleanup when a branch already has enough local leaf depth.
+3. Continue promoting durable operator ladders and stop rules from run reports into canonical pages when they have clearly become part of the KB’s stable shape.
+4. Use new leaf pages when there is a real operator gap, not merely because a dense branch is easy to continue.
+5. Watch for stale framework-language that still describes earlier missing-page pressure instead of the current maintenance phase.
+6. Continue recurring autosync runs, but bias them toward practical branch memory, canonical coherence, and thinner high-value continuations rather than momentum-driven growth.
 
 ## Bottom line
 The final form of this project should be:
