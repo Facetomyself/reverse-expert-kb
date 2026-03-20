@@ -141,6 +141,7 @@ This branch should now be read as a practical bridge from baseline native synthe
 - `topics/hook-placement-and-observability-workflow-note.md`
 - `topics/record-replay-and-omniscient-debugging.md`
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
+- `topics/runtime-evidence-package-and-handoff-workflow-note.md`
 - `topics/analytic-provenance-and-evidence-management.md`
 
 This branch should now be read as a practical bridge from runtime-evidence synthesis into four recurring operator bottlenecks plus one practical continuation surface for evidence reuse once the core technical proof is already good enough:
