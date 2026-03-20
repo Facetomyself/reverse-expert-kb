@@ -9,6 +9,7 @@ Related pages:
 - topics/ios-traffic-topology-relocation-workflow-note.md
 - topics/ios-environment-normalization-and-deployment-coherence-workflow-note.md
 - topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md
+- topics/ios-trust-path-and-pinning-localization-workflow-note.md
 - topics/ios-objc-swift-native-owner-localization-workflow-note.md
 - topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md
 - topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md
@@ -22,6 +23,7 @@ The branch already had practical entry surfaces for:
 - traffic-observation topology repair when proxy-visible evidence is incomplete or misleading
 - environment normalization and deployment-coherence repair when install/signing path, rootful-vs-rootless mode, Frida recipe, or repack-vs-live-runtime choice still make runs incomparable
 - packaging / jailbreak / runtime-gate diagnosis when the app still diverges before later analysis is trustworthy
+- trust-path and pinning localization once traffic topology is truthful enough and the remaining bottleneck is routing-vs-trust-vs-post-trust diagnosis on iOS
 - ObjC / Swift / native owner localization once the target flow is reachable enough to study
 - Flutter/Dart cross-runtime owner localization when iOS shell, engine routing, and Dart ownership all compete
 - execution-assisted owner replay when the owner path is already plausible and the next bottleneck is minimal truthful invocation
@@ -40,7 +42,7 @@ This page makes the iOS branch read more like the KB’s stronger practical subt
 A newer practical reminder is also now worth preserving canonically: before broad iOS gate diagnosis, some cases first need a narrower environment-normalization pass so install/signing path, rootful-vs-rootless differences, Frida deployment recipe, and repack-vs-live-runtime choice stop contaminating later comparisons.
 
 ## 2. Core claim
-iOS practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of seven recurring families:
+iOS practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of eight recurring families:
 
 1. **traffic-topology uncertainty**
    - the user-visible action clearly performs network work, but the current observation surface is still too partial or misleading to trust
@@ -48,13 +50,15 @@ iOS practical work is easiest to navigate when the analyst first classifies the 
    - the case is iOS-shaped, but install/signing path, rootful-vs-rootless mode, Frida deployment recipe, or repack-vs-live-runtime choice still make runs operationally incomparable
 3. **broad setup / runtime-gate uncertainty**
    - the case is iOS-shaped, but packaging, signing, jailbreak environment, instrumentation visibility, or realism drift still dominates even after basic normalization
-4. **post-gate owner uncertainty**
+4. **trust-path / pinning uncertainty**
+   - traffic topology is truthful enough and the run is comparable enough, but the decisive request family is still blocked by routing-vs-trust-vs-post-trust uncertainty on iOS
+5. **post-gate owner uncertainty**
    - the flow is reachable enough to study, yet several ObjC / Swift / native boundaries still compete and the first consequence-bearing owner is unclear
-5. **cross-runtime owner uncertainty**
+6. **cross-runtime owner uncertainty**
    - the path is clearly Flutter/Dart shaped and the real owner search spans iOS shell, bridge/engine routing, Dart state, and native workers
-6. **controlled-replay / init-obligation uncertainty**
+7. **controlled-replay / init-obligation uncertainty**
    - one owner path is already plausible enough to target, but the next bottleneck is reconstructing minimal init/context obligations until one truthful callable path exists
-7. **callback/result-to-policy consequence uncertainty**
+8. **callback/result-to-policy consequence uncertainty**
    - visible callbacks or result wrappers already exist, but the first behavior-changing consumer or local policy state is still unclear
 
 Inside families 2 and 3, a recurring practical reminder now deserves to stay explicit: do not collapse all early iOS setup into one vague "jailbroken vs not" bucket. Installation/signing path, rootful vs rootless mode, Frida deployment coherence, and rewrite/repack stability can each change whether later evidence is trustworthy; some cases first need environment normalization before broader gate diagnosis is even meaningful.
@@ -73,6 +77,7 @@ The subtree is strongest when read as:
 - **see** one truthful traffic surface
 - **normalize** one comparable environment/deployment recipe
 - **stabilize** one trustworthy runtime/setup state
+- **localize** one decisive trust path when routing-vs-trust remains the blocker
 - **own** one consequence-bearing path
 - **replay** one truthful callable owner path when static cleanup is no longer the cheapest next move
 - **consume** one callback/result into one local policy effect
@@ -120,6 +125,21 @@ Do **not** start here when:
 - the current problem is still primarily traffic-topology blindness
 - the case is not yet normalized enough for the compared runs to be operationally meaningful
 - the case is already stable enough that the real bottleneck is post-gate owner localization
+
+### Start with `ios-trust-path-and-pinning-localization-workflow-note`
+Use:
+- `topics/ios-trust-path-and-pinning-localization-workflow-note.md`
+
+Start here when:
+- traffic topology is already truthful enough that one decisive request family can be reasoned about
+- the run is normalized enough that the remaining divergence is worth treating as trust-shaped rather than setup-shaped
+- the current bottleneck is whether the target family is failing at Foundation/Security/native trust evaluation or later policy logic
+- generic trust hooks or pinning bypasses partly work, but not on the request family that matters
+
+Do **not** start here when:
+- the current problem is still primarily traffic-topology blindness
+- compared runs are still too operationally incomparable to trust the diagnosis
+- the real bottleneck has clearly shifted into post-gate owner localization rather than trust-path localization
 
 ### Start with `ios-objc-swift-native-owner-localization-workflow-note`
 Use:
@@ -182,7 +202,7 @@ Do **not** start here when:
 - the visible callback is still trapped inside broader setup drift or untrusted observation
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as seven common bottleneck families that often chain into one another.
+A useful way to read the branch is as eight common bottleneck families that often chain into one another.
 
 ### A. Incomplete network picture -> truthful traffic surface
 Typical question:
@@ -217,7 +237,19 @@ Possible next handoff:
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md`
 
-### D. Reachable flow -> first consequence-bearing owner
+### D. Reachable request family -> first decisive trust path
+Typical question:
+- is the target request family still failing at routing-vs-trust-vs-post-trust boundaries, and where does the decisive iOS trust decision actually happen?
+
+Primary note:
+- `topics/ios-trust-path-and-pinning-localization-workflow-note.md`
+
+Possible next handoff:
+- `topics/ios-objc-swift-native-owner-localization-workflow-note.md` when trust is no longer the earliest blocker and the remaining gap is consequence ownership
+- `topics/ios-result-callback-to-policy-state-workflow-note.md` when trust appears to pass and the remaining failure is later policy logic
+- request/signature or native proof pages when the localized trust path narrows the case further
+
+### E. Reachable flow -> first consequence-bearing owner
 Typical question:
 - which ObjC / Swift / native boundary first owns the state write, request-finalization step, or policy effect that actually matters?
 
@@ -229,7 +261,7 @@ Possible next handoff:
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 - request/signature or native proof pages when the owner narrows the case further
 
-### E. Cross-runtime confusion -> first Dart/object owner
+### F. Cross-runtime confusion -> first Dart/object owner
 Typical question:
 - which boundary first turns shell trigger plus Flutter routing into the actual artifact or consequence I care about?
 
@@ -240,7 +272,7 @@ Possible next handoff:
 - `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md` when the owner is already plausible enough and the real bottleneck has shifted from owner choice into truthful callable-path recovery
 - request/signature recovery or native proof pages once the owner is proved
 
-### F. Plausible owner -> truthful callable path
+### G. Plausible owner -> truthful callable path
 Typical question:
 - do I still need more code readability, or do I already know enough to reconstruct the smallest truthful invocation path?
 
@@ -257,7 +289,7 @@ Possible next handoff:
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 - narrower request/signature or consequence pages once controlled replay is truthful enough
 
-### G. Visible callback/result -> first policy-bearing consumer
+### H. Visible callback/result -> first policy-bearing consumer
 Typical question:
 - which callback / wrapper / mapper / consumer first turns visible result material into one local behavior change?
 
@@ -280,22 +312,25 @@ When a case is clearly iOS-shaped, ask these in order:
    - if yes, start with environment normalization and deployment-coherence repair
 3. **Is broader setup, signing, jailbreak, tooling, or realism drift still the earliest blocker even after normalization?**
    - if yes, start with packaging / jailbreak / runtime-gate diagnosis
-4. **Is the flow now reachable enough, but the first consequence-bearing owner still unclear?**
+4. **Is the decisive request family reachable enough, but the remaining blocker is still routing-vs-trust-vs-post-trust diagnosis on iOS?**
+   - if yes, start with trust-path / pinning localization
+5. **Is the flow now reachable enough, but the first consequence-bearing owner still unclear?**
    - if yes, start with broad ObjC / Swift / native owner localization
-5. **Is that ownership problem clearly Flutter/Dart cross-runtime shaped?**
+6. **Is that ownership problem clearly Flutter/Dart cross-runtime shaped?**
    - if yes, switch to the specialized Flutter/cross-runtime owner note
-6. **Is one owner already plausible enough, and is the real bottleneck no longer owner choice but making that owner callable truthfully?**
+7. **Is one owner already plausible enough, and is the real bottleneck no longer owner choice but making that owner callable truthfully?**
    - if yes, stop broad owner-localization work and continue into controlled replay / black-box invocation
-7. **Is replay already good enough, but the remaining gap has narrowed into one runtime table family, initialized-image boundary, side-condition, or minimal init/context obligation?**
+8. **Is replay already good enough, but the remaining gap has narrowed into one runtime table family, initialized-image boundary, side-condition, or minimal init/context obligation?**
    - if yes, leave broad replay work and continue into runtime-table / initialization-obligation recovery
-8. **Are callbacks or result wrappers already visible, but the first behavior-changing policy state still hidden?**
+9. **Are callbacks or result wrappers already visible, but the first behavior-changing policy state still hidden?**
    - if yes, continue into result/callback-to-policy-state work
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
 That usually means:
 - fix the traffic surface before arguing about trust or owner details
 - normalize one comparable environment/deployment recipe before diagnosing deeper gate logic
-- prove one broad gate family before deep owner search
+- prove one broad gate family before deep trust-path or owner work
+- localize one decisive trust path before broadening into consequence ownership when routing-vs-trust is still unresolved
 - prove one owner before building a replay harness
 - prove one truthful callable path before cataloging many setup helpers
 - leave broad replay/harness work once one truthful callable path is already good enough and the real bottleneck has shifted
@@ -305,7 +340,7 @@ That usually means:
 ## 6. What this branch is strongest at
 This branch is currently strongest at practical guidance for:
 - separating traffic-topology problems from broader iOS gate problems
-- separating setup/gate uncertainty from post-gate owner localization
+- separating setup/gate uncertainty from trust-path localization and then from post-gate owner localization
 - separating ordinary ObjC / Swift / native owner problems from Flutter/Dart cross-runtime owner problems
 - treating execution-assisted replay as a continuation of owner recovery rather than tool tourism
 - separating visible callback/result material from the first true policy-bearing consumer
@@ -315,7 +350,7 @@ That makes the branch good at cases where iOS work is already partly reachable, 
 ## 7. What this branch is still weaker at
 This branch is still weaker than the densest browser/mobile areas in some ways:
 - it only recently gained enough leaf notes to justify its own dedicated subtree guide
-- iOS-specific trust-path and request-signature continuations are still mostly connected through broader mobile pages rather than a denser iOS-only continuation stack
+- the branch now has a dedicated iOS trust-path continuation, but iOS-specific request-signature continuations are still mostly connected through broader mobile pages rather than a denser iOS-only continuation stack
 - more case pressure may later justify narrower notes around trust-path continuation, result-code families, or PAC/arm64e-era protected-runtime specifics
 
 That means the right near-term maintenance pattern is usually:
@@ -348,6 +383,7 @@ The compact reading is:
 - choose the right traffic surface
 - normalize the right environment/deployment recipe
 - stabilize the right runtime/setup gate
+- localize the right trust path when routing-vs-trust is still the blocker
 - prove the right owner
 - reconstruct the smallest truthful callable path when needed
 - reduce one narrower runtime-table or initialization obligation when replay is already close-but-wrong
