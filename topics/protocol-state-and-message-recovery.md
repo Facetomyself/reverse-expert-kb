@@ -347,6 +347,9 @@ A subtree guide and practical bridge pages now exist for the protocol/firmware o
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+- `topics/peripheral-mmio-effect-proof-workflow-note.md`
+- `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
+- `topics/analytic-provenance-and-evidence-management.md`
 
 Use the subtree guide first when the analyst still needs to classify whether the real bottleneck is broad protocol framing, boundary selection, socket-boundary/private-overlay object recovery, layer peeling / contract recovery, content-pipeline continuation, ingress ownership, parser/state consequence, acceptance gating, output handoff, or a later hardware-side consequence path.
 
@@ -363,6 +366,12 @@ Use the parser-to-state note when one message family, parser, or dispatch region
 Use the replay-precondition/state-gate note when parser visibility and some field roles already exist, but structurally plausible replay, mutation, or stateful experimentation still fails because the first local acceptance gate, session-phase reduction, freshness check, pending-request ownership check, or capability-state precondition is still unproved.
 
 Use the reply-emission/transport-handoff note when parser/state work and even local acceptance are already partly visible, but the analyst still has not proved where the accepted path becomes one concrete emitted reply, serializer/framing path, queue/descriptor commit, or transport/peripheral send handoff.
+
+Use the peripheral/MMIO note when the first outbound handoff is already good enough, candidate peripheral ranges, register families, or hardware-facing handlers are visible, and the next bottleneck is the first effect-bearing write, queue/DMA/interrupt arm, or status-latch edge rather than broader parser or send-side narration.
+
+Use the ISR/deferred-worker note when trigger visibility and even some peripheral-effect visibility already exist, but the decisive boundary is later: the first interrupt/completion/deferred-worker handoff that turns an already-visible hardware-facing activity into durable state, reply, scheduler, or policy behavior.
+
+Use the provenance/evidence-management page when one parser/state edge, replay gate, emitted-output path, or hardware-side consequence is already good enough and the remaining problem is preserving the exact assumptions, compare points, and proof slices needed for later replay, handoff, or automation.
 
 ## 12. Source footprint / evidence quality note
 Current evidence quality is structurally useful but now somewhat stronger than the initial split-out version.
