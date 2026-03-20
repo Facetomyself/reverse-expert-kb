@@ -75,11 +75,18 @@ These pages define the central recovery objects, evaluation logic, and analyst w
 ### 3. Domain-constraint pages
 These pages show how different target classes change what matters in reverse engineering.
 
+- `topics/native-binary-reversing-baseline.md`
+- `topics/js-browser-runtime-reversing.md`
 - `topics/mobile-reversing-and-runtime-instrumentation.md`
 - `topics/firmware-and-protocol-context-recovery.md`
 - `topics/obfuscation-deobfuscation-and-packed-binaries.md`
+- `topics/anti-tamper-and-protected-runtime-analysis.md`
 - `topics/malware-analysis-overlaps-and-analyst-goals.md`
-- `topics/js-browser-runtime-reversing.md`
+
+A practical reading now worth preserving at the top level is:
+- the domain layer is no longer just a set of broad synthesis pages
+- several branches now also have practical subtree guides that teach recurring operator bottlenecks and stop rules
+- maintenance work should therefore keep the **domain parent pages**, **subtree guides**, and **top-level index** synchronized rather than letting branch logic live only in leaves
 
 ### 4. Source and run material
 These directories contain incremental research artifacts rather than canonical synthesis pages.
@@ -102,10 +109,10 @@ These directories contain incremental research artifacts rather than canonical s
 - collaborative malware analysis, role differentiation, and reporting/handoff burden
 
 ## Open structural questions
-- How should a future native desktop baseline page be defined?
-- When should the firmware/context page split protocol state/message recovery into its own child page?
-- When should mature pages be promoted from `mature` to `canonical`?
-- Which V2 pages are most valuable without destabilizing the V1 structure?
+- Which mature pages or branch summaries are now strong enough to be promoted from `mature` / `structured` to `canonical`?
+- Where should the next maintenance pass prefer parent-page / index synchronization over adding another leaf note?
+- When should the firmware/context branch split further beyond the current protocol state/message and practical workflow surfaces?
+- Which V2 pages are most valuable without destabilizing the V1 structure or overfeeding already-dense branches?
 
 ## Candidate next topic pages
 Priority 2 candidates include:
@@ -362,5 +369,9 @@ This subtree is now best read as coordinated mobile analyst entry surfaces:
 - hybrid native→page return-path and page-consumer diagnosis (`webview-native-response-handoff-and-page-consumption-workflow-note`), which acts as the practical entry note when native code already obtains a meaningful result but the decisive next behavior still happens inside the page and the analyst must separate outbound native emission from the first meaningful page consumer, while also checking whether bridge visibility is being mistaken for consumer readiness, whether coarse page-load anchors are masking SPA/remount timing, and whether lifecycle timing, document-start-vs-late observer placement, listener/port registration order, or callback-wrapper normalization explains why a seemingly correct payload still does not advance behavior
 
 ## Notes
-This index should evolve to reflect the KB’s actual ontology and maturity state, not merely list files.
+This index should evolve to reflect the KB’s actual ontology, maturity state, and practical branch shape, not merely list files.
 The more stable the KB becomes, the more this page should behave like a guide rather than a dump of links.
+
+A maintenance rule now worth preserving explicitly is:
+- when a branch already has a coherent parent page, subtree guide, and several practical leaves, prefer **canonical synchronization** work before adding another leaf by default
+- use new leaf pages when there is a real operator gap, not merely because one branch already has momentum
