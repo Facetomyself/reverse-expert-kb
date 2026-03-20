@@ -354,7 +354,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 - `topics/analytic-provenance-and-evidence-management.md`
 
-This branch should now be read as a practical bridge from firmware/protocol synthesis into a subtree guide plus ten recurring operator bottlenecks and one evidence-linkage continuation surface once the technical proof is already good enough:
+This branch should now be read as a practical bridge from firmware/protocol synthesis into a subtree guide plus ten recurring operator families, followed by one evidence-linkage continuation surface once the technical proof is already good enough:
 - subtree entry and routing (`protocol-firmware-practical-subtree-guide`), which acts as the compact branch entry note for choosing whether the current bottleneck is still broad context/object-of-recovery framing, boundary selection, socket-boundary/private-overlay object recovery, layer peeling / smaller-contract recovery, content-pipeline continuation, ingress ownership, parser/state consequence, acceptance gating, output handoff, or hardware-side effect proof
 - environment/context recovery (`firmware-and-protocol-context-recovery`)
 - message/state recovery (`protocol-state-and-message-recovery`)
