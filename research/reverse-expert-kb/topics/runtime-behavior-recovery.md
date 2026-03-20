@@ -16,6 +16,7 @@ Related pages:
 - topics/hook-placement-and-observability-workflow-note.md
 - topics/record-replay-and-omniscient-debugging.md
 - topics/causal-write-and-reverse-causality-localization-workflow-note.md
+- topics/runtime-evidence-package-and-handoff-workflow-note.md
 
 ## 1. Topic identity
 
@@ -244,6 +245,7 @@ The branch is now best entered through these recurring bottlenecks:
 - **hook-placement / truth-boundary uncertainty** when runtime work is clearly needed and a broad layer is already plausible, but the next truthful observation surface or minimal hook family still competes with several neighbors
 - **capture-stability / replay-worthiness uncertainty** when the interesting behavior is transient, delayed, expensive, or too painful to keep rediscovering live and the real question is whether to stabilize one representative execution first
 - **late-effect to causal-boundary localization** when one suspicious late effect is already visible and revisitable enough, but the first earlier write, branch, queue edge, reducer, or state slot that predicts it is still unknown
+- **evidence package / handoff continuation** when one representative execution, compare-run result, or causal claim is already technically good enough, but still too scattered, assumption-heavy, or analyst-private to survive delay, handoff, or narrower branch reuse cleanly
 
 A compact operator ladder for this branch is:
 
@@ -255,11 +257,12 @@ choose the current runtime-evidence bottleneck
 ```
 
 Read the branch in this order when helpful:
-- subtree routing and bottleneck selection (`topics/runtime-evidence-practical-subtree-guide.md`), which acts as the branch entry surface when the analyst first needs to decide whether the case is still dominated by broad observability uncertainty, smaller truth-boundary choice, replay-worthiness, or backward causal localization
+- subtree routing and bottleneck selection (`topics/runtime-evidence-practical-subtree-guide.md`), which acts as the branch entry surface when the analyst first needs to decide whether the case is still dominated by broad observability uncertainty, smaller truth-boundary choice, replay-worthiness, backward causal localization, or package/handoff continuation
 - broad runtime answerability and observability framing (`topics/runtime-behavior-recovery.md`)
 - hook-placement and truthful observation-surface reduction (`topics/hook-placement-and-observability-workflow-note.md`)
 - execution-history / replay stabilization (`topics/record-replay-and-omniscient-debugging.md`)
 - reverse-causality / first-causal-boundary reduction (`topics/causal-write-and-reverse-causality-localization-workflow-note.md`)
+- runtime-evidence package / handoff continuation (`topics/runtime-evidence-package-and-handoff-workflow-note.md`)
 
 ## 7. Analyst workflow implications
 This topic matters especially during:
