@@ -37,7 +37,7 @@ This page makes the branch read more like the native, protocol, malware, and pro
 - one practical continuation surface for evidence reuse once the core technical proof is already good enough
 
 ## 2. Core claim
-Runtime-evidence practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of four recurring families:
+Runtime-evidence practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of five recurring families:
 
 1. **observability / layer-selection uncertainty**
    - the analyst still does not know what to observe, at which layer, or which live evidence would collapse the uncertainty fastest
