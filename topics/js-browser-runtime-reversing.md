@@ -227,6 +227,33 @@ Includes:
 For subtree-level navigation, see:
 - `topics/browser-runtime-subtree-guide.md`
 
+### 8. Browser practical branch routing
+The browser branch should now be read not only as a broad domain page, but also as a practical boundary-driven ladder that routes analysts toward the next smaller trustworthy browser-side proof surface.
+
+The branch is now best entered through these recurring bottlenecks:
+- **structural recovery pressure** when JSVMP, AST-hostile transforms, or wasm-backed control structure still prevent one stable semantic foothold from forming
+- **stateful risk-control / challenge workflow uncertainty** when the target family is already browser-shaped, but the next trustworthy object is still the challenge/session/token workflow rather than only the script structure
+- **request-path or request-boundary uncertainty** when callback visibility, token state, or preimage hints already exist, but the first decisive parameter-localization or request-finalization edge is still unclear
+- **observation-pressure or debugger-surface distortion** when DevTools/CDP/breakpoint-visible behavior may itself be changing execution, suppressing code paths, or shifting the anti-bot verdict
+- **environment-reconstruction burden** when the meaningful path is already partly known, but replay, harnessing, or node-side reuse still fails because browser-local APIs, state, timing, or mixed JS/wasm execution remain under-reconstructed
+
+A compact operator ladder for this branch is:
+
+```text
+choose the current browser bottleneck
+  -> reduce it to one smaller trustworthy boundary
+  -> prove one consequence-bearing state write, validation edge, or consumer request
+  -> hand back one more reliable browser-side workflow map
+```
+
+Read the branch in this order when helpful:
+- subtree routing and bottleneck selection (`topics/browser-runtime-subtree-guide.md`)
+- structural recovery and devirtualization (`topics/jsvmp-and-ast-based-devirtualization.md`)
+- risk-control / captcha workflow recovery (`topics/browser-side-risk-control-and-captcha-workflows.md`)
+- request-parameter and request-boundary recovery (`topics/browser-parameter-path-localization-workflow-note.md` and `topics/browser-request-finalization-backtrace-workflow-note.md`)
+- debugger/CDP observation and counter-pressure (`topics/browser-cdp-and-debugger-assisted-re.md` and `topics/browser-debugger-detection-and-countermeasures.md`)
+- environment reconstruction and mixed-runtime execution (`topics/browser-environment-reconstruction.md` and `topics/js-wasm-mixed-runtime-re.md`)
+
 ## 7. Analyst workflow implications
 This topic matters especially during:
 
@@ -248,6 +275,13 @@ Progress often depends on:
 - correlating network events with runtime stack or callback paths
 - patching or bypassing anti-debugger checks
 - extracting just enough environment to replay or emulate the target path
+
+A practical routing rule worth preserving here is:
+- leave broad structural-recovery work once one stable semantic foothold is already good enough and the real bottleneck has narrowed into challenge/state or request-boundary proof
+- leave broad challenge/token workflow work once the family and one meaningful state object are already good enough and the real bottleneck has narrowed into request-finalization or first accepted consumer proof
+- leave broad request-boundary work once one accepted consumer boundary is already good enough and the real bottleneck has narrowed into debugger-surface distortion or environment-faithful replay
+- leave broad debugger/countermeasure work once one quieter truthful surface is already good enough and the real bottleneck has narrowed into stateful workflow proof or environment reconstruction rather than continued anti-debug narration
+- leave broad environment-reconstruction work once one truthful replay or mixed-runtime boundary is already good enough and the real bottleneck has narrowed into one smaller signer, validator, callback, or consumer proof
 
 ### Long-horizon analysis
 Analysts need to preserve:
@@ -326,6 +360,31 @@ This topic may later split into several child pages:
 - `topics/browser-side-risk-control-and-captcha-workflows.md` ✅
 - `topics/js-wasm-mixed-runtime-re.md` ✅
 
+A practical routing rule is now worth making explicit:
+- when a case is clearly browser-runtime shaped but the next practical step is still unclear, start with the subtree guide:
+  - `topics/browser-runtime-subtree-guide.md`
+- when the main bottleneck is structural distortion from JSVMP, flattening, or AST-hostile transforms, reduce that first before broad browser-state theorizing:
+  - `topics/jsvmp-and-ast-based-devirtualization.md`
+- once one browser-side family is already visible but the decisive next bottleneck is the challenge / token / validation workflow itself, move to the browser risk-control branch instead of staying in broad parent-page framing:
+  - `topics/browser-side-risk-control-and-captcha-workflows.md`
+- once the visible workflow is already near a request field or outbound boundary, localize the parameter path or request-finalization edge before widening environment work:
+  - `topics/browser-parameter-path-localization-workflow-note.md`
+  - `topics/browser-request-finalization-backtrace-workflow-note.md`
+- once observation itself appears to distort behavior, route explicitly through debugger/CDP pressure and quieter instrumentation selection rather than assuming the current trace is truthful:
+  - `topics/browser-cdp-and-debugger-assisted-re.md`
+  - `topics/browser-debugger-detection-and-countermeasures.md`
+- once the real bottleneck becomes browser-faithful replay or mixed-runtime execution, reduce the missing environment or JS↔wasm boundary before broadening the deobfuscation map:
+  - `topics/browser-environment-reconstruction.md`
+  - `topics/js-wasm-mixed-runtime-re.md`
+
+This branch should now be read as a practical browser ladder:
+- subtree navigation and bottleneck selection (`browser-runtime-subtree-guide`), which acts as the branch entry surface when the analyst first needs to decide whether the current bottleneck is structural recovery, risk-control workflow proof, request-boundary proof, debugger-surface distortion, or environment reconstruction
+- structural recovery / devirtualization first when code shape is still too distorted to trust
+- challenge/token workflow reduction second when the target family is already visible but the stateful browser workflow is still the real unknown
+- parameter-path or request-finalization proof third when a token/callback/state object is already plausible but the first consequence-bearing request boundary is still unclear
+- debugger/countermeasure routing fourth when the current observation surface may itself be the reason evidence is unstable or misleading
+- environment reconstruction / mixed-runtime reduction fifth when replay, externalization, or JS↔wasm execution is now the smallest truthful next boundary
+
 ## 12. Source footprint / evidence quality note
 Current evidence quality is strong on practitioner signal and lighter on formal benchmark framing.
 
@@ -345,3 +404,9 @@ Overall assessment:
 JS / browser runtime reversing gives the KB an explicit home for browser-executed reverse engineering where runtime behavior, environment recreation, deobfuscation, and protocol-adjacent reasoning intersect.
 
 It matters because many real web reverse-engineering tasks are solved not by reading prettier JS, but by observing the right browser-side execution path, under the right conditions, with the right balance of AST, CDP, runtime patching, and protocol awareness.
+
+The branch should now also be remembered as a practical browser ladder:
+- choose whether the current bottleneck is structural distortion, risk-control workflow uncertainty, request-boundary ambiguity, debugger-surface distortion, or environment-faithful replay burden
+- reduce that bottleneck into one smaller trustworthy browser-side boundary
+- prove one consequence-bearing state write, validation edge, signer boundary, or accepted consumer request
+- hand back one more reliable browser-side workflow map rather than one more pile of browser notes
