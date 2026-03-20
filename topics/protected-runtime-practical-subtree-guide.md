@@ -18,7 +18,8 @@ Related pages:
 This guide exists because the KB’s protected / deobfuscation branch already has several strong practical notes, but until now it has been easier to read as a flat list of sibling pages than as a usable operator ladder.
 
 The branch already had practical entry surfaces for:
-- VM or flattened execution that is visible but still semantically noisy
+- VM execution that is visible but still semantically noisy enough that the first stable semantic anchor is still missing
+- flattened dispatchers or recognizable protected state machines where one durable state object, reducer helper, or dispatcher-exit edge is still unclear
 - packed or staged bootstrap where the first trustworthy post-unpack handoff is still unclear
 - decrypted artifacts that are readable but not yet tied to their first ordinary consumer
 - integrity / self-check logic that is visible but not yet tied to its first real consequence
@@ -36,19 +37,21 @@ This page makes that branch read more like the malware, protocol, and mobile pra
 - a compact ladder for moving from protected churn toward one smaller trustworthy target
 
 ## 2. Core claim
-Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of six recurring families:
+Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of seven recurring families:
 
 1. **observation-topology failure**
    - direct attach, spawn, or app-local observation is detected, too visible, too late, or semantically misleading
-2. **trace / dispatcher churn**
-   - visible VM, flattened control flow, handler churn, or repetitive protected execution is the main problem
-3. **packed / staged bootstrap handoff**
+2. **trace-to-semantic-anchor churn**
+   - visible VM, handler churn, or repetitive protected execution is the main problem and the first stable semantic anchor is still missing
+3. **flattened-dispatcher-to-state-edge reduction**
+   - a dispatcher or flattened protected region is already recognizable, but the first durable state object, reducer helper, or dispatcher-exit edge is still unclear
+4. **packed / staged bootstrap handoff**
    - a stub, shell, decrypt/copy/fixup loop, or staged loader is already visible, but the first trustworthy post-unpack handoff is still unclear
-4. **artifact-to-consumer proof**
+5. **artifact-to-consumer proof**
    - strings, config, tables, bytecode, or normalized buffers are already readable enough to inspect, but the first ordinary consumer is still missing
-5. **runtime-artifact / initialization-obligation recovery**
+6. **runtime-artifact / initialization-obligation recovery**
    - static dumps, repaired artifacts, or offline reconstructions look damaged, under-initialized, or close-but-wrong, while live/runtime state appears truer
-6. **integrity / tamper consequence proof**
+7. **integrity / tamper consequence proof**
    - checks are visible, but the first reduced result or consequence-bearing tripwire is still unclear
 
 A compact operator ladder for this branch is:
@@ -62,7 +65,8 @@ choose the current protection-shaped bottleneck
 
 The subtree is strongest when read as:
 - **reposition** observation when the current topology itself is the problem
-- **anchor** noisy execution when trace/dispatcher churn dominates
+- **anchor** noisy protected execution when the first stable semantic anchor is still missing
+- **reduce** one recognizable flattened dispatcher or protected state machine into one durable state edge
 - **handoff** out of staged startup when packing/bootstrap dominates
 - **consume** recovered artifacts when readable material exists but ordinary use is still unproved
 - **stabilize** one truthful runtime artifact plus one minimal init obligation when static views are still lying
@@ -97,6 +101,20 @@ Do **not** start here when:
 - the dominant uncertainty is already one integrity consequence branch
 - the main issue is no longer execution churn, because a readable artifact is already in hand
 - the observation model itself is still failing and topology selection is the real next move
+
+### Start with `flattened-dispatcher-to-state-edge-workflow-note`
+Use:
+- `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
+
+Start here when:
+- a flattened dispatcher, state-machine reducer, or recognizably repetitive protected region is already visible enough to study structurally
+- the first stable semantic anchor is already good enough that the remaining bottleneck is no longer “what broad thing is this?” but “which durable state object, reducer helper, or dispatcher-exit edge actually predicts later behavior?”
+- the next useful output is one reduced state object plus one consequence-bearing state edge that yields a smaller trustworthy post-protection target
+
+Do **not** start here when:
+- the current evidence is still too noisy and the first stable semantic anchor is still missing
+- the real bottleneck is still the packed/bootstrap handoff rather than a recognizable flattened region
+- the case has already reduced into one readable recovered artifact whose first ordinary consumer is now the true next question
 
 ### Start with `packed-stub-to-oep-and-first-real-module-workflow-note`
 Use:
@@ -155,7 +173,7 @@ Do **not** start here when:
 - the nearer missing edge is actually one runtime artifact or initialization obligation that explains why otherwise plausible replay is still drifting
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as six common bottleneck families that often chain into one another.
+A useful way to read the branch is as seven common bottleneck families that often chain into one another.
 
 ### A. Observation-topology failure -> one more truthful boundary
 Typical question:
@@ -171,9 +189,9 @@ Possible next handoff:
 - `topics/integrity-check-to-tamper-consequence-workflow-note.md`
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 
-### B. Trace or dispatcher churn -> semantic anchor
+### B. Trace churn -> stable semantic anchor
 Typical question:
-- which small stable thing predicts later behavior better than the raw protected execution does?
+- which small stable semantic thing predicts later behavior better than raw protected execution churn does?
 
 Primary note:
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
@@ -188,7 +206,23 @@ Possible next handoff:
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md` when the protected execution was really still masking a staged/bootstrap handoff
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md` when the trace reduction yields one readable recovered artifact whose first ordinary consumer is still unclear
 
-### C. Packed startup -> trustworthy post-unpack handoff
+### C. Recognizable flattened dispatcher -> durable state edge
+Typical question:
+- which durable state object, reducer helper, or dispatcher-exit family first predicts later behavior more usefully than continued dispatcher cataloging?
+
+Primary note:
+- `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
+
+Routing reminder:
+- leave broad dispatcher/state-edge work here once one durable state object and one consequence-bearing state edge are already good enough
+
+Possible next handoff:
+- `topics/native-interface-to-state-proof-workflow-note.md`
+- `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
+- `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
+- `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
+
+### D. Packed startup -> trustworthy post-unpack handoff
 Typical question:
 - where does loader churn end and reusable post-unpack analysis begin?
 
@@ -204,7 +238,7 @@ Possible next handoff:
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md` when the handoff yields one readable artifact whose first consumer is still unclear
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when the recovered image remains under-initialized and live/runtime state looks truer
 
-### D. Readable artifact -> first ordinary consumer
+### E. Readable artifact -> first ordinary consumer
 Typical question:
 - what first parser, policy, scheduler, request, or payload consumer proves this recovered artifact actually matters?
 
@@ -220,7 +254,7 @@ Possible next handoff:
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when the artifact is still close-but-wrong because one runtime obligation is missing
 
-### E. Static artifact drift -> runtime artifact or init obligation
+### F. Static artifact drift -> runtime artifact or init obligation
 Typical question:
 - which live/runtime artifact or minimal init chain explains why repaired static views or offline replay are almost right but still untrustworthy?
 
@@ -236,7 +270,7 @@ Possible next handoff:
 - `topics/mobile-signing-and-parameter-generation-workflows.md`
 - `topics/integrity-check-to-tamper-consequence-workflow-note.md`
 
-### F. Integrity logic -> first consequence-bearing tripwire
+### G. Integrity logic -> first consequence-bearing tripwire
 Typical question:
 - what first reduced result or branch turns visible checks into real behavioral change?
 
@@ -256,29 +290,33 @@ When a case is clearly protected-runtime shaped, ask these in order:
 
 1. **Is the current observation model itself failing or distorting the evidence?**
    - if yes, start with observation-topology selection
-2. **Am I still stuck in protected execution churn?**
-   - if yes, start with semantic-anchor or dispatcher/state-edge reduction
-3. **Am I still stuck proving the post-unpack handoff?**
+2. **Am I still stuck in protected execution churn before one stable semantic anchor exists?**
+   - if yes, start with VM-trace -> semantic-anchor reduction
+3. **Is the dispatcher or flattened region already recognizable, but the first durable state edge is still missing?**
+   - if yes, continue into flattened-dispatcher -> state-edge reduction
+4. **Am I still stuck proving the post-unpack handoff?**
    - if yes, start with packed-stub -> OEP
-4. **Do I already have a readable recovered artifact, but no ordinary consumer?**
+5. **Do I already have a readable recovered artifact, but no ordinary consumer?**
    - if yes, start with decrypted-artifact -> first consumer
-5. **Are static artifacts or offline replay close-but-wrong because one runtime artifact or init obligation is still missing?**
+6. **Are static artifacts or offline replay close-but-wrong because one runtime artifact or init obligation is still missing?**
    - if yes, start with runtime-table / initialization-obligation recovery
-6. **Are checks already visible, but the first behavior-changing consequence is still hidden?**
+7. **Are checks already visible, but the first behavior-changing consequence is still hidden?**
    - if yes, start with integrity-check -> tamper consequence
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
 That usually means:
 - repair observation topology before overcommitting to one noisy hook plan
+- resolve trace churn into one stable semantic anchor before cataloging a recognizable flattened dispatcher in detail
+- resolve one dispatcher/state edge before treating the case as ordinary native follow-up
 - resolve packed/bootstrap handoff before artifact-consumer proof
-- resolve trace/dispatcher churn before claiming artifact semantics
 - resolve runtime-artifact / init-obligation drift before rewriting core logic again
 - resolve integrity result reduction before treating later degrade/decoy behavior as explained
 
 ## 6. What this branch is strongest at
 This branch is currently strongest at practical notes for:
 - choosing a better observation topology when direct observation itself is failing
-- reducing virtualized or flattened execution into one semantic anchor or state edge
+- reducing virtualized execution into one semantic anchor
+- reducing a recognizable flattened dispatcher or protected state machine into one durable state edge
 - turning stub-heavy startup into one trustworthy post-unpack handoff
 - turning readable artifacts into one first ordinary consumer
 - turning close-but-wrong replay into one smaller runtime-artifact or initialization-obligation target
@@ -321,7 +359,8 @@ This subtree guide turns the protected-runtime / deobfuscation practical branch 
 
 The compact reading is:
 - reposition observation when the current topology is the bottleneck
-- anchor protected execution churn into one semantic anchor or state edge
+- anchor protected execution churn into one semantic anchor
+- reduce a recognizable flattened dispatcher or protected state machine into one durable state edge
 - hand off out of packed startup
 - prove the first ordinary consumer of recovered artifacts
 - stabilize one truthful runtime artifact and one minimal init obligation when static views are still lying
