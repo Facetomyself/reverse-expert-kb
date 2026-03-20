@@ -225,13 +225,14 @@ Why it matters:
 ## 6. Emerging internal structure of the topic
 A stable internal decomposition is emerging.
 
-At the practical branch level, this topic now reads most truthfully as six recurring protected-runtime bottlenecks:
+At the practical branch level, this topic now reads most truthfully as seven recurring protected-runtime bottlenecks:
 1. observation-topology failure
-2. trace / dispatcher churn
-3. packed / staged bootstrap handoff
-4. artifact-to-consumer proof
-5. runtime-artifact / initialization-obligation recovery
-6. integrity / tamper consequence proof
+2. trace-to-semantic-anchor churn
+3. flattened-dispatcher-to-state-edge reduction
+4. packed / staged bootstrap handoff
+5. artifact-to-consumer proof
+6. runtime-artifact / initialization-obligation recovery
+7. integrity / tamper consequence proof
 
 That practical ladder matters because the branch should no longer read as only:
 - generic anti-debugging
@@ -240,7 +241,8 @@ That practical ladder matters because the branch should no longer read as only:
 
 It should also preserve where the analyst is supposed to enter and leave the branch:
 - reposition observation when the current topology is itself the unstable thing
-- reduce noisy protected execution into one semantic anchor or one durable state edge
+- reduce noisy protected execution into one stable semantic anchor before broadening the case again
+- reduce a recognizable flattened dispatcher or protected state machine into one durable state edge once the anchor already exists
 - hand off out of staged bootstrap into one trustworthy post-protection target
 - prove the first ordinary consumer of one recovered artifact
 - recover the smallest runtime artifact or init obligation that explains close-but-wrong replay
@@ -269,7 +271,8 @@ Includes:
 - staging analysis safely
 - selective runtime evidence collection
 - distinguishing protection-related failure from target logic
-- reducing trace / dispatcher churn into one stable semantic anchor or durable state edge
+- reducing trace / VM churn into one stable semantic anchor before broader protected-runtime routing deepens
+- reducing a recognizable flattened dispatcher or protected state machine into one durable state edge once one semantic anchor is already good enough
 - separating packed/bootstrap handoff problems from later artifact-consumer or integrity-consequence problems
 - recovering one smaller runtime artifact or initialization obligation when static views stay close-but-wrong
 
@@ -398,11 +401,13 @@ Practical bridge pages now exist for recurring protected-runtime bottlenecks:
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 - `topics/integrity-check-to-tamper-consequence-workflow-note.md`
 
-Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry surface when the case is clearly protected-runtime shaped, but the current operator bottleneck still needs to be classified as observation-topology failure, trace/dispatcher churn, packed/bootstrap handoff, artifact-consumer proof, runtime-artifact / initialization-obligation recovery, integrity/tamper consequence proof, or one nearby ordinary post-protection continuation before choosing a narrower workflow note.
+Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry surface when the case is clearly protected-runtime shaped, but the current operator bottleneck still needs to be classified as observation-topology failure, trace-to-semantic-anchor churn, flattened-dispatcher-to-state-edge reduction, packed/bootstrap handoff, artifact-consumer proof, runtime-artifact / initialization-obligation recovery, integrity/tamper consequence proof, or one nearby ordinary post-protection continuation before choosing a narrower workflow note.
 
 Use the observation-topology note when direct attach, spawn, app-local hooks, or ordinary instrumentation are themselves unstable, detected, semantically late, or misleading and the analyst first needs one more truthful boundary before narrower protected-runtime work becomes trustworthy; leave broad observation-topology work there once one truer boundary is already good enough and the real bottleneck becomes trace reduction, packed/bootstrap handoff, artifact-consumer proof, runtime-obligation recovery, or integrity consequence proof.
 
-Use the VM-trace / dispatcher notes when virtualization, flattening, handler churn, or repetitive protected execution is already visible and the missing next object is one stable semantic anchor, durable state object, or consequence-bearing state edge rather than another broad anti-tamper taxonomy; leave broad trace/dispatcher work there once one stable semantic anchor plus one consequence-bearing handler/state edge, or one durable state object plus one consequence-bearing state edge, are already good enough and the real bottleneck becomes packed/bootstrap handoff, ordinary native follow-up, artifact-consumer proof, or another narrower post-protection continuation.
+Use the VM-trace note when virtualization, flattening, handler churn, or repetitive protected execution is already visible and the missing next object is still one stable semantic anchor plus one consequence-bearing handler/state edge rather than another broad anti-tamper taxonomy; leave broad trace-to-semantic-anchor work there once one stable semantic anchor and one consequence-bearing handler/state edge are already good enough and the real bottleneck becomes dispatcher/state-edge reduction inside a recognizable flattened region, packed/bootstrap handoff, ordinary native follow-up, artifact-consumer proof, or another narrower post-protection continuation.
+
+Use the flattened-dispatcher note when the dispatcher or flattened region is already recognizable and the missing next object is one durable state object, reducer helper, or dispatcher-exit family that predicts later behavior and yields a trustworthy smaller static target; leave broad dispatcher/state-edge work there once one durable state object and one consequence-bearing state edge are already good enough and the real bottleneck becomes post-unpack handoff, ordinary route proof, artifact-consumer proof, or another narrower post-protection continuation.
 
 Use the packed-stub/OEP note when staged bootstrap, shelling, or loader churn is already visible and the immediate bottleneck is one trustworthy post-unpack handoff; leave broad packed/bootstrap work there once one trustworthy OEP-like or first-real-module boundary is already good enough and the real bottleneck becomes post-protection semantic-anchor work, artifact-consumer proof, or runtime-obligation recovery.
 
