@@ -309,18 +309,31 @@ A useful simplified graph is:
 - **Benchmarks / Datasets**
   - evaluates methods and benchmark families across the KB
 - **Recovery-object families**
-  - symbol/type/signature recovery
-  - later: code reconstruction, runtime behavior, protocol/state recovery
+  - decompilation / code reconstruction
+  - symbol / type / signature recovery
+  - runtime behavior recovery
+  - protocol / state recovery
+  - evidence / provenance support
 - **Domain-constraint families**
-  - obfuscation / packed binaries
+  - native baseline
+  - browser runtime
   - mobile runtime instrumentation
   - firmware / protocol context recovery
+  - malware-analysis overlaps
+  - obfuscation / packed / protected-runtime targets
 
 In dependency terms:
 - domain constraints shape which recovery objects matter most
 - workflow determines when those recovery objects matter
 - benchmarks determine how claims about those recovery objects should be judged
 - foundations gives the vocabulary for the entire graph
+
+A practical extension now worth preserving explicitly is that mature domain branches increasingly behave as **operator ladders**, not just topic labels. In other words, once the reader has identified the right branch, the KB should also tell them:
+- which recurring bottleneck families define that branch in practice
+- what smaller trustworthy boundary should usually be reduced next
+- when broad framing should stop and narrower proof work should begin
+
+That practical-branch reading is now part of the KB’s ontology rather than a temporary navigation aid.
 
 ## Matrix view
 A mature KB should support matrix-like navigation.
@@ -374,23 +387,33 @@ A conclusion that is true for desktop ELF reversing may fail in mobile, firmware
 Pages should increasingly converge on the same evaluation schema.
 
 ## Gaps in the current ontology
-The current KB still needs explicit topic pages for several missing nodes.
+The current KB has already filled several earlier missing nodes, so the remaining gaps are now more about canonical alignment and selective depth than about obvious absent top-level pages.
 
-### Missing recovery-object topics
+### Earlier missing nodes now present
+These are no longer gaps:
 - decompilation and code reconstruction as a standalone page
 - runtime behavior recovery / trace-based understanding
 - protocol state and message recovery as a standalone page
-- environment reconstruction / rehosting support as a standalone page
-
-### Missing domain topics
 - malware-analysis overlaps as a dedicated page
-- anti-tamper / anti-cheat / protected-runtime reversing
-- native desktop reversing methodology as a dedicated baseline page
-
-### Missing workflow/support topics
+- anti-tamper / protected-runtime analysis as a dedicated page
+- native desktop/server reversing baseline as a dedicated page
 - notebook / memory-augmented reverse engineering
-- trust calibration and evidence management in analyst tooling
-- explicit LLM failure modes in RE workflows
+- trust calibration / evidence-management support pages
+
+### Current ontology-pressure gaps
+The more realistic remaining gaps now are:
+- keeping framework, ontology, index, and subtree guides synchronized as branches mature
+- deciding when a mature practical branch deserves a denser parent-page summary instead of another leaf note
+- deciding when a cross-cutting recovery-object page should explicitly preserve the practical continuations it now feeds
+- deciding which mature pages should eventually be treated as canonical rather than merely mature/structured
+
+### Still-thin areas worth watching
+Potential future gaps still worth monitoring:
+- deeper browser-specific evaluation / benchmark framing
+- stronger native-baseline direct source support beyond synthesis-by-contrast
+- richer runtime-evidence packaging examples and compare-run preservation patterns
+- more explicit anti-cheat / trusted-runtime operator routing if those cases become a sustained branch rather than an edge of protected-runtime work
+- clearer separation of browser-only vs hybrid WebView cases at the ontology layer if branch pressure keeps growing there
 
 ## V1 ontology milestone
 A practical V1 should achieve the following:
