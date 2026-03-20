@@ -8,6 +8,7 @@ Related pages:
 - topics/hook-placement-and-observability-workflow-note.md
 - topics/record-replay-and-omniscient-debugging.md
 - topics/causal-write-and-reverse-causality-localization-workflow-note.md
+- topics/runtime-evidence-package-and-handoff-workflow-note.md
 - topics/analytic-provenance-and-evidence-management.md
 - topics/notebook-and-memory-augmented-re.md
 
@@ -19,6 +20,7 @@ The branch already had practical entry surfaces for:
 - hook-placement and truth-boundary selection when runtime work is clearly needed but the best observation surface is still unclear
 - record/replay and execution-history tradeoffs when live reruns are too fragile or expensive
 - reverse-causality localization when one suspicious late effect is already visible and revisitable enough
+- runtime-evidence package / handoff continuation once one representative execution, compare-run result, or causal claim is already good enough but still not re-findable enough for reuse
 - provenance / evidence-linkage continuation once one representative execution, compare-run result, or causal claim is already good enough and the real bottleneck is preserving how the evidence stays reusable
 
 What this guide needs to preserve canonically is the compact routing rule that answers:
@@ -45,6 +47,8 @@ Runtime-evidence practical work is easiest to navigate when the analyst first cl
    - the interesting behavior is transient, expensive to reproduce, or too painful to keep rediscovering live, so the real question is whether to stabilize one representative execution for later revisits
 4. **late-effect to causal-boundary localization**
    - one suspicious late effect is already visible and revisitable enough, but the first causal write, branch, queue edge, or state reduction that predicts it is still unknown
+5. **evidence package / handoff continuation**
+   - one representative execution, compare-run result, or causal claim is already good enough technically, but still too scattered, assumption-heavy, or analyst-private to survive delay, handoff, or branch-specific reuse cleanly
 
 A compact operator ladder for this branch is:
 
@@ -60,7 +64,8 @@ The subtree is strongest when read as:
 - **place** one smaller hook family at the right truth boundary
 - **stabilize** one representative execution when live reruns are too fragile
 - **walk backward** from one visible late effect to one causal boundary that predicts it
-- **package** the evidence linkage once the technical proof is already good enough and the remaining bottleneck is reuse, handoff, or resumption
+- **package** one runtime result into a re-findable handoff unit when the technical proof is already good enough but still too scattered for reuse
+- **preserve** the evidence linkage once the package already exists and the remaining bottleneck is broader reuse, handoff, or resumption
 
 ## 3. How to choose the right entry note
 ### Start with `runtime-behavior-recovery`
@@ -182,10 +187,26 @@ Possible next handoff:
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/staged-malware-execution-to-consequence-proof-workflow-note.md`
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
+- `topics/runtime-evidence-package-and-handoff-workflow-note.md`
 - `topics/analytic-provenance-and-evidence-management.md`
 
 Routing reminder:
 - leave broad reverse-causality work once one causal boundary is already good enough and the real bottleneck becomes branch-specific proof or evidence packaging
+
+### E. Good runtime proof -> reusable evidence package
+Typical question:
+- how do I preserve one already-good compare-run result, replay anchor, or causal-boundary claim so it survives delay, handoff, and branch-specific reuse?
+
+Primary note:
+- `topics/runtime-evidence-package-and-handoff-workflow-note.md`
+
+Possible next handoff:
+- `topics/analytic-provenance-and-evidence-management.md` when the problem broadens from one package into a larger evidence-linkage system
+- `topics/notebook-and-memory-augmented-re.md` when the real need is wider notebook/memory design rather than one specific package
+- branch-specific practical notes when the packaged claim now supports a narrower native, protocol, malware, browser, mobile, or protected-runtime continuation
+
+Routing reminder:
+- leave package-focused work once one claim is already re-findable, bounded, and useful to the next consumer, and the real bottleneck becomes narrower technical proof or broader provenance-system design
 
 ## 5. The branch’s practical routing rule
 When a case is clearly runtime-evidence shaped, ask these in order:
@@ -198,13 +219,16 @@ When a case is clearly runtime-evidence shaped, ask these in order:
    - if yes, start with replay / execution-history stabilization
 4. **Is one suspicious late effect already visible and revisitable enough?**
    - if yes, start with reverse-causality localization
+5. **Is the technical proof already good enough, but still too scattered to survive delay, handoff, or branch-specific reuse cleanly?**
+   - if yes, start with runtime-evidence packaging / handoff
 
 If more than one feels true, prefer the earliest bottleneck that still blocks later work.
 That usually means:
 - solve observation-surface choice before arguing about replay or reverse causality
 - solve the truthful hook boundary before broadening into larger trace collection
 - solve capture stability before assuming the visible effect can be revisited reliably
-- solve the first causal boundary before broadening back into more generic trace collection
+- solve the first causal boundary before packaging it for reuse
+- solve package clarity before broadening into larger provenance-system design
 
 ## 6. What this branch is strongest at
 This branch is currently strongest at practical guidance for:
@@ -220,8 +244,8 @@ That makes the branch good at cases where the main problem is not raw tooling av
 This branch is still weaker than browser/mobile in some areas:
 - it has fewer concrete child notes than the denser practical branches
 - provenance/externalization is now recognized as a continuation surface, but it is still represented mostly through one adjacent cross-cutting page rather than a denser runtime-specific packaging stack
-- runtime-evidence packaging and notebook discipline could still use tighter practical continuation examples
-- there is still room for a later branch pass focused specifically on runtime-evidence packaging, compare-run preservation, or workflow-specific evidence handoff
+- runtime-evidence packaging and notebook discipline are now represented more explicitly, but still with a thinner continuation stack than the denser branches
+- there is still room for a later branch pass focused specifically on richer compare-run preservation examples, workflow-specific evidence handoff patterns, or package templates
 
 A practical continuity rule worth preserving now is:
 - once one representative execution, compare-run pair, or causal boundary is already good enough, do **not** keep the case in broad runtime-evidence routing just because the material is still messy
@@ -247,12 +271,14 @@ Use this subtree when the case is best described as:
 - uncertainty about which truthful observation surface or hook family should be chosen next
 - uncertainty about whether execution should be captured for stable revisits
 - uncertainty about the first causal boundary behind a visible late effect
+- uncertainty about how to preserve one already-good runtime result so it survives delay, handoff, or branch-specific reuse
 
 Then route outward as soon as the case becomes more specific:
 - to `topics/mobile-protected-runtime-subtree-guide.md` when platform/runtime resistance on mobile becomes the real branch entry problem
 - to `topics/browser-runtime-subtree-guide.md` when the decisive observation surfaces are browser/runtime and token/session/widget shaped
 - to `topics/firmware-and-protocol-context-recovery.md` when the issue is mainly protocol or environment-context recovery
 - to `topics/native-practical-subtree-guide.md` when the runtime question has already reduced into a quieter native semantic or route-to-consequence problem
+- to `topics/runtime-evidence-package-and-handoff-workflow-note.md` when the main remaining bottleneck is packaging one already-good runtime result into a re-findable evidence unit
 - to `topics/analytic-provenance-and-evidence-management.md` when the main remaining bottleneck is preserving, packaging, or handing off the evidence cleanly
 
 ## 10. Topic summary
@@ -263,5 +289,6 @@ The compact reading is:
 - place one smaller hook family at the right truth boundary
 - stabilize execution history when live evidence is too fragile
 - walk backward from one visible late effect to one causal boundary
+- package one already-good runtime result into a re-findable evidence unit when reuse is the real bottleneck
 
-That makes the branch easier to enter, easier to sequence, and less dependent on already knowing whether the right next move is more observation, more hook-placement refinement, more replay, or narrower reverse-causality proof.
+That makes the branch easier to enter, easier to sequence, and less dependent on already knowing whether the right next move is more observation, more hook-placement refinement, more replay, narrower reverse-causality proof, or package/handoff work.
