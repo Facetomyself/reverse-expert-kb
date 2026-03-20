@@ -95,6 +95,25 @@ The two topics overlap strongly, but protocol RE can be a primary object of anal
 #### 5. Observation vs explanation
 Seeing repeated message patterns does not automatically explain the semantics or constraints governing them.
 
+### Practical branch memory
+This branch should now also be remembered not only as a protocol-structure topic, but as a practical operator ladder for turning visible traffic, parser hints, and state clues into one smaller trustworthy interaction model.
+
+A compact reading worth preserving is:
+- choose the first trustworthy protocol object before overcommitting to packet folklore or broad state taxonomy
+- peel one visible layered object into one smaller contract when the raw bytes still mix framing, wrappers, crypto, or content continuation
+- prove one receive owner, parser/state consequence, acceptance gate, or reply/output handoff rather than widening protocol narration too early
+- continue into hardware-side consequence when the decisive edge has already moved below transport/output proof
+- preserve one parser/state, replay, output, or hardware-side claim as reusable evidence once the technical proof is already good enough
+
+This ladder is narrower than the whole protocol domain and does not imply every case traverses every stage.
+But it is the practical memory the parent page should preserve once the branch has enough child notes to be used as a real workflow surface.
+
+Compact anti-drift reminders worth preserving here:
+- do not treat visible bytes as a trustworthy protocol object until one smaller contract is already good enough
+- do not keep widening parser or state taxonomy once one consequence-bearing edge is already sufficient for the next experiment
+- do not stop at local acceptance or reply-object visibility if the first committed outbound or hardware-side consequence is still unproved
+- do not let one good technical proof stay analyst-private when the remaining problem is replay, handoff, or automation reuse
+
 ## 3. What this topic depends on
 This topic depends on several other KB concepts.
 
