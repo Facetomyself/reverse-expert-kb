@@ -486,7 +486,8 @@ That usually means:
 - prove one receive owner before cataloging many parser candidates
 - prove one parser/state consequence before sketching a larger protocol theory
 - prove one acceptance gate before overfitting replay generation
-- prove one output handoff before broadening into peripheral/MMIO or interrupt-side consequence proof
+- prove one output handoff before broadening into descriptor publish/completion-chain proof, peripheral/MMIO proof, or interrupt-side consequence proof
+- prove one descriptor publish/completion chain before widening ring or DMA taxonomy
 - prove one peripheral or interrupt-side consequence before widening hardware taxonomy
 
 ## 6. What this branch is strongest at
@@ -543,10 +544,7 @@ The compact reading is:
 - localize the first parser/state consequence
 - prove the first acceptance gate
 - prove the first real output handoff
-- prove the first hardware-side or interrupt/deferred consequence
-
-That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which protocol/firmware workflow note to read first.
-put handoff
+- prove one descriptor publish/completion chain when publish-to-hardware is the true bottleneck
 - prove the first hardware-side or interrupt/deferred consequence
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which protocol/firmware workflow note to read first.
