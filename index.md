@@ -404,6 +404,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md`
 - `topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md`
 - `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
+- `topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md`
 - `topics/protocol-content-pipeline-recovery-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`

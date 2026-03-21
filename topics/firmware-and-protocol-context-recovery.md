@@ -12,6 +12,7 @@ Related pages:
 - topics/analyst-workflows-and-human-llm-teaming.md
 - topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md
 - topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
+- topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
 - topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 
@@ -245,6 +246,7 @@ Includes:
 - used-vs-unused context discrimination
 - diagnosing why traffic or protocol behavior is not visible from the current surface before assuming the protocol itself is opaque
 - relocating to the nearest trustworthy structure/plaintext owner, which may be an endpoint, framework object, write/read boundary, or content-manifest pipeline rather than the raw wire
+- recognizing when the first operationally useful object is a service shell, interface roster, or dispatch-bearing contract rather than one more detached payload specimen
 
 ### 3. Protocol field and semantic inference
 Includes:
