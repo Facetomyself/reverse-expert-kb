@@ -86,6 +86,7 @@ The subtree is strongest when read as:
 - **see** the right boundary
 - **surface** the first truthful socket-boundary or serializer-adjacent overlay object when the wire is one layer too late
 - **peel** the visible object into one smaller trustworthy contract
+- **recover** one service shell or representative method surface when the family is clearly service-oriented
 - **externalize** that contract into one reusable schema or harness target
 - **own** the right inbound object
 - **reduce** one parser/state consequence
@@ -162,18 +163,33 @@ Do **not** start here when:
 - the cheapest truthful object still has not been surfaced and the real bottleneck is socket-boundary / private-overlay recovery
 - the smallest trustworthy contract already exists and the missing edge is now receive ownership, parser/state consequence, acceptance gating, or output handoff
 
+### Start with `protocol-service-contract-extraction-and-method-dispatch-workflow-note`
+Use:
+- `topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md`
+
+Start here when:
+- one smaller trustworthy contract already exists and the family already looks RPC-like, service-oriented, or dispatch-table-shaped
+- the next useful output is one service shell, interface roster, dispatch-bearing object, or representative method contract
+- the analyst can already see the message family or serializer surface, but cannot yet tie it to one callable contract surface cleanly
+- the real bottleneck is recovering one registration or dispatch anchor before wider schema polishing, replay-gate debugging, or handler-consequence work begins
+
+Do **not** start here when:
+- the current object is still too layered and the real bottleneck is broad layer peeling or contract recovery
+- one service shell or representative method contract is already good enough and the real bottleneck is now schema externalization, handler consequence, replay gating, or output proof
+
 ### Start with `protocol-schema-externalization-and-replay-harness-workflow-note`
 Use:
 - `topics/protocol-schema-externalization-and-replay-harness-workflow-note.md`
 
 Start here when:
-- one smaller trustworthy contract already exists
+- one service shell, representative method family, or smaller trustworthy contract already exists
 - the next useful output is one reusable schema, service-contract artifact, or representative replay/edit/fuzz harness surface
 - the analyst can already describe the message family, but cannot yet exercise it outside the target cleanly
 - the real bottleneck is converting contract knowledge into one external tool-usable object before narrower replay-gate or output-side work begins
 
 Do **not** start here when:
 - the current object is still too layered and the real bottleneck is broad layer peeling or contract recovery
+- the service shell itself is still implicit and the real missing step is one registration/dispatch anchor
 - replay is already structurally plausible and the real bottleneck is now local state/auth/freshness gating
 - local acceptance already exists and the missing edge is the first emitted output path
 
@@ -527,6 +543,10 @@ The compact reading is:
 - localize the first parser/state consequence
 - prove the first acceptance gate
 - prove the first real output handoff
+- prove the first hardware-side or interrupt/deferred consequence
+
+That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which protocol/firmware workflow note to read first.
+put handoff
 - prove the first hardware-side or interrupt/deferred consequence
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which protocol/firmware workflow note to read first.
