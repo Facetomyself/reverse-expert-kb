@@ -8,6 +8,7 @@ Related pages:
 - topics/native-semantic-anchor-stabilization-workflow-note.md
 - topics/native-interface-to-state-proof-workflow-note.md
 - topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md
+- topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md
 - topics/native-callback-registration-to-event-loop-consumer-workflow-note.md
 - topics/runtime-behavior-recovery.md
 
@@ -18,12 +19,13 @@ The branch already had practical entry surfaces for:
 - readable native code whose first trustworthy semantic anchor is still unstable
 - plausible interface paths whose first consequence-bearing state edge is still unproved
 - plugin/module loader paths whose first real loaded-module consumer is still unclear
+- service/daemon control and worker-owned paths whose first behavior-changing consumer is still unclear
 - async callback, completion, queue, or event-loop structure whose first behavior-changing consumer is still unclear
 
 What was missing was the compact routing rule that answers:
 - where should I start when a case is clearly native-baseline shaped?
 - which note comes next after the current bottleneck is reduced?
-- when am I still stabilizing meaning versus when am I proving one operational route versus one async consumer?
+- when am I still stabilizing meaning versus when am I proving one operational route versus one service-owned worker path versus one async consumer?
 
 This page makes the branch read more like the malware, protocol, and protected-runtime practical subtrees:
 - a branch entry surface
@@ -31,7 +33,7 @@ This page makes the branch read more like the malware, protocol, and protected-r
 - a compact ladder for turning readable native structure into one smaller trustworthy working map
 
 ## 2. Core claim
-Native practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of four recurring families:
+Native practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of five recurring families:
 
 1. **semantic-anchor instability**
    - code is readable enough to navigate, but names, types, signatures, object roles, or subsystem labels are still too slippery to trust
@@ -39,7 +41,9 @@ Native practical work is easiest to navigate when the analyst first classifies t
    - one semantic anchor is stable enough, but several imports/strings/xrefs/callbacks/handlers still expose too many plausible routes and no one consequence-bearing path has been proved yet
 3. **module-owner uncertainty**
    - one route is plausible enough, but plugin/module loaders, export resolution, factory registration, or provider installation still leave several loaded components competing and the first real module consumer is still unclear
-4. **async ownership break**
+4. **service-owned worker uncertainty**
+   - service/daemon entry, control handlers, command dispatchers, or worker launchers are visible enough to read, but the first worker-owned consumer that actually changes behavior is still unclear
+5. **async ownership break**
    - one route or owner is already plausible, but direct call-graph reading breaks at registration, queue, completion, callback, or event-loop delivery boundaries and the first consequence-bearing consumer is still unclear
 
 A compact operator ladder for this branch is:
@@ -55,6 +59,7 @@ The subtree is strongest when read as:
 - **anchor** one trustworthy semantic meaning
 - **prove** one representative interface-to-state route
 - **reduce** one plugin/module loader path into a real loaded-module consumer
+- **reduce** one service/daemon dispatcher path into a real worker-owned consumer
 - **deliver** one async callback or event-loop consumer chain
 
 ## 3. How to choose the right entry note
@@ -104,24 +109,41 @@ Do **not** start here when:
 - the case is still stalled at packed/bootstrap readiness rather than ordinary native module ownership
 - the loaded-module owner is already known and the remaining uncertainty now lives inside callback or event delivery
 
+### Start with `native-service-dispatcher-to-worker-owned-consumer-workflow-note`
+Use:
+- `topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md`
+
+Start here when:
+- one interface family, route, or loaded-module owner is already plausible enough that broad route choice is no longer the real bottleneck
+- service/daemon entry, control handlers, command dispatchers, worker launchers, or retained service tasks are visible enough to study
+- the main uncertainty is no longer choosing the route or loaded-module owner, but proving which service-owned worker path first changes later behavior
+- the next useful output is one proved chain from service/bootstrap or command ingress through dispatcher reduction into one worker-owned consumer
+
+Do **not** start here when:
+- the real bottleneck is still choosing the right interface family
+- the earlier semantic-anchor problem is still unresolved
+- the module/plugin owner is still under-reduced
+- the remaining uncertainty already lives mainly inside narrower callback or event-loop delivery rather than service/worker ownership
+
 ### Start with `native-callback-registration-to-event-loop-consumer-workflow-note`
 Use:
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 
 Start here when:
-- one interface family, route, or loaded-module owner is already plausible
+- one interface family, route, loaded-module owner, or service-owned worker path is already plausible
 - registrations, completions, callback tables, message pumps, observer lists, queues, or event-loop reducers are visible enough to study
-- the main uncertainty is no longer choosing the route or module owner, but proving which async delivery or callback consumer first changes later behavior
+- the main uncertainty is no longer choosing the route, module owner, or service-owned worker path, but proving which async delivery or callback consumer first changes later behavior
 - the next useful output is one proved chain from event source or registration through dispatch reduction into one consequence-bearing consumer
 
 Do **not** start here when:
 - the real bottleneck is still choosing the right interface family
 - the earlier semantic-anchor problem is still unresolved
 - the module/plugin owner is still under-reduced
+- the service/daemon worker-owned path is still under-reduced
 - the case is mainly mobile/WebView, firmware/protocol, or protected-runtime shaped rather than ordinary native async ownership
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as four common bottleneck families that often chain into one another.
+A useful way to read the branch is as five common bottleneck families that often chain into one another.
 
 ### A. Readable structure -> trustworthy semantic anchor
 Typical question:
@@ -158,9 +180,21 @@ Possible next handoff:
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
 - `topics/runtime-behavior-recovery.md`
 
-### D. Plausible route or module owner -> async callback/event-loop consumer proof
+### D. Plausible route or module owner -> service-owned worker proof
 Typical question:
-- which posted task, delivered callback, completion, or event-loop consumer first changes later behavior in a way that makes the route or module owner trustworthy?
+- which service-owned thread, queued task, worker routine, or retained task object first changes later behavior in a way that makes the route or module owner trustworthy?
+
+Primary note:
+- `topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md`
+
+Possible next handoff:
+- `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
+- `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
+- `topics/runtime-behavior-recovery.md`
+
+### E. Plausible route, module owner, or service-owned worker path -> async callback/event-loop consumer proof
+Typical question:
+- which posted task, delivered callback, completion, or event-loop consumer first changes later behavior in a way that makes the route, owner, or service-owned worker path trustworthy?
 
 Primary note:
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
@@ -182,7 +216,9 @@ When a case is clearly native-baseline shaped, ask these in order:
    - if yes, start with interface-to-state proof
 3. **Is one route plausible enough, but plugin/module loaders or provider install paths still leave the real owner unclear?**
    - if yes, continue into loaded-module owner proof
-4. **Is one route or module owner already plausible, but ownership now breaks at queue/callback/event-loop delivery?**
+4. **Is one route or module owner already plausible, but service/daemon control or worker ownership is still under-reduced?**
+   - if yes, continue into service-dispatcher / worker-owned-consumer proof
+5. **Is one route, module owner, or service-owned worker path already plausible, but ownership now breaks at queue/callback/event-loop delivery?**
    - if yes, continue into callback-consumer proof
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
@@ -190,7 +226,8 @@ That usually means:
 - stabilize one semantic anchor before comparing many interface paths
 - leave broad semantic-anchor work once one anchor is already good enough and the real bottleneck becomes choosing one representative interface route
 - prove one representative interface route before reducing loader/provider ambiguity
-- prove one loaded-module owner before mapping a whole event framework
+- prove one loaded-module owner before widening into service/daemon worker ambiguity
+- prove one service-owned worker path before mapping a whole event framework
 - prove one consequence-bearing consumer before cataloging sibling callbacks or neighboring handlers
 - leave broad async callback/event-loop work once one consequence-bearing consumer is already good enough and the real bottleneck becomes reverse-causality, broader runtime-evidence strategy, or one narrower output-side continuation
 
@@ -199,6 +236,7 @@ This branch is currently strongest at practical notes for:
 - turning readable but semantically slippery native structure into one trustworthy anchor
 - turning several plausible interface paths into one proved state/effect chain
 - turning visible plugin/module loader structure into one first real module consumer proof
+- turning visible service/daemon control structure into one first worker-owned consumer proof
 - turning visible async framework structure into one consequence-bearing consumer proof
 
 That makes the branch good at cases where the main problem is not broad taxonomy or missing visibility, but choosing one proof-worthy reduction step inside a mostly readable native target.
@@ -208,7 +246,7 @@ This branch is still weaker than browser/mobile in some areas:
 - it has had less explicit subtree-level routing until now
 - Windows/Linux/macOS-specific operator differences are still lightly integrated
 - it still relies more on workflow notes than on a denser native synthesis stack
-- some recurring native subareas such as service-control managers, plugin loaders, and GUI message frameworks could later justify narrower route guides if source pressure accumulates
+- some recurring native subareas such as GUI message frameworks or OS-specific service/daemon variants could later justify even narrower route guides if source pressure accumulates
 
 That means the right near-term maintenance pattern is usually:
 - branch-shape repair
@@ -219,7 +257,7 @@ That means the right near-term maintenance pattern is usually:
 This guide is meant to prevent several recurring branch-level mistakes:
 - broad relabeling before one semantic anchor has survived proof pressure
 - jumping into async callback mapping while the real bottleneck is still choosing the right interface family
-- treating all three native practical notes as parallel choices rather than a common progression
+- treating the native practical notes as flat parallel choices rather than a common progression with narrower handoff points
 - widening subsystem coverage before one consequence-bearing chain is grounded
 - drifting toward broader browser/mobile/protected-runtime work just because those branches already have denser source pressure
 
@@ -241,6 +279,11 @@ The compact reading is:
 - anchor one trustworthy semantic meaning
 - prove one representative interface-to-state route
 - reduce one plugin/module loader path into a real owner
+- reduce one service/daemon dispatcher path into a real worker-owned consumer
+- prove one async callback or event-loop consumer chain
+
+That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which native workflow note to read first.
+ a real owner
 - prove one async callback or event-loop consumer chain
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which native workflow note to read first.
