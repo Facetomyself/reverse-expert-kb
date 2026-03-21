@@ -173,7 +173,7 @@ This branch should now also be read as the default comparison case for the rest 
 - less dominated by resistance churn than protected-runtime work
 - but still dependent on choosing the next smaller trustworthy object instead of widening the map too early
 
-This branch should now be read as a practical bridge from baseline native synthesis into four recurring operator bottlenecks plus one parent-page routing surface:
+This branch should now be read as a practical bridge from baseline native synthesis into four recurring operator families, followed by one parent-page routing surface that preserves the same ladder at the synthesis level:
 - subtree navigation and bottleneck selection (`native-practical-subtree-guide`), which acts as the branch entry surface when the analyst first needs to decide whether the current native bottleneck is semantic instability, route overabundance, module-owner uncertainty, or async ownership break
 - broad baseline-native framing and comparison (`native-binary-reversing-baseline`), which now also acts as the parent-page routing surface that preserves the same native four-family ladder at the synthesis level rather than only by leaf-note accumulation
 - semantic-anchor stabilization (`native-semantic-anchor-stabilization-workflow-note`), which acts as the first practical entry note when pseudocode, names, types, and signatures are readable enough to navigate but the first trustworthy semantic anchor still has to be stabilized before wider relabeling or deeper proof work becomes reliable; the branch should explicitly leave broad semantic-anchor work here once one anchor is already good enough and the real bottleneck becomes representative route proof
