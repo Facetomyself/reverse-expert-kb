@@ -386,7 +386,8 @@ That makes the branch good at cases where iOS work is already partly reachable, 
 This branch is still weaker than the densest browser/mobile areas in some ways:
 - it only recently gained enough leaf notes to justify its own dedicated subtree guide
 - the branch now has a dedicated iOS trust-path continuation, but iOS-specific request-signature continuations are still mostly connected through broader mobile pages rather than a denser iOS-only continuation stack
-- more case pressure may later justify narrower notes around trust-path continuation, result-code families, or PAC/arm64e-era protected-runtime specifics
+- the branch now has a dedicated PAC/arm64e mitigation-aware continuation page for cases where modern iOS work has already narrowed into authenticated-pointer / cache-truthfulness / replay-close confusion rather than broad setup or owner uncertainty
+- more case pressure may later justify even narrower notes around PAC-shaped callback/dispatch failure families or mitigation-aware replay repair
 
 That means the right near-term maintenance pattern is usually:
 - branch-shape repair
