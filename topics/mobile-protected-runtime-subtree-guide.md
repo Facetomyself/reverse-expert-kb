@@ -57,7 +57,15 @@ Read this when the main problem is:
 - you need to classify what kind of instrumentation resistance is present
 - you need to distinguish Frida detection, environment checks, integrity checks, and evidence distortion
 
-### 2. Android Linker / Binder / eBPF observation surfaces
+### 2. Anti-instrumentation gate triage
+- `topics/anti-instrumentation-gate-triage-workflow-note.md`
+
+Read this when the main problem is:
+- some anti-instrumentation effect is already visible, but the first decisive gate family is still unclear
+- you need to decide whether the case is mainly artifact-presence detection, ptrace/tracer-state failure, watchdog enforcement, loader-time gate logic, or environment-coupled drift
+- you need one proved gate-to-effect path before deciding whether to stay local, normalize environment, or relocate observation topology
+
+### 3. Android Linker / Binder / eBPF observation surfaces
 - `topics/android-linker-binder-ebpf-observation-surfaces.md`
 
 Read this when the main problem is:
@@ -80,8 +88,9 @@ These pages often form a workflow chain.
 Typical path:
 1. Start at `topics/mobile-reversing-and-runtime-instrumentation.md`
 2. Move to `topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md`
-3. Use `topics/android-linker-binder-ebpf-observation-surfaces.md` if a different observation layer is needed
-4. Use `topics/trace-guided-and-dbi-assisted-re.md` if execution-derived simplification becomes more valuable than direct hooking
+3. Use `topics/anti-instrumentation-gate-triage-workflow-note.md` when the first decisive gate family is still unclear
+4. Use `topics/android-linker-binder-ebpf-observation-surfaces.md` or `topics/protected-runtime-observation-topology-selection-workflow-note.md` if a different observation layer/topology is needed
+5. Use `topics/trace-guided-and-dbi-assisted-re.md` if execution-derived simplification becomes more valuable than direct hooking
 
 ### Common path B: transformed / protected native path inside a mobile target
 Typical path:
