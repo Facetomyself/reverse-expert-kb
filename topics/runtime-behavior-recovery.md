@@ -15,6 +15,7 @@ Related pages:
 - topics/runtime-evidence-practical-subtree-guide.md
 - topics/hook-placement-and-observability-workflow-note.md
 - topics/record-replay-and-omniscient-debugging.md
+- topics/representative-execution-selection-and-trace-anchor-workflow-note.md
 - topics/causal-write-and-reverse-causality-localization-workflow-note.md
 - topics/runtime-evidence-package-and-handoff-workflow-note.md
 
@@ -244,6 +245,7 @@ The branch is now best entered through these recurring bottlenecks:
 - **observability / layer-selection uncertainty** when the analyst still does not know what to observe or at which layer the next trustworthy object will appear
 - **hook-placement / truth-boundary uncertainty** when runtime work is clearly needed and a broad layer is already plausible, but the next truthful observation surface or minimal hook family still competes with several neighbors
 - **capture-stability / replay-worthiness uncertainty** when the interesting behavior is transient, delayed, expensive, or too painful to keep rediscovering live and the real question is whether to stabilize one representative execution first
+- **representative-execution / trace-anchor selection** when replay already looks attractive, but the analyst still needs to choose which execution window is worth preserving and which first event family should partition the trace before broader reverse-causality work begins
 - **late-effect to causal-boundary localization** when one suspicious late effect is already visible and revisitable enough, but the first earlier write, branch, queue edge, reducer, or state slot that predicts it is still unknown
 - **evidence package / handoff continuation** when one representative execution, compare-run result, or causal claim is already technically good enough, but still too scattered, assumption-heavy, or analyst-private to survive delay, handoff, or narrower branch reuse cleanly
 
@@ -261,6 +263,7 @@ Read the branch in this order when helpful:
 - broad runtime answerability and observability framing (`topics/runtime-behavior-recovery.md`)
 - hook-placement and truthful observation-surface reduction (`topics/hook-placement-and-observability-workflow-note.md`)
 - execution-history / replay stabilization (`topics/record-replay-and-omniscient-debugging.md`)
+- representative-execution / trace-anchor selection (`topics/representative-execution-selection-and-trace-anchor-workflow-note.md`)
 - reverse-causality / first-causal-boundary reduction (`topics/causal-write-and-reverse-causality-localization-workflow-note.md`)
 - runtime-evidence package / handoff continuation (`topics/runtime-evidence-package-and-handoff-workflow-note.md`)
 
@@ -290,7 +293,8 @@ Progress depends on:
 A practical routing rule worth preserving here is:
 - leave broad runtime-observation strategy once one broad layer is already plausible and the real uncertainty has narrowed into one smaller truth-boundary or hook-family choice
 - leave broad hook-placement work once one truthful observation surface is already good enough and the real bottleneck has become replay-worthiness or backward causal localization
-- leave broad replay/tooling discussion once one representative execution is already good enough and the real bottleneck has become causal-boundary proof, branch-specific follow-up, or evidence packaging
+- leave broad replay/tooling discussion once one representative execution is already good enough and the real bottleneck has narrowed further into which execution window is worth preserving and which first event family should anchor triage
+- leave representative-execution / trace-anchor selection work once one bounded execution and one stable first anchor are already good enough and the real bottleneck has become causal-boundary proof, branch-specific follow-up, or evidence packaging
 - leave broad reverse-causality work once one causal boundary is already good enough and the real bottleneck has become narrower native, protocol, malware, mobile, protected-runtime, or provenance work
 
 Practitioner-community casework adds several concrete patterns here:
@@ -359,7 +363,9 @@ Among these, the especially central dimensions are:
 - `topics/mobile-reversing-and-runtime-instrumentation.md`
   - because mobile is a major domain where runtime answerability dominates
 - `topics/record-replay-and-omniscient-debugging.md`
-  - because revisitable execution history changes how runtime evidence can be preserved and queried, but broad replay discussion should stop once one representative execution is already good enough and the real bottleneck becomes causal-boundary proof or evidence packaging
+  - because revisitable execution history changes how runtime evidence can be preserved and queried, but broad replay discussion should stop once one representative execution is already good enough and the real bottleneck becomes capture-window and first-anchor selection
+- `topics/representative-execution-selection-and-trace-anchor-workflow-note.md`
+  - because replay-worthy cases often still need one smaller practical step: choosing which execution window is worth preserving and which first event family should partition the trace before broader reverse-causality work begins
 - `topics/analytic-provenance-and-evidence-management.md`
   - because runtime findings lose value quickly when the remaining bottleneck is no longer observation but evidence linkage, resumption discipline, or collaboration-ready packaging
 - `topics/firmware-and-protocol-context-recovery.md`
