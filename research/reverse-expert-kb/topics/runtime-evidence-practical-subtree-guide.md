@@ -7,6 +7,7 @@ Related pages:
 - topics/runtime-behavior-recovery.md
 - topics/hook-placement-and-observability-workflow-note.md
 - topics/record-replay-and-omniscient-debugging.md
+- topics/representative-execution-selection-and-trace-anchor-workflow-note.md
 - topics/causal-write-and-reverse-causality-localization-workflow-note.md
 - topics/runtime-evidence-package-and-handoff-workflow-note.md
 - topics/analytic-provenance-and-evidence-management.md
@@ -45,9 +46,11 @@ Runtime-evidence practical work is easiest to navigate when the analyst first cl
    - runtime work is clearly needed and a broad layer is already plausible, but several candidate observation surfaces or hook points still compete and the current hooks are noisy, semantically late, too early to interpret, or attached to the wrong ownership boundary
 3. **capture-stability / replay-worthiness uncertainty**
    - the interesting behavior is transient, expensive to reproduce, or too painful to keep rediscovering live, so the real question is whether to stabilize one representative execution for later revisits
-4. **late-effect to causal-boundary localization**
+4. **representative-execution and trace-anchor selection**
+   - replay already looks attractive, but the analyst still needs to choose which execution window is worth preserving and which first event family should partition the trace before broader reverse-causality work begins
+5. **late-effect to causal-boundary localization**
    - one suspicious late effect is already visible and revisitable enough, but the first causal write, branch, queue edge, or state reduction that predicts it is still unknown
-5. **evidence package / handoff continuation**
+6. **evidence package / handoff continuation**
    - one representative execution, compare-run result, or causal claim is already good enough technically, but still too scattered, assumption-heavy, or analyst-private to survive delay, handoff, or branch-specific reuse cleanly
 
 A compact operator ladder for this branch is:
@@ -63,6 +66,7 @@ The subtree is strongest when read as:
 - **observe** the right behavior at the right layer
 - **place** one smaller hook family at the right truth boundary
 - **stabilize** one representative execution when live reruns are too fragile
+- **choose** one representative execution window and one first trace anchor before broader backward search begins
 - **walk backward** from one visible late effect to one causal boundary that predicts it
 - **package** one runtime result into a re-findable handoff unit when the technical proof is already good enough but still too scattered for reuse
 - **preserve** the evidence linkage once the package already exists and the remaining bottleneck is broader reuse, handoff, or resumption
@@ -113,8 +117,26 @@ Start here when:
 
 Do **not** start here when:
 - live observation is already stable enough and replay tradeoffs are no longer the main question
+- replay already looks attractive, but the missing proof has narrowed further into which execution window to preserve and which first event family should anchor triage
 - the effect boundary and one promising causal window already exist, making reverse-causality localization the clearer next step
 - the case is mainly about provenance packaging after the causal boundary is already known
+
+### Start with `representative-execution-selection-and-trace-anchor-workflow-note`
+Use:
+- `topics/representative-execution-selection-and-trace-anchor-workflow-note.md`
+
+Start here when:
+- replay or execution-history capture already looks attractive
+- the behavior is transient, delayed, or expensive enough that one recorded run is probably worth keeping
+- several recording windows are possible and the analyst still needs to choose the smallest representative execution
+- a trace can be captured, but first triage still lacks one stable event family to partition the trace before broader backward search begins
+- the real uncertainty is no longer broad replay worthiness, but practical capture-window and first-anchor selection
+
+Do **not** start here when:
+- the main uncertainty is still whether replay/tooling is worth using at all
+- the truthful observation surface is still unclear and ordinary hook-placement work is not finished yet
+- one stable anchor already exists and the real missing proof is now the first causal write, branch, queue edge, or state reduction
+- the technical replay result is already good enough and the real bottleneck is packaging, provenance, or handoff
 
 ### Start with `causal-write-and-reverse-causality-localization-workflow-note`
 Use:
@@ -175,7 +197,22 @@ Possible next handoff:
 Routing reminder:
 - leave broad replay/tooling discussion once one representative execution is already good enough and the real bottleneck becomes causal-boundary proof, branch-specific follow-up, or evidence packaging
 
-### D. Visible late effect -> first causal boundary
+### D. Replay-worthy behavior -> representative execution and first anchor
+Typical question:
+- which execution window is worth preserving, and which first event family should partition the trace before broader backward search begins?
+
+Primary note:
+- `topics/representative-execution-selection-and-trace-anchor-workflow-note.md`
+
+Possible next handoff:
+- `topics/causal-write-and-reverse-causality-localization-workflow-note.md` when one stable anchor already exists and the next missing proof is the first causal write, branch, queue edge, reducer, or state slot behind the visible effect
+- `topics/runtime-evidence-package-and-handoff-workflow-note.md` when the recording/anchor choice is already settled and the main remaining need is preserving the replay result for later reuse or handoff
+- branch-specific practical notes when the chosen anchor has already reduced the case into one narrower owner/parser/consumer question
+
+Routing reminder:
+- leave representative-execution / anchor-selection work once one bounded execution and one stable first anchor are already good enough and the real bottleneck becomes reverse-causality, branch-specific proof, or packaging
+
+### E. Visible late effect -> first causal boundary
 Typical question:
 - what first earlier write, branch, reduction, queue edge, or ownership handoff actually predicts the late effect I care about?
 
@@ -193,7 +230,7 @@ Possible next handoff:
 Routing reminder:
 - leave broad reverse-causality work once one causal boundary is already good enough and the real bottleneck becomes branch-specific proof or evidence packaging
 
-### E. Good runtime proof -> reusable evidence package
+### F. Good runtime proof -> reusable evidence package
 Typical question:
 - how do I preserve one already-good compare-run result, replay anchor, or causal-boundary claim so it survives delay, handoff, and branch-specific reuse?
 
@@ -217,9 +254,11 @@ When a case is clearly runtime-evidence shaped, ask these in order:
    - if yes, start with hook-placement / observability workflow
 3. **Do I already know the interesting behavior, but reruns are too fragile or expensive?**
    - if yes, start with replay / execution-history stabilization
-4. **Is one suspicious late effect already visible and revisitable enough?**
+4. **Does replay already look worthwhile, but I still need to choose which execution window is worth preserving and which first event family should anchor triage?**
+   - if yes, start with representative-execution / trace-anchor selection
+5. **Is one suspicious late effect already visible and revisitable enough?**
    - if yes, start with reverse-causality localization
-5. **Is the technical proof already good enough, but still too scattered to survive delay, handoff, or branch-specific reuse cleanly?**
+6. **Is the technical proof already good enough, but still too scattered to survive delay, handoff, or branch-specific reuse cleanly?**
    - if yes, start with runtime-evidence packaging / handoff
 
 If more than one feels true, prefer the earliest bottleneck that still blocks later work.
@@ -227,6 +266,7 @@ That usually means:
 - solve observation-surface choice before arguing about replay or reverse causality
 - solve the truthful hook boundary before broadening into larger trace collection
 - solve capture stability before assuming the visible effect can be revisited reliably
+- solve representative-execution and first-anchor selection before broadening into reverse-causality
 - solve the first causal boundary before packaging it for reuse
 - solve package clarity before broadening into larger provenance-system design
 
