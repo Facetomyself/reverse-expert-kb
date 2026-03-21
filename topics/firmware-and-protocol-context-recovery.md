@@ -12,6 +12,7 @@ Related pages:
 - topics/analyst-workflows-and-human-llm-teaming.md
 - topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md
 - topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
+- topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 
 ## 1. Topic identity
@@ -96,6 +97,7 @@ A compact reading worth preserving is:
 - choose the right boundary before overcommitting to protocol semantics
 - surface the first truthful socket-boundary, serializer-adjacent, parser-adjacent, or hardware-adjacent object
 - peel one visible layered object into one smaller trustworthy contract
+- externalize that contract into one reusable schema, service-contract artifact, or representative harness target when the branch would otherwise stall in analyst-private notes
 - prove one receive owner, parser/state edge, acceptance gate, reply/output handoff, or hardware-side consequence
 - preserve the result as a reusable evidence unit once the technical proof is already good enough
 

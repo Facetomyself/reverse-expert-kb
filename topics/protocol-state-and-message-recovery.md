@@ -14,6 +14,7 @@ Related pages:
 - topics/native-binary-reversing-baseline.md
 - topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md
 - topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
+- topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 
 ## 1. Topic identity
@@ -101,6 +102,7 @@ This branch should now also be remembered not only as a protocol-structure topic
 A compact reading worth preserving is:
 - choose the first trustworthy protocol object before overcommitting to packet folklore or broad state taxonomy
 - peel one visible layered object into one smaller contract when the raw bytes still mix framing, wrappers, crypto, or content continuation
+- externalize that recovered contract into one reusable schema, service-contract artifact, or representative harness target when the next bottleneck is no longer visibility but still not yet narrow replay-gate debugging
 - prove one receive owner, parser/state consequence, acceptance gate, or reply/output handoff rather than widening protocol narration too early
 - continue into hardware-side consequence when the decisive edge has already moved below transport/output proof
 - preserve one parser/state, replay, output, or hardware-side claim as reusable evidence once the technical proof is already good enough
