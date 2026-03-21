@@ -14,6 +14,7 @@ Related pages:
 - topics/native-binary-reversing-baseline.md
 - topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md
 - topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
+- topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
 - topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 
@@ -377,6 +378,8 @@ Use the subtree guide first when the analyst still needs to classify whether the
 Use the capture-failure/boundary-relocation note when the important traffic or protocol object is still not meaningfully visible from the current surface and the real bottleneck is proving whether the case is dominated by proxy bypass, trust-path mismatch, private overlay boundaries, environment-conditioned visibility, or a manifest/key/content pipeline that must be followed deeper before parser/state work becomes trustworthy.
 
 Use the socket-boundary/private-overlay note when broad visibility has improved enough that the next bottleneck is no longer whether traffic exists, but where the first truthful overlay object appears at socket write/read, serializer, or framing-adjacent boundaries before layer-peeling, ownership, or parser/state work can proceed cleanly.
+
+Use the service-contract/method-dispatch note when one smaller trustworthy contract already exists and the family already looks service-oriented or RPC-shaped, but the first reusable service shell, interface roster, dispatch table, or representative method contract is still implicit; leave broad service-shell cataloging there once one representative method-bearing contract is already good enough and the real bottleneck has shifted into schema externalization, handler/state consequence, replay acceptance, or output proof.
 
 Use the content-pipeline-recovery note when the top-level authenticated API request is already visible enough, but the real analyst object continues through a manifest, playlist, signed URL bundle, content handle, key path, chunk map, or segment ladder and one representative artifact still cannot be recovered end-to-end; leave broad content-pipeline work there once one representative artifact ladder is already good enough and the real bottleneck has shifted into downloader/automation work, key/crypto recovery, or one narrower replay/acceptance gate.
 
