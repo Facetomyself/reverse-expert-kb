@@ -127,6 +127,43 @@ Checks:
 
 ## 13. Change History
 - 2026-03-15: documented first-pass deployment and access details
+- 2026-03-21: verified deployed repo was already current with upstream (`d6a945c` on both local `HEAD` and `origin/main`), so no upstream update was required
+- 2026-03-21: documented that live secrets/config are sourced from `data/config.toml`, not from `config.defaults.toml`
+- 2026-03-21: documented local deployment customizations and recorded local preservation branch `oracle-proxy/local-custom-20260321` with commit `2413e6c`
+- 2026-03-21: recorded cleanup of hardcoded default keys in `config.defaults.toml` so baseline defaults are no longer treated as live production secrets
+ upstream proxy clients fail
+
+## 11. Failure Modes / Troubleshooting
+### Symptom: local Grok/OpenAI-compatible endpoint fails
+Check:
+- `docker logs grok2api`
+- port `8000`
+- `GET /health`
+- upstream caller target URL
+
+### Symptom: admin pages load but state looks wrong
+Check:
+- `/root/grok2api/data/token.json`
+- `/root/grok2api/data/api_keys.json`
+- `/root/grok2api/data/stats.json`
+- admin endpoints under `/api/v1/admin/*`
+
+### Symptom: disk usage grows unexpectedly
+Likely causes:
+- image/video artifacts accumulating under `data/tmp/`
+- cache or generated media not cleaned aggressively enough
+
+Checks:
+- inspect `/root/grok2api/data/tmp/image`
+- inspect `/root/grok2api/data/tmp/video`
+- inspect cache/admin endpoints
+
+## 12. Dependencies / Cross-links
+- Related host docs: `../HOST.md`, `../NETWORK.md`
+- Related clients may include cliproxy and local tooling using `/v1`
+
+## 13. Change History
+- 2026-03-15: documented first-pass deployment and access details
 lure Modes / Troubleshooting
 ### Symptom: local Grok/OpenAI-compatible endpoint fails
 Check:

@@ -113,3 +113,63 @@ Before remote Docker orchestration on older hosts, explicitly detect whether the
 - Related Files: TOOLS.md, infra/hosts/ali-cloud/PROJECTS.md
 
 ---
+
+## [ERR-20260320-001] sh-pipefail-incompatible
+
+**Logged**: 2026-03-20T13:57:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+Tried to use `set -o pipefail` in an `exec` shell command, but the OpenClaw `exec` default shell on this host is `/bin/sh`, which does not support that option.
+
+### Error
+```text
+/bin/sh: 1: set: Illegal option -o pipefail
+```
+
+### Context
+- Command/operation attempted: run the ops-assistant cron workflow while preserving stdout/stderr to files.
+- Environment details: `exec` uses `sh` here unless explicitly invoking `bash -lc ...`.
+- The run was immediately retried with POSIX-compatible shell logic and then completed successfully.
+
+### Suggested Fix
+For future `exec` calls on this host, avoid Bash-specific shell options unless explicitly wrapping the command in `bash -lc`.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/.learnings/ERRORS.md
+
+---
+## [ERR-20260321-001] remote-inline-python-quoting
+
+**Logged**: 2026-03-21T11:33:00Z
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+A remote inline Python replacement command failed due to malformed quoting while editing `config.defaults.toml` over SSH.
+
+### Error
+```text
+File "<stdin>", line 5
+    text = text.replace(api_key = Zxm971004, api_key = )
+                                                       ^
+SyntaxError: invalid syntax
+```
+
+### Context
+- Operation attempted: sanitize hardcoded default keys in `/root/grok2api/config.defaults.toml` on `oracle-proxy`
+- Method used: `ssh ... python3 - <<"PY" ...`
+- Cause: replacement expression lost the intended string quoting in the inline script
+
+### Suggested Fix
+When patching remote files via SSH, prefer single-quoted here-doc payloads with fully literal Python strings, or use `sed -i` only for trivial replacements after verifying exact matches.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/grok2api/config.defaults.toml
+
+---

@@ -1,5 +1,20 @@
 # oracle-proxy / Change Log
 
+## 2026-03-21
+- Checked `oracle-proxy:/root/grok2api` against upstream `https://github.com/TQZHR/grok2api.git` while explicitly avoiding changes to the separate Grok registration stack.
+- Verified deployed `grok2api` repo was already up to date with upstream: local `HEAD` and `origin/main` both at `d6a945c` (`feat: sync model catalog and update admin/chat flows`), so no upstream pull/update was performed.
+- Found that the deployed repo had substantial local uncommitted customizations focused on deployment/runtime adaptation rather than random drift: Camoufox override mounting, pre-fetched Camoufox runtime, register proxy support, private email-site password support, and Cloudflare-oriented register/account-settings refresh tolerance.
+- Confirmed live `grok2api` service configuration is primarily loaded from `/root/grok2api/data/config.toml`; `config.defaults.toml` is only a baseline and should not be treated as the live secret source.
+- On-host preservation step: created local branch `oracle-proxy/local-custom-20260321` in `/root/grok2api` and committed the local customization set as `2413e6c` with sanitized safe defaults (`app_key="admin"`, `api_key=""`) in `config.defaults.toml` while leaving live `data/config.toml` untouched.
+- Verified `http://127.0.0.1:8000/health` remained healthy after the preservation commit.
+
+## 2026-03-20
+- Recurring read-only fleet check: `oracle-proxy` remained reachable and healthy.
+- Snapshot at `2026-03-19 19:25 UTC`: uptime ~20 days, load essentially idle (`0.01 0.02 0.00`), root disk `45G total / 24G used / 22G free` (`52%` used), memory comfortable (`11Gi` total, `9.4Gi` available), no swap configured.
+- Expected active containers during this pass: `cliproxy`, `exafree`, `proxy-tavily-proxy-1`, `grok-register-camoufox`, `grok-register-camoufox-adapter`, `grok2api`.
+- Expected paused Tavily registration components (`tavily-scheduler`, `tavily-camoufox`, `tavily-camoufox-adapter`) remained absent from `docker ps`, which matches the intentional 2026-03-19 pause rather than fresh runtime drift.
+- Public/listening surface remained broadly consistent with docs: `80`, `7860`, `8000`, `8317`, `9874`, `15072`, plus the previously documented sing-box / xray related ports (`30001`, `30004-30011`, `14391`) and localhost listeners (`20241`, `40449`, `45987`).
+
 ## 2026-03-19
 - Tavily registration automation was intentionally paused to avoid repeated upstream risk-control hits and to prevent future maintenance sweeps from treating the stopped registration containers as accidental drift.
 - On `oracle-proxy`, explicitly stopped and disabled restart for:
