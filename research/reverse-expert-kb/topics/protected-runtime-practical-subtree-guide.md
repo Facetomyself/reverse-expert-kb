@@ -6,6 +6,7 @@ Maturity: structured-practical
 Related pages:
 - topics/anti-tamper-and-protected-runtime-analysis.md
 - topics/obfuscation-deobfuscation-and-packed-binaries.md
+- topics/anti-instrumentation-gate-triage-workflow-note.md
 - topics/vm-trace-to-semantic-anchor-workflow-note.md
 - topics/flattened-dispatcher-to-state-edge-workflow-note.md
 - topics/packed-stub-to-oep-and-first-real-module-workflow-note.md
@@ -37,21 +38,23 @@ This page makes that branch read more like the malware, protocol, and mobile pra
 - a compact ladder for moving from protected churn toward one smaller trustworthy target
 
 ## 2. Core claim
-Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of seven recurring families:
+Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of eight recurring families:
 
-1. **observation-topology failure**
+1. **anti-instrumentation gate triage**
+   - some anti-instrumentation effect is already visible, but the first decisive gate family and its first consequence-bearing effect are still unclear
+2. **observation-topology failure**
    - direct attach, spawn, or app-local observation is detected, too visible, too late, or semantically misleading
-2. **trace-to-semantic-anchor churn**
+3. **trace-to-semantic-anchor churn**
    - visible VM, handler churn, or repetitive protected execution is the main problem and the first stable semantic anchor is still missing
-3. **flattened-dispatcher-to-state-edge reduction**
+4. **flattened-dispatcher-to-state-edge reduction**
    - a dispatcher or flattened protected region is already recognizable, but the first durable state object, reducer helper, or dispatcher-exit edge is still unclear
-4. **packed / staged bootstrap handoff**
+5. **packed / staged bootstrap handoff**
    - a stub, shell, decrypt/copy/fixup loop, or staged loader is already visible, but the first trustworthy post-unpack handoff is still unclear
-5. **artifact-to-consumer proof**
+6. **artifact-to-consumer proof**
    - strings, config, tables, bytecode, or normalized buffers are already readable enough to inspect, but the first ordinary consumer is still missing
-6. **runtime-artifact / initialization-obligation recovery**
+7. **runtime-artifact / initialization-obligation recovery**
    - static dumps, repaired artifacts, or offline reconstructions look damaged, under-initialized, or close-but-wrong, while live/runtime state appears truer
-7. **integrity / tamper consequence proof**
+8. **integrity / tamper consequence proof**
    - checks are visible, but the first reduced result or consequence-bearing tripwire is still unclear
 
 A compact operator ladder for this branch is:
@@ -64,6 +67,7 @@ choose the current protection-shaped bottleneck
 ```
 
 The subtree is strongest when read as:
+- **triage** the first anti-instrumentation gate when some detector effect is already visible but the first decisive gate family is still unclear
 - **reposition** observation when the current topology itself is the problem
 - **anchor** noisy protected execution when the first stable semantic anchor is still missing
 - **reduce** one recognizable flattened dispatcher or protected state machine into one durable state edge
@@ -73,6 +77,20 @@ The subtree is strongest when read as:
 - **tripwire** the first behavior-changing integrity consequence when checks are already visible
 
 ## 3. How to choose the right entry note
+### Start with `anti-instrumentation-gate-triage-workflow-note`
+Use:
+- `topics/anti-instrumentation-gate-triage-workflow-note.md`
+
+Start here when:
+- some anti-instrumentation effect is already visible, but the first decisive gate family is still unclear
+- the analyst still does not know whether the early bottleneck is artifact-presence detection, ptrace/tracer-state failure, watchdog enforcement, loader-time gate logic, or environment-coupled drift
+- the next useful output is one proved gate-to-effect path before committing to local patching, environment normalization, or a broader observation-topology change
+
+Do **not** start here when:
+- the early gate family is already clear enough and the real next decision is now how to change observation topology
+- the case is primarily environment-differential already and the main uncertainty is not anti-instrumentation gate identity
+- the current posture is obviously too visible or too late regardless of which narrow gate fired first
+
 ### Start with `protected-runtime-observation-topology-selection-workflow-note`
 Use:
 - `topics/protected-runtime-observation-topology-selection-workflow-note.md`
@@ -86,6 +104,7 @@ Start here when:
 Do **not** start here when:
 - the current observation model is already good enough and the bottleneck is now inside one visible packed, VM, artifact, or integrity path
 - the case is already narrowed to a specific Android surface-choice problem handled better by the Android observation notes
+- the earlier unknown is still which anti-instrumentation gate family actually matters first
 
 ### Start with `vm-trace-to-semantic-anchor-workflow-note`
 Use:

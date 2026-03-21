@@ -225,14 +225,15 @@ Why it matters:
 ## 6. Emerging internal structure of the topic
 A stable internal decomposition is emerging.
 
-At the practical branch level, this topic now reads most truthfully as seven recurring protected-runtime bottlenecks:
-1. observation-topology failure
-2. trace-to-semantic-anchor churn
-3. flattened-dispatcher-to-state-edge reduction
-4. packed / staged bootstrap handoff
-5. artifact-to-consumer proof
-6. runtime-artifact / initialization-obligation recovery
-7. integrity / tamper consequence proof
+At the practical branch level, this topic now reads most truthfully as eight recurring protected-runtime bottlenecks:
+1. anti-instrumentation gate triage
+2. observation-topology failure
+3. trace-to-semantic-anchor churn
+4. flattened-dispatcher-to-state-edge reduction
+5. packed / staged bootstrap handoff
+6. artifact-to-consumer proof
+7. runtime-artifact / initialization-obligation recovery
+8. integrity / tamper consequence proof
 
 That practical ladder matters because the branch should no longer read as only:
 - generic anti-debugging
@@ -248,8 +249,9 @@ It should also preserve where the analyst is supposed to enter and leave the bra
 - recover the smallest runtime artifact or init obligation that explains close-but-wrong replay
 - reduce visible checks into one first consequence-bearing tripwire
 
-A compact parent-page memory worth preserving is that the protected-runtime branch should now be remembered not only as a domain family, but as a practical seven-stage reduction ladder for converting protection-shaped uncertainty into one smaller trustworthy target:
-- first repair observation topology if the current attach/spawn/app-local posture is itself distorting the case
+A compact parent-page memory worth preserving is that the protected-runtime branch should now be remembered not only as a domain family, but as a practical eight-stage reduction ladder for converting protection-shaped uncertainty into one smaller trustworthy target:
+- first triage the earliest anti-instrumentation gate if some detector effect is already visible but the first decisive gate family is still unclear
+- then repair observation topology if the current attach/spawn/app-local posture is itself distorting the case
 - then stabilize one semantic anchor if protected execution is still mostly noisy churn
 - then reduce one recognizable dispatcher or protected state machine into one durable state edge
 - then hand off from packed/bootstrap churn into one trustworthy post-protection region
