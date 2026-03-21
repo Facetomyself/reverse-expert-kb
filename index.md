@@ -255,6 +255,8 @@ This branch should now be read as a practical bridge from runtime-evidence synth
 - `topics/malware-first-request-family-and-comms-proof-workflow-note.md`
 - `topics/malware-request-builder-to-send-boundary-workflow-note.md`
 - `topics/malware-persistence-consumer-localization-workflow-note.md`
+
+The persistence-consumer step now explicitly includes thinner startup-side families such as WMI permanent event subscriptions and COM/CLSID-resolution hijack paths, not only Run-key, Scheduled Task, or service-install examples.
 - `topics/malware-sleep-jitter-and-environment-gate-workflow-note.md`
 - `topics/malware-reporting-and-handoff-evidence-packaging-workflow-note.md`
 
