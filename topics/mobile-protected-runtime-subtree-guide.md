@@ -186,6 +186,7 @@ Current concrete notes:
 - `topics/android-network-trust-and-pinning-localization-workflow-note.md`
 - `topics/cronet-request-ownership-and-mixed-stack-diagnosis-workflow-note.md`
 - `topics/mobile-response-consumer-localization-workflow-note.md`
+- `topics/arm64e-pac-and-mitigation-aware-ios-reversing.md`
 - `topics/attestation-verdict-to-policy-state-workflow-note.md`
 - `topics/result-code-and-enum-to-policy-mapping-workflow-note.md`
 - `topics/post-validation-state-refresh-and-delayed-consequence-workflow-note.md`
