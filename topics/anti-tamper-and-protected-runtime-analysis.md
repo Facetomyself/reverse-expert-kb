@@ -36,6 +36,7 @@ Examples include targets that:
 - gate functionality behind integrity checks
 - punish modification or replay
 - depend on trusted runtime state, device state, or environmental invariants
+- repeatedly recheck liveness, watchdog, or heartbeat conditions and only later hand enforcement to another consumer
 
 This topic matters because expert reverse engineering often fails on protected targets not at the point of code reading, but at the point of stable evidence collection.
 
@@ -146,6 +147,7 @@ In protected contexts, successful analysis often means:
 - obtaining stable observations under constrained conditions
 - learning which checks or environmental assumptions matter
 - recovering enough trustworthy behavior to progress, even if not all protections are fully neutralized
+- separating visible repeated monitors from the first reducer or enforcement consumer that actually changes behavior
 
 Why it matters:
 - the workflow goal shifts from “full readability” to “stable, decision-relevant evidence”
