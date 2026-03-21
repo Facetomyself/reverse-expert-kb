@@ -2,10 +2,16 @@
 import json
 import shlex
 import subprocess
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANAGED = ROOT / 'inventory' / 'managed-hosts.yaml'
+TRANSIENT_SSH_ERRORS = (
+    'Connection timed out during banner exchange',
+    'Connection reset by peer',
+    'kex_exchange_identification',
+)
 
 
 def load_hosts():
@@ -19,6 +25,20 @@ def run(cmd):
     return p.returncode, p.stdout.strip(), p.stderr.strip()
 
 
+def run_with_retry(cmd, attempts=3, delay_seconds=2):
+    last = None
+    for idx in range(1, attempts + 1):
+        code, out, err = run(cmd)
+        last = (code, out, err, idx)
+        if code == 0:
+            return last
+        if not any(marker in err for marker in TRANSIENT_SSH_ERRORS):
+            return last
+        if idx < attempts:
+            time.sleep(delay_seconds)
+    return last
+
+
 def ssh_cmd(alias, remote):
     return f"ssh -o BatchMode=yes -o ConnectTimeout=8 {shlex.quote(alias)} {shlex.quote(remote)}"
 
@@ -28,15 +48,19 @@ def check(host):
     base = "docker ps --format '{{.Names}}\t{{.Status}}'"
     if name == 'oracle-open_claw':
         cmd = base
+        code, out, err, attempt = (*run(cmd), 1)
     else:
         alias = host.get('ssh_alias')
         cmd = ssh_cmd(alias, base)
-    code, out, err = run(cmd)
+        code, out, err, attempt = run_with_retry(cmd)
+    error = err if code != 0 else ''
+    if code != 0 and attempt > 1 and error:
+        error = f"after {attempt} attempts: {error}"
     return {
         'host': name,
         'ok': code == 0,
         'containers': [line for line in out.splitlines() if line.strip()],
-        'error': err if code != 0 else '',
+        'error': error,
     }
 
 
