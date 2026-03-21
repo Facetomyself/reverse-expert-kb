@@ -473,6 +473,7 @@ This topic may later split into several child pages:
 - `topics/ios-runtime-instrumentation-and-environment-control.md`
 - `topics/anti-instrumentation-and-anti-debugging-in-mobile-targets.md`
 - `topics/arm64e-pac-and-mitigation-aware-ios-reversing.md`
+  - now acting as the practical continuation when a modern iOS case has already narrowed into a mitigation-aware boundary and the next bottleneck is keeping the code view truthful, classifying PAC-shaped failure conservatively, and routing quickly back into owner proof or replay/init-obligation repair
 - `topics/layer-selection-in-mobile-re.md`
 
 ## 12. Source footprint / evidence quality note
