@@ -15,6 +15,7 @@ Related pages:
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
 - topics/protocol-reply-emission-and-transport-handoff-workflow-note.md
+- topics/mailbox-doorbell-command-completion-workflow-note.md
 - topics/peripheral-mmio-effect-proof-workflow-note.md
 - topics/isr-and-deferred-worker-consequence-proof-workflow-note.md
 - topics/runtime-behavior-recovery.md
@@ -34,6 +35,7 @@ The branch already had practical entry surfaces for:
 - parser-to-state consequence localization
 - replay-precondition / acceptance-gate diagnosis
 - reply-emission / transport-handoff proof
+- mailbox/doorbell command publish / completion proof
 - peripheral/MMIO effect proof
 - ISR/deferred-worker consequence proof
 
@@ -70,7 +72,9 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - structurally plausible replay or mutation still fails because one narrow state/precondition gate is unproved
 10. **reply-emission / output-handoff uncertainty**
    - local acceptance or reply-object creation is visible, but the first committed output path is still unclear
-11. **hardware-side effect / interrupt consequence uncertainty**
+11. **mailbox / doorbell command publish-completion uncertainty**
+   - one mailbox, command queue, slot, or submission path is already plausible, but the first publish edge and request-linked completion chain are still unclear
+12. **hardware-side effect / interrupt consequence uncertainty**
    - the path already reaches peripheral or interrupt/deferred boundaries, but the first durable effect-bearing write or later consequence handoff is still unproved
 
 A compact operator ladder for this branch is:
@@ -92,6 +96,7 @@ The subtree is strongest when read as:
 - **reduce** one parser/state consequence
 - **accept** one interaction under the right local precondition
 - **emit** one real output
+- **publish** one mailbox/doorbell command when that narrower seam is the true bottleneck
 - **prove** one peripheral or interrupt-side consequence
 
 ## 3. How to choose the right entry note
@@ -246,7 +251,23 @@ Start here when:
 
 Do **not** start here when:
 - acceptance itself is still unproved
-- the decisive missing edge is now peripheral/MMIO effect or later interrupt/deferred consequence rather than reply/output emission
+- the decisive missing edge is now mailbox/doorbell command publish-completion proof, peripheral/MMIO effect, or later interrupt/deferred consequence rather than broader reply/output emission
+
+### Start with `mailbox-doorbell-command-completion-workflow-note`
+Use:
+- `topics/mailbox-doorbell-command-completion-workflow-note.md`
+
+Start here when:
+- one accepted command path, reply object, or local output-side handler is already visible
+- a mailbox, command queue, submission slot, or peer-facing command buffer is already plausible
+- some command ID, slot, sequence, tail pointer, or doorbell logic is already visible
+- the real missing proof is the smaller chain from local command staging to peer-visible publish and then to request-linked completion/ack
+- the next useful output is one trustworthy publish→completion chain rather than broader ring or register taxonomy
+
+Do **not** start here when:
+- the accepted local output path itself is still unproved and the real bottleneck is broader reply-emission / transport handoff
+- the channel is better understood as a broader descriptor/ring publish problem rather than a mailbox-style command continuation
+- the publish chain is already good enough and the remaining gap is now one narrower MMIO effect-bearing write or one later ISR/deferred consequence
 
 ### Start with `peripheral-mmio-effect-proof-workflow-note`
 Use:
@@ -275,7 +296,7 @@ Do **not** start here when:
 - the real bottleneck is earlier in parser/state or replay-gate work
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as ten common bottleneck families that often chain into one another.
+A useful way to read the branch is as twelve common bottleneck families that often chain into one another.
 
 ### A. Broad firmware/protocol uncertainty -> correct recovery object
 Typical question:
@@ -396,6 +417,7 @@ Routing reminder:
 Possible next handoff:
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+- `topics/mailbox-doorbell-command-completion-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 
 ### H. Structurally plausible replay -> accepted interaction
