@@ -9,6 +9,7 @@ Related pages:
 - topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md
 - topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md
 - topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
+- topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 - topics/protocol-ingress-ownership-and-receive-path-workflow-note.md
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
@@ -47,7 +48,7 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of ten recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of eleven recurring families:
 
 1. **context / object-of-recovery framing uncertainty**
    - the analyst still needs to decide whether the real object is environment recovery, protocol structure, peripheral context, or downstream rehosting/fuzzing utility
@@ -57,17 +58,19 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - broad visibility has improved enough that the next bottleneck is no longer whether traffic exists, but where the first truthful overlay object appears before deeper parser/state work
 4. **layer-peeling / contract-recovery uncertainty**
    - a visible object exists, but it still mixes framing, compression, serialization, crypto wrapping, RPC shell, or continuation structure and has not yet been reduced into one smaller trustworthy contract
-5. **content-pipeline continuation uncertainty**
+5. **schema externalization / replay-harness uncertainty**
+   - one smaller trustworthy contract already exists, but it has not yet been converted into one reusable schema, service-contract artifact, or representative replay/edit/fuzz harness surface
+6. **content-pipeline continuation uncertainty**
    - the first authenticated API family is visible, but the real analyst object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder
-6. **ingress ownership uncertainty**
+7. **ingress ownership uncertainty**
    - inbound traffic is visible, but the first local receive owner that feeds parser-relevant handling is still unclear
-7. **parser-to-consequence uncertainty**
+8. **parser-to-consequence uncertainty**
    - the parser or dispatch region is visible, but the first state/reply/peripheral consequence edge is still unknown
-8. **acceptance / replay-precondition uncertainty**
+9. **acceptance / replay-precondition uncertainty**
    - structurally plausible replay or mutation still fails because one narrow state/precondition gate is unproved
-9. **reply-emission / output-handoff uncertainty**
+10. **reply-emission / output-handoff uncertainty**
    - local acceptance or reply-object creation is visible, but the first committed output path is still unclear
-10. **hardware-side effect / interrupt consequence uncertainty**
+11. **hardware-side effect / interrupt consequence uncertainty**
    - the path already reaches peripheral or interrupt/deferred boundaries, but the first durable effect-bearing write or later consequence handoff is still unproved
 
 A compact operator ladder for this branch is:
@@ -83,6 +86,7 @@ The subtree is strongest when read as:
 - **see** the right boundary
 - **surface** the first truthful socket-boundary or serializer-adjacent overlay object when the wire is one layer too late
 - **peel** the visible object into one smaller trustworthy contract
+- **externalize** that contract into one reusable schema or harness target
 - **own** the right inbound object
 - **reduce** one parser/state consequence
 - **accept** one interaction under the right local precondition
@@ -157,6 +161,21 @@ Do **not** start here when:
 - the current surface is still too weak and the real bottleneck is boundary relocation itself
 - the cheapest truthful object still has not been surfaced and the real bottleneck is socket-boundary / private-overlay recovery
 - the smallest trustworthy contract already exists and the missing edge is now receive ownership, parser/state consequence, acceptance gating, or output handoff
+
+### Start with `protocol-schema-externalization-and-replay-harness-workflow-note`
+Use:
+- `topics/protocol-schema-externalization-and-replay-harness-workflow-note.md`
+
+Start here when:
+- one smaller trustworthy contract already exists
+- the next useful output is one reusable schema, service-contract artifact, or representative replay/edit/fuzz harness surface
+- the analyst can already describe the message family, but cannot yet exercise it outside the target cleanly
+- the real bottleneck is converting contract knowledge into one external tool-usable object before narrower replay-gate or output-side work begins
+
+Do **not** start here when:
+- the current object is still too layered and the real bottleneck is broad layer peeling or contract recovery
+- replay is already structurally plausible and the real bottleneck is now local state/auth/freshness gating
+- local acceptance already exists and the missing edge is the first emitted output path
 
 ### Start with `protocol-ingress-ownership-and-receive-path-workflow-note`
 Use:
@@ -289,14 +308,32 @@ Primary note:
 
 Routing reminder:
 - stay here while the missing proof is still the first smaller trustworthy contract
-- leave broad layer-peeling work once one contract is already good enough and the real bottleneck becomes artifact continuation, receive ownership, parser/state consequence, or replay acceptance
+- leave broad layer-peeling work once one contract is already good enough and the real bottleneck becomes contract externalization, artifact continuation, receive ownership, parser/state consequence, or replay acceptance
 
 Possible next handoff:
+- `topics/protocol-schema-externalization-and-replay-harness-workflow-note.md`
 - `topics/protocol-content-pipeline-recovery-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 
-### E. Visible continuation object -> first trustworthy artifact ladder
+### E. Visible smaller contract -> reusable schema or harness target
+Typical question:
+- if one message/schema/service contract is already good enough to describe, how do I externalize it into one reusable artifact and one representative replay/edit/fuzz surface before narrower gate debugging begins?
+
+Primary note:
+- `topics/protocol-schema-externalization-and-replay-harness-workflow-note.md`
+
+Routing reminder:
+- stay here while the missing proof is still one externalized schema/service artifact plus one representative tool-usable harness surface
+- leave broad contract externalization work once one representative artifact is already good enough and the real bottleneck becomes replay acceptance, output handoff, parser/state consequence, or deeper artifact continuation
+
+Possible next handoff:
+- `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+- `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+- `topics/protocol-content-pipeline-recovery-workflow-note.md`
+
+### F. Visible continuation object -> first trustworthy artifact ladder
 Typical question:
 - if the first authenticated API family is already visible, what continuation path turns a manifest/handle/key/chunk/segment ladder into one representative artifact proof?
 
@@ -410,17 +447,19 @@ When a case is clearly firmware/protocol shaped, ask these in order:
    - if yes, start with socket-boundary / private-overlay recovery
 4. **Is the object visible, but still too layered to treat as one trustworthy contract?**
    - if yes, start with layer-peeling / contract recovery
-5. **Is the first authenticated API body visible, but the real object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder?**
+5. **Is one smaller trustworthy contract already visible, but still not externalized into one reusable schema, service-contract artifact, or representative harness target?**
+   - if yes, start with schema externalization / replay-harness work
+6. **Is the first authenticated API body visible, but the real object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder?**
    - if yes, start with content-pipeline recovery
-6. **Is inbound traffic visible, but the first local receive owner still unclear?**
+7. **Is inbound traffic visible, but the first local receive owner still unclear?**
    - if yes, start with ingress ownership
-7. **Is parser or dispatch visibility present, but the first state/effect consequence still unclear?**
+8. **Is parser or dispatch visibility present, but the first state/effect consequence still unclear?**
    - if yes, start with parser-to-state localization
-8. **Is replay or mutation structurally plausible, but still not accepted?**
+9. **Is replay or mutation structurally plausible, but still not accepted?**
    - if yes, start with replay-precondition / state-gate localization
-9. **Is local acceptance visible, but one real emitted output still unproved?**
+10. **Is local acceptance visible, but one real emitted output still unproved?**
    - if yes, start with reply-emission / transport handoff
-10. **Has the case already crossed into peripheral or interrupt/deferred consequences?**
+11. **Has the case already crossed into peripheral or interrupt/deferred consequences?**
    - if yes, choose MMIO effect proof or ISR/deferred consequence proof depending on whether the first effect-bearing hardware edge or the later durable completion-driven reduction is still missing
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.

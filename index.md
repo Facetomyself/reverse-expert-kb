@@ -181,6 +181,43 @@ This branch should now be read as a practical bridge from baseline native synthe
 - plugin-loader / first-real-module-consumer proof (`native-plugin-loader-to-first-real-module-consumer-workflow-note`), which acts as the usual third native step when one route is already plausible but plugin/module loaders, export-resolution helpers, or provider-installation code still hide the first loaded component that actually becomes behaviorally trustworthy; the branch should explicitly leave broad loader/provider work here once one retained owner is already good enough and the real bottleneck becomes async delivery rather than ownership
 - async callback/consumer proof (`native-callback-registration-to-event-loop-consumer-workflow-note`), which acts as the usual fourth native step when one route or loaded-module owner is already plausible but registrations, message pumps, completions, or reactor-loop helpers still hide the first consequence-bearing callback delivery or event-loop consumer that makes the subsystem map behaviorally trustworthy; the branch should explicitly leave broad async callback/event-loop work here once one consequence-bearing consumer is already good enough and the real bottleneck becomes reverse-causality, broader runtime-evidence strategy, or one narrower output-side continuation
 
+### Protocol / firmware practical branch
+- `topics/protocol-firmware-practical-subtree-guide.md`
+- `topics/firmware-and-protocol-context-recovery.md`
+- `topics/protocol-state-and-message-recovery.md`
+- `topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md`
+- `topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md`
+- `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
+- `topics/protocol-schema-externalization-and-replay-harness-workflow-note.md`
+- `topics/protocol-content-pipeline-recovery-workflow-note.md`
+- `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
+- `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+- `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+- `topics/peripheral-mmio-effect-proof-workflow-note.md`
+- `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
+
+This branch should now be read as a practical bridge from firmware/protocol synthesis into eleven recurring operator families:
+- subtree navigation and bottleneck selection (`protocol-firmware-practical-subtree-guide`), which acts as the branch entry surface when the analyst first needs to decide whether the current bottleneck is context/object-of-recovery framing, capture-failure / boundary relocation, socket-boundary / private-overlay truth selection, layer peeling, contract externalization into a reusable schema or harness target, content-pipeline continuation, ingress ownership, parser/state consequence, replay acceptance, output handoff, or hardware-side effect / interrupt consequence proof
+- broad firmware/protocol framing and comparison (`firmware-and-protocol-context-recovery`)
+- message/state recovery framing (`protocol-state-and-message-recovery`)
+- capture-failure / boundary relocation (`protocol-capture-failure-and-boundary-relocation-workflow-note`), which acts as the practical entry note when the important traffic or content-bearing object is still partial, misleading, or absent from the current surface and the analyst still needs to prove whether the right next boundary is transparent interception, socket plaintext, serializer/framer adjacency, or a downstream content-manifest boundary
+- socket-boundary / private-overlay truth selection (`protocol-socket-boundary-and-private-overlay-recovery-workflow-note`), which acts as the practical entry note when broad visibility is no longer the main problem but the first truthful overlay object is still hiding at socket write/read, serializer, or framing-adjacent surfaces rather than the packet view
+- layer peeling / smaller-contract recovery (`protocol-layer-peeling-and-contract-recovery-workflow-note`), which acts as the practical entry note when one visible object already exists but still mixes framing, compression, serialization, crypto wrapping, RPC shell, or continuation structure and the main need is reducing it into one smaller trustworthy contract
+- schema externalization / replay-harness generation (`protocol-schema-externalization-and-replay-harness-workflow-note`), which acts as the practical entry note when one smaller trustworthy contract is already visible but still trapped in traces, notes, or target-local objects and the next useful output is one reusable schema, service-contract artifact, or representative replay/edit/fuzz surface before narrower replay-gate debugging begins
+- content-pipeline continuation (`protocol-content-pipeline-recovery-workflow-note`), which acts as the practical entry note when the first authenticated API family is already visible but the real analyst object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder
+- ingress ownership (`protocol-ingress-ownership-and-receive-path-workflow-note`), which acts as the practical entry note when inbound traffic is already visible enough but the first local receive owner that makes parser-relevant handling trustworthy is still unclear
+- parser-to-state consequence localization (`protocol-parser-to-state-edge-localization-workflow-note`), which acts as the practical entry note when one parser or dispatch region is already visible and the next bottleneck is the first state/reply/peripheral consequence edge rather than more field cataloging
+- replay-precondition / acceptance-gate localization (`protocol-replay-precondition-and-state-gate-workflow-note`), which acts as the practical entry note when replay is already structurally plausible but one narrow freshness/auth/session/state gate still decides whether the interaction really advances
+- reply-emission / transport-handoff proof (`protocol-reply-emission-and-transport-handoff-workflow-note`), which acts as the practical entry note when local acceptance or reply-object creation is already partly visible but the first concrete emitted output path is still unproved
+- peripheral/MMIO and ISR/deferred consequence proof (`peripheral-mmio-effect-proof-workflow-note`, `isr-and-deferred-worker-consequence-proof-workflow-note`), which act as the late practical entry notes when the decisive uncertainty has already crossed below transport/output proof into one effect-bearing hardware edge or one later durable completion/deferred handoff
+
+A compact protocol/firmware reading worth preserving at the top level is:
+- choose the right truth boundary before overcommitting to protocol semantics
+- peel one visible object into one smaller trustworthy contract
+- externalize that contract into one reusable schema or representative harness target when analyst-private understanding is now the real blocker
+- then prove one ownership, consequence, acceptance, output, or hardware-side edge instead of widening protocol narration forever
+
 ### Runtime-evidence practical branch
 - `topics/runtime-evidence-practical-subtree-guide.md`
 - `topics/runtime-behavior-recovery.md`
