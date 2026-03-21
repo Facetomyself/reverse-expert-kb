@@ -256,7 +256,7 @@ That means the right near-term maintenance pattern is usually:
 ## 8. Common mistakes this guide prevents
 This guide is meant to prevent several recurring branch-level mistakes:
 - broad relabeling before one semantic anchor has survived proof pressure
-- jumping into async callback mapping while the real bottleneck is still choosing the right interface family
+- jumping into async callback mapping while the real bottleneck is still choosing the right interface family or proving one concrete slot implementation
 - treating the native practical notes as flat parallel choices rather than a common progression with narrower handoff points
 - widening subsystem coverage before one consequence-bearing chain is grounded
 - drifting toward broader browser/mobile/protected-runtime work just because those branches already have denser source pressure
@@ -278,12 +278,9 @@ This subtree guide turns the native practical branch into a clearer operator lad
 The compact reading is:
 - anchor one trustworthy semantic meaning
 - prove one representative interface-to-state route
+- reduce one visible virtual/interface dispatch into a concrete implementation
 - reduce one plugin/module loader path into a real owner
 - reduce one service/daemon dispatcher path into a real worker-owned consumer
-- prove one async callback or event-loop consumer chain
-
-That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which native workflow note to read first.
- a real owner
 - prove one async callback or event-loop consumer chain
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which native workflow note to read first.

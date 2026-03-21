@@ -331,21 +331,25 @@ A practical routing rule is now worth making explicit:
   - `topics/native-semantic-anchor-stabilization-workflow-note.md`
 - once one semantic anchor is trustworthy enough to navigate, and imports/strings/xrefs/callbacks expose several plausible routes, prefer proving one representative interface-to-state-to-effect chain before broadening the subsystem map:
   - `topics/native-interface-to-state-proof-workflow-note.md`
-- once one route is plausible enough but plugin/module loaders, export resolution, or provider installation still leave ownership unclear, reduce that loader path into one first real module consumer before widening into broader framework mapping:
+- once one route is plausible enough but a visible vtable / interface-slot call still leaves several concrete implementations competing, reduce that dispatch surface into one concrete implementation-to-effect proof before widening into broader ownership mapping:
+  - `topics/native-virtual-dispatch-slot-to-concrete-implementation-workflow-note.md`
+- once one route or concrete implementation family is plausible enough but plugin/module loaders, export resolution, or provider installation still leave ownership unclear, reduce that loader path into one first real module consumer before widening into broader framework mapping:
   - `topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md`
-- once one interface family or loaded-module owner is plausible but behavioral ownership still breaks at async dispatch boundaries, localize the first consequence-bearing event-loop consumer before mapping more framework plumbing:
+- once one interface family, concrete implementation family, or loaded-module owner is plausible but behavioral ownership still breaks at async dispatch boundaries, localize the first consequence-bearing event-loop consumer before mapping more framework plumbing:
   - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 
 This branch should now be read as a practical native ladder:
-- subtree navigation and bottleneck selection (`native-practical-subtree-guide`), which acts as the branch entry surface when the analyst first needs to decide whether the current native bottleneck is semantic instability, route overabundance, module-owner uncertainty, or async ownership break
+- subtree navigation and bottleneck selection (`native-practical-subtree-guide`), which acts as the branch entry surface when the analyst first needs to decide whether the current native bottleneck is semantic instability, route overabundance, virtual-dispatch implementation uncertainty, module-owner uncertainty, or async ownership break
 - semantic-anchor stabilization first when code is readable but meaning is still unstable
 - interface-path proof second when the next bottleneck is choosing one representative operational route
-- plugin-loader / first-real-module-consumer reduction third when the route is plausible but loader/provider boundaries still hide the real owner
-- callback/event-loop consumer proof fourth when the route or module owner is plausible but ownership still breaks at queue, callback, completion, or dispatch boundaries
+- virtual-dispatch slot / concrete-implementation proof third when the route is plausible but visible slot dispatch still hides the real implementation
+- plugin-loader / first-real-module-consumer reduction fourth when the route or implementation family is plausible but loader/provider boundaries still hide the real owner
+- callback/event-loop consumer proof later when the route, implementation family, or module owner is plausible but ownership still breaks at queue, callback, completion, or dispatch boundaries
 
 A practical sequencing reminder now worth preserving at the parent-page level is:
 - do not stay too long in broad semantic-anchor work once one anchor is already good enough and the real bottleneck has narrowed into representative route proof
-- do not stay too long in broad interface-path proof work once the real bottleneck has narrowed into loader/provider ownership
+- do not stay too long in broad interface-path proof work once the real bottleneck has narrowed into concrete slot-implementation proof
+- do not stay too long in broad virtual-dispatch work once the real bottleneck has narrowed into loader/provider ownership
 - do not stay too long in loader/provider ownership work once the real bottleneck has narrowed into async delivery or callback-consumer proof
 - do not stay too long in broad async callback/event-loop work once one consequence-bearing consumer is already good enough and the real bottleneck has narrowed into reverse-causality, broader runtime-evidence strategy, or one narrower output-side continuation
 - treat each handoff as a branch-routing decision, not just leaf-note detail, so analysts keep reducing the case toward one smaller trustworthy object instead of re-expanding the subsystem map
