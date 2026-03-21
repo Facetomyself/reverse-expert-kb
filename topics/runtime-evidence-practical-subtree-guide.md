@@ -8,6 +8,7 @@ Related pages:
 - topics/hook-placement-and-observability-workflow-note.md
 - topics/record-replay-and-omniscient-debugging.md
 - topics/representative-execution-selection-and-trace-anchor-workflow-note.md
+- topics/compare-run-design-and-divergence-isolation-workflow-note.md
 - topics/causal-write-and-reverse-causality-localization-workflow-note.md
 - topics/runtime-evidence-package-and-handoff-workflow-note.md
 - topics/analytic-provenance-and-evidence-management.md
@@ -28,6 +29,7 @@ What this guide needs to preserve canonically is the compact routing rule that a
 - when should I stay at broad runtime-observation strategy versus dropping into a narrower practical note?
 - when is the real problem still observation-surface choice rather than replay or reverse-causality?
 - when is the case really about capture stability and revisitable evidence rather than ordinary live hooks?
+- when should I design a compare pair and isolate one first meaningful divergence before broader backward search?
 - when is the next useful move to walk backward from one late effect instead of collecting more trace?
 - when should runtime-evidence work stop deepening technically and continue instead into evidence-linkage / provenance packaging?
 
@@ -38,7 +40,7 @@ This page makes the branch read more like the native, protocol, malware, and pro
 - one practical continuation surface for evidence reuse once the core technical proof is already good enough
 
 ## 2. Core claim
-Runtime-evidence practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of five recurring families:
+Runtime-evidence practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of six recurring families:
 
 1. **observability / layer-selection uncertainty**
    - the analyst still does not know what to observe, at which layer, or which live evidence would collapse the uncertainty fastest
@@ -47,10 +49,12 @@ Runtime-evidence practical work is easiest to navigate when the analyst first cl
 3. **capture-stability / replay-worthiness uncertainty**
    - the interesting behavior is transient, expensive to reproduce, or too painful to keep rediscovering live, so the real question is whether to stabilize one representative execution for later revisits
 4. **representative-execution and trace-anchor selection**
-   - replay already looks attractive, but the analyst still needs to choose which execution window is worth preserving and which first event family should partition the trace before broader reverse-causality work begins
-5. **late-effect to causal-boundary localization**
-   - one suspicious late effect is already visible and revisitable enough, but the first causal write, branch, queue edge, or state reduction that predicts it is still unknown
-6. **evidence package / handoff continuation**
+   - replay already looks attractive, but the analyst still needs to choose which execution window is worth preserving and which first event family should partition the trace before broader backward search begins
+5. **compare-run design and first-divergence isolation**
+   - two nearby runs already exist or can be produced, but the analyst still needs to design a useful compare pair, hold the right invariants steady, choose one compare boundary, and isolate the first meaningful divergence before deeper causal work begins
+6. **late-effect to causal-boundary localization**
+   - one suspicious late effect or one now-bounded compare-run divergence is already visible and revisitable enough, but the first causal write, branch, queue edge, or state reduction that predicts it is still unknown
+7. **evidence package / handoff continuation**
    - one representative execution, compare-run result, or causal claim is already good enough technically, but still too scattered, assumption-heavy, or analyst-private to survive delay, handoff, or branch-specific reuse cleanly
 
 A compact operator ladder for this branch is:
@@ -67,7 +71,8 @@ The subtree is strongest when read as:
 - **place** one smaller hook family at the right truth boundary
 - **stabilize** one representative execution when live reruns are too fragile
 - **choose** one representative execution window and one first trace anchor before broader backward search begins
-- **walk backward** from one visible late effect to one causal boundary that predicts it
+- **design** one useful compare pair and isolate one first meaningful divergence before broad reverse-causality work
+- **walk backward** from one visible late effect or one bounded divergence to one causal boundary that predicts it
 - **package** one runtime result into a re-findable handoff unit when the technical proof is already good enough but still too scattered for reuse
 - **preserve** the evidence linkage once the package already exists and the remaining bottleneck is broader reuse, handoff, or resumption
 
@@ -85,6 +90,7 @@ Start here when:
 Do **not** start here when:
 - runtime work is clearly needed and the broad layer is already plausible, but the main remaining uncertainty is one smaller truth-boundary / hook-family choice
 - the main bottleneck is already whether one execution should be captured for stable revisits
+- the main bottleneck is already how to design a useful compare pair and isolate one first meaningful divergence
 - a suspicious late effect is already visible and the real next move is backward causality reduction
 - the case has already narrowed to one replay/query/watchpoint-style proof target
 
@@ -118,6 +124,7 @@ Start here when:
 Do **not** start here when:
 - live observation is already stable enough and replay tradeoffs are no longer the main question
 - replay already looks attractive, but the missing proof has narrowed further into which execution window to preserve and which first event family should anchor triage
+- one representative execution and one first anchor already exist, but the next missing step is designing a useful compare pair and isolating one first meaningful divergence
 - the effect boundary and one promising causal window already exist, making reverse-causality localization the clearer next step
 - the case is mainly about provenance packaging after the causal boundary is already known
 
@@ -135,17 +142,35 @@ Start here when:
 Do **not** start here when:
 - the main uncertainty is still whether replay/tooling is worth using at all
 - the truthful observation surface is still unclear and ordinary hook-placement work is not finished yet
+- one stable anchor already exists, but the real missing step is still designing a useful compare pair and isolating the first meaningful divergence rather than walking backward from a bounded effect immediately
 - one stable anchor already exists and the real missing proof is now the first causal write, branch, queue edge, or state reduction
 - the technical replay result is already good enough and the real bottleneck is packaging, provenance, or handoff
+
+### Start with `compare-run-design-and-divergence-isolation-workflow-note`
+Use:
+- `topics/compare-run-design-and-divergence-isolation-workflow-note.md`
+
+Start here when:
+- two nearby runs already exist or can be produced
+- one representative execution and one first anchor are already good enough to support comparison
+- the analyst still needs to design the pair on purpose instead of diffing broad traces blindly
+- the real missing step is choosing one compare boundary and isolating the first meaningful divergence before deeper backward reasoning begins
+- broad replay/tooling and broad anchor-selection questions are already mostly settled
+
+Do **not** start here when:
+- the truthful observation surface is still unclear
+- replay worthiness is still the main question
+- one good compare pair already exists and the first meaningful divergence is already known
+- the technical result is already good enough and now needs packaging, provenance, or handoff more than new divergence analysis
 
 ### Start with `causal-write-and-reverse-causality-localization-workflow-note`
 Use:
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
 
 Start here when:
-- one suspicious late state, value, event, branch, or delayed consequence is already visible
+- one suspicious late state, value, event, branch, delayed consequence, or already-bounded compare-run divergence is already visible
 - replay, reverse execution, indexed query support, or at least one stable compare-run pair exists
-- the next useful milestone is the first causal write, branch, queue edge, reducer, or state slot that predicts the visible effect
+- the next useful milestone is the first causal write, branch, queue edge, reducer, or state slot that predicts the visible effect or divergence
 - the workflow can now be reduced into one effect boundary, one backward search window, and one proof-of-dependency boundary
 
 Do **not** start here when:
@@ -154,7 +179,7 @@ Do **not** start here when:
 - the target is better framed first as protocol parser-to-state proof, native interface-path proof, VM trace reduction, or mobile ownership diagnosis
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as four common runtime-evidence bottleneck families that often chain into one another.
+A useful way to read the branch is as six common runtime-evidence bottleneck families that often chain into one another.
 
 ### A. Observation uncertainty -> informative runtime surface
 Typical question:
@@ -212,9 +237,24 @@ Possible next handoff:
 Routing reminder:
 - leave representative-execution / anchor-selection work once one bounded execution and one stable first anchor are already good enough and the real bottleneck becomes reverse-causality, branch-specific proof, or packaging
 
-### E. Visible late effect -> first causal boundary
+### E. Representative anchor -> useful compare pair and first divergence
 Typical question:
-- what first earlier write, branch, reduction, queue edge, or ownership handoff actually predicts the late effect I care about?
+- how do I design one useful compare pair, hold the right invariants steady, and isolate one first meaningful divergence before broader backward reasoning begins?
+
+Primary note:
+- `topics/compare-run-design-and-divergence-isolation-workflow-note.md`
+
+Possible next handoff:
+- `topics/causal-write-and-reverse-causality-localization-workflow-note.md` when the first meaningful divergence is now bounded and the missing proof is the first earlier causal boundary behind it
+- branch-specific practical notes when the compare result now clearly belongs to one narrower native, protocol, malware, mobile, browser, or protected-runtime question
+- `topics/runtime-evidence-package-and-handoff-workflow-note.md` when the compare result is already technically good enough and mainly needs preservation for later reuse
+
+Routing reminder:
+- leave compare-run design work once one trustworthy compare pair and one first meaningful divergence are already good enough and the real bottleneck becomes reverse-causality, branch-specific proof, or packaging
+
+### F. Visible late effect or bounded divergence -> first causal boundary
+Typical question:
+- what first earlier write, branch, reduction, queue edge, or ownership handoff actually predicts the late effect or divergence I care about?
 
 Primary note:
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
@@ -230,7 +270,7 @@ Possible next handoff:
 Routing reminder:
 - leave broad reverse-causality work once one causal boundary is already good enough and the real bottleneck becomes branch-specific proof or evidence packaging
 
-### F. Good runtime proof -> reusable evidence package
+### G. Good runtime proof -> reusable evidence package
 Typical question:
 - how do I preserve one already-good compare-run result, replay anchor, or causal-boundary claim so it survives delay, handoff, and branch-specific reuse?
 
@@ -256,7 +296,9 @@ When a case is clearly runtime-evidence shaped, ask these in order:
    - if yes, start with replay / execution-history stabilization
 4. **Does replay already look worthwhile, but I still need to choose which execution window is worth preserving and which first event family should anchor triage?**
    - if yes, start with representative-execution / trace-anchor selection
-5. **Is one suspicious late effect already visible and revisitable enough?**
+5. **Do I now have two nearby runs, but still need to design the compare pair and isolate one first meaningful divergence?**
+   - if yes, start with compare-run design / divergence-isolation
+6. **Is one suspicious late effect or one bounded divergence already visible and revisitable enough?**
    - if yes, start with reverse-causality localization
 6. **Is the technical proof already good enough, but still too scattered to survive delay, handoff, or branch-specific reuse cleanly?**
    - if yes, start with runtime-evidence packaging / handoff
