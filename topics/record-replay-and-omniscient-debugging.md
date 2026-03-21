@@ -6,6 +6,7 @@ Maturity: emerging
 Related pages:
 - topics/runtime-evidence-practical-subtree-guide.md
 - topics/runtime-behavior-recovery.md
+- topics/representative-execution-selection-and-trace-anchor-workflow-note.md
 - topics/analyst-workflows-and-human-llm-teaming.md
 - topics/notebook-and-memory-augmented-re.md
 - topics/firmware-and-protocol-context-recovery.md
@@ -242,6 +243,8 @@ Record/replay is often not the first move for every target, but becomes attracti
 ### Focused experimentation
 This is where the topic matters most.
 A common pattern is:
+- decide which representative run is worth preserving
+- choose one first event family that will anchor triage inside the trace
 - capture one representative run
 - find the suspicious late-stage state or event
 - place reverse watchpoints / navigate backward
@@ -272,12 +275,13 @@ Stay on this page while the missing proof is still:
 Leave this page once one representative execution is already good enough and the real bottleneck becomes narrower.
 
 Typical next moves are:
+- move to `topics/representative-execution-selection-and-trace-anchor-workflow-note.md` when replay already looks worthwhile, but the practical missing step is still choosing which execution window to preserve and which first event family should partition the trace
 - move to `topics/causal-write-and-reverse-causality-localization-workflow-note.md` when one suspicious late effect is already stable enough and the first causal write, branch, queue edge, or state reduction is now the real missing proof
 - move to `topics/analytic-provenance-and-evidence-management.md` when the execution history already exists but the remaining gap is evidence linkage, resumption discipline, or handoff packaging
 - move back into a branch-specific practical note when replay has already made the next narrower owner/parser/consumer question trustworthy enough to pursue directly
 
 A durable stop-rule worth preserving canonically is:
-- do not keep broad replay/tooling discussion alive once one representative run is already good enough and the case now needs one narrower causal boundary or one cleaner evidence package
+- do not keep broad replay/tooling discussion alive once replay is already clearly worthwhile and the case now needs one smaller capture-window / first-anchor choice, one narrower causal boundary, or one cleaner evidence package
 
 ## 9. Evaluation dimensions
 The most important evaluation dimensions for this topic are:
