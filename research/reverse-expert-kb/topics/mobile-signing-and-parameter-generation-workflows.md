@@ -10,6 +10,7 @@ Related pages:
 - topics/environment-state-checks-in-protected-runtimes.md
 - topics/protocol-state-and-message-recovery.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
+- topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md
 - topics/anti-tamper-and-protected-runtime-analysis.md
 - topics/community-practice-signal-map.md
 
@@ -212,6 +213,7 @@ Includes:
 - static location of code vs runtime provenance of values
 - deciding when less intrusive observation yields more explanatory power
 - localizing the true owner first across Java/ObjC, native, SDK-router, or Flutter/Dart boundaries before over-investing in one implementation layer
+- preserving one iOS-specific request-finalization boundary before flattening an already-owner-plausible case into generic preimage work; use `topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md` when the real question is whether to prove one last request-builder / canonicalization boundary, move one hop earlier into preimage capture, or keep one truthful in-app black-box path
 - recognizing when near-correct outputs signal missing initialization, runtime tables, or side-condition commands rather than a wrong core algorithm family
 - handing those close-but-wrong cases to `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when the next useful object is one truthful runtime artifact or minimal init chain rather than more broad signing taxonomy
 

@@ -271,6 +271,7 @@ The iOS practical branch should now usually be read through `topics/ios-practica
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md` when the ownership problem is clearly Flutter/Dart-shaped
 - `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md` when one owner path is already plausible enough, broad owner-localization work should stop, and the real bottleneck is now minimal truthful replay rather than broader owner choice
+- `topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md` when one owner path is already plausible or partly callable, but the next question is still iOS-shaped: prove one last request-finalization boundary, move one hop earlier into preimage/state capture, or stop at one truthful black-box request path
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when replay is already close-but-wrong and the remaining gap has narrowed into one runtime table family, initialized-image boundary, or minimal init/context obligation
 - `topics/ios-result-callback-to-policy-state-workflow-note.md` once controlled replay, black-box invocation, or narrower init-obligation repair is already good enough to expose truthful result material and the remaining bottleneck is the first behavior-changing local policy state
 
@@ -281,6 +282,7 @@ At the parent-page layer, that iOS route is easier to remember as a compact oper
 - **localize** one decisive trust path when routing-vs-trust remains the blocker
 - **own** one consequence-bearing ObjC / Swift / native path
 - **replay** one truthful callable owner path when broader owner search is no longer the cheapest next move
+- **reduce** one iOS-shaped signing/finalization boundary before flattening the case into generic preimage work
 - **repair** one narrower runtime-table or initialization obligation when replay is already close-but-wrong
 - **consume** one callback/result into one local policy effect
 
