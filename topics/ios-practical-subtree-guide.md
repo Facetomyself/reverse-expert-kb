@@ -13,6 +13,7 @@ Related pages:
 - topics/ios-objc-swift-native-owner-localization-workflow-note.md
 - topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md
 - topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md
+- topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md
 - topics/ios-result-callback-to-policy-state-workflow-note.md
 - topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
 
@@ -27,6 +28,7 @@ The branch already had practical entry surfaces for:
 - ObjC / Swift / native owner localization once the target flow is reachable enough to study
 - Flutter/Dart cross-runtime owner localization when iOS shell, engine routing, and Dart ownership all compete
 - execution-assisted owner replay when the owner path is already plausible and the next bottleneck is minimal truthful invocation
+- iOS request-signing finalization / preimage routing when one owner path is already plausible and the next question is whether to prove one last iOS request-finalization boundary, move earlier into preimage/state capture, or keep one truthful black-box path
 - callback/result-to-policy consequence proof once visible result material exists but the first behavior-changing consumer is still unclear
 
 What was missing was the compact routing rule that answers:
@@ -58,7 +60,9 @@ iOS practical work is easiest to navigate when the analyst first classifies the 
    - the path is clearly Flutter/Dart shaped and the real owner search spans iOS shell, bridge/engine routing, Dart state, and native workers
 7. **controlled-replay / init-obligation uncertainty**
    - one owner path is already plausible enough to target, but the next bottleneck is reconstructing minimal init/context obligations until one truthful callable path exists
-8. **callback/result-to-policy consequence uncertainty**
+8. **iOS signing-finalization / preimage-routing uncertainty**
+   - one owner path is already plausible and maybe even callable, but it is still unclear whether the cheapest next reduction is one last iOS request-finalization boundary, one earlier preimage/state capture point, or stopping at a truthful black-box request path
+9. **callback/result-to-policy consequence uncertainty**
    - visible callbacks or result wrappers already exist, but the first behavior-changing consumer or local policy state is still unclear
 
 Inside families 2 and 3, a recurring practical reminder now deserves to stay explicit: do not collapse all early iOS setup into one vague "jailbroken vs not" bucket. Installation/signing path, rootful vs rootless mode, Frida deployment coherence, and rewrite/repack stability can each change whether later evidence is trustworthy; some cases first need environment normalization before broader gate diagnosis is even meaningful.
@@ -80,6 +84,7 @@ The subtree is strongest when read as:
 - **localize** one decisive trust path when routing-vs-trust remains the blocker
 - **own** one consequence-bearing path
 - **replay** one truthful callable owner path when static cleanup is no longer the cheapest next move
+- **reduce** one iOS-shaped signing/finalization boundary before flattening the case into generic preimage work
 - **consume** one callback/result into one local policy effect
 
 ## 3. How to choose the right entry note
@@ -186,6 +191,21 @@ Do **not** start here when:
 - broad setup/gate or traffic-topology uncertainty still dominates
 - the case is still better framed as result-to-policy reduction rather than controlled owner replay
 
+### Start with `ios-request-signing-finalization-and-preimage-routing-workflow-note`
+Use:
+- `topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md`
+
+Start here when:
+- one owner path is already plausible enough to target and maybe even partly callable
+- the real question is no longer broad owner choice, but whether one last iOS request-finalization boundary still matters
+- you need to decide whether to keep reducing locally on iOS request builders/finalization, move one hop earlier into preimage/state capture, or stop at one truthful black-box path
+- the target still feels iOS-shaped rather than purely generic signing-taxonomy shaped
+
+Do **not** start here when:
+- the owner is still unclear
+- the case still primarily needs broad controlled replay / init-obligation repair before any request-shaping conclusion is trustworthy
+- the remaining gap is already clearly result/callback-to-policy consequence rather than request shaping
+
 ### Start with `ios-result-callback-to-policy-state-workflow-note`
 Use:
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
@@ -289,7 +309,19 @@ Possible next handoff:
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 - narrower request/signature or consequence pages once controlled replay is truthful enough
 
-### H. Visible callback/result -> first policy-bearing consumer
+### H. Plausible iOS signer path -> finalization / preimage / black-box routing
+Typical question:
+- do I still need one iOS-specific request-finalization boundary, one earlier preimage/state capture point, or is one truthful black-box request path already enough?
+
+Primary note:
+- `topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md`
+
+Possible next handoff:
+- `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md` when one earlier input/preimage family is now the true bottleneck
+- `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when outputs are close-but-wrong because one runtime artifact or init chain is still missing
+- `topics/ios-result-callback-to-policy-state-workflow-note.md` when truthful result material already exists and the real gap has shifted into consequence proof
+
+### I. Visible callback/result -> first policy-bearing consumer
 Typical question:
 - which callback / wrapper / mapper / consumer first turns visible result material into one local behavior change?
 
@@ -320,9 +352,11 @@ When a case is clearly iOS-shaped, ask these in order:
    - if yes, switch to the specialized Flutter/cross-runtime owner note
 7. **Is one owner already plausible enough, and is the real bottleneck no longer owner choice but making that owner callable truthfully?**
    - if yes, stop broad owner-localization work and continue into controlled replay / black-box invocation
-8. **Is replay already good enough, but the remaining gap has narrowed into one runtime table family, initialized-image boundary, side-condition, or minimal init/context obligation?**
+8. **Is the owner already plausible/callable enough, but it is still unclear whether one last iOS request-finalization boundary or one earlier preimage/state capture point is the cheaper next reduction?**
+   - if yes, continue into iOS request-signing finalization / preimage routing
+9. **Is replay already good enough, but the remaining gap has narrowed into one runtime table family, initialized-image boundary, side-condition, or minimal init/context obligation?**
    - if yes, leave broad replay work and continue into runtime-table / initialization-obligation recovery
-9. **Are callbacks or result wrappers already visible, but the first behavior-changing policy state still hidden?**
+10. **Are callbacks or result wrappers already visible, but the first behavior-changing policy state still hidden?**
    - if yes, continue into result/callback-to-policy-state work
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
@@ -334,6 +368,7 @@ That usually means:
 - prove one owner before building a replay harness
 - prove one truthful callable path before cataloging many setup helpers
 - leave broad replay/harness work once one truthful callable path is already good enough and the real bottleneck has shifted
+- before flattening the case into generic signing taxonomy, ask whether one last iOS request-finalization boundary is still the real missing proof
 - if replay is already close-but-wrong, reduce one narrower runtime-table or initialization obligation before widening outward again
 - prove one policy-bearing consumer before widening callback coverage
 
