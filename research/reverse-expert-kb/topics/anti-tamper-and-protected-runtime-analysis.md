@@ -416,6 +416,7 @@ This topic may later split into several child pages:
 
 Practical bridge pages now exist for recurring protected-runtime bottlenecks:
 - `topics/protected-runtime-practical-subtree-guide.md`
+- `topics/anti-instrumentation-gate-triage-workflow-note.md`
 - `topics/protected-runtime-observation-topology-selection-workflow-note.md`
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 - `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
@@ -423,8 +424,9 @@ Practical bridge pages now exist for recurring protected-runtime bottlenecks:
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 - `topics/integrity-check-to-tamper-consequence-workflow-note.md`
+- `topics/exception-handler-owned-control-transfer-workflow-note.md`
 
-Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry surface when the case is clearly protected-runtime shaped, but the current operator bottleneck still needs to be classified as observation-topology failure, trace-to-semantic-anchor churn, flattened-dispatcher-to-state-edge reduction, packed/bootstrap handoff, artifact-consumer proof, runtime-artifact / initialization-obligation recovery, integrity/tamper consequence proof, or one nearby ordinary post-protection continuation before choosing a narrower workflow note.
+Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry surface when the case is clearly protected-runtime shaped, but the current operator bottleneck still needs to be classified as anti-instrumentation gate triage, observation-topology failure, trace-to-semantic-anchor churn, flattened-dispatcher-to-state-edge reduction, packed/bootstrap handoff, artifact-consumer proof, runtime-artifact / initialization-obligation recovery, integrity/tamper consequence proof, exception/signal-handler-owned control transfer, or one nearby ordinary post-protection continuation before choosing a narrower workflow note.
 
 Use the observation-topology note when direct attach, spawn, app-local hooks, or ordinary instrumentation are themselves unstable, detected, semantically late, or misleading and the analyst first needs one more truthful boundary before narrower protected-runtime work becomes trustworthy; leave broad observation-topology work there once one truer boundary is already good enough and the real bottleneck becomes trace reduction, packed/bootstrap handoff, artifact-consumer proof, runtime-obligation recovery, or integrity consequence proof.
 

@@ -13,6 +13,7 @@ Related pages:
 - topics/decrypted-artifact-to-first-consumer-workflow-note.md
 - topics/integrity-check-to-tamper-consequence-workflow-note.md
 - topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
+- topics/exception-handler-owned-control-transfer-workflow-note.md
 - topics/protected-runtime-observation-topology-selection-workflow-note.md
 
 ## 1. Why this guide exists
@@ -38,7 +39,7 @@ This page makes that branch read more like the malware, protocol, and mobile pra
 - a compact ladder for moving from protected churn toward one smaller trustworthy target
 
 ## 2. Core claim
-Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of eight recurring families:
+Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of nine recurring families:
 
 1. **anti-instrumentation gate triage**
    - some anti-instrumentation effect is already visible, but the first decisive gate family and its first consequence-bearing effect are still unclear
@@ -56,6 +57,8 @@ Protected-runtime practical work is easiest to navigate when the analyst first c
    - static dumps, repaired artifacts, or offline reconstructions look damaged, under-initialized, or close-but-wrong, while live/runtime state appears truer
 8. **integrity / tamper consequence proof**
    - checks are visible, but the first reduced result or consequence-bearing tripwire is still unclear
+9. **exception-handler-owned control transfer**
+   - visible direct control flow stays incomplete or misleading because handler registration, unwind lookup, signal delivery, or trap-resume logic owns the meaningful branch
 
 A compact operator ladder for this branch is:
 
@@ -75,6 +78,7 @@ The subtree is strongest when read as:
 - **consume** recovered artifacts when readable material exists but ordinary use is still unproved
 - **stabilize** one truthful runtime artifact plus one minimal init obligation when static views are still lying
 - **tripwire** the first behavior-changing integrity consequence when checks are already visible
+- **recover** one handler-owned transfer boundary when traps, faults, or signal delivery hide the real branch
 
 ## 3. How to choose the right entry note
 ### Start with `anti-instrumentation-gate-triage-workflow-note`
@@ -191,8 +195,22 @@ Do **not** start here when:
 - the case is already better framed as a mobile-specific attestation/result-to-policy problem
 - the nearer missing edge is actually one runtime artifact or initialization obligation that explains why otherwise plausible replay is still drifting
 
+### Start with `exception-handler-owned-control-transfer-workflow-note`
+Use:
+- `topics/exception-handler-owned-control-transfer-workflow-note.md`
+
+Start here when:
+- visible direct control flow still looks incomplete or misleading because traps, faults, breakpoints, or signal delivery may own the meaningful branch
+- Windows VEH/SEH, unwind metadata, dynamic function-table installation, Linux signal handlers, or trap-resume logic look like the real transfer surface
+- the next useful output is one handler-ownership boundary plus one consequence-bearing context/state action before resuming ordinary route proof
+
+Do **not** start here when:
+- the case is still better described as broad anti-instrumentation family triage rather than a clearly handler-owned transfer problem
+- the current posture itself is obviously too visible or distorting and observation-topology relocation is the real next move
+- the real bottleneck is already a visible integrity-result reducer or a close-but-wrong runtime-table/init-obligation case rather than hidden handler-owned branch ownership
+
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as seven common bottleneck families that often chain into one another.
+A useful way to read the branch is as nine common bottleneck families that often chain into one another.
 
 ### A. Observation-topology failure -> one more truthful boundary
 Typical question:
@@ -304,6 +322,22 @@ Possible next handoff:
 - `topics/attestation-verdict-to-policy-state-workflow-note.md` when the case is really a mobile verdict-to-policy problem
 - `topics/native-interface-to-state-proof-workflow-note.md` when the tripwire has already reduced into an ordinary consequence consumer
 
+### H. Exception/signal ownership -> one handler-owned transfer boundary
+Typical question:
+- is the real missing branch actually owned by handler registration, unwind lookup, signal delivery, or trap-resume logic rather than ordinary visible direct calls?
+
+Primary note:
+- `topics/exception-handler-owned-control-transfer-workflow-note.md`
+
+Routing reminder:
+- leave broad exception/signal-control-transfer work here once one ownership boundary and one consequence-bearing handler action are already good enough
+
+Possible next handoff:
+- `topics/anti-instrumentation-gate-triage-workflow-note.md` when the case broadens back into anti-debug family classification
+- `topics/integrity-check-to-tamper-consequence-workflow-note.md` when the handler path has already reduced into one verdict/tripwire consequence
+- `topics/native-interface-to-state-proof-workflow-note.md` when the resumed target is now an ordinary consequence-bearing consumer
+- `topics/protected-runtime-observation-topology-selection-workflow-note.md` when the current posture still fundamentally distorts the case even after handler ownership is understood
+
 ## 5. The branch’s practical routing rule
 When a case is clearly protected-runtime shaped, ask these in order:
 
@@ -321,6 +355,8 @@ When a case is clearly protected-runtime shaped, ask these in order:
    - if yes, start with runtime-table / initialization-obligation recovery
 7. **Are checks already visible, but the first behavior-changing consequence is still hidden?**
    - if yes, start with integrity-check -> tamper consequence
+8. **Does visible direct control flow still stay incomplete because traps, faults, breakpoints, or signal delivery may own the meaningful branch?**
+   - if yes, start with exception-handler-owned control transfer
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
 That usually means:
@@ -330,6 +366,7 @@ That usually means:
 - resolve packed/bootstrap handoff before artifact-consumer proof
 - resolve runtime-artifact / init-obligation drift before rewriting core logic again
 - resolve integrity result reduction before treating later degrade/decoy behavior as explained
+- resolve one handler-owned transfer boundary before inventing wider missing-control-flow stories around the whole target
 
 ## 6. What this branch is strongest at
 This branch is currently strongest at practical notes for:
@@ -340,6 +377,7 @@ This branch is currently strongest at practical notes for:
 - turning readable artifacts into one first ordinary consumer
 - turning close-but-wrong replay into one smaller runtime-artifact or initialization-obligation target
 - turning visible integrity logic into one consequence-bearing tripwire
+- turning trap/fault/signal-owned control-transfer ambiguity into one handler-owned transfer boundary plus one quieter post-handler target
 
 That makes the branch good at cases where the main problem is not abstract taxonomy, but converting visible protection-related material into one quieter next object.
 
@@ -384,6 +422,7 @@ The compact reading is:
 - prove the first ordinary consumer of recovered artifacts
 - stabilize one truthful runtime artifact and one minimal init obligation when static views are still lying
 - prove the first consequence-bearing integrity tripwire
+- recover one handler-owned transfer boundary when traps, faults, or signal delivery hide the real branch
 - then leave the branch once the remaining work is ordinary native, browser, protocol, mobile, or broader runtime-evidence continuation rather than protection-shaped uncertainty
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which leaf note to read first.
