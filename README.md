@@ -13,6 +13,7 @@ The workflow should:
 - write clean Markdown notes
 - keep downloaded/source material organized
 - steadily improve canonical topic pages, subtree guides, and practical workflow ladders inside the KB itself
+- when external research is used, prefer turning it into concrete workflow notes, case notes, or source-backed practical continuation pages rather than only top-level wording/index repair
 - prefer practical, case-driven workflow coverage over endless abstract taxonomy growth
 
 ## Structure

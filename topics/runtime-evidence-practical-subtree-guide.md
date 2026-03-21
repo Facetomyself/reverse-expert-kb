@@ -13,6 +13,7 @@ Related pages:
 - topics/runtime-evidence-package-and-handoff-workflow-note.md
 - topics/analytic-provenance-and-evidence-management.md
 - topics/notebook-and-memory-augmented-re.md
+- sources/runtime-evidence/2026-03-21-evidence-package-and-handoff-notes.md
 
 ## 1. Why this guide exists
 This guide exists because the KB’s runtime-evidence branch already has a strong synthesis page and several useful practical leaves, but it is still easy to read as a short conceptual cluster instead of a usable operator ladder.
