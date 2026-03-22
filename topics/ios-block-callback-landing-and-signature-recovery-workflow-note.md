@@ -47,6 +47,16 @@ Is this callback/block landing actually the truthful control-transfer boundary
 for the behavior I care about, and is its contract narrow enough to trust?
 ```
 
+A more operational way to phrase the same stop rule is:
+- once one callback/block family is already plausible, stop widening broad owner search by default
+- instead, try to freeze the **first runtime-backed block contract**
+
+In this note, that means a four-part proof object:
+- one plausible block/callback family
+- one dyld/cache-truthful invoke landing
+- one runtime-visible or tightly constrained signature shape
+- one downstream effect worth handing off
+
 Until that is proved, modern iOS work often stalls in three kinds of confusion:
 - PAC-era code views that look more certain than they really are
 - block-shaped objects whose signatures are still too vague to interpret safely
@@ -154,9 +164,17 @@ Useful tactics:
 - inspect runtime-visible signature/type-encoding information when possible
 - compare recovered shape across accepted/degraded or target/non-target runs
 
+Source-backed structural reminder worth preserving here:
+- the Apple/Clang Block ABI treats a block as a callable object with an `invoke` pointer and, when available, a descriptor-carried signature field
+- that means the analyst should explicitly distinguish:
+  - block object presence
+  - invoke landing truth
+  - signature-contract truth
+
 What you want:
 - enough contract to distinguish the real callback family from nearby adapters/wrappers
 - enough contract to know whether replay attempts are even shape-compatible
+- enough runtime-backed structure to say you now have the first trustworthy contract, rather than another static guess near the same wrapper family
 
 ### Step 5: prove one landing boundary with one compare pair
 Use one narrow compare pair:
@@ -178,6 +196,10 @@ block/callback family
   -> usable parameter contract
   -> one downstream effect worth handing off
 ```
+
+That chain is the practical definition of the **first runtime-backed block contract**.
+Once it exists, default to treating it as the proof boundary that ends broad callback/owner widening for this stage.
+Only reopen broad owner search if later evidence actually breaks that contract.
 
 At that point, route forward:
 - to `topics/ios-pac-shaped-callback-and-dispatch-failure-triage.md` when the main question is still how to classify a callback/dispatch failure conservatively

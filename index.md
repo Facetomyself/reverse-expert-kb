@@ -120,7 +120,7 @@ Current practical branch picture:
   - protocol / firmware practical workflows
   - malware practical workflows
   - runtime-evidence practical workflows
-  - iOS practical workflows
+  - iOS practical workflows, now including a clearer callback/block stop rule around freezing the first runtime-backed contract instead of reopening broad owner search too early
   - protected-runtime deobfuscation ladders, now including a thinner opaque-predicate / computed-next-state bridge between broad VM anchoring and broader flattened state-edge reduction
 - **main maintenance risks**:
   - continuing to add convenient browser/mobile leaves while higher-level branch memory, parent-page routing, and cross-branch comparison drift out of sync
