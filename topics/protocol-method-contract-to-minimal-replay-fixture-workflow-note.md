@@ -14,6 +14,7 @@ Related pages:
 Supporting source notes:
 - sources/firmware-protocol/2026-03-21-schema-externalization-and-replay-harness-notes.md
 - sources/firmware-protocol/2026-03-22-grpc-method-contract-minimal-fixture-notes.md
+- sources/firmware-protocol/2026-03-23-streaming-first-minimal-replay-fixture-notes.md
 
 ## 1. When to use this note
 Use this note when a protocol or RPC-shaped case has already progressed far enough that:
@@ -356,7 +357,18 @@ Primary retained source influences for this page:
 - IOActive’s gRPC reversing walkthrough for service registration, vtable ordering, and method-bearing contract recovery
 - protobuf descriptor extraction and recovery material summarized in:
   - `sources/firmware-protocol/2026-03-22-grpc-method-contract-minimal-fixture-notes.md`
+- streaming-first and reflection-disabled continuation material summarized in:
+  - `sources/firmware-protocol/2026-03-23-streaming-first-minimal-replay-fixture-notes.md`
 - existing schema-externalization source note:
+  - `sources/firmware-protocol/2026-03-21-schema-externalization-and-replay-harness-notes.md`
+
+Confidence note:
+- strong for the workflow gap and stop rules
+- medium for tool-specific implementation details because concrete targets vary widely
+- intentionally conservative about claiming that any one fixture package solves live replay by itself
+or tool-specific implementation details because concrete targets vary widely
+- intentionally conservative about claiming that any one fixture package solves live replay by itself
+ion source note:
   - `sources/firmware-protocol/2026-03-21-schema-externalization-and-replay-harness-notes.md`
 
 Confidence note:
