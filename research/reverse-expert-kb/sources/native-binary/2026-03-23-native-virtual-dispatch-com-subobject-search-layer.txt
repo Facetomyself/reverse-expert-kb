@@ -1,0 +1,557 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering C++ virtual dispatch vtable slot concrete implementation workflow COM QueryInterface dynamic_cast vptr offset",
+    "reverse engineering identify concrete implementation behind virtual call vtable slot multiple inheritance RTTI workflow",
+    "COM reverse engineering interface slot concrete class implementation workflow QueryInterface vtable"
+  ],
+  "count": 27,
+  "results": [
+    {
+      "title": "vtable · GitHub Topics · GitHub",
+      "url": "https://github.com/topics/vtable",
+      "snippet": "# vtable. All 19 C++ 10 Rust 5 Python 2 C 1 TypeScript 1. Automatic vtable detection, inheritance analysis, and function override tracking for reverse engineering compiled C++ binaries. reverse-engineering ida ida-plugin vtable. ### DisabledMallis / magic\\_vtable. A small C++23 library to acquire vtable information at compile time. reflection constexpr compile-time-reflection vtable compile-time-meta-programming cpp23 constexpr-all-the-things cxx23. Idiomatic and FFI Safe dyn traits in Rust. rust dynamic ffi trait rust-library macro no-std proc-macro rust-crate dynamic-dispatch trait-object vtable rust-trait c-abi c-ffi. exporter symbols elf symbol elf-parser vtable. ### praydog / vtable-monitor. tool for monitoring x64 MSVC vtable calls. windows cpp reverse-engineering msvc rtti vtable binary-instrumentation. Type-erased, concept-driven interfaces in C++11. interface view portable concepts static cpp11 header-only type-erasure bind vtable. rust embedded vtable embedded-rust. Simple VTable dumper for IDA 9.0+. ida ida-pro ida-plugin rtti idapython vtables vtable rtti-dumper. ### unbrice / bench\\_vtables. A playground to experiment with various representation of V-Tables for multiple Rust traits. Elegant interop with C++ classes / interfaces with vtables. Helper methods to work with Rust types. rust types slice trait-object vtable. 🔍 Powerful Windows COM interface extractor for developers and reverse engineers. Outputs C++-ready interface definitions with RVA offsets. windows debugging cpp com reverse-engineering forensics malware-analysis rva binary-analysis atl windows-api ole development-tools security-research vtable type-information type-library idispatch interface-extraction. ### 0xrinegade / VTable. VTable is not just a high-performance multidimensional data analysis table, but also a grid artist that creates art between rows and columns. vtable english-vtable westernized-vtable vtable-for-burgers. Automatically generates Rust FFI bindings to C (and some C++) libraries. Here we'll try to handle overloads, virtual functions and vtables in C++. Header-only library for C++17 that patches the VTable of class instances to call functions of your choosing. cpp cpp17 cpp-library vtable cpp17-library. An educational exercise implementing C++ polymorphism in C. c mit-license polymorphism sample-code vtable. In this application, we are going to access the VPTR and through VPTR we access the VTABLE and from VTABLE we access the addresses of the virtual function. Add a description, image, and links to the vtable topic page so that developers can more easily learn about it. To associate your repository with the vtable topic, visit your repo's landing page and select \"manage topics.\".",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.78
+    },
+    {
+      "title": "Reverse Engineering virtual functions code in C++ - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/6477013/reverse-engineering-virtual-functions-code-in-c",
+      "snippet": "### more stack exchange communities. # Reverse Engineering virtual functions code in C++. Since you've *defined* your virtual functions inside the class definition, I think your functions might be being inlined by the compiler, as it knows the exact type at the call site. With g++ 4.5, with the default options (and after fixing a few issues in the code) I have compiled into assembly (`g++ -S -o test.asm test.cpp`) the code and it does show the functions and the calls through the virtual dispatch mechanism (in `main` after calling the constructor it extracts the vptr, offsets it and calls through the value in the register). Definition of Shape::function2 (note the .weak means *inline*). Definition of Shape::function1 (again, .weak means *inline*). movq -24(%rbp), %rax # load **vptr into rax i.e. As to what others have been saying that the compiler can elide the virtual dispatch completely or inline the function, that is true. Thanks for contributing an answer to Stack Overflow! ##### Stack Overflow.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.76
+    },
+    {
+      "title": "Dynamic dispatch implementation- virtual function table offset",
+      "url": "https://stackoverflow.com/questions/41642638/dynamic-dispatch-implementation-virtual-function-table-offset",
+      "snippet": "",
+      "published_date": "2017-01-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.68
+    },
+    {
+      "title": "Self modifying virtual table entries to point to concrete implementation",
+      "url": "https://stackoverflow.com/questions/6771865/self-modifying-virtual-table-entries-to-point-to-concrete-implementation",
+      "snippet": "",
+      "published_date": "2011-07-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "Decyphering undocumented COM interfaces - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/3527440/decyphering-undocumented-com-interfaces",
+      "snippet": "A competent reverse engineer can undecorate these symbols by sight, mostly, and Visual C++ provides an UNDNAME tool (and your debugger or",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.66
+    },
+    {
+      "title": "Program Obfuscation via ABI Debiasing",
+      "url": "https://par.nsf.gov/servlets/purl/10444782",
+      "snippet": "Speci￿cally, we identify two types of ABI biases that are cen-tral to past reverse engineering works on C++ binaries: VTable ordering bias and Function Pointer bias. The primary VTable of a class contains the pointers to all the functions de￿ned by the primary base class (with overridden func-tions replaced with pointers to the overriding functions), followed 147 ABI Debiasing ACSAC 21, December 06–10, 2021, Online, ACM, New York, NY USA by the functions de￿ned by the derived class including overridden functions of secondary base(s). In the case of C++ programs, using the VTable as a starting point, a reverse engineer can: (1) reconstruct polymorphic classes, (2) establish polymorphic member function association by examining the function pointers in the VTable, and (3) identify inheritance relationship by either examining the con-struction/destruction order etc. A reverse engineer (see vfGuard [23]) takes advantage of these requirements by (1) extracting all the VTables in the memory using a signature based approach comprising of the o￿set-to-top ￿eld, RTTI ￿eld and function pointers, (2) examining the o￿set-to-top 149 ABI Debiasing ACSAC 21, December 06–10, 2021, Online, ACM, New York, NY USA class A { int a; virtual void vA1()=0; virtual void vA2(){} }; class B { int b; virtual void vB1(){} virtual void vB2()=0 }; class C { int c; virtual void vC1(){} }; class D: public A, B, C { int d; virtual void vD1(){} virtual void vD2(){} }; +0 0 +8 &RTTI(D) +16 pure_virt +24 &A::vA2 +32 &D::vD1 +40 &D::vD2 +48 -16 +56 &RTTI(D) +64 &B::vB1 +72 pure_virt +80 -32 +88 &RTTI(D) +96 &C::vC1 +0 vptr(D, A-in-D) +8 a +16 vptr(B-in-D) +24 b +32 vptr(C-in-D) +40 c +48 d VTable of D Object D +0 0 +8 &RTTI(D) +16 pure_virt +24 &A::vA2 +32 &D::vD1 +40 &D::vD2 +0 -16 +8 &RTTI(D) +16 &B::vB1 +24 pure_virt +0 -32 +8 &RTTI(D) +16 &C::vC1 Vtable of B-in-D …. Particularly, we wish to eliminate VTable and function-pointer biases that have proven crucial in C++ binary reverse engineering [12, 23, 25, 28]. This phase aims at disrupting FP bias where a reverse engineer can rely on the size of a VTable (i.e., number of function pointers in a VTable) in order to infer directionality of inheritance.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.58
+    },
+    {
+      "title": "Reversing C++ Virtual Functions: Part 1 : r/ReverseEngineering",
+      "url": "https://www.reddit.com/r/ReverseEngineering/comments/5jdt6d/reversing_c_virtual_functions_part_1/",
+      "snippet": "",
+      "published_date": "2016-12-20T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.58
+    },
+    {
+      "title": "COM interface methods - Reverse Engineering Stack Exchange",
+      "url": "https://reverseengineering.stackexchange.com/questions/2822/com-interface-methods",
+      "snippet": "We can see that the IShellWindows interface has the following vtable entries: - Count() - Item() - _NewEnum() - Register() - RegisterPending",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.58
+    },
+    {
+      "title": "[Reverse Engineering Tips] — Run-Time Type Identification | by Thomas Roccia | SecurityBreak",
+      "url": "https://blog.securitybreak.io/reverse-engineering-tips-run-time-type-identification-99eaff0c3afb",
+      "snippet": "Some posts about security, malware, reverse engineering. # [Reverse Engineering Tips] — Run-Time Type Identification. Run-time type information (RTTI) is a feature of C++ that allows the determination of an object data type at runtime *(runtime, or execution time is the final phase of a computer program’s life cycle, in which the code is being executed on the computer’s central processing unit (CPU) as machine code. RTTI applies to classes with virtual functions and is only incorporated with binaries compiled with Visual Studio. ## Get Thomas Roccia’s stories in your inbox. * **type\\_info class**: used to hold the type information returned by the `typeid` operator. ## RTTI Example. To see how it looks like let’s take an example from here.In the following piece of code, we create 2 classes, one of which contains a virtual function, then we use *dynamic\\_cast.*. #include<iostream>using namespace std;class B { virtual void fun() {} };class D: public B {};int main(){ B *b = new D; D *d = dynamic_cast<D*>(b);if(d != NULL) cout << \"works\"; else cout << \"cannot cast B* to D*\";return 0;}. ## Reversing RTTI in IDA. To be able to read RTTI, you can use the Class Informer plugin. Class Informer will list the vtable function addresses, type, and level of inheritance (hierarchy). Then it will be much nicer in IDA to reverse and understand the RTTI. For more details about reversing C++, I recommend reading this presentation. Some posts about security, malware, reverse engineering. ## Written by Thomas Roccia. ## More from Thomas Roccia and SecurityBreak. ### Stop Running AI Coding Assistants Blindly. ## My Top Books to Learn Malware Analysis and Reverse Engineering. ### I often get messages from people wanting to learn more about reverse engineering and malware. [## [Reverse Engineering Tip] — Analyzing a DLL in x64DBG. In this example we will use a random dll…](/reverse-engineering-tip-analyzing-a-dll-in-x64dbg-b3005d516049? See all from Thomas Roccia. ## As a Neuroscientist, I Quit These 5 Morning Habits That Destroy Your Brain. ## I Tried New Claude Code Ollama Workflow ( It’s Wild & Free). ## Stanford Just Killed Prompt Engineering With 8 Words (And I Can’t Believe It Worked). What Happened to My Brain Was Terrifying.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.56
+    },
+    {
+      "title": "vtable implementation with multiple inheritance - Reddit",
+      "url": "https://www.reddit.com/r/ProgrammingLanguages/comments/kzx1wk/vtable_implementation_with_multiple_inheritance/",
+      "snippet": "vtable implementation with multiple inheritance : r/ProgrammingLanguages Skip to main contentvtable implementation with multiple inheritance : r/ProgrammingLanguages Open menu Open navigationGo to Reddit Home r/ProgrammingLanguages A chip A close button Log InLog in to Reddit Expand user menu Open settings menu This subreddit is dedicated to the theory, design and implementation of programming languages. vtable implementation with multiple inheritance I've been searching around for specifics on how vtables are implemented in OO languages with multiple inheritance (regardless of whether it's only multiple interfaces like in Java or multiple base classes like in C++). Material I've found is actually quite vague / short on details so I was hoping maybe someone here has some direct experience with this. In my language Tuplex I'm striving for fast dynamic dispatch for virtual methods - a single virtual method pointer lookup in the vtable, without executing an actual search algorithm. (It would be trivial to implement a search for a method ID in a list - but that would be significant overhead for the general case.) It seems this isn't actually possible in the general case since interfaces may be inherited in any order and via arbitrary inheritance chain of interfaces, which means there can be no static (known at compile time) position in a vtable to look up a given method in. Perhaps C++ and other languages are doing something clever here to minimize overhead in virtual method dispatch. Go should also be interesting, it doesn't even declare interfaces in the implementing types. Anybody know how others have addressed this? New comments cannot be posted and votes cannot be cast. Evolution of programming language paradigms Trade-offs in static versus dynamic typing Use of pattern matching in language design Create your account and connect with a world of communities. By continuing, you agree to ourUser Agreementand acknowledge that you understand thePrivacy Policy. Anyone can view, post, and comment to this community * Reddit reReddit: Top posts of January 18, 2021 * * * * Reddit reReddit: Top posts of January 2021 * * * * Reddit reReddit: Top posts of 2021 * * * Reddit RulesPrivacy PolicyUser AgreementAccessibilityReddit, Inc.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.56
+    },
+    {
+      "title": "Understanding Virtual Tables in C++",
+      "url": "https://pabloariasal.github.io/2017/06/10/understanding-virtual-tables",
+      "snippet": "In-depth explanation of vtable construction, vptr in objects, dynamic dispatch via vtable offsets, and how concrete overrides replace base entries in the table.",
+      "published_date": "2017-06-10",
+      "source": "grok",
+      "score": 0.51
+    },
+    {
+      "title": "Devil is Virtual: Reversing Virtual Inheritance in C++ Binaries",
+      "url": "https://topicsec.github.io/posts/devil-is-virtual/",
+      "snippet": "",
+      "published_date": "2022-01-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.49
+    },
+    {
+      "title": "c++ - Vtable in case of Virtual Base class | DaniWeb",
+      "url": "https://www.daniweb.com/programming/software-development/threads/242457/vtable-in-case-of-virtual-base-class",
+      "snippet": "# Vtable in case of Virtual Base class. Can anyone explain me how the vtable and vptr are created in case of virtual base class and what all values it contains. I have idea about the vTable and Vpt in case of polymorphism that the table contains the address of all the virtual functions, but I am confused as far as virtual Base class is concerned. Conceptually nothing about virtual functions changes when a class is made a virtual base; the extra complexity comes from locating the single shared base subobject inside a derived object and adjusting the implicit `this` pointer when control must reach a base-class implementation. * a per-object pointer/table used to locate virtual-base offsets (often called a vbptr/vbtable);. * vtable entries that carry not only a function address but also adjustment/offset information (and an RTTI/typeinfo pointer);. These pieces let a call through any polymorphic subobject reach the right override even when the base is shared. In `D` the single `A` subobject lives at some runtime-determined offset; a call to `f()` routed from the `B` or `C` side will typically go through a vtable slot that either contains an adjusted function pointer or a thunk that fixes up `this` and transfers control to the implementation. Practical note: compilers differ in exact layout and naming, so rely on language casts/virtual destructors for correctness. For low-level debugging, use your compiler’s class-layout dump or assembly to inspect vtables/vbptrs and thunks. >in case of virtual base class and what all values it contains.**. The C++ standard doesn't even mandate that virtual tables be used at all, much less how they're used. Second, the virtual function concept really doesn't change any when you introduce virtual bases. 2. Non-virtual inheritance merges data members of every involved class to create an object. 3. Virtual inheritance merges only a single copy of each virtual base into an object. 4. A non-virtual member function is basically an access-restricted non-member function. 5. Virtual member functions use a \"virtual table\" which references appropriate member functions corresponding to the dynamic type of an object. 6. Virtual member functions may incur both a size and performance cost due to the \"virtual table\".",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.46
+    },
+    {
+      "title": "Reverse Engineering: RTTI explained | by Edward Severinsen",
+      "url": "https://medium.com/@edwardseverinsen171717/reverse-engineering-rtti-explained-e41b054552bf",
+      "snippet": "",
+      "published_date": "2025-06-27T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.44
+    },
+    {
+      "title": "Republic of Pwning",
+      "url": "https://blog.rop.la/en/reversing/2022/12/13/identifying-vftables-through-ms-cpp-rtti.html",
+      "snippet": "",
+      "published_date": "2022-12-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Visual C++ RTTI Inspection",
+      "url": "https://blog.quarkslab.com/visual-c-rtti-inspection.html",
+      "snippet": "Practical guide to retrieving C++ class hierarchies and vftables from binaries using RTTI in Visual C++. Shows how to parse RTTI structures to identify polymorphic classes, vtables, and inheritance for easier reverse engineering.",
+      "published_date": "2013-07-13",
+      "source": "grok",
+      "score": 0.4
+    },
+    {
+      "title": "vTable and vPtr in C++: How Virtual Calls Really Work (with Modern “Vibing Code” Workflow) – TheLinuxCode",
+      "url": "https://thelinuxcode.com/vtable-and-vptr-in-c-how-virtual-calls-really-work-with-modern-vibing-code-workflow/",
+      "snippet": "",
+      "published_date": "2026-01-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Enhancing COM Reverse Engineering in Binary Ninja 4.0",
+      "url": "https://binary.ninja/2024/02/12/enhancing-com-reverse-engineering.html",
+      "snippet": "",
+      "published_date": "2024-02-12T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.36
+    },
+    {
+      "title": "Igor's tip of the week #93: COM reverse engineering and COM Helper",
+      "url": "https://hex-rays.com/blog/igors-tip-of-the-week-93-com-reverse-engineering-and-com-helper",
+      "snippet": "",
+      "published_date": "2022-06-10T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.36
+    },
+    {
+      "title": "Part 1 - Understanding virtual function tables, vtable, __purecall ...",
+      "url": "https://dennisbabkin.com/blog/?t=reverse-engineer-virtual-functions-vs-cpp-compiler-vtable-purecall-cfg",
+      "snippet": "",
+      "published_date": "2025-01-10T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.34
+    },
+    {
+      "title": "Reversing C++ Virtual Functions: Part 1 - ALSchwalm",
+      "url": "https://alschwalm.com/blog/static/2016/12/17/reversing-c-virtual-functions/",
+      "snippet": "",
+      "published_date": "2016-12-17T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.34
+    },
+    {
+      "title": "Reversing C++",
+      "url": "https://blackhat.com/presentations/bh-dc-07/Sabanal_Yason/Paper/bh-dc-07-Sabanal_Yason-WP.pdf",
+      "snippet": "Black Hat paper detailing C++ internals in binaries: single/multiple inheritance layouts, multiple vftables per object in MI, vbtable for virtual inheritance, polymorphic class identification via RTTI, and automated analysis strategies using RTTI data.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.34
+    },
+    {
+      "title": "Reversing C++ Virtual Functions: Part 2",
+      "url": "https://alschwalm.com/blog/static/2017/01/24/reversing-c-virtual-functions-part-2-2/",
+      "snippet": "",
+      "published_date": "2017-01-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.34
+    },
+    {
+      "title": "Part II: Classes, Methods and RTTI",
+      "url": "https://www.openrce.org/articles/full_view/23",
+      "snippet": "Covers MSVC C++ implementation details including class layout, virtual functions, vtables in multiple inheritance, and RTTI structure for polymorphic classes. Explains vtable pointers, base class ordering, and how RTTI supports dynamic_cast/typeid with ClassHierarchyDescriptor and TypeDescriptor.",
+      "published_date": "2006-09-21",
+      "source": "grok",
+      "score": 0.32
+    },
+    {
+      "title": "WSL, COM Hooking, & RTTI",
+      "url": "https://core-jmp.org/2026/03/wsl-com-hooking-rtti/",
+      "snippet": "",
+      "published_date": "2026-03-17T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.32
+    },
+    {
+      "title": "What's a vtable? What's an IUnknown? // TimDbg",
+      "url": "https://www.timdbg.com/posts/vtables/",
+      "snippet": "",
+      "published_date": "2022-12-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.32
+    },
+    {
+      "title": "The layout of a COM object - The Old New Thing",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20040205-00?p=40733",
+      "snippet": "Official Microsoft explanation of COM object layout, vtable structure starting with QueryInterface, AddRef, Release pointers, and how the interface pointer points to the vtable.",
+      "published_date": "2004-02-05",
+      "source": "grok",
+      "score": 0.28
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Part 1 - Understanding virtual function tables, vtable, __purecall ...",
+        "url": "https://dennisbabkin.com/blog/?t=reverse-engineer-virtual-functions-vs-cpp-compiler-vtable-purecall-cfg",
+        "snippet": "",
+        "published_date": "2025-01-10T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.34
+      },
+      {
+        "title": "Reverse Engineering: RTTI explained | by Edward Severinsen",
+        "url": "https://medium.com/@edwardseverinsen171717/reverse-engineering-rtti-explained-e41b054552bf",
+        "snippet": "",
+        "published_date": "2025-06-27T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.44
+      },
+      {
+        "title": "Republic of Pwning",
+        "url": "https://blog.rop.la/en/reversing/2022/12/13/identifying-vftables-through-ms-cpp-rtti.html",
+        "snippet": "",
+        "published_date": "2022-12-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Devil is Virtual: Reversing Virtual Inheritance in C++ Binaries",
+        "url": "https://topicsec.github.io/posts/devil-is-virtual/",
+        "snippet": "",
+        "published_date": "2022-01-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.49
+      },
+      {
+        "title": "Reversing C++ Virtual Functions: Part 1 - ALSchwalm",
+        "url": "https://alschwalm.com/blog/static/2016/12/17/reversing-c-virtual-functions/",
+        "snippet": "",
+        "published_date": "2016-12-17T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.34
+      },
+      {
+        "title": "WSL, COM Hooking, & RTTI",
+        "url": "https://core-jmp.org/2026/03/wsl-com-hooking-rtti/",
+        "snippet": "",
+        "published_date": "2026-03-17T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.32
+      },
+      {
+        "title": "Enhancing COM Reverse Engineering in Binary Ninja 4.0",
+        "url": "https://binary.ninja/2024/02/12/enhancing-com-reverse-engineering.html",
+        "snippet": "",
+        "published_date": "2024-02-12T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.36
+      },
+      {
+        "title": "Igor's tip of the week #93: COM reverse engineering and COM Helper",
+        "url": "https://hex-rays.com/blog/igors-tip-of-the-week-93-com-reverse-engineering-and-com-helper",
+        "snippet": "",
+        "published_date": "2022-06-10T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.36
+      },
+      {
+        "title": "Reversing C++ Virtual Functions: Part 1 : r/ReverseEngineering",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/5jdt6d/reversing_c_virtual_functions_part_1/",
+        "snippet": "",
+        "published_date": "2016-12-20T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.58
+      },
+      {
+        "title": "Self modifying virtual table entries to point to concrete implementation",
+        "url": "https://stackoverflow.com/questions/6771865/self-modifying-virtual-table-entries-to-point-to-concrete-implementation",
+        "snippet": "",
+        "published_date": "2011-07-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "vTable and vPtr in C++: How Virtual Calls Really Work (with Modern “Vibing Code” Workflow) – TheLinuxCode",
+        "url": "https://thelinuxcode.com/vtable-and-vptr-in-c-how-virtual-calls-really-work-with-modern-vibing-code-workflow/",
+        "snippet": "",
+        "published_date": "2026-01-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Dynamic dispatch implementation- virtual function table offset",
+        "url": "https://stackoverflow.com/questions/41642638/dynamic-dispatch-implementation-virtual-function-table-offset",
+        "snippet": "",
+        "published_date": "2017-01-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.68
+      },
+      {
+        "title": "What's a vtable? What's an IUnknown? // TimDbg",
+        "url": "https://www.timdbg.com/posts/vtables/",
+        "snippet": "",
+        "published_date": "2022-12-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.32
+      },
+      {
+        "title": "Reversing C++ Virtual Functions: Part 1 : r/ReverseEngineering",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/5jdt6d/reversing_c_virtual_functions_part_1/",
+        "snippet": "",
+        "published_date": "2016-12-20T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Reversing C++ Virtual Functions: Part 2",
+        "url": "https://alschwalm.com/blog/static/2017/01/24/reversing-c-virtual-functions-part-2-2/",
+        "snippet": "",
+        "published_date": "2017-01-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.34
+      }
+    ],
+    "tavily": [
+      {
+        "title": "[Reverse Engineering Tips] — Run-Time Type Identification | by Thomas Roccia | SecurityBreak",
+        "url": "https://blog.securitybreak.io/reverse-engineering-tips-run-time-type-identification-99eaff0c3afb",
+        "snippet": "Some posts about security, malware, reverse engineering. # [Reverse Engineering Tips] — Run-Time Type Identification. Run-time type information (RTTI) is a feature of C++ that allows the determination of an object data type at runtime *(runtime, or execution time is the final phase of a computer program’s life cycle, in which the code is being executed on the computer’s central processing unit (CPU) as machine code. RTTI applies to classes with virtual functions and is only incorporated with binaries compiled with Visual Studio. ## Get Thomas Roccia’s stories in your inbox. * **type\\_info class**: used to hold the type information returned by the `typeid` operator. ## RTTI Example. To see how it looks like let’s take an example from here.In the following piece of code, we create 2 classes, one of which contains a virtual function, then we use *dynamic\\_cast.*. #include<iostream>using namespace std;class B { virtual void fun() {} };class D: public B {};int main(){ B *b = new D; D *d = dynamic_cast<D*>(b);if(d != NULL) cout << \"works\"; else cout << \"cannot cast B* to D*\";return 0;}. ## Reversing RTTI in IDA. To be able to read RTTI, you can use the Class Informer plugin. Class Informer will list the vtable function addresses, type, and level of inheritance (hierarchy). Then it will be much nicer in IDA to reverse and understand the RTTI. For more details about reversing C++, I recommend reading this presentation. Some posts about security, malware, reverse engineering. ## Written by Thomas Roccia. ## More from Thomas Roccia and SecurityBreak. ### Stop Running AI Coding Assistants Blindly. ## My Top Books to Learn Malware Analysis and Reverse Engineering. ### I often get messages from people wanting to learn more about reverse engineering and malware. [## [Reverse Engineering Tip] — Analyzing a DLL in x64DBG. In this example we will use a random dll…](/reverse-engineering-tip-analyzing-a-dll-in-x64dbg-b3005d516049? See all from Thomas Roccia. ## As a Neuroscientist, I Quit These 5 Morning Habits That Destroy Your Brain. ## I Tried New Claude Code Ollama Workflow ( It’s Wild & Free). ## Stanford Just Killed Prompt Engineering With 8 Words (And I Can’t Believe It Worked). What Happened to My Brain Was Terrifying.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.56
+      },
+      {
+        "title": "Program Obfuscation via ABI Debiasing",
+        "url": "https://par.nsf.gov/servlets/purl/10444782",
+        "snippet": "Speci￿cally, we identify two types of ABI biases that are cen-tral to past reverse engineering works on C++ binaries: VTable ordering bias and Function Pointer bias. The primary VTable of a class contains the pointers to all the functions de￿ned by the primary base class (with overridden func-tions replaced with pointers to the overriding functions), followed 147 ABI Debiasing ACSAC 21, December 06–10, 2021, Online, ACM, New York, NY USA by the functions de￿ned by the derived class including overridden functions of secondary base(s). In the case of C++ programs, using the VTable as a starting point, a reverse engineer can: (1) reconstruct polymorphic classes, (2) establish polymorphic member function association by examining the function pointers in the VTable, and (3) identify inheritance relationship by either examining the con-struction/destruction order etc. A reverse engineer (see vfGuard [23]) takes advantage of these requirements by (1) extracting all the VTables in the memory using a signature based approach comprising of the o￿set-to-top ￿eld, RTTI ￿eld and function pointers, (2) examining the o￿set-to-top 149 ABI Debiasing ACSAC 21, December 06–10, 2021, Online, ACM, New York, NY USA class A { int a; virtual void vA1()=0; virtual void vA2(){} }; class B { int b; virtual void vB1(){} virtual void vB2()=0 }; class C { int c; virtual void vC1(){} }; class D: public A, B, C { int d; virtual void vD1(){} virtual void vD2(){} }; +0 0 +8 &RTTI(D) +16 pure_virt +24 &A::vA2 +32 &D::vD1 +40 &D::vD2 +48 -16 +56 &RTTI(D) +64 &B::vB1 +72 pure_virt +80 -32 +88 &RTTI(D) +96 &C::vC1 +0 vptr(D, A-in-D) +8 a +16 vptr(B-in-D) +24 b +32 vptr(C-in-D) +40 c +48 d VTable of D Object D +0 0 +8 &RTTI(D) +16 pure_virt +24 &A::vA2 +32 &D::vD1 +40 &D::vD2 +0 -16 +8 &RTTI(D) +16 &B::vB1 +24 pure_virt +0 -32 +8 &RTTI(D) +16 &C::vC1 Vtable of B-in-D …. Particularly, we wish to eliminate VTable and function-pointer biases that have proven crucial in C++ binary reverse engineering [12, 23, 25, 28]. This phase aims at disrupting FP bias where a reverse engineer can rely on the size of a VTable (i.e., number of function pointers in a VTable) in order to infer directionality of inheritance.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.58
+      },
+      {
+        "title": "c++ - Vtable in case of Virtual Base class | DaniWeb",
+        "url": "https://www.daniweb.com/programming/software-development/threads/242457/vtable-in-case-of-virtual-base-class",
+        "snippet": "# Vtable in case of Virtual Base class. Can anyone explain me how the vtable and vptr are created in case of virtual base class and what all values it contains. I have idea about the vTable and Vpt in case of polymorphism that the table contains the address of all the virtual functions, but I am confused as far as virtual Base class is concerned. Conceptually nothing about virtual functions changes when a class is made a virtual base; the extra complexity comes from locating the single shared base subobject inside a derived object and adjusting the implicit `this` pointer when control must reach a base-class implementation. * a per-object pointer/table used to locate virtual-base offsets (often called a vbptr/vbtable);. * vtable entries that carry not only a function address but also adjustment/offset information (and an RTTI/typeinfo pointer);. These pieces let a call through any polymorphic subobject reach the right override even when the base is shared. In `D` the single `A` subobject lives at some runtime-determined offset; a call to `f()` routed from the `B` or `C` side will typically go through a vtable slot that either contains an adjusted function pointer or a thunk that fixes up `this` and transfers control to the implementation. Practical note: compilers differ in exact layout and naming, so rely on language casts/virtual destructors for correctness. For low-level debugging, use your compiler’s class-layout dump or assembly to inspect vtables/vbptrs and thunks. >in case of virtual base class and what all values it contains.**. The C++ standard doesn't even mandate that virtual tables be used at all, much less how they're used. Second, the virtual function concept really doesn't change any when you introduce virtual bases. 2. Non-virtual inheritance merges data members of every involved class to create an object. 3. Virtual inheritance merges only a single copy of each virtual base into an object. 4. A non-virtual member function is basically an access-restricted non-member function. 5. Virtual member functions use a \"virtual table\" which references appropriate member functions corresponding to the dynamic type of an object. 6. Virtual member functions may incur both a size and performance cost due to the \"virtual table\".",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.46
+      },
+      {
+        "title": "vtable · GitHub Topics · GitHub",
+        "url": "https://github.com/topics/vtable",
+        "snippet": "# vtable. All 19 C++ 10 Rust 5 Python 2 C 1 TypeScript 1. Automatic vtable detection, inheritance analysis, and function override tracking for reverse engineering compiled C++ binaries. reverse-engineering ida ida-plugin vtable. ### DisabledMallis / magic\\_vtable. A small C++23 library to acquire vtable information at compile time. reflection constexpr compile-time-reflection vtable compile-time-meta-programming cpp23 constexpr-all-the-things cxx23. Idiomatic and FFI Safe dyn traits in Rust. rust dynamic ffi trait rust-library macro no-std proc-macro rust-crate dynamic-dispatch trait-object vtable rust-trait c-abi c-ffi. exporter symbols elf symbol elf-parser vtable. ### praydog / vtable-monitor. tool for monitoring x64 MSVC vtable calls. windows cpp reverse-engineering msvc rtti vtable binary-instrumentation. Type-erased, concept-driven interfaces in C++11. interface view portable concepts static cpp11 header-only type-erasure bind vtable. rust embedded vtable embedded-rust. Simple VTable dumper for IDA 9.0+. ida ida-pro ida-plugin rtti idapython vtables vtable rtti-dumper. ### unbrice / bench\\_vtables. A playground to experiment with various representation of V-Tables for multiple Rust traits. Elegant interop with C++ classes / interfaces with vtables. Helper methods to work with Rust types. rust types slice trait-object vtable. 🔍 Powerful Windows COM interface extractor for developers and reverse engineers. Outputs C++-ready interface definitions with RVA offsets. windows debugging cpp com reverse-engineering forensics malware-analysis rva binary-analysis atl windows-api ole development-tools security-research vtable type-information type-library idispatch interface-extraction. ### 0xrinegade / VTable. VTable is not just a high-performance multidimensional data analysis table, but also a grid artist that creates art between rows and columns. vtable english-vtable westernized-vtable vtable-for-burgers. Automatically generates Rust FFI bindings to C (and some C++) libraries. Here we'll try to handle overloads, virtual functions and vtables in C++. Header-only library for C++17 that patches the VTable of class instances to call functions of your choosing. cpp cpp17 cpp-library vtable cpp17-library. An educational exercise implementing C++ polymorphism in C. c mit-license polymorphism sample-code vtable. In this application, we are going to access the VPTR and through VPTR we access the VTABLE and from VTABLE we access the addresses of the virtual function. Add a description, image, and links to the vtable topic page so that developers can more easily learn about it. To associate your repository with the vtable topic, visit your repo's landing page and select \"manage topics.\".",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.78
+      },
+      {
+        "title": "vtable implementation with multiple inheritance - Reddit",
+        "url": "https://www.reddit.com/r/ProgrammingLanguages/comments/kzx1wk/vtable_implementation_with_multiple_inheritance/",
+        "snippet": "vtable implementation with multiple inheritance : r/ProgrammingLanguages Skip to main contentvtable implementation with multiple inheritance : r/ProgrammingLanguages Open menu Open navigationGo to Reddit Home r/ProgrammingLanguages A chip A close button Log InLog in to Reddit Expand user menu Open settings menu This subreddit is dedicated to the theory, design and implementation of programming languages. vtable implementation with multiple inheritance I've been searching around for specifics on how vtables are implemented in OO languages with multiple inheritance (regardless of whether it's only multiple interfaces like in Java or multiple base classes like in C++). Material I've found is actually quite vague / short on details so I was hoping maybe someone here has some direct experience with this. In my language Tuplex I'm striving for fast dynamic dispatch for virtual methods - a single virtual method pointer lookup in the vtable, without executing an actual search algorithm. (It would be trivial to implement a search for a method ID in a list - but that would be significant overhead for the general case.) It seems this isn't actually possible in the general case since interfaces may be inherited in any order and via arbitrary inheritance chain of interfaces, which means there can be no static (known at compile time) position in a vtable to look up a given method in. Perhaps C++ and other languages are doing something clever here to minimize overhead in virtual method dispatch. Go should also be interesting, it doesn't even declare interfaces in the implementing types. Anybody know how others have addressed this? New comments cannot be posted and votes cannot be cast. Evolution of programming language paradigms Trade-offs in static versus dynamic typing Use of pattern matching in language design Create your account and connect with a world of communities. By continuing, you agree to ourUser Agreementand acknowledge that you understand thePrivacy Policy. Anyone can view, post, and comment to this community * Reddit reReddit: Top posts of January 18, 2021 * * * * Reddit reReddit: Top posts of January 2021 * * * * Reddit reReddit: Top posts of 2021 * * * Reddit RulesPrivacy PolicyUser AgreementAccessibilityReddit, Inc.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.56
+      },
+      {
+        "title": "COM interface methods - Reverse Engineering Stack Exchange",
+        "url": "https://reverseengineering.stackexchange.com/questions/2822/com-interface-methods",
+        "snippet": "We can see that the IShellWindows interface has the following vtable entries: - Count() - Item() - _NewEnum() - Register() - RegisterPending",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.58
+      },
+      {
+        "title": "Igor's tip of the week #93: COM reverse engineering and COM Helper",
+        "url": "https://hex-rays.com/blog/igors-tip-of-the-week-93-com-reverse-engineering-and-com-helper",
+        "snippet": "COM components and their interfaces are identified by UUID aka GUID – unique 128-bit IDs usually represented as string of several hexadecimal number groups. For example, `{00000000-0000-0000-C000-000000000046}` represents `IUnknown` – the base interface which must be implemented by any COM-conforming component. Each COM interface provides a set of functions in a way similar to a C++ class. IDA’s standard type libraries include most of the COM interfaces defined by the Windows SDKs, so you can import these structures from them. Once imported, the struct can be used, for example, to label indirect calls performed using the interface pointer. It returns a pointer to the interface defined by the interface ID (IID) which is a kind of GUID. To detect known GUIDs, on Windows the COM Helper uses the registry (`HKLM\\Software\\Classes\\Interface`subtree). If you are dealing with lesser-known interfaces, you can add their GUIDs to this file so that they can be labeled nicely.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Enhancing COM Reverse Engineering in Binary Ninja 4.0",
+        "url": "https://binary.ninja/2024/02/12/enhancing-com-reverse-engineering.html",
+        "snippet": "## Enhancing COM Reverse Engineering in Binary Ninja 4.0. Reverse engineering COM (Component Object Model) objects has traditionally been a complex and time-consuming process, involving a deep understanding of interface structures, GUIDs (Globally Unique Identifiers), and the intricate relationships between COM components. With the upcoming release of Binary Ninja 4.0, this task has become significantly more manageable thanks to several enhancements that improve the reverse engineering workflow for COM objects. Binary Ninja 4.0 introduces a substantial improvement in how COM interfaces are represented within Type Libraries. Additionally, the type libraries have been enriched with metadata that maps COM GUIDs to their corresponding interfaces and objects. ## DataRenderer for COM GUIDs. Binary Ninja 4.0 also adds a DataRenderer for GUID types. Binary Ninja 4.0 also introduces a new open source plugin, COMPanion, a powerful tool that significantly enhances COM reverse engineering. First, it searches the data sections of the binary for known COM objects and sets their types to `GUID`, allowing the DataRenderer to do its thing.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Decyphering undocumented COM interfaces - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/3527440/decyphering-undocumented-com-interfaces",
+        "snippet": "A competent reverse engineer can undecorate these symbols by sight, mostly, and Visual C++ provides an UNDNAME tool (and your debugger or",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.66
+      },
+      {
+        "title": "Reversing C++ Virtual Functions: Part 1 : r/ReverseEngineering",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/5jdt6d/reversing_c_virtual_functions_part_1/",
+        "snippet": "I've had success in finding vtables programmatically by looking for blocks of adjacent function offsets that are only referred to by their first element.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Reverse Engineering virtual functions code in C++ - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/6477013/reverse-engineering-virtual-functions-code-in-c",
+        "snippet": "### more stack exchange communities. # Reverse Engineering virtual functions code in C++. Since you've *defined* your virtual functions inside the class definition, I think your functions might be being inlined by the compiler, as it knows the exact type at the call site. With g++ 4.5, with the default options (and after fixing a few issues in the code) I have compiled into assembly (`g++ -S -o test.asm test.cpp`) the code and it does show the functions and the calls through the virtual dispatch mechanism (in `main` after calling the constructor it extracts the vptr, offsets it and calls through the value in the register). Definition of Shape::function2 (note the .weak means *inline*). Definition of Shape::function1 (again, .weak means *inline*). movq -24(%rbp), %rax # load **vptr into rax i.e. As to what others have been saying that the compiler can elide the virtual dispatch completely or inline the function, that is true. Thanks for contributing an answer to Stack Overflow! ##### Stack Overflow.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.76
+      },
+      {
+        "title": "Part 1 - Understanding virtual function tables, vtable, __purecall ...",
+        "url": "https://dennisbabkin.com/blog/?t=reverse-engineer-virtual-functions-vs-cpp-compiler-vtable-purecall-cfg",
+        "snippet": "Reverse Engineering Virtual Functions Compiled With Visual Studio C++ Compiler - Part 1 - Understanding virtual function tables, vtable,",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": [
+      {
+        "title": "Part II: Classes, Methods and RTTI",
+        "url": "https://www.openrce.org/articles/full_view/23",
+        "snippet": "Covers MSVC C++ implementation details including class layout, virtual functions, vtables in multiple inheritance, and RTTI structure for polymorphic classes. Explains vtable pointers, base class ordering, and how RTTI supports dynamic_cast/typeid with ClassHierarchyDescriptor and TypeDescriptor.",
+        "published_date": "2006-09-21",
+        "source": "grok",
+        "score": 0.32
+      },
+      {
+        "title": "Reversing C++",
+        "url": "https://blackhat.com/presentations/bh-dc-07/Sabanal_Yason/Paper/bh-dc-07-Sabanal_Yason-WP.pdf",
+        "snippet": "Black Hat paper detailing C++ internals in binaries: single/multiple inheritance layouts, multiple vftables per object in MI, vbtable for virtual inheritance, polymorphic class identification via RTTI, and automated analysis strategies using RTTI data.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.34
+      },
+      {
+        "title": "Reverse Engineering: RTTI explained",
+        "url": "https://medium.com/@edwardseverinsen171717/reverse-engineering-rtti-explained-e41b054552bf",
+        "snippet": "Explains RTTI internals for reverse engineering, including TypeDescriptor, vftable pointers, ClassHierarchyDescriptor for class relationships, and how dynamic_cast uses RTTI metadata in binaries (MSVC focus).",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Visual C++ RTTI Inspection",
+        "url": "https://blog.quarkslab.com/visual-c-rtti-inspection.html",
+        "snippet": "Practical guide to retrieving C++ class hierarchies and vftables from binaries using RTTI in Visual C++. Shows how to parse RTTI structures to identify polymorphic classes, vtables, and inheritance for easier reverse engineering.",
+        "published_date": "2013-07-13",
+        "source": "grok",
+        "score": 0.4
+      },
+      {
+        "title": "Reversing C++ Virtual Functions: Part 1",
+        "url": "https://alschwalm.com/blog/static/2016/12/17/reversing-c-virtual-functions",
+        "snippet": "Basics of reversing C++ virtual functions: vtable/vptr mechanics, how virtual calls resolve via slots, and initial steps toward handling complex cases (expanded in Part 2 for larger codebases and potential MI considerations).",
+        "published_date": "2016-12-17",
+        "source": "grok"
+      },
+      {
+        "title": "Igor's tip of the week #93: COM reverse engineering and COM helper",
+        "url": "https://hex-rays.com/blog/igors-tip-of-the-week-93-com-reverse-engineering-and-com-helper",
+        "snippet": "Explains COM basics including IUnknown vtable layout with QueryInterface, AddRef, Release; how to import COM interface structures and vtables in IDA Pro for reverse engineering workflows.",
+        "published_date": "2022-06-10",
+        "source": "grok"
+      },
+      {
+        "title": "Decyphering undocumented COM interfaces",
+        "url": "https://stackoverflow.com/questions/3527440/decyphering-undocumented-com-interfaces",
+        "snippet": "Discusses finding interface IIDs via QueryInterface inspection in reverse-engineered classes, locating vtables from constructors/destructors, and undecorating symbols for undocumented COM interfaces.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "COM interface methods",
+        "url": "https://reverseengineering.stackexchange.com/questions/2822/com-interface-methods",
+        "snippet": "Details vtable layout for COM interfaces like IShellWindows, showing inheritance from IDispatch and IUnknown with QueryInterface at offset 0, AddRef at 4, Release at 8, followed by custom methods.",
+        "published_date": "2013-09-22",
+        "source": "grok"
+      },
+      {
+        "title": "Enhancing COM Reverse Engineering in Binary Ninja 4.0",
+        "url": "https://binary.ninja/2024/02/12/enhancing-com-reverse-engineering.html",
+        "snippet": "Covers improvements in Binary Ninja for COM reverse engineering, including better vtable and interface representation, inheritance handling, and plugins like COMPanion to automate object typing from CoCreateInstance calls.",
+        "published_date": "2024-02-12",
+        "source": "grok"
+      },
+      {
+        "title": "The layout of a COM object - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20040205-00?p=40733",
+        "snippet": "Official Microsoft explanation of COM object layout, vtable structure starting with QueryInterface, AddRef, Release pointers, and how the interface pointer points to the vtable.",
+        "published_date": "2004-02-05",
+        "source": "grok",
+        "score": 0.28
+      },
+      {
+        "title": "Reverse Engineering Virtual Functions Compiled With Visual Studio C++ Compiler - Part 1 - Understanding virtual function tables, vtable, __purecall, novtable, Control Flow Guard",
+        "url": "https://dennisbabkin.com/blog?t=reverse-engineer-virtual-functions-vs-cpp-compiler-vtable-purecall-cfg",
+        "snippet": "Detailed guide on reverse engineering Microsoft Visual C++ virtual functions, vftables (vtable), vptr layout, function offsets in vtable, __purecall placeholders, and related compiler behaviors.",
+        "published_date": "2025-01-10",
+        "source": "grok"
+      },
+      {
+        "title": "Reversing C++ Virtual Functions: Part 1",
+        "url": "https://alschwalm.com/blog/static/2016/12/17/reversing-c-virtual-functions",
+        "snippet": "Explains locating vtables in binaries (e.g. via adjacent function pointers in .rodata), vptr placement, virtual dispatch basics, multiple vtables in inheritance, and reverse engineering workflow for virtual calls.",
+        "published_date": "2016-12-17",
+        "source": "grok"
+      },
+      {
+        "title": "Igor's tip of the week #93: COM reverse engineering and COM helper",
+        "url": "https://hex-rays.com/blog/igors-tip-of-the-week-93-com-reverse-engineering-and-com-helper",
+        "snippet": "Practical guide to reversing COM interfaces in IDA Pro, including vtable layout (IUnknown/QueryInterface first), importing known vtables, and handling COM-specific virtual tables.",
+        "published_date": "2022-06-10",
+        "source": "grok"
+      },
+      {
+        "title": "Understanding Virtual Tables in C++",
+        "url": "https://pabloariasal.github.io/2017/06/10/understanding-virtual-tables",
+        "snippet": "In-depth explanation of vtable construction, vptr in objects, dynamic dispatch via vtable offsets, and how concrete overrides replace base entries in the table.",
+        "published_date": "2017-06-10",
+        "source": "grok",
+        "score": 0.51
+      },
+      {
+        "title": "COM interface methods",
+        "url": "https://reverseengineering.stackexchange.com/questions/2822/com-interface-methods",
+        "snippet": "Discussion on COM vtable layout starting with IUnknown (QueryInterface, AddRef, Release) at offsets 0, followed by interface-specific methods; useful for RE of COM objects and QueryInterface implementation.",
+        "published_date": "",
+        "source": "grok"
+      }
+    ]
+  }
+}
