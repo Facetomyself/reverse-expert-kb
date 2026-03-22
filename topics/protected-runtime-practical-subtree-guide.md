@@ -8,6 +8,7 @@ Related pages:
 - topics/obfuscation-deobfuscation-and-packed-binaries.md
 - topics/anti-instrumentation-gate-triage-workflow-note.md
 - topics/watchdog-heartbeat-to-enforcement-consumer-workflow-note.md
+- topics/kernel-callback-telemetry-to-enforcement-consumer-workflow-note.md
 - topics/vm-trace-to-semantic-anchor-workflow-note.md
 - topics/flattened-dispatcher-to-state-edge-workflow-note.md
 - topics/packed-stub-to-oep-and-first-real-module-workflow-note.md
@@ -47,21 +48,23 @@ Protected-runtime practical work is easiest to navigate when the analyst first c
    - some anti-instrumentation effect is already visible, but the first decisive gate family and its first consequence-bearing effect are still unclear
 2. **watchdog / heartbeat enforcement reduction**
    - repeated monitoring is already visible, but the first reducer, queue handoff, or enforcement consumer that turns it into kill / stall / degrade behavior is still unclear
-3. **observation-topology failure**
+3. **kernel-callback telemetry to enforcement-consumer reduction**
+   - callback-heavy kernel telemetry is already visible, but the first rights filter, reducer, queue handoff, service path, or other enforcement-relevant consumer is still unclear
+4. **observation-topology failure**
    - direct attach, spawn, or app-local observation is detected, too visible, too late, or semantically misleading
-4. **trace-to-semantic-anchor churn**
+5. **trace-to-semantic-anchor churn**
    - visible VM, handler churn, or repetitive protected execution is the main problem and the first stable semantic anchor is still missing
-5. **flattened-dispatcher-to-state-edge reduction**
+6. **flattened-dispatcher-to-state-edge reduction**
    - a dispatcher or flattened protected region is already recognizable, but the first durable state object, reducer helper, or dispatcher-exit edge is still unclear
-6. **packed / staged bootstrap handoff**
+7. **packed / staged bootstrap handoff**
    - a stub, shell, decrypt/copy/fixup loop, or staged loader is already visible, but the first trustworthy post-unpack handoff is still unclear
-7. **artifact-to-consumer proof**
+8. **artifact-to-consumer proof**
    - strings, config, tables, bytecode, or normalized buffers are already readable enough to inspect, but the first ordinary consumer is still missing
-8. **runtime-artifact / initialization-obligation recovery**
+9. **runtime-artifact / initialization-obligation recovery**
    - static dumps, repaired artifacts, or offline reconstructions look damaged, under-initialized, or close-but-wrong, while live/runtime state appears truer
-9. **integrity / tamper consequence proof**
+10. **integrity / tamper consequence proof**
    - checks are visible, but the first reduced result or consequence-bearing tripwire is still unclear
-10. **exception-handler-owned control transfer**
+11. **exception-handler-owned control transfer**
    - visible direct control flow stays incomplete or misleading because handler registration, unwind lookup, signal delivery, or trap-resume logic owns the meaningful branch
 
 A compact operator ladder for this branch is:
@@ -76,6 +79,7 @@ choose the current protection-shaped bottleneck
 The subtree is strongest when read as:
 - **triage** the first anti-instrumentation gate when some detector effect is already visible but the first decisive gate family is still unclear
 - **reduce** one already-visible watchdog or heartbeat loop into one first enforcement consumer
+- **reduce** one callback-heavy kernel telemetry path into one first enforcement-relevant consumer
 - **reposition** observation when the current topology itself is the problem
 - **anchor** noisy protected execution when the first stable semantic anchor is still missing
 - **reduce** one recognizable flattened dispatcher or protected state machine into one durable state edge
@@ -114,6 +118,22 @@ Do **not** start here when:
 - the earlier question is still which gate family matters first at all
 - the current posture is fundamentally too visible or too late and observation-topology redesign is the real next move
 - the repeated monitor has already reduced into one ordinary integrity tripwire or mobile verdict/policy object handled better elsewhere
+
+### Start with `kernel-callback-telemetry-to-enforcement-consumer-workflow-note`
+Use:
+- `topics/kernel-callback-telemetry-to-enforcement-consumer-workflow-note.md`
+
+Start here when:
+- callback-heavy kernel telemetry is already visible through process/thread/image/object or related notification families
+- the analyst already has registration-side evidence but still cannot say which rights filter, reducer, queue handoff, service path, or policy object first makes that telemetry behaviorally relevant
+- anti-cheat-like or privilege-heavy monitoring is the practical case shape, but the KB still needs a workflow note rather than another broad anti-cheat taxonomy page
+- the next useful output is one callback-telemetry-to-enforcement-consumer proof object
+
+Do **not** start here when:
+- the earlier question is still only which anti-instrumentation family matters first
+- the case is really a repeated watchdog/liveness problem better handled by the watchdog note
+- the current posture is so noisy or visibly distorting that observation-topology redesign must come first
+- the remaining ambiguity now lives mostly in ordinary userland async delivery rather than in the kernel telemetry path itself
 
 ### Start with `protected-runtime-observation-topology-selection-workflow-note`
 Use:
@@ -230,7 +250,7 @@ Do **not** start here when:
 - the real bottleneck is already a visible integrity-result reducer or a close-but-wrong runtime-table/init-obligation case rather than hidden handler-owned branch ownership
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as ten common bottleneck families that often chain into one another.
+A useful way to read the branch is as eleven common bottleneck families that often chain into one another.
 
 ### A. Anti-instrumentation gate triage -> one first gate-to-effect path
 Typical question:
@@ -257,7 +277,20 @@ Possible next handoff:
 - `topics/environment-differential-diagnosis-workflow-note.md`
 - `topics/native-interface-to-state-proof-workflow-note.md`
 
-### C. Observation-topology failure -> one more truthful boundary
+### C. Callback-heavy kernel telemetry -> one first enforcement-relevant consumer
+Typical question:
+- if callback registration and trigger-side telemetry are already visible, what first rights filter, reducer, queue handoff, service path, or policy bucket actually makes that telemetry matter?
+
+Primary note:
+- `topics/kernel-callback-telemetry-to-enforcement-consumer-workflow-note.md`
+
+Possible next handoff:
+- `topics/protected-runtime-observation-topology-selection-workflow-note.md`
+- `topics/integrity-check-to-tamper-consequence-workflow-note.md`
+- `topics/environment-differential-diagnosis-workflow-note.md`
+- `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
+
+### D. Observation-topology failure -> one more truthful boundary
 Typical question:
 - is the current attach/spawn/app-local observation posture itself the thing that is failing or distorting the evidence?
 
@@ -271,7 +304,7 @@ Possible next handoff:
 - `topics/integrity-check-to-tamper-consequence-workflow-note.md`
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 
-### D. Trace churn -> stable semantic anchor
+### E. Trace churn -> stable semantic anchor
 Typical question:
 - which small stable semantic thing predicts later behavior better than raw protected execution churn does?
 
@@ -288,7 +321,7 @@ Possible next handoff:
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md` when the protected execution was really still masking a staged/bootstrap handoff
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md` when the trace reduction yields one readable recovered artifact whose first ordinary consumer is still unclear
 
-### E. Recognizable flattened dispatcher -> durable state edge
+### F. Recognizable flattened dispatcher -> durable state edge
 Typical question:
 - which durable state object, reducer helper, or dispatcher-exit family first predicts later behavior more usefully than continued dispatcher cataloging?
 
@@ -304,7 +337,7 @@ Possible next handoff:
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 
-### F. Packed startup -> trustworthy post-unpack handoff
+### G. Packed startup -> trustworthy post-unpack handoff
 Typical question:
 - where does loader churn end and reusable post-unpack analysis begin?
 
@@ -320,7 +353,7 @@ Possible next handoff:
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md` when the handoff yields one readable artifact whose first consumer is still unclear
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when the recovered image remains under-initialized and live/runtime state looks truer
 
-### G. Readable artifact -> first ordinary consumer
+### H. Readable artifact -> first ordinary consumer
 Typical question:
 - what first parser, policy, scheduler, request, or payload consumer proves this recovered artifact actually matters?
 
@@ -336,7 +369,7 @@ Possible next handoff:
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when the artifact is still close-but-wrong because one runtime obligation is missing
 
-### H. Static artifact drift -> runtime artifact or init obligation
+### I. Static artifact drift -> runtime artifact or init obligation
 Typical question:
 - which live/runtime artifact or minimal init chain explains why repaired static views or offline replay are almost right but still untrustworthy?
 
@@ -352,7 +385,7 @@ Possible next handoff:
 - `topics/mobile-signing-and-parameter-generation-workflows.md`
 - `topics/integrity-check-to-tamper-consequence-workflow-note.md`
 
-### I. Integrity logic -> first consequence-bearing tripwire
+### J. Integrity logic -> first consequence-bearing tripwire
 Typical question:
 - what first reduced result or branch turns visible checks into real behavioral change?
 
@@ -367,7 +400,7 @@ Possible next handoff:
 - `topics/attestation-verdict-to-policy-state-workflow-note.md` when the case is really a mobile verdict-to-policy problem
 - `topics/native-interface-to-state-proof-workflow-note.md` when the tripwire has already reduced into an ordinary consequence consumer
 
-### J. Exception/signal ownership -> one handler-owned transfer boundary
+### K. Exception/signal ownership -> one handler-owned transfer boundary
 Typical question:
 - is the real missing branch actually owned by handler registration, unwind lookup, signal delivery, or trap-resume logic rather than ordinary visible direct calls?
 
@@ -388,24 +421,30 @@ When a case is clearly protected-runtime shaped, ask these in order:
 
 1. **Is the current observation model itself failing or distorting the evidence?**
    - if yes, start with observation-topology selection
-2. **Am I still stuck in protected execution churn before one stable semantic anchor exists?**
+2. **Is the current bottleneck already clearly watchdog- or heartbeat-shaped?**
+   - if yes, start with watchdog / heartbeat -> enforcement-consumer reduction
+3. **Is callback-heavy kernel telemetry already visible, but the first rights filter, reducer, queue handoff, service path, or policy carrier still unclear?**
+   - if yes, start with kernel-callback telemetry -> enforcement-consumer reduction
+4. **Am I still stuck in protected execution churn before one stable semantic anchor exists?**
    - if yes, start with VM-trace -> semantic-anchor reduction
-3. **Is the dispatcher or flattened region already recognizable, but the first durable state edge is still missing?**
+5. **Is the dispatcher or flattened region already recognizable, but the first durable state edge is still missing?**
    - if yes, continue into flattened-dispatcher -> state-edge reduction
-4. **Am I still stuck proving the post-unpack handoff?**
+6. **Am I still stuck proving the post-unpack handoff?**
    - if yes, start with packed-stub -> OEP
-5. **Do I already have a readable recovered artifact, but no ordinary consumer?**
+7. **Do I already have a readable recovered artifact, but no ordinary consumer?**
    - if yes, start with decrypted-artifact -> first consumer
-6. **Are static artifacts or offline replay close-but-wrong because one runtime artifact or init obligation is still missing?**
+8. **Are static artifacts or offline replay close-but-wrong because one runtime artifact or init obligation is still missing?**
    - if yes, start with runtime-table / initialization-obligation recovery
-7. **Are checks already visible, but the first behavior-changing consequence is still hidden?**
+9. **Are checks already visible, but the first behavior-changing consequence is still hidden?**
    - if yes, start with integrity-check -> tamper consequence
-8. **Does visible direct control flow still stay incomplete because traps, faults, breakpoints, or signal delivery may own the meaningful branch?**
+10. **Does visible direct control flow still stay incomplete because traps, faults, breakpoints, or signal delivery may own the meaningful branch?**
    - if yes, start with exception-handler-owned control transfer
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
 That usually means:
-- repair observation topology before overcommitting to one noisy hook plan
+- repair observation topology before overcommitting to one noisy hook plan when the current posture is plainly the blocking issue
+- resolve one already-visible watchdog or heartbeat path before widening into unrelated protected-runtime leaves
+- resolve one callback-heavy kernel telemetry path into one first enforcement-relevant consumer before cataloging more registration surfaces
 - resolve trace churn into one stable semantic anchor before cataloging a recognizable flattened dispatcher in detail
 - resolve one dispatcher/state edge before treating the case as ordinary native follow-up
 - resolve packed/bootstrap handoff before artifact-consumer proof

@@ -214,6 +214,7 @@ Kernel-level anti-cheat systems are analyzed in terms of:
 - integrity-monitoring scope
 - privacy and system-integrity risk
 - rootkit-like properties vs ordinary defensive monitoring
+- callback-heavy telemetry surfaces and the later reducers or consumers that turn them into policy or protection behavior
 
 For the KB, this is useful as a case where analysts must reason about:
 - deep execution privilege
@@ -227,15 +228,18 @@ Why it matters:
 ## 6. Emerging internal structure of the topic
 A stable internal decomposition is emerging.
 
-At the practical branch level, this topic now reads most truthfully as eight recurring protected-runtime bottlenecks:
+At the practical branch level, this topic now reads most truthfully as eleven recurring protected-runtime bottlenecks:
 1. anti-instrumentation gate triage
-2. observation-topology failure
-3. trace-to-semantic-anchor churn
-4. flattened-dispatcher-to-state-edge reduction
-5. packed / staged bootstrap handoff
-6. artifact-to-consumer proof
-7. runtime-artifact / initialization-obligation recovery
-8. integrity / tamper consequence proof
+2. watchdog / heartbeat enforcement reduction
+3. kernel-callback telemetry to enforcement-consumer reduction
+4. observation-topology failure
+5. trace-to-semantic-anchor churn
+6. flattened-dispatcher-to-state-edge reduction
+7. packed / staged bootstrap handoff
+8. artifact-to-consumer proof
+9. runtime-artifact / initialization-obligation recovery
+10. integrity / tamper consequence proof
+11. exception-handler-owned control transfer
 
 That practical ladder matters because the branch should no longer read as only:
 - generic anti-debugging
@@ -243,6 +247,8 @@ That practical ladder matters because the branch should no longer read as only:
 - broad protected-observation folklore
 
 It should also preserve where the analyst is supposed to enter and leave the branch:
+- reduce one already-visible watchdog or heartbeat path into one first enforcement consumer when repeated liveness-style monitoring is the practical bottleneck
+- reduce one callback-heavy kernel telemetry path into one first enforcement-relevant consumer when registration is visible but policy ownership is still missing
 - reposition observation when the current topology is itself the unstable thing
 - reduce noisy protected execution into one stable semantic anchor before broadening the case again
 - reduce a recognizable flattened dispatcher or protected state machine into one durable state edge once the anchor already exists
