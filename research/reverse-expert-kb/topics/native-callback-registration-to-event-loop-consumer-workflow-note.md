@@ -209,6 +209,7 @@ Best move:
 - choose one message family
 - find the first reducer from generic message pump to one handler
 - prove one state write or UI/service effect from that handler
+- if the case has narrowed specifically to Win32 `WndProc` / subclass chains or Qt `event()` / signal-slot ownership, continue with `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md`
 
 ### Pattern 2: Reactor or async I/O service
 Symptoms:
