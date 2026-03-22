@@ -478,6 +478,8 @@ This topic may later split into several child pages:
   - now acting as the practical continuation when a modern iOS case has already narrowed into a mitigation-aware boundary and the next bottleneck is keeping the code view truthful, classifying PAC-shaped failure conservatively, and routing quickly back into owner proof or replay/init-obligation repair
 - `topics/ios-pac-shaped-callback-and-dispatch-failure-triage.md`
   - the narrower continuation when one authenticated callback / dispatch boundary is already frozen and the real question is whether the remaining failure is wrong-family, wrong-context, lying-code-view, or replay-close missing-obligation drift
+- `topics/ios-mitigation-aware-replay-repair-workflow-note.md`
+  - the next continuation when a modern iOS path is already replay-close and the real remaining gap is one smaller authenticated-context, object-materialization, or init/runtime obligation rather than broader owner or landing uncertainty
 - `topics/layer-selection-in-mobile-re.md`
 
 ## 12. Source footprint / evidence quality note

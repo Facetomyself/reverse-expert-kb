@@ -15,6 +15,7 @@ Related pages:
 - topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md
 - topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md
 - topics/ios-block-callback-landing-and-signature-recovery-workflow-note.md
+- topics/ios-mitigation-aware-replay-repair-workflow-note.md
 - topics/ios-result-callback-to-policy-state-workflow-note.md
 - topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
 
@@ -90,6 +91,7 @@ The subtree is strongest when read as:
 - **replay** one truthful callable owner path when static cleanup is no longer the cheapest next move
 - **reduce** one iOS-shaped signing/finalization boundary before flattening the case into generic preimage work
 - **land** one callback/block family on one truthful invoke boundary with one usable contract
+- **repair** one replay-close mitigation-aware path by isolating one smaller context/materialization/init gap
 - **consume** one callback/result into one local policy effect
 
 ## 3. How to choose the right entry note
@@ -226,6 +228,21 @@ Do **not** start here when:
 - the callback/result is already trustworthy enough and the real gap is the first policy-bearing consumer
 - the remaining problem is already better framed as one narrower runtime-table/init obligation
 
+### Start with `ios-mitigation-aware-replay-repair-workflow-note`
+Use:
+- `topics/ios-mitigation-aware-replay-repair-workflow-note.md`
+
+Start here when:
+- one owner path, callback family, or dispatch family is already plausible enough that broad owner search should stop
+- the callback landing is already trustworthy enough, or already reduced enough, that the real bottleneck is now replay-close repair rather than landing proof
+- replay is structurally close, but one authenticated-context, object-materialization, initialized-image, or narrower runtime obligation still appears to be missing
+- PAC / arm64e / dyld-cache truth still affects whether the remaining replay claim is trustworthy
+
+Do **not** start here when:
+- the callback/block landing itself is still not trustworthy enough to support replay claims
+- the code view is still too untruthful to say whether the family is even right
+- the remaining problem is already clearly the first behavior-changing consumer rather than replay repair
+
 ### Start with `ios-result-callback-to-policy-state-workflow-note`
 Use:
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
@@ -244,7 +261,7 @@ Do **not** start here when:
 - the landing or signature contract is still too ambiguous to support policy claims
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as ten common bottleneck families that often chain into one another.
+A useful way to read the branch is as eleven common bottleneck families that often chain into one another.
 
 ### A. Incomplete network picture -> truthful traffic surface
 Typical question:
@@ -360,7 +377,24 @@ Possible next handoff:
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 
-### J. Visible callback/result -> first policy-bearing consumer
+### J. Replay-close mitigation-aware path -> one smaller repair target
+Typical question:
+- is this iOS path already replay-close enough that the real remaining gap is one authenticated-context, object-materialization, or narrower init/runtime obligation rather than broader owner or landing uncertainty?
+
+Primary note:
+- `topics/ios-mitigation-aware-replay-repair-workflow-note.md`
+
+Routing reminder:
+- enter this stage once one callback/dispatch family or owner path is already plausible enough and the replay path is structurally close
+- do not stay in broad callback-landing work once the landing is already trustworthy enough and the real gap is now replay repair
+- do not reopen broad owner search if the strongest evidence already says the case is replay-close and late-failing
+
+Possible next handoff:
+- `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
+- `topics/ios-result-callback-to-policy-state-workflow-note.md`
+- narrower owner or callback pages only if the replay-close classification collapses back into wrong-family or untruthful landing
+
+### K. Visible callback/result -> first policy-bearing consumer
 Typical question:
 - which callback / wrapper / mapper / consumer first turns visible result material into one local behavior change?
 
@@ -371,6 +405,7 @@ Routing reminder:
 - enter this stage once controlled replay, black-box invocation, or narrower init-obligation repair is already good enough to expose truthful result material
 - do not stay in broad replay or init-obligation work once the real missing proof is no longer owner callability but the first app-local policy consequence
 - if the landing or callback contract itself is still doubtful, route back to `topics/ios-block-callback-landing-and-signature-recovery-workflow-note.md` first
+- if the path is only replay-close and the remaining gap is still one smaller context/materialization/init proof, route to `topics/ios-mitigation-aware-replay-repair-workflow-note.md` first
 
 Possible next handoff:
 - challenge-loop, attestation, request-shaping, or native proof pages depending on the proved consumer
@@ -398,7 +433,9 @@ When a case is clearly iOS-shaped, ask these in order:
    - if yes, leave broad replay work and continue into runtime-table / initialization-obligation recovery
 10. **Is one callback/block family already plausible, but the landing or signature contract still too ambiguous to trust?**
    - if yes, continue into callback/block landing and signature-recovery work
-11. **Are callbacks or result wrappers already visible, and is the landing already trustworthy enough, but the first behavior-changing policy state still hidden?**
+11. **Is the path already replay-close, but the remaining gap still looks like one authenticated-context, object-materialization, or narrower init/runtime obligation?**
+   - if yes, continue into mitigation-aware replay-repair work
+12. **Are callbacks or result wrappers already visible, and is the landing already trustworthy enough, but the first behavior-changing policy state still hidden?**
    - if yes, continue into result/callback-to-policy-state work
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
@@ -413,6 +450,7 @@ That usually means:
 - before flattening the case into generic signing taxonomy, ask whether one last iOS request-finalization boundary is still the real missing proof
 - if replay is already close-but-wrong, reduce one narrower runtime-table or initialization obligation before widening outward again
 - if one callback family is plausible but the landing or signature contract is still doubtful, prove that boundary before stronger owner or policy claims
+- if the path is already replay-close and late-failing, isolate one smaller context/materialization/init repair target before reopening broad owner work
 - prove one policy-bearing consumer before widening callback coverage
 
 ## 6. What this branch is strongest at
@@ -432,7 +470,7 @@ This branch is still weaker than the densest browser/mobile areas in some ways:
 - the branch now has a dedicated iOS trust-path continuation, but iOS-specific request-signature continuations are still mostly connected through broader mobile pages rather than a denser iOS-only continuation stack
 - the branch now has a dedicated PAC/arm64e mitigation-aware continuation page for cases where modern iOS work has already narrowed into authenticated-pointer / cache-truthfulness / replay-close confusion rather than broad setup or owner uncertainty
 - it now also has a narrower callback/dispatch continuation for cases where one authenticated handoff is already frozen and the real next question is whether the failure is wrong-family, wrong-context, lying-code-view, or replay-close missing-obligation drift
-- future case pressure may still justify a second narrow continuation around mitigation-aware replay repair specifically
+- it now also has a dedicated mitigation-aware replay-repair continuation for cases where callback/owner choice is already plausible enough and the real remaining gap is one smaller authenticated-context, object-materialization, or init/runtime obligation
 
 That means the right near-term maintenance pattern is usually:
 - branch-shape repair
@@ -447,6 +485,7 @@ This guide is meant to prevent several recurring branch-level mistakes:
 - confusing Flutter/bridge visibility with actual Dart/object ownership
 - treating plausible callback/block presence as proof of a truthful landing
 - treating visible callback or result wrappers as behavioral ownership by default
+- reopening broad owner or callback-family work when the case is already replay-close and really needs one smaller mitigation-aware repair target
 - leaking routing logic into run reports instead of preserving it canonically in the KB itself
 
 ## 9. How this guide connects to the rest of the KB
@@ -470,6 +509,7 @@ The compact reading is:
 - reconstruct the smallest truthful callable path when needed
 - reduce one narrower runtime-table or initialization obligation when replay is already close-but-wrong
 - prove the right callback/block landing when the callback family is plausible but still structurally ambiguous
+- repair the right replay-close mitigation-aware path when the landing is already good enough but one smaller context/materialization/init gap remains
 - prove the right callback/result consumer
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which iOS workflow note to read first.
