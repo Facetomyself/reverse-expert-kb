@@ -1,0 +1,614 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "iOS arm64e block callback signature recovery reverse engineering Block ABI invoke landing",
+    "dyld shared cache arm64e callback dispatch reverse engineering runtime landing block signature",
+    "Objective-C block ABI signature invoke reverse engineering iOS callback arm64e"
+  ],
+  "count": 31,
+  "results": [
+    {
+      "title": "GhidraEnjoyr/iOS-Reverse-Engineering",
+      "url": "https://github.com/GhidraEnjoyr/iOS-Reverse-Engineering",
+      "snippet": "Comprehensive iOS reverse engineering guide covering arm64e, dyld_shared_cache extraction, Objective-C blocks, and notes on block descriptors with signature fields for recovery in tools like Ghidra/IDA.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.7909
+    },
+    {
+      "title": "Writing ARM64 code for Apple platforms",
+      "url": "https://developer.apple.com/documentation/xcode/writing-arm64-code-for-apple-platforms",
+      "snippet": "Official Apple documentation on ARM64 ABI rules for Apple platforms, including divergences from standard AArch64, calling conventions, and requirements for assembly/interoperation with compiler-generated code (relevant when reverse engineering or handling block invokes on arm64/arm64e iOS binaries).",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.7909
+    },
+    {
+      "title": "Reverse engineering macOS/iOS/iPadOS - GitHub Gist",
+      "url": "https://gist.github.com/programming086/0b53cde2686bca7767332ed25b4a26ec",
+      "snippet": "On Apple silicon, the system prefers to execute the arm64 slice when one is present. Users can force the system to run the app under Rosetta translation by",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6818
+    },
+    {
+      "title": "Callback from inside a block (Objective C) - ios - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/22582338/callback-from-inside-a-block-objective-c",
+      "snippet": "# Callback from inside a block (Objective C). I have this method with a block in it, I want it to send the `userID` to another method as soon as it exists. Meanwhile the new thread will execute some code (the body of the async function) and, eventually execute the block passed as parameter, and finally the thread is killed and doesn't exist any more. Everything that should be executed once the user logged in should be placed inside the block (if the function is synchronous you could place it after the block). Given, that you should also implement proper *error handling* and that you should also provide a means to *cancel* that whole \"chain\" of asynchronous tasks at any point, the typical solutions with `NSOperationQueues` and `NSOperations`, dispatch\\_queue and blocks, NSNotifications or delegates will inevitable become *unduly* elaborate, complex and difficult to comprehend by others. The class `CoreDataStack` defines this method, which saves a chain of managed object contexts, which is basically setup: childContext -> main\\_context -> root\\_context:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "keith/dyld-shared-cache-extractor - GitHub",
+      "url": "https://github.com/keith/dyld-shared-cache-extractor",
+      "snippet": "This tool allows you to extract these libraries from the cache for reverse engineering. Usage. Extract the default shared cache to /tmp/libraries : dyld",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.6545
+    },
+    {
+      "title": "Decompiling ARM64 and understanding branch targets bounderies",
+      "url": "https://stackoverflow.com/questions/77334043/decompiling-arm64-and-understanding-branch-targets-bounderies",
+      "snippet": "",
+      "published_date": "2023-10-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "iOS App Reverse Engineering (book/PDF)",
+      "url": "https://algorithm-master.github.io/Books/iOSAppReverseEngineering.pdf",
+      "snippet": "Comprehensive guide to iOS reverse engineering focusing on Objective-C runtime, method invocation, callbacks, ARM assembly, and tools like IDA/LLDB for analyzing functions, blocks, and dispatch-related callbacks in iOS apps.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.5864
+    },
+    {
+      "title": "iOS app reverse engineering a function logic : r/jailbreak - Reddit",
+      "url": "https://www.reddit.com/r/jailbreak/comments/1khfas5/ios_app_reverse_engineering_a_function_logic/",
+      "snippet": "Hey everyone, I've been reverse-engineering an iOS app and hit a wall—hoping someone here can point me in the right direction.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5818
+    },
+    {
+      "title": "Reverse engineering of Apple's iOS 0-click CVE-2025-43300",
+      "url": "https://blog.quarkslab.com/patch-analysis-of-Apple-iOS-CVE-2025-43300.html",
+      "snippet": "Quarkslab analysis mentions extensive use of blocks in affected code; references Block ABI and callbacks in reverse engineering context for iOS binaries, including type recovery in decompilation and invocation handling.",
+      "published_date": "2025-09-04",
+      "source": "grok",
+      "score": 0.5509
+    },
+    {
+      "title": "How to decompile ARM (iOS) to Objective-C using IDA?",
+      "url": "https://reverseengineering.stackexchange.com/questions/20226/how-to-decompile-arm-ios-to-objective-c-using-ida",
+      "snippet": "What are the options to decompile ARM (iOS) to Objective-C using IDA? I've been looking into the REobjc module (https://github.com/duo-labs/",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5273
+    },
+    {
+      "title": "Print Block Parameter Signatures in Objective-C Methods Using lldb - Everett - Full Stack Developer",
+      "url": "https://everettjf.github.io/2020/02/11/print-block-in-lldb/",
+      "snippet": "",
+      "published_date": "2020-02-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5045
+    },
+    {
+      "title": "iOS App Reverse Engineering - Medium",
+      "url": "https://medium.com/@bellaposa/ios-app-reverse-engineering-de33ab6ca462",
+      "snippet": "This experiment demonstrated how reverse engineering and code injection can be used to alter app behaviour.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4818
+    },
+    {
+      "title": "Parse dyld_shared_cache | ipsw - GitHub Pages",
+      "url": "https://blacktop.github.io/ipsw/docs/guides/dyld/",
+      "snippet": "• Extracting all dylibs from dyld_shared_cache_arm64e. ipsw dyld macho <dyld_shared_cache> <dylib> [flags]. `❯ ipsw dyld macho dyld_shared_cache_arm64e JavaScriptCore --search \"7f 23 03 d5 * * * * f6 57 01 a9\". `❯ ipsw dyld a2s dyld_shared_cache_arm64e --slide 0x27010000 0x00000001bc39e1e0. `❯ ipsw dyld objc --class dyld_shared_cache_arm64e. `❯ ipsw dyld objc class --image libobjc.A.dylib dyld_shared_cache`. `❯ ipsw dyld objc sel --image libobjc.A.dylib iPhone12,1_N104AP_18A5319i/dyld_shared_cache. 0x1dec4ef48: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI. 0x1def62d30: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation. 0x1de84b178: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities. 0x1de9e0da0: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/IMSharedUtilities.framework/IMSharedUtilities. 0x1e06c5ac0: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/CoreUI.framework/CoreUI. 0x1deaa96c0: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/Message.framework/Message. `❯ ipsw dyld patches dyld_shared_cache_arm64e -i libdyld.dylib. 0x218ed9bc8: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/DVTInstrumentsFoundation.framework/DVTInstrumentsFoundation. `❯ ipsw dyld patches dyld_shared_cache_arm64e -i libdyld.dylib -s _dlopen | head. 0x1de84ae68: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities. 0x1de885910: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/AppleMediaServices.framework/AppleMediaServices. `❯ ipsw dyld dump dyld_shared_cache_arm64e 0x1d22c2428 --size 728 --output ./data.bin.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.4773
+    },
+    {
+      "title": "Demystifying Objective-C internals",
+      "url": "https://www.synacktiv.com/sites/default/files/2025-06/demystifying_objc_internals.pdf",
+      "snippet": "Detailed presentation on Objective-C compilation, including block structure/layout, invoke function pointer pointing to the native block code, captured variables, flags (e.g. 0xC0000000 for stack blocks), descriptor metadata, and examples of block invocation in dispatch_async callbacks. Covers how blocks are objects with isa, invoke, and captured context – highly relevant for reverse engineering block callbacks on iOS.",
+      "published_date": "2025-05-23",
+      "source": "grok",
+      "score": 0.4236
+    },
+    {
+      "title": "Demystifying Pointer Authentication on Apple M1",
+      "url": "https://www.usenix.org/system/files/usenixsecurity23-cai-zechao.pdf",
+      "snippet": "USENIX Security paper on arm64e PAC; discusses block invoke function pointers, signing policies (e.g., IA key with modifiers for function/block pointers), recovery handlers, and reverse engineering implications for signed callbacks.",
+      "published_date": "2023-08-09",
+      "source": "grok",
+      "score": 0.4109
+    },
+    {
+      "title": "Pointer Authentication — Clang documentation",
+      "url": "https://clang.llvm.org/docs/PointerAuthentication.html",
+      "snippet": "Clang docs covering arm64e ABI for pointer authentication, including mandatory PAuth on Armv8.3, signed code pointers (relevant to block invoke pointers), attackable sequences, and implementation details for Objective-C among other languages.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.4091
+    },
+    {
+      "title": "Dev:dyld_shared_cache - The Apple Wiki",
+      "url": "https://theapplewiki.com/wiki/Dev:Dyld_shared_cache",
+      "snippet": "Reverse engineering the code in private or public frameworks within iOS. DyldExtractor is currently (as of iOS 14) capable of extracting nearly perfect frameworks from the shared cache. ... arm64e ARMv8.3 (PAC)",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.4091
+    },
+    {
+      "title": "Inside Coruna: Reverse Engineering a Nation-State iOS Exploit Kit",
+      "url": "https://www.nadsec.online/blog/coruna",
+      "snippet": "",
+      "published_date": "2026-03-03T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3818
+    },
+    {
+      "title": "Objective-C Calling Conventions for iOS Reverse Engineering",
+      "url": "https://www.youtube.com/watch?v=eI-Btfjp-fg",
+      "snippet": "",
+      "published_date": "2023-08-10T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "iOS Reverse Engineering :: Part III :: Hooking into Objective-C",
+      "url": "https://www.youtube.com/watch?v=x48y2ehfWGE",
+      "snippet": "This part introduces the Objective-C API of Frida. This can be used whenever something is a bit further away from hardware and already",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Advanced Apple Debugging & Reverse Engineering, Chapter 7",
+      "url": "https://www.kodeco.com/books/advanced-apple-debugging-reverse-engineering/v4.0/chapters/7-image",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.3545
+    },
+    {
+      "title": "Performance of reversing dyld shared cache - Bugs",
+      "url": "https://community.hex-rays.com/t/performance-of-reversing-dyld-shared-cache/657",
+      "snippet": "# Performance of reversing dyld shared cache. On Mac with M4 with IDA 9.2, when trying to work on a dyld shared cache with ~50 or more modules loaded, IDA become much more slows, including randoms hangups, long time for renames, …. Is it a known issue? Because IDA can deal with kernelcache with all modules loaded (which is larger, and it runs much faster). In addition, xrefs work poorly on shared cache. Hi @yoavst and thanks for raising these issues. | IDA tracing questions  Support | 4 | 137 | June 10, 2025 |. :wave:  IDA General | 0 | 283 | November 12, 2024 |. | IDA 9.3 b1 macOS arm64 UAF crash  Bugs | 3 | 255 | January 21, 2026 |. | Jump anywhere is broken in IDA 9.3  Bugs | 1 | 88 | February 19, 2026 |. | IDA crashes on a DLL for Win ARM64EC  Bugs | 3 | 165 | May 13, 2025 |.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3473
+    },
+    {
+      "title": "arm64e: An ABI for Pointer Authentication",
+      "url": "https://llvm.org/devmtg/2019-10/slides/McCall-Bougacha-arm64e.pdf",
+      "snippet": "LLVM Developers' Meeting slides explaining arm64e ABI specifics for pointer authentication (PAuth) on ARMv8.3 (Apple A12+), including its use in system software, differences from standard arm64, and implications for code pointers like function pointers and block invokes. Discusses discriminator choices, integrity in transformations, and relevance to Objective-C/C++.",
+      "published_date": "2019-10-22",
+      "source": "grok",
+      "score": 0.3291
+    },
+    {
+      "title": "Coruna: Complete Technical Teardown of a State-Grade iOS/macOS Exploit Chain | NadSec-Online",
+      "url": "https://www.nadsec.online/blog/coruna-technical-analysis",
+      "snippet": "",
+      "published_date": "2026-03-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "Block Implementation Specification — Clang 23.0.0git documentation",
+      "url": "https://clang.llvm.org/docs/Block-ABI-Apple.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.3273
+    },
+    {
+      "title": "Guide to Reversing and Exploiting iOS binaries Part 2: ARM64 ROP ...",
+      "url": "https://www.inversecos.com/2022/06/guide-to-reversing-and-exploiting-ios.html",
+      "snippet": "",
+      "published_date": "2022-06-16T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "Reversing iOS System Libraries Using Radare2: A Deep Dive into Dyld Cache (Part 3) - NowSecure",
+      "url": "https://www.nowsecure.com/blog/2024/09/13/reversing-ios-system-libraries-using-radare2-a-deep-dive-into-dyld-cache-part-3/",
+      "snippet": "",
+      "published_date": "2024-09-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "Reversing iOS System Libraries Using Radare2: A Deep Dive into Dyld Cache (Part 1)",
+      "url": "https://www.nowsecure.com/blog/2024/09/11/reversing-ios-system-libraries-using-radare2-a-deep-dive-into-dyld-cache-part-1/",
+      "snippet": "",
+      "published_date": "2024-09-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "Reversing iOS System Libraries Using Radare2: A Deep Dive into Dyld Cache (Part 2) - NowSecure",
+      "url": "https://www.nowsecure.com/blog/2024/09/12/reversing-ios-system-libraries-using-radare2-a-deep-dive-into-dyld-cache-part-2/",
+      "snippet": "",
+      "published_date": "2024-09-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "Infected file: dyld_shared_cache_arm64e - Apple Community",
+      "url": "https://discussions.apple.com/thread/254371312",
+      "snippet": "I ran my antivirus program and it detected the file dyld\\_shared\\_cache\\_arm64e and identified it as an infected file with the threat name: ELF:MiraiDownloader-O. > I ran my antivirus program and it detected the file dyld\\_shared\\_cache\\_arm64e and identified it as an infected file with the threat name: ELF:MiraiDownloader-O. Remove the anti-malware app (possibly Avast?) and revert to the built-in anti-malware tooling. It would appear the add-on anti-malware app is erroneously detecting malware. Or contact the anti-malware app vendor and request their support. First, there is no reason to ever install or run any 3rd party \"cleaning\", \"optimizing\", \"speed-up\", anti-virus, VPN or security apps on your Mac. This documents describe what you need to know and do in order to protect your Mac: **Effective defenses against malware and other threats - Apple Community** and **Recognize and avoid phishing messages, phony support calls, and other scams - Apple Support**.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "macOS Ventura and the new dyld shared cache system",
+      "url": "https://khronokernel.com/macos/2022/06/22/VENTURA-DYLD.html",
+      "snippet": "Moving the dyld shared cache off the root volume and inside the Preboot volume. ... arm64e Used by Apple Silicon CPUs ... dyld caches can be found under /System/Library/dyld/",
+      "published_date": "2022-06-22",
+      "source": "grok",
+      "score": 0.2473
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Inside Coruna: Reverse Engineering a Nation-State iOS Exploit Kit",
+        "url": "https://www.nadsec.online/blog/coruna",
+        "snippet": "",
+        "published_date": "2026-03-03T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3818
+      },
+      {
+        "title": "Coruna: Complete Technical Teardown of a State-Grade iOS/macOS Exploit Chain | NadSec-Online",
+        "url": "https://www.nadsec.online/blog/coruna-technical-analysis",
+        "snippet": "",
+        "published_date": "2026-03-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "Block Implementation Specification — Clang 23.0.0git documentation",
+        "url": "https://clang.llvm.org/docs/Block-ABI-Apple.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.3273
+      },
+      {
+        "title": "Guide to Reversing and Exploiting iOS binaries Part 2: ARM64 ROP ...",
+        "url": "https://www.inversecos.com/2022/06/guide-to-reversing-and-exploiting-ios.html",
+        "snippet": "",
+        "published_date": "2022-06-16T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3273
+      },
+      {
+        "title": "Decompiling ARM64 and understanding branch targets bounderies",
+        "url": "https://stackoverflow.com/questions/77334043/decompiling-arm64-and-understanding-branch-targets-bounderies",
+        "snippet": "",
+        "published_date": "2023-10-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Coruna: Complete Technical Teardown of a State-Grade iOS/macOS Exploit Chain | NadSec-Online",
+        "url": "https://www.nadsec.online/blog/coruna-technical-analysis",
+        "snippet": "",
+        "published_date": "2026-03-06T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Objective-C Calling Conventions for iOS Reverse Engineering",
+        "url": "https://www.youtube.com/watch?v=eI-Btfjp-fg",
+        "snippet": "",
+        "published_date": "2023-08-10T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Block Implementation Specification — Clang 23.0.0git documentation",
+        "url": "https://clang.llvm.org/docs/Block-ABI-Apple.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Print Block Parameter Signatures in Objective-C Methods Using lldb - Everett - Full Stack Developer",
+        "url": "https://everettjf.github.io/2020/02/11/print-block-in-lldb/",
+        "snippet": "",
+        "published_date": "2020-02-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5045
+      },
+      {
+        "title": "Reverse engineering macOS/iOS/iPadOS - GitHub Gist",
+        "url": "https://gist.github.com/programming086/0b53cde2686bca7767332ed25b4a26ec",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Coruna: Complete Technical Teardown of a State-Grade iOS/macOS Exploit Chain | NadSec-Online",
+        "url": "https://www.nadsec.online/blog/coruna-technical-analysis",
+        "snippet": "",
+        "published_date": "2026-03-06T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Reversing iOS System Libraries Using Radare2: A Deep Dive into Dyld Cache (Part 3) - NowSecure",
+        "url": "https://www.nowsecure.com/blog/2024/09/13/reversing-ios-system-libraries-using-radare2-a-deep-dive-into-dyld-cache-part-3/",
+        "snippet": "",
+        "published_date": "2024-09-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "Reversing iOS System Libraries Using Radare2: A Deep Dive into Dyld Cache (Part 1)",
+        "url": "https://www.nowsecure.com/blog/2024/09/11/reversing-ios-system-libraries-using-radare2-a-deep-dive-into-dyld-cache-part-1/",
+        "snippet": "",
+        "published_date": "2024-09-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "Reversing iOS System Libraries Using Radare2: A Deep Dive into Dyld Cache (Part 2) - NowSecure",
+        "url": "https://www.nowsecure.com/blog/2024/09/12/reversing-ios-system-libraries-using-radare2-a-deep-dive-into-dyld-cache-part-2/",
+        "snippet": "",
+        "published_date": "2024-09-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "Advanced Apple Debugging & Reverse Engineering, Chapter 7",
+        "url": "https://www.kodeco.com/books/advanced-apple-debugging-reverse-engineering/v4.0/chapters/7-image",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.3545
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Reverse engineering macOS/iOS/iPadOS - GitHub Gist",
+        "url": "https://gist.github.com/programming086/0b53cde2686bca7767332ed25b4a26ec",
+        "snippet": "On Apple silicon, the system prefers to execute the arm64 slice when one is present. Users can force the system to run the app under Rosetta translation by",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6818
+      },
+      {
+        "title": "Guide to Reversing and Exploiting iOS binaries Part 2: ARM64 ROP ...",
+        "url": "https://www.inversecos.com/2022/06/guide-to-reversing-and-exploiting-ios.html",
+        "snippet": "I got you >\\_< If you’ve missed the blogs in the series, check them out below ^\\_^ Part 1: How to Reverse Engineer and Patch an iOS Application for Beginners Part 2: Guide to Reversing and Exploiting iOS binaries: ARM64 ROP Chains Part 3: Heap Overflows on iOS ARM64: Heap Spraying, Use-After-Free  This blog is focused on reversing an iOS application I built for the purpose of showing beginners how to reverse and patch an iOS app. By the end of this blog post you will be able to reverse engineer an arm64 iOS binary and exploit it in two ways – first through a buffer overflow, and then through a ROP chain. For the sake of this buffer overflow, let’s jump to the runCode() function. Let's refer to the basic diagram below, we are basically going to extend the initial buffer overflow exploit, by jumping into two functions, one after another in a chain.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "iOS app reverse engineering a function logic : r/jailbreak - Reddit",
+        "url": "https://www.reddit.com/r/jailbreak/comments/1khfas5/ios_app_reverse_engineering_a_function_logic/",
+        "snippet": "Hey everyone, I've been reverse-engineering an iOS app and hit a wall—hoping someone here can point me in the right direction.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5818
+      },
+      {
+        "title": "Inside Coruna: Reverse Engineering a Nation-State iOS Exploit Kit",
+        "url": "https://www.nadsec.online/blog/coruna",
+        "snippet": "Visitor lands on watering-hole page │ ├── Fingerprinting (iOS vs macOS, WebKit version, Lockdown Mode check) │ ▼ WebKit RCE (3 parallel paths - selected by platform/version) │ ├── Path 1: NaN-Boxing Type Confusion (macOS primary - YGPUu7) ├── Path 2: JIT Structure Check Elimination (macOS alt - KRfmo6) └── Path 3: OfflineAudioContext Heap Corruption + SVG R/W (iOS - Fq2t1Q) │ ▼ Arbitrary Read/Write Primitive (Class P or Class ut) │ ▼ Wasm call_indirect Dispatch Hijack (class ct) → Converts Wasm sandbox into native function call primitive │ ▼ PAC Bypass via Unsigned GOT-Swap (classes ta, ia, ca) → Apple frameworks authenticate attacker-supplied addresses │ ▼ mach_vm_allocate RWX from WebContent Sandbox → Executable pages outside JIT cage │ ▼ JIT Cage Escape via PACDB Hash Forgery (class hc) → Arbitrary shellcode passes kernel verification │ ▼ ARM64 shellcode execution in WebContent process.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "iOS App Reverse Engineering - Medium",
+        "url": "https://medium.com/@bellaposa/ios-app-reverse-engineering-de33ab6ca462",
+        "snippet": "This experiment demonstrated how reverse engineering and code injection can be used to alter app behaviour.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4818
+      },
+      {
+        "title": "Objective-C Calling Conventions for iOS Reverse Engineering",
+        "url": "https://www.youtube.com/watch?v=eI-Btfjp-fg",
+        "snippet": "... iOS Reverse Engineering and see how the Objective-C runtime uses message passing to invoke functions. --- Timestamps: 00:00 Intro 00:44",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Reverse engineering macOS/iOS/iPadOS - GitHub Gist",
+        "url": "https://gist.github.com/programming086/0b53cde2686bca7767332ed25b4a26ec",
+        "snippet": "Objective-C (Beta) Recent version of Binary Ninja ship with an additional plugin for assisting with Objective-C analysis. It provides both a workflow and a",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "iOS Reverse Engineering :: Part III :: Hooking into Objective-C",
+        "url": "https://www.youtube.com/watch?v=x48y2ehfWGE",
+        "snippet": "This part introduces the Objective-C API of Frida. This can be used whenever something is a bit further away from hardware and already",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Callback from inside a block (Objective C) - ios - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/22582338/callback-from-inside-a-block-objective-c",
+        "snippet": "# Callback from inside a block (Objective C). I have this method with a block in it, I want it to send the `userID` to another method as soon as it exists. Meanwhile the new thread will execute some code (the body of the async function) and, eventually execute the block passed as parameter, and finally the thread is killed and doesn't exist any more. Everything that should be executed once the user logged in should be placed inside the block (if the function is synchronous you could place it after the block). Given, that you should also implement proper *error handling* and that you should also provide a means to *cancel* that whole \"chain\" of asynchronous tasks at any point, the typical solutions with `NSOperationQueues` and `NSOperations`, dispatch\\_queue and blocks, NSNotifications or delegates will inevitable become *unduly* elaborate, complex and difficult to comprehend by others. The class `CoreDataStack` defines this method, which saves a chain of managed object contexts, which is basically setup: childContext -> main\\_context -> root\\_context:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "How to decompile ARM (iOS) to Objective-C using IDA?",
+        "url": "https://reverseengineering.stackexchange.com/questions/20226/how-to-decompile-arm-ios-to-objective-c-using-ida",
+        "snippet": "What are the options to decompile ARM (iOS) to Objective-C using IDA? I've been looking into the REobjc module (https://github.com/duo-labs/",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5273
+      },
+      {
+        "title": "Advanced Apple Debugging & Reverse Engineering, Chapter 7",
+        "url": "https://www.kodeco.com/books/advanced-apple-debugging-reverse-engineering/v4.0/chapters/7-image",
+        "snippet": "Be aware that all installs of macOS have the arm64e and the x86_64 dyld shared cache files available. Key Points. image is an alias for the target modules",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Parse dyld_shared_cache | ipsw - GitHub Pages",
+        "url": "https://blacktop.github.io/ipsw/docs/guides/dyld/",
+        "snippet": "• Extracting all dylibs from dyld_shared_cache_arm64e. ipsw dyld macho <dyld_shared_cache> <dylib> [flags]. `❯ ipsw dyld macho dyld_shared_cache_arm64e JavaScriptCore --search \"7f 23 03 d5 * * * * f6 57 01 a9\". `❯ ipsw dyld a2s dyld_shared_cache_arm64e --slide 0x27010000 0x00000001bc39e1e0. `❯ ipsw dyld objc --class dyld_shared_cache_arm64e. `❯ ipsw dyld objc class --image libobjc.A.dylib dyld_shared_cache`. `❯ ipsw dyld objc sel --image libobjc.A.dylib iPhone12,1_N104AP_18A5319i/dyld_shared_cache. 0x1dec4ef48: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI. 0x1def62d30: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation. 0x1de84b178: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities. 0x1de9e0da0: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/IMSharedUtilities.framework/IMSharedUtilities. 0x1e06c5ac0: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/CoreUI.framework/CoreUI. 0x1deaa96c0: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/Message.framework/Message. `❯ ipsw dyld patches dyld_shared_cache_arm64e -i libdyld.dylib. 0x218ed9bc8: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/DVTInstrumentsFoundation.framework/DVTInstrumentsFoundation. `❯ ipsw dyld patches dyld_shared_cache_arm64e -i libdyld.dylib -s _dlopen | head. 0x1de84ae68: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities. 0x1de885910: (diversity: 0x0000, key: IA, auth: true) /System/Library/PrivateFrameworks/AppleMediaServices.framework/AppleMediaServices. `❯ ipsw dyld dump dyld_shared_cache_arm64e 0x1d22c2428 --size 728 --output ./data.bin.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.4773
+      },
+      {
+        "title": "keith/dyld-shared-cache-extractor - GitHub",
+        "url": "https://github.com/keith/dyld-shared-cache-extractor",
+        "snippet": "This tool allows you to extract these libraries from the cache for reverse engineering. Usage. Extract the default shared cache to /tmp/libraries : dyld",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.6545
+      },
+      {
+        "title": "Performance of reversing dyld shared cache - Bugs",
+        "url": "https://community.hex-rays.com/t/performance-of-reversing-dyld-shared-cache/657",
+        "snippet": "# Performance of reversing dyld shared cache. On Mac with M4 with IDA 9.2, when trying to work on a dyld shared cache with ~50 or more modules loaded, IDA become much more slows, including randoms hangups, long time for renames, …. Is it a known issue? Because IDA can deal with kernelcache with all modules loaded (which is larger, and it runs much faster). In addition, xrefs work poorly on shared cache. Hi @yoavst and thanks for raising these issues. | IDA tracing questions  Support | 4 | 137 | June 10, 2025 |. :wave:  IDA General | 0 | 283 | November 12, 2024 |. | IDA 9.3 b1 macOS arm64 UAF crash  Bugs | 3 | 255 | January 21, 2026 |. | Jump anywhere is broken in IDA 9.3  Bugs | 1 | 88 | February 19, 2026 |. | IDA crashes on a DLL for Win ARM64EC  Bugs | 3 | 165 | May 13, 2025 |.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3473
+      },
+      {
+        "title": "Infected file: dyld_shared_cache_arm64e - Apple Community",
+        "url": "https://discussions.apple.com/thread/254371312",
+        "snippet": "I ran my antivirus program and it detected the file dyld\\_shared\\_cache\\_arm64e and identified it as an infected file with the threat name: ELF:MiraiDownloader-O. > I ran my antivirus program and it detected the file dyld\\_shared\\_cache\\_arm64e and identified it as an infected file with the threat name: ELF:MiraiDownloader-O. Remove the anti-malware app (possibly Avast?) and revert to the built-in anti-malware tooling. It would appear the add-on anti-malware app is erroneously detecting malware. Or contact the anti-malware app vendor and request their support. First, there is no reason to ever install or run any 3rd party \"cleaning\", \"optimizing\", \"speed-up\", anti-virus, VPN or security apps on your Mac. This documents describe what you need to know and do in order to protect your Mac: **Effective defenses against malware and other threats - Apple Community** and **Recognize and avoid phishing messages, phony support calls, and other scams - Apple Support**.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3273
+      }
+    ],
+    "grok": [
+      {
+        "title": "Clang Block-ABI-Apple.html - Block ABI Documentation",
+        "url": "https://clang.llvm.org/docs/Block-ABI-Apple.html",
+        "snippet": "Official Clang documentation detailing the Apple-specific Block ABI, including structure layout, invoke function pointer, descriptor with signature encoding (e.g., type string for recovery), captured variables, and arm64/arm64e considerations for block invocation and callback signing.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Reverse engineering of Apple's iOS 0-click CVE-2025-43300",
+        "url": "https://blog.quarkslab.com/patch-analysis-of-Apple-iOS-CVE-2025-43300.html",
+        "snippet": "Quarkslab analysis mentions extensive use of blocks in affected code; references Block ABI and callbacks in reverse engineering context for iOS binaries, including type recovery in decompilation and invocation handling.",
+        "published_date": "2025-09-04",
+        "source": "grok",
+        "score": 0.5509
+      },
+      {
+        "title": "GhidraEnjoyr/iOS-Reverse-Engineering",
+        "url": "https://github.com/GhidraEnjoyr/iOS-Reverse-Engineering",
+        "snippet": "Comprehensive iOS reverse engineering guide covering arm64e, dyld_shared_cache extraction, Objective-C blocks, and notes on block descriptors with signature fields for recovery in tools like Ghidra/IDA.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.7909
+      },
+      {
+        "title": "Demystifying Pointer Authentication on Apple M1",
+        "url": "https://www.usenix.org/system/files/usenixsecurity23-cai-zechao.pdf",
+        "snippet": "USENIX Security paper on arm64e PAC; discusses block invoke function pointers, signing policies (e.g., IA key with modifiers for function/block pointers), recovery handlers, and reverse engineering implications for signed callbacks.",
+        "published_date": "2023-08-09",
+        "source": "grok",
+        "score": 0.4109
+      },
+      {
+        "title": "Inside Coruna: Reverse Engineering a Nation-State iOS Exploit Kit",
+        "url": "https://www.nadsec.online/blog/coruna",
+        "snippet": "Detailed reverse engineering of arm64e PAC bypass techniques; covers signed block function pointers, invocation without forging signatures, and challenges in callback recovery on modern iOS arm64e binaries.",
+        "published_date": "2026-03-03",
+        "source": "grok"
+      },
+      {
+        "title": "Demystifying Objective-C internals",
+        "url": "https://www.synacktiv.com/sites/default/files/2025-06/demystifying_objc_internals.pdf",
+        "snippet": "Detailed presentation on Objective-C compilation, including block structure/layout, invoke function pointer pointing to the native block code, captured variables, flags (e.g. 0xC0000000 for stack blocks), descriptor metadata, and examples of block invocation in dispatch_async callbacks. Covers how blocks are objects with isa, invoke, and captured context – highly relevant for reverse engineering block callbacks on iOS.",
+        "published_date": "2025-05-23",
+        "source": "grok",
+        "score": 0.4236
+      },
+      {
+        "title": "arm64e: An ABI for Pointer Authentication",
+        "url": "https://llvm.org/devmtg/2019-10/slides/McCall-Bougacha-arm64e.pdf",
+        "snippet": "LLVM Developers' Meeting slides explaining arm64e ABI specifics for pointer authentication (PAuth) on ARMv8.3 (Apple A12+), including its use in system software, differences from standard arm64, and implications for code pointers like function pointers and block invokes. Discusses discriminator choices, integrity in transformations, and relevance to Objective-C/C++.",
+        "published_date": "2019-10-22",
+        "source": "grok",
+        "score": 0.3291
+      },
+      {
+        "title": "Writing ARM64 code for Apple platforms",
+        "url": "https://developer.apple.com/documentation/xcode/writing-arm64-code-for-apple-platforms",
+        "snippet": "Official Apple documentation on ARM64 ABI rules for Apple platforms, including divergences from standard AArch64, calling conventions, and requirements for assembly/interoperation with compiler-generated code (relevant when reverse engineering or handling block invokes on arm64/arm64e iOS binaries).",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.7909
+      },
+      {
+        "title": "Pointer Authentication — Clang documentation",
+        "url": "https://clang.llvm.org/docs/PointerAuthentication.html",
+        "snippet": "Clang docs covering arm64e ABI for pointer authentication, including mandatory PAuth on Armv8.3, signed code pointers (relevant to block invoke pointers), attackable sequences, and implementation details for Objective-C among other languages.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.4091
+      },
+      {
+        "title": "iOS App Reverse Engineering (book/PDF)",
+        "url": "https://algorithm-master.github.io/Books/iOSAppReverseEngineering.pdf",
+        "snippet": "Comprehensive guide to iOS reverse engineering focusing on Objective-C runtime, method invocation, callbacks, ARM assembly, and tools like IDA/LLDB for analyzing functions, blocks, and dispatch-related callbacks in iOS apps.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.5864
+      },
+      {
+        "title": "GitHub - keith/dyld-shared-cache-extractor: A CLI for extracting libraries from Apple's dyld shared cache file",
+        "url": "https://github.com/keith/dyld-shared-cache-extractor",
+        "snippet": "This tool allows you to extract these libraries from the cache for reverse engineering. Usage. Extract the default shared cache to /tmp/libraries : dyld-shared-cache-extractor /System/Volumes/Preboot/Cryptexes/OS/System/Library/dyld/dyld_shared_cache_arm64e ...",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Dev:dyld_shared_cache - The Apple Wiki",
+        "url": "https://theapplewiki.com/wiki/Dev:Dyld_shared_cache",
+        "snippet": "Reverse engineering the code in private or public frameworks within iOS. DyldExtractor is currently (as of iOS 14) capable of extracting nearly perfect frameworks from the shared cache. ... arm64e ARMv8.3 (PAC)",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.4091
+      },
+      {
+        "title": "Parse dyld_shared_cache | ipsw",
+        "url": "https://blacktop.github.io/ipsw/docs/guides/dyld",
+        "snippet": "The goal with this command is to 1) create \"near\" perfect dylibs that can be used as stand alone frameworks and 2) create dylibs for reverse engineering (packed ... Magic = \"dyld_v1  arm64e\"",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Advanced Apple Debugging & Reverse Engineering",
+        "url": "https://www.kodeco.com/books/advanced-apple-debugging-reverse-engineering/v4.0/chapters/7-image",
+        "snippet": "Be aware that all installs of macOS have the arm64e and the x86_64 dyld shared cache files available. ... dsc packs hundreds — sometimes thousands — of shared libraries together. ... dsc_extractor /System/Volumes/Preboot/Cryptexes/OS/System/Library/dyld/dyld_shared_cache_arm64e",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "macOS Ventura and the new dyld shared cache system",
+        "url": "https://khronokernel.com/macos/2022/06/22/VENTURA-DYLD.html",
+        "snippet": "Moving the dyld shared cache off the root volume and inside the Preboot volume. ... arm64e Used by Apple Silicon CPUs ... dyld caches can be found under /System/Library/dyld/",
+        "published_date": "2022-06-22",
+        "source": "grok",
+        "score": 0.2473
+      }
+    ]
+  }
+}

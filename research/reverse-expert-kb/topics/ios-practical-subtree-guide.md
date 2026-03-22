@@ -369,6 +369,7 @@ Primary note:
 
 Routing reminder:
 - enter this stage when one callback family is already plausible but PAC-era confidence, dyld/cache truth, or placeholder signatures still make stronger claims unsafe
+- at this stage, prefer freezing the first runtime-backed block contract rather than widening broad owner search again
 - do not jump straight from vague block visibility into policy interpretation if the landing itself is still structurally ambiguous
 
 Possible next handoff:
