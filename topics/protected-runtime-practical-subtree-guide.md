@@ -424,7 +424,7 @@ Possible next handoff:
 
 ### K. Exception/signal ownership -> one handler-owned transfer boundary
 Typical question:
-- is the real missing branch actually owned by handler registration, unwind lookup, signal delivery, or trap-resume logic rather than ordinary visible direct calls?
+- is the real missing branch actually owned by handler registration, dispatcher-side landing, unwind lookup, signal delivery, or trap-resume logic rather than ordinary visible direct calls?
 
 Primary note:
 - `topics/exception-handler-owned-control-transfer-workflow-note.md`
@@ -530,5 +530,11 @@ The compact reading is:
 - prove the first consequence-bearing integrity tripwire
 - recover one handler-owned transfer boundary when traps, faults, or signal delivery hide the real branch
 - then leave the branch once the remaining work is ordinary native, browser, protocol, mobile, or broader runtime-evidence continuation rather than protection-shaped uncertainty
+
+That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which leaf note to read first.
+
+That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which leaf note to read first.
+e, and less dependent on already knowing which leaf note to read first.
+tion rather than protection-shaped uncertainty
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which leaf note to read first.
