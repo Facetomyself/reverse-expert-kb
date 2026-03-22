@@ -1,0 +1,614 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "firmware mailbox doorbell ring buffer completion interrupt reverse engineering workflow",
+    "descriptor ring tail doorbell completion chain driver firmware reverse engineering",
+    "dma ring completion interrupt ownership reverse engineering practical workflow"
+  ],
+  "count": 31,
+  "results": [
+    {
+      "title": "jimhigson/ring-api: A promisified, reverse-engineered ...",
+      "url": "https://github.com/jimhigson/ring-api",
+      "snippet": "An unofficial, friendly Javascript API for ring doorbells, cameras, etc. ... A promisified, reverse-engineered API for Ring Doorbells and other gadgets",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.69
+    },
+    {
+      "title": "DMA on embedded systems — Ringbuffer documentation",
+      "url": "https://docs.majerle.eu/projects/lwrb/en/v1.2.0/user-manual/hw-dma-usage.html",
+      "snippet": "DMA controllers use ringbuffer for seamless integration and zero-copy at interrupts after DMA transfer completion. Practical embedded usage with interrupt handler on DMA finish, buffer skip to mark processed data and return ownership for new writes.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.67
+    },
+    {
+      "title": "dgreif/ring: Unofficial packages for Ring Doorbells ...",
+      "url": "https://github.com/dgreif/ring",
+      "snippet": "This repo contains unofficial packages to enable interaction and automation with the majority of Ring products ... The ring-client-api is a TypeScript package designed to be used by developers to create your own apps/programs which interact with Rings api",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.66
+    },
+    {
+      "title": "GitHub - DouglasFreshHabian/D00rb3ll: This repo contains files that ...",
+      "url": "https://github.com/DouglasFreshHabian/D00rb3ll",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.6
+    },
+    {
+      "title": "corundum/docs/source/operations.rst at master",
+      "url": "https://github.com/corundum/corundum/blob/master/docs/source/operations.rst",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "claude code reverse engineered my ring doorbell and built a native ...",
+      "url": "https://www.reddit.com/r/ClaudeCode/comments/1q4yfwr/claude_code_reverse_engineered_my_ring_doorbell/",
+      "snippet": "claude code has successfully reverse engineered my ring doorbell and built a native app for my mac with lots of brilliant features including",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.59
+    },
+    {
+      "title": "Practical Reverse Engineering Sample D | Henry Zhu - GitHub Pages",
+      "url": "https://maknee.github.io/blog/2019/Practical-Reverse-Engineering-Sample-D/",
+      "snippet": "",
+      "published_date": "2019-02-28T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.54
+    },
+    {
+      "title": "Understanding DMA Rings",
+      "url": "https://dev.to/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+      "snippet": "The device publishes completed work into memory using DMA, and software consumes it later. This removes: register polling from the fast path",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.53
+    },
+    {
+      "title": "Reverse Engineering a wireless doorbell and performing a replay ...",
+      "url": "https://medium.com/@shreyasubale/reverse-engineering-a-wireless-doorbell-and-performing-a-replay-attack-part1-23d59d57ce82",
+      "snippet": "We will be using a tool called rtl_433 to capture the data. This tool offers various analysis options also and is very feature rich.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.52
+    },
+    {
+      "title": "DMA Synchronous In Network Interface Card?",
+      "url": "https://mdeore.medium.com/dma-synchronous-in-network-interface-card-14da2e893a6b",
+      "snippet": "This synchronisation happens via ring descriptor between NIC and host CPU. Details RX descriptor format with status field solving packet ownership problem (DD - Descriptor Done bit indicates ownership transfer from driver to CPU). Covers EOP for complete packet and ownership in DMA rings for network interfaces.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.43
+    },
+    {
+      "title": "Reverse engineering wireless doorbells - atctwo",
+      "url": "https://atctwo.net/posts/2024/12/31/wireless-doorbells.html",
+      "snippet": "",
+      "published_date": "2024-12-31T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.42
+    },
+    {
+      "title": "information of bcm2835 mailbox and doorbell - Raspberry Pi Forums",
+      "url": "https://forums.raspberrypi.com/viewtopic.php?t=226514",
+      "snippet": "Mailbox interrupt will be arouse when VideoCore has message sent to ARM. But I'm still wondering how does the doorbell interrupt arise? ChrisYin: Posts: 5",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "[PDF] Ethical Hacking of a Ring Doorbell - Diva-Portal.org",
+      "url": "http://www.diva-portal.org/smash/get/diva2:1751192/FULLTEXT01.pdf",
+      "snippet": "Somewhat obfuscated source can be captured by reverse engineering Android applications, such as the Ring app[43]. The Android mobile phone used for testing",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.42
+    },
+    {
+      "title": "python-ring-doorbell documentation",
+      "url": "https://python-ring-doorbell.readthedocs.io/",
+      "snippet": "Currently Ring.com does not provide an official API. The results of this project are merely from reverse engineering. ... Python Ring Door Bell is a library written for Python that exposes the Ring.com devices as Python objects.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.42
+    },
+    {
+      "title": "Reverse Engineering Armv8-A Systems",
+      "url": "http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202026%20-%20A/CSE/reverse.engineering.armv8.a.systems.pdf",
+      "snippet": "Now, let's perform a practical exercise that you might encounter in reverse engineering. ... interrupts and interrupt handlers. This structure is called",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "Mailbox Registers And Doorbell Interrupts; Using The Mailbox Registers; Generating Doorbell Interrupts; Receiving Doorbell Interrupts - Intel i960 Series User Manual [Page 61]",
+      "url": "https://www.manualslib.com/manual/1748761/Intel-I960-Series.html?page=61",
+      "snippet": "",
+      "published_date": "2020-03-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "Interrupt Safe Ring Buffer :: Bare Metal Programming Series 6",
+      "url": "https://www.youtube.com/watch?v=uIJnATS9j_0",
+      "snippet": "In this episode of the bare metal programming series, we're building a ring buffer to back our UART driver. This buffer comes with a set of",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "Microcontrollers: Interrupt-safe ring buffers - Downtown Doug Brown",
+      "url": "https://www.downtowndougbrown.com/2013/01/microcontrollers-interrupt-safe-ring-buffers/",
+      "snippet": "You create a buffer that will store data waiting to be transmitted. If the peripheral is busy, rather than waiting around for it to finish, you",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.39
+    },
+    {
+      "title": "Analyzing the Firmware of a Cheap Video Doorbell",
+      "url": "https://www.keysight.com/blogs/en/tech/nwvs/2024/05/02/analyzing-firmware-cheap-doorbell",
+      "snippet": "",
+      "published_date": "2024-05-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "PCIe Part 2 - All About Memory: MMIO, DMA, TLPs, and more! – Reversing Engineering for the Soul",
+      "url": "https://ctf.re/kernel/pcie/tutorial/dma/mmio/tlp/2024/03/26/pcie-part-2/",
+      "snippet": "",
+      "published_date": "2024-03-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "Experiment - Packet Dumping PCIe DMA TLPs with a Protocol Analyzer and Pcileech – Reversing Engineering for the Soul",
+      "url": "https://ctf.re/pcie/experiment/linux/keysight/protocol-analyzer/2024/03/26/pcie-experiment-1/",
+      "snippet": "",
+      "published_date": "2024-03-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "Interrupt on DMA Completion - NXP Community",
+      "url": "https://community.nxp.com/t5/Kinetis-Microcontrollers/Interrupt-on-DMA-Completion/m-p/799501",
+      "snippet": "I am trying to get a interrupt on DMA completion. Here are the configuration steps that i am taking, but am not able to get an interrupt on.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.36
+    },
+    {
+      "title": "Taking apart a smart doorbell with a hacker mindset - Part 1",
+      "url": "https://csacyber.com/blog/taking-apart-a-smart-doorbell-with-a-hacker-mindset-part-1",
+      "snippet": "",
+      "published_date": "2025-05-28T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.33
+    },
+    {
+      "title": "Direct Memory Access (DMA) and Interrupt Handling",
+      "url": "https://www.eventhelix.com/fault-handling/dma-interrupt-handling/",
+      "snippet": "Knowledge of DMA and interrupt handling would be useful in writing code that interfaces directly with IO devices (DMA based serial port design pattern is a good example of such a device). | Interrupt Acknowledge Cycle | Many processors allow the interrupting hardware device to identify itself. This speeds up interrupt handling as the processor can directly invoke the interrupt service routine for the right device. | Synchronization Requirements for DMA and Interrupts | Software designers need to keep in mind that DMA operations can be triggered at bus cycle boundary while interrupts can only be triggered at instruction boundary. 1. Device wishing to perform DMA asserts the processors bus request signal. 5. No device responds to the interrupt acknowledge cycle, so the processor fetches the vector corresponding to the interrupt level. Many times software designers have to work with data structures that are shared with interrupts or DMA devices. The processor can initiate a DMA operation at a bus cycle boundary. * Some processors also support disabling DMA operations by using locked bus cycles.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "Descriptor fetching for a multi-queue direct memory access ...",
+      "url": "https://patents.google.com/patent/US12259833B2/en",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "kernel/common - Git at Google",
+      "url": "https://android.googlesource.com/kernel/common/+/888d3c9f7f3ae44101a3fd76528d3dd6f96e9fd0%5E2..888d3c9f7f3ae44101a3fd76528d3dd6f96e9fd0/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Linux GPU Driver Developer's Guide",
+      "url": "https://dri.freedesktop.org/docs/drm/gpu.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Programmable Deterministic Zero-Copy DMA Mechanism for FPGA ...",
+      "url": "https://www.mdpi.com/2076-3417/12/19/9581",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Lattice's SGDMA Controller - WinDriver",
+      "url": "https://windriver.jungo.com/direct-memory-access/lattice-sgdma-controller/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Zephyr Deep Dive: Ring Buffers",
+      "url": "https://interrupt.memfault.com/blog/zephyr-ring-buffers",
+      "snippet": "This post covers Zephyr's built-in ring buffer API, a component commonly used in producer-consumer scenarios. ... The producer writes to the ring buffer via the ring_buf_put functions, while the reader reads from the ring buffer with the ring_buf_get functions.",
+      "published_date": "2023-05-24",
+      "source": "grok",
+      "score": 0.28
+    },
+    {
+      "title": "Understanding DMA",
+      "url": "https://hackaday.com/2017/02/28/understanding-dma",
+      "snippet": "DMA transfers data directly to/from memory; on block transfer completion, CPU gets a single interrupt for processing or queuing more data. General explanation relevant to completion signaling in DMA engines.",
+      "published_date": "2017-02-28",
+      "source": "grok",
+      "score": 0.28
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Taking apart a smart doorbell with a hacker mindset - Part 1",
+        "url": "https://csacyber.com/blog/taking-apart-a-smart-doorbell-with-a-hacker-mindset-part-1",
+        "snippet": "",
+        "published_date": "2025-05-28T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.33
+      },
+      {
+        "title": "Reverse engineering wireless doorbells - atctwo",
+        "url": "https://atctwo.net/posts/2024/12/31/wireless-doorbells.html",
+        "snippet": "",
+        "published_date": "2024-12-31T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.42
+      },
+      {
+        "title": "Analyzing the Firmware of a Cheap Video Doorbell",
+        "url": "https://www.keysight.com/blogs/en/tech/nwvs/2024/05/02/analyzing-firmware-cheap-doorbell",
+        "snippet": "",
+        "published_date": "2024-05-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "GitHub - DouglasFreshHabian/D00rb3ll: This repo contains files that ...",
+        "url": "https://github.com/DouglasFreshHabian/D00rb3ll",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.6
+      },
+      {
+        "title": "Mailbox Registers And Doorbell Interrupts; Using The Mailbox Registers; Generating Doorbell Interrupts; Receiving Doorbell Interrupts - Intel i960 Series User Manual [Page 61]",
+        "url": "https://www.manualslib.com/manual/1748761/Intel-I960-Series.html?page=61",
+        "snippet": "",
+        "published_date": "2020-03-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "Descriptor fetching for a multi-queue direct memory access ...",
+        "url": "https://patents.google.com/patent/US12259833B2/en",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Reverse engineering wireless doorbells - atctwo",
+        "url": "https://atctwo.net/posts/2024/12/31/wireless-doorbells.html",
+        "snippet": "",
+        "published_date": "2024-12-31T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "corundum/docs/source/operations.rst at master",
+        "url": "https://github.com/corundum/corundum/blob/master/docs/source/operations.rst",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "kernel/common - Git at Google",
+        "url": "https://android.googlesource.com/kernel/common/+/888d3c9f7f3ae44101a3fd76528d3dd6f96e9fd0%5E2..888d3c9f7f3ae44101a3fd76528d3dd6f96e9fd0/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Linux GPU Driver Developer's Guide",
+        "url": "https://dri.freedesktop.org/docs/drm/gpu.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Programmable Deterministic Zero-Copy DMA Mechanism for FPGA ...",
+        "url": "https://www.mdpi.com/2076-3417/12/19/9581",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "PCIe Part 2 - All About Memory: MMIO, DMA, TLPs, and more! – Reversing Engineering for the Soul",
+        "url": "https://ctf.re/kernel/pcie/tutorial/dma/mmio/tlp/2024/03/26/pcie-part-2/",
+        "snippet": "",
+        "published_date": "2024-03-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "Lattice's SGDMA Controller - WinDriver",
+        "url": "https://windriver.jungo.com/direct-memory-access/lattice-sgdma-controller/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Practical Reverse Engineering Sample D | Henry Zhu - GitHub Pages",
+        "url": "https://maknee.github.io/blog/2019/Practical-Reverse-Engineering-Sample-D/",
+        "snippet": "",
+        "published_date": "2019-02-28T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.54
+      },
+      {
+        "title": "Experiment - Packet Dumping PCIe DMA TLPs with a Protocol Analyzer and Pcileech – Reversing Engineering for the Soul",
+        "url": "https://ctf.re/pcie/experiment/linux/keysight/protocol-analyzer/2024/03/26/pcie-experiment-1/",
+        "snippet": "",
+        "published_date": "2024-03-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      }
+    ],
+    "tavily": [
+      {
+        "title": "information of bcm2835 mailbox and doorbell - Raspberry Pi Forums",
+        "url": "https://forums.raspberrypi.com/viewtopic.php?t=226514",
+        "snippet": "Mailbox interrupt will be arouse when VideoCore has message sent to ARM. But I'm still wondering how does the doorbell interrupt arise? ChrisYin: Posts: 5",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "Interrupt Safe Ring Buffer :: Bare Metal Programming Series 6",
+        "url": "https://www.youtube.com/watch?v=uIJnATS9j_0",
+        "snippet": "In this episode of the bare metal programming series, we're building a ring buffer to back our UART driver. This buffer comes with a set of",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      },
+      {
+        "title": "Microcontrollers: Interrupt-safe ring buffers - Downtown Doug Brown",
+        "url": "https://www.downtowndougbrown.com/2013/01/microcontrollers-interrupt-safe-ring-buffers/",
+        "snippet": "You create a buffer that will store data waiting to be transmitted. If the peripheral is busy, rather than waiting around for it to finish, you",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.39
+      },
+      {
+        "title": "Taking apart a smart doorbell with a hacker mindset - Part 1",
+        "url": "https://csacyber.com/blog/taking-apart-a-smart-doorbell-with-a-hacker-mindset-part-1",
+        "snippet": "So now we had access to the binaries and could work on reverse engineering them, to look for any vulnerabilities that could be exploitable.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Reverse Engineering a wireless doorbell and performing a replay ...",
+        "url": "https://medium.com/@shreyasubale/reverse-engineering-a-wireless-doorbell-and-performing-a-replay-attack-part1-23d59d57ce82",
+        "snippet": "We will be using a tool called rtl_433 to capture the data. This tool offers various analysis options also and is very feature rich.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.52
+      },
+      {
+        "title": "claude code reverse engineered my ring doorbell and built a native ...",
+        "url": "https://www.reddit.com/r/ClaudeCode/comments/1q4yfwr/claude_code_reverse_engineered_my_ring_doorbell/",
+        "snippet": "claude code has successfully reverse engineered my ring doorbell and built a native app for my mac with lots of brilliant features including",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.59
+      },
+      {
+        "title": "Reverse Engineering a wireless doorbell and performing a replay ...",
+        "url": "https://medium.com/@shreyasubale/reverse-engineering-a-wireless-doorbell-and-performing-a-replay-attack-part1-23d59d57ce82",
+        "snippet": "Reverse Engineering the transmission signal. The next step is to figure out which frequency band the transmitter is operating on. We can do this",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Taking apart a smart doorbell with a hacker mindset - Part 1",
+        "url": "https://csacyber.com/blog/taking-apart-a-smart-doorbell-with-a-hacker-mindset-part-1",
+        "snippet": "So now we had access to the binaries and could work on reverse engineering them, to look for any vulnerabilities that could be exploitable.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] Ethical Hacking of a Ring Doorbell - Diva-Portal.org",
+        "url": "http://www.diva-portal.org/smash/get/diva2:1751192/FULLTEXT01.pdf",
+        "snippet": "Somewhat obfuscated source can be captured by reverse engineering Android applications, such as the Ring app[43]. The Android mobile phone used for testing",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.42
+      },
+      {
+        "title": "Descriptor fetching for a multi-queue direct memory access system",
+        "url": "https://patents.google.com/patent/US12259833B2/en",
+        "snippet": "The descriptor is the head descriptor of a chain descriptor and points to a descriptor table including one or more tail descriptors of the chain descriptor.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Understanding DMA Rings",
+        "url": "https://dev.to/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+        "snippet": "The device publishes completed work into memory using DMA, and software consumes it later. This removes: register polling from the fast path",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.53
+      },
+      {
+        "title": "Reverse Engineering Armv8-A Systems",
+        "url": "http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202026%20-%20A/CSE/reverse.engineering.armv8.a.systems.pdf",
+        "snippet": "Now, let's perform a practical exercise that you might encounter in reverse engineering. ... interrupts and interrupt handlers. This structure is called",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "Lattice's SGDMA Controller - WinDriver",
+        "url": "https://windriver.jungo.com/direct-memory-access/lattice-sgdma-controller/",
+        "snippet": "DMA Workflow with Lattice SGDMA ... Completion and Interrupt Handling: Use WinDriver's interrupt handling mechanism (WDC_IntEnable()) to catch DMA completion.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Interrupt on DMA Completion - NXP Community",
+        "url": "https://community.nxp.com/t5/Kinetis-Microcontrollers/Interrupt-on-DMA-Completion/m-p/799501",
+        "snippet": "I am trying to get a interrupt on DMA completion. Here are the configuration steps that i am taking, but am not able to get an interrupt on.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.36
+      },
+      {
+        "title": "Direct Memory Access (DMA) and Interrupt Handling",
+        "url": "https://www.eventhelix.com/fault-handling/dma-interrupt-handling/",
+        "snippet": "Knowledge of DMA and interrupt handling would be useful in writing code that interfaces directly with IO devices (DMA based serial port design pattern is a good example of such a device). | Interrupt Acknowledge Cycle | Many processors allow the interrupting hardware device to identify itself. This speeds up interrupt handling as the processor can directly invoke the interrupt service routine for the right device. | Synchronization Requirements for DMA and Interrupts | Software designers need to keep in mind that DMA operations can be triggered at bus cycle boundary while interrupts can only be triggered at instruction boundary. 1. Device wishing to perform DMA asserts the processors bus request signal. 5. No device responds to the interrupt acknowledge cycle, so the processor fetches the vector corresponding to the interrupt level. Many times software designers have to work with data structures that are shared with interrupts or DMA devices. The processor can initiate a DMA operation at a bus cycle boundary. * Some processors also support disabling DMA operations by using locked bus cycles.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      }
+    ],
+    "grok": [
+      {
+        "title": "Taking apart a smart doorbell with a hacker mindset - Part 1",
+        "url": "https://csacyber.com/blog/taking-apart-a-smart-doorbell-with-a-hacker-mindset-part-1",
+        "snippet": "So now we had access to the binaries and could work on reverse engineering them, to look for any vulnerabilities that could be exploitable. ... Phase 2: Obtaining Interactive Access Debug capabilities (network or physical interfaces), firmware acquisition (dump, download from the vendor, intercept the update process). ... Phase 4: Vulnerability Research Code review, reverse engineering, fuzzing, etc.",
+        "published_date": "2025-05-28",
+        "source": "grok"
+      },
+      {
+        "title": "Microcontrollers: Interrupt-safe ring buffers",
+        "url": "https://www.downtowndougbrown.com/2013/01/microcontrollers-interrupt-safe-ring-buffers",
+        "snippet": "An interrupt-safe circular buffer. This lesson is dedicated to understanding this very important data structure. ... When the peripheral finishes transmitting a byte, it fires an interrupt. Your interrupt handler takes the next byte from the buffer and sends it to the peripheral...",
+        "published_date": "2013-01-11",
+        "source": "grok"
+      },
+      {
+        "title": "Reverse Engineering a wireless doorbell and performing a replay attack — Part1",
+        "url": "https://medium.com/@shreyasubale/reverse-engineering-a-wireless-doorbell-and-performing-a-replay-attack-part1-23d59d57ce82",
+        "snippet": "We will be using a tool called rtl_433 to capture the data. This tool offers various analysis options also and is very feature rich. ... Reverse Engineering the transmission signal The next step is to figure out which frequency band the transmitter is operating on.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Zephyr Deep Dive: Ring Buffers",
+        "url": "https://interrupt.memfault.com/blog/zephyr-ring-buffers",
+        "snippet": "This post covers Zephyr's built-in ring buffer API, a component commonly used in producer-consumer scenarios. ... The producer writes to the ring buffer via the ring_buf_put functions, while the reader reads from the ring buffer with the ring_buf_get functions.",
+        "published_date": "2023-05-24",
+        "source": "grok",
+        "score": 0.28
+      },
+      {
+        "title": "DouglasFreshHabian/D00rb3ll: This repo contains files ...",
+        "url": "https://github.com/DouglasFreshHabian/D00rb3ll",
+        "snippet": "The goal of this project is to offer a transparent look into the firmware of a widely used consumer device. As part of my ongoing reverse engineering efforts... Automated Firmware Analysis Overview In this video, we dive into automating the firmware analysis process using a powerful suite of tools...",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "claude code reverse engineered my ring doorbell and built ...",
+        "url": "https://www.reddit.com/r/ClaudeCode/comments/1q4yfwr/claude_code_reverse_engineered_my_ring_doorbell",
+        "snippet": "claude code has successfully reverse engineered my ring doorbell and built a native app for my mac with lots of brilliant features including ...",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "jimhigson/ring-api: A promisified, reverse-engineered ...",
+        "url": "https://github.com/jimhigson/ring-api",
+        "snippet": "An unofficial, friendly Javascript API for ring doorbells, cameras, etc. ... A promisified, reverse-engineered API for Ring Doorbells and other gadgets",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.69
+      },
+      {
+        "title": "python-ring-doorbell documentation",
+        "url": "https://python-ring-doorbell.readthedocs.io/",
+        "snippet": "Currently Ring.com does not provide an official API. The results of this project are merely from reverse engineering. ... Python Ring Door Bell is a library written for Python that exposes the Ring.com devices as Python objects.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.42
+      },
+      {
+        "title": "dgreif/ring: Unofficial packages for Ring Doorbells ...",
+        "url": "https://github.com/dgreif/ring",
+        "snippet": "This repo contains unofficial packages to enable interaction and automation with the majority of Ring products ... The ring-client-api is a TypeScript package designed to be used by developers to create your own apps/programs which interact with Rings api",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.66
+      },
+      {
+        "title": "Ethical Hacking of a Ring Doorbell",
+        "url": "http://www.diva-portal.org/smash/get/diva2:1751192/FULLTEXT01.pdf",
+        "snippet": "By A Pétursson · 2023 · Cited by 4 — By targeting the hardware, attackers can in some cases set up a backdoor or access the firmware and disassemble this code to produce source code. ... Ethical Hacking of a Ring Doorbell",
+        "published_date": "2023-01-26",
+        "source": "grok"
+      },
+      {
+        "title": "Understanding DMA Rings",
+        "url": "https://dev.to/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+        "snippet": "Understanding this structure requires looking beyond the idea of a circular buffer and focusing on ownership transfer, memory ordering, and cache visibility. Explains device → advances WR_IDX, driver → advances RD_IDX, completion records via DMA, and interrupt notification after publishing WR_IDX. Practical lifecycle of completion from device to driver, including ownership transfer in rings.",
+        "published_date": "2026-02-21",
+        "source": "grok"
+      },
+      {
+        "title": "DMA Synchronous In Network Interface Card?",
+        "url": "https://mdeore.medium.com/dma-synchronous-in-network-interface-card-14da2e893a6b",
+        "snippet": "This synchronisation happens via ring descriptor between NIC and host CPU. Details RX descriptor format with status field solving packet ownership problem (DD - Descriptor Done bit indicates ownership transfer from driver to CPU). Covers EOP for complete packet and ownership in DMA rings for network interfaces.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.43
+      },
+      {
+        "title": "DMA on embedded systems — Ringbuffer documentation",
+        "url": "https://docs.majerle.eu/projects/lwrb/en/v1.2.0/user-manual/hw-dma-usage.html",
+        "snippet": "DMA controllers use ringbuffer for seamless integration and zero-copy at interrupts after DMA transfer completion. Practical embedded usage with interrupt handler on DMA finish, buffer skip to mark processed data and return ownership for new writes.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.67
+      },
+      {
+        "title": "Understanding DMA",
+        "url": "https://hackaday.com/2017/02/28/understanding-dma",
+        "snippet": "DMA transfers data directly to/from memory; on block transfer completion, CPU gets a single interrupt for processing or queuing more data. General explanation relevant to completion signaling in DMA engines.",
+        "published_date": "2017-02-28",
+        "source": "grok",
+        "score": 0.28
+      },
+      {
+        "title": "Interrupt on DMA Completion - NXP Community",
+        "url": "https://community.nxp.com/t5/Kinetis-Microcontrollers/Interrupt-on-DMA-Completion/m-p/799501",
+        "snippet": "Practical configuration for interrupt on DMA completion using CSR flags like INTMAJOR and DREQ for automatic clear on major iteration zero. Discusses ownership and completion handling in embedded DMA contexts.",
+        "published_date": "",
+        "source": "grok"
+      }
+    ]
+  }
+}
