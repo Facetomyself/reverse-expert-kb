@@ -233,10 +233,11 @@ A compact protocol/firmware reading worth preserving at the top level is:
 - `topics/representative-execution-selection-and-trace-anchor-workflow-note.md`
 - `topics/compare-run-design-and-divergence-isolation-workflow-note.md`
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
+- `topics/first-bad-write-and-decisive-reducer-localization-workflow-note.md`
 - `topics/runtime-evidence-package-and-handoff-workflow-note.md`
 - `topics/analytic-provenance-and-evidence-management.md`
 
-This branch should now be read as a practical bridge from runtime-evidence synthesis into seven recurring operator families:
+This branch should now be read as a practical bridge from runtime-evidence synthesis into eight recurring operator families:
 - subtree navigation and bottleneck selection (`runtime-evidence-practical-subtree-guide`), which acts as the branch entry surface when the analyst first needs to decide whether the current runtime-evidence bottleneck is broad observation/layer-selection uncertainty, smaller hook-placement / truth-boundary uncertainty, capture-stability/replay-worthiness uncertainty, representative-execution / trace-anchor selection, compare-run design / first-divergence isolation, late-effect-to-causal-boundary localization, or evidence-package / handoff continuation
 - broad runtime answerability and observability framing (`runtime-behavior-recovery`)
 - hook-placement / observation-surface selection (`hook-placement-and-observability-workflow-note`), which acts as the practical entry note when runtime work is clearly needed and the broad layer is already plausible, but the analyst still needs one smaller truthful observation surface plus one minimal hook family before replay, reverse-causality, or branch-specific proof work becomes trustworthy
