@@ -488,9 +488,11 @@ When a case is clearly firmware/protocol shaped, ask these in order:
    - if yes, start with layer-peeling / contract recovery
 5. **Is one smaller trustworthy contract already visible, but still not externalized into one reusable schema, service-contract artifact, or representative harness target?**
    - if yes, start with schema externalization / replay-harness work
-6. **Is the first authenticated API body visible, but the real object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder?**
+6. **Is one representative method contract already externalized, but still not frozen into one truthful request/response or request/completion fixture plus one smallest constructor path?**
+   - if yes, start with method-contract -> minimal replay-fixture work
+7. **Is the first authenticated API body visible, but the real object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder?**
    - if yes, start with content-pipeline recovery
-7. **Is inbound traffic visible, but the first local receive owner still unclear?**
+8. **Is inbound traffic visible, but the first local receive owner still unclear?**
    - if yes, start with ingress ownership
 8. **Is parser or dispatch visibility present, but the first state/effect consequence still unclear?**
    - if yes, start with parser-to-state localization
