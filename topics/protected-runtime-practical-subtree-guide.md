@@ -215,6 +215,7 @@ Start here when:
 - repaired dumps, unpacked images, static tables, or offline reconstructions still look damaged, under-initialized, or close-but-wrong
 - live/runtime memory, initialized tables, post-init images, or command-sequenced state looks truer than the static view
 - the next useful output is one minimal init chain, one runtime-artifact family, one initialized-image dump point, or one side-condition checklist that explains why replay is drifting
+- a routine is already callable in an emulator / replay harness, but still does not look truthfully initialized enough to trust the output
 
 Do **not** start here when:
 - the static/runtime discrepancy is still too vague and the real bottleneck remains packed handoff, trace churn, or artifact-consumer proof
@@ -372,6 +373,7 @@ Possible next handoff:
 ### I. Static artifact drift -> runtime artifact or init obligation
 Typical question:
 - which live/runtime artifact or minimal init chain explains why repaired static views or offline replay are almost right but still untrustworthy?
+- is the routine merely callable, or is it actually truthfully initialized?
 
 Primary note:
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`

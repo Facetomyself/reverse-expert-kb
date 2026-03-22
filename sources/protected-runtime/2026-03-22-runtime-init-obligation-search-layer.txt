@@ -1,0 +1,927 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "runtime table extraction reverse engineering initialized image replay close but wrong",
+    "unidbg reverse engineering close but wrong initialization sequence runtime table",
+    "dumping initialized image reverse engineering runtime state more truthful than static dump",
+    "white-box crypto runtime table extraction reverse engineering dynamic analysis"
+  ],
+  "count": 54,
+  "results": [
+    {
+      "title": "Table Extraction from Images: Reverse Engineering Runtime Table Detection in Modern UIs",
+      "url": "https://arxiv.org/abs/2305.14871",
+      "snippet": "We present a method for reverse-engineering runtime-initialized tables in graphical user interfaces by replaying rendering sequences and analyzing image differences to recover table structure even when standard OCR fails due to dynamic initialization.",
+      "published_date": "2023-05-24",
+      "source": "grok",
+      "score": 0.7382
+    },
+    {
+      "title": "Image table extraction correct but text table output not. #1061",
+      "url": "https://github.com/jsvine/pdfplumber/discussions/1061",
+      "snippet": "I get a great visual identification of the margins of the table. Yet when I extract the text the last items in the list get parsed incorrectly on a few lines.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7091
+    },
+    {
+      "title": "Protecting executable from reverse engineering?",
+      "url": "https://stackoverflow.com/questions/6481668/protecting-executable-from-reverse-engineering",
+      "snippet": "But it's not that secure anymore.. And no matter how you pack your code you can always do a memory dump of any loaded executable and disassemble it with any disassembler like IDA Pro.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.7091
+    },
+    {
+      "title": "whyliuxing/reverse-engineering-journal: anything I find ... - GitHub",
+      "url": "https://github.com/whyliuxing/reverse-engineering-journal",
+      "snippet": "Import Address Table (IAT): shows you all the dynamically linked libraries' functions that the binary uses. Import Address Table is important for a reverser to",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "Reverse Engineering Structure and Semantics of Input of a Binary Executable",
+      "url": "https://www.arxiv.org/pdf/2405.14052",
+      "snippet": "",
+      "published_date": "2024-05-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6818
+    },
+    {
+      "title": "GitHub - Jadis0x/il2cpp-reverse-engineering-guide",
+      "url": "https://github.com/Jadis0x/il2cpp-reverse-engineering-guide",
+      "snippet": "*/*/ template typename void static Invoke const char int void if return// Find the method within the class metadata// const il2cpp_class_get_method_from_name if\"[IL2CPP] Method not found: \" \" \" return nullptr// Execute the method within the IL2CPP virtual machine// il2cpp_runtime_invoke if\"[IL2CPP] Exception in \" \" \" return if return// If T is a pointer (Reference Type), just cast and return// if constexpr return else// If T is a value type (int, bool, struct), unbox the data// return/**/* * @brief Sets a field value, automatically handling both static and instance fields. /**/** @brief Overwriting a Steam Name field.*/*/ void Scenario4_UpdateField// Search for the target object in the current scene.//// Our \"Universal Finder\" handles both active and inactive objects.//IL2CPPHelper::FindInstance\"Assembly-CSharp.dll\" \" \" \"Horror\" \" \" \"Menu\" \" \" if// Prepare the new value.//// Allocate System.String on Unity heap//// Never pass a raw C++ const char* directly to a System.String field.//IL2CPPHelper::NewString \"testestest\" \" \" il2cpp_object_get_class// Perform the overwrite.//// The helper automatically detects if 'steamName' is a static or instance field.//IL2CPPHelper::SetField \"steamName\" \" \"\"[IL2CPP] Success: Field updated.\\n\" \" \\n \" else\"[IL2CPP] Error: Menu instance not found in scene.\\n\" \" \\n \".",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "Wrong initialization,and I don't konw how to solve it,please help me ...",
+      "url": "https://github.com/raulmur/ORB_SLAM2/issues/543",
+      "snippet": "Wrong initialization,and I don't konw how to solve it,please help me,Thank you. #543. New issue. Copy link. New issue. Copy link. Open. Open.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6273
+    },
+    {
+      "title": "Unidbg keeps executing old code after patching · Issue #407 - GitHub",
+      "url": "https://github.com/zhkl0228/unidbg/issues/407",
+      "snippet": "",
+      "published_date": "2022-03-25T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Search code, repositories, users, issues, pull requests...",
+      "url": "https://github.com/zhkl0228/unidbg/issues/744",
+      "snippet": "",
+      "published_date": "2025-08-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "so 调用方法    init 报错 · Issue #441 · zhkl0228/unidbg",
+      "url": "https://github.com/zhkl0228/unidbg/issues/441",
+      "snippet": "",
+      "published_date": "2022-06-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "GitHub - zhkl0228/unidbg: Allows you to emulate an Android native library, and an experimental iOS emulation. This is an educational project to learn more about the ELF/ARM64 format and ARM assembly.",
+      "url": "https://github.com/zhkl0228/unidbg",
+      "snippet": "Allows you to emulate an Android native library, and an experimental iOS emulation. This is an educational project to learn more about the ELF/ARM64 format and ARM assembly.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6
+    },
+    {
+      "title": "GitHub - hellman/wboxkit: White-box Design and Analysis kit",
+      "url": "https://github.com/hellman/wboxkit",
+      "snippet": "",
+      "published_date": "2022-09-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "[D] Why is table extraction still not solved by modern ...",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1jnjfaq/d_why_is_table_extraction_still_not_solved_by/",
+      "snippet": "the input data is an image, and the cell position / table structure is important. multimodal models are not able to solve this problem yet.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5818
+    },
+    {
+      "title": "Repeatable Reverse Engineering for the Greater Good ...",
+      "url": "https://www.ll.mit.edu/sites/default/files/publication/doc/2018-04/2014_10_01_Dolan-Gavitt_B_TechReport_FP.pdf",
+      "snippet": "AbstractSSSWe present PANDA, an openSsource tool that has been purposeSbuilt to support whole system reverse engineering.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5818
+    },
+    {
+      "title": "EXPLORING SEMANTIC REVERSE ENGINEERING FOR ...",
+      "url": "https://rucore.libraries.rutgers.edu/rutgers-lib/61117/PDF/1/play/",
+      "snippet": "by P Sun · 2019 · Cited by 1 — Chapter 4 details Mismo, a domain-specific reverse engineering solution to extract high-level algorithmic control and data flow semantics from embedded binary.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5545
+    },
+    {
+      "title": "[PDF] Automation of white-box cryptography attacks in Android applications",
+      "url": "https://openaccess.uoc.edu/server/api/core/bitstreams/210f9401-0739-498d-8865-be58b9e100c2/content",
+      "snippet": "In order to retrieve these traces, dynamic binary instrumentation and emulation of the binaries are the best approaches. However, in order to protect WBC",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5
+    },
+    {
+      "title": "Challenges in Table Extraction from Dynamically Rendered Application Screenshots",
+      "url": "https://scholar.google.com/scholar?cluster=17894562318945671234",
+      "snippet": "Survey of techniques attempting reverse engineering of runtime-initialized data tables from image replays. Many approaches get structurally close but produce incorrect cell merging or spanning when initialization involves lazy loading or animations.",
+      "published_date": "2025-01-10",
+      "source": "grok",
+      "score": 0.4927
+    },
+    {
+      "title": "Reverse Engineering: Binary Security | by Totally_Not_A_Haxxer",
+      "url": "https://medium.com/@Totally_Not_A_Haxxer/reverse-engineering-binary-security-fb62129b773f",
+      "snippet": "In this section of the module, we will be talking about binary security, how specific people will secure binary applications, and why people like game cheat developers NEED to protect their systems from other people. Everyone complains or most gamers complain about how anti-cheat systems are just not good enough at catching people who are cheating, but like the programs and demos we have shown here; it does not matter what security mechanism you put in place, it does not matter how strong you think your program is or how protected and locked down your binary is, reverse engineers are impossible to prevent and will ALWAYS find a new way around a new even undocumented security mechanism. This is really just going to say that even when you do some reversing and do not have much knowledge of programming that sometimes working with your own tools is going to be something that benefits you in the long run especially save you time and effort trying to use system commands or controls to bypass or disable the security mechanisms in specific applications.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.4818
+    },
+    {
+      "title": "unidbg之使用unidbg进行逆向分析_so1e0r的博客-CSDN博客",
+      "url": "https://blog.csdn.net/so1e0r/article/details/131234567",
+      "snippet": "unidbg之使用unidbg进行逆向分析 ... close but wrong initialization sequence runtime table ... 在使用unidbg进行逆向时，经常会遇到close but wrong initialization sequence runtime table的报错，这个报错一般是由于初始化顺序错误导致的。",
+      "published_date": "2023-07-15",
+      "source": "grok",
+      "score": 0.4564
+    },
+    {
+      "title": "unidbg使用过程中遇到的各种坑 - 知乎",
+      "url": "https://zhuanlan.zhihu.com/p/648972312",
+      "snippet": "在使用unidbg时经常会遇到各种报错，比如close but wrong initialization sequence runtime table，这个报错一般是由于初始化顺序错误导致的。",
+      "published_date": "2023-11-20",
+      "source": "grok",
+      "score": 0.4564
+    },
+    {
+      "title": "HiDump: Tracing and Extraction of Runtime Injected Code",
+      "url": "http://blog.3slabs.com/2013/06/hidump-tracing-and-extraction-of.html",
+      "snippet": "",
+      "published_date": "2026-02-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4545
+    },
+    {
+      "title": "unidbg初探 - 1ens's blog",
+      "url": "https://1ens.github.io/2024/12/21/unidbg%E5%88%9D%E6%8E%A2/",
+      "snippet": "",
+      "published_date": "2024-12-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "Tapping into the potential of Memory Dump Emulation",
+      "url": "https://blahcat.github.io/2024-01-27-tapping-into-the-potential-of-memory-dump-emulation/",
+      "snippet": "",
+      "published_date": "2024-01-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "Reverse Engineering Dynamic UI Tables via Image Differencing and Replay",
+      "url": "https://www.usenix.org/conference/usenixsecurity23/presentation/zhang-table-re",
+      "snippet": "This paper introduces a replay-based approach to extract table structures from applications that generate tables at runtime. By capturing and replaying rendering, we achieve close but imperfect reconstruction when initialization logic diverges.",
+      "published_date": "2023-08-09",
+      "source": "grok",
+      "score": 0.4382
+    },
+    {
+      "title": "PicoCTF 2024 Reverse Engineering Challenges Writeup",
+      "url": "https://hackmd.io/@tahaafarooq/picoctf-2024-reverse-engineering",
+      "snippet": "FLAG : picoCTF{0x200_debug_f0r_Win_c6db2768} ## WinAntiDbg0x300 (400 Points) ### Description image ### Solution I first try to load the executable in IDA , and I found out that it's compressed with UPX: image I unpack it using the command ```shell upx -d WinAntiDbg0x300.exe -o original.exe ``` image And then I load the new executable I decompressed: image First thing first, I run the executable through the debugger to see what output I get from it: image Now I find where this error is being called from: image this is interesting we can see that it hit that error after the `test eax,eax` instruction: image I set a breakpoint at the test instruction to see what the value of the **EAX** register becomes and then we modify it and then continue from the breakpoint to see what we get, but before that we first need to understand the logic flow of the program and what to expect.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4364
+    },
+    {
+      "title": "Inspecting Runtimes",
+      "url": "https://blog.replay.io/inspecting-runtimes",
+      "snippet": "",
+      "published_date": "2021-09-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4273
+    },
+    {
+      "title": "What is the difference between static disassembly and dynamic disassembly?",
+      "url": "https://reverseengineering.stackexchange.com/questions/3473/what-is-the-difference-between-static-disassembly-and-dynamic-disassembly",
+      "snippet": "Static disassembly is where the file being disassembled isn't executed during the course of disassembly. Dynamic disassembly is where the file is being executed ...",
+      "published_date": "2014-01-17",
+      "source": "grok",
+      "score": 0.42
+    },
+    {
+      "title": "GUIReverse: Extracting Runtime-Generated Tables through Visual Replay and Diff Analysis",
+      "url": "https://dl.acm.org/doi/10.1145/3544548.3581234",
+      "snippet": "GUIReverse replays application execution traces and compares screenshot sequences to reconstruct table layouts that are initialized at runtime. Results are often close to ground truth but can diverge when visual themes or anti-aliasing interfere.",
+      "published_date": "2024-04-22",
+      "source": "grok",
+      "score": 0.4109
+    },
+    {
+      "title": "Understanding White-Box Cryptography - Build38",
+      "url": "https://build38.com/blog/mobile-security/whitebox-cryptography/",
+      "snippet": "Discover how white-box cryptography and Build38's SDK protect mobile apps from key extraction, reverse engineering, and runtime attacks.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "Reverse engineering blobs with replay and sed",
+      "url": "https://blogs.coreboot.org/blog/2014/12/13/reverse-engineering-blobs-with-replay-and-sed/",
+      "snippet": "",
+      "published_date": "2014-12-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Transformer-Based Memory Reverse Engineering for ...",
+      "url": "https://www.mdpi.com/2073-431X/15/1/8",
+      "snippet": "Volatile memory provides the most direct and clear view into a system’s runtime behavior. ... Memory reverse engineering, achieved by analyzing full or partial RAM snapshots, provides a deep window into the system’s runtime state ... Unlike static artifacts on disks, volatile memory captures the live, dynamic state of a system",
+      "published_date": "2025",
+      "source": "grok",
+      "score": 0.3818
+    },
+    {
+      "title": "unidbg调试so常见问题总结 - joyang的安全小站",
+      "url": "https://joyang.org/2022/08/15/unidbg-debug-so-common-problems/",
+      "snippet": "close but wrong initialization sequence runtime table ... 这个错误通常是因为初始化顺序不对，或者某些依赖的so没有正确加载。",
+      "published_date": "2022-08-15",
+      "source": "grok",
+      "score": 0.3564
+    },
+    {
+      "title": "unidbg模拟器初始化顺序问题分析 - 简书",
+      "url": "https://www.jianshu.com/p/9f8d2c3e4b5a",
+      "snippet": "在使用unidbg时，经常会遇到close but wrong initialization sequence runtime table的报错，这个报错一般是由于初始化顺序错误导致的。",
+      "published_date": "2024-03-10",
+      "source": "grok",
+      "score": 0.3564
+    },
+    {
+      "title": "Pixel-based Table Structure Recognition for Reverse-Engineered GUI Images",
+      "url": "https://ieeexplore.ieee.org/document/10123456",
+      "snippet": "We propose a pixel-level reverse engineering technique for tables rendered dynamically in images. The method handles initialization artifacts better than traditional layout parsers but still produces occasional alignment errors.",
+      "published_date": "2023-06-15",
+      "source": "grok",
+      "score": 0.3564
+    },
+    {
+      "title": "[PDF] Practical Reverse Engineering - The Swiss Bay",
+      "url": "https://theswissbay.ch/pdf/Books/Computer%20science/practical_reverse_engineering_x86_x64_arm_windows_kernel_reversing_tools_and_obfuscation.pdf",
+      "snippet": "— Sébastien xvii Introduction xxiii Chapter 1 x86 and x64 1 Chapter 2 ARM 39 Chapter 3 The Windows Kernel 87 Chapter 4 Debugging and Automation 187 Chapter 5 Obfuscation 267 Appendix Sample Names and Corresponding SHA1 Hashes 341 Index 343 Contents at a Glance xix Introduction xxiii Chapter 1 x86 and x64 1 Register Set and Data Types 2 Instruction Set 3 Syntax 4 Data Movement 5 Exercise 11 Arithmetic Operations 11 Stack Operations and Function Invocation 13 Exercises 17 Control Flow 17 System Mechanism 25 Address Translation 26 Interrupts and Exceptions 27 Walk-Through 28 Exercises 35 x64 36 Register Set and Data Types 36 Data Movement 36 Canonical Address 37 Function Invocation 37 Exercises 38 Chapter 2 ARM 39 Basic Features 40 Data Types and Registers 43 System-Level Controls and Settings 45 Introduction to the Instruction Set 46 Contents xx Contents Loading and Storing Data 47 LDR and STR 47 Other Usage for LDR 51 LDM and STM 52 PUSH and POP 56 Functions and Function Invocation 57 Arithmetic Operations 60 Branching and Conditional Execution 61 Thumb State 64 Switch-Case 65 Miscellaneous 67 Just-in-Time and Self-Modifying Code 67 Synchronization Primitives 67 System Services and Mechanisms 68 Instructions 70 Walk-Through 71 Next Steps 77 Exercises 78 Chapter 3 The Windows Kernel 87 Windows Fundamentals 88 Memory Layout 88 Processor Initialization 89 System Calls 92 Interrupt Request Level 104 Pool Memory 106 Memory Descriptor Lists 106 Processes and Threads 107 Execution Context 109 Kernel Synchronization Primitives 110 Lists 111 Implementation Details 112 Walk-Through 119 Exercises 123 Asynchronous and Ad-Hoc Execution 128 System Threads 128 Work Items 129 Asynchronous Procedure Calls 131 Deferred Procedure Calls 135 Timers 140 Process and Thread Callbacks 142 Completion Routines 143 I/O Request Packets 144 Structure of a Driver 146 Entry Points 147 Driver and Device Objects 149 Contents xxi IRP Handling 150 A Common Mechanism for User-Kernel Communication 150 Miscellaneous System Mechanisms 153 Walk-Throughs 155",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "Basics of Software Reverse Engineering | PDF | Assembly Language",
+      "url": "https://www.scribd.com/document/921130880/Reverse-Engineering-Nen",
+      "snippet": "Chapter 5. Reverse Engineering. Reverse engineering is a technical process that involves the reverse analysis and study of a target product to derive design",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "Best Reverse Engineering Tools - Apriorit",
+      "url": "https://www.apriorit.com/dev-blog/366-software-reverse-engineering-tools",
+      "snippet": "",
+      "published_date": "2026-03-17T09:17:33.037Z",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "[PDF] Automatic Reverse Engineering of Data Structures from Binary ...",
+      "url": "https://www.ndss-symposium.org/wp-content/uploads/2017/09/lin_0.pdf",
+      "snippet": "In this paper, we propose a reverse engineering technique to automatically reveal program data structures from binaries. Our technique, called REWARDS, is based",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "[PDF] Practical Reverse Engineering",
+      "url": "https://ftp.idu.ac.id/wp-content/uploads/ebook/tdg/MILITARY%20REFERENCE%20AND%20REVERSE%20ENGINEERING/Practical%20reverse%20engineering_%20x86,%20x64,%20ARM,%20Windows%20Kernel,%20reversing%20tools,%20and%20obfuscation%20(%20PDFDrive%20).pdf",
+      "snippet": "For general information on our other products and services please contact our Customer Care Department within the. United States at (877) 762-2974, outside the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "[PDF] Towards Fully Automated Analysis of Whiteboxes - IACR",
+      "url": "https://eprint.iacr.org/2018/095.pdf",
+      "snippet": "These mechanisms include: obfuscation to discourage any manual reverse engineering; anti-debugging to deter dynamic analysis; anti-rooting to make analysis",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "[PDF] Unboxing the White-Box - Black Hat",
+      "url": "https://blackhat.com/docs/eu-15/materials/eu-15-Sanfelix-Unboxing-The-White-Box-Practical-Attacks-Against-Obfuscated-Ciphers-wp.pdf",
+      "snippet": "Instead, an attacker needs to locate the WBC implementation first, understand its structure (e.g. number of rounds, inputs and outputs, etc.) and then attempt to extract the key. 0 0 0 0 1 1 1 1 Group by known data Average trace Subtract Differential trace Figure 3.2 DES Feistel function with a 6-bit sub key 3.2 SCA attacks applied to WBC Applying side channel attacks to a WBC implementation requires that measurements are taken during the execution runtime of the implementation. Table 4-2 Results of applying Differential Fault Analysis to WBC implementations Implementation Fault injection Results Wyseur (DES) Unicorn emulator script Broken in 40 faults Hack.lu 2009 (AES) Debugging script (vtrace) Broken in 90 faults SSTIC 2012 (DES) Modified lifted code Broken in 60 faults Karroumi (AES) Modified source code Broken in 80 faults NSC 2013 (encoded AES) N/A Not broken – encoding makes DFA not feasible As can be observed, we were able to extract the keys for all the implementations analyzed in [13] also using DFA attacks.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.3545
+    },
+    {
+      "title": "Towards Fully Automated Analysis of Whiteboxes",
+      "url": "https://eprint.iacr.org/2018/095",
+      "snippet": "Discusses automated approaches to white-box analysis, including obfuscation resistance, anti-debugging, and dynamic analysis countermeasures to hinder reverse engineering and table/key extraction in white-box cryptography.",
+      "published_date": "2018-01-29",
+      "source": "grok",
+      "score": 0.3291
+    },
+    {
+      "title": "Proving reachability: Static analysis vs Runtime detection - Backslash",
+      "url": "https://www.backslash.security/blog/proving-reachability-static-analysis-vs-runtime-detection",
+      "snippet": "",
+      "published_date": "2024-02-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "Leveraging Generative AI to Reverse Engineer XLoader",
+      "url": "https://research.checkpoint.com/2025/generative-ai-for-reverse-engineering/",
+      "snippet": "",
+      "published_date": "2025-11-03T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3273
+    },
+    {
+      "title": "White-Box Cryptography: Don't Forget About Grey-Box Attacks",
+      "url": "https://eprint.iacr.org/2017/355",
+      "snippet": "Explores DCA and differential fault analysis (DFA) attacks on white-box crypto, using dynamic binary analysis to extract keys from implementations; emphasizes that many protections fail against these automated dynamic/runtime trace-based methods.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.3273
+    },
+    {
+      "title": "Emulating Android native libraries using unidbg | Hamza’s blog posts, notes and thoughts.",
+      "url": "https://bhamza.me/blogpost/2024/09/10/Emulating-Android-native-libraries-using-unidbg.html",
+      "snippet": "",
+      "published_date": "2024-09-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Coruna: Complete Technical Teardown of a State-Grade iOS/macOS Exploit Chain | NadSec-Online",
+      "url": "https://www.nadsec.online/blog/coruna-technical-analysis",
+      "snippet": "",
+      "published_date": "2026-03-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Whiteboxgrind – Automated Analysis of Whitebox Cryptography",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-031-29497-6_11?error=cookies_not_supported&code=676a9061-34bd-4b5b-87ec-363197203c10",
+      "snippet": "",
+      "published_date": "2023-03-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Practical white-box topics: design and attacks – part 1 - Joppe W. Bos",
+      "url": "https://www.joppebos.com/presentations/WhibOx2016.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "[PDF] White-Box Cryptography: Don't Forget About Grey-Box Attacks",
+      "url": "https://eprint.iacr.org/2017/355.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "White-Box Cryptography: Don’t Forget About Grey-Box Attacks",
+      "url": "https://link.springer.com/article/10.1007/s00145-019-09315-1?error=cookies_not_supported&code=155ccb0a-04d7-4dd0-bb19-7c5205c33fb9",
+      "snippet": "",
+      "published_date": "2019-02-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "(PDF) A Secure and Efficient White-Box Implementation of SM4",
+      "url": "https://www.researchgate.net/publication/387397491_A_Secure_and_Efficient_White-Box_Implementation_of_SM4",
+      "snippet": "Differential computation analysis (DCA) is a powerful method for extracting secret information from carefully designed white-box schemes without",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Differential Computation Analysis: Hiding your White-Box Designs is Not Enough",
+      "url": "https://eprint.iacr.org/2015/753",
+      "snippet": "Introduces Differential Computation Analysis (DCA), a powerful dynamic analysis attack on white-box implementations that extracts keys by treating memory/computation traces similarly to power analysis, without needing knowledge of internal tables or encodings.",
+      "published_date": "2015-07-30",
+      "source": "grok",
+      "score": 0.2473
+    },
+    {
+      "title": "Attacks and Countermeasures for White-box Designs",
+      "url": "https://eprint.iacr.org/2018/049",
+      "snippet": "Overview of attacks in the white-box model using static and dynamic analysis, including methods to target implementations and extract embedded keys from table-based designs.",
+      "published_date": "2018-01-15",
+      "source": "grok",
+      "score": 0.2473
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Unidbg keeps executing old code after patching · Issue #407 - GitHub",
+        "url": "https://github.com/zhkl0228/unidbg/issues/407",
+        "snippet": "",
+        "published_date": "2022-03-25T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Emulating Android native libraries using unidbg | Hamza’s blog posts, notes and thoughts.",
+        "url": "https://bhamza.me/blogpost/2024/09/10/Emulating-Android-native-libraries-using-unidbg.html",
+        "snippet": "",
+        "published_date": "2024-09-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Search code, repositories, users, issues, pull requests...",
+        "url": "https://github.com/zhkl0228/unidbg/issues/744",
+        "snippet": "",
+        "published_date": "2025-08-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "so 调用方法    init 报错 · Issue #441 · zhkl0228/unidbg",
+        "url": "https://github.com/zhkl0228/unidbg/issues/441",
+        "snippet": "",
+        "published_date": "2022-06-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "unidbg初探 - 1ens's blog",
+        "url": "https://1ens.github.io/2024/12/21/unidbg%E5%88%9D%E6%8E%A2/",
+        "snippet": "",
+        "published_date": "2024-12-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "HiDump: Tracing and Extraction of Runtime Injected Code",
+        "url": "http://blog.3slabs.com/2013/06/hidump-tracing-and-extraction-of.html",
+        "snippet": "",
+        "published_date": "2026-02-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4545
+      },
+      {
+        "title": "Inspecting Runtimes",
+        "url": "https://blog.replay.io/inspecting-runtimes",
+        "snippet": "",
+        "published_date": "2021-09-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4273
+      },
+      {
+        "title": "Reverse engineering blobs with replay and sed",
+        "url": "https://blogs.coreboot.org/blog/2014/12/13/reverse-engineering-blobs-with-replay-and-sed/",
+        "snippet": "",
+        "published_date": "2014-12-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "Reverse Engineering Structure and Semantics of Input of a Binary Executable",
+        "url": "https://www.arxiv.org/pdf/2405.14052",
+        "snippet": "",
+        "published_date": "2024-05-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6818
+      },
+      {
+        "title": "Best Reverse Engineering Tools - Apriorit",
+        "url": "https://www.apriorit.com/dev-blog/366-software-reverse-engineering-tools",
+        "snippet": "",
+        "published_date": "2026-03-17T09:17:33.037Z",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "HiDump: Tracing and Extraction of Runtime Injected Code",
+        "url": "http://blog.3slabs.com/2013/06/hidump-tracing-and-extraction-of.html",
+        "snippet": "",
+        "published_date": "2026-02-11T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Coruna: Complete Technical Teardown of a State-Grade iOS/macOS Exploit Chain | NadSec-Online",
+        "url": "https://www.nadsec.online/blog/coruna-technical-analysis",
+        "snippet": "",
+        "published_date": "2026-03-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Proving reachability: Static analysis vs Runtime detection - Backslash",
+        "url": "https://www.backslash.security/blog/proving-reachability-static-analysis-vs-runtime-detection",
+        "snippet": "",
+        "published_date": "2024-02-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "Tapping into the potential of Memory Dump Emulation",
+        "url": "https://blahcat.github.io/2024-01-27-tapping-into-the-potential-of-memory-dump-emulation/",
+        "snippet": "",
+        "published_date": "2024-01-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "Leveraging Generative AI to Reverse Engineer XLoader",
+        "url": "https://research.checkpoint.com/2025/generative-ai-for-reverse-engineering/",
+        "snippet": "",
+        "published_date": "2025-11-03T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3273
+      },
+      {
+        "title": "Whiteboxgrind – Automated Analysis of Whitebox Cryptography",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-031-29497-6_11?error=cookies_not_supported&code=676a9061-34bd-4b5b-87ec-363197203c10",
+        "snippet": "",
+        "published_date": "2023-03-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "GitHub - hellman/wboxkit: White-box Design and Analysis kit",
+        "url": "https://github.com/hellman/wboxkit",
+        "snippet": "",
+        "published_date": "2022-09-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Practical white-box topics: design and attacks – part 1 - Joppe W. Bos",
+        "url": "https://www.joppebos.com/presentations/WhibOx2016.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "[PDF] White-Box Cryptography: Don't Forget About Grey-Box Attacks",
+        "url": "https://eprint.iacr.org/2017/355.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "White-Box Cryptography: Don’t Forget About Grey-Box Attacks",
+        "url": "https://link.springer.com/article/10.1007/s00145-019-09315-1?error=cookies_not_supported&code=155ccb0a-04d7-4dd0-bb19-7c5205c33fb9",
+        "snippet": "",
+        "published_date": "2019-02-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Unidbg keeps executing old code after patching · Issue #407 - GitHub",
+        "url": "https://github.com/zhkl0228/unidbg/issues/407",
+        "snippet": "Here is what happens: I patch arm64 code after several passes but patch is not applied, emulator keeps executing the old code. I dug deeper and",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Wrong initialization,and I don't konw how to solve it,please help me ...",
+        "url": "https://github.com/raulmur/ORB_SLAM2/issues/543",
+        "snippet": "Wrong initialization,and I don't konw how to solve it,please help me,Thank you. #543. New issue. Copy link. New issue. Copy link. Open. Open.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6273
+      },
+      {
+        "title": "[PDF] Practical Reverse Engineering - The Swiss Bay",
+        "url": "https://theswissbay.ch/pdf/Books/Computer%20science/practical_reverse_engineering_x86_x64_arm_windows_kernel_reversing_tools_and_obfuscation.pdf",
+        "snippet": "— Sébastien xvii Introduction xxiii Chapter 1 x86 and x64 1 Chapter 2 ARM 39 Chapter 3 The Windows Kernel 87 Chapter 4 Debugging and Automation 187 Chapter 5 Obfuscation 267 Appendix Sample Names and Corresponding SHA1 Hashes 341 Index 343 Contents at a Glance xix Introduction xxiii Chapter 1 x86 and x64 1 Register Set and Data Types 2 Instruction Set 3 Syntax 4 Data Movement 5 Exercise 11 Arithmetic Operations 11 Stack Operations and Function Invocation 13 Exercises 17 Control Flow 17 System Mechanism 25 Address Translation 26 Interrupts and Exceptions 27 Walk-Through 28 Exercises 35 x64 36 Register Set and Data Types 36 Data Movement 36 Canonical Address 37 Function Invocation 37 Exercises 38 Chapter 2 ARM 39 Basic Features 40 Data Types and Registers 43 System-Level Controls and Settings 45 Introduction to the Instruction Set 46 Contents xx Contents Loading and Storing Data 47 LDR and STR 47 Other Usage for LDR 51 LDM and STM 52 PUSH and POP 56 Functions and Function Invocation 57 Arithmetic Operations 60 Branching and Conditional Execution 61 Thumb State 64 Switch-Case 65 Miscellaneous 67 Just-in-Time and Self-Modifying Code 67 Synchronization Primitives 67 System Services and Mechanisms 68 Instructions 70 Walk-Through 71 Next Steps 77 Exercises 78 Chapter 3 The Windows Kernel 87 Windows Fundamentals 88 Memory Layout 88 Processor Initialization 89 System Calls 92 Interrupt Request Level 104 Pool Memory 106 Memory Descriptor Lists 106 Processes and Threads 107 Execution Context 109 Kernel Synchronization Primitives 110 Lists 111 Implementation Details 112 Walk-Through 119 Exercises 123 Asynchronous and Ad-Hoc Execution 128 System Threads 128 Work Items 129 Asynchronous Procedure Calls 131 Deferred Procedure Calls 135 Timers 140 Process and Thread Callbacks 142 Completion Routines 143 I/O Request Packets 144 Structure of a Driver 146 Entry Points 147 Driver and Device Objects 149 Contents xxi IRP Handling 150 A Common Mechanism for User-Kernel Communication 150 Miscellaneous System Mechanisms 153 Walk-Throughs 155",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "whyliuxing/reverse-engineering-journal: anything I find ... - GitHub",
+        "url": "https://github.com/whyliuxing/reverse-engineering-journal",
+        "snippet": "Import Address Table (IAT): shows you all the dynamically linked libraries' functions that the binary uses. Import Address Table is important for a reverser to",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "Basics of Software Reverse Engineering | PDF | Assembly Language",
+        "url": "https://www.scribd.com/document/921130880/Reverse-Engineering-Nen",
+        "snippet": "Chapter 5. Reverse Engineering. Reverse engineering is a technical process that involves the reverse analysis and study of a target product to derive design",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "Image table extraction correct but text table output not. #1061",
+        "url": "https://github.com/jsvine/pdfplumber/discussions/1061",
+        "snippet": "I get a great visual identification of the margins of the table. Yet when I extract the text the last items in the list get parsed incorrectly on a few lines.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7091
+      },
+      {
+        "title": "EXPLORING SEMANTIC REVERSE ENGINEERING FOR ...",
+        "url": "https://rucore.libraries.rutgers.edu/rutgers-lib/61117/PDF/1/play/",
+        "snippet": "by P Sun · 2019 · Cited by 1 — Chapter 4 details Mismo, a domain-specific reverse engineering solution to extract high-level algorithmic control and data flow semantics from embedded binary.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5545
+      },
+      {
+        "title": "[D] Why is table extraction still not solved by modern ...",
+        "url": "https://www.reddit.com/r/MachineLearning/comments/1jnjfaq/d_why_is_table_extraction_still_not_solved_by/",
+        "snippet": "the input data is an image, and the cell position / table structure is important. multimodal models are not able to solve this problem yet.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5818
+      },
+      {
+        "title": "Repeatable Reverse Engineering for the Greater Good ...",
+        "url": "https://www.ll.mit.edu/sites/default/files/publication/doc/2018-04/2014_10_01_Dolan-Gavitt_B_TechReport_FP.pdf",
+        "snippet": "AbstractSSSWe present PANDA, an openSsource tool that has been purposeSbuilt to support whole system reverse engineering.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5818
+      },
+      {
+        "title": "PicoCTF 2024 Reverse Engineering Challenges Writeup",
+        "url": "https://hackmd.io/@tahaafarooq/picoctf-2024-reverse-engineering",
+        "snippet": "FLAG : picoCTF{0x200_debug_f0r_Win_c6db2768} ## WinAntiDbg0x300 (400 Points) ### Description image ### Solution I first try to load the executable in IDA , and I found out that it's compressed with UPX: image I unpack it using the command ```shell upx -d WinAntiDbg0x300.exe -o original.exe ``` image And then I load the new executable I decompressed: image First thing first, I run the executable through the debugger to see what output I get from it: image Now I find where this error is being called from: image this is interesting we can see that it hit that error after the `test eax,eax` instruction: image I set a breakpoint at the test instruction to see what the value of the **EAX** register becomes and then we modify it and then continue from the breakpoint to see what we get, but before that we first need to understand the logic flow of the program and what to expect.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4364
+      },
+      {
+        "title": "[PDF] Automatic Reverse Engineering of Data Structures from Binary ...",
+        "url": "https://www.ndss-symposium.org/wp-content/uploads/2017/09/lin_0.pdf",
+        "snippet": "In this paper, we propose a reverse engineering technique to automatically reveal program data structures from binaries. Our technique, called REWARDS, is based",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "Leveraging Generative AI to Reverse Engineer XLoader",
+        "url": "https://research.checkpoint.com/2025/generative-ai-for-reverse-engineering/",
+        "snippet": "In this research we use a fresh XLoader 8.0 sample to demonstrate how cloud-based static analysis with ChatGPT can be combined with MCP for",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] Practical Reverse Engineering",
+        "url": "https://ftp.idu.ac.id/wp-content/uploads/ebook/tdg/MILITARY%20REFERENCE%20AND%20REVERSE%20ENGINEERING/Practical%20reverse%20engineering_%20x86,%20x64,%20ARM,%20Windows%20Kernel,%20reversing%20tools,%20and%20obfuscation%20(%20PDFDrive%20).pdf",
+        "snippet": "For general information on our other products and services please contact our Customer Care Department within the. United States at (877) 762-2974, outside the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "GitHub - Jadis0x/il2cpp-reverse-engineering-guide",
+        "url": "https://github.com/Jadis0x/il2cpp-reverse-engineering-guide",
+        "snippet": "*/*/ template typename void static Invoke const char int void if return// Find the method within the class metadata// const il2cpp_class_get_method_from_name if\"[IL2CPP] Method not found: \" \" \" return nullptr// Execute the method within the IL2CPP virtual machine// il2cpp_runtime_invoke if\"[IL2CPP] Exception in \" \" \" return if return// If T is a pointer (Reference Type), just cast and return// if constexpr return else// If T is a value type (int, bool, struct), unbox the data// return/**/* * @brief Sets a field value, automatically handling both static and instance fields. /**/** @brief Overwriting a Steam Name field.*/*/ void Scenario4_UpdateField// Search for the target object in the current scene.//// Our \"Universal Finder\" handles both active and inactive objects.//IL2CPPHelper::FindInstance\"Assembly-CSharp.dll\" \" \" \"Horror\" \" \" \"Menu\" \" \" if// Prepare the new value.//// Allocate System.String on Unity heap//// Never pass a raw C++ const char* directly to a System.String field.//IL2CPPHelper::NewString \"testestest\" \" \" il2cpp_object_get_class// Perform the overwrite.//// The helper automatically detects if 'steamName' is a static or instance field.//IL2CPPHelper::SetField \"steamName\" \" \"\"[IL2CPP] Success: Field updated.\\n\" \" \\n \" else\"[IL2CPP] Error: Menu instance not found in scene.\\n\" \" \\n \".",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "Reverse Engineering: Binary Security | by Totally_Not_A_Haxxer",
+        "url": "https://medium.com/@Totally_Not_A_Haxxer/reverse-engineering-binary-security-fb62129b773f",
+        "snippet": "In this section of the module, we will be talking about binary security, how specific people will secure binary applications, and why people like game cheat developers NEED to protect their systems from other people. Everyone complains or most gamers complain about how anti-cheat systems are just not good enough at catching people who are cheating, but like the programs and demos we have shown here; it does not matter what security mechanism you put in place, it does not matter how strong you think your program is or how protected and locked down your binary is, reverse engineers are impossible to prevent and will ALWAYS find a new way around a new even undocumented security mechanism. This is really just going to say that even when you do some reversing and do not have much knowledge of programming that sometimes working with your own tools is going to be something that benefits you in the long run especially save you time and effort trying to use system commands or controls to bypass or disable the security mechanisms in specific applications.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.4818
+      },
+      {
+        "title": "Understanding White-Box Cryptography - Build38",
+        "url": "https://build38.com/blog/mobile-security/whitebox-cryptography/",
+        "snippet": "Discover how white-box cryptography and Build38's SDK protect mobile apps from key extraction, reverse engineering, and runtime attacks.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "[PDF] Towards Fully Automated Analysis of Whiteboxes - IACR",
+        "url": "https://eprint.iacr.org/2018/095.pdf",
+        "snippet": "These mechanisms include: obfuscation to discourage any manual reverse engineering; anti-debugging to deter dynamic analysis; anti-rooting to make analysis",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "(PDF) A Secure and Efficient White-Box Implementation of SM4",
+        "url": "https://www.researchgate.net/publication/387397491_A_Secure_and_Efficient_White-Box_Implementation_of_SM4",
+        "snippet": "Differential computation analysis (DCA) is a powerful method for extracting secret information from carefully designed white-box schemes without",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "[PDF] Unboxing the White-Box - Black Hat",
+        "url": "https://blackhat.com/docs/eu-15/materials/eu-15-Sanfelix-Unboxing-The-White-Box-Practical-Attacks-Against-Obfuscated-Ciphers-wp.pdf",
+        "snippet": "Instead, an attacker needs to locate the WBC implementation first, understand its structure (e.g. number of rounds, inputs and outputs, etc.) and then attempt to extract the key. 0 0 0 0 1 1 1 1 Group by known data Average trace Subtract Differential trace Figure 3.2 DES Feistel function with a 6-bit sub key 3.2 SCA attacks applied to WBC Applying side channel attacks to a WBC implementation requires that measurements are taken during the execution runtime of the implementation. Table 4-2 Results of applying Differential Fault Analysis to WBC implementations Implementation Fault injection Results Wyseur (DES) Unicorn emulator script Broken in 40 faults Hack.lu 2009 (AES) Debugging script (vtrace) Broken in 90 faults SSTIC 2012 (DES) Modified lifted code Broken in 60 faults Karroumi (AES) Modified source code Broken in 80 faults NSC 2013 (encoded AES) N/A Not broken – encoding makes DFA not feasible As can be observed, we were able to extract the keys for all the implementations analyzed in [13] also using DFA attacks.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.3545
+      },
+      {
+        "title": "[PDF] Automation of white-box cryptography attacks in Android applications",
+        "url": "https://openaccess.uoc.edu/server/api/core/bitstreams/210f9401-0739-498d-8865-be58b9e100c2/content",
+        "snippet": "In order to retrieve these traces, dynamic binary instrumentation and emulation of the binaries are the best approaches. However, in order to protect WBC",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5
+      }
+    ],
+    "grok": [
+      {
+        "title": "GitHub - zhkl0228/unidbg: Allows you to emulate an Android native library, and an experimental iOS emulation. This is an educational project to learn more about the ELF/ARM64 format and ARM assembly.",
+        "url": "https://github.com/zhkl0228/unidbg",
+        "snippet": "Allows you to emulate an Android native library, and an experimental iOS emulation. This is an educational project to learn more about the ELF/ARM64 format and ARM assembly.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6
+      },
+      {
+        "title": "unidbg之使用unidbg进行逆向分析_so1e0r的博客-CSDN博客",
+        "url": "https://blog.csdn.net/so1e0r/article/details/131234567",
+        "snippet": "unidbg之使用unidbg进行逆向分析 ... close but wrong initialization sequence runtime table ... 在使用unidbg进行逆向时，经常会遇到close but wrong initialization sequence runtime table的报错，这个报错一般是由于初始化顺序错误导致的。",
+        "published_date": "2023-07-15",
+        "source": "grok",
+        "score": 0.4564
+      },
+      {
+        "title": "unidbg使用过程中遇到的各种坑 - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/648972312",
+        "snippet": "在使用unidbg时经常会遇到各种报错，比如close but wrong initialization sequence runtime table，这个报错一般是由于初始化顺序错误导致的。",
+        "published_date": "2023-11-20",
+        "source": "grok",
+        "score": 0.4564
+      },
+      {
+        "title": "unidbg调试so常见问题总结 - joyang的安全小站",
+        "url": "https://joyang.org/2022/08/15/unidbg-debug-so-common-problems/",
+        "snippet": "close but wrong initialization sequence runtime table ... 这个错误通常是因为初始化顺序不对，或者某些依赖的so没有正确加载。",
+        "published_date": "2022-08-15",
+        "source": "grok",
+        "score": 0.3564
+      },
+      {
+        "title": "unidbg模拟器初始化顺序问题分析 - 简书",
+        "url": "https://www.jianshu.com/p/9f8d2c3e4b5a",
+        "snippet": "在使用unidbg时，经常会遇到close but wrong initialization sequence runtime table的报错，这个报错一般是由于初始化顺序错误导致的。",
+        "published_date": "2024-03-10",
+        "source": "grok",
+        "score": 0.3564
+      },
+      {
+        "title": "Table Extraction from Images: Reverse Engineering Runtime Table Detection in Modern UIs",
+        "url": "https://arxiv.org/abs/2305.14871",
+        "snippet": "We present a method for reverse-engineering runtime-initialized tables in graphical user interfaces by replaying rendering sequences and analyzing image differences to recover table structure even when standard OCR fails due to dynamic initialization.",
+        "published_date": "2023-05-24",
+        "source": "grok",
+        "score": 0.7382
+      },
+      {
+        "title": "Reverse Engineering Dynamic UI Tables via Image Differencing and Replay",
+        "url": "https://www.usenix.org/conference/usenixsecurity23/presentation/zhang-table-re",
+        "snippet": "This paper introduces a replay-based approach to extract table structures from applications that generate tables at runtime. By capturing and replaying rendering, we achieve close but imperfect reconstruction when initialization logic diverges.",
+        "published_date": "2023-08-09",
+        "source": "grok",
+        "score": 0.4382
+      },
+      {
+        "title": "Pixel-based Table Structure Recognition for Reverse-Engineered GUI Images",
+        "url": "https://ieeexplore.ieee.org/document/10123456",
+        "snippet": "We propose a pixel-level reverse engineering technique for tables rendered dynamically in images. The method handles initialization artifacts better than traditional layout parsers but still produces occasional alignment errors.",
+        "published_date": "2023-06-15",
+        "source": "grok",
+        "score": 0.3564
+      },
+      {
+        "title": "GUIReverse: Extracting Runtime-Generated Tables through Visual Replay and Diff Analysis",
+        "url": "https://dl.acm.org/doi/10.1145/3544548.3581234",
+        "snippet": "GUIReverse replays application execution traces and compares screenshot sequences to reconstruct table layouts that are initialized at runtime. Results are often close to ground truth but can diverge when visual themes or anti-aliasing interfere.",
+        "published_date": "2024-04-22",
+        "source": "grok",
+        "score": 0.4109
+      },
+      {
+        "title": "Challenges in Table Extraction from Dynamically Rendered Application Screenshots",
+        "url": "https://scholar.google.com/scholar?cluster=17894562318945671234",
+        "snippet": "Survey of techniques attempting reverse engineering of runtime-initialized data tables from image replays. Many approaches get structurally close but produce incorrect cell merging or spanning when initialization involves lazy loading or animations.",
+        "published_date": "2025-01-10",
+        "source": "grok",
+        "score": 0.4927
+      },
+      {
+        "title": "Leveraging Generative AI to Reverse Engineer XLoader",
+        "url": "https://research.checkpoint.com/2025/generative-ai-for-reverse-engineering",
+        "snippet": "Even if you manage to dump the process memory in a sandbox, you often end up with an incoherent snapshot: pieces of encrypted and decrypted data jumbled together, missing whatever wasn’t in memory at that exact time. ... Just-in-time decryption: Critical functions and data remain encrypted in memory until just before use ... A sandbox might never capture them in their decrypted state.",
+        "published_date": "2025-11-03",
+        "source": "grok"
+      },
+      {
+        "title": "Protecting executable from reverse engineering?",
+        "url": "https://stackoverflow.com/questions/6481668/protecting-executable-from-reverse-engineering",
+        "snippet": "But it's not that secure anymore.. And no matter how you pack your code you can always do a memory dump of any loaded executable and disassemble it with any disassembler like IDA Pro.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.7091
+      },
+      {
+        "title": "Reverse Engineering: Binary Security",
+        "url": "https://medium.com/@Totally_Not_A_Haxxer/reverse-engineering-binary-security-fb62129b773f",
+        "snippet": "people can easily dump the application to something like a .dmp [dump] file ... really good reverse engineers can just pop open a hex editor that allows memory reading and just read the program in RAM during its execution and uncover the strings. This is because no matter what if you are printing it to the screen, it still has to be decoded.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Transformer-Based Memory Reverse Engineering for ...",
+        "url": "https://www.mdpi.com/2073-431X/15/1/8",
+        "snippet": "Volatile memory provides the most direct and clear view into a system’s runtime behavior. ... Memory reverse engineering, achieved by analyzing full or partial RAM snapshots, provides a deep window into the system’s runtime state ... Unlike static artifacts on disks, volatile memory captures the live, dynamic state of a system",
+        "published_date": "2025",
+        "source": "grok",
+        "score": 0.3818
+      },
+      {
+        "title": "What is the difference between static disassembly and dynamic disassembly?",
+        "url": "https://reverseengineering.stackexchange.com/questions/3473/what-is-the-difference-between-static-disassembly-and-dynamic-disassembly",
+        "snippet": "Static disassembly is where the file being disassembled isn't executed during the course of disassembly. Dynamic disassembly is where the file is being executed ...",
+        "published_date": "2014-01-17",
+        "source": "grok",
+        "score": 0.42
+      },
+      {
+        "title": "Unboxing the White-Box: Practical Attacks Against Obfuscated Ciphers",
+        "url": "https://blackhat.com/docs/eu-15/materials/eu-15-Sanfelix-Unboxing-The-White-Box-Practical-Attacks-Against-Obfuscated-Ciphers-wp.pdf",
+        "snippet": "Detailed whitepaper on practical attacks against white-box cryptography implementations, including key extraction techniques targeting lookup tables and obfuscated ciphers, with discussions on side-channel and fault analysis applicable in white-box settings.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Differential Computation Analysis: Hiding your White-Box Designs is Not Enough",
+        "url": "https://eprint.iacr.org/2015/753",
+        "snippet": "Introduces Differential Computation Analysis (DCA), a powerful dynamic analysis attack on white-box implementations that extracts keys by treating memory/computation traces similarly to power analysis, without needing knowledge of internal tables or encodings.",
+        "published_date": "2015-07-30",
+        "source": "grok",
+        "score": 0.2473
+      },
+      {
+        "title": "White-Box Cryptography: Don't Forget About Grey-Box Attacks",
+        "url": "https://eprint.iacr.org/2017/355",
+        "snippet": "Explores DCA and differential fault analysis (DFA) attacks on white-box crypto, using dynamic binary analysis to extract keys from implementations; emphasizes that many protections fail against these automated dynamic/runtime trace-based methods.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.3273
+      },
+      {
+        "title": "Towards Fully Automated Analysis of Whiteboxes",
+        "url": "https://eprint.iacr.org/2018/095",
+        "snippet": "Discusses automated approaches to white-box analysis, including obfuscation resistance, anti-debugging, and dynamic analysis countermeasures to hinder reverse engineering and table/key extraction in white-box cryptography.",
+        "published_date": "2018-01-29",
+        "source": "grok",
+        "score": 0.3291
+      },
+      {
+        "title": "Attacks and Countermeasures for White-box Designs",
+        "url": "https://eprint.iacr.org/2018/049",
+        "snippet": "Overview of attacks in the white-box model using static and dynamic analysis, including methods to target implementations and extract embedded keys from table-based designs.",
+        "published_date": "2018-01-15",
+        "source": "grok",
+        "score": 0.2473
+      }
+    ]
+  }
+}

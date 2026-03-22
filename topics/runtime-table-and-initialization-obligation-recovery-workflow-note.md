@@ -159,6 +159,10 @@ Pick one artifact family such as:
 Practical rule:
 - prefer the artifact family that is directly consumed near the drift symptom
 - prefer artifacts that can be re-read, dumped, or watchpointed narrowly
+- explicitly distinguish **callable** from **truthfully initialized**: a JNI/native function, emulator entrypoint, or exported routine being invokable does not prove the surrounding dependency, resolver, registration, or pre-init state is already good enough for truthful replay
+
+A useful operator test is:
+- if the routine runs but outputs remain structurally close-yet-wrong, treat that as evidence for one missing init/context obligation before rewriting the core transform again
 
 ### Step 3: classify the missing obligation
 Force the case into one obligation class first:
@@ -256,9 +260,11 @@ Why it helps:
 ### C. Initialized-image dump obligation
 Use when:
 - the repaired static image is less truthful than the post-init mapped memory state
+- a snapshot, dump, or later mapped region preserves a narrower already-initialized truth boundary than the original file does
 
 Why it helps:
 - it yields a reusable static target without pretending the original dump was enough
+- it reframes the task from “repair the whole binary first” to “standardize the smallest truthful initialized boundary worth reusing”
 
 ### D. Environment/side-condition obligation
 Use when:
@@ -273,6 +279,15 @@ Use when:
 
 Why it helps:
 - it allows a truthful reduction path before full CFG cleanup exists
+
+### F. Runtime-table extraction as artifact-recovery obligation
+Use when:
+- static tables are incomplete, polymorphic, white-boxed, or semantically noisy
+- dynamic access behavior or post-init memory exposes one table/value family more truthfully than the repaired artifact does
+
+Why it helps:
+- it promotes runtime-table extraction from an ad hoc crypto trick into a named recovery family
+- it gives the analyst a smaller practical target: recover one table/value family actually consumed by later truthful execution
 
 ## 8. Representative scratch schemas
 
@@ -409,6 +424,7 @@ Grounding for this page comes from:
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
 - `sources/mobile-runtime-instrumentation/2026-03-17-sperm-android-protected-runtime-batch-7-notes.md`
 - `sources/protected-runtime/2026-03-17-decrypted-artifact-to-first-consumer-notes.md`
+- `sources/protected-runtime/2026-03-22-runtime-init-obligation-external-notes.md`
 
 The page intentionally stays conservative:
 - it does not claim runtime state always beats the static artifact
