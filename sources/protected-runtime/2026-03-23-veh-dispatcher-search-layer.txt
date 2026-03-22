@@ -1,0 +1,632 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "vectored exception handler control transfer reverse engineering anti debugging",
+    "windows exception dispatcher KiUserExceptionDispatcher RtlDispatchException reverse engineering",
+    "malware VEH anti-debug exception handler control flow analysis"
+  ],
+  "count": 33,
+  "results": [
+    {
+      "title": "GitHub - EvilBytecode/Ebyte-Syscalls: Obfuscating function calls using Vectored Exception Handlers by redirecting execution through exception-based control flow. Uses byte swapping without memory or assembly allocation.",
+      "url": "https://github.com/EvilBytecode/Ebyte-Syscalls",
+      "snippet": "",
+      "published_date": "2025-10-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.7333
+    },
+    {
+      "title": "Debug program using peculiar anti-debugging technique",
+      "url": "https://reverseengineering.stackexchange.com/questions/21367/debug-program-using-peculiar-anti-debugging-technique",
+      "snippet": "The application registers an exception handler, then forces an exception to occur, thereby transferring control to the exception handler.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.7
+    },
+    {
+      "title": "GitHub - brew02/KiUserExceptionDispatcherHook: Hooking the Windows usermode exception handler",
+      "url": "https://github.com/brew02/KiUserExceptionDispatcherHook",
+      "snippet": "",
+      "published_date": "2024-08-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6667
+    },
+    {
+      "title": "Vectored Exception Handling - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/debug/vectored-exception-handling",
+      "snippet": "Vectored exception handlers are an extension to structured exception handling. An application can register a function to watch or handle all exceptions for the application.",
+      "published_date": "2025-07-14",
+      "source": "grok",
+      "score": 0.66
+    },
+    {
+      "title": "KiUserExceptionDispatcher hook",
+      "url": "https://reverseengineering.stackexchange.com/questions/8809/kiuserexceptiondispatcher-hook",
+      "snippet": "### more stack exchange communities. Once the address(7773A408) is received, the malware overwrites the first 6 bytes with the following lines :. mov DWORD PTR DS:[EDX+1], malware.004035C2. mov BYTE PTR DS:[EDX+5], 0C3. So, my question would be: Is it right to assume that the malware tries to change exception handler by overwriting it with 004035C2 to redirect the excetion flow? The malware overwrites the usermode exception dispatcher (`KiUserExceptionDispatcher()`) with the following:. The code above is equivalent to `JMP malware.004035C2`. Now whenever any usermode exception occurs in the process, the function at `malware.004035C2` will be executed instead of (or at least before) the registered SEH functions. The malware likely uses this \"trick\" in combination with the `UD2` instruction in order to confuse disassemblers, since most disassemblers won't automatically figure out that the `UD2` instruction now effectively jumps to `malware.004035C2`. Thanks for contributing an answer to Reverse Engineering Stack Exchange!",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "Malware development part 3 - anti-debugging - 0xPat blog",
+      "url": "https://0xpat.github.io/Malware_development_part_3/",
+      "snippet": "First thing to do is to check if the application is executed with a debugger attached. Checking memory pages permissions can help us detect software breakpoints placed by a debugger. If we could add new or modify exception processing routines (to execute arbitrary code) we would be able to discover a debugger presence, since our code will be executed only if there’s no debugger to catch the exception first. BOOL isDebugged = TRUE; LONG WINAPI CustomUnhandledExceptionFilter(PEXCEPTION_POINTERS pExceptionPointers){isDebugged = FALSE; return EXCEPTION_CONTINUE_EXECUTION;} void main(){PTOP_LEVEL_EXCEPTION_FILTER previousUnhandledExceptionFilter = SetUnhandledExceptionFilter(CustomUnhandledExceptionFilter); RaiseException(EXCEPTION_FLT_DIVIDE_BY_ZERO, 0, 0, NULL); SetUnhandledExceptionFilter(previousUnhandledExceptionFilter); if(isDebugged) return; wprintf_s(L\"Now hacking... BOOL isDebugged = TRUE; LONG WINAPI CustomVectoredExceptionHandler(PEXCEPTION_POINTERS pExceptionPointers){if(pExceptionPointers -> ExceptionRecord -> ExceptionCode == EXCEPTION_BREAKPOINT){pExceptionPointers -> ContextRecord -> Rip ++; return EXCEPTION_CONTINUE_EXECUTION;} return EXCEPTION_CONTINUE_SEARCH;// pass on other exceptions} void main(){AddVectoredExceptionHandler(1, CustomVectoredExceptionHandler); DebugBreak(); RemoveVectoredExceptionHandler(CustomVectoredExceptionHandler); if(isDebugged) return; wprintf_s(L\"Now hacking... LONG WINAPI CustomVectoredExceptionHandler(PEXCEPTION_POINTERS pExceptionPointers){// process all exceptions, including EXCEPTION_ILLEGAL_INSTRUCTION printf(\"xD\"); return EXCEPTION_CONTINUE_EXECUTION;} void main(){AddVectoredExceptionHandler(1, CustomVectoredExceptionHandler); RaiseException(EXCEPTION_BREAKPOINT, 0, 0, NULL); RemoveVectoredExceptionHandler(CustomVectoredExceptionHandler); wprintf_s(L\"Now hacking... On older Windows versions, TLS callbacks could be used to detect new threads created in a process by a debugger.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6167
+    },
+    {
+      "title": "Malware 101 : Anti-Virtualization & Anti-Debugging Methods - Medium",
+      "url": "https://medium.com/@exploitdevvv/malware-101-anti-virtualization-anti-debugging-methods-04353f0a9407",
+      "snippet": "Anti-debugging is the act of stopping malware Analysts from debugging/Reverse engineering our Malware so it can stay difficult to detect for as",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5333
+    },
+    {
+      "title": "GuLoader Demystified: Unraveling its Vectored Exception Handler ...",
+      "url": "https://www.sonicwall.com/blog/guloader-demystified-unraveling-its-vectored-exception-handler-approach",
+      "snippet": "In latest variant of GuLoader it introduces new ways to raise exceptions that hamper complete analysis process and its execution under controlled environment. * During analysis of this variant, we have identified a significant enhancement in GuLoader’s one of most effective anti-debug technique that it’s custom **Vectored Exception Handler**. Then contents of registers and memory locations can be examined by Vectored Exception Handler; if they are correct, the system can execute the next instruction. When malware is running without debugger, when **SINGLE\\_STEP** exception is raised and handled by Vectored Exception Handler. When malware is running without debugger exception **EXCEPTION\\_BREAKPOINT** is raised, and control is transferred to the Vectored Exception Handler. Next will see how malware uses these exceptions to change the control flow at runtime using its custom Vectored Exception Handler. GuLoader call **RtlAddVectoredExceptionHandler** API to add its custom Vectored Exception Handler. We have completely analyzed GuLoader’s custom Vectored Exception Handler and understood how it works.",
+      "published_date": "",
+      "source": "tavily, exa, grok",
+      "score": 0.5
+    },
+    {
+      "title": "Practical Malware Analysis – Anti-Debugging (Chapter 12)",
+      "url": "https://practicalmalwareanalysis.com/",
+      "snippet": "The book Practical Malware Analysis covers various anti-debugging techniques including the use of Vectored Exception Handlers (VEH) to complicate dynamic analysis and control flow inspection.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.5
+    },
+    {
+      "title": "A deep dive into modern Windows Structured Exception ...",
+      "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+      "snippet": "> Each `RUNTIME_FUNCTION` entry **defines a set of instructions** within the `UnwindData` field that tells it how to handle any exception that occurs between the `BeginAddress` and `EndAddress` address of the program. KiUserExceptionDispatcher` function which would find the appropriate exception handler to handle the exception. | ``` 1 2 3 4 5 6 7  ``` | ``` KiUserExceptionDispatcher// Windows Kernel Internal (KI) API -> RtlDispatchException// main logic for exception handling -> RtlpCallVectoredHandlers// call any VEH -> RtlLookupFunctionEntry// look for valid PRUNTIME_FUNCTION entry in ExceptionDirectory -> RtlpLookupDynamicFunctionEntry// if no valid PRUNTIME_FUNCTION, run any dynamic callbacks -> RtlVirtualUnwind/ RtlpxVirtualUnwind// perform stack frame unwinding -> RtlpExecuteHandlerForException// execute exception handler! This function iterates through the `RUNTIME_FUNCTION` data structures in the Exception Directory and look for an entry such that `BeginAddress` < `Context->Rip` < `EndAddress`. As you have seen, 64-bit SEH handlers are almost always *(by default)* stored in a read-only Exception Directory that is compiled into the program.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.5
+    },
+    {
+      "title": "Windows Instrumentation Callbacks – Part 2",
+      "url": "https://cirosec.de/en/news/windows-instrumentation-callbacks-hooks/",
+      "snippet": "In this blog post you will learn how to do patchless hooking using ICs without registering or executing any user mode exception handlers. VEH hooking also requires setting up an exception handler, but instead of page guards, hardware breakpoints are used to trigger the exceptions. Following the compilation, the program was opened in the debugger WinDbg. First, breakpoints on both the exception handler and the call to RtlDispatchException inside the function KiUserExceptionDispatch were set, as RtlDispatchException takes the pointer to the CONTEXT structure and another parameter, which might be a pointer to the EXCEPTION\\_RECORD structure. The following exception handler only handles a hardware breakpoint set in Dr0. January 28, 2026 – In this third part of the blog series, you will learn how to inject shellcode into processes with ICs as an execution mechanism without creating any new threads for your payload and without installing a vectored exception handler.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.48
+    },
+    {
+      "title": "Abusing Vectored Exception Handling (VEH) - Jacob Branco - Medium",
+      "url": "https://medium.com/@jakerebsaw/abusing-vectored-exception-handling-veh-6f2b9f5b9f6e",
+      "snippet": "",
+      "published_date": "2025-04-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4667
+    },
+    {
+      "title": "LAB 16 Practical Malware Analysis: Uncover Anti-Debugging ...",
+      "url": "https://medium.com/@aitichoumustapha/lab-16-practical-malware-analysis-uncover-anti-debugging-techniques-c65ba6ed8923",
+      "snippet": "In this write we will uncover anti-debugging techniques help malware detect and evade debugging environments, hindering analysis.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4667
+    },
+    {
+      "title": "Reverse Engineering Vectored Exception Handlers: Structures (1/3)",
+      "url": "https://www.codereversing.com/archives/205",
+      "snippet": "### Reverse Engineering Vectored Exception Handlers: Structures (1/3). This series of posts will cover the details of reverse engineering the AddVectoredExceptionHandler function, a Windows API function responsible for registering a special type of exception handler at runtime. The series will be split in to three parts: first identifying key structures that are used, second understanding the implementation, and lastly re-implementing the reverse engineered assembly to working C code. The third field at *+0x8* is always set to 1 in this function, and the fourth at *+0xC* is set to hold the encoded handler address. struct MysteryStruct { DWORD dwUnknown1; +0x0 DWORD dwUnknown2; +0x4 DWORD dwAlwaysOne; +0x8 PVECTORED\\_EXCEPTION\\_HANDLER pVectoredHandler; +0xC };. The code in **bright pink** begins by loading the second field in the *\\_LdrpVectorHandlerList* structure in to *EDI*. typedef struct \\_LdrpVectorHandlerEntry { \\_LdrpVectorHandlerEntry \\*pLink1; +0x0 \\_LdrpVectorHandlerEntry \\*pLink2; +0x4 DWORD dwAlwaysOne; +0x8 PVECTORED\\_EXCEPTION\\_HANDLER pVectoredHandler; +0xC } VECTORED\\_HANDLER\\_ENTRY, \\*PVECTORED\\_HANDLER\\_ENTRY;. typedef struct \\_LdrpVectorHandlerList { SRWLOCK srwLock; +0x0 VECTORED\\_HANDLER\\_ENTRY \\*pLink1; +0x4 VECTORED\\_HANDLER\\_ENTRY \\*pLink2; +0x8 } VECTORED\\_HANDLER\\_LIST, \\*PVECTORED\\_HANDLER\\_LIST; +0xC.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4667
+    },
+    {
+      "title": "Anti Debugging Protection Techniques with Examples - Apriorit",
+      "url": "https://www.apriorit.com/dev-blog/367-anti-reverse-engineering-protection-techniques-to-use-before-releasing-software",
+      "snippet": "To bypass the NtGlobalFlag check, just performing reverse the actions that we took before the check; in other words, set the the `NtGlobalFlag` field of the PEB structure of the debugged process to 0 before this value is checked by the anti debugging protection. EXCEPTION_DISPOSITION ExceptionRoutine(EXCEPTION_DISPOSITION  ExceptionRoutine( PEXCEPTION_RECORD ExceptionRecord,  PEXCEPTION_RECORD  ExceptionRecord, PVOID EstablisherFrame,  PVOID  EstablisherFrame, PCONTEXT ContextRecord,  PCONTEXT  ContextRecord, PVOID DispatcherContext)  PVOID  DispatcherContext){{ if (EXCEPTION_INVALID_HANDLE == ExceptionRecord->ExceptionCode)  if (EXCEPTION_INVALID_HANDLE ==  ExceptionRecord -> ExceptionCode) { { std::cout << \"Stop debugging program!\" << std::endl; std::cout <<  \"Stop debugging program!\"  << std::endl; exit(-1);  exit(- 1); } } return ExceptionContinueExecution;  return ExceptionContinueExecution;}}int main() int  main(){{ __asm  __asm { { // set SEH handler // set SEH handler  push ExceptionRoutine  push ExceptionRoutine push dword ptr fs : [0]  push dword ptr fs : [0] mov dword ptr fs : [0], esp  mov dword ptr fs : [0], esp } } CloseHandle((HANDLE)0xBAAD);  CloseHandle((HANDLE) 0x BAAD);  __asm  __asm { { // return original SEH handler // return original SEH handler mov eax, [esp] mov eax, [esp] mov dword ptr fs : [0], eax mov dword ptr fs : [0], eax add esp, 8 add esp, 8 } }  return 0  return  0}}.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.4667
+    },
+    {
+      "title": "Malware Anti-Debugging Techniques – VEH & SEH",
+      "url": "https://www.0ffset.net/reverse-engineering/malware-anti-debugging-veh-seh/",
+      "snippet": "Explains Structured Exception Handling (SEH) and Vectored Exception Handling (VEH) anti-debug mechanisms, with code examples showing how malware uses exception handlers to detect debuggers or alter control flow.",
+      "published_date": "2021-03-04",
+      "source": "grok",
+      "score": 0.42
+    },
+    {
+      "title": "Ditching The Debugger. This part of the malware development…",
+      "url": "https://medium.com/@itzsanskarr/ditching-the-debugger-2bb09eea3101",
+      "snippet": "",
+      "published_date": "2025-07-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Anti-Debug with Structured Exception Handling + Trap Flag - YouTube",
+      "url": "https://www.youtube.com/watch?v=ww2INI76ydQ",
+      "snippet": "Learn How to Detect Debuggers using a Structured Exception Handler 🕵️‍♂️Try ANY.RUN Malware Sandbox:",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Vectored [Exception] Handlers on x64 Windows",
+      "url": "https://www.unknowncheats.me/forum/c-and-c-/567151-vectored-exception-handlers-x64-windows.html",
+      "snippet": "",
+      "published_date": "2023-01-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "[ros-diffs] [sginsberg] 35812: - Updates to our vectored exception handling: - KiUserExceptionDispatcher: RtlDispatchException directly - RtlDispatchException: Call vectored exception handlers before doing anything else - Rename RtlpExecuteVectoredExceptionHandlers to RtlCallVectoredExceptionHandlers as this is the real name - References: \"New Vectored Exception Handling in Windows XP\" by Matt Pietrek",
+      "url": "https://reactos.org/archives/public/ros-diffs/2008-August/025493.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Detecting Vectored Exception Handling Squared in an EDR",
+      "url": "https://fluxsec.red/detecting-vectored-exception-handling-malware-rust-edr-windows-kernel",
+      "snippet": "So, from an EDR perspective, when loading your DLL, you can consider overwriting this function to jump to your routine, inspect the CONTEXT record, look at the debug registers, etc. This is because, triggered by KiUserExceptionDispatcher exported by NTDLL, on resuming from the exception handled by a VEH (after the execution of the function RtlDispatchException, which calls RtlpCallVectoredExceptionHandlers), the thread will call the NtContinue function (used to set a new CONTEXT after processing exception for the executing thread) by specifying the CONTEXT managed by the Exception Handler. So, with this in mind - if we can read the threads CPU state, then we can check the debug register values, and see if they point to some memory that we wish to protect from VEH Squared abuse. As mentioned above we can check whether the address in a debug register matches the address of a function malware is likely to try bypass as follows:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Analyzing VEH-based anti-debug techniques - Part 1",
+      "url": "https://www.welivesecurity.com/2019/11/19/analyzing-veh-based-anti-debug-techniques-part-1/",
+      "snippet": "Malware authors frequently use the Vectored Exception Handler (VEH) mechanism as part of their anti-debugging tricks. This article explains how VEH-based anti-debug techniques work and how analysts can detect and bypass them.",
+      "published_date": "2019-11-19",
+      "source": "grok",
+      "score": 0.3867
+    },
+    {
+      "title": "Vectored Exception Handling (VEH) Anti-Debug Tricks",
+      "url": "https://www.apriorit.com/dev-blog/545-anti-reverse-engineering-protection-techniques-to-detect-debuggers",
+      "snippet": "One of the popular anti-debugging techniques involves registering a Vectored Exception Handler (VEH) to interfere with debugger exception processing. This section explains common VEH-based anti-debug methods used in malware.",
+      "published_date": "2020-08-12",
+      "source": "grok",
+      "score": 0.3867
+    },
+    {
+      "title": "Bypassing Anti-Debug Techniques with VEH Handlers",
+      "url": "https://www.hexacorn.com/blog/2019/11/16/veh-based-anti-debug-techniques/",
+      "snippet": "Detailed look at how malware abuses AddVectoredExceptionHandler to detect or disrupt debuggers, including common patterns seen in control flow obfuscation and exception-based checks.",
+      "published_date": "2019-11-16",
+      "source": "grok",
+      "score": 0.3867
+    },
+    {
+      "title": "A brief Reverse-Engineering note on Structured Exception Handling after stack pivoting",
+      "url": "https://sysexit.wordpress.com/2014/02/12/a-brief-reverse-engineering-note-on-structured-exception-handling-after-stack-pivoting",
+      "snippet": "Reverse engineering breakdown of KiUserExceptionDispatcher calling RtlDispatchException, Vectored Exception Handlers, stack limit checks via TEB, and implications for stack manipulation.",
+      "published_date": "2014-02-12",
+      "source": "grok",
+      "score": 0.3867
+    },
+    {
+      "title": "Syscalls via Vectored Exception Handling - RedOps - English",
+      "url": "https://redops.at/en/blog/syscalls-via-vectored-exception-handling",
+      "snippet": "",
+      "published_date": "2024-03-31T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3667
+    },
+    {
+      "title": "Exception Junction - Where All Exceptions Meet Their Handler",
+      "url": "https://bruteratel.com/research/2024/10/20/Exception-Junction",
+      "snippet": "",
+      "published_date": "2024-10-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "Applied Reverse Engineering: Exceptions and Interrupts",
+      "url": "https://revers.engineering/applied-re-exceptions",
+      "snippet": "Explains how the kernel redirects to KiUserExceptionDispatcher on user-mode exceptions, parameters (CONTEXT and EXCEPTION_RECORD), and processing via RtlDispatchException including unwind and handler execution.",
+      "published_date": "2020-03-24",
+      "source": "grok",
+      "score": 0.3533
+    },
+    {
+      "title": "Malware Analysis: GuLoader Dissection Reveals New Anti-Analysis",
+      "url": "https://www.crowdstrike.com/en-us/blog/guloader-dissection-reveals-new-anti-analysis-techniques-and-code-injection-redundancy/",
+      "snippet": "",
+      "published_date": "2022-12-19T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "A journey through KiUserExceptionDispatcher - Maurice's Blog",
+      "url": "https://momo5502.com/posts/2024-09-07-a-journey-through-kiuserexceptiondispatcher/",
+      "snippet": "",
+      "published_date": "2024-09-07T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3333
+    },
+    {
+      "title": "Lets Explore Windows: Argument of KiUserExceptionDispatcher() function",
+      "url": "http://letsexplorewindows.blogspot.com/2010/03/argument-of-kiuserexceptiondispatcher.html",
+      "snippet": "",
+      "published_date": "2026-02-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "EDR Analysis: Leveraging Fake DLLs, Guard Pages, and VEH for Enhanced Detection",
+      "url": "https://redops.at/en/blog/edr-analysis-leveraging-fake-dlls-guard-pages-and-veh-for-enhanced-detection",
+      "snippet": "",
+      "published_date": "2025-02-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "A catalog of NTDLL kernel mode to user mode callbacks, part 2",
+      "url": "http://www.nynaeve.net/?p=201",
+      "snippet": "In-depth analysis of KiUserExceptionDispatcher as the user-mode entry point for SEH dispatching, calling RtlDispatchException, with pseudo-C code representation and explanation of kernel-to-user transition.",
+      "published_date": "2007-11-16",
+      "source": "grok",
+      "score": 0.2533
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Ditching The Debugger. This part of the malware development…",
+        "url": "https://medium.com/@itzsanskarr/ditching-the-debugger-2bb09eea3101",
+        "snippet": "",
+        "published_date": "2025-07-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Abusing Vectored Exception Handling (VEH) - Jacob Branco - Medium",
+        "url": "https://medium.com/@jakerebsaw/abusing-vectored-exception-handling-veh-6f2b9f5b9f6e",
+        "snippet": "",
+        "published_date": "2025-04-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4667
+      },
+      {
+        "title": "GitHub - EvilBytecode/Ebyte-Syscalls: Obfuscating function calls using Vectored Exception Handlers by redirecting execution through exception-based control flow. Uses byte swapping without memory or assembly allocation.",
+        "url": "https://github.com/EvilBytecode/Ebyte-Syscalls",
+        "snippet": "",
+        "published_date": "2025-10-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.7333
+      },
+      {
+        "title": "EDR Analysis: Leveraging Fake DLLs, Guard Pages, and VEH for Enhanced Detection",
+        "url": "https://redops.at/en/blog/edr-analysis-leveraging-fake-dlls-guard-pages-and-veh-for-enhanced-detection",
+        "snippet": "",
+        "published_date": "2025-02-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Malware Analysis: GuLoader Dissection Reveals New Anti-Analysis",
+        "url": "https://www.crowdstrike.com/en-us/blog/guloader-dissection-reveals-new-anti-analysis-techniques-and-code-injection-redundancy/",
+        "snippet": "",
+        "published_date": "2022-12-19T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Abusing Vectored Exception Handling (VEH) - Jacob Branco - Medium",
+        "url": "https://medium.com/@jakerebsaw/abusing-vectored-exception-handling-veh-6f2b9f5b9f6e",
+        "snippet": "",
+        "published_date": "2025-04-06T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "GitHub - EvilBytecode/Ebyte-Syscalls: Obfuscating function calls using Vectored Exception Handlers by redirecting execution through exception-based control flow. Uses byte swapping without memory or assembly allocation.",
+        "url": "https://github.com/EvilBytecode/Ebyte-Syscalls",
+        "snippet": "",
+        "published_date": "2025-10-29T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Syscalls via Vectored Exception Handling - RedOps - English",
+        "url": "https://redops.at/en/blog/syscalls-via-vectored-exception-handling",
+        "snippet": "",
+        "published_date": "2024-03-31T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3667
+      },
+      {
+        "title": "Vectored [Exception] Handlers on x64 Windows",
+        "url": "https://www.unknowncheats.me/forum/c-and-c-/567151-vectored-exception-handlers-x64-windows.html",
+        "snippet": "",
+        "published_date": "2023-01-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "GuLoader Demystified: Unraveling its Vectored Exception Handler ...",
+        "url": "https://www.sonicwall.com/blog/guloader-demystified-unraveling-its-vectored-exception-handler-approach",
+        "snippet": "",
+        "published_date": "2023-05-31T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "A journey through KiUserExceptionDispatcher - Maurice's Blog",
+        "url": "https://momo5502.com/posts/2024-09-07-a-journey-through-kiuserexceptiondispatcher/",
+        "snippet": "",
+        "published_date": "2024-09-07T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3333
+      },
+      {
+        "title": "GitHub - brew02/KiUserExceptionDispatcherHook: Hooking the Windows usermode exception handler",
+        "url": "https://github.com/brew02/KiUserExceptionDispatcherHook",
+        "snippet": "",
+        "published_date": "2024-08-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6667
+      },
+      {
+        "title": "Exception Junction - Where All Exceptions Meet Their Handler",
+        "url": "https://bruteratel.com/research/2024/10/20/Exception-Junction",
+        "snippet": "",
+        "published_date": "2024-10-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "[ros-diffs] [sginsberg] 35812: - Updates to our vectored exception handling: - KiUserExceptionDispatcher: RtlDispatchException directly - RtlDispatchException: Call vectored exception handlers before doing anything else - Rename RtlpExecuteVectoredExceptionHandlers to RtlCallVectoredExceptionHandlers as this is the real name - References: \"New Vectored Exception Handling in Windows XP\" by Matt Pietrek",
+        "url": "https://reactos.org/archives/public/ros-diffs/2008-August/025493.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Lets Explore Windows: Argument of KiUserExceptionDispatcher() function",
+        "url": "http://letsexplorewindows.blogspot.com/2010/03/argument-of-kiuserexceptiondispatcher.html",
+        "snippet": "",
+        "published_date": "2026-02-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      }
+    ],
+    "tavily": [
+      {
+        "title": "GuLoader Demystified: Unraveling its Vectored Exception Handler ...",
+        "url": "https://www.sonicwall.com/blog/guloader-demystified-unraveling-its-vectored-exception-handler-approach",
+        "snippet": "In latest variant of GuLoader it introduces new ways to raise exceptions that hamper complete analysis process and its execution under controlled environment. * During analysis of this variant, we have identified a significant enhancement in GuLoader’s one of most effective anti-debug technique that it’s custom **Vectored Exception Handler**. Then contents of registers and memory locations can be examined by Vectored Exception Handler; if they are correct, the system can execute the next instruction. When malware is running without debugger, when **SINGLE\\_STEP** exception is raised and handled by Vectored Exception Handler. When malware is running without debugger exception **EXCEPTION\\_BREAKPOINT** is raised, and control is transferred to the Vectored Exception Handler. Next will see how malware uses these exceptions to change the control flow at runtime using its custom Vectored Exception Handler. GuLoader call **RtlAddVectoredExceptionHandler** API to add its custom Vectored Exception Handler. We have completely analyzed GuLoader’s custom Vectored Exception Handler and understood how it works.",
+        "published_date": "",
+        "source": "tavily, exa, grok",
+        "score": 0.5
+      },
+      {
+        "title": "Malware development part 3 - anti-debugging - 0xPat blog",
+        "url": "https://0xpat.github.io/Malware_development_part_3/",
+        "snippet": "First thing to do is to check if the application is executed with a debugger attached. Checking memory pages permissions can help us detect software breakpoints placed by a debugger. If we could add new or modify exception processing routines (to execute arbitrary code) we would be able to discover a debugger presence, since our code will be executed only if there’s no debugger to catch the exception first. BOOL isDebugged = TRUE; LONG WINAPI CustomUnhandledExceptionFilter(PEXCEPTION_POINTERS pExceptionPointers){isDebugged = FALSE; return EXCEPTION_CONTINUE_EXECUTION;} void main(){PTOP_LEVEL_EXCEPTION_FILTER previousUnhandledExceptionFilter = SetUnhandledExceptionFilter(CustomUnhandledExceptionFilter); RaiseException(EXCEPTION_FLT_DIVIDE_BY_ZERO, 0, 0, NULL); SetUnhandledExceptionFilter(previousUnhandledExceptionFilter); if(isDebugged) return; wprintf_s(L\"Now hacking... BOOL isDebugged = TRUE; LONG WINAPI CustomVectoredExceptionHandler(PEXCEPTION_POINTERS pExceptionPointers){if(pExceptionPointers -> ExceptionRecord -> ExceptionCode == EXCEPTION_BREAKPOINT){pExceptionPointers -> ContextRecord -> Rip ++; return EXCEPTION_CONTINUE_EXECUTION;} return EXCEPTION_CONTINUE_SEARCH;// pass on other exceptions} void main(){AddVectoredExceptionHandler(1, CustomVectoredExceptionHandler); DebugBreak(); RemoveVectoredExceptionHandler(CustomVectoredExceptionHandler); if(isDebugged) return; wprintf_s(L\"Now hacking... LONG WINAPI CustomVectoredExceptionHandler(PEXCEPTION_POINTERS pExceptionPointers){// process all exceptions, including EXCEPTION_ILLEGAL_INSTRUCTION printf(\"xD\"); return EXCEPTION_CONTINUE_EXECUTION;} void main(){AddVectoredExceptionHandler(1, CustomVectoredExceptionHandler); RaiseException(EXCEPTION_BREAKPOINT, 0, 0, NULL); RemoveVectoredExceptionHandler(CustomVectoredExceptionHandler); wprintf_s(L\"Now hacking... On older Windows versions, TLS callbacks could be used to detect new threads created in a process by a debugger.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6167
+      },
+      {
+        "title": "Anti-Debug with Structured Exception Handling + Trap Flag - YouTube",
+        "url": "https://www.youtube.com/watch?v=ww2INI76ydQ",
+        "snippet": "Learn How to Detect Debuggers using a Structured Exception Handler 🕵️‍♂️Try ANY.RUN Malware Sandbox:",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "LAB 16 Practical Malware Analysis: Uncover Anti-Debugging ...",
+        "url": "https://medium.com/@aitichoumustapha/lab-16-practical-malware-analysis-uncover-anti-debugging-techniques-c65ba6ed8923",
+        "snippet": "In this write we will uncover anti-debugging techniques help malware detect and evade debugging environments, hindering analysis.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4667
+      },
+      {
+        "title": "Malware 101 : Anti-Virtualization & Anti-Debugging Methods - Medium",
+        "url": "https://medium.com/@exploitdevvv/malware-101-anti-virtualization-anti-debugging-methods-04353f0a9407",
+        "snippet": "Anti-debugging is the act of stopping malware Analysts from debugging/Reverse engineering our Malware so it can stay difficult to detect for as",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5333
+      },
+      {
+        "title": "GuLoader Demystified: Unraveling its Vectored Exception Handler ...",
+        "url": "https://www.sonicwall.com/blog/guloader-demystified-unraveling-its-vectored-exception-handler-approach",
+        "snippet": "In latest variant of GuLoader it introduces new ways to raise exceptions that hamper complete analysis process and its execution under controlled environment. * During analysis of this variant, we have identified a significant enhancement in GuLoader’s one of most effective anti-debug technique that it’s custom **Vectored Exception Handler**. Then contents of registers and memory locations can be examined by Vectored Exception Handler; if they are correct, the system can execute the next instruction. When malware is running without debugger, when **SINGLE\\_STEP** exception is raised and handled by Vectored Exception Handler. When malware is running without debugger exception **EXCEPTION\\_BREAKPOINT** is raised, and control is transferred to the Vectored Exception Handler. Next will see how malware uses these exceptions to change the control flow at runtime using its custom Vectored Exception Handler. GuLoader call **RtlAddVectoredExceptionHandler** API to add its custom Vectored Exception Handler. We have completely analyzed GuLoader’s custom Vectored Exception Handler and understood how it works.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Reverse Engineering Vectored Exception Handlers: Structures (1/3)",
+        "url": "https://www.codereversing.com/archives/205",
+        "snippet": "### Reverse Engineering Vectored Exception Handlers: Structures (1/3). This series of posts will cover the details of reverse engineering the AddVectoredExceptionHandler function, a Windows API function responsible for registering a special type of exception handler at runtime. The series will be split in to three parts: first identifying key structures that are used, second understanding the implementation, and lastly re-implementing the reverse engineered assembly to working C code. The third field at *+0x8* is always set to 1 in this function, and the fourth at *+0xC* is set to hold the encoded handler address. struct MysteryStruct { DWORD dwUnknown1; +0x0 DWORD dwUnknown2; +0x4 DWORD dwAlwaysOne; +0x8 PVECTORED\\_EXCEPTION\\_HANDLER pVectoredHandler; +0xC };. The code in **bright pink** begins by loading the second field in the *\\_LdrpVectorHandlerList* structure in to *EDI*. typedef struct \\_LdrpVectorHandlerEntry { \\_LdrpVectorHandlerEntry \\*pLink1; +0x0 \\_LdrpVectorHandlerEntry \\*pLink2; +0x4 DWORD dwAlwaysOne; +0x8 PVECTORED\\_EXCEPTION\\_HANDLER pVectoredHandler; +0xC } VECTORED\\_HANDLER\\_ENTRY, \\*PVECTORED\\_HANDLER\\_ENTRY;. typedef struct \\_LdrpVectorHandlerList { SRWLOCK srwLock; +0x0 VECTORED\\_HANDLER\\_ENTRY \\*pLink1; +0x4 VECTORED\\_HANDLER\\_ENTRY \\*pLink2; +0x8 } VECTORED\\_HANDLER\\_LIST, \\*PVECTORED\\_HANDLER\\_LIST; +0xC.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4667
+      },
+      {
+        "title": "Debug program using peculiar anti-debugging technique",
+        "url": "https://reverseengineering.stackexchange.com/questions/21367/debug-program-using-peculiar-anti-debugging-technique",
+        "snippet": "The application registers an exception handler, then forces an exception to occur, thereby transferring control to the exception handler.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.7
+      },
+      {
+        "title": "Anti Debugging Protection Techniques with Examples - Apriorit",
+        "url": "https://www.apriorit.com/dev-blog/367-anti-reverse-engineering-protection-techniques-to-use-before-releasing-software",
+        "snippet": "To bypass the NtGlobalFlag check, just performing reverse the actions that we took before the check; in other words, set the the `NtGlobalFlag` field of the PEB structure of the debugged process to 0 before this value is checked by the anti debugging protection. EXCEPTION_DISPOSITION ExceptionRoutine(EXCEPTION_DISPOSITION  ExceptionRoutine( PEXCEPTION_RECORD ExceptionRecord,  PEXCEPTION_RECORD  ExceptionRecord, PVOID EstablisherFrame,  PVOID  EstablisherFrame, PCONTEXT ContextRecord,  PCONTEXT  ContextRecord, PVOID DispatcherContext)  PVOID  DispatcherContext){{ if (EXCEPTION_INVALID_HANDLE == ExceptionRecord->ExceptionCode)  if (EXCEPTION_INVALID_HANDLE ==  ExceptionRecord -> ExceptionCode) { { std::cout << \"Stop debugging program!\" << std::endl; std::cout <<  \"Stop debugging program!\"  << std::endl; exit(-1);  exit(- 1); } } return ExceptionContinueExecution;  return ExceptionContinueExecution;}}int main() int  main(){{ __asm  __asm { { // set SEH handler // set SEH handler  push ExceptionRoutine  push ExceptionRoutine push dword ptr fs : [0]  push dword ptr fs : [0] mov dword ptr fs : [0], esp  mov dword ptr fs : [0], esp } } CloseHandle((HANDLE)0xBAAD);  CloseHandle((HANDLE) 0x BAAD);  __asm  __asm { { // return original SEH handler // return original SEH handler mov eax, [esp] mov eax, [esp] mov dword ptr fs : [0], eax mov dword ptr fs : [0], eax add esp, 8 add esp, 8 } }  return 0  return  0}}.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.4667
+      },
+      {
+        "title": "Syscalls via Vectored Exception Handling - RedOps - English",
+        "url": "https://redops.at/en/blog/syscalls-via-vectored-exception-handling",
+        "snippet": "// Vectored Exception Handler function LONG CALLBACK PvectoredExceptionHandler(PEXCEPTION_POINTERS exception_ptr) { // Check if the exception is an access violation if (exception_ptr->ExceptionRecord->ExceptionCode == EXCEPTION_ACCESS_VIOLATION) { // Modify the thread's context to redirect execution to the syscall address // Copy RCX register to R10 exception_ptr->ContextRecord->R10 = exception_ptr->ContextRecord->Rcx; // Copy RIP (Instruction Pointer) to RAX (RIP keeps SSN --> RAX keeps SSN) exception_ptr->ContextRecord->Rax = exception_ptr->ContextRecord->Rip; // Set RIP to global address (set syscalls address retrieved from NtDrawText to RIP register) exception_ptr->ContextRecord->Rip = g_syscall_addr; // Continue execution at the new instruction pointer return EXCEPTION_CONTINUE_EXECUTION; } // Continue searching for another exception handler return EXCEPTION_CONTINUE_SEARCH; }. The simple reason for this is that in our Vectored Syscall Loader we access the base address of `NtDrawText()` via the Windows API `GetProcAddress()` in order to find the `syscall` statement within the syscall stub via an opcode comparison, Finally, the memory address of the `syscall` instruction is passed to the `rip` register in the context of `NtDrawText()` within the VEH function `PvectoredExceptionHandler()` to execute the `syscall` via the Vectored Exception Handler.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "A journey through KiUserExceptionDispatcher - Maurice's Blog",
+        "url": "https://momo5502.com/posts/2024-09-07-a-journey-through-kiuserexceptiondispatcher/",
+        "snippet": "Upon handling an exception in my emulator, I reserved some big space on the stack, created an `EXCEPTION_RECORD`, stored the CPU state inside a `CONTEXT` and passed both pointers in `rcx` and `rdx` to `KiUserExceptionDispatcher`. So I went back, adjusted my code and built that stack layout: The `CONTEXT`, with a size of `0x4F0` (\\*) first, followed by the `EXCEPTION_RECORD` with a size of `0x98`. The internal exception handling mechanism, within `RtlDispatchException`, is supposed to call all exception handlers and perform the unwinding using the provided `CONTEXT`, starting from the point where the exception happened, until it reaches a point where the exception is handled, namely the handler that prints `Executing handler`. The last 2 codes are especially important: `UWOP_ALLOC_LARGE` and `UWOP_PUSH_MACHFRAME`, as they describe how the stack was setup. That means, if `operation info` (the first value of the `UNWIND_CODE` tuple) is 0, then the next two bytes denote the allocated size devided by 8.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "A deep dive into modern Windows Structured Exception ...",
+        "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+        "snippet": "> Each `RUNTIME_FUNCTION` entry **defines a set of instructions** within the `UnwindData` field that tells it how to handle any exception that occurs between the `BeginAddress` and `EndAddress` address of the program. KiUserExceptionDispatcher` function which would find the appropriate exception handler to handle the exception. | ``` 1 2 3 4 5 6 7  ``` | ``` KiUserExceptionDispatcher// Windows Kernel Internal (KI) API -> RtlDispatchException// main logic for exception handling -> RtlpCallVectoredHandlers// call any VEH -> RtlLookupFunctionEntry// look for valid PRUNTIME_FUNCTION entry in ExceptionDirectory -> RtlpLookupDynamicFunctionEntry// if no valid PRUNTIME_FUNCTION, run any dynamic callbacks -> RtlVirtualUnwind/ RtlpxVirtualUnwind// perform stack frame unwinding -> RtlpExecuteHandlerForException// execute exception handler! This function iterates through the `RUNTIME_FUNCTION` data structures in the Exception Directory and look for an entry such that `BeginAddress` < `Context->Rip` < `EndAddress`. As you have seen, 64-bit SEH handlers are almost always *(by default)* stored in a read-only Exception Directory that is compiled into the program.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.5
+      },
+      {
+        "title": "KiUserExceptionDispatcher hook",
+        "url": "https://reverseengineering.stackexchange.com/questions/8809/kiuserexceptiondispatcher-hook",
+        "snippet": "### more stack exchange communities. Once the address(7773A408) is received, the malware overwrites the first 6 bytes with the following lines :. mov DWORD PTR DS:[EDX+1], malware.004035C2. mov BYTE PTR DS:[EDX+5], 0C3. So, my question would be: Is it right to assume that the malware tries to change exception handler by overwriting it with 004035C2 to redirect the excetion flow? The malware overwrites the usermode exception dispatcher (`KiUserExceptionDispatcher()`) with the following:. The code above is equivalent to `JMP malware.004035C2`. Now whenever any usermode exception occurs in the process, the function at `malware.004035C2` will be executed instead of (or at least before) the registered SEH functions. The malware likely uses this \"trick\" in combination with the `UD2` instruction in order to confuse disassemblers, since most disassemblers won't automatically figure out that the `UD2` instruction now effectively jumps to `malware.004035C2`. Thanks for contributing an answer to Reverse Engineering Stack Exchange!",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "Windows Instrumentation Callbacks – Part 2",
+        "url": "https://cirosec.de/en/news/windows-instrumentation-callbacks-hooks/",
+        "snippet": "In this blog post you will learn how to do patchless hooking using ICs without registering or executing any user mode exception handlers. VEH hooking also requires setting up an exception handler, but instead of page guards, hardware breakpoints are used to trigger the exceptions. Following the compilation, the program was opened in the debugger WinDbg. First, breakpoints on both the exception handler and the call to RtlDispatchException inside the function KiUserExceptionDispatch were set, as RtlDispatchException takes the pointer to the CONTEXT structure and another parameter, which might be a pointer to the EXCEPTION\\_RECORD structure. The following exception handler only handles a hardware breakpoint set in Dr0. January 28, 2026 – In this third part of the blog series, you will learn how to inject shellcode into processes with ICs as an execution mechanism without creating any new threads for your payload and without installing a vectored exception handler.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.48
+      },
+      {
+        "title": "Detecting Vectored Exception Handling Squared in an EDR",
+        "url": "https://fluxsec.red/detecting-vectored-exception-handling-malware-rust-edr-windows-kernel",
+        "snippet": "So, from an EDR perspective, when loading your DLL, you can consider overwriting this function to jump to your routine, inspect the CONTEXT record, look at the debug registers, etc. This is because, triggered by KiUserExceptionDispatcher exported by NTDLL, on resuming from the exception handled by a VEH (after the execution of the function RtlDispatchException, which calls RtlpCallVectoredExceptionHandlers), the thread will call the NtContinue function (used to set a new CONTEXT after processing exception for the executing thread) by specifying the CONTEXT managed by the Exception Handler. So, with this in mind - if we can read the threads CPU state, then we can check the debug register values, and see if they point to some memory that we wish to protect from VEH Squared abuse. As mentioned above we can check whether the address in a debug register matches the address of a function malware is likely to try bypass as follows:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      }
+    ],
+    "grok": [
+      {
+        "title": "Analyzing VEH-based anti-debug techniques - Part 1",
+        "url": "https://www.welivesecurity.com/2019/11/19/analyzing-veh-based-anti-debug-techniques-part-1/",
+        "snippet": "Malware authors frequently use the Vectored Exception Handler (VEH) mechanism as part of their anti-debugging tricks. This article explains how VEH-based anti-debug techniques work and how analysts can detect and bypass them.",
+        "published_date": "2019-11-19",
+        "source": "grok",
+        "score": 0.3867
+      },
+      {
+        "title": "Vectored Exception Handling (VEH) Anti-Debug Tricks",
+        "url": "https://www.apriorit.com/dev-blog/545-anti-reverse-engineering-protection-techniques-to-detect-debuggers",
+        "snippet": "One of the popular anti-debugging techniques involves registering a Vectored Exception Handler (VEH) to interfere with debugger exception processing. This section explains common VEH-based anti-debug methods used in malware.",
+        "published_date": "2020-08-12",
+        "source": "grok",
+        "score": 0.3867
+      },
+      {
+        "title": "Bypassing Anti-Debug Techniques with VEH Handlers",
+        "url": "https://www.hexacorn.com/blog/2019/11/16/veh-based-anti-debug-techniques/",
+        "snippet": "Detailed look at how malware abuses AddVectoredExceptionHandler to detect or disrupt debuggers, including common patterns seen in control flow obfuscation and exception-based checks.",
+        "published_date": "2019-11-16",
+        "source": "grok",
+        "score": 0.3867
+      },
+      {
+        "title": "Malware Anti-Debugging Techniques – VEH & SEH",
+        "url": "https://www.0ffset.net/reverse-engineering/malware-anti-debugging-veh-seh/",
+        "snippet": "Explains Structured Exception Handling (SEH) and Vectored Exception Handling (VEH) anti-debug mechanisms, with code examples showing how malware uses exception handlers to detect debuggers or alter control flow.",
+        "published_date": "2021-03-04",
+        "source": "grok",
+        "score": 0.42
+      },
+      {
+        "title": "Practical Malware Analysis – Anti-Debugging (Chapter 12)",
+        "url": "https://practicalmalwareanalysis.com/",
+        "snippet": "The book Practical Malware Analysis covers various anti-debugging techniques including the use of Vectored Exception Handlers (VEH) to complicate dynamic analysis and control flow inspection.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.5
+      },
+      {
+        "title": "Vectored Exception Handling - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/debug/vectored-exception-handling",
+        "snippet": "Vectored exception handlers are an extension to structured exception handling. An application can register a function to watch or handle all exceptions for the application.",
+        "published_date": "2025-07-14",
+        "source": "grok",
+        "score": 0.66
+      },
+      {
+        "title": "Anti Debugging Protection Techniques with Examples",
+        "url": "https://www.apriorit.com/dev-blog/367-anti-reverse-engineering-protection-techniques-to-use-before-releasing-software",
+        "snippet": "This article considers popular anti-cracking, anti reverse engineering protection techniques, namely anti-debug methods in Windows OS... Using Vectored Exception Handlers (VEH) to detect debuggers.",
+        "published_date": "2025-12-04",
+        "source": "grok"
+      },
+      {
+        "title": "Syscalls via Vectored Exception Handling",
+        "url": "https://redops.at/en/blog/syscalls-via-vectored-exception-handling",
+        "snippet": "This article has helped you learn more about vectored exception handling and how it can be used in malware development, eg to execute shellcode via syscalls... attackers also use vectored exception handling and can obfuscate code flow or achieve accelerated shellcode execution through VEH by implementing it in their malware (anti-debugging).",
+        "published_date": "2024-03-31",
+        "source": "grok"
+      },
+      {
+        "title": "GuLoader Demystified: Unraveling its Vectored Exception Handler Approach",
+        "url": "https://www.sonicwall.com/blog/guloader-demystified-unraveling-its-vectored-exception-handler-approach",
+        "snippet": "In latest variant of GuLoader it introduces new ways to raise exceptions that hamper complete analysis process... significant enhancement in GuLoader’s one of most effective anti-debug technique that it’s custom Vectored Exception Handler... change the control flow at runtime using its custom Vectored Exception Handler.",
+        "published_date": "2023-05-31",
+        "source": "grok"
+      },
+      {
+        "title": "Debug program using peculiar anti-debugging technique",
+        "url": "https://reverseengineering.stackexchange.com/questions/21367/debug-program-using-peculiar-anti-debugging-technique",
+        "snippet": "The application registers an exception handler, then forces an exception to occur, thereby transferring control to the exception handler... when a debugger is present, it will generally intercept the exception... exception dispatcher... calls a routine to find a structured or vectored exception handler.",
+        "published_date": "2019-05-26",
+        "source": "grok"
+      },
+      {
+        "title": "A journey through KiUserExceptionDispatcher - Maurice's Blog",
+        "url": "https://momo5502.com/posts/2024-09-07-a-journey-through-kiuserexceptiondispatcher",
+        "snippet": "Detailed reverse engineering of KiUserExceptionDispatcher, including custom calling convention, stack layout for passing EXCEPTION_RECORD and CONTEXT to RtlDispatchException, and why common hooking assumptions fail.",
+        "published_date": "2024-09-07",
+        "source": "grok"
+      },
+      {
+        "title": "A catalog of NTDLL kernel mode to user mode callbacks, part 2",
+        "url": "http://www.nynaeve.net/?p=201",
+        "snippet": "In-depth analysis of KiUserExceptionDispatcher as the user-mode entry point for SEH dispatching, calling RtlDispatchException, with pseudo-C code representation and explanation of kernel-to-user transition.",
+        "published_date": "2007-11-16",
+        "source": "grok",
+        "score": 0.2533
+      },
+      {
+        "title": "Applied Reverse Engineering: Exceptions and Interrupts",
+        "url": "https://revers.engineering/applied-re-exceptions",
+        "snippet": "Explains how the kernel redirects to KiUserExceptionDispatcher on user-mode exceptions, parameters (CONTEXT and EXCEPTION_RECORD), and processing via RtlDispatchException including unwind and handler execution.",
+        "published_date": "2020-03-24",
+        "source": "grok",
+        "score": 0.3533
+      },
+      {
+        "title": "A brief Reverse-Engineering note on Structured Exception Handling after stack pivoting",
+        "url": "https://sysexit.wordpress.com/2014/02/12/a-brief-reverse-engineering-note-on-structured-exception-handling-after-stack-pivoting",
+        "snippet": "Reverse engineering breakdown of KiUserExceptionDispatcher calling RtlDispatchException, Vectored Exception Handlers, stack limit checks via TEB, and implications for stack manipulation.",
+        "published_date": "2014-02-12",
+        "source": "grok",
+        "score": 0.3867
+      },
+      {
+        "title": "A deep dive into modern Windows Structured Exception Handling (x64)",
+        "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64",
+        "snippet": "Traces exception flow from KiUserExceptionDispatcher to RtlDispatchException, VEH calls, function table lookups, virtual unwind, and handler execution in modern Windows.",
+        "published_date": "2024-11-25",
+        "source": "grok"
+      }
+    ]
+  }
+}
