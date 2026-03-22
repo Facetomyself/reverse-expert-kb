@@ -14,6 +14,7 @@ Related pages:
 - topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md
 - topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md
 - topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md
+- topics/ios-block-callback-landing-and-signature-recovery-workflow-note.md
 - topics/ios-result-callback-to-policy-state-workflow-note.md
 - topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
 
@@ -29,6 +30,7 @@ The branch already had practical entry surfaces for:
 - Flutter/Dart cross-runtime owner localization when iOS shell, engine routing, and Dart ownership all compete
 - execution-assisted owner replay when the owner path is already plausible and the next bottleneck is minimal truthful invocation
 - iOS request-signing finalization / preimage routing when one owner path is already plausible and the next question is whether to prove one last iOS request-finalization boundary, move earlier into preimage/state capture, or keep one truthful black-box path
+- callback/block landing and signature-recovery proof once one callback family is already plausible but the truthful landing and parameter contract still need to be proved under modern iOS conditions
 - callback/result-to-policy consequence proof once visible result material exists but the first behavior-changing consumer is still unclear
 
 What was missing was the compact routing rule that answers:
@@ -62,7 +64,9 @@ iOS practical work is easiest to navigate when the analyst first classifies the 
    - one owner path is already plausible enough to target, but the next bottleneck is reconstructing minimal init/context obligations until one truthful callable path exists
 8. **iOS signing-finalization / preimage-routing uncertainty**
    - one owner path is already plausible and maybe even callable, but it is still unclear whether the cheapest next reduction is one last iOS request-finalization boundary, one earlier preimage/state capture point, or stopping at a truthful black-box request path
-9. **callback/result-to-policy consequence uncertainty**
+9. **callback/block landing and signature-contract uncertainty**
+   - one callback/block family is already plausible, but the truthful invoke landing and usable runtime contract are still not proven strongly enough to trust owner, replay, or policy claims
+10. **callback/result-to-policy consequence uncertainty**
    - visible callbacks or result wrappers already exist, but the first behavior-changing consumer or local policy state is still unclear
 
 Inside families 2 and 3, a recurring practical reminder now deserves to stay explicit: do not collapse all early iOS setup into one vague "jailbroken vs not" bucket. Installation/signing path, rootful vs rootless mode, Frida deployment coherence, and rewrite/repack stability can each change whether later evidence is trustworthy; some cases first need environment normalization before broader gate diagnosis is even meaningful.
@@ -85,6 +89,7 @@ The subtree is strongest when read as:
 - **own** one consequence-bearing path
 - **replay** one truthful callable owner path when static cleanup is no longer the cheapest next move
 - **reduce** one iOS-shaped signing/finalization boundary before flattening the case into generic preimage work
+- **land** one callback/block family on one truthful invoke boundary with one usable contract
 - **consume** one callback/result into one local policy effect
 
 ## 3. How to choose the right entry note
@@ -206,12 +211,28 @@ Do **not** start here when:
 - the case still primarily needs broad controlled replay / init-obligation repair before any request-shaping conclusion is trustworthy
 - the remaining gap is already clearly result/callback-to-policy consequence rather than request shaping
 
+### Start with `ios-block-callback-landing-and-signature-recovery-workflow-note`
+Use:
+- `topics/ios-block-callback-landing-and-signature-recovery-workflow-note.md`
+
+Start here when:
+- one callback/block family is already plausible enough to freeze
+- the current bottleneck is whether the invoke landing and parameter contract are truthful enough to trust
+- PAC / arm64e / dyld-cache truthfulness now affects confidence in the callback view
+- placeholder block signatures still make replay, owner, or policy claims too speculative
+
+Do **not** start here when:
+- the broad bottleneck is still visibility, setup/gate drift, or owner localization
+- the callback/result is already trustworthy enough and the real gap is the first policy-bearing consumer
+- the remaining problem is already better framed as one narrower runtime-table/init obligation
+
 ### Start with `ios-result-callback-to-policy-state-workflow-note`
 Use:
 - `topics/ios-result-callback-to-policy-state-workflow-note.md`
 
 Start here when:
 - callbacks, completions, Swift result wrappers, or native-return wrappers are already visible
+- the landing/contract is already trustworthy enough that the callback family itself is no longer the main uncertainty
 - the current bottleneck is no longer visibility or broad owner search, but the first behavior-changing local policy state
 - you need to separate callback surface, normalization, policy mapping, and first consumer
 - one downstream effect could prove the right policy-bearing boundary
@@ -220,9 +241,10 @@ Do **not** start here when:
 - the true owner is still unclear
 - the case still needs controlled replay to make the owner callable at all
 - the visible callback is still trapped inside broader setup drift or untrusted observation
+- the landing or signature contract is still too ambiguous to support policy claims
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as eight common bottleneck families that often chain into one another.
+A useful way to read the branch is as ten common bottleneck families that often chain into one another.
 
 ### A. Incomplete network picture -> truthful traffic surface
 Typical question:
@@ -321,7 +343,24 @@ Possible next handoff:
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when outputs are close-but-wrong because one runtime artifact or init chain is still missing
 - `topics/ios-result-callback-to-policy-state-workflow-note.md` when truthful result material already exists and the real gap has shifted into consequence proof
 
-### I. Visible callback/result -> first policy-bearing consumer
+### I. Plausible callback/block family -> truthful landing and usable contract
+Typical question:
+- is this callback/block family really landing where I think it is, and is its contract narrow enough to trust?
+
+Primary note:
+- `topics/ios-block-callback-landing-and-signature-recovery-workflow-note.md`
+
+Routing reminder:
+- enter this stage when one callback family is already plausible but PAC-era confidence, dyld/cache truth, or placeholder signatures still make stronger claims unsafe
+- do not jump straight from vague block visibility into policy interpretation if the landing itself is still structurally ambiguous
+
+Possible next handoff:
+- `topics/ios-pac-shaped-callback-and-dispatch-failure-triage.md`
+- `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
+- `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
+- `topics/ios-result-callback-to-policy-state-workflow-note.md`
+
+### J. Visible callback/result -> first policy-bearing consumer
 Typical question:
 - which callback / wrapper / mapper / consumer first turns visible result material into one local behavior change?
 
@@ -331,6 +370,7 @@ Primary note:
 Routing reminder:
 - enter this stage once controlled replay, black-box invocation, or narrower init-obligation repair is already good enough to expose truthful result material
 - do not stay in broad replay or init-obligation work once the real missing proof is no longer owner callability but the first app-local policy consequence
+- if the landing or callback contract itself is still doubtful, route back to `topics/ios-block-callback-landing-and-signature-recovery-workflow-note.md` first
 
 Possible next handoff:
 - challenge-loop, attestation, request-shaping, or native proof pages depending on the proved consumer
@@ -356,7 +396,9 @@ When a case is clearly iOS-shaped, ask these in order:
    - if yes, continue into iOS request-signing finalization / preimage routing
 9. **Is replay already good enough, but the remaining gap has narrowed into one runtime table family, initialized-image boundary, side-condition, or minimal init/context obligation?**
    - if yes, leave broad replay work and continue into runtime-table / initialization-obligation recovery
-10. **Are callbacks or result wrappers already visible, but the first behavior-changing policy state still hidden?**
+10. **Is one callback/block family already plausible, but the landing or signature contract still too ambiguous to trust?**
+   - if yes, continue into callback/block landing and signature-recovery work
+11. **Are callbacks or result wrappers already visible, and is the landing already trustworthy enough, but the first behavior-changing policy state still hidden?**
    - if yes, continue into result/callback-to-policy-state work
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
@@ -370,6 +412,7 @@ That usually means:
 - leave broad replay/harness work once one truthful callable path is already good enough and the real bottleneck has shifted
 - before flattening the case into generic signing taxonomy, ask whether one last iOS request-finalization boundary is still the real missing proof
 - if replay is already close-but-wrong, reduce one narrower runtime-table or initialization obligation before widening outward again
+- if one callback family is plausible but the landing or signature contract is still doubtful, prove that boundary before stronger owner or policy claims
 - prove one policy-bearing consumer before widening callback coverage
 
 ## 6. What this branch is strongest at
@@ -378,6 +421,7 @@ This branch is currently strongest at practical guidance for:
 - separating setup/gate uncertainty from trust-path localization and then from post-gate owner localization
 - separating ordinary ObjC / Swift / native owner problems from Flutter/Dart cross-runtime owner problems
 - treating execution-assisted replay as a continuation of owner recovery rather than tool tourism
+- separating callback/block landing truth from later owner or policy claims
 - separating visible callback/result material from the first true policy-bearing consumer
 
 That makes the branch good at cases where iOS work is already partly reachable, but the next useful move still depends on disciplined routing rather than broader tracing.
@@ -401,12 +445,13 @@ This guide is meant to prevent several recurring branch-level mistakes:
 - jumping into owner or callback work while the observation surface is still untrustworthy
 - widening into replay harness work before one owner is narrowed enough to target
 - confusing Flutter/bridge visibility with actual Dart/object ownership
+- treating plausible callback/block presence as proof of a truthful landing
 - treating visible callback or result wrappers as behavioral ownership by default
 - leaking routing logic into run reports instead of preserving it canonically in the KB itself
 
 ## 9. How this guide connects to the rest of the KB
 Use this subtree when the case is best described as:
-- an iOS investigation where the next bottleneck is still choosing the right observation surface, proving one gate family, narrowing one owner, reconstructing one callable path, or proving one result-to-policy consumer
+- an iOS investigation where the next bottleneck is still choosing the right observation surface, proving one gate family, narrowing one owner, reconstructing one callable path, proving one callback/block landing boundary, or proving one result-to-policy consumer
 
 Then route outward as soon as the case becomes more specifically shaped:
 - to broader mobile/runtime synthesis when platform comparison or observation-surface theory matters more than the iOS ladder itself
@@ -424,6 +469,7 @@ The compact reading is:
 - prove the right owner
 - reconstruct the smallest truthful callable path when needed
 - reduce one narrower runtime-table or initialization obligation when replay is already close-but-wrong
+- prove the right callback/block landing when the callback family is plausible but still structurally ambiguous
 - prove the right callback/result consumer
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which iOS workflow note to read first.
