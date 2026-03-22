@@ -223,9 +223,18 @@ Do not wait for a full subsystem narrative.
 ### Step 7: hand off immediately to one smaller next target
 Good next targets:
 - one helper or reducer family to reconstruct statically
-- one owner/consumer edge to prove
-- one narrower protocol/mobile/native/malware continuation
+- one first consequence-bearing owner/consumer edge to prove
+- one narrower protocol/mobile/native/malware/protected-runtime continuation
 - one small evidence package for later handoff
+
+A practical stop-rule worth making explicit is:
+- once one watched object and one useful write/reducer boundary are already good enough, do **not** keep the case inside generic watchpoint or reverse-debugger exploration by default
+- the next move is usually to prove the first narrower downstream consumer/consequence that makes the boundary operationally meaningful
+
+Representative follow-on questions:
+- which later callback consumer actually uses the reduced mode or state slot?
+- which request builder, serializer, or queue owner first consumes the now-proved boundary?
+- which narrower branch-specific note now fits better than more replay browsing?
 
 If the result still ends with “keep browsing more trace,” the boundary is probably not yet stated tightly enough.
 
@@ -306,9 +315,11 @@ Typical next moves are:
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md` when the case broadens back into a larger causal-window question beyond one watched object
 - `topics/runtime-evidence-package-and-handoff-workflow-note.md` when the proof is already technically good enough and now needs preservation
 - a narrower native/protocol/mobile/malware/protected-runtime note when the localized boundary clearly belongs to one branch-specific next proof target
+- one existing branch-specific consumer/consequence note when the remaining gap is no longer the write itself, but the first downstream owner, callback, scheduler, request path, parser, or policy consumer that operationalizes it
 
 A durable stop-rule worth preserving canonically is:
 - do not keep broad watchpoint or reverse-debugging exploration alive once one watched object, one useful write/reducer boundary, and one downstream dependency already make the next task obvious
+- at that point, prefer the narrowest consequence-bearing consumer proof question over more generic replay browsing
 
 ## 9. Relationship to nearby pages
 Use this page when the bottleneck is:
