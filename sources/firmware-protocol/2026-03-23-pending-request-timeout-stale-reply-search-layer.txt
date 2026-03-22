@@ -1,0 +1,614 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "late reply timeout pending request correlation stale response generation counter rpc",
+    "async rpc timeout cleanup outstanding request stale reply correlation id reverse engineering",
+    "message queue rpc correlation id reply timeout stale response consumer drop"
+  ],
+  "count": 31,
+  "results": [
+    {
+      "title": "RabbitMQ, RPC, and Correlation ID Matching",
+      "url": "https://stackoverflow.com/questions/56615866/rabbitmq-rpc-and-correlation-id-matching",
+      "snippet": "The tutorial states: That's when the CorrelationId property is used. We're going to set it to a unique value for every request. Later, when we receive a message in the callback queue we'll look at this property, and based on that we'll be able to match a response with a request. If we see an unknown CorrelationId value, we may safely discard the message - it doesn't belong to our requests.",
+      "published_date": "",
+      "source": "grok, exa",
+      "score": 0.7364
+    },
+    {
+      "title": "Standardize async resource lifecycle management across components",
+      "url": "https://github.com/openclaw/openclaw/issues/49804",
+      "snippet": "Async operation starts ... Cleanup runs before the operation finishes ... Resources leak or state is lost ... stale queued reply can replay after restart instead of being invalidated ...",
+      "published_date": "2026-03-18",
+      "source": "grok",
+      "score": 0.7345
+    },
+    {
+      "title": "Fixed reply queue times out after second message",
+      "url": "https://stackoverflow.com/questions/29789329/fixed-reply-queue-times-out-after-second-message",
+      "snippet": "outstanding request waiting for a reply - that's over on the producer side). ... Right now I am stuck with getting the correlation-id and ... Reply received after timeout ... no outstanding request for correlation ID",
+      "published_date": "",
+      "source": "grok, exa",
+      "score": 0.7091
+    },
+    {
+      "title": "rabbitmq-java-client RpcClient.java source",
+      "url": "https://github.com/rabbitmq/rabbitmq-java-client/blob/master/src/main/java/com/rabbitmq/client/RpcClient.java",
+      "snippet": "if request timed out , // log a warning nevertheless. LOGGER.warn(\"No outstanding request for correlation ID {}\", replyId); } else { blocker.set(new ...",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.7091
+    },
+    {
+      "title": "Add support for delayed response RPCs to allow long-lived RPC ...",
+      "url": "https://github.com/netconf-wg/netconf-next/issues/55",
+      "snippet": "Add a new element <accepted> to <rpc-reply> indicating the RPC is accepted for work and a 2nd rpc-reply will be sent later. rpc-reply child",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7091
+    },
+    {
+      "title": "Request/Reply Messaging :: Spring AMQP",
+      "url": "https://docs.spring.io/spring-amqp/reference/amqp/request-reply.html",
+      "snippet": "Prior to version 1.3.6, late replies for timed out messages were only logged. Now, if a late reply is received, it is rejected (the template throws an AmqpRejectAndDontRequeueException). The template takes care of correlating the replies, so there is no danger of a late reply going to a different sender. This error handler is invoked for any failed deliveries, such as late replies and messages received without a correlation header.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6591
+    },
+    {
+      "title": "Recurrent RPC timeout on queue.cancel() · Issue #546 · mosquito/aio-pika",
+      "url": "https://github.com/mosquito/aio-pika/issues/546",
+      "snippet": "",
+      "published_date": "2023-05-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6545
+    },
+    {
+      "title": "[MS-RPCE]: Connection Time-Out",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rpce/678e4235-0a3b-4b81-99fb-86ae3ac357f3",
+      "snippet": "",
+      "published_date": "2024-04-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "[Bug]: `openclaw gateway restart` always times out due to MainPID vs child PID mismatch in health check · Issue #24279 · openclaw/openclaw",
+      "url": "https://github.com/openclaw/openclaw/issues/24279",
+      "snippet": "",
+      "published_date": "2026-02-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "The Asynchronous Request-Reply Pattern: Your Guide to Not ...",
+      "url": "https://dev.to/igornosatov_15/the-asynchronous-request-reply-pattern-your-guide-to-not-waiting-around-like-a-chump-2k8h",
+      "snippet": "Cover image for The Asynchronous Request-Reply Pattern: Your Guide to Not Waiting Around Like a Chump. With async request-reply, you immediately return a job ID. Your server processes the request when it's ready, and the client can check in whenever convenient. It means *\"I got your request, I'll get to it when I get to it.\"* The server immediately returns a job identifier. You need somewhere to persist job status so clients can check on progress. Store the job ID, current status, any results, and maybe a timestamp so you can clean up abandoned jobs later. They pull jobs from the queue, process them, update the status store, and move on to the next task. Meanwhile, a background worker picks up the job, downloads the image, applies the filter, uploads the result, and updates the status. ## 🎬 Wrapping Up. The Asynchronous Request-Reply pattern is like hiring an assistant: you hand off tasks, get on with your life, and check back later for results.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5818
+    },
+    {
+      "title": "How do RPC systems deal with slow or flaky networks?",
+      "url": "https://softwareengineering.stackexchange.com/questions/429580/how-do-rpc-systems-deal-with-slow-or-flaky-networks",
+      "snippet": "Once way to ameliorate the problem would be to specify a timeout (e.g. \"if the server doesn't reply within 10 seconds, the RPC call should",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.5818
+    },
+    {
+      "title": "Why the Async Request-Reply Pattern is a Game-Changer for ...",
+      "url": "https://medium.com/engineered-publicis-sapient/why-the-async-request-reply-pattern-is-a-game-changer-for-modern-architectures-a3f970b1deb0",
+      "snippet": "",
+      "published_date": "2025-06-17T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4545
+    },
+    {
+      "title": "Building an RPC System with RabbitMQ and Direct Reply-to",
+      "url": "https://medium.com/@andhikaprbw/building-an-rpc-system-with-rabbitmq-and-direct-reply-to-f55ad49b6685",
+      "snippet": "",
+      "published_date": "2024-11-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4545
+    },
+    {
+      "title": "Polling-based mechanism for improved RPC timeout handling",
+      "url": "https://patents.google.com/patent/US7146427B2/en",
+      "snippet": "A timeout occurs when client 108 does not receive a polling request response from server 104 after such wait. The timeout conditions indicate to client 108 that",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.4091
+    },
+    {
+      "title": "Implication on RPC bindings with abnormal termination of region ...",
+      "url": "https://www.ibm.com/docs/en/txseries/11.1.0?topic=terminations-implication-rpc-binding",
+      "snippet": "For each UDP stale binding handle, it will take 35 seconds to timeout the request. The region does not restart until the stale bindings are cleaned. Parent",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.4091
+    },
+    {
+      "title": "RabbitMQ tutorial - Remote procedure call (RPC)",
+      "url": "https://www.rabbitmq.com/tutorials/tutorial-six-java",
+      "snippet": "The client waits for data on the reply queue. When a message appears, it checks the correlationId property. If it matches the value from the request it returns",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.4091
+    },
+    {
+      "title": "Asynchronous request-response with correlation - Google Groups",
+      "url": "https://groups.google.com/g/masstransit-discuss/c/w8pnLSET8_I",
+      "snippet": "I want to do an asynchronous request-response, i.e., receive the response as an usual message, even if the requester crashes after sending the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "xDS REST and gRPC protocol",
+      "url": "https://www.envoyproxy.io/docs/envoy/latest/api-docs/xds_protocol",
+      "snippet": "Clients are expected to use a timeout (recommended duration is 15 seconds) after sending a request for a new resource, after which they will consider the requested resource to not exist if they have not received the resource. In Envoy, this is done for RouteConfiguration and ClusterLoadAssignment resources during resource warming.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.3818
+    },
+    {
+      "title": "RabbitMQ RPC single durable reply-to queue - Google Groups",
+      "url": "https://groups.google.com/g/rabbitmq-users/c/TOPF25yInZc",
+      "snippet": "I am planning to have one durable rpc queue and one durable rpc reply queue. Client will be taking the messages and matching by looking at correlation id.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "How to Implement Request-Reply Pattern in RabbitMQ",
+      "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+      "snippet": "",
+      "published_date": "2026-01-27T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3545
+    },
+    {
+      "title": "Retrieve an asynchronous task at a later time by it's correlation_id.",
+      "url": "https://discourse.nameko.io/t/retrieve-an-asynchronous-task-at-a-later-time-by-its-correlation-id/118",
+      "snippet": "I'm writing a restful service that is using Nameko under the hood to break everything down into microservices. In the event of an expensive",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "How to Handle Retries and Timeouts in gRPC",
+      "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-retries-timeouts/view",
+      "snippet": "",
+      "published_date": "2026-01-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "How to Handle Deadlines and Timeouts in gRPC",
+      "url": "https://oneuptime.com/blog/post/2026-01-08-grpc-deadlines-timeouts/view",
+      "snippet": "",
+      "published_date": "2026-01-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "RPC Timeout because of delay at server side - Google Groups",
+      "url": "https://groups.google.com/g/google-web-toolkit/c/8qKn_Z5OQwI",
+      "snippet": "Hi Guys, I have a GWT application which I used for Installation of multiple servers using PERL scripts. These installation scripts can take as",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "Stale queues leading to MediaCentral services timeouts",
+      "url": "https://kb.avid.com/pkb/articles/en_US/troubleshooting/Stale-queues-leading-to-MediaCentral-services-timeouts",
+      "snippet": "After an event such as a cluster failover or network outage, the RabbitMQ may leave some stale queues that can lead to services timeouts.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "Down the Rabbit Hole - A Deep Dive into an attack on an RPC ...",
+      "url": "https://www.thezdi.com/blog/2018/6/7/down-the-rabbit-hole-a-deep-dive-into-an-attack-on-an-rpc-interface",
+      "snippet": "The vulnerabilities were all in C string handling functions (strcpy and sprintf, for the most part) and were reached through two RPC interfaces. The techniques in that presentation can be used to reverse engineer RPC interface definitions from the server binary file back into an IDL file. Additionally, IDL reversing will provide you with the address in the server code of the interface method stub, which you can then use with a static analysis package to trace data from the client on its way through the service. More generally, `hBinding` is the first parameter to all calls to the interface on the client side so that RPC knows how to access the server. You can use your favorite disassembler to look through the target code for uses of those functions (and in the codebase in question, there are many uses of those functions), and then walk the calltree back to stub functions of the RPC interface looking for the source of the parameters.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.3273
+    },
+    {
+      "title": "How to Fix 'Deadline Exceeded' Errors in gRPC",
+      "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-deadline-exceeded-errors/view",
+      "snippet": "",
+      "published_date": "2026-01-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "RabbitMQ tutorial - Remote procedure call (RPC) | RabbitMQ",
+      "url": "https://www.rabbitmq.com/tutorials/tutorial-six-go.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "Consumer disconnects from RabbitMQ and is not reconnecting",
+      "url": "https://discuss.particular.net/t/consumer-disconnects-from-rabbitmq-and-is-not-reconnecting/4021",
+      "snippet": "When message sended to queue and service process time takes longer than “consumer_timeout” in rabbitmq, service loses queue and dont process any messages any",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "Real-world RPC with RabbitMQ and Node.JS",
+      "url": "https://facundoolano.wordpress.com/2016/06/26/real-world-rpc-with-rabbitmq-and-node-js",
+      "snippet": "Practical implementation of RPC over RabbitMQ handling correlation IDs, timeouts with setTimeout, and consumer cancellation. Includes examples of matching correlation IDs and cleaning up on timeout.",
+      "published_date": "2016-06-26",
+      "source": "grok",
+      "score": 0.3018
+    },
+    {
+      "title": "Deadlines",
+      "url": "https://grpc.io/docs/guides/deadlines",
+      "snippet": "",
+      "published_date": "2025-07-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "How to Implement Request-Reply Pattern in RabbitMQ",
+        "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+        "snippet": "",
+        "published_date": "2026-01-27T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3545
+      },
+      {
+        "title": "Why the Async Request-Reply Pattern is a Game-Changer for ...",
+        "url": "https://medium.com/engineered-publicis-sapient/why-the-async-request-reply-pattern-is-a-game-changer-for-modern-architectures-a3f970b1deb0",
+        "snippet": "",
+        "published_date": "2025-06-17T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4545
+      },
+      {
+        "title": "[MS-RPCE]: Connection Time-Out",
+        "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rpce/678e4235-0a3b-4b81-99fb-86ae3ac357f3",
+        "snippet": "",
+        "published_date": "2024-04-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "Recurrent RPC timeout on queue.cancel() · Issue #546 · mosquito/aio-pika",
+        "url": "https://github.com/mosquito/aio-pika/issues/546",
+        "snippet": "",
+        "published_date": "2023-05-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6545
+      },
+      {
+        "title": "[Bug]: `openclaw gateway restart` always times out due to MainPID vs child PID mismatch in health check · Issue #24279 · openclaw/openclaw",
+        "url": "https://github.com/openclaw/openclaw/issues/24279",
+        "snippet": "",
+        "published_date": "2026-02-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "How to Implement Request-Reply Pattern in RabbitMQ",
+        "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+        "snippet": "",
+        "published_date": "2026-01-27T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "How to Handle Retries and Timeouts in gRPC",
+        "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-retries-timeouts/view",
+        "snippet": "",
+        "published_date": "2026-01-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "How to Fix 'Deadline Exceeded' Errors in gRPC",
+        "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-deadline-exceeded-errors/view",
+        "snippet": "",
+        "published_date": "2026-01-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "How to Handle Deadlines and Timeouts in gRPC",
+        "url": "https://oneuptime.com/blog/post/2026-01-08-grpc-deadlines-timeouts/view",
+        "snippet": "",
+        "published_date": "2026-01-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "Deadlines",
+        "url": "https://grpc.io/docs/guides/deadlines",
+        "snippet": "",
+        "published_date": "2025-07-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "How to Implement Request-Reply Pattern in RabbitMQ - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+        "snippet": "",
+        "published_date": "2026-01-27T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Fixed reply queue times out after second message - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/29789329/fixed-reply-queue-times-out-after-second-message",
+        "snippet": "",
+        "published_date": "2015-04-22T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "RabbitMQ tutorial - Remote procedure call (RPC) | RabbitMQ",
+        "url": "https://www.rabbitmq.com/tutorials/tutorial-six-go.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "RabbitMQ, RPC, and Correlation ID Matching",
+        "url": "https://stackoverflow.com/questions/56615866/rabbitmq-rpc-and-correlation-id-matching",
+        "snippet": "",
+        "published_date": "2019-06-16T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Building an RPC System with RabbitMQ and Direct Reply-to",
+        "url": "https://medium.com/@andhikaprbw/building-an-rpc-system-with-rabbitmq-and-direct-reply-to-f55ad49b6685",
+        "snippet": "",
+        "published_date": "2024-11-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4545
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Why the Async Request-Reply Pattern is a Game-Changer for ...",
+        "url": "https://medium.com/engineered-publicis-sapient/why-the-async-request-reply-pattern-is-a-game-changer-for-modern-architectures-a3f970b1deb0",
+        "snippet": "Use Correlation IDs to Track Async Flows Assign a unique correlation ID to every asynchronous request to trace it across microservices and logs.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Asynchronous request-response with correlation - Google Groups",
+        "url": "https://groups.google.com/g/masstransit-discuss/c/w8pnLSET8_I",
+        "snippet": "I want to do an asynchronous request-response, i.e., receive the response as an usual message, even if the requester crashes after sending the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Retrieve an asynchronous task at a later time by it's correlation_id.",
+        "url": "https://discourse.nameko.io/t/retrieve-an-asynchronous-task-at-a-later-time-by-its-correlation-id/118",
+        "snippet": "I'm writing a restful service that is using Nameko under the hood to break everything down into microservices. In the event of an expensive",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "The Asynchronous Request-Reply Pattern: Your Guide to Not ...",
+        "url": "https://dev.to/igornosatov_15/the-asynchronous-request-reply-pattern-your-guide-to-not-waiting-around-like-a-chump-2k8h",
+        "snippet": "Cover image for The Asynchronous Request-Reply Pattern: Your Guide to Not Waiting Around Like a Chump. With async request-reply, you immediately return a job ID. Your server processes the request when it's ready, and the client can check in whenever convenient. It means *\"I got your request, I'll get to it when I get to it.\"* The server immediately returns a job identifier. You need somewhere to persist job status so clients can check on progress. Store the job ID, current status, any results, and maybe a timestamp so you can clean up abandoned jobs later. They pull jobs from the queue, process them, update the status store, and move on to the next task. Meanwhile, a background worker picks up the job, downloads the image, applies the filter, uploads the result, and updates the status. ## 🎬 Wrapping Up. The Asynchronous Request-Reply pattern is like hiring an assistant: you hand off tasks, get on with your life, and check back later for results.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5818
+      },
+      {
+        "title": "Down the Rabbit Hole - A Deep Dive into an attack on an RPC ...",
+        "url": "https://www.thezdi.com/blog/2018/6/7/down-the-rabbit-hole-a-deep-dive-into-an-attack-on-an-rpc-interface",
+        "snippet": "The vulnerabilities were all in C string handling functions (strcpy and sprintf, for the most part) and were reached through two RPC interfaces. The techniques in that presentation can be used to reverse engineer RPC interface definitions from the server binary file back into an IDL file. Additionally, IDL reversing will provide you with the address in the server code of the interface method stub, which you can then use with a static analysis package to trace data from the client on its way through the service. More generally, `hBinding` is the first parameter to all calls to the interface on the client side so that RPC knows how to access the server. You can use your favorite disassembler to look through the target code for uses of those functions (and in the codebase in question, there are many uses of those functions), and then walk the calltree back to stub functions of the RPC interface looking for the source of the parameters.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.3273
+      },
+      {
+        "title": "Polling-based mechanism for improved RPC timeout handling",
+        "url": "https://patents.google.com/patent/US7146427B2/en",
+        "snippet": "A timeout occurs when client 108 does not receive a polling request response from server 104 after such wait. The timeout conditions indicate to client 108 that",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.4091
+      },
+      {
+        "title": "Implication on RPC bindings with abnormal termination of region ...",
+        "url": "https://www.ibm.com/docs/en/txseries/11.1.0?topic=terminations-implication-rpc-binding",
+        "snippet": "For each UDP stale binding handle, it will take 35 seconds to timeout the request. The region does not restart until the stale bindings are cleaned. Parent",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.4091
+      },
+      {
+        "title": "Add support for delayed response RPCs to allow long-lived RPC ...",
+        "url": "https://github.com/netconf-wg/netconf-next/issues/55",
+        "snippet": "Add a new element <accepted> to <rpc-reply> indicating the RPC is accepted for work and a 2nd rpc-reply will be sent later. rpc-reply child",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7091
+      },
+      {
+        "title": "RPC Timeout because of delay at server side - Google Groups",
+        "url": "https://groups.google.com/g/google-web-toolkit/c/8qKn_Z5OQwI",
+        "snippet": "Hi Guys, I have a GWT application which I used for Installation of multiple servers using PERL scripts. These installation scripts can take as",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "How do RPC systems deal with slow or flaky networks?",
+        "url": "https://softwareengineering.stackexchange.com/questions/429580/how-do-rpc-systems-deal-with-slow-or-flaky-networks",
+        "snippet": "Once way to ameliorate the problem would be to specify a timeout (e.g. \"if the server doesn't reply within 10 seconds, the RPC call should",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.5818
+      },
+      {
+        "title": "How to Implement Request-Reply Pattern in RabbitMQ - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+        "snippet": "Learn how to implement the request-reply (RPC) pattern in RabbitMQ with correlation IDs, reply-to queues, and timeout handling.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RabbitMQ tutorial - Remote procedure call (RPC)",
+        "url": "https://www.rabbitmq.com/tutorials/tutorial-six-java",
+        "snippet": "The client waits for data on the reply queue. When a message appears, it checks the correlationId property. If it matches the value from the request it returns",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.4091
+      },
+      {
+        "title": "RabbitMQ RPC single durable reply-to queue - Google Groups",
+        "url": "https://groups.google.com/g/rabbitmq-users/c/TOPF25yInZc",
+        "snippet": "I am planning to have one durable rpc queue and one durable rpc reply queue. Client will be taking the messages and matching by looking at correlation id.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Stale queues leading to MediaCentral services timeouts",
+        "url": "https://kb.avid.com/pkb/articles/en_US/troubleshooting/Stale-queues-leading-to-MediaCentral-services-timeouts",
+        "snippet": "After an event such as a cluster failover or network outage, the RabbitMQ may leave some stale queues that can lead to services timeouts.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "Consumer disconnects from RabbitMQ and is not reconnecting",
+        "url": "https://discuss.particular.net/t/consumer-disconnects-from-rabbitmq-and-is-not-reconnecting/4021",
+        "snippet": "When message sended to queue and service process time takes longer than “consumer_timeout” in rabbitmq, service loses queue and dont process any messages any",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3273
+      }
+    ],
+    "grok": [
+      {
+        "title": "RabbitMQ, RPC, and Correlation ID Matching",
+        "url": "https://stackoverflow.com/questions/56615866/rabbitmq-rpc-and-correlation-id-matching",
+        "snippet": "The tutorial states: That's when the CorrelationId property is used. We're going to set it to a unique value for every request. Later, when we receive a message in the callback queue we'll look at this property, and based on that we'll be able to match a response with a request. If we see an unknown CorrelationId value, we may safely discard the message - it doesn't belong to our requests.",
+        "published_date": "",
+        "source": "grok, exa",
+        "score": 0.7364
+      },
+      {
+        "title": "Fixed reply queue times out after second message",
+        "url": "https://stackoverflow.com/questions/29789329/fixed-reply-queue-times-out-after-second-message",
+        "snippet": "outstanding request waiting for a reply - that's over on the producer side). ... Right now I am stuck with getting the correlation-id and ... Reply received after timeout ... no outstanding request for correlation ID",
+        "published_date": "",
+        "source": "grok, exa",
+        "score": 0.7091
+      },
+      {
+        "title": "rabbitmq-java-client RpcClient.java source",
+        "url": "https://github.com/rabbitmq/rabbitmq-java-client/blob/master/src/main/java/com/rabbitmq/client/RpcClient.java",
+        "snippet": "if request timed out , // log a warning nevertheless. LOGGER.warn(\"No outstanding request for correlation ID {}\", replyId); } else { blocker.set(new ...",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.7091
+      },
+      {
+        "title": "Standardize async resource lifecycle management across components",
+        "url": "https://github.com/openclaw/openclaw/issues/49804",
+        "snippet": "Async operation starts ... Cleanup runs before the operation finishes ... Resources leak or state is lost ... stale queued reply can replay after restart instead of being invalidated ...",
+        "published_date": "2026-03-18",
+        "source": "grok",
+        "score": 0.7345
+      },
+      {
+        "title": "Down the Rabbit Hole - A Deep Dive into an attack on an RPC interface",
+        "url": "https://www.thezdi.com/blog/2018/6/7/down-the-rabbit-hole-a-deep-dive-into-an-attack-on-an-rpc-interface",
+        "snippet": "The techniques ... can be used to reverse engineer RPC interface definitions from the server binary file back into an IDL file. ... reverse engineering RPC interfaces ... protocol sequences used by Microsoft RPC.",
+        "published_date": "2018-06-07",
+        "source": "grok"
+      },
+      {
+        "title": "Request/Reply Messaging :: Spring AMQP",
+        "url": "https://docs.spring.io/spring-amqp/reference/amqp/request-reply.html",
+        "snippet": "Prior to version 1.3.6, late replies for timed out messages were only logged. Now, if a late reply is received, it is rejected (the template throws an AmqpRejectAndDontRequeueException). The template takes care of correlating the replies, so there is no danger of a late reply going to a different sender. This error handler is invoked for any failed deliveries, such as late replies and messages received without a correlation header.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6591
+      },
+      {
+        "title": "How do RPC systems deal with slow or flaky networks?",
+        "url": "https://softwareengineering.stackexchange.com/questions/429580/how-do-rpc-systems-deal-with-slow-or-flaky-networks",
+        "snippet": "Unlike most local function calls, it's difficult to make any predictions about how quickly an RPC function call will return... One way to ameliorate the problem would be to specify a timeout (e.g. 'if the server doesn't reply within 10 seconds, the RPC call should return with an error'), but that's not entirely satisfactory either, since if you set the timeout-threshold too high, you still have unacceptably long 'hangs', and if you set it too low, you start getting false-positive errors.",
+        "published_date": "2021-06-22",
+        "source": "grok"
+      },
+      {
+        "title": "Polling-based mechanism for improved RPC timeout",
+        "url": "https://patents.google.com/patent/US7146427B2/en",
+        "snippet": "A timeout occurs when client does not receive a polling request response from server after such wait. The timeout conditions indicate to client that...",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Implication on RPC bindings with abnormal termination",
+        "url": "https://www.ibm.com/docs/en/txseries/11.1.0?topic=terminations-implication-rpc-binding",
+        "snippet": "For each UDP stale binding handle, it will take 35 seconds to timeout the request. The region does not restart until the stale bindings are cleaned.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "xDS REST and gRPC protocol",
+        "url": "https://www.envoyproxy.io/docs/envoy/latest/api-docs/xds_protocol",
+        "snippet": "Clients are expected to use a timeout (recommended duration is 15 seconds) after sending a request for a new resource, after which they will consider the requested resource to not exist if they have not received the resource. In Envoy, this is done for RouteConfiguration and ClusterLoadAssignment resources during resource warming.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.3818
+      },
+      {
+        "title": "RabbitMQ Tutorial - Remote Procedure Call (RPC)",
+        "url": "https://www.rabbitmq.com/tutorials/tutorial-six-java",
+        "snippet": "The client waits for data on the reply queue. When a message appears, it checks the correlationId property. If it matches the value from the request it returns the response... correlationId is used to correlate RPC responses with requests and discard unknown ones. Duplicate responses should be handled gracefully.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "How to Implement Request-Reply Pattern in RabbitMQ",
+        "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+        "snippet": "Guide to implementing RPC pattern in RabbitMQ with correlation IDs, reply-to queues, and timeout handling. Covers unique correlation IDs to match requests and responses, reply-to queues, and production-ready timeout mechanisms.",
+        "published_date": "2026-01-27",
+        "source": "grok"
+      },
+      {
+        "title": "Fixed reply queue times out after second message",
+        "url": "https://stackoverflow.com/questions/29789329/fixed-reply-queue-times-out-after-second-message",
+        "snippet": "Discussion on RabbitMQ fixed reply queue issues where replies received after timeout cause errors like 'Reply received after timeout'. Often due to multiple templates using the same reply queue leading to mismatched or late replies.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Real-world RPC with RabbitMQ and Node.JS",
+        "url": "https://facundoolano.wordpress.com/2016/06/26/real-world-rpc-with-rabbitmq-and-node-js",
+        "snippet": "Practical implementation of RPC over RabbitMQ handling correlation IDs, timeouts with setTimeout, and consumer cancellation. Includes examples of matching correlation IDs and cleaning up on timeout.",
+        "published_date": "2016-06-26",
+        "source": "grok",
+        "score": 0.3018
+      },
+      {
+        "title": "Request/Reply Messaging - Spring AMQP Documentation",
+        "url": "https://docs.spring.io/spring-amqp/reference/amqp/request-reply.html",
+        "snippet": "Spring AMQP request-reply handling with correlation IDs, reply timeouts (default 5 seconds), late replies, and error handling for unmatched or timed-out responses.",
+        "published_date": "",
+        "source": "grok"
+      }
+    ]
+  }
+}
