@@ -17,6 +17,7 @@ Related pages:
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
 - topics/protocol-reply-emission-and-transport-handoff-workflow-note.md
 - topics/mailbox-doorbell-command-completion-workflow-note.md
+- topics/descriptor-ownership-transfer-and-completion-visibility-workflow-note.md
 - topics/peripheral-mmio-effect-proof-workflow-note.md
 - topics/isr-and-deferred-worker-consequence-proof-workflow-note.md
 - topics/runtime-behavior-recovery.md
@@ -37,6 +38,7 @@ The branch already had practical entry surfaces for:
 - replay-precondition / acceptance-gate diagnosis
 - reply-emission / transport-handoff proof
 - mailbox/doorbell command publish / completion proof
+- descriptor ownership-transfer / completion-visibility proof
 - peripheral/MMIO effect proof
 - ISR/deferred-worker consequence proof
 
@@ -75,7 +77,9 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - local acceptance or reply-object creation is visible, but the first committed output path is still unclear
 11. **mailbox / doorbell command publish-completion uncertainty**
    - one mailbox, command queue, slot, or submission path is already plausible, but the first publish edge and request-linked completion chain are still unclear
-12. **hardware-side effect / interrupt consequence uncertainty**
+12. **descriptor ownership-transfer / completion-visibility uncertainty**
+   - one descriptor, ring, or completion record is already visible, but the exact ownership-transfer, trust/visibility, or reclaim boundary is still unclear
+13. **hardware-side effect / interrupt consequence uncertainty**
    - the path already reaches peripheral or interrupt/deferred boundaries, but the first durable effect-bearing write or later consequence handoff is still unproved
 
 A compact operator ladder for this branch is:
@@ -98,6 +102,7 @@ The subtree is strongest when read as:
 - **accept** one interaction under the right local precondition
 - **emit** one real output
 - **publish** one mailbox/doorbell command when that narrower seam is the true bottleneck
+- **stabilize** one descriptor ownership-transfer / completion-visibility contract when publication is visible but trust/reclaim semantics still drift
 - **prove** one peripheral or interrupt-side consequence
 
 ## 3. How to choose the right entry note
@@ -268,7 +273,22 @@ Start here when:
 Do **not** start here when:
 - the accepted local output path itself is still unproved and the real bottleneck is broader reply-emission / transport handoff
 - the channel is better understood as a broader descriptor/ring publish problem rather than a mailbox-style command continuation
-- the publish chain is already good enough and the remaining gap is now one narrower MMIO effect-bearing write or one later ISR/deferred consequence
+- the publish chain is already good enough and the remaining gap is now one narrower descriptor ownership/visibility contract, one narrower MMIO effect-bearing write, or one later ISR/deferred consequence
+
+### Start with `descriptor-ownership-transfer-and-completion-visibility-workflow-note`
+Use:
+- `topics/descriptor-ownership-transfer-and-completion-visibility-workflow-note.md`
+
+Start here when:
+- one descriptor, ring slot, or completion record is already visible enough to track
+- one owner/valid bit, producer/tail/WR_IDX publication, or reclaim/RD_IDX return path is already plausible
+- the remaining uncertainty is the exact trust boundary: when the other side may consume the record, how ordering/cache visibility affects that, and what reclaim or slot reuse proves durable completion
+- the next useful output is one compact ownership-transfer -> visibility -> reclaim contract rather than broader ring taxonomy
+
+Do **not** start here when:
+- the real missing edge is still mailbox-style command publication rather than shared-ring ownership semantics
+- the first hardware-facing effect-bearing MMIO edge is still more important than the shared-memory trust boundary
+- the ownership / visibility contract is already good enough and the remaining gap is now a later ISR/deferred consequence or model-realism follow-up
 
 ### Start with `peripheral-mmio-effect-proof-workflow-note`
 Use:
@@ -297,7 +317,7 @@ Do **not** start here when:
 - the real bottleneck is earlier in parser/state or replay-gate work
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as twelve common bottleneck families that often chain into one another.
+A useful way to read the branch is as thirteen common bottleneck families that often chain into one another.
 
 ### A. Broad firmware/protocol uncertainty -> correct recovery object
 Typical question:
@@ -453,12 +473,29 @@ Possible next handoff:
 - harness refinement
 - serializer/framing recovery
 - peripheral-send or transport modeling
+- `topics/descriptor-ownership-transfer-and-completion-visibility-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 
-### J. Peripheral or completion visibility -> durable hardware-side consequence
+### J. Visible descriptor/ring publication -> trustworthy ownership and reclaim contract
 Typical question:
-- after reply-emission / transport-handoff proof is already good enough, which first MMIO write, arm, status-latch, ISR reduction, or deferred-worker consequence actually predicts later durable behavior?
+- after publish/tail/doorbell proof is already partly good enough, when does the other side actually own and trust the record, and what reclaim or slot reuse proves durable completion?
+
+Primary note:
+- `topics/descriptor-ownership-transfer-and-completion-visibility-workflow-note.md`
+
+Routing reminder:
+- stay here while the missing proof is still the ownership-transfer / visibility / reclaim contract inside a descriptor-driven path
+- leave this note once one trust boundary is already good enough and the real bottleneck becomes narrower MMIO effect proof, later ISR/deferred consequence proof, or model-realism follow-up
+
+Possible next handoff:
+- `topics/peripheral-mmio-effect-proof-workflow-note.md`
+- `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
+- rehosting or emulation realism work
+
+### K. Peripheral or completion visibility -> durable hardware-side consequence
+Typical question:
+- after reply-emission / transport-handoff proof or descriptor-visibility proof is already good enough, which first MMIO write, arm, status-latch, ISR reduction, or deferred-worker consequence actually predicts later durable behavior?
 
 Primary notes:
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
