@@ -1,0 +1,668 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering windows message dispatch WndProc subclass callback workflow",
+    "reverse engineering event loop message pump callback ownership GUI native",
+    "reverse engineering Qt signal slot event loop callback consumer workflow"
+  ],
+  "count": 37,
+  "results": [
+    {
+      "title": "Using Messages and Message Queues - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/using-messages-and-message-queues",
+      "snippet": "Official documentation on Windows message queues, message loops (GetMessage/DispatchMessage), and how threads process GUI events via window procedures. Key for understanding callback dispatch and ownership in native Win32 GUI applications during reverse engineering.",
+      "published_date": "2025-07-14",
+      "source": "grok",
+      "score": 0.76
+    },
+    {
+      "title": "Using Window Procedures - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/using-window-procedures",
+      "snippet": "Explains window procedures (WndProc), message dispatching in the Windows message loop, and subclassing via SetWindowLongPtr(GWLP_WNDPROC). Subclass procedures must use CallWindowProc to call the original procedure. Covers basics of how messages flow to WndProc.",
+      "published_date": "2025-07-14",
+      "source": "grok",
+      "score": 0.7267
+    },
+    {
+      "title": "Passing messages from subclass to original WndProc - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/223548/passing-messages-from-subclass-to-original-wndproc",
+      "snippet": "As an example, if I have a window, with a sub-classed groupbox control and a button as a child of that groupbox, I want to handle the button event in the original window procedure, not the subclassed groupbox procedure. Because you've subclassed the group box, your `SubClassFunc` receives these messages, which then passes them to the group box's original window procedure using `CallWindowProc`. If you want the button notifications to go to the parent window (i.e, `window` in your code), you could either set the button's parent to `window` instead of `group_box`, or use `PostMessage` from within `SubClassFunc` to post the message (`WM_COMMAND` or `WM_NOTIFY` as appropriate) to `window`. Edit: The group box's original window procedure doesn't send `WM_COMMAND` messages to its parent. You should find that button notifications don't get through to `window` even if you don't subclass the group box. I suspect if you remove the subclass all together the button events will still not reach the original window procedure as you expect.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "Message loop in Microsoft Windows",
+      "url": "https://en.wikipedia.org/wiki/Message_loop_in_Microsoft_Windows",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.6667
+    },
+    {
+      "title": "Idiomatic way to pass a callback (WNDPROC) to the Win32 API?",
+      "url": "https://users.rust-lang.org/t/idiomatic-way-to-pass-a-callback-wndproc-to-the-win32-api/87184",
+      "snippet": "I want to pass the Win32 API a callback function (known as a window procedure) which will be called whenever a window event occurs.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "Subclassing and Automatic Message Translation - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/intl/subclassing-and-automatic-message-translation",
+      "snippet": "Details subclassing mechanics: replace WNDPROC with SetWindowLong(A/W), process messages in the new procedure, and forward to the original using CallWindowProc. Includes notes on ANSI/Unicode translation during dispatch in subclass chains.",
+      "published_date": "2021-01-07",
+      "source": "grok",
+      "score": 0.6533
+    },
+    {
+      "title": "How do we verify if the UI message pump is intact for a UI desktop application in a Dump?",
+      "url": "https://stackoverflow.com/questions/28810618/how-do-we-verify-if-the-ui-message-pump-is-intact-for-a-ui-desktop-application-i",
+      "snippet": "",
+      "published_date": "2015-03-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "Explain Event Loop",
+      "url": "https://gist.github.com/kassane/f2330ef44b070f4a5fa9d59c770f68e9",
+      "snippet": "The libevent API provides a mechanism to execute a callback function when a specific event occurs on a file descriptor or after a timeout has been reached.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "Subclassing Controls - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/controls/subclassing-overview",
+      "snippet": "",
+      "published_date": "2020-08-21T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.6333
+    },
+    {
+      "title": "Is there a way to write a GUI without an event loop?",
+      "url": "https://stackoverflow.com/questions/39006403/is-there-a-way-to-write-a-gui-without-an-event-loop",
+      "snippet": "Libraries like Qt provide an event loop that handles UI events, often (or always?) wrapping the OS UI event loop in order to achieve the best results.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "GitHub - alex-petrenko/signal-slot: Qt-like event loops, signals and ...",
+      "url": "https://github.com/alex-petrenko/signal-slot",
+      "snippet": "signal-slot enables a parallel programming paradigm inspired by Qt's signals and slots, but in Python. The main idea can be summarized as follows:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "How does Qt implement signals and slots?",
+      "url": "https://stackoverflow.com/questions/2008033/how-does-qt-implement-signals-and-slots",
+      "snippet": "Concerning the signals and slots, the Q_OBJECT macro adds a virtual function qt_metacall()... When a signal is called, the definition from the moc file is executed and QMetaObject::activate() is called... The activate() function then figures out which connections have been established... and calls qt_metacall with the slot names and the arguments.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6
+    },
+    {
+      "title": "How signal and slots are implemented under the hood?",
+      "url": "https://stackoverflow.com/questions/1406940/how-signal-and-slots-are-implemented-under-the-hood",
+      "snippet": "Qt implements these things in a way that resembles interpreted languages... Each time you emit a signal... you actually call the something() function, which it automatically generated by meta object compiler... Within this function it's checked what slots this signal is connected to... and appropriate slot functions are sequentially called via the symbol tables.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6
+    },
+    {
+      "title": "Tips for reversing complex multi-threaded GUI apps",
+      "url": "https://www.reddit.com/r/ExploitDev/comments/1mzslyg/tips_for_reversing_complex_multithreaded_gui_apps/",
+      "snippet": "I am trying to reverse-engineer a fairly complex Windows GUI application, where the execution flow is not straight-forward.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.5667
+    },
+    {
+      "title": "Native Windows GUI: Events",
+      "url": "https://gabdube.github.io/native-windows-gui/native-windows-docs/events.html",
+      "snippet": "+ **7.1.** Raw event handling. NWG handles events by hooking the system events queue. ### Dispatching events. Before even thinking about hooking the event queue, the application must block the current thread and start listening to events. ### Hooking the event queue. The first one **\"full\"** will hook the events of a control and ALL its children. The other one will hook the events of a control and its parent. **Because the common controls of WINAPI sends their events to their parent.** This method of hooking is usually used when a callback is added dynamically. upgrade()  {  match  evt  {  nwg Event OnWindowClose  =>  {  if  & handle  ==  & events_ui. window  {  nwg stop_thread_dispatch();  }  },  _  =>  {}  }  } }; nwg full_bind_event_handler(handle,  handle_events);. The events callback is not aware of the control in the application, as such it can only send the handle. This object is an opaque handle over the event hook and all the hooked controls.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.55
+    },
+    {
+      "title": "How to find WndProc using x64dbg?",
+      "url": "https://reverseengineering.stackexchange.com/questions/11210/how-to-find-wndproc-using-x64dbg",
+      "snippet": "",
+      "published_date": "2015-10-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5333
+    },
+    {
+      "title": "Xojo WndProc callback example? - Windows",
+      "url": "https://forum.xojo.com/t/xojo-wndproc-callback-example/77826",
+      "snippet": "# Xojo WndProc callback example? Does anyone have a simple example for using the procedure WndProc callback in Xojo? `LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam). return g_cGestureEngine.WndProc(hWnd,wParam,lParam);. If you have the MBS plugins there are functions that allow you to intercept the Windows messages. We have some code in our app that uses WndProcs but it might be next week before I could get it into a form you could use (think it was based on Aaron Ballmans Windows Functionality Suite). Patching the WndProc for a Xojo window is an easy way to crash Xojo applications. The Windows Functionality Suite has code for this:. if subclass <> nil and subclass.WndProc( hWnd, msg, wParam, lParam, ret ) then. We have some code in our app that uses WndProcs but it might be next week before I could get it into a form you could use (think it was based on Aaron Ballmans Windows Functionality Suite).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4667
+    },
+    {
+      "title": "Understanding Qt's Event Loop and Signals/Slots - deKonvoluted",
+      "url": "https://dekonvoluted.github.io/programming/2018/09/16/qt-event-loop.html",
+      "snippet": "Understanding Qt's Event Loop and Signals/Slots. This behavior of pushing an event onto the event loop (as a `Qt::QueuedConnection`) tripped me up because I expected the slot would be immediately executed and the application would stop dead in its tracks and quit. Once all the slots connected to signals triggered by events are executed, the control will eventually return back to the main event loop and the cycle begins anew. | ``` 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68  ``` | ``` #include  #include  #include  #include  class Foo: public QObject{Q_OBJECT public: Foo(QObject* parent = 0): QObject(parent){} private: void doStuff(){qDebug()<< \"Emit signal one\"; emit signal1(); qDebug()<< \"Emit finished\"; emit finished(); qDebug()<< \"Emit signal two\"; emit signal2();} signals: void signal1(); void signal2(); void finished(); public slots: void slot1(){qDebug()<< \"Execute slot one\";} void slot2(){qDebug()<< \"Execute slot two\";} void start(){doStuff(); qDebug()<<\"Bye!\";}}; int main(int argc, char** argv){QCoreApplication app(argc, argv); Foo foo; QObject:: connect(& foo, & Foo:: signal1, & foo, & Foo:: slot1); QObject:: connect(& foo, & Foo:: signal2, & foo, & Foo:: slot2); QObject:: connect(& foo, & Foo:: finished, & app, & QCoreApplication:: quit); QTimer:: singleShot(0, & foo, & Foo:: start); return app.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.45
+    },
+    {
+      "title": "A Primer on Windows Hooks and Message Loops",
+      "url": "https://r3zz.io/posts/windows-hooks",
+      "snippet": "Covers Windows message loops, WndProc callbacks, and monitoring events. Useful for reverse engineering as it explains how hooks intercept messages and how GUI event flow works at a low level.",
+      "published_date": "2022-12-01",
+      "source": "grok",
+      "score": 0.42
+    },
+    {
+      "title": "Controls and WndProc - CodeGuru Forums",
+      "url": "https://forums.codeguru.com/showthread.php?510846-Controls-and-WndProc",
+      "snippet": "Subclassing, superclassing and replacement are the three standard ways of managing the WndProc callback function and the former two can be used with controls.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "The WndProc Method - RAD Studio",
+      "url": "https://docwiki.embarcadero.com/RADStudio/Athens/en/The_WndProc_Method",
+      "snippet": "WndProc is the default Windows message handling function for a given control, and the first method that receives messages on a form.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "A First Look at Reverse Engineering of Qt Binaries",
+      "url": "https://www.usenix.org/conference/usenixsecurity23/presentation/wen",
+      "snippet": "In this paper, we take a first look at understanding the unique challenges and opportunities in Qt binary analysis... although callbacks make control flow recovery challenging, we notice that Qt’s signal and slot mechanism can be used to recover function callbacks... QtRE for function callback and semantic symbol recovery for Qt binaries... tested with Linux KDE and the Tesla Model S firmware.",
+      "published_date": "2023",
+      "source": "grok",
+      "score": 0.4
+    },
+    {
+      "title": "Managed Interception of Local Window Messages Using Subclassing",
+      "url": "https://badecho.com/index.php/2023/12/29/local-window-messages",
+      "snippet": "Explains subclassing for intercepting messages in managed code: replace window procedure pointer to intercept local messages, using SetWindowLongPtr/GWLP_WNDPROC. Covers the workflow of message flow through custom WndProc callbacks.",
+      "published_date": "2023-12-29",
+      "source": "grok",
+      "score": 0.3867
+    },
+    {
+      "title": "The mystery of the posted message that was dispatched before reaching the main message loop - The Old New Thing",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20260305-00/?p=112114",
+      "snippet": "",
+      "published_date": "2026-03-05T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "Reverse Engineering: [Reverse] QT 4 You",
+      "url": "https://rootbiez.blogspot.com/2025/03/reverse-qt-4-you.html?m=1",
+      "snippet": "",
+      "published_date": "2026-02-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "[PDF] A First Look at Reverse Engineering of Qt Binaries - USENIX",
+      "url": "https://www.usenix.org/system/files/sec23_slides_wen-haohuang.pdf",
+      "snippet": "",
+      "published_date": "2023-08-10T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "The case of COM failing to pump messages in a single-threaded COM apartment - The Old New Thing",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20250314-00/?p=110965",
+      "snippet": "",
+      "published_date": "2025-03-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "The window manager needs a message pump in order to call you back unexpectedly - The Old New Thing",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20110304-00/?p=11303",
+      "snippet": "",
+      "published_date": "2011-03-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "The Smartest Way To Manage Callbacks in An Event- ...",
+      "url": "https://www.youtube.com/watch?v=QOvCa4aDF-Q",
+      "snippet": "In this video you're going to learn about a smarter approach to making call backs in your event R systems.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "When you subclass a window, it's the original window procedure of ...",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20090507-00/?p=18333",
+      "snippet": "",
+      "published_date": "2009-05-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "When you subclass a window, it's the original window procedure of the window you subclass you have to call when you want to call the original window procedure - The Old New Thing",
+      "url": "https://devblogs.microsoft.com/oldnewthing/?p=18333",
+      "snippet": "",
+      "published_date": "2009-05-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Quick and dirty subclassing in Win32 - the sporks space",
+      "url": "https://sporks.space/2021/09/28/quick-and-dirty-subclassing-in-win32/",
+      "snippet": "",
+      "published_date": "2021-09-28T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.3333
+    },
+    {
+      "title": "Callback-Slot mechanism - Qt Forum",
+      "url": "https://forum.qt.io/topic/98644/callback-slot-mechanism",
+      "snippet": "",
+      "published_date": "2019-01-17T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "Thread: replacing signals and slots with callback functions - Qt Centre",
+      "url": "https://www.qtcentre.org/threads/33483-replacing-signals-and-slots-with-callback-functions",
+      "snippet": "Hi I wanted to replace the signals and slots in my application to callback functions. example QObject::connect(c,SIGNAL(sendSignal2(void *))",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "Signals & Slots | Qt Core | Qt 6.10.2",
+      "url": "https://doc.qt.io/qt-6/signalsandslots.html",
+      "snippet": "In Qt, we have an alternative to the callback technique: We use signals and slots. A signal is emitted when a particular event occurs. When a signal is emitted, the slots connected to it are usually executed immediately, just like a normal function call. When this happens, the signals and slots mechanism is totally independent of any GUI event loop. ... The situation is slightly different when using queued connections; in such a case, the code following the emit keyword will continue immediately, and the slots will be executed later by the receiver's event loop.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.3333
+    },
+    {
+      "title": "Qt Internals & Reversing",
+      "url": "https://www.ntcore.com/files/qtrev.htm",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Qt Internals & Reversing – NTCore",
+      "url": "https://ntcore.com/qt-internals-reversing/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "The mystery of the posted message that was dispatched before reaching the main message loop - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20260305-00/?p=112114",
+        "snippet": "",
+        "published_date": "2026-03-05T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "The case of COM failing to pump messages in a single-threaded COM apartment - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20250314-00/?p=110965",
+        "snippet": "",
+        "published_date": "2025-03-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "How do we verify if the UI message pump is intact for a UI desktop application in a Dump?",
+        "url": "https://stackoverflow.com/questions/28810618/how-do-we-verify-if-the-ui-message-pump-is-intact-for-a-ui-desktop-application-i",
+        "snippet": "",
+        "published_date": "2015-03-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6333
+      },
+      {
+        "title": "The window manager needs a message pump in order to call you back unexpectedly - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20110304-00/?p=11303",
+        "snippet": "",
+        "published_date": "2011-03-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Message loop in Microsoft Windows",
+        "url": "https://en.wikipedia.org/wiki/Message_loop_in_Microsoft_Windows",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.6667
+      },
+      {
+        "title": "How to find WndProc using x64dbg?",
+        "url": "https://reverseengineering.stackexchange.com/questions/11210/how-to-find-wndproc-using-x64dbg",
+        "snippet": "",
+        "published_date": "2015-10-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5333
+      },
+      {
+        "title": "When you subclass a window, it's the original window procedure of ...",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20090507-00/?p=18333",
+        "snippet": "",
+        "published_date": "2009-05-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "When you subclass a window, it's the original window procedure of the window you subclass you have to call when you want to call the original window procedure - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/?p=18333",
+        "snippet": "",
+        "published_date": "2009-05-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Quick and dirty subclassing in Win32 - the sporks space",
+        "url": "https://sporks.space/2021/09/28/quick-and-dirty-subclassing-in-win32/",
+        "snippet": "",
+        "published_date": "2021-09-28T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.3333
+      },
+      {
+        "title": "Subclassing Controls - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/controls/subclassing-overview",
+        "snippet": "",
+        "published_date": "2020-08-21T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.6333
+      },
+      {
+        "title": "Reverse Engineering: [Reverse] QT 4 You",
+        "url": "https://rootbiez.blogspot.com/2025/03/reverse-qt-4-you.html?m=1",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "[PDF] A First Look at Reverse Engineering of Qt Binaries - USENIX",
+        "url": "https://www.usenix.org/system/files/sec23_slides_wen-haohuang.pdf",
+        "snippet": "",
+        "published_date": "2023-08-10T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Qt Internals & Reversing",
+        "url": "https://www.ntcore.com/files/qtrev.htm",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Qt Internals & Reversing – NTCore",
+        "url": "https://ntcore.com/qt-internals-reversing/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Callback-Slot mechanism - Qt Forum",
+        "url": "https://forum.qt.io/topic/98644/callback-slot-mechanism",
+        "snippet": "",
+        "published_date": "2019-01-17T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3333
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Native Windows GUI: Events",
+        "url": "https://gabdube.github.io/native-windows-gui/native-windows-docs/events.html",
+        "snippet": "+ **7.1.** Raw event handling. NWG handles events by hooking the system events queue. ### Dispatching events. Before even thinking about hooking the event queue, the application must block the current thread and start listening to events. ### Hooking the event queue. The first one **\"full\"** will hook the events of a control and ALL its children. The other one will hook the events of a control and its parent. **Because the common controls of WINAPI sends their events to their parent.** This method of hooking is usually used when a callback is added dynamically. upgrade()  {  match  evt  {  nwg Event OnWindowClose  =>  {  if  & handle  ==  & events_ui. window  {  nwg stop_thread_dispatch();  }  },  _  =>  {}  }  } }; nwg full_bind_event_handler(handle,  handle_events);. The events callback is not aware of the control in the application, as such it can only send the handle. This object is an opaque handle over the event hook and all the hooked controls.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.55
+      },
+      {
+        "title": "Explain Event Loop",
+        "url": "https://gist.github.com/kassane/f2330ef44b070f4a5fa9d59c770f68e9",
+        "snippet": "The libevent API provides a mechanism to execute a callback function when a specific event occurs on a file descriptor or after a timeout has been reached.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "Tips for reversing complex multi-threaded GUI apps",
+        "url": "https://www.reddit.com/r/ExploitDev/comments/1mzslyg/tips_for_reversing_complex_multithreaded_gui_apps/",
+        "snippet": "I am trying to reverse-engineer a fairly complex Windows GUI application, where the execution flow is not straight-forward.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.5667
+      },
+      {
+        "title": "Is there a way to write a GUI without an event loop?",
+        "url": "https://stackoverflow.com/questions/39006403/is-there-a-way-to-write-a-gui-without-an-event-loop",
+        "snippet": "Libraries like Qt provide an event loop that handles UI events, often (or always?) wrapping the OS UI event loop in order to achieve the best results.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "The Smartest Way To Manage Callbacks in An Event- ...",
+        "url": "https://www.youtube.com/watch?v=QOvCa4aDF-Q",
+        "snippet": "In this video you're going to learn about a smarter approach to making call backs in your event R systems.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "Passing messages from subclass to original WndProc - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/223548/passing-messages-from-subclass-to-original-wndproc",
+        "snippet": "As an example, if I have a window, with a sub-classed groupbox control and a button as a child of that groupbox, I want to handle the button event in the original window procedure, not the subclassed groupbox procedure. Because you've subclassed the group box, your `SubClassFunc` receives these messages, which then passes them to the group box's original window procedure using `CallWindowProc`. If you want the button notifications to go to the parent window (i.e, `window` in your code), you could either set the button's parent to `window` instead of `group_box`, or use `PostMessage` from within `SubClassFunc` to post the message (`WM_COMMAND` or `WM_NOTIFY` as appropriate) to `window`. Edit: The group box's original window procedure doesn't send `WM_COMMAND` messages to its parent. You should find that button notifications don't get through to `window` even if you don't subclass the group box. I suspect if you remove the subclass all together the button events will still not reach the original window procedure as you expect.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "Xojo WndProc callback example? - Windows",
+        "url": "https://forum.xojo.com/t/xojo-wndproc-callback-example/77826",
+        "snippet": "# Xojo WndProc callback example? Does anyone have a simple example for using the procedure WndProc callback in Xojo? `LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam). return g_cGestureEngine.WndProc(hWnd,wParam,lParam);. If you have the MBS plugins there are functions that allow you to intercept the Windows messages. We have some code in our app that uses WndProcs but it might be next week before I could get it into a form you could use (think it was based on Aaron Ballmans Windows Functionality Suite). Patching the WndProc for a Xojo window is an easy way to crash Xojo applications. The Windows Functionality Suite has code for this:. if subclass <> nil and subclass.WndProc( hWnd, msg, wParam, lParam, ret ) then. We have some code in our app that uses WndProcs but it might be next week before I could get it into a form you could use (think it was based on Aaron Ballmans Windows Functionality Suite).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4667
+      },
+      {
+        "title": "Idiomatic way to pass a callback (WNDPROC) to the Win32 API?",
+        "url": "https://users.rust-lang.org/t/idiomatic-way-to-pass-a-callback-wndproc-to-the-win32-api/87184",
+        "snippet": "I want to pass the Win32 API a callback function (known as a window procedure) which will be called whenever a window event occurs.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "Controls and WndProc - CodeGuru Forums",
+        "url": "https://forums.codeguru.com/showthread.php?510846-Controls-and-WndProc",
+        "snippet": "Subclassing, superclassing and replacement are the three standard ways of managing the WndProc callback function and the former two can be used with controls.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "The WndProc Method - RAD Studio",
+        "url": "https://docwiki.embarcadero.com/RADStudio/Athens/en/The_WndProc_Method",
+        "snippet": "WndProc is the default Windows message handling function for a given control, and the first method that receives messages on a form.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Callback-Slot mechanism - Qt Forum",
+        "url": "https://forum.qt.io/topic/98644/callback-slot-mechanism",
+        "snippet": "Slots are not executed at the same time. The event loop takes one signal from the queue and executes connected slots one after the other.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] A First Look at Reverse Engineering of Qt Binaries - USENIX",
+        "url": "https://www.usenix.org/system/files/sec23_slides_wen-haohuang.pdf",
+        "snippet": "32 if (v1 == 0) { 33 // Set property value by index 34 *(this + 0x48) = (QString) v2 35 } 36 } Metadata Query index Invoke qt_metaCall v1 = 0 v2 = “test” Symbol revealed Signal Slot Takeaway & Future Work ▶QtRE: A static analysis tool that leverages Qt’s unique insights for function callback and symbol recovery ▶Use QtRE to analyze security-critical Qt applications (automobiles, embedded systems, medical devices) ▶Integrate QtRE with state-of-the-art fuzzers for GUI-fuzzing (e.g., Easter egg hunting) 13 / 14 Introduction Key Insights QtRE Evaluation Application Conclusion References Takeaway 1 MainWindow::MainWindow() { 2 ...",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Thread: replacing signals and slots with callback functions - Qt Centre",
+        "url": "https://www.qtcentre.org/threads/33483-replacing-signals-and-slots-with-callback-functions",
+        "snippet": "Hi I wanted to replace the signals and slots in my application to callback functions. example QObject::connect(c,SIGNAL(sendSignal2(void *))",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "Understanding Qt's Event Loop and Signals/Slots - deKonvoluted",
+        "url": "https://dekonvoluted.github.io/programming/2018/09/16/qt-event-loop.html",
+        "snippet": "Understanding Qt's Event Loop and Signals/Slots. This behavior of pushing an event onto the event loop (as a `Qt::QueuedConnection`) tripped me up because I expected the slot would be immediately executed and the application would stop dead in its tracks and quit. Once all the slots connected to signals triggered by events are executed, the control will eventually return back to the main event loop and the cycle begins anew. | ``` 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68  ``` | ``` #include  #include  #include  #include  class Foo: public QObject{Q_OBJECT public: Foo(QObject* parent = 0): QObject(parent){} private: void doStuff(){qDebug()<< \"Emit signal one\"; emit signal1(); qDebug()<< \"Emit finished\"; emit finished(); qDebug()<< \"Emit signal two\"; emit signal2();} signals: void signal1(); void signal2(); void finished(); public slots: void slot1(){qDebug()<< \"Execute slot one\";} void slot2(){qDebug()<< \"Execute slot two\";} void start(){doStuff(); qDebug()<<\"Bye!\";}}; int main(int argc, char** argv){QCoreApplication app(argc, argv); Foo foo; QObject:: connect(& foo, & Foo:: signal1, & foo, & Foo:: slot1); QObject:: connect(& foo, & Foo:: signal2, & foo, & Foo:: slot2); QObject:: connect(& foo, & Foo:: finished, & app, & QCoreApplication:: quit); QTimer:: singleShot(0, & foo, & Foo:: start); return app.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.45
+      },
+      {
+        "title": "GitHub - alex-petrenko/signal-slot: Qt-like event loops, signals and ...",
+        "url": "https://github.com/alex-petrenko/signal-slot",
+        "snippet": "signal-slot enables a parallel programming paradigm inspired by Qt's signals and slots, but in Python. The main idea can be summarized as follows:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      }
+    ],
+    "grok": [
+      {
+        "title": "Message loop in Microsoft Windows - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Message_loop_in_Microsoft_Windows",
+        "snippet": "In Microsoft Windows, a message loop or message pump is a fundamental part of a graphical user interface program. It retrieves messages from the thread's message queue and dispatches them to the appropriate window procedure (callback). Reverse engineering GUI applications often involves analyzing this loop and how callbacks (WndProc) handle ownership and message routing.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Using Messages and Message Queues - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/using-messages-and-message-queues",
+        "snippet": "Official documentation on Windows message queues, message loops (GetMessage/DispatchMessage), and how threads process GUI events via window procedures. Key for understanding callback dispatch and ownership in native Win32 GUI applications during reverse engineering.",
+        "published_date": "2025-07-14",
+        "source": "grok",
+        "score": 0.76
+      },
+      {
+        "title": "Native Windows GUI: Events",
+        "url": "https://gabdube.github.io/native-windows-gui/native-windows-docs/events.html",
+        "snippet": "Explains event binding, callbacks, and handlers in a native Windows GUI library (NWG). Discusses EventHandler as an opaque ownership object for hooked controls and callbacks, preventing leaks — relevant to low-level GUI callback management and reverse engineering.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "A Primer on Windows Hooks and Message Loops",
+        "url": "https://r3zz.io/posts/windows-hooks",
+        "snippet": "Covers Windows message loops, WndProc callbacks, and monitoring events. Useful for reverse engineering as it explains how hooks intercept messages and how GUI event flow works at a low level.",
+        "published_date": "2022-12-01",
+        "source": "grok",
+        "score": 0.42
+      },
+      {
+        "title": "Tips for reversing complex multi-threaded GUI apps",
+        "url": "https://www.reddit.com/r/ExploitDev/comments/1mzslyg/tips_for_reversing_complex_multithreaded_gui_apps",
+        "snippet": "Community discussion on reverse engineering Windows GUI applications with complex message pumps, event loops, and multi-threaded callback behavior where execution flow is non-linear.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Subclassing Controls - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/controls/subclassing-overview",
+        "snippet": "Subclassing is a technique to intercept messages for a window or control by replacing its window procedure (WNDPROC) using SetWindowLongPtr with GWLP_WNDPROC. The new procedure can process messages and forward others to the original via CallWindowProc. Includes code examples for replacing and restoring the WNDPROC.",
+        "published_date": "2020-08-21",
+        "source": "grok"
+      },
+      {
+        "title": "Using Window Procedures - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/using-window-procedures",
+        "snippet": "Explains window procedures (WndProc), message dispatching in the Windows message loop, and subclassing via SetWindowLongPtr(GWLP_WNDPROC). Subclass procedures must use CallWindowProc to call the original procedure. Covers basics of how messages flow to WndProc.",
+        "published_date": "2025-07-14",
+        "source": "grok",
+        "score": 0.7267
+      },
+      {
+        "title": "Subclassing and Automatic Message Translation - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/intl/subclassing-and-automatic-message-translation",
+        "snippet": "Details subclassing mechanics: replace WNDPROC with SetWindowLong(A/W), process messages in the new procedure, and forward to the original using CallWindowProc. Includes notes on ANSI/Unicode translation during dispatch in subclass chains.",
+        "published_date": "2021-01-07",
+        "source": "grok",
+        "score": 0.6533
+      },
+      {
+        "title": "Quick and dirty subclassing in Win32",
+        "url": "https://sporks.space/2021/09/28/quick-and-dirty-subclassing-in-win32",
+        "snippet": "Practical example of subclassing an existing control by getting the original WNDPROC with GetWindowLong(GWL_WNDPROC), replacing it with SetWindowLong, and calling the original via CallWindowProc in the new procedure. Discusses runtime patching of window procedures.",
+        "published_date": "2021-09-28",
+        "source": "grok"
+      },
+      {
+        "title": "Managed Interception of Local Window Messages Using Subclassing",
+        "url": "https://badecho.com/index.php/2023/12/29/local-window-messages",
+        "snippet": "Explains subclassing for intercepting messages in managed code: replace window procedure pointer to intercept local messages, using SetWindowLongPtr/GWLP_WNDPROC. Covers the workflow of message flow through custom WndProc callbacks.",
+        "published_date": "2023-12-29",
+        "source": "grok",
+        "score": 0.3867
+      },
+      {
+        "title": "Signals & Slots | Qt Core | Qt 6.10.2",
+        "url": "https://doc.qt.io/qt-6/signalsandslots.html",
+        "snippet": "In Qt, we have an alternative to the callback technique: We use signals and slots. A signal is emitted when a particular event occurs. When a signal is emitted, the slots connected to it are usually executed immediately, just like a normal function call. When this happens, the signals and slots mechanism is totally independent of any GUI event loop. ... The situation is slightly different when using queued connections; in such a case, the code following the emit keyword will continue immediately, and the slots will be executed later by the receiver's event loop.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.3333
+      },
+      {
+        "title": "Understanding Qt's Event Loop and Signals/Slots",
+        "url": "https://dekonvoluted.github.io/programming/2018/09/16/qt-event-loop.html",
+        "snippet": "Qt's event loop starts the moment the underlying application's exec() function gets called. ... This brings us to signals and slots. QObjects react to QEvents by implementing event handlers... Often, “doing something with it” includes emitting a signal... Slots connected to this emitted signal are then executed one by one, in the order in which they were connected to the signal.",
+        "published_date": "2018-09-16",
+        "source": "grok"
+      },
+      {
+        "title": "A First Look at Reverse Engineering of Qt Binaries",
+        "url": "https://www.usenix.org/conference/usenixsecurity23/presentation/wen",
+        "snippet": "In this paper, we take a first look at understanding the unique challenges and opportunities in Qt binary analysis... although callbacks make control flow recovery challenging, we notice that Qt’s signal and slot mechanism can be used to recover function callbacks... QtRE for function callback and semantic symbol recovery for Qt binaries... tested with Linux KDE and the Tesla Model S firmware.",
+        "published_date": "2023",
+        "source": "grok",
+        "score": 0.4
+      },
+      {
+        "title": "How does Qt implement signals and slots?",
+        "url": "https://stackoverflow.com/questions/2008033/how-does-qt-implement-signals-and-slots",
+        "snippet": "Concerning the signals and slots, the Q_OBJECT macro adds a virtual function qt_metacall()... When a signal is called, the definition from the moc file is executed and QMetaObject::activate() is called... The activate() function then figures out which connections have been established... and calls qt_metacall with the slot names and the arguments.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6
+      },
+      {
+        "title": "How signal and slots are implemented under the hood?",
+        "url": "https://stackoverflow.com/questions/1406940/how-signal-and-slots-are-implemented-under-the-hood",
+        "snippet": "Qt implements these things in a way that resembles interpreted languages... Each time you emit a signal... you actually call the something() function, which it automatically generated by meta object compiler... Within this function it's checked what slots this signal is connected to... and appropriate slot functions are sequentially called via the symbol tables.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6
+      }
+    ]
+  }
+}

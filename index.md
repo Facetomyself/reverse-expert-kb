@@ -158,6 +158,7 @@ Priority 2 candidates include:
 - `topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md`
 - `topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md`
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
+- `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md`
 - `topics/decompilation-and-code-reconstruction.md`
 
 A compact native reading now worth preserving at the top level is:
