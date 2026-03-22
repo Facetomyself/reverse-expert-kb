@@ -122,8 +122,9 @@ Current practical branch picture:
   - runtime-evidence practical workflows
   - iOS practical workflows
   - protected-runtime deobfuscation ladders, now including a thinner opaque-predicate / computed-next-state bridge between broad VM anchoring and broader flattened state-edge reduction
-- **main maintenance risk**:
+- **main maintenance risks**:
   - continuing to add convenient browser/mobile leaves while higher-level branch memory, parent-page routing, and cross-branch comparison drift out of sync
+  - letting runtime-evidence stop too often at replay/watchpoint/write-localization language without clearly handing off into the KB’s already-strong consumer/consequence proof style
 
 A top-level maintenance rule worth keeping visible here is:
 - when a branch already has a coherent parent page, subtree guide, and several practical leaves, prefer **canonical synchronization**, **branch-balance repair**, or **cross-branch comparison cleanup** before adding another leaf by default
