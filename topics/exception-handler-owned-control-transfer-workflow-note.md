@@ -31,10 +31,19 @@ A compact operator shape for this case is:
 ```text
 odd trap/fault/breakpoint behavior appears
   -> decide whether the exception/signal path is real dispatch or only noise
-  -> recover the first handler-registration or ownership boundary
+  -> recover the first handler-registration, dispatcher-side landing, or ownership boundary
   -> recover the first context rewrite / resume / branch consequence
   -> hand back one ordinary post-handler target
 ```
+
+A Windows-specific refinement worth preserving is:
+- do not stop at proving that VEH/SEH exists
+- the smallest truthful boundary is often one of:
+  - vectored registration that already predicts the later branch
+  - dispatcher-side landing in `KiUserExceptionDispatcher`
+  - `RtlDispatchException` / `RtlLookupFunctionEntry` / dynamic-function-table lookup into one concrete region
+  - one runtime-installed function-table callback that explains why static unwind ownership stays incomplete
+- once one of those boundaries plus one consequence-bearing resume/state action is good enough, leave broad exception theory and hand the case back to ordinary route/state proof, integrity consequence proof, or observation-topology repair
 
 This is not the same as:
 - a general SEH/VEH tutorial
@@ -49,13 +58,14 @@ It is the practical task of reducing handler-owned control transfer into one re-
 Use this note when most of the following are true:
 - control flow looks incomplete because visible direct branches do not explain later execution
 - `int3`, single-step, page-guard, access-violation, illegal-instruction, or similar exception-triggering mechanisms appear relevant
-- Windows SEH/VEH, dynamic unwind metadata, or Linux signal handlers look like they may own the meaningful branch
+- Windows SEH/VEH, dispatcher-side landing, dynamic unwind metadata, or Linux signal handlers look like they may own the meaningful branch
 - hardware-breakpoint or trap-driven hooks appear in the target or in the observed protection behavior
 - the useful next output is one proved handler-owned transfer path, not a catalog of all exception APIs
 
 Representative cases include:
 - Windows targets that deliberately route anti-debug or hidden dispatch through VEH/SEH and resume execution after context edits
 - protected code that uses `int3`, page-guard, or debug-register-triggered traps as an indirect dispatcher surface
+- Windows cases where registration is known but the first stable practical anchor is `KiUserExceptionDispatcher` or `RtlDispatchException`
 - Linux targets where `SIGTRAP`, `SIGSEGV`, or similar signal delivery is part of the anti-debug or concealed control-transfer story
 - cases where ordinary breakpointing makes behavior look broken because the target itself is using exception delivery as a control mechanism
 
@@ -63,7 +73,7 @@ Representative cases include:
 The goal is **not** to document every handler.
 It is to:
 - decide whether exception/signal delivery is actually owning a meaningful branch
-- isolate one registration/lookup boundary plus one first consequence-bearing handler action
+- isolate one registration/lookup/landing boundary plus one first consequence-bearing handler action
 - prove how execution resumes or diverts afterward
 - hand back one quieter post-handler target for ordinary static or runtime follow-up
 
@@ -71,8 +81,8 @@ It is to:
 Before broadening into more trace collection or more anti-debug folklore, answer these:
 
 1. **What is the smallest symptom suggesting handler-owned control transfer: invisible branch, odd resume address, swallowed breakpoint, fake crash, or trap-only path?**
-2. **What family likely owns the dispatch: Windows VEH, Windows SEH/unwind metadata, dynamic function-table callback, Linux signal handler, or debugger-register/page-guard trap logic?**
-3. **Where is the first ownership boundary: handler registration, exception-directory/unwind lookup, signal registration, or handler callback installation?**
+2. **What family likely owns the dispatch: Windows VEH, Windows SEH/unwind metadata, dispatcher-side landing plus lookup, dynamic function-table callback, Linux signal handler, or debugger-register/page-guard trap logic?**
+3. **Where is the first ownership boundary: handler registration, dispatcher-side landing, exception-directory/unwind lookup, signal registration, or handler callback installation?**
 4. **What exact consequence matters: context rewrite, instruction-pointer skip, state-flag write, alternate callback, or later integrity verdict?**
 5. **What should this pass return: a post-handler ordinary target, an anti-debug continuation, an integrity continuation, or a broader observation-topology change?**
 
@@ -88,7 +98,7 @@ A practical sequence is:
 ```text
 anchor the smallest trap/fault symptom
   -> classify the handler family
-  -> find the first registration or lookup boundary
+  -> find the first registration, landing, or lookup boundary
   -> prove one context/state consequence
   -> continue from the resumed or redirected ordinary target
 ```
@@ -114,7 +124,23 @@ Typical clues:
 Why it helps:
 - it separates process-wide exception-routing logic from ordinary local cleanup-style exception use
 
-### B. SEH / unwind-metadata-owned local transfer
+### B. Dispatcher-side landing and unwind lookup on Windows
+Use when:
+- registration alone is too abstract and the next truthful object is the dispatcher-side landing where user-mode exception ownership becomes re-findable
+- the analyst keeps seeing trap or fault arrival, but still needs one stable landing before arguing about which handler or unwind region matters
+- `KiUserExceptionDispatcher`, `RtlDispatchException`, `RtlLookupFunctionEntry`, or related unwind lookup surfaces explain the case better than more API-name collection
+
+Typical clues:
+- recurring arrival at `KiUserExceptionDispatcher`
+- a useful breakpoint or trace boundary at `RtlDispatchException`
+- one `RUNTIME_FUNCTION` or dynamic-function-table lookup that narrows the owning region
+- runtime-specific stack/layout handling that makes dispatcher-side landing more truthful than broad handler enumeration
+
+Why it helps:
+- it gives the analyst one smaller re-findable landing between vague “VEH/SEH exists” wording and a concrete handler-owned branch proof
+- it is often the best stop point when registration is known but handler ownership is still too diffuse
+
+### C. SEH / unwind-metadata-owned local transfer
 Use when:
 - visible try/except style control is present or unwind metadata points to handler-owned behavior
 - x64 exception-directory / unwind entries or x86 frame-linked handlers appear to explain an otherwise missing branch
@@ -127,7 +153,7 @@ Typical clues:
 Why it helps:
 - it focuses the analyst on the exact function-region ownership boundary instead of wider process-global handler noise
 
-### C. Dynamic-function-table or generated-code exception ownership
+### D. Dynamic-function-table or generated-code exception ownership
 Use when:
 - ordinary static exception metadata is incomplete, but the runtime appears to install dynamic function tables or callbacks
 - generated or relocated code owns the meaningful exception path
@@ -140,7 +166,7 @@ Typical clues:
 Why it helps:
 - it explains why static PE metadata alone cannot fully account for exception-owned transfer
 
-### D. Signal-handler-owned control transfer on Linux
+### E. Signal-handler-owned control transfer on Linux
 Use when:
 - `SIGTRAP`, `SIGSEGV`, `SIGILL`, or similar signals appear as meaningful execution steps rather than mere crashes
 - signal registration and handler-side context edits explain later behavior better than ordinary call flow
@@ -153,7 +179,7 @@ Typical clues:
 Why it helps:
 - it separates real signal-owned dispatch from generic crash handling or generic ptrace stories
 
-### E. Trap-triggered hook or anti-debug dispatch
+### F. Trap-triggered hook or anti-debug dispatch
 Use when:
 - page-guard, debug-register, single-step, or `int3`-style events are themselves the transfer surface
 - the target or a surrounding protection layer turns hardware/debug events into its own indirect branch mechanism
@@ -185,6 +211,7 @@ Good symptom shapes:
 ### Step 2: choose one handler family first
 Force the case into the smallest plausible family:
 - VEH-first global dispatch
+- dispatcher-side landing / unwind lookup
 - SEH / unwind-local transfer
 - dynamic function-table ownership
 - Linux signal-handler ownership
@@ -195,13 +222,15 @@ Do this before reading every exception mechanism in the platform.
 ### Step 3: isolate one ownership boundary
 Choose the smallest object that proves who owns the path, such as:
 - one `AddVectoredExceptionHandler` registration
-- one `RUNTIME_FUNCTION` / `UNWIND_INFO` region
+- one dispatcher-side landing at `KiUserExceptionDispatcher` or one useful breakpoint/trace boundary at `RtlDispatchException`
+- one `RUNTIME_FUNCTION` / `UNWIND_INFO` region or `RtlLookupFunctionEntry` result
 - one `RtlInstallFunctionTableCallback` site
 - one `sigaction` registration
 - one debug-register/page-guard setup site plus the first consuming handler
 
 Practical rule:
 - prefer the earliest boundary that still predicts the later odd control transfer
+- if registration exists but still feels too broad, drop to dispatcher-side landing or one concrete unwind lookup rather than collecting more exception APIs
 - prefer one concrete ownership site over a broad list of exception-adjacent helpers
 
 ### Step 4: prove one consequence-bearing handler action
@@ -248,14 +277,23 @@ Use when:
 Why it helps:
 - it turns a spooky anti-debug impression into one explicit resume-edge proof problem
 
-### B. x64 unwind metadata hides the real local branch
+### B. Dispatcher-side landing is the first truthful Windows anchor
+Use when:
+- handler registration is already known or strongly suspected, but the analyst still needs one re-findable arrival point that turns exception ownership into a practical breakpoint, trace, or compare boundary
+- `KiUserExceptionDispatcher` / `RtlDispatchException` keeps appearing as the first place where trap arrival, context shape, and later unwind/handler decisions line up cleanly
+
+Why it helps:
+- it prevents the case from stalling at vague “VEH/SEH exists” wording
+- it often yields a smaller stop rule: once dispatcher-side landing plus one consequence-bearing lookup/handler action is good enough, leave broad exception theory
+
+### C. x64 unwind metadata hides the real local branch
 Use when:
 - disassembly of a function looks like the exceptional path cannot be reached directly, but the exception directory and unwind data explain the hidden ownership
 
 Why it helps:
 - it localizes the missing branch to one function-region boundary instead of widening to whole-program mystery
 
-### C. Dynamic function-table callback owns generated-code exceptions
+### D. Dynamic function-table callback owns generated-code exceptions
 Use when:
 - protected or generated code lacks useful static exception metadata, yet runtime callback registration makes the exceptional path valid only after installation
 - traces keep landing in dispatcher-side machinery, but the owning code range only becomes explainable after `RtlInstallFunctionTableCallback` / `RtlAddFunctionTable` / growable-table installation is correlated with the generated region
@@ -264,14 +302,14 @@ Why it helps:
 - it explains why static analysis stays close-but-wrong until runtime-installed ownership is considered
 - it keeps the analyst from overcommitting to broken static unwind assumptions when the real ownership is created at runtime
 
-### D. Linux signal handler converts trap/fault into hidden continuation
+### E. Linux signal handler converts trap/fault into hidden continuation
 Use when:
 - a signal appears to indicate failure, but the handler mutates context or state and resumes into real work or anti-debug consequence
 
 Why it helps:
 - it reframes the case from generic crashing into one handler-owned continuation problem
 
-### E. Debug-register or page-guard trigger feeds a handler-owned hook
+### F. Debug-register or page-guard trigger feeds a handler-owned hook
 Use when:
 - the trigger mechanism is visible, but the real analyst task is proving which handler-side branch or trampoline owns the meaningful continuation
 
@@ -338,10 +376,10 @@ Next move:
 
 ### Failure mode 3: static control flow still looks wrong after likely handler APIs are found
 Likely cause:
-- the case is owned by unwind metadata or dynamic function-table registration, not by visible direct branches alone
+- the case is owned by dispatcher-side lookup, unwind metadata, or dynamic function-table registration, not by visible direct branches alone
 
 Next move:
-- localize one function-region ownership boundary or runtime-installed exception table callback
+- localize one dispatcher-side landing, one concrete unwind/function-table lookup result, or one runtime-installed exception table callback
 
 ### Failure mode 4: every crash is treated as anti-debug
 Likely cause:
@@ -359,7 +397,7 @@ Next move:
 
 ## 10. How this page connects to the rest of the KB
 Use this page when the bottleneck is:
-- **exception or signal delivery appears to own the real branch, but the analyst still needs to reduce that into one registration/lookup boundary, one consequence-bearing handler action, and one ordinary post-handler continuation**
+- **exception or signal delivery appears to own the real branch, but the analyst still needs to reduce that into one registration/lookup/landing boundary, one consequence-bearing handler action, and one ordinary post-handler continuation**
 
 Then route outward based on what becomes clearer:
 - to `topics/anti-instrumentation-gate-triage-workflow-note.md` when the case is still broader anti-instrumentation family classification rather than clearly handler-owned transfer
@@ -383,10 +421,10 @@ That strengthens the protected-runtime branch by giving it a practical answer to
 
 ## 12. Source footprint / evidence note
 Grounding for this page comes from:
-- Microsoft documentation on vectored and structured exception handling
-- external practitioner writeups on x64 SEH/unwind metadata and exception-dispatch internals
-- practical demo material showing trap-triggered VEH/SEH hooking via debug registers
-- Linux/Arm anti-debugging work showing signal/trap and debugger-sensitive divergence as a practical analysis surface
+- Microsoft documentation on vectored exception handling
+- practitioner material on `KiUserExceptionDispatcher`, `RtlDispatchException`, and unwind lookup behavior
+- x64 SEH/unwind writeups and dynamic function-table discussions
+- practical demo material showing trap-triggered VEH/SEH behavior and context-based resume changes
 - KB protected-runtime branch pages and practitioner-community signal synthesis
 
 The page intentionally stays conservative:
@@ -397,12 +435,6 @@ The page intentionally stays conservative:
 ## 13. Topic summary
 Exception-handler-owned control transfer is a practical workflow for cases where traps, faults, breakpoints, or signal delivery appear to own the real branch.
 
-It matters because some protected targets hide meaningful control transfer in handler registration, unwind metadata, signal delivery, or resume logic rather than in ordinary visible direct calls.
-
-The useful move is to reduce the case into one ownership boundary, one consequence-bearing handler action, and one quieter post-handler target.se some protected targets hide meaningful control transfer in handler registration, unwind metadata, signal delivery, or resume logic rather than in ordinary visible direct calls.
-
-The useful move is to reduce the case into one ownership boundary, one consequence-bearing handler action, and one quieter post-handler target.ers because some protected targets hide meaningful control transfer in handler registration, unwind metadata, signal delivery, or resume logic rather than in ordinary visible direct calls.
-
-The useful move is to reduce the case into one ownership boundary, one consequence-bearing handler action, and one quieter post-handler target., and one quieter post-handler target.ers because some protected targets hide meaningful control transfer in handler registration, unwind metadata, signal delivery, or resume logic rather than in ordinary visible direct calls.
+It matters because some protected targets hide meaningful control transfer in handler registration, dispatcher-side landing, unwind metadata, signal delivery, or resume logic rather than in ordinary visible direct calls.
 
 The useful move is to reduce the case into one ownership boundary, one consequence-bearing handler action, and one quieter post-handler target.
