@@ -1,0 +1,331 @@
+# Protocol Method-Contract to Minimal Replay-Fixture Workflow Note
+
+Topic class: concrete workflow note
+Ontology layers: practical workflow, protocol/service contract externalization, representative replay surface construction
+Maturity: practical
+Related pages:
+- topics/protocol-firmware-practical-subtree-guide.md
+- topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
+- topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
+- topics/protocol-replay-precondition-and-state-gate-workflow-note.md
+- topics/protocol-reply-emission-and-transport-handoff-workflow-note.md
+- topics/protocol-parser-to-state-edge-localization-workflow-note.md
+- topics/analytic-provenance-and-evidence-management.md
+
+## 1. When to use this note
+Use this note when a protocol or RPC-shaped case has already progressed far enough that:
+- one representative method shell, opcode family, RPC endpoint, or request/response contract is already trustworthy enough to name
+- schema or message structure is already externalized enough to build objects outside the target
+- but the analyst still does **not** have one small, truthful, reusable replay surface
+- and the next bottleneck is no longer broad contract recovery, yet not fully reduced into narrow replay-gate debugging either
+
+Typical entry conditions:
+- a service/method family is already visible, but replay is still trapped in ad hoc notes or packet scraps
+- a `.proto`, IDL-like shell, request builder shape, or serializer input model already exists, but there is no single representative fixture pair or constructor path
+- several candidate fields exist, but the analyst still has not separated **must-match replay identity** from **safe-to-ignore decoration**
+- the case keeps oscillating between schema polishing and replay-gate guesses because no minimal fixture/harness boundary has been frozen
+
+Use it for cases like:
+- gRPC / protobuf service families where one method contract is known and the next useful output is one fixture-backed request constructor or replay script
+- Windows RPC or custom RPC families where one operation stub is known and the analyst needs one smallest argument bundle worth replaying
+- proprietary framed protocols where one opcode + payload shape is already recovered and the missing step is shrinking it into one mutation-safe fixture surface
+- firmware command/mailbox cases where one command family is already credible and the next useful object is one representative command fixture plus the few sequence / nonce / state assumptions that still matter
+
+Do **not** use this note when:
+- the service shell or representative method contract is still implicit
+- the visible object is still too layered and schema/service externalization has not happened yet
+- local acceptance is already partly visible and the only remaining problem is freshness/auth/session gating
+- the real missing edge is already the committed send/output path rather than the representative replay surface
+
+In those cases, start with:
+- `topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md`
+- `topics/protocol-schema-externalization-and-replay-harness-workflow-note.md`
+- `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+
+## 2. Core claim
+A recurring practical gap appears after service-contract recovery and basic schema externalization:
+- the analyst can describe one representative method
+- may even parse or construct its messages outside the target
+- but still cannot point to one **smallest truthful replay object** that should be preserved, edited, compared, or re-sent
+
+The useful next output is usually not:
+- more top-level protocol taxonomy
+- full client reimplementation
+- support for every method in the service
+- broad field renaming and beautification
+
+It is:
+- one representative method fixture set
+- one smallest constructor / serializer path for that fixture
+- one short split between invariant request identity, likely-gated fields, and safely-ignored decoration
+- one minimal replay/edit harness that keeps later gate debugging honest
+
+This note exists to keep the branch practical:
+- **freeze one representative method replay surface before broadening into whole-client folklore**.
+
+## 3. Target pattern
+The recurring shape is:
+
+```text
+one representative method contract already exists
+  -> schema/externalization is already good enough to build messages
+  -> but replay still lacks one frozen fixture and one smallest constructor path
+  -> reduce to one request/response or request-only fixture family
+  -> separate must-match fields from likely-gates and decoration
+  -> build one minimal replay/edit surface
+  -> then continue into state-gate or output-side proof
+```
+
+The important distinction is:
+- `protocol-schema-externalization-and-replay-harness` gets the contract **out of the analyst’s head**
+- this note gets the contract into one **representative, compare-friendly replay object**
+
+## 4. What counts as a good minimal replay fixture
+Treat these as good first targets:
+- one request fixture and one matching response fixture for a single method
+- one request fixture with a known expected no-response / ack / completion behavior, if responses are deferred or hidden
+- one constructor input object plus the serialized bytes it emits
+- one fixture pair captured from a truthful runtime path, with clear provenance about where it was observed
+- one fixture family where the method/opcode identity, framing, and message body are all explicit
+
+Treat these as weaker and usually incomplete:
+- raw pcap slices without method identity
+- isolated blobs with no statement of which serializer/builder produced them
+- a giant corpus of many messages but no chosen representative family
+- one replay script that silently bakes in hidden ambient state and gives no reduced fixture boundary
+- generic “sample request” docs with no proof they correspond to the recovered live method contract
+
+## 5. Practical workflow
+
+### Step 1: Freeze exactly one representative method family
+Pick one method only.
+
+Good choices:
+- simplest consequence-bearing request family
+- smallest request family that consistently reaches parser acceptance
+- one method whose request/response pair already has stable captures
+- one mailbox/command family whose publish/completion chain is already plausible enough to compare later
+
+Bad choices:
+- the busiest or most feature-rich method just because it looks central
+- multiple sibling methods at once
+- a method family whose only evidence is vague naming rather than one captured or reconstructed contract
+
+Write down:
+- method/opcode/path identity
+- request shape already believed to be true
+- response/ack expectation if known
+- why this family is the chosen representative replay target
+
+### Step 2: Preserve provenance for the fixture source
+Before editing anything, preserve where the fixture came from.
+
+Record:
+- capture boundary or runtime boundary
+- whether bytes are pre-wrap, post-wrap, plaintext, serialized object, or builder input
+- whether the fixture is request-only, request/response, or request/completion-derived
+- what environment assumptions were already true at capture time
+
+This matters because later replay failures are often not schema failures at all; they are provenance failures.
+
+### Step 3: Reduce the request into three buckets
+For the representative request, explicitly separate fields into:
+
+1. **identity / routing core**
+   - method name, opcode, path, service ID
+   - message body fields that select the code path or semantic family
+2. **likely gate-bearing fields**
+   - nonce, timestamp, session, auth token, sequence, pending-request ID, device/context binding
+3. **decoration / low-priority fields**
+   - optional metadata, logging hints, cosmetic labels, duplicated mirrors, seemingly inert padding when not part of MAC/signature coverage
+
+The goal is not perfect semantics.
+The goal is to stop treating every field as equally mysterious.
+
+### Step 4: Prefer one constructor path over many serializers
+If multiple ways to build the request are visible, choose the smallest trustworthy constructor path.
+
+Prefer:
+- one method stub invocation path
+- one generated client helper
+- one builder object path
+- one serializer call chain that only touches the chosen request family
+
+Avoid building the first harness on top of:
+- a giant generic session bootstrap script
+- a monolithic transport client covering unrelated methods
+- a path that only works because it drags half the live process along invisibly
+
+The first harness should answer:
+- what is the smallest code path that turns the representative fixture object into bytes or an outbound call?
+
+### Step 5: Build one compare-friendly fixture package
+A good fixture package usually contains:
+- one normalized request object or schema-backed text representation
+- one serialized request sample
+- one response / ack / completion sample if available
+- one short note of the environment and gate assumptions
+- one table or bullet list marking which fields are believed stable, variable, or unknown
+
+Keep the package small enough that a later analyst can:
+- diff two runs
+- mutate one field
+- swap one likely gate-bearing field
+- confirm that failures moved for the expected reason
+
+### Step 6: Prove one edit that should not change method identity
+Before attempting live replay, make one conservative edit.
+
+Good edits:
+- a benign string or count field that should stay inside the same method family
+- one payload field that should change business content but not routing
+- one optional field removal if it is believed decorative
+
+This proves the fixture is not just a dead recording artifact.
+It gives a compare pair that helps separate route identity from gate-bearing obligations.
+
+### Step 7: State the remaining replay blockers explicitly
+At the end of this stage, list what still blocks full success.
+
+Typical blockers:
+- session bootstrapping before the representative method can be accepted
+- freshness or nonce regeneration
+- signature/MAC coverage not yet localized
+- pending-request correlation or sequence ownership
+- transport wrapper or channel binding still missing
+- output-side handoff still not proved
+
+A fixture package without this blocker list invites overclaiming.
+
+### Step 8: Hand off narrowly
+After one representative fixture and one minimal harness exist:
+- move to `protocol-replay-precondition-and-state-gate-workflow-note` when the fixture is structurally plausible but still rejected or inert
+- move to `protocol-reply-emission-and-transport-handoff-workflow-note` when local acceptance exists but the output-side commit path is still unclear
+- move to `protocol-parser-to-state-edge-localization-workflow-note` when the fixture is good enough but the real question is now what state edge or reducer this method triggers
+- move to `analytic-provenance-and-evidence-management` when the main need is preserving the exact fixture assumptions and compare slices for later work
+
+## 6. Breakpoint / hook placement guidance
+Useful anchors for this stage:
+- generated method stubs or RPC client helpers
+- serializer entry points for the chosen request family
+- builder/finalize functions that consume a stable request object
+- request enqueue sites that still preserve correlation IDs or method identity
+- fixture capture points just before framing/encryption and just after parse/materialization
+- response dispatch sites that can tie an observed reply/completion back to the representative request
+
+If noise is high:
+- prefer the single chosen method family
+- prefer one constructor boundary and one emission boundary
+- avoid cataloging all sibling serializers or all service methods at once
+
+## 7. Failure patterns this note helps prevent
+
+### 1. Schema exists, but replay object is still vague
+A schema or service shell alone is not yet a representative replay surface.
+
+### 2. Treating every field as equally important
+That blocks useful compare design and keeps replay debugging mushy.
+
+### 3. Dragging hidden ambient state into the first harness
+The first harness should expose missing obligations, not hide them.
+
+### 4. Overgrowing into a full client too early
+That usually makes failures harder to localize, not easier.
+
+### 5. Confusing fixture fidelity with replay acceptance
+A good fixture package only earns a better gate-debugging position.
+It does not prove live success.
+
+## 8. Concrete scenario patterns
+
+### Scenario A: gRPC method known, but no representative request package exists
+Pattern:
+
+```text
+service and method names recovered
+  -> .proto or descriptor-like shape partly externalized
+  -> request can be described, but not yet frozen as one compare-friendly fixture
+```
+
+Best move:
+- choose one method
+- preserve one request/response pair
+- mark likely gate-bearing metadata separately from body identity
+- build one stub-backed or schema-backed request constructor
+
+### Scenario B: Windows/custom RPC opnum known, but arguments are still folklore
+Pattern:
+
+```text
+interface/opnum is known
+  -> stub or dispatch path is visible
+  -> one live call shape exists
+  -> analysts keep debating argument semantics without freezing one representative call object
+```
+
+Best move:
+- preserve one representative argument bundle
+- separate opnum identity from auth/context handles and per-call correlation fields
+- build one minimal call surface before widening argument taxonomy
+
+### Scenario C: Proprietary command protocol already has one opcode contract
+Pattern:
+
+```text
+opcode family recovered
+  -> serializer path visible
+  -> many captures exist
+  -> no single request fixture has been chosen for controlled edits
+```
+
+Best move:
+- freeze one opcode fixture
+- choose one conservative mutation
+- use the resulting compare pair to decide which fields are route identity versus likely gate-bearing state
+
+## 9. What good output looks like
+A strong result from this workflow usually contains:
+- one chosen representative method/opcode family
+- one provenance-tagged request fixture, plus response/ack fixture if available
+- one reduced split of stable identity vs likely gate-bearing vs decorative fields
+- one minimal constructor / serializer / invocation path
+- one conservative edit compare pair
+- one explicit list of remaining replay blockers
+
+That is enough.
+The goal is not a full client.
+It is one truthful replay object that makes the next diagnostic step smaller.
+
+## 10. Relationship to the broader protocol branch
+This note sits after:
+- `protocol-service-contract-extraction-and-method-dispatch-workflow-note`
+- `protocol-schema-externalization-and-replay-harness-workflow-note`
+
+and before the most common narrower continuations:
+- `protocol-replay-precondition-and-state-gate-workflow-note`
+- `protocol-reply-emission-and-transport-handoff-workflow-note`
+- `protocol-parser-to-state-edge-localization-workflow-note`
+
+In ladder form:
+
+```text
+recover one representative method contract
+  -> externalize the contract/schema
+  -> freeze one minimal replay fixture and constructor path
+  -> separate identity from likely gates
+  -> then debug acceptance, consequence, or output
+```
+
+## 11. Sources and confidence
+Primary retained source influences for this page:
+- IOActive’s gRPC reversing walkthrough for service registration, vtable ordering, and method-bearing contract recovery
+- Windows RPC discovery / internal-structure notes from Clear Blue Jar and XPN for interface/procedure extraction patterns
+- Berkeley BitBlaze/Reverser framing for protocol/dialogue replay as the practical end state
+- existing schema-externalization source note:
+  - `sources/firmware-protocol/2026-03-21-schema-externalization-and-replay-harness-notes.md`
+
+Confidence note:
+- strong for the workflow gap and stop rules
+- medium for tool-specific implementation details because concrete targets vary widely
+- intentionally conservative about claiming that any one fixture package solves live replay by itself
