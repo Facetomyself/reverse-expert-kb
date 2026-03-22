@@ -1,0 +1,774 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering protocol pending request correlation id ownership replay workflow",
+    "reverse engineering rpc correlation id response matching pending request reverse engineering",
+    "reverse engineering sequence number pending slot response consumer workflow",
+    "windows rpc async reply correlation completion pending request reverse engineering"
+  ],
+  "count": 37,
+  "results": [
+    {
+      "title": "Protocol reverse engineering / Reproduce HTTP dialogue",
+      "url": "https://stackoverflow.com/questions/2143663/protocol-reverse-engineering-reproduce-http-dialogue",
+      "snippet": "My idea is to understand how the original application communicates and then mimic the behaviour. I have already done the first step, which is",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "RabbitMQ, RPC, and Correlation ID Matching - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/56615866/rabbitmq-rpc-and-correlation-id-matching",
+      "snippet": "The tutorial states: That's when the CorrelationId property is used. We're going to set it to a unique value for every request.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.6667
+    },
+    {
+      "title": "Sequence Diagram Reverse Engineering - java - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/87137/sequence-diagram-reverse-engineering",
+      "snippet": "",
+      "published_date": "2008-09-17T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "How to decode a sequence number? #738 - GitHub",
+      "url": "https://github.com/awslabs/amazon-kinesis-client/issues/738",
+      "snippet": "I want to get the approximate arrival time from the sequence number, and did some reverse engineering: I can confirm that (sequence_number >",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.6667
+    },
+    {
+      "title": "Protocol Reverse Engineering and Application Dialogue Replay",
+      "url": "https://people.eecs.berkeley.edu/~dawnsong/bitblaze/protocol.html",
+      "snippet": "Protocol reverse engineering, the process of extracting the application-level. protocol used by an implementation without access to the protocol specification,. application-level protocol format is essential for many network security. protocol analyzers for network monitoring and signature-based filtering,. fingerprint generation, application dialogue replay, detecting services running. use, especially on the enterprise network, are closed protocols (i.e., no. Even for protocols with a publicly. Protocol reverse engineering aims to extract the. application-level protocol used by an implementation, without access to the. Thus, protocol reverse engineering is an invaluable tool. for the above network security applications. engineering is not a once-and-done effort, since existing protocols are often. tool for protocol reverse engineering. the protocol processes the received application data reveals a wealth of. information about the protocol format. The ability to accurately replay application protocol. dialogs is useful in many security-oriented applications,. A central challenge in application dialog replay is that the dialog. With Replayer, we aim to develop an automatic tool for application.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.6333
+    },
+    {
+      "title": "Receiving the Asynchronous Reply - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/receiving-the-asynchronous-reply",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.6
+    },
+    {
+      "title": "RPC_ASYNC_STATE (rpcasync.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcasync/ns-rpcasync-rpc_async_state",
+      "snippet": "",
+      "published_date": "2022-09-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How to correlate RPC calls in ETW traces?",
+      "url": "https://stackoverflow.com/questions/41504738/how-to-correlate-rpc-calls-in-etw-traces",
+      "snippet": "",
+      "published_date": "2017-01-06T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.6
+    },
+    {
+      "title": "Correlation ID | Elsa 3",
+      "url": "https://docs.elsaworkflows.io/getting-started/concepts/correlation-id",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5833
+    },
+    {
+      "title": "Reverse engineering public facing GWT.rpc server responses - Reddit",
+      "url": "https://www.reddit.com/r/AskReverseEngineering/comments/1eqf2cc/reverse_engineering_public_facing_gwtrpc_server/",
+      "snippet": "Does anyone have any experience reverse engineering and deserializing responses from a public facing GWT.rpc server?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5667
+    },
+    {
+      "title": "How can I enumerate and hook into a Windows 10 RPC interface?",
+      "url": "https://reverseengineering.stackexchange.com/questions/20965/how-can-i-enumerate-and-hook-into-a-windows-10-rpc-interface",
+      "snippet": "",
+      "published_date": "2019-03-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "Sequential Workflow — AutoGen",
+      "url": "https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/design-patterns/sequential-workflow.html",
+      "snippet": "Sequential Workflow is a multi-agent design pattern where agents respond in a deterministic sequence. Each agent in the workflow performs a specific task by processing a message, generating a response, and then passing it to the next agent.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.4833
+    },
+    {
+      "title": "A consistent approach to track correlation IDs through microservices",
+      "url": "https://medium.com/theburningmonk-com/a-consistent-approach-to-track-correlation-ids-through-microservices-759468059ecd",
+      "snippet": "A consistent way to get the captured correlation IDs for the current request. That's the job of the CorrelationIds class below.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.4667
+    },
+    {
+      "title": "The Developer's Guide to Visual Reverse Engineering Workflows",
+      "url": "https://www.replay.build/blog/the-developers-guide-to-visual-reverse-engineering-workflows",
+      "snippet": "",
+      "published_date": "2026-01-31T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.4
+    },
+    {
+      "title": "Using NtObjectManager to Decompile an RPC Interface | by Lachunas Berme | Medium",
+      "url": "https://medium.com/%40lachunasberme/using-ntobjectmanager-to-decompile-an-rpc-interface-ca6356c22c9a",
+      "snippet": "",
+      "published_date": "2026-01-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Offensive Windows IPC Internals 3: ALPC",
+      "url": "https://csandker.io/2022/05/24/Offensive-Windows-IPC-3-ALPC.html",
+      "snippet": "Discusses asynchronous requests in ALPC (used by local RPC), pending queues for messages awaiting replies, completion lists, I/O completion ports, and reverse engineering insights into queues and correlation of requests/replies.",
+      "published_date": "2022-05-24",
+      "source": "grok",
+      "score": 0.3867
+    },
+    {
+      "title": "RPC with RabbitMQ (using correlationId) - Google Groups",
+      "url": "https://groups.google.com/g/rabbitmq-users/c/y-aC9CoKXOc",
+      "snippet": "When a message appears, it checks the correlationId property. If it matches the value from the request it returns the response to the application.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.3667
+    },
+    {
+      "title": "Workflow Replay and Shadowing",
+      "url": "https://cadenceworkflow.io/docs/go-client/workflow-replay-shadowing",
+      "snippet": "",
+      "published_date": "2026-01-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "How to replay a workflow - ISC Discussion and Questions",
+      "url": "https://developer.sailpoint.com/discuss/t/how-to-replay-a-workflow/64973",
+      "snippet": "",
+      "published_date": "2024-06-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "[PDF] Analytic Provenance for Software Reverse Engineers - DTIC",
+      "url": "https://apps.dtic.mil/sti/trecms/pdf/AD1108805.pdf",
+      "snippet": "Reverse engineering is a time-consuming process essential to software-security tasks such as malware analysis and vulnerability discovery.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.3667
+    },
+    {
+      "title": "How to Use Request-Scoped Correlation IDs That Unify OpenTelemetry Traces, Logs, and Metrics",
+      "url": "https://oneuptime.com/blog/post/2026-02-06-otel-request-scoped-correlation-ids/view",
+      "snippet": "Implement request-scoped correlation IDs to unify OpenTelemetry traces, structured logs, and business metrics. Extracts correlation IDs from headers and propagates via baggage for full request observability.",
+      "published_date": "2026-02-06",
+      "source": "grok",
+      "score": 0.3667
+    },
+    {
+      "title": "Need Help Reverse Engineering Session Slot IDs from a Class ...",
+      "url": "https://community.n8n.io/t/need-help-reverse-engineering-session-slot-ids-from-a-class-booking-site-unofficial-api-for-automation/125674",
+      "snippet": "",
+      "published_date": "2025-06-02T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3667
+    },
+    {
+      "title": "[PDF] Reverse Engineering of UML Sequence",
+      "url": "https://www.collectionscanada.gc.ca/obj/s4/f2/dsk4/etd/MQ83504.PDF?is_thesis=1&oclc_number=56921866",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "[PDF] Reverse-engineering of UML 2.0 Sequence Diagrams ... - HAL-Inria",
+      "url": "https://inria.hal.science/inria-00512549/document",
+      "snippet": "",
+      "published_date": "2010-08-30T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3667
+    },
+    {
+      "title": "(PDF) Toward the Reverse Engineering of UML Sequence ...",
+      "url": "https://www.researchgate.net/publication/3189684_Toward_the_Reverse_Engineering_of_UML_Sequence_Diagrams_for_Distributed_Java_Software",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "Windows Inter Process Communication A Deep Dive Beyond the ...",
+      "url": "https://sud0ru.ghost.io/windows-inter-process-communication-a-deep-dive-beyond-the-surface-part-8/",
+      "snippet": "RPCView is very useful when you want quick information about an RPC server without deep reverse engineering. It gives you everything you",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Asynchronous request reply pattern without polling - Davide Lettieri",
+      "url": "https://davidelettieri.it/2025/04/02/asynchronous-request-reply-pattern",
+      "snippet": "The asynchronous request reply pattern is useful in cases where an application has a client application running in a browser where the user starts an operation and is waiting for an immediate feedback and possibly a success notification. This flow allows the backend to perform the asynchronous/long running operation and any client can poll the status endpoint and notify the user when the operation is completed. In my opinion there is another approach to this pattern, for a browser client, that avoids having the polling on the endpoint and doesn't require websockets. My proposal is based on 3 endpoints, like the Microsoft one, however the status endpoint is using Server-sent events to notify the frontend about the completion of the long running operation. So the Server-sent event feature is supported enough to be used, of course less supported than http requests, however it is a viable options if we want to avoid polling and other more complex solutions like websockets. const evtSource = new EventSource(\"https://api.contoso.com/operations/1/status\"); const  evtSource =  new  EventSource(\"https://api.contoso.com/operations/1/status\");  evtSource.addEventListener(\"pending\", (event) => {evtSource.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Introducing RPC Investigator",
+      "url": "https://blog.trailofbits.com/2023/01/17/rpc-investigator-microsoft-windows-remote-procedure-call",
+      "snippet": "Tool for analyzing RPC calls via ETW, including correlation of client/server calls using ActivityId for grouping start/stop events, providing visibility into active/in-progress RPC operations and interfaces.",
+      "published_date": "2023-01-17",
+      "source": "grok",
+      "score": 0.3533
+    },
+    {
+      "title": "RabbitMQ tutorial - Remote procedure call (RPC)",
+      "url": "https://www.rabbitmq.com/tutorials/tutorial-six-java",
+      "snippet": "Official RabbitMQ RPC tutorial describing the use of correlationId: client generates unique ID, server echoes it back, client matches on reply queue to handle asynchronous responses.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.3333
+    },
+    {
+      "title": "Workflowapp.Cloud | Advanced Strategy: Observability for Workflow Microservices — From Sequence Diagrams to Runtime Validation (2026 Playbook) | FlowStack Suite",
+      "url": "https://workflowapp.cloud/observability-workflow-microservices-2026",
+      "snippet": "",
+      "published_date": "2026-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Uncovering RPC Servers through Windows API Analysis - SpecterOps",
+      "url": "https://posts.specterops.io/uncovering-rpc-servers-through-windows-api-analysis-5d23c0459db6?source=rss----f05f8696e3cc---4",
+      "snippet": "Have you ever tried to reverse a simple Win32 API? If not, let's look at one together today! This article serves as a hand-holding walkthrough",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "Offensive Windows IPC Internals 2: RPC",
+      "url": "https://csandker.io/2021/02/21/Offensive-Windows-IPC-2-RPC.html",
+      "snippet": "Guide on reverse engineering Windows RPC servers, including calling interfaces and identifying functions; relevant for analyzing custom RPC implementations that may use identifiers for request/response matching.",
+      "published_date": "2021-02-21",
+      "source": "grok, tavily",
+      "score": 0.32
+    },
+    {
+      "title": "Windows Inter Process Communication A Deep Dive Beyond the ...",
+      "url": "https://sud0ru.ghost.io/windows-inter-process-communication-a-deep-dive-beyond-the-surface-part-9/",
+      "snippet": "",
+      "published_date": "2025-11-30T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Sam's Code: How to Find a RPC Server's Clients Via WinDbg",
+      "url": "https://samscode.blogspot.com/2016/04/how-to-finding-rpc-servers-clients-via.html",
+      "snippet": "",
+      "published_date": "2026-03-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Tyranid's Lair: Finding Windows RPC Client Implementations Through Brute Force",
+      "url": "https://www.tiraniddo.dev/2018/11/finding-windows-rpc-client.html",
+      "snippet": "",
+      "published_date": "2026-02-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Down the Rabbit Hole - A Deep Dive into an attack on an RPC ...",
+      "url": "https://www.thezdi.com/blog/2018/6/7/down-the-rabbit-hole-a-deep-dive-into-an-attack-on-an-rpc-interface",
+      "snippet": "",
+      "published_date": "2018-06-07T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3
+    },
+    {
+      "title": "Understanding How Reverse Engineers Make Sense of Programs from Assembly Language",
+      "url": "https://apps.dtic.mil/sti/tr/pdf/ADA557042.pdf",
+      "snippet": "Reverse engineering is a goal-directed activity... connecting information from the environment with mental models... in a temporal context... elements of complex problem solving... hypotheses and assumptions.",
+      "published_date": "2012-01-01",
+      "source": "grok",
+      "score": 0.2867
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Windows Inter Process Communication A Deep Dive Beyond the ...",
+        "url": "https://sud0ru.ghost.io/windows-inter-process-communication-a-deep-dive-beyond-the-surface-part-9/",
+        "snippet": "",
+        "published_date": "2025-11-30T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Sam's Code: How to Find a RPC Server's Clients Via WinDbg",
+        "url": "https://samscode.blogspot.com/2016/04/how-to-finding-rpc-servers-clients-via.html",
+        "snippet": "",
+        "published_date": "2026-03-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Tyranid's Lair: Finding Windows RPC Client Implementations Through Brute Force",
+        "url": "https://www.tiraniddo.dev/2018/11/finding-windows-rpc-client.html",
+        "snippet": "",
+        "published_date": "2026-02-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Down the Rabbit Hole - A Deep Dive into an attack on an RPC ...",
+        "url": "https://www.thezdi.com/blog/2018/6/7/down-the-rabbit-hole-a-deep-dive-into-an-attack-on-an-rpc-interface",
+        "snippet": "",
+        "published_date": "2018-06-07T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3
+      },
+      {
+        "title": "How can I enumerate and hook into a Windows 10 RPC interface?",
+        "url": "https://reverseengineering.stackexchange.com/questions/20965/how-can-i-enumerate-and-hook-into-a-windows-10-rpc-interface",
+        "snippet": "",
+        "published_date": "2019-03-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5
+      },
+      {
+        "title": "The Developer's Guide to Visual Reverse Engineering Workflows",
+        "url": "https://www.replay.build/blog/the-developers-guide-to-visual-reverse-engineering-workflows",
+        "snippet": "",
+        "published_date": "2026-01-31T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.4
+      },
+      {
+        "title": "Correlation ID | Elsa 3",
+        "url": "https://docs.elsaworkflows.io/getting-started/concepts/correlation-id",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5833
+      },
+      {
+        "title": "Workflow Replay and Shadowing",
+        "url": "https://cadenceworkflow.io/docs/go-client/workflow-replay-shadowing",
+        "snippet": "",
+        "published_date": "2026-01-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "How to replay a workflow - ISC Discussion and Questions",
+        "url": "https://developer.sailpoint.com/discuss/t/how-to-replay-a-workflow/64973",
+        "snippet": "",
+        "published_date": "2024-06-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "Workflowapp.Cloud | Advanced Strategy: Observability for Workflow Microservices — From Sequence Diagrams to Runtime Validation (2026 Playbook) | FlowStack Suite",
+        "url": "https://workflowapp.cloud/observability-workflow-microservices-2026",
+        "snippet": "",
+        "published_date": "2026-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Need Help Reverse Engineering Session Slot IDs from a Class ...",
+        "url": "https://community.n8n.io/t/need-help-reverse-engineering-session-slot-ids-from-a-class-booking-site-unofficial-api-for-automation/125674",
+        "snippet": "",
+        "published_date": "2025-06-02T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3667
+      },
+      {
+        "title": "Sequence Diagram Reverse Engineering - java - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/87137/sequence-diagram-reverse-engineering",
+        "snippet": "",
+        "published_date": "2008-09-17T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "[PDF] Reverse Engineering of UML Sequence",
+        "url": "https://www.collectionscanada.gc.ca/obj/s4/f2/dsk4/etd/MQ83504.PDF?is_thesis=1&oclc_number=56921866",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "[PDF] Reverse-engineering of UML 2.0 Sequence Diagrams ... - HAL-Inria",
+        "url": "https://inria.hal.science/inria-00512549/document",
+        "snippet": "",
+        "published_date": "2010-08-30T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3667
+      },
+      {
+        "title": "(PDF) Toward the Reverse Engineering of UML Sequence ...",
+        "url": "https://www.researchgate.net/publication/3189684_Toward_the_Reverse_Engineering_of_UML_Sequence_Diagrams_for_Distributed_Java_Software",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "Receiving the Asynchronous Reply - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/receiving-the-asynchronous-reply",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.6
+      },
+      {
+        "title": "Using NtObjectManager to Decompile an RPC Interface | by Lachunas Berme | Medium",
+        "url": "https://medium.com/%40lachunasberme/using-ntobjectmanager-to-decompile-an-rpc-interface-ca6356c22c9a",
+        "snippet": "",
+        "published_date": "2026-01-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "RPC_ASYNC_STATE (rpcasync.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcasync/ns-rpcasync-rpc_async_state",
+        "snippet": "",
+        "published_date": "2022-09-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "How to correlate RPC calls in ETW traces?",
+        "url": "https://stackoverflow.com/questions/41504738/how-to-correlate-rpc-calls-in-etw-traces",
+        "snippet": "",
+        "published_date": "2017-01-06T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.6
+      },
+      {
+        "title": "Tyranid's Lair: Finding Windows RPC Client Implementations Through Brute Force",
+        "url": "https://www.tiraniddo.dev/2018/11/finding-windows-rpc-client.html",
+        "snippet": "",
+        "published_date": "2026-02-27T00:00:00.000Z",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "RabbitMQ, RPC, and Correlation ID Matching - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/56615866/rabbitmq-rpc-and-correlation-id-matching",
+        "snippet": "The tutorial states: That's when the CorrelationId property is used. We're going to set it to a unique value for every request.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.6667
+      },
+      {
+        "title": "RPC with RabbitMQ (using correlationId) - Google Groups",
+        "url": "https://groups.google.com/g/rabbitmq-users/c/y-aC9CoKXOc",
+        "snippet": "When a message appears, it checks the correlationId property. If it matches the value from the request it returns the response to the application.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.3667
+      },
+      {
+        "title": "Reverse engineering public facing GWT.rpc server responses - Reddit",
+        "url": "https://www.reddit.com/r/AskReverseEngineering/comments/1eqf2cc/reverse_engineering_public_facing_gwtrpc_server/",
+        "snippet": "Does anyone have any experience reverse engineering and deserializing responses from a public facing GWT.rpc server?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5667
+      },
+      {
+        "title": "Windows Inter Process Communication A Deep Dive Beyond the ...",
+        "url": "https://sud0ru.ghost.io/windows-inter-process-communication-a-deep-dive-beyond-the-surface-part-9/",
+        "snippet": "In this post, we will look at the tools you can use to reverse-engineer an RPC server. After that, we will go deeper using IDA and look at how to reverse both RPC clients and servers. The UUID is located inside the **`RPC_SERVER_INTERFACE`** structure, which is passed as the **first argument** to `RpcServerRegisterIf2`. If we go to the `_RPC_SERVER_INTERFACE` struct in IDA, we can find the pointer to `_MIDL_SERVER_INFO`. * Inside it, the first member is a pointer to an `RPC_CLIENT_INTERFACE` structure which is very similar to `RPC_SERVER_INTERFACE`. Following the first pointer takes us directly to the struct `RPC_CLIENT_INTERFACE` that contains multiple members and the second is the interface UUID (The first member in `MIDL_SERVER_INFO` struct). I know the IDA part was a bit complicated and full of structures we haven’t fully explained yet, but I wanted to show it now because these structures are extremely useful when reversing any RPC server or client.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Down the Rabbit Hole - A Deep Dive into an attack on an RPC ...",
+        "url": "https://www.thezdi.com/blog/2018/6/7/down-the-rabbit-hole-a-deep-dive-into-an-attack-on-an-rpc-interface",
+        "snippet": "The vulnerabilities were all in C string handling functions (strcpy and sprintf, for the most part) and were reached through two RPC interfaces. The techniques in that presentation can be used to reverse engineer RPC interface definitions from the server binary file back into an IDL file. Additionally, IDL reversing will provide you with the address in the server code of the interface method stub, which you can then use with a static analysis package to trace data from the client on its way through the service. More generally, `hBinding` is the first parameter to all calls to the interface on the client side so that RPC knows how to access the server. You can use your favorite disassembler to look through the target code for uses of those functions (and in the codebase in question, there are many uses of those functions), and then walk the calltree back to stub functions of the RPC interface looking for the source of the parameters.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Protocol Reverse Engineering and Application Dialogue Replay",
+        "url": "https://people.eecs.berkeley.edu/~dawnsong/bitblaze/protocol.html",
+        "snippet": "Protocol reverse engineering, the process of extracting the application-level. protocol used by an implementation without access to the protocol specification,. application-level protocol format is essential for many network security. protocol analyzers for network monitoring and signature-based filtering,. fingerprint generation, application dialogue replay, detecting services running. use, especially on the enterprise network, are closed protocols (i.e., no. Even for protocols with a publicly. Protocol reverse engineering aims to extract the. application-level protocol used by an implementation, without access to the. Thus, protocol reverse engineering is an invaluable tool. for the above network security applications. engineering is not a once-and-done effort, since existing protocols are often. tool for protocol reverse engineering. the protocol processes the received application data reveals a wealth of. information about the protocol format. The ability to accurately replay application protocol. dialogs is useful in many security-oriented applications,. A central challenge in application dialog replay is that the dialog. With Replayer, we aim to develop an automatic tool for application.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.6333
+      },
+      {
+        "title": "Protocol reverse engineering / Reproduce HTTP dialogue",
+        "url": "https://stackoverflow.com/questions/2143663/protocol-reverse-engineering-reproduce-http-dialogue",
+        "snippet": "My idea is to understand how the original application communicates and then mimic the behaviour. I have already done the first step, which is",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "The Developer's Guide to Visual Reverse Engineering Workflows",
+        "url": "https://www.replay.build/blog/the-developers-guide-to-visual-reverse-engineering-workflows",
+        "snippet": "> **TL;DR:** The Developer’s Guide to Visual Reverse Engineering shows how to bypass the 18-month manual rewrite cycle by using Replay to record user workflows and automatically extract documented React components and API contracts in days. // Example: Replay-generated React component from a legacy Financial Ledger screen   import  React,  { useState,  useEffect }  from  'react';   import  { Button,  Table,  Alert }  from  '@/components/ui';  // From your Design System   interface  LedgerProps  {  accountID:  string;   initialBalance:  number;  }  /**  * @generated  Extracted from Legacy \"FIN_SYS_V3\" Ledger Workflow  * @logic Preserves 3-way reconciliation logic found in source trace #8821  */   export  const  ModernLedger:  React. # Generated OpenAPI Spec from Replay Flow Extraction   openapi: 3.0.0  info:   title:  Legacy Insurance Claims API  version: 1.0.0  paths:   /api/v1/claims/validate:   post:   summary:  Extracted from \"Submit Claim\" Workflow  description:  This endpoint handles multi - part form data and requires a custom X - Legacy -Auth header. **Ready to modernize without rewriting?** Book a pilot with Replay - see your legacy screen extracted live during the call.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "A consistent approach to track correlation IDs through microservices",
+        "url": "https://medium.com/theburningmonk-com/a-consistent-approach-to-track-correlation-ids-through-microservices-759468059ecd",
+        "snippet": "A consistent way to get the captured correlation IDs for the current request. That's the job of the CorrelationIds class below.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.4667
+      },
+      {
+        "title": "[PDF] Analytic Provenance for Software Reverse Engineers - DTIC",
+        "url": "https://apps.dtic.mil/sti/trecms/pdf/AD1108805.pdf",
+        "snippet": "Reverse engineering is a time-consuming process essential to software-security tasks such as malware analysis and vulnerability discovery.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.3667
+      },
+      {
+        "title": "Need Help Reverse Engineering Session Slot IDs from a Class ...",
+        "url": "https://community.n8n.io/t/need-help-reverse-engineering-session-slot-ids-from-a-class-booking-site-unofficial-api-for-automation/125674",
+        "snippet": "I'm working on an automation system for our studio, and I'm trying to integrate a third-party class booking site into our internal workflow. The",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to decode a sequence number? #738 - GitHub",
+        "url": "https://github.com/awslabs/amazon-kinesis-client/issues/738",
+        "snippet": "I want to get the approximate arrival time from the sequence number, and did some reverse engineering: I can confirm that (sequence_number >",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.6667
+      },
+      {
+        "title": "Sequence Diagram Reverse Engineering - java - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/87137/sequence-diagram-reverse-engineering",
+        "snippet": "I'm looking for a tool that will reverse engineer Java into a sequence diagram BUT also provides the ability to filter out calls to certain libraries.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] Reverse Engineering of UML Sequence",
+        "url": "https://www.collectionscanada.gc.ca/obj/s4/f2/dsk4/etd/MQ83504.PDF?is_thesis=1&oclc_number=56921866",
+        "snippet": "This thesis presents an approach to detect and decipher dynamic information of. C++ programs and recover the corresponding scenario diagrams. The approach is.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] Reverse-engineering of UML 2.0 Sequence Diagrams ... - HAL-Inria",
+        "url": "https://inria.hal.science/inria-00512549/document",
+        "snippet": "In this paper, we focus on the reverse engineering of. UML 2.0 sequence diagrams showing loops and alternatives from execution traces. To build",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Receiving the Asynchronous Reply - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/receiving-the-asynchronous-reply",
+        "snippet": "After it is notified that the server has sent a reply, the client calls RpcAsyncCompleteCall with the asynchronous handle so that it can receive the reply.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Offensive Windows IPC Internals 2: RPC - csandker",
+        "url": "https://csandker.io/2021/02/21/Offensive-Windows-IPC-2-RPC.html",
+        "snippet": "If you already got heads deep into reverse engineering the RPC server and found that the server sets authentication information by calling",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Windows Inter Process Communication A Deep Dive Beyond the ...",
+        "url": "https://sud0ru.ghost.io/windows-inter-process-communication-a-deep-dive-beyond-the-surface-part-8/",
+        "snippet": "RPCView is very useful when you want quick information about an RPC server without deep reverse engineering. It gives you everything you",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Uncovering RPC Servers through Windows API Analysis - SpecterOps",
+        "url": "https://posts.specterops.io/uncovering-rpc-servers-through-windows-api-analysis-5d23c0459db6?source=rss----f05f8696e3cc---4",
+        "snippet": "Have you ever tried to reverse a simple Win32 API? If not, let's look at one together today! This article serves as a hand-holding walkthrough",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "Asynchronous request reply pattern without polling - Davide Lettieri",
+        "url": "https://davidelettieri.it/2025/04/02/asynchronous-request-reply-pattern",
+        "snippet": "The asynchronous request reply pattern is useful in cases where an application has a client application running in a browser where the user starts an operation and is waiting for an immediate feedback and possibly a success notification. This flow allows the backend to perform the asynchronous/long running operation and any client can poll the status endpoint and notify the user when the operation is completed. In my opinion there is another approach to this pattern, for a browser client, that avoids having the polling on the endpoint and doesn't require websockets. My proposal is based on 3 endpoints, like the Microsoft one, however the status endpoint is using Server-sent events to notify the frontend about the completion of the long running operation. So the Server-sent event feature is supported enough to be used, of course less supported than http requests, however it is a viable options if we want to avoid polling and other more complex solutions like websockets. const evtSource = new EventSource(\"https://api.contoso.com/operations/1/status\"); const  evtSource =  new  EventSource(\"https://api.contoso.com/operations/1/status\");  evtSource.addEventListener(\"pending\", (event) => {evtSource.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      }
+    ],
+    "grok": [
+      {
+        "title": "RabbitMQ, RPC, and Correlation ID Matching",
+        "url": "https://stackoverflow.com/questions/56615866/rabbitmq-rpc-and-correlation-id-matching",
+        "snippet": "Explanation of how CorrelationId is used in RabbitMQ RPC pattern: client sets unique value per request, checks it on callback queue to match response to request and discard unknowns.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "RPC with RabbitMQ (using correlationId)",
+        "url": "https://groups.google.com/g/rabbitmq-users/c/y-aC9CoKXOc",
+        "snippet": "Discussion clarifying that correlation ID matching is handled by the client application when receiving messages on the callback queue to associate responses with pending requests.",
+        "published_date": "2023-03-29",
+        "source": "grok"
+      },
+      {
+        "title": "RabbitMQ tutorial - Remote procedure call (RPC)",
+        "url": "https://www.rabbitmq.com/tutorials/tutorial-six-java",
+        "snippet": "Official RabbitMQ RPC tutorial describing the use of correlationId: client generates unique ID, server echoes it back, client matches on reply queue to handle asynchronous responses.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.3333
+      },
+      {
+        "title": "Offensive Windows IPC Internals 2: RPC",
+        "url": "https://csandker.io/2021/02/21/Offensive-Windows-IPC-2-RPC.html",
+        "snippet": "Guide on reverse engineering Windows RPC servers, including calling interfaces and identifying functions; relevant for analyzing custom RPC implementations that may use identifiers for request/response matching.",
+        "published_date": "2021-02-21",
+        "source": "grok, tavily",
+        "score": 0.32
+      },
+      {
+        "title": "Down the Rabbit Hole - A Deep Dive into an attack on an RPC Interface",
+        "url": "https://www.thezdi.com/blog/2018/6/7/down-the-rabbit-hole-a-deep-dive-into-an-attack-on-an-rpc-interface",
+        "snippet": "Details techniques for reverse engineering RPC interfaces from binaries, including context handles (similar to IDs) used to track and match state across requests/responses in Microsoft RPC.",
+        "published_date": "2018-06-07",
+        "source": "grok"
+      },
+      {
+        "title": "The Developer's Guide to Visual Reverse Engineering Workflows",
+        "url": "https://www.replay.build/blog/the-developers-guide-to-visual-reverse-engineering-workflows",
+        "snippet": "TL;DR: The Developer's Guide to Visual Reverse Engineering shows how to bypass the 18-month manual rewrite cycle by using Replay to record user workflows and automatically extract documented React components and API contracts in days. Visual Reverse Engineering captures DOM state, network calls, and business logic from recorded sessions, including state transitions and edge cases.",
+        "published_date": "2026-01-31",
+        "source": "grok"
+      },
+      {
+        "title": "Protocol Reverse Engineering and Application Dialogue Replay",
+        "url": "https://people.eecs.berkeley.edu/~dawnsong/bitblaze/protocol.html",
+        "snippet": "Protocol reverse engineering extracts application-level protocols without specifications. Includes tools for fingerprint generation, application dialogue replay for replaying exploits or demonstrations, detecting non-standard ports, and mapping traffic.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Analytic Provenance for Software Reverse Engineers",
+        "url": "https://apps.dtic.mil/sti/trecms/pdf/AD1108805.pdf",
+        "snippet": "Presents SensorRE, an analytic provenance tool for software reverse engineers integrated with Binary Ninja. Supports capture and replay of user actions for recall, replication, and recovery in reverse engineering workflows.",
+        "published_date": "2020-01-01",
+        "source": "grok"
+      },
+      {
+        "title": "A consistent approach to track correlation IDs through microservices",
+        "url": "https://medium.com/theburningmonk-com/a-consistent-approach-to-track-correlation-ids-through-microservices-759468059ecd",
+        "snippet": "Describes using correlation IDs in microservices to track requests across services for debugging. A user-facing service generates a correlation ID, passes it in HTTP headers, and includes it in logs for tracing request workflows.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "How to Use Request-Scoped Correlation IDs That Unify OpenTelemetry Traces, Logs, and Metrics",
+        "url": "https://oneuptime.com/blog/post/2026-02-06-otel-request-scoped-correlation-ids/view",
+        "snippet": "Implement request-scoped correlation IDs to unify OpenTelemetry traces, structured logs, and business metrics. Extracts correlation IDs from headers and propagates via baggage for full request observability.",
+        "published_date": "2026-02-06",
+        "source": "grok",
+        "score": 0.3667
+      },
+      {
+        "title": "Need Help Reverse Engineering Session Slot IDs from a Class Booking Site (Unofficial API for Automation)",
+        "url": "https://community.n8n.io/t/need-help-reverse-engineering-session-slot-ids-from-a-class-booking-site-unofficial-api-for-automation/125674",
+        "snippet": "I'm working on an automation system... trying to integrate a third-party class booking site... stuck trying to dynamically retrieve the session slot IDs (id_array)... manually edit sessions through reverse-engineered requests by watching the browser’s network traffic.",
+        "published_date": "2025-06-02",
+        "source": "grok"
+      },
+      {
+        "title": "How to decode a sequence number? #738",
+        "url": "https://github.com/awslabs/amazon-kinesis-client/issues/738",
+        "snippet": "I want to get the approximate arrival time from the sequence number, and did some reverse engineering... (sequence_number >> 36) & ((1 << 32) - 1)... approximate arrival time... proportional to when the event is published.",
+        "published_date": "2020-09-13",
+        "source": "grok"
+      },
+      {
+        "title": "Reverse-engineering of UML 2.0 Sequence Diagrams from Execution Traces",
+        "url": "https://inria.hal.science/inria-00512549/document",
+        "snippet": "In this paper, we focus on the reverse engineering of UML 2.0 sequence diagrams showing loops and alternatives from execution traces. To build...",
+        "published_date": "2006-01-01",
+        "source": "grok"
+      },
+      {
+        "title": "Understanding How Reverse Engineers Make Sense of Programs from Assembly Language",
+        "url": "https://apps.dtic.mil/sti/tr/pdf/ADA557042.pdf",
+        "snippet": "Reverse engineering is a goal-directed activity... connecting information from the environment with mental models... in a temporal context... elements of complex problem solving... hypotheses and assumptions.",
+        "published_date": "2012-01-01",
+        "source": "grok",
+        "score": 0.2867
+      },
+      {
+        "title": "Sequential Workflow — AutoGen",
+        "url": "https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/design-patterns/sequential-workflow.html",
+        "snippet": "Sequential Workflow is a multi-agent design pattern where agents respond in a deterministic sequence. Each agent in the workflow performs a specific task by processing a message, generating a response, and then passing it to the next agent.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.4833
+      },
+      {
+        "title": "Receiving the Asynchronous Reply - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/receiving-the-asynchronous-reply",
+        "snippet": "After it is notified that the server has sent a reply , the client calls RpcAsyncCompleteCall with the asynchronous handle so that it can receive the reply . If the client calls RpcAsyncCompleteCall before the server has sent the reply, that call will fail and return a value of RPC_S_ASYNC_CALL_PENDING.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Offensive Windows IPC Internals 2: RPC",
+        "url": "https://csandker.io/2021/02/21/Offensive-Windows-IPC-2-RPC.html",
+        "snippet": "RPC supports asynchronous calls and uses ALPC under the hood for local communication. The post covers reverse engineering RPC servers, identifying interfaces, and handling calls, including notes on why older mechanisms lacked async support.",
+        "published_date": "2021-02-21",
+        "source": "grok"
+      },
+      {
+        "title": "Offensive Windows IPC Internals 3: ALPC",
+        "url": "https://csandker.io/2022/05/24/Offensive-Windows-IPC-3-ALPC.html",
+        "snippet": "Discusses asynchronous requests in ALPC (used by local RPC), pending queues for messages awaiting replies, completion lists, I/O completion ports, and reverse engineering insights into queues and correlation of requests/replies.",
+        "published_date": "2022-05-24",
+        "source": "grok",
+        "score": 0.3867
+      },
+      {
+        "title": "How to correlate RPC calls in ETW traces?",
+        "url": "https://stackoverflow.com/questions/41504738/how-to-correlate-rpc-calls-in-etw-traces",
+        "snippet": "You can correlate the events by enabling Microsoft-Windows-RPC and group by Activity Id which will be unique for every RPC call. This allows matching start/stop events and correlating client/server calls using Activity GUIDs.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Introducing RPC Investigator",
+        "url": "https://blog.trailofbits.com/2023/01/17/rpc-investigator-microsoft-windows-remote-procedure-call",
+        "snippet": "Tool for analyzing RPC calls via ETW, including correlation of client/server calls using ActivityId for grouping start/stop events, providing visibility into active/in-progress RPC operations and interfaces.",
+        "published_date": "2023-01-17",
+        "source": "grok",
+        "score": 0.3533
+      }
+    ]
+  }
+}
