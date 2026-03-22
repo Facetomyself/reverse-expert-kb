@@ -258,6 +258,22 @@ High-signal recurring patterns from 52pojie / Kanxue include:
 Why it matters:
 - these practitioner sources strongly confirm that real deobfuscation work is often workflow-rich, tool-augmented, and iterative rather than a single-pass “undo the obfuscator” step
 
+### J. A practical middle stage exists between “dispatcher found” and “state edge reduced”
+Source cluster:
+- Tigress `Flatten` and `AddOpaque` documentation
+- OpenAnalysis angr notes on control-flow deobfuscation
+- `d0minik.me` Binary Ninja control-flow unflattening write-up
+- `cdong1012/ollvm-unflattener`
+
+High-signal findings:
+- flattening diversity matters operationally: `switch`, `goto`, `indirect`, and `call` dispatch shapes do not leave the same stable recovery objects
+- `FlattenObfuscateNext`, flag-based branch encoding, and AddOpaque-style copied-code / bogus-branch inflation often obscure next-state recovery even after the dispatcher is obvious
+- practical progress often comes from recovering one trustworthy successor relation, OBB/state mapping, or branch-normalized split before broader CFG beautification
+- symbolic execution and IL-level repair are often used as narrow bridge tools for this middle stage, not as all-or-nothing whole-function recovery demands
+
+Why it matters:
+- the KB should preserve a thinner continuation for opaque-predicate / computed-next-state recovery instead of collapsing directly from VM/trace anchoring into broader flattened-dispatcher state-edge reduction
+
 ## 6. Emerging internal structure of the topic
 A stable internal decomposition is emerging.
 

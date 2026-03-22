@@ -121,7 +121,7 @@ Current practical branch picture:
   - malware practical workflows
   - runtime-evidence practical workflows
   - iOS practical workflows
-  - protected-runtime deobfuscation ladders
+  - protected-runtime deobfuscation ladders, now including a thinner opaque-predicate / computed-next-state bridge between broad VM anchoring and broader flattened state-edge reduction
 - **main maintenance risk**:
   - continuing to add convenient browser/mobile leaves while higher-level branch memory, parent-page routing, and cross-branch comparison drift out of sync
 
@@ -141,13 +141,14 @@ A top-level maintenance rule worth keeping visible here is:
 Priority 2 candidates include:
 - none currently urgent enough to list as a single standout from this branch
 
-### Newly added Priority 2 pages
+### Newly added / notable practical continuation pages
 - `topics/analytic-provenance-and-evidence-management.md`
 - `topics/native-binary-reversing-baseline.md`
 - `topics/protocol-state-and-message-recovery.md`
 - `topics/anti-tamper-and-protected-runtime-analysis.md`
 - `topics/trust-calibration-and-verification-burden.md`
 - `topics/collaborative-malware-analysis-and-role-differentiation.md`
+- `topics/opaque-predicate-and-computed-next-state-recovery-workflow-note.md`
 
 ### Native desktop/server practical branch
 - `topics/native-practical-subtree-guide.md`
