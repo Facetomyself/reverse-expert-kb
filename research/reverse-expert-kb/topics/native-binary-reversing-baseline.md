@@ -191,12 +191,13 @@ Includes:
 - clarifying how other domain pages represent deviations from the baseline
 
 ### 6. Native practical branch routing
-The native branch should now be read not only as a broad baseline-comparison page, but also as a practical five-family ladder that routes analysts toward the next smaller trustworthy proof boundary.
+The native branch should now be read not only as a broad baseline-comparison page, but also as a practical six-family ladder that routes analysts toward the next smaller trustworthy proof boundary.
 
 The branch is now best entered through these recurring bottlenecks:
 - **semantic-anchor instability** when code is readable enough to navigate, but names, types, signatures, object roles, or subsystem meanings are still too slippery to trust
 - **interface-path overabundance** when one semantic anchor is already good enough, but imports/strings/xrefs/callbacks still expose several plausible routes and no one consequence-bearing path has been proved yet
-- **module-owner uncertainty** when one route is already plausible enough, but plugin/module loaders, export resolution, factory registration, or provider installation still leave several loaded components competing and the first real owner is still unclear
+- **virtual-dispatch implementation uncertainty** when one route or object family is already plausible enough, but a visible vtable/interface-slot call still leaves several candidate runtime types, subobjects, or concrete implementations competing
+- **module-owner uncertainty** when one route or implementation family is already plausible enough, but plugin/module loaders, export resolution, factory registration, or provider installation still leave several loaded components competing and the first real owner is still unclear
 - **service-owned worker uncertainty** when service/daemon entry, control handlers, command dispatchers, or worker launchers are visible enough to read, but the first worker-owned consumer that actually changes behavior is still unclear
 - **async ownership break** when one route or owner is already plausible, but behavioral ownership now breaks at registration, queue, completion, callback, or event-loop delivery boundaries and the first consequence-bearing consumer is still unclear
 
@@ -213,9 +214,11 @@ Read the branch in this order when helpful:
 - subtree routing and bottleneck selection (`topics/native-practical-subtree-guide.md`)
 - semantic-anchor stabilization (`topics/native-semantic-anchor-stabilization-workflow-note.md`)
 - representative interface-to-state proof (`topics/native-interface-to-state-proof-workflow-note.md`)
+- virtual-dispatch slot / concrete-implementation proof (`topics/native-virtual-dispatch-slot-to-concrete-implementation-workflow-note.md`)
 - plugin-loader / first-real-module-consumer reduction (`topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md`)
 - service-dispatcher / worker-owned-consumer reduction (`topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md`)
 - callback-registration / event-loop consumer proof (`topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`)
+- GUI message-pump / signal-slot first-consumer continuation (`topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md`) when the async-ownership break narrows specifically into Win32 subclass or Qt signal-slot ownership rather than broad callback plumbing
 
 ## 7. Analyst workflow implications
 This topic matters especially during:
