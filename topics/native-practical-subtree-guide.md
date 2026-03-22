@@ -11,6 +11,7 @@ Related pages:
 - topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md
 - topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md
 - topics/native-callback-registration-to-event-loop-consumer-workflow-note.md
+- topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md
 - topics/runtime-behavior-recovery.md
 
 ## 1. Why this guide exists
@@ -234,6 +235,7 @@ Primary note:
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 
 Possible next handoff:
+- `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md`
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
 - `topics/runtime-behavior-recovery.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
