@@ -163,12 +163,13 @@ Priority 2 candidates include:
 
 A compact native reading now worth preserving at the top level is:
 - decompilation is often the practical entry enabler for the native branch, but not the endpoint
-- once code is readable enough to navigate, the branch usually reduces through five recurring bottlenecks:
+- once code is readable enough to navigate, the branch usually reduces through six recurring bottlenecks:
   - semantic-anchor stabilization
   - representative interface-to-state proof
   - virtual-dispatch slot / concrete-implementation proof
   - plugin-loader / first-real-module-consumer reduction
-  - callback-registration / event-loop consumer proof
+  - service-dispatcher / worker-owned-consumer reduction
+  - callback-registration / event-loop consumer proof, with a thinner GUI continuation when the bottleneck narrows specifically into Win32 message-pump / subclass or Qt signal-slot ownership
 - the branch should therefore be remembered not only as “ordinary native binaries,” but as a practical ladder where readable pseudocode is converted into one smaller trustworthy proof boundary before broader subsystem expansion resumes
 
 This branch should now also be read as the default comparison case for the rest of the KB’s domain families:

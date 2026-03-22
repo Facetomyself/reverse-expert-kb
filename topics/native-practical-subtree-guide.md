@@ -234,6 +234,9 @@ Typical question:
 Primary note:
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 
+Common thinner continuation:
+- `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md` when the async-ownership break has already narrowed specifically into Win32 message-pump / subclass or Qt signal-slot ownership and the real bottleneck is one per-instance or per-connection first consumer rather than broad callback-plumbing truth
+
 Possible next handoff:
 - `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md`
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
@@ -286,7 +289,7 @@ This branch is still weaker than browser/mobile in some areas:
 - it has had less explicit subtree-level routing until now
 - Windows/Linux/macOS-specific operator differences are still lightly integrated
 - it still relies more on workflow notes than on a denser native synthesis stack
-- some recurring native subareas such as GUI message frameworks or OS-specific service/daemon variants could later justify even narrower route guides if source pressure accumulates
+- GUI message-pump / subclass and Qt signal-slot ownership now have a narrower continuation page, but other OS-specific service/daemon variants and further desktop-framework splits are still lightly integrated
 
 That means the right near-term maintenance pattern is usually:
 - branch-shape repair
