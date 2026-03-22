@@ -379,6 +379,7 @@ A subtree guide and practical bridge pages now exist for the firmware/protocol o
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
+- `topics/protocol-pending-request-correlation-and-async-reply-workflow-note.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
@@ -401,6 +402,8 @@ Use the ISR/deferred-worker note when trigger and peripheral-effect visibility a
 Use the parser-to-state note when one message family, parser, or dispatch region is already visible, but the first state write, reply-family selector, queue/timer insertion, or peripheral action that actually predicts later behavior is still unclear.
 
 Use the replay-precondition/state-gate note when parser visibility and some field roles already exist, but structurally plausible replay, mutation, or stateful experimentation still fails because the first local acceptance gate, session-phase reduction, freshness check, pending-request ownership check, or capability-state precondition is still unproved.
+
+Use the pending-request-correlation/async-reply note when that broad acceptance problem has already narrowed to one outstanding-request owner, correlation-id match, async handle, pending slot, callback queue, or completion-state association deciding whether an otherwise plausible response or completion is consumed at all.
 
 Use the reply-emission/transport-handoff note when protocol/firmware handling is already locally understood far enough to show acceptance or reply-object creation, but the analyst still needs to prove where that accepted result is serialized, queued, committed, or handed to the transport/peripheral side as one real output behavior; leave broad output-side work there once one committed outbound path is already good enough and the real bottleneck becomes hardware-side effect proof, later interrupt/deferred consequence proof, or one narrower output-side continuation.
 
