@@ -453,6 +453,7 @@ Routing reminder:
 - leave broad replay/acceptance work once one gate is already good enough and the real bottleneck becomes emitted output, hardware-side effect proof, or later interrupt/deferred consequence
 
 Possible next handoff:
+- `topics/protocol-pending-request-correlation-and-async-reply-workflow-note.md` when the broad replay gate has already collapsed to one outstanding-request owner, correlation-id match, async handle, pending slot, callback queue, or late-reply lifecycle problem deciding whether a response-like artifact is consumed at all
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/analytic-provenance-and-evidence-management.md` when one consequence-bearing parser/state edge is already good enough and the main remaining problem is preserving exactly which inputs, state assumptions, and reduced proof slices justified the claim
