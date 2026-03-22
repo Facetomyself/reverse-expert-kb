@@ -148,6 +148,7 @@ Useful local role labels here:
 - `unknown/stale-drop`
 - `consume/dequeue`
 - `wake/resolve/callback`
+- `timeout/cancel cleanup`
 - `post-completion cleanup`
 
 If a region cannot be given one of these roles, it may be churn rather than leverage.
@@ -165,9 +166,25 @@ Prove it by tying successful owner match to one downstream effect such as:
 A weaker but still useful proof is:
 - matched vs ignored behavior correlates with one token/slot/owner object across a small compare set
 
-### Step 6: Hand off narrowly
+### Step 6: Check lifecycle before blaming parse or crypto
+Before escalating back into freshness, auth, or parser theory, explicitly ask whether the outstanding owner is still alive when the reply arrives.
+
+High-value lifecycle questions:
+- was the pending owner removed by timeout before the reply was delivered?
+- did cancellation, disconnect, channel teardown, or queue consumer reuse invalidate the owner?
+- is there a generation/epoch/reuse boundary where the same visible token no longer names the same live request?
+- does the runtime route late replies into a stale/unknown-reply path even when correlation fields still look structurally correct?
+
+This matters because a late reply after cleanup often looks like:
+- a parser-visible response
+- a plausible correlation field
+- but no wakeup/consume effect because the runtime already retired the owner and now treats the reply as stale, unknown, or late
+
+That is still an ownership-lifecycle failure, not automatically a parser failure.
+
+### Step 7: Hand off narrowly
 Once the owner-match edge is localized, hand the case to one next task only:
-- replay stabilization when the response now needs correct token generation or slot preservation
+- replay stabilization when the response now needs correct token generation, generation/epoch preservation, or slot lifetime preservation
 - reply-emission/handoff work if the real unresolved issue is whether the response is emitted at all
 - parser/state consequence work if the owner match is solved and the next unknown is later local state change
 - provenance packaging if the hard part is preserving the compare slices and assumptions
@@ -201,10 +218,13 @@ Once one waiting-vs-ignored pair exists, more captures often widen the corpus wi
 ### 3. Treating parser visibility as the end of the hunt
 The stronger target is often the first comparison that maps arrival -> pending owner -> consume/drop.
 
-### 4. Blaming freshness/auth too early
+### 4. Mistaking timeout cleanup or late-reply discard for parser failure
+A reply can parse correctly and still be irrelevant because the runtime already retired the pending owner, marked the request timed out, or reused the slot/channel/generation before the reply arrived.
+
+### 5. Blaming freshness/auth too early
 Those can matter, but in some cases the real hidden gate is simply that the reply is unmatched to any live outstanding request state.
 
-### 5. Staying too broad in “replay gating” after the bottleneck has narrowed
+### 6. Staying too broad in “replay gating” after the bottleneck has narrowed
 Once the case has clearly collapsed to pending ownership, general replay-gate narration becomes less useful than one precise owner-match proof.
 
 ## 8. Concrete scenario patterns
@@ -247,6 +267,21 @@ completion code is visible
 Best move:
 - localize descriptor ownership and dequeue-on-match behavior
 
+### Scenario D: Late reply after timeout looks valid but has already lost its owner
+Pattern:
+
+```text
+reply arrives with plausible structure and correlation material
+  -> earlier wait path already timed out or cleaned up
+  -> pending entry / callback registration / request future is gone or retired
+  -> runtime logs or follows stale/unknown-reply handling instead of wakeup
+```
+
+Best move:
+- compare live-pending vs timed-out arrival on the same request family
+- prove where timeout/cancel cleanup retires the owner
+- treat late-reply discard as an ownership-lifecycle question before widening into parser or crypto theories
+
 ## 9. Relationship to nearby pages
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
   - this page is a narrower child for cases where the broad gate has already collapsed to outstanding-request ownership
@@ -274,11 +309,14 @@ This note is intentionally workflow-first.
 
 Primary retained support:
 - `sources/firmware-protocol/2026-03-22-pending-request-correlation-and-async-reply-notes.md`
+- `sources/firmware-protocol/2026-03-23-pending-request-timeout-and-late-reply-lifecycle-notes.md`
 - Microsoft Learn async RPC reply/completion documentation
 - Microsoft Learn `RPC_ASYNC_STATE` structure documentation
+- Microsoft Learn MS-RPCE connection timeout note
 - Trail of Bits RPC Investigator note for active-call/ETW-aware RPC visibility
 - ALPC transport internals overview for pending communication-object context
 - RabbitMQ RPC tutorial as a clear generic correlation-ID ownership model
+- Spring AMQP request/reply timeout and late-reply handling documentation
 - Berkeley BitBlaze / Replayer framing for dialogue replay as a practical protocol-RE end state
 
 Confidence note:
