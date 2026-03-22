@@ -9,6 +9,7 @@ Related pages:
 - topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
+- topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
 - topics/protocol-reply-emission-and-transport-handoff-workflow-note.md
 - topics/runtime-behavior-recovery.md

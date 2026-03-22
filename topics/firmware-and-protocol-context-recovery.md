@@ -14,6 +14,7 @@ Related pages:
 - topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
 - topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
 - topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
+- topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 
 ## 1. Topic identity
