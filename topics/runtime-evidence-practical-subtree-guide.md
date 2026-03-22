@@ -283,9 +283,11 @@ Possible next handoff:
 - `topics/runtime-evidence-package-and-handoff-workflow-note.md` when one useful watched-object boundary is already proved and the real remaining need is preserving the result for reuse
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md` when the case broadens back out from one watched object into a larger causal window or neighboring upstream proof boundary
 - branch-specific practical notes when the localized write/reducer now clearly belongs to one narrower native, protocol, malware, mobile, or protected-runtime proof target
+- one existing branch-specific consumer/consequence note when the remaining gap is the first downstream owner, callback consumer, request builder, scheduler edge, parser, or policy consumer that makes the proved boundary matter operationally
 
 Routing reminder:
 - leave broad watchpoint or first-bad-write work once one watched object, one useful write/reducer boundary, and one downstream dependency already make the next task obvious
+- at that point, prefer the narrowest downstream consumer/consequence proof question over more generic replay browsing
 
 ### H. Good runtime proof -> reusable evidence package
 Typical question:
