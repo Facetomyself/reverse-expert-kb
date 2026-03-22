@@ -10,6 +10,7 @@ Related pages:
 - topics/watchdog-heartbeat-to-enforcement-consumer-workflow-note.md
 - topics/kernel-callback-telemetry-to-enforcement-consumer-workflow-note.md
 - topics/vm-trace-to-semantic-anchor-workflow-note.md
+- topics/opaque-predicate-and-computed-next-state-recovery-workflow-note.md
 - topics/flattened-dispatcher-to-state-edge-workflow-note.md
 - topics/packed-stub-to-oep-and-first-real-module-workflow-note.md
 - topics/decrypted-artifact-to-first-consumer-workflow-note.md
@@ -42,7 +43,7 @@ This page makes that branch read more like the malware, protocol, and mobile pra
 - a compact ladder for moving from protected churn toward one smaller trustworthy target
 
 ## 2. Core claim
-Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of ten recurring families:
+Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twelve recurring families:
 
 1. **anti-instrumentation gate triage**
    - some anti-instrumentation effect is already visible, but the first decisive gate family and its first consequence-bearing effect are still unclear
@@ -54,17 +55,19 @@ Protected-runtime practical work is easiest to navigate when the analyst first c
    - direct attach, spawn, or app-local observation is detected, too visible, too late, or semantically misleading
 5. **trace-to-semantic-anchor churn**
    - visible VM, handler churn, or repetitive protected execution is the main problem and the first stable semantic anchor is still missing
-6. **flattened-dispatcher-to-state-edge reduction**
-   - a dispatcher or flattened protected region is already recognizable, but the first durable state object, reducer helper, or dispatcher-exit edge is still unclear
-7. **packed / staged bootstrap handoff**
+6. **opaque-predicate / computed-next-state recovery**
+   - flattening is already recognizable and some dispatcher/state object is visible, but the next-state relation is still obscured by opaque predicates, copied-code branches, helper-mediated writes, or computed-next-state machinery
+7. **flattened-dispatcher-to-state-edge reduction**
+   - a dispatcher or flattened protected region is already recognizable enough that one trustworthy successor relation already exists, but the first durable state object, reducer helper, or dispatcher-exit edge is still unclear
+8. **packed / staged bootstrap handoff**
    - a stub, shell, decrypt/copy/fixup loop, or staged loader is already visible, but the first trustworthy post-unpack handoff is still unclear
-8. **artifact-to-consumer proof**
+9. **artifact-to-consumer proof**
    - strings, config, tables, bytecode, or normalized buffers are already readable enough to inspect, but the first ordinary consumer is still missing
-9. **runtime-artifact / initialization-obligation recovery**
+10. **runtime-artifact / initialization-obligation recovery**
    - static dumps, repaired artifacts, or offline reconstructions look damaged, under-initialized, or close-but-wrong, while live/runtime state appears truer
-10. **integrity / tamper consequence proof**
+11. **integrity / tamper consequence proof**
    - checks are visible, but the first reduced result or consequence-bearing tripwire is still unclear
-11. **exception-handler-owned control transfer**
+12. **exception-handler-owned control transfer**
    - visible direct control flow stays incomplete or misleading because handler registration, unwind lookup, signal delivery, or trap-resume logic owns the meaningful branch
 
 A compact operator ladder for this branch is:
@@ -82,6 +85,7 @@ The subtree is strongest when read as:
 - **reduce** one callback-heavy kernel telemetry path into one first enforcement-relevant consumer
 - **reposition** observation when the current topology itself is the problem
 - **anchor** noisy protected execution when the first stable semantic anchor is still missing
+- **normalize** one opaque-predicate or computed-next-state bottleneck into one trustworthy successor relation
 - **reduce** one recognizable flattened dispatcher or protected state machine into one durable state edge
 - **handoff** out of staged startup when packing/bootstrap dominates
 - **consume** recovered artifacts when readable material exists but ordinary use is still unproved
@@ -171,13 +175,29 @@ Use:
 
 Start here when:
 - a flattened dispatcher, state-machine reducer, or recognizably repetitive protected region is already visible enough to study structurally
-- the first stable semantic anchor is already good enough that the remaining bottleneck is no longer “what broad thing is this?” but “which durable state object, reducer helper, or dispatcher-exit edge actually predicts later behavior?”
+- at least one trustworthy successor relation already exists, so the remaining bottleneck is no longer “can I recover next state at all?” but “which durable state object, reducer helper, or dispatcher-exit edge actually predicts later behavior?”
 - the next useful output is one reduced state object plus one consequence-bearing state edge that yields a smaller trustworthy post-protection target
 
 Do **not** start here when:
 - the current evidence is still too noisy and the first stable semantic anchor is still missing
+- flattening is recognizable but successor-state recovery is still blocked by opaque predicates, copied-code branches, helper-mediated writes, or computed-next-state machinery
 - the real bottleneck is still the packed/bootstrap handoff rather than a recognizable flattened region
 - the case has already reduced into one readable recovered artifact whose first ordinary consumer is now the true next question
+
+### Start with `opaque-predicate-and-computed-next-state-recovery-workflow-note`
+Use:
+- `topics/opaque-predicate-and-computed-next-state-recovery-workflow-note.md`
+
+Start here when:
+- flattening is already recognizable and one dispatcher/state carrier is already visible enough to name
+- the main blocker is still recovering one trustworthy successor relation because next-state computation is hidden behind opaque predicates, copied-code branches, helper-mediated writes, or computed/indirect next-state structure
+- the next useful output is one OBB/state mapping, one successor pair, one normalized split, or one patch-worthy dispatcher-return edge
+- the analyst does **not** need full opcode naming or total predicate simplification before progress
+
+Do **not** start here when:
+- the first stable semantic anchor is still missing entirely and the current evidence is mostly noisy protected execution
+- a trustworthy successor relation already exists and the real problem is now outer-consumer proof or durable state-edge reduction
+- the dominant uncertainty is still packed/bootstrap handoff rather than successor-state recovery inside an already recognizable flattened region
 
 ### Start with `packed-stub-to-oep-and-first-real-module-workflow-note`
 Use:
@@ -251,7 +271,7 @@ Do **not** start here when:
 - the real bottleneck is already a visible integrity-result reducer or a close-but-wrong runtime-table/init-obligation case rather than hidden handler-owned branch ownership
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as eleven common bottleneck families that often chain into one another.
+A useful way to read the branch is as twelve common bottleneck families that often chain into one another.
 
 ### A. Anti-instrumentation gate triage -> one first gate-to-effect path
 Typical question:
