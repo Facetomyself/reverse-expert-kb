@@ -300,13 +300,16 @@ A compact rule is:
 - Use one narrow slot-to-effect proof before expanding sideways.
 
 ## 11. Sources and confidence
-Primary source note for this page:
+Primary source notes for this page:
 - `sources/native-binary/2026-03-21-native-virtual-dispatch-slot-to-concrete-implementation-notes.md`
+- `sources/native-binary/2026-03-23-native-virtual-dispatch-com-subobject-notes.md`
 
 This workflow is grounded in:
 - practical virtual-call and vtable narrowing from ALSchwalm’s C++ virtual-function reversing write-up
-- MSVC object-layout, constructor-overwrite, and COM-like vftable realities from Dennis Babkin’s write-up
-- interface-negotiation and retained-contract framing from Microsoft’s `QueryInterface` documentation
+- MSVC object-layout, constructor-overwrite, multiple-inheritance/subobject, and COM-like vftable realities from Dennis Babkin’s write-up
+- COM object-layout and secondary-interface pointer framing from Raymond Chen’s `The layout of a COM object`
+- interface-negotiation, retained-contract, and interface-identity framing from Microsoft / COM-oriented references
+- tooling-oriented COM/RTTI support material used conservatively as candidate-narrowing aids rather than as the workflow endpoint
 
 Confidence note:
 - strong for the workflow seam and stop rules
