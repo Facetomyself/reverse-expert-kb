@@ -12,6 +12,7 @@ Related pages:
 - topics/ios-objc-swift-native-owner-localization-workflow-note.md
 - topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md
 - topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
+- topics/ios-pac-shaped-callback-and-dispatch-failure-triage.md
 - topics/observation-distortion-and-misleading-evidence.md
 - topics/trace-guided-and-dbi-assisted-re.md
 
@@ -276,6 +277,7 @@ This page is grounded conservatively in a small practical source set:
 - current dyld shared cache tooling/docs and practitioner reversing material reinforce that cache-backed system truth matters operationally for modern iOS work
 - current iOS dyld/reversing practice notes reinforce that DSC navigation and extraction choices are part of basic workflow, not exotic add-ons
 - current Binary Ninja arm64e PAC cleanup material reinforces that some explicit auth-check sequences before tail calls are analysis clutter rather than the analyst’s real target
+- the narrower continuation `topics/ios-pac-shaped-callback-and-dispatch-failure-triage.md` now carries the next-step operator workflow when one authenticated callback / dispatch boundary is already frozen and the remaining question is family vs context vs code-view vs replay-close classification
 
 This is enough for a practical workflow note.
 It is **not** used here to overclaim hidden hardware internals or universal crash semantics.
