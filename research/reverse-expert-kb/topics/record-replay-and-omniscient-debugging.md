@@ -7,6 +7,9 @@ Related pages:
 - topics/runtime-evidence-practical-subtree-guide.md
 - topics/runtime-behavior-recovery.md
 - topics/representative-execution-selection-and-trace-anchor-workflow-note.md
+- topics/compare-run-design-and-divergence-isolation-workflow-note.md
+- topics/causal-write-and-reverse-causality-localization-workflow-note.md
+- topics/first-bad-write-and-decisive-reducer-localization-workflow-note.md
 - topics/analyst-workflows-and-human-llm-teaming.md
 - topics/notebook-and-memory-augmented-re.md
 - topics/firmware-and-protocol-context-recovery.md
@@ -247,9 +250,18 @@ A common pattern is:
 - choose one first event family that will anchor triage inside the trace
 - capture one representative run
 - find the suspicious late-stage state or event
-- place reverse watchpoints / navigate backward
-- extract the causal chain
+- shrink that late effect into the narrowest truthful watched object rather than a broad surrounding structure
+- place reverse watchpoints / backward queries / scoped memory-event searches on that watched object
+- localize the first causally useful write, reducer, queue edge, or ownership handoff behind it
+- extract only the smaller causal chain that changes the next decision
 - annotate findings for later reuse
+
+A practical caution worth preserving is that replay/time-travel tooling does **not** remove the need for watched-object choice.
+The most reusable operator move is usually not “inspect the whole trace,” but:
+- choose one trustworthy late object
+- narrow it into one watched field / slot / slice / handle / reducer output
+- walk backward to one first useful boundary
+- stop once that boundary yields one smaller next target
 
 ### Long-horizon analysis
 Execution-history tooling helps preserve:
@@ -276,12 +288,14 @@ Leave this page once one representative execution is already good enough and the
 
 Typical next moves are:
 - move to `topics/representative-execution-selection-and-trace-anchor-workflow-note.md` when replay already looks worthwhile, but the practical missing step is still choosing which execution window to preserve and which first event family should partition the trace
+- move to `topics/compare-run-design-and-divergence-isolation-workflow-note.md` when one representative execution and one first anchor already exist, but the analyst still needs one useful near-neighbor compare pair and one first meaningful divergence before deeper backward reasoning becomes trustworthy
 - move to `topics/causal-write-and-reverse-causality-localization-workflow-note.md` when one suspicious late effect is already stable enough and the first causal write, branch, queue edge, or state reduction is now the real missing proof
+- move to `topics/first-bad-write-and-decisive-reducer-localization-workflow-note.md` when the bad late field, slot, buffer, handle, policy bucket, or delayed consequence is already visible and revisitable enough, but the analyst still needs the narrowest truthful watched object plus the first bad write or first decisive reducer behind it
 - move to `topics/analytic-provenance-and-evidence-management.md` when the execution history already exists but the remaining gap is evidence linkage, resumption discipline, or handoff packaging
 - move back into a branch-specific practical note when replay has already made the next narrower owner/parser/consumer question trustworthy enough to pursue directly
 
 A durable stop-rule worth preserving canonically is:
-- do not keep broad replay/tooling discussion alive once replay is already clearly worthwhile and the case now needs one smaller capture-window / first-anchor choice, one narrower causal boundary, or one cleaner evidence package
+- do not keep broad replay/tooling discussion alive once replay is already clearly worthwhile and the case now needs one smaller capture-window / first-anchor choice, one compare pair, one watched-object / first-useful-write boundary, one narrower causal boundary, or one cleaner evidence package
 
 ## 9. Evaluation dimensions
 The most important evaluation dimensions for this topic are:
@@ -304,46 +318,31 @@ How well does the tooling connect to disassembly, decompilation, notes, and othe
 ### Capture cost
 Are recording overhead, trace size, index size, and platform constraints acceptable for the target?
 
-Among these, the especially central dimensions are:
-- evidence stability
-- causality-tracing efficiency
-- queryability / navigation quality
-- capture cost
-
-## 8. Evaluation dimensions
-The most important evaluation dimensions for this topic are:
-
-### Replay fidelity
-Does the replay preserve the execution properties the analyst needs to trust?
-
-### Evidence stability
-Does the system let analyst knowledge survive restarts and revisits?
-
-### Causality-tracing efficiency
-How quickly can the analyst move from effect back to cause?
-
-### Queryability / navigation quality
-Can the analyst ask useful cross-time questions without drowning in trace data?
-
-### Integration quality
-How well does the tooling connect to disassembly, decompilation, notes, and other workflow surfaces?
-
-### Capture cost
-Are recording overhead, trace size, index size, and platform constraints acceptable for the target?
+### Watched-object precision
+Once a late effect is already visible, does the workflow help the analyst narrow that effect into one truthful watched field, slot, slice, handle, or reducer output instead of diffing an oversized region?
 
 Among these, the especially central dimensions are:
 - evidence stability
 - causality-tracing efficiency
 - queryability / navigation quality
 - capture cost
+- watched-object precision
 
-## 9. Cross-links to related topics
+## 10. Cross-links to related topics
 
 ### Closely related pages
 - `topics/runtime-behavior-recovery.md`
   - because record/replay extends runtime answerability into revisitable evidence
 - `topics/hook-placement-and-observability-workflow-note.md`
   - because replay is often the right continuation only after one truthful observation surface is already known and live reruns remain too fragile or expensive
+- `topics/representative-execution-selection-and-trace-anchor-workflow-note.md`
+  - because replay-worthy cases often still need one smaller practical step: choosing which execution window is worth preserving and which first event family should partition the trace before broader backward search begins
+- `topics/compare-run-design-and-divergence-isolation-workflow-note.md`
+  - because one preserved execution or one pair of preserved executions is not yet a useful comparison until the pair, invariants, and first divergence are designed on purpose
+- `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
+  - because replay becomes most useful when one visible late effect can be walked back to one narrower causal boundary
+- `topics/first-bad-write-and-decisive-reducer-localization-workflow-note.md`
+  - because many replay/time-travel cases narrow further into choosing one truthful watched object and localizing one first useful write or reducer behind it
 - `topics/analyst-workflows-and-human-llm-teaming.md`
   - because execution-history tooling changes how analysts externalize and revisit reasoning
 - `topics/notebook-and-memory-augmented-re.md`
@@ -356,27 +355,28 @@ Among these, the especially central dimensions are:
 - logging/telemetry systems
 - full-system emulation or sandboxing in general
 
-## 10. Open questions
+## 11. Open questions
 - What paper-grade RE sources directly study time-travel debugging or record/replay in adversarial reversing workflows?
 - Which domains benefit most from full execution-history capture rather than selective runtime hooks?
 - How should the KB distinguish record/replay from provenance systems that log analyst actions rather than program states?
 - What benchmark or evaluation frame could capture causality-tracing payoff without being too tool-specific?
 - How far can omniscient-debugging ideas transfer into mobile or firmware contexts where capture conditions are harder?
 
-## 11. Suggested next expansions
+## 12. Suggested next expansions
 This topic may later split into several child pages:
 - `topics/reverse-causality-tracing.md`
 - `topics/time-travel-debugging-in-malware-analysis.md`
 - `topics/omniscient-debugging-and-queryable-execution-history.md`
 - `topics/execution-history-and-provenance-linkage.md`
 
-## 12. Source footprint / evidence quality note
+## 13. Source footprint / evidence quality note
 Current evidence quality is promising but still mixed.
 
 Strengths:
 - strong practical sources from rr, Microsoft TTD, and Binary Ninja integration
 - clear conceptual framing from Pernosco
 - plausible adversarial-use signal from malware-analysis material
+- newer workflow grounding for watched-object reduction and first useful write/reducer localization from rr reverse-watchpoint material, Microsoft TTD walkthroughs, and conservative debugger/watchpoint documentation cross-checks preserved in `sources/runtime-evidence/2026-03-22-first-bad-write-watchpoint-and-time-travel-workflows-notes.md` and `sources/runtime-evidence/2026-03-22-record-replay-to-first-useful-write-workflows-notes.md`
 
 Limitations:
 - several sources are vendor or product documents rather than neutral empirical studies
@@ -385,8 +385,9 @@ Limitations:
 
 Overall assessment:
 - this topic is mature enough to warrant a dedicated KB page, but should still be treated as emerging until deeper paper-grade coverage is added
+- this pass makes the page more operationally useful by clarifying when replay/tooling discussion should hand off into watched-object / first-useful-write work instead of staying broad
 
-## 13. Topic summary
+## 14. Topic summary
 Record/replay and omniscient debugging matter to reverse engineering because they turn fleeting runtime observations into revisitable, queryable evidence.
 
 Their real value is not just going backward in time. It is making causality tracing, evidence preservation, and long-horizon analysis substantially more stable than ordinary live debugging allows.
