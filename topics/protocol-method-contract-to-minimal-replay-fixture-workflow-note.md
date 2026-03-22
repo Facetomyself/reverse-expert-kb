@@ -11,6 +11,9 @@ Related pages:
 - topics/protocol-reply-emission-and-transport-handoff-workflow-note.md
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
 - topics/analytic-provenance-and-evidence-management.md
+Supporting source notes:
+- sources/firmware-protocol/2026-03-21-schema-externalization-and-replay-harness-notes.md
+- sources/firmware-protocol/2026-03-22-grpc-method-contract-minimal-fixture-notes.md
 
 ## 1. When to use this note
 Use this note when a protocol or RPC-shaped case has already progressed far enough that:
@@ -134,11 +137,20 @@ For the representative request, explicitly separate fields into:
 
 1. **identity / routing core**
    - method name, opcode, path, service ID
+   - stream shape if it is part of the callable contract
    - message body fields that select the code path or semantic family
 2. **likely gate-bearing fields**
    - nonce, timestamp, session, auth token, sequence, pending-request ID, device/context binding
 3. **decoration / low-priority fields**
    - optional metadata, logging hints, cosmetic labels, duplicated mirrors, seemingly inert padding when not part of MAC/signature coverage
+
+For gRPC-like families, a compact first route core is often already available as:
+- `/{package}.{Service}/{Method}`
+- request message type
+- response message type
+- unary vs client-streaming vs server-streaming vs bidi shape
+
+That compact route core should usually be frozen before spending much time on metadata or auth folklore.
 
 The goal is not perfect semantics.
 The goal is to stop treating every field as equally mysterious.
@@ -152,6 +164,11 @@ Prefer:
 - one builder object path
 - one serializer call chain that only touches the chosen request family
 
+Prefer these before:
+- hand-built HTTP/2 or transport framing
+- raw packet/frame replay
+- a large generic client shell that hides which layer actually owns the request
+
 Avoid building the first harness on top of:
 - a giant generic session bootstrap script
 - a monolithic transport client covering unrelated methods
@@ -160,6 +177,10 @@ Avoid building the first harness on top of:
 The first harness should answer:
 - what is the smallest code path that turns the representative fixture object into bytes or an outbound call?
 
+A useful rule for protobuf / gRPC families is:
+- if a generated or registration-adjacent stub path exists, it is usually a better first fixture-construction boundary than hand-authored transport replay
+- use raw transport recreation first only when no smaller truthful constructor path is available
+
 ### Step 5: Build one compare-friendly fixture package
 A good fixture package usually contains:
 - one normalized request object or schema-backed text representation
@@ -167,6 +188,11 @@ A good fixture package usually contains:
 - one response / ack / completion sample if available
 - one short note of the environment and gate assumptions
 - one table or bullet list marking which fields are believed stable, variable, or unknown
+
+Also preserve the layer and provenance explicitly:
+- whether the fixture is a builder input, serialized protobuf body, gRPC message body, framed request, or transport-visible unit
+- where it was captured or reconstructed from
+- whether reflection / descriptor metadata was available or whether the fixture was recovered under a weaker compare-driven model
 
 Keep the package small enough that a later analyst can:
 - diff two runs
@@ -250,9 +276,14 @@ service and method names recovered
 
 Best move:
 - choose one method
-- preserve one request/response pair
+- freeze route identity as `/{package}.{Service}/{Method}` plus request/response type pairing and stream shape
+- preserve one request/response pair or one truthful request/completion slice
 - mark likely gate-bearing metadata separately from body identity
 - build one stub-backed or schema-backed request constructor
+
+If reflection is unavailable or stripped:
+- fall back to embedded descriptor blobs, generated-code evidence, path strings, registration code, or live compare pairs
+- narrow fixture scope instead of pretending the whole service roster is already known
 
 ### Scenario B: Windows/custom RPC opnum known, but arguments are still folklore
 Pattern:
@@ -287,6 +318,9 @@ Best move:
 ## 9. What good output looks like
 A strong result from this workflow usually contains:
 - one chosen representative method/opcode family
+- one frozen route identity boundary
+  - method/path/opcode identity
+  - stream shape if relevant
 - one provenance-tagged request fixture, plus response/ack fixture if available
 - one reduced split of stable identity vs likely gate-bearing vs decorative fields
 - one minimal constructor / serializer / invocation path
@@ -320,8 +354,8 @@ recover one representative method contract
 ## 11. Sources and confidence
 Primary retained source influences for this page:
 - IOActive’s gRPC reversing walkthrough for service registration, vtable ordering, and method-bearing contract recovery
-- Windows RPC discovery / internal-structure notes from Clear Blue Jar and XPN for interface/procedure extraction patterns
-- Berkeley BitBlaze/Reverser framing for protocol/dialogue replay as the practical end state
+- protobuf descriptor extraction and recovery material summarized in:
+  - `sources/firmware-protocol/2026-03-22-grpc-method-contract-minimal-fixture-notes.md`
 - existing schema-externalization source note:
   - `sources/firmware-protocol/2026-03-21-schema-externalization-and-replay-harness-notes.md`
 
