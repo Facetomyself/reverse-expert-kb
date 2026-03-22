@@ -258,9 +258,11 @@ Why it helps:
 ### C. Dynamic function-table callback owns generated-code exceptions
 Use when:
 - protected or generated code lacks useful static exception metadata, yet runtime callback registration makes the exceptional path valid only after installation
+- traces keep landing in dispatcher-side machinery, but the owning code range only becomes explainable after `RtlInstallFunctionTableCallback` / `RtlAddFunctionTable` / growable-table installation is correlated with the generated region
 
 Why it helps:
 - it explains why static analysis stays close-but-wrong until runtime-installed ownership is considered
+- it keeps the analyst from overcommitting to broken static unwind assumptions when the real ownership is created at runtime
 
 ### D. Linux signal handler converts trap/fault into hidden continuation
 Use when:
@@ -396,5 +398,11 @@ The page intentionally stays conservative:
 Exception-handler-owned control transfer is a practical workflow for cases where traps, faults, breakpoints, or signal delivery appear to own the real branch.
 
 It matters because some protected targets hide meaningful control transfer in handler registration, unwind metadata, signal delivery, or resume logic rather than in ordinary visible direct calls.
+
+The useful move is to reduce the case into one ownership boundary, one consequence-bearing handler action, and one quieter post-handler target.se some protected targets hide meaningful control transfer in handler registration, unwind metadata, signal delivery, or resume logic rather than in ordinary visible direct calls.
+
+The useful move is to reduce the case into one ownership boundary, one consequence-bearing handler action, and one quieter post-handler target.ers because some protected targets hide meaningful control transfer in handler registration, unwind metadata, signal delivery, or resume logic rather than in ordinary visible direct calls.
+
+The useful move is to reduce the case into one ownership boundary, one consequence-bearing handler action, and one quieter post-handler target., and one quieter post-handler target.ers because some protected targets hide meaningful control transfer in handler registration, unwind metadata, signal delivery, or resume logic rather than in ordinary visible direct calls.
 
 The useful move is to reduce the case into one ownership boundary, one consequence-bearing handler action, and one quieter post-handler target.
