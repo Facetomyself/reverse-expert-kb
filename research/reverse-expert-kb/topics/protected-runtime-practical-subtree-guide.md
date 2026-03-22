@@ -68,7 +68,7 @@ Protected-runtime practical work is easiest to navigate when the analyst first c
 11. **integrity / tamper consequence proof**
    - checks are visible, but the first reduced result or consequence-bearing tripwire is still unclear
 12. **exception-handler-owned control transfer**
-   - visible direct control flow stays incomplete or misleading because handler registration, unwind lookup, signal delivery, or trap-resume logic owns the meaningful branch
+   - visible direct control flow stays incomplete or misleading because handler registration, dispatcher-side landing, unwind lookup, signal delivery, or trap-resume logic owns the meaningful branch
 
 A compact operator ladder for this branch is:
 
@@ -262,7 +262,7 @@ Use:
 
 Start here when:
 - visible direct control flow still looks incomplete or misleading because traps, faults, breakpoints, or signal delivery may own the meaningful branch
-- Windows VEH/SEH, unwind metadata, dynamic function-table installation, Linux signal handlers, or trap-resume logic look like the real transfer surface
+- Windows VEH/SEH, dispatcher-side landing, unwind metadata, dynamic function-table installation, Linux signal handlers, or trap-resume logic look like the real transfer surface
 - the next useful output is one handler-ownership boundary plus one consequence-bearing context/state action before resuming ordinary route proof
 
 Do **not** start here when:
