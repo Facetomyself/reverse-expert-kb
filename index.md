@@ -264,6 +264,8 @@ This branch should now be read as a practical bridge from runtime-evidence synth
 - `topics/malware-request-builder-to-send-boundary-workflow-note.md`
 - `topics/malware-persistence-consumer-localization-workflow-note.md`
 - `topics/malware-service-servicemain-consumer-proof-workflow-note.md`
+- `topics/malware-wmi-permanent-event-subscription-consumer-proof-workflow-note.md`
+- `topics/malware-com-clsid-hijack-consumer-proof-workflow-note.md`
 
 The persistence-consumer step now explicitly includes thinner startup-side families such as Windows service / ServiceMain-owned startup chains, WMI permanent event subscriptions, and COM/CLSID-resolution hijack paths, not only Run-key, Scheduled Task, or service-install examples, and the malware branch now preserves dedicated narrower continuation leaves for service, WMI, and COM/CLSID consumer-proof work.
 - `topics/malware-sleep-jitter-and-environment-gate-workflow-note.md`
