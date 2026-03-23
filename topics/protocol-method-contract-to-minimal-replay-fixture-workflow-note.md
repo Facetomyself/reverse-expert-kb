@@ -16,6 +16,7 @@ Supporting source notes:
 - sources/firmware-protocol/2026-03-22-grpc-method-contract-minimal-fixture-notes.md
 - sources/firmware-protocol/2026-03-23-streaming-first-minimal-replay-fixture-notes.md
 - sources/firmware-protocol/2026-03-23-streaming-and-opnum-minimal-replay-fixture-notes.md
+- sources/firmware-protocol/2026-03-23-opnum-and-timeout-lifecycle-minimal-replay-notes.md
 
 ## 1. When to use this note
 Use this note when a protocol or RPC-shaped case has already progressed far enough that:
@@ -167,6 +168,10 @@ For Windows RPC-like families, a compact first route core is often:
 - opnum
 - one representative argument family
 
+A practical lifecycle rule worth preserving here is:
+- if the representative call is async-, timeout-, or completion-shaped, fixture identity may also need one explicit statement of deadline/timeout posture and what counts as the expected completion artifact
+- otherwise later `timeout`, `cancel`, or stale/late reply behavior can be misread as argument-shape failure when the real difference is request lifecycle reproduction
+
 The goal is not perfect semantics.
 The goal is to stop treating every field as equally mysterious.
 
@@ -212,6 +217,7 @@ Also preserve the layer and provenance explicitly:
 - whether reflection / descriptor metadata was available or whether the fixture was recovered under a weaker compare-driven model
 - for streaming methods, whether ordering and close semantics are preserved inside the fixture package
 - for Windows RPC, whether the package already includes binding/context assumptions or still depends on ambient runtime state
+- for async / timeout-sensitive methods, whether the package preserves the original call lifecycle closely enough to explain expected `success`, `timeout`, `cancel`, `late reply`, or deferred-completion behavior
 
 Keep the package small enough that a later analyst can:
 - diff two runs
@@ -244,6 +250,7 @@ Typical blockers:
 - output-side handoff still not proved
 - for streaming methods, close / half-close, message ordering, or stream-lifecycle reproduction still incomplete
 - for Windows RPC, binding/authn level, transfer syntax, or context-handle lifecycle still ambient rather than frozen into the fixture package
+- for async / completion-sensitive methods, timeout/deadline posture, cancellation behavior, or the difference between server-side completion and client-side timeout is still ambient rather than frozen into the fixture package
 
 A fixture package without this blocker list invites overclaiming.
 
@@ -348,7 +355,26 @@ Best move:
 - preserve binding or endpoint assumptions explicitly
 - build one minimal call surface before widening argument taxonomy
 
-### Scenario D: Proprietary command protocol already has one opcode contract
+### Scenario D: Async method looks right, but the client fixture lies about completion
+Pattern:
+
+```text
+method/opnum identity looks right
+  -> arguments or payload shape look plausible
+  -> replay still appears to "fail"
+  -> client times out, cancels, or declares failure before the original completion/lifecycle boundary
+  -> server-side work may still complete or emit a late reply
+```
+
+Best move:
+- freeze one representative lifecycle statement in the fixture package:
+  - expected deadline/timeout posture
+  - whether client cancellation is part of the observed path
+  - whether success is synchronous reply, deferred completion, or late reply after caller patience expires
+- do not immediately reinterpret this as argument-shape failure
+- hold timeout/close/cancel posture constant in the first compare pair before varying payload fields
+
+### Scenario E: Proprietary command protocol already has one opcode contract
 Pattern:
 
 ```text
@@ -372,6 +398,7 @@ A strong result from this workflow usually contains:
 - one provenance-tagged request fixture, plus response/ack fixture if available
 - for streaming cases, one truthful ordered slice and explicit close / half-close statement
 - for Windows RPC, one representative argument bundle plus explicit binding/context assumptions
+- for async / timeout-sensitive cases, one explicit statement of expected completion style and deadline/timeout/cancel posture
 - one reduced split of stable identity vs likely gate-bearing vs decorative fields
 - one minimal constructor / serializer / invocation path
 - one conservative edit compare pair
