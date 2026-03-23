@@ -367,6 +367,7 @@ Primary note:
 
 Routing reminder:
 - leave broad packed-startup work here once one trustworthy OEP-like boundary and one downstream ordinary-code anchor are already good enough
+- in Windows/native packed cases, do not collapse raw PE entry, raw post-unpack transfer, and the first payload-bearing post-startup handoff into one event when TLS callbacks, CRT/runtime startup, or constructor/init-table work clearly separate them
 
 Possible next handoff:
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md` when unpacking is solved but later protected execution still dominates

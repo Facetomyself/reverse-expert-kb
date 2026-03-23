@@ -252,7 +252,7 @@ It should also preserve where the analyst is supposed to enter and leave the bra
 - reposition observation when the current topology is itself the unstable thing
 - reduce noisy protected execution into one stable semantic anchor before broadening the case again
 - reduce a recognizable flattened dispatcher or protected state machine into one durable state edge once the anchor already exists
-- hand off out of staged bootstrap into one trustworthy post-protection target
+- hand off out of staged bootstrap into one trustworthy post-protection target, while keeping Windows/native startup-normalization reality explicit when TLS callbacks, CRT/runtime startup, or constructor/init-table work still separate a raw post-unpack transfer from the first payload-bearing post-startup handoff
 - prove the first ordinary consumer of one recovered artifact
 - recover the smallest runtime artifact or init obligation that explains close-but-wrong replay
 - reduce visible checks into one first consequence-bearing tripwire

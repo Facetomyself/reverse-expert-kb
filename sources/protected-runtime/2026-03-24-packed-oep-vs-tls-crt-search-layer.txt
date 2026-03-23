@@ -1,0 +1,623 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "PE TLS callbacks packer OEP unpacking reverse engineering",
+    "Windows PE TLS callback original entry point unpacking staged loader reverse engineering",
+    "CRT startup entry point WinMain unpacker OEP vs real payload reverse engineering"
+  ],
+  "count": 32,
+  "results": [
+    {
+      "title": "How to unpack files packed with multiple packers?",
+      "url": "https://reverseengineering.stackexchange.com/questions/2552/how-to-unpack-files-packed-with-multiple-packers",
+      "snippet": "Finding OEP and unpacking Malware packed with ASPACK 2.12 - try ... Fravia's archive pages of reverse engineering · Overview of PE file",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7143
+    },
+    {
+      "title": "Packed Binaries and how to unpack them",
+      "url": "https://dplastico.github.io/sin%20categor%C3%ADa/2022/04/21/packed-binaries.html",
+      "snippet": "Even commercial packers can complicate the reverse engineering process... Understanding packing mechanisms, TLS callbacks in packers, finding OEP, and unpacking techniques for malware analysis and reverse engineering.",
+      "published_date": "2022-04-21",
+      "source": "grok",
+      "score": 0.67
+    },
+    {
+      "title": "I built a Windows PE packer in C with manual loading, compression ...",
+      "url": "https://www.reddit.com/r/ReverseEngineering/comments/1m0ga3i/i_built_a_windows_pe_packer_in_c_with_manual/",
+      "snippet": "It first encrypts and compresses the entire input executable, then, the unpacking routine does the reverse operations and then begins to manual",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6286
+    },
+    {
+      "title": "A Windows executable (PE) loader (x86 and x64) with full TLS ...",
+      "url": "https://www.reddit.com/r/ReverseEngineering/comments/1llnrjx/a_windows_executable_pe_loader_x86_and_x64_with/",
+      "snippet": "Reverse-engineering Claude Code: mapping minified variable names, sandbox-exec SBPL policies, and inconsistent safety behaviors across agent",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6286
+    },
+    {
+      "title": "Is finding OEP necessary? : r/AskReverseEngineering",
+      "url": "https://www.reddit.com/r/AskReverseEngineering/comments/1k4s6wg/is_finding_oep_necessary/",
+      "snippet": "Olly Debugger can do one better: if you go into their settings, you'll find options to break at the entry point (meaning it'll immediately pause",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6286
+    },
+    {
+      "title": "Exe protection by TLS callback, trying to understand the behaviour",
+      "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour",
+      "snippet": "Reverse Engineering Stack Exchange discussion on TLS callback anti-debugging in packed executables (e.g., FSG protector); explains execution before entry point, exception handling by Windows loader, and implications for unpacking/debugging.",
+      "published_date": "2017-11-25",
+      "source": "grok",
+      "score": 0.5914
+    },
+    {
+      "title": "[PDF] Fast & Furious reverse engineering | TitanEngine - Black Hat",
+      "url": "https://blackhat.com/presentations/bh-usa-09/VUKSAN/BHUSA09-Vuksan-FastFurious-PAPER.pdf",
+      "snippet": "DOS PE Sections (encrypted) STUB Overlay Internal data decryption Section decryption Import resolving Original Entry Point jump Figure (1) Crypter file & execution layout 5 Introduction to dynamic unpackers Most common unpacker type is dynamic. DOS PE Sections (compressed) STUB Overlay Section decompression Relocation to new base Import Resolving & TLS callback execution Original Entry Point jump Figure (2) Packer file & execution layout 6 GetPEData Your code Finalize unpacking StopDebug(); Introduction to generic unpackers Most complex way of creating unpackers is creating generic unpackers. This code uses LoadLibrary or GetModuleHandle API to load the dependent .dll files and GetProcAddress to find the locations of the necessary APIs. When this is done you need to break on original entry point, dump the file and paste imports to it. 8 GetPEData SetBPX Import fix Relocation fix Entry point StopDebug(); Now you need to load the unpacked file OEP (this depends on the packer code) and dump the debugged process with DumpProcess.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5571
+    },
+    {
+      "title": "Exe protection by TLS callback, trying to understand the behaviour",
+      "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour?rq=1",
+      "snippet": "It is an old anti-debugging trick to use the TLS callback. The code in the TLS gets executed before the executables entry point and the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5429
+    },
+    {
+      "title": "Deep Dive into Windows PE Internals",
+      "url": "https://medium.com/@trmz/deep-dive-into-windows-pe-internals-c0d0ca6e1813",
+      "snippet": "Malware uses TLS callbacks for: Debugger detection before main code; Unpacking before analysis; Decryption before execution; Many debuggers don't break on TLS callbacks by default. TLS callbacks are functions executed before the entry point.",
+      "published_date": "2026-02-01",
+      "source": "grok, exa, tavily",
+      "score": 0.5286
+    },
+    {
+      "title": "Reverse Engineering Encrypted Code Segments",
+      "url": "https://ryancor.medium.com/reverse-engineering-encrypted-code-segments-b01aead67701",
+      "snippet": "In short, CRT's entry point initializes the global state and then ... OEP (Original Entry Point). Press enter or click to view image in",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.5286
+    },
+    {
+      "title": "The Art of Unpacking",
+      "url": "https://blackhat.com/presentations/bh-usa-07/Yason/Whitepaper/bh-usa-07-yason-WP.pdf",
+      "snippet": "Packers may perform its debugger detection and decryption routines via these callback functions so that the reverser will not be able to trace these routines. ... TLS callbacks can be identified using PE file parsing tools such as pedump. ... Packers use TLS Callbacks to execute code before the actual entry point.",
+      "published_date": "",
+      "source": "grok, exa",
+      "score": 0.5143
+    },
+    {
+      "title": "Note that WinMain isn't the \"real\" entry point either. The C ...",
+      "url": "https://news.ycombinator.com/item?id=24112945",
+      "snippet": "Note that WinMain isn't the \"real\" entry point either. The C runtime calls WinMain after doing its startup. By convention the entry point is",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5
+    },
+    {
+      "title": "Real PE32(+) entry point - is it documented anywhere?",
+      "url": "https://reverseengineering.stackexchange.com/questions/6905/real-pe32-entry-point-is-it-documented-anywhere/6912",
+      "snippet": "Microsoft documentation gives WinMain() as the entry point for a Windows program, but unlike DllMain() it seems to be a pure fiction arranged by",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.5
+    },
+    {
+      "title": "Packing and Unpacking study notes Pt-1 - 0x70RVS",
+      "url": "https://7orvs.github.io/tutorials%20summaries/packing-notes-part1/",
+      "snippet": "",
+      "published_date": "2023-05-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4929
+    },
+    {
+      "title": "Bypassing Anti-Reverse Engineering Techniques - Packt Subscription",
+      "url": "https://subscription.packtpub.com/book/security/9781789610789/7/ch07lvl1sec07/tls-callbacks",
+      "snippet": "TLS callbacks. Many reverse engineers start the debugging phase from the entry point of the malware, which usually makes sense. However, some malicious code",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4714
+    },
+    {
+      "title": "Why Packers Are Malware's Best Defense - YouTube",
+      "url": "https://www.youtube.com/watch?v=9F8NVXxYvws",
+      "snippet": "... packer's obfuscation and dump the hidden code from memory. ▶️ ... Automated Unpacking (Malware Analysis & Reverse Engineering). Anuj",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4714
+    },
+    {
+      "title": "Dissect Packed Malware 101 | 5hidobu",
+      "url": "https://5hidobu.github.io/2025-07-21-Dissect_Packed_Malware_101/",
+      "snippet": "",
+      "published_date": "2025-07-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "Hexpile - Malware Reverse Engineering: UPack 0.39 Unpacking",
+      "url": "http://hexpile.blogspot.com/2013/03/upack-039-unpacking.html",
+      "snippet": "",
+      "published_date": "2026-02-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4286
+    },
+    {
+      "title": "Analyzing TLS Callbacks - Ring Zero Labs",
+      "url": "https://www.ringzerolabs.com/2019/08/analyzing-tls-callbacks.html",
+      "snippet": "In-depth explanation of TLS callbacks in PE files for malware anti-analysis, including debugger detection, polymorphic code, and unpacking before main entry point execution; discusses why malware uses them and analysis implications.",
+      "published_date": "2019-08",
+      "source": "grok",
+      "score": 0.4286
+    },
+    {
+      "title": "Part 4: Entry Points and TLS Callbacks",
+      "url": "https://www.youtube.com/watch?v=9K8WaZ53oOs",
+      "snippet": "",
+      "published_date": "2025-03-23T17:18:18.664Z",
+      "source": "exa",
+      "score": 0.3857
+    },
+    {
+      "title": "What are TLS Callbacks and How to Find Them!",
+      "url": "https://www.youtube.com/watch?v=zO3KSel22Mc",
+      "snippet": "",
+      "published_date": "2025-03-23T17:18:18.664Z",
+      "source": "exa",
+      "score": 0.3857
+    },
+    {
+      "title": "Developing PE file packer step-by-step. Step 6. TLS - Misc",
+      "url": "https://kaimi.io/en/2012/09/developing-pe-file-packer-step-by-step-step-6-tls/",
+      "snippet": "",
+      "published_date": "2012-09-21T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3857
+    },
+    {
+      "title": "Debugging TLS callbacks | Infosec",
+      "url": "https://www.infosecinstitute.com/resources/reverse-engineering/debugging-tls-callbacks/",
+      "snippet": "When a particular malware employed with TLS callbacks is loaded into a debugger, the malware finishes its work before the debugger stops at the entry point.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3857
+    },
+    {
+      "title": "Recognizing Packed Malware and its Unpacking Approaches - Part 2",
+      "url": "https://www.infosecinstitute.com/resources/malware-analysis/recognizing-packed-malware-and-its-unpacking-approaches-part-2",
+      "snippet": "We could also face situations in which malicious author used TLS to execute the code before the OEP. In these cases, we need to make sure that we recognize these TLS callback functions... We have used Scylla and OllyDBG to find OEP, fix IAT and imports to create a running unpacked process.",
+      "published_date": "2016-11-03",
+      "source": "grok",
+      "score": 0.3486
+    },
+    {
+      "title": "Unpacker: A Practical Guide to Modular Malware Packer Detection ...",
+      "url": "https://infosecwriteups.com/unpacker-a-practical-guide-to-modular-malware-packer-detection-and-unpacking-cf8ba924f25b",
+      "snippet": "",
+      "published_date": "2026-02-28T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "Unpacking StrelaStealer – Kyle Cucci's Cyber Ramblings",
+      "url": "https://securityliterate.com/unpacking-strela-stealer/",
+      "snippet": "",
+      "published_date": "2024-03-14T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.3429
+    },
+    {
+      "title": "Tutorial: Finding the OEP of an Upacked binary file | :wq – blog",
+      "url": "https://writequit.org/blog/index.html%3Fp=150.html",
+      "snippet": "In this tutorial I'm going to attempt to explain how to find the OEP (Original Entry Point) of a binary executable that has been packed with the Upack/WinUpack",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "SecMem Security: Dealing with UPX Packed Executables",
+      "url": "http://secmem.blogspot.com/2013/07/dealing-with-upx-packed-executables.html",
+      "snippet": "",
+      "published_date": "2026-02-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "02.IDENTIFYING MAIN() IN STRIPPED BINARIES | CND",
+      "url": "https://git.cnd.dev/playbook/sre/reverse-engineering/02.pre-analysis/02.identifying-main-in-stripped-binaries",
+      "snippet": "",
+      "published_date": "2025-05-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Why Is The PE Entry Point Not The Same As Main Understanding ...",
+      "url": "https://www.patreon.com/posts/why-is-pe-entry-61343353",
+      "snippet": "",
+      "published_date": "2022-01-18T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.3
+    },
+    {
+      "title": "debugging CRT startup code in OllyDbg - WINDBG",
+      "url": "https://community.osr.com/t/debugging-crt-startup-code-in-ollydbg/45653",
+      "snippet": "",
+      "published_date": "2012-07-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "WinMain is just the conventional name for the Win32 process entry point",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20110525-00?p=10573",
+      "snippet": "Official Microsoft explanation: WinMain is the conventional user-provided entry point, but the actual PE entry point runs language-provided startup code (CRT) that handles initialization before calling WinMain. Relevant to understanding unpacked vs packed behavior.",
+      "published_date": "2011-05-25",
+      "source": "grok",
+      "score": 0.22
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Unpacker: A Practical Guide to Modular Malware Packer Detection ...",
+        "url": "https://infosecwriteups.com/unpacker-a-practical-guide-to-modular-malware-packer-detection-and-unpacking-cf8ba924f25b",
+        "snippet": "",
+        "published_date": "2026-02-28T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "Hexpile - Malware Reverse Engineering: UPack 0.39 Unpacking",
+        "url": "http://hexpile.blogspot.com/2013/03/upack-039-unpacking.html",
+        "snippet": "",
+        "published_date": "2026-02-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4286
+      },
+      {
+        "title": "SecMem Security: Dealing with UPX Packed Executables",
+        "url": "http://secmem.blogspot.com/2013/07/dealing-with-upx-packed-executables.html",
+        "snippet": "",
+        "published_date": "2026-02-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Packing and Unpacking study notes Pt-1 - 0x70RVS",
+        "url": "https://7orvs.github.io/tutorials%20summaries/packing-notes-part1/",
+        "snippet": "",
+        "published_date": "2023-05-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4929
+      },
+      {
+        "title": "Unpacking StrelaStealer – Kyle Cucci's Cyber Ramblings",
+        "url": "https://securityliterate.com/unpacking-strela-stealer/",
+        "snippet": "",
+        "published_date": "2024-03-14T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.3429
+      },
+      {
+        "title": "Deep Dive into Windows PE Internals | by trmz | Feb, 2026",
+        "url": "https://medium.com/@trmz/deep-dive-into-windows-pe-internals-c0d0ca6e1813",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "The Art of Unpacking",
+        "url": "https://blackhat.com/presentations/bh-usa-07/Yason/Whitepaper/bh-usa-07-yason-WP.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Part 4: Entry Points and TLS Callbacks",
+        "url": "https://www.youtube.com/watch?v=9K8WaZ53oOs",
+        "snippet": "",
+        "published_date": "2025-03-23T17:18:18.664Z",
+        "source": "exa",
+        "score": 0.3857
+      },
+      {
+        "title": "What are TLS Callbacks and How to Find Them!",
+        "url": "https://www.youtube.com/watch?v=zO3KSel22Mc",
+        "snippet": "",
+        "published_date": "2025-03-23T17:18:18.664Z",
+        "source": "exa",
+        "score": 0.3857
+      },
+      {
+        "title": "Developing PE file packer step-by-step. Step 6. TLS - Misc",
+        "url": "https://kaimi.io/en/2012/09/developing-pe-file-packer-step-by-step-step-6-tls/",
+        "snippet": "",
+        "published_date": "2012-09-21T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3857
+      },
+      {
+        "title": "Is finding OEP necessary? : r/AskReverseEngineering - Reddit",
+        "url": "https://www.reddit.com/r/AskReverseEngineering/comments/1k4s6wg/is_finding_oep_necessary/",
+        "snippet": "",
+        "published_date": "2025-04-22T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "02.IDENTIFYING MAIN() IN STRIPPED BINARIES | CND",
+        "url": "https://git.cnd.dev/playbook/sre/reverse-engineering/02.pre-analysis/02.identifying-main-in-stripped-binaries",
+        "snippet": "",
+        "published_date": "2025-05-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Why Is The PE Entry Point Not The Same As Main Understanding ...",
+        "url": "https://www.patreon.com/posts/why-is-pe-entry-61343353",
+        "snippet": "",
+        "published_date": "2022-01-18T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.3
+      },
+      {
+        "title": "debugging CRT startup code in OllyDbg - WINDBG",
+        "url": "https://community.osr.com/t/debugging-crt-startup-code-in-ollydbg/45653",
+        "snippet": "",
+        "published_date": "2012-07-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Dissect Packed Malware 101 | 5hidobu",
+        "url": "https://5hidobu.github.io/2025-07-21-Dissect_Packed_Malware_101/",
+        "snippet": "",
+        "published_date": "2025-07-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.45
+      }
+    ],
+    "tavily": [
+      {
+        "title": "[PDF] Fast & Furious reverse engineering | TitanEngine - Black Hat",
+        "url": "https://blackhat.com/presentations/bh-usa-09/VUKSAN/BHUSA09-Vuksan-FastFurious-PAPER.pdf",
+        "snippet": "DOS PE Sections (encrypted) STUB Overlay Internal data decryption Section decryption Import resolving Original Entry Point jump Figure (1) Crypter file & execution layout 5 Introduction to dynamic unpackers Most common unpacker type is dynamic. DOS PE Sections (compressed) STUB Overlay Section decompression Relocation to new base Import Resolving & TLS callback execution Original Entry Point jump Figure (2) Packer file & execution layout 6 GetPEData Your code Finalize unpacking StopDebug(); Introduction to generic unpackers Most complex way of creating unpackers is creating generic unpackers. This code uses LoadLibrary or GetModuleHandle API to load the dependent .dll files and GetProcAddress to find the locations of the necessary APIs. When this is done you need to break on original entry point, dump the file and paste imports to it. 8 GetPEData SetBPX Import fix Relocation fix Entry point StopDebug(); Now you need to load the unpacked file OEP (this depends on the packer code) and dump the debugged process with DumpProcess.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5571
+      },
+      {
+        "title": "How to unpack files packed with multiple packers?",
+        "url": "https://reverseengineering.stackexchange.com/questions/2552/how-to-unpack-files-packed-with-multiple-packers",
+        "snippet": "Finding OEP and unpacking Malware packed with ASPACK 2.12 - try ... Fravia's archive pages of reverse engineering · Overview of PE file",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7143
+      },
+      {
+        "title": "Bypassing Anti-Reverse Engineering Techniques - Packt Subscription",
+        "url": "https://subscription.packtpub.com/book/security/9781789610789/7/ch07lvl1sec07/tls-callbacks",
+        "snippet": "TLS callbacks. Many reverse engineers start the debugging phase from the entry point of the malware, which usually makes sense. However, some malicious code",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4714
+      },
+      {
+        "title": "I built a Windows PE packer in C with manual loading, compression ...",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/1m0ga3i/i_built_a_windows_pe_packer_in_c_with_manual/",
+        "snippet": "It first encrypts and compresses the entire input executable, then, the unpacking routine does the reverse operations and then begins to manual",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6286
+      },
+      {
+        "title": "Why Packers Are Malware's Best Defense - YouTube",
+        "url": "https://www.youtube.com/watch?v=9F8NVXxYvws",
+        "snippet": "... packer's obfuscation and dump the hidden code from memory. ▶️ ... Automated Unpacking (Malware Analysis & Reverse Engineering). Anuj",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4714
+      },
+      {
+        "title": "Deep Dive into Windows PE Internals | by trmz | Feb, 2026 | Medium",
+        "url": "https://medium.com/@trmz/deep-dive-into-windows-pe-internals-c0d0ca6e1813",
+        "snippet": "Reverse Engineering: Locating entry points ... storage and provides TLS callbacks — functions executed before the entry point:.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Exe protection by TLS callback, trying to understand the behaviour",
+        "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour?rq=1",
+        "snippet": "It is an old anti-debugging trick to use the TLS callback. The code in the TLS gets executed before the executables entry point and the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5429
+      },
+      {
+        "title": "Debugging TLS callbacks | Infosec",
+        "url": "https://www.infosecinstitute.com/resources/reverse-engineering/debugging-tls-callbacks/",
+        "snippet": "When a particular malware employed with TLS callbacks is loaded into a debugger, the malware finishes its work before the debugger stops at the entry point.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3857
+      },
+      {
+        "title": "Developing PE file packer step-by-step. Step 6. TLS - Misc",
+        "url": "https://kaimi.io/en/2012/09/developing-pe-file-packer-step-by-step-step-6-tls/",
+        "snippet": "tls->get\\_tls\\_callbacks().empty())  {  //It is necessary to reserve memory  //for original TLS callback addresses  //Plus 1 cell for null DWORD  DWORD first\\_callback\\_offset = data.size();  data.resize(data.size() + sizeof(DWORD) \\* (tls->get\\_tls\\_callbacks().size() + 1));    //First callback will be our empty one (ret 0xC),  //Write its address  \\*reinterpret\\_cast<DWORD\\*>(&data[first\\_callback\\_offset]) =  image.rva\\_to\\_va\\_32(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, empty\\_tls\\_callback\\_offset));    //Write relative virtual address  //of new TLS callbacks table  tls->set\\_callbacks\\_rva(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, first\\_callback\\_offset));    //Now write new callbacks table relative address  //to packed\\_file\\_info structure, which is placed at  //the beginning of first section  reinterpret\\_cast<packed\\_file\\_info\\*>(&image.get\\_image\\_sections().at(0).get\\_raw\\_data()[0])->new\\_rva\\_of\\_tls\\_callbacks = tls->get\\_callbacks\\_rva();  }  else  {  //If no callbacks exist, let's set address to null just in case  tls->set\\_callbacks\\_rva(0);  }    //Clean up callback array, we don't need them anymore  //We created them manually  tls->clear\\_tls\\_callbacks();    //Set new relative address  //of data used to initialize thread local memory  tls->set\\_raw\\_data\\_start\\_rva(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, data.size()));  //Recalculate the address of these data end  tls->recalc\\_raw\\_data\\_end\\_rva();    //Rebuild TLS  //Notify the rebuilder, that it is not needed to write data and callbacks  //We do this manually (callbacks are already written to the right places)  //Also we indicate that we don't need to strip null bytes at the end of the section  image.rebuild\\_tls(\\*tls, unpacker\\_added\\_section, directory\\_pos, false, false, pe\\_base::tls\\_data\\_expand\\_raw, true, false);    //Add data used to initialize local thread memory to the section  unpacker\\_added\\_section.get\\_raw\\_data() += tls->get\\_raw\\_data();  //Now set \"coderpub\" section virtual size  //taking into account SizeOfZeroFill of TLS field  image.set\\_section\\_virtual\\_size(unpacker\\_added\\_section, data.size() + tls->get\\_size\\_of\\_zero\\_fill());  //At last, strip unnecessary null bytes at the end of the section  pe\\_base::strip\\_nullbytes(unpacker\\_added\\_section.get\\_raw\\_data());  //and recalculate its sizes (raw and virtual)  image.prepare\\_section(unpacker\\_added\\_section);  } |.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "A Windows executable (PE) loader (x86 and x64) with full TLS ...",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/1llnrjx/a_windows_executable_pe_loader_x86_and_x64_with/",
+        "snippet": "Reverse-engineering Claude Code: mapping minified variable names, sandbox-exec SBPL policies, and inconsistent safety behaviors across agent",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6286
+      },
+      {
+        "title": "Reverse Engineering Encrypted Code Segments",
+        "url": "https://ryancor.medium.com/reverse-engineering-encrypted-code-segments-b01aead67701",
+        "snippet": "In short, CRT's entry point initializes the global state and then ... OEP (Original Entry Point). Press enter or click to view image in",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.5286
+      },
+      {
+        "title": "Note that WinMain isn't the \"real\" entry point either. The C ...",
+        "url": "https://news.ycombinator.com/item?id=24112945",
+        "snippet": "Note that WinMain isn't the \"real\" entry point either. The C runtime calls WinMain after doing its startup. By convention the entry point is",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5
+      },
+      {
+        "title": "Tutorial: Finding the OEP of an Upacked binary file | :wq – blog",
+        "url": "https://writequit.org/blog/index.html%3Fp=150.html",
+        "snippet": "In this tutorial I'm going to attempt to explain how to find the OEP (Original Entry Point) of a binary executable that has been packed with the Upack/WinUpack",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "Real PE32(+) entry point - is it documented anywhere?",
+        "url": "https://reverseengineering.stackexchange.com/questions/6905/real-pe32-entry-point-is-it-documented-anywhere/6912",
+        "snippet": "Microsoft documentation gives WinMain() as the entry point for a Windows program, but unlike DllMain() it seems to be a pure fiction arranged by",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.5
+      },
+      {
+        "title": "Is finding OEP necessary? : r/AskReverseEngineering",
+        "url": "https://www.reddit.com/r/AskReverseEngineering/comments/1k4s6wg/is_finding_oep_necessary/",
+        "snippet": "Olly Debugger can do one better: if you go into their settings, you'll find options to break at the entry point (meaning it'll immediately pause",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6286
+      }
+    ],
+    "grok": [
+      {
+        "title": "The Art of Unpacking",
+        "url": "https://blackhat.com/presentations/bh-usa-07/Yason/Whitepaper/bh-usa-07-yason-WP.pdf",
+        "snippet": "Packers may perform its debugger detection and decryption routines via these callback functions so that the reverser will not be able to trace these routines. ... TLS callbacks can be identified using PE file parsing tools such as pedump. ... Packers use TLS Callbacks to execute code before the actual entry point.",
+        "published_date": "",
+        "source": "grok, exa",
+        "score": 0.5143
+      },
+      {
+        "title": "Recognizing Packed Malware and its Unpacking Approaches - Part 2",
+        "url": "https://www.infosecinstitute.com/resources/malware-analysis/recognizing-packed-malware-and-its-unpacking-approaches-part-2",
+        "snippet": "We could also face situations in which malicious author used TLS to execute the code before the OEP. In these cases, we need to make sure that we recognize these TLS callback functions... We have used Scylla and OllyDBG to find OEP, fix IAT and imports to create a running unpacked process.",
+        "published_date": "2016-11-03",
+        "source": "grok",
+        "score": 0.3486
+      },
+      {
+        "title": "Deep Dive into Windows PE Internals",
+        "url": "https://medium.com/@trmz/deep-dive-into-windows-pe-internals-c0d0ca6e1813",
+        "snippet": "Malware uses TLS callbacks for: Debugger detection before main code; Unpacking before analysis; Decryption before execution; Many debuggers don't break on TLS callbacks by default. TLS callbacks are functions executed before the entry point.",
+        "published_date": "2026-02-01",
+        "source": "grok, exa, tavily",
+        "score": 0.5286
+      },
+      {
+        "title": "Packed Binaries and how to unpack them",
+        "url": "https://dplastico.github.io/sin%20categor%C3%ADa/2022/04/21/packed-binaries.html",
+        "snippet": "Even commercial packers can complicate the reverse engineering process... Understanding packing mechanisms, TLS callbacks in packers, finding OEP, and unpacking techniques for malware analysis and reverse engineering.",
+        "published_date": "2022-04-21",
+        "source": "grok",
+        "score": 0.67
+      },
+      {
+        "title": "Unpacking StrelaStealer",
+        "url": "https://securityliterate.com/unpacking-strela-stealer",
+        "snippet": "When the sample first executes, it makes two TLS callbacks... In x64dbg, run past TLS callbacks to reach the unpacking stub, then step to find the jump or call to the OEP of the payload.",
+        "published_date": "2024-03-14",
+        "source": "grok"
+      },
+      {
+        "title": "The Art of Unpacking",
+        "url": "https://blackhat.com/presentations/bh-usa-07/Yason/Whitepaper/bh-usa-07-yason-WP.pdf",
+        "snippet": "Comprehensive whitepaper on anti-reversing techniques in executable packers/protectors, including detailed coverage of TLS callbacks for executing code before the entry point, debugger detection, unpacking bypasses, and configuring debuggers like OllyDbg to break before TLS callbacks run.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Unpacking StrelaStealer - Kyle Cucci's Cyber Ramblings",
+        "url": "https://securityliterate.com/unpacking-strela-stealer",
+        "snippet": "Practical malware unpacking walkthrough of StrelaStealer using x64dbg; covers identifying TLS callbacks in PEStudio, running past them during debugging, locating staged payload decryption, stepping into calls to reach the OEP of the unpacked payload in a multi-stage loader.",
+        "published_date": "2024-03-14",
+        "source": "grok"
+      },
+      {
+        "title": "Analyzing TLS Callbacks - Ring Zero Labs",
+        "url": "https://www.ringzerolabs.com/2019/08/analyzing-tls-callbacks.html",
+        "snippet": "In-depth explanation of TLS callbacks in PE files for malware anti-analysis, including debugger detection, polymorphic code, and unpacking before main entry point execution; discusses why malware uses them and analysis implications.",
+        "published_date": "2019-08",
+        "source": "grok",
+        "score": 0.4286
+      },
+      {
+        "title": "Exe protection by TLS callback, trying to understand the behaviour",
+        "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour",
+        "snippet": "Reverse Engineering Stack Exchange discussion on TLS callback anti-debugging in packed executables (e.g., FSG protector); explains execution before entry point, exception handling by Windows loader, and implications for unpacking/debugging.",
+        "published_date": "2017-11-25",
+        "source": "grok",
+        "score": 0.5914
+      },
+      {
+        "title": "Recognizing Packed Malware and its Unpacking Approaches (Part 2)",
+        "url": "https://www.infosecinstitute.com/resources/malware-analysis/recognizing-packed-malware-and-its-unpacking-approaches-part-2",
+        "snippet": "Guide to unpacking packed malware with OllyDbg and Scylla, including finding OEP, fixing IAT, and handling cases where TLS callbacks execute code before OEP; covers anti-debugging and process hollowing scenarios in staged loaders.",
+        "published_date": "2016-11-03",
+        "source": "grok"
+      },
+      {
+        "title": "Real PE32(+) entry point - is it documented anywhere?",
+        "url": "https://reverseengineering.stackexchange.com/questions/6905/real-pe32-entry-point-is-it-documented-anywhere/6912",
+        "snippet": "Microsoft documentation gives WinMain() as the entry point for a Windows program, but unlike DllMain() it seems to be a pure fiction arranged by the compiler-provided startup code. The PE AddressOfEntryPoint points to framework initialization code that eventually calls WinMain after CRT setup.",
+        "published_date": "2014-12-28",
+        "source": "grok"
+      },
+      {
+        "title": "Why Is The PE Entry Point Not The Same As Main SEH and The _security_init_cookie",
+        "url": "https://www.patreon.com/posts/why-is-pe-entry-61343353",
+        "snippet": "Tutorial explaining why the PE Entry Point on an MSVC binary does not point to main/WinMain. It covers __security_init_cookie and __scrt_common_main_seh functions in the CRT startup code before reaching the real user entry point. Important for reverse engineering Windows binaries.",
+        "published_date": "2022-01-18",
+        "source": "grok"
+      },
+      {
+        "title": "Reverse Engineering Encrypted Code Segments",
+        "url": "https://ryancor.medium.com/reverse-engineering-encrypted-code-segments-b01aead67701",
+        "snippet": "Discusses CRT entry point (WinMainCRTStartup) initializing global state before handing off to main/WinMain. Covers finding OEP in packed/encrypted malware, dumping memory, and using tools like Scylla to rebuild imports after unpacking.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Packed Binaries and how to unpack them",
+        "url": "https://dplastico.github.io/sin%20categor%C3%ADa/2022/04/21/packed-binaries.html",
+        "snippet": "Explains packing in malware (e.g. UPX), differences in sections/entry points, and reverse engineering packed executables. Notes how packers change the entry point to an unpacking stub, contrasting with normal CRT startup to WinMain.",
+        "published_date": "2022-04-21",
+        "source": "grok"
+      },
+      {
+        "title": "WinMain is just the conventional name for the Win32 process entry point",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20110525-00?p=10573",
+        "snippet": "Official Microsoft explanation: WinMain is the conventional user-provided entry point, but the actual PE entry point runs language-provided startup code (CRT) that handles initialization before calling WinMain. Relevant to understanding unpacked vs packed behavior.",
+        "published_date": "2011-05-25",
+        "source": "grok",
+        "score": 0.22
+      }
+    ]
+  }
+}
