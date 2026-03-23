@@ -57,8 +57,8 @@ The useful analyst target is often:
 It is the smaller chain that predicts trustworthy behavior:
 - one side finishes writing a descriptor or completion record
 - one ownership or publish edge makes that record visible to the other side
-- ordering / cache / shadow-index semantics determine when the other side may trust it
-- one later completion-side reclaim, wakeup, used-index advance, or slot reuse proves that the earlier publish was actually consumed
+- ordering / cache / shadow-index / freshness semantics determine when the other side may trust it
+- one later completion-side reclaim, head advance, used-index advance, wakeup, or slot reuse proves that the earlier publish was actually consumed
 
 That chain is often more valuable than a broader catalog of queue fields.
 
@@ -81,10 +81,10 @@ The key discipline is:
 
 ## 4. What counts as ownership-transfer proof
 Treat these as high-value proof surfaces:
-- owner or valid bit transitions that clearly switch the slot from local-prepared to peer-consumable
+- owner, valid, or phase/freshness transitions that clearly switch the slot from local-prepared to peer-consumable
 - producer / tail / WR_IDX / used-index publication that changes which range is considered valid
-- shadow index updates in memory that software reads before touching completion records
-- MMIO RD_IDX or similar reclaim write that explicitly returns ownership to hardware or peer logic
+- shadow index or freshness-marker updates in memory that software reads before trusting completion records
+- MMIO RD_IDX, CQ head, or similar reclaim write that explicitly returns ownership to hardware or peer logic
 - compare-run evidence where identical descriptor fill exists in both runs, but only one run performs the publish edge that later leads to completion or reclaim
 
 Treat these as useful but often too early:
@@ -95,9 +95,10 @@ Treat these as useful but often too early:
 
 ## 5. What counts as completion-visibility proof
 Treat these as high-value proof surfaces:
-- completion record becomes readable only after the matching WR_IDX / owner / valid publication
+- completion record becomes trustworthy only after the matching WR_IDX / owner / valid / phase publication
 - software invalidates or otherwise synchronizes cache state before reading fresh completion content on non-coherent systems
-- used-index, reclaim path, or slot reuse occurs only after the completion record is visible and consumed
+- freshness is checked through the next expected slot, owner bit, or phase/tag rule before the record is treated as new
+- used-index, reclaim path, CQ head advance, or slot reuse occurs only after the completion record is visible and consumed
 - callback / waiter / worker carries the same request ID, descriptor ID, slot index, or queue position through the handoff
 - software writes the reclaim index or release marker only after consuming the completion record
 
@@ -179,13 +180,15 @@ This topic is especially valuable when analysts keep tripping over "the bytes ar
 
 Check explicitly for:
 - **publish order**
-  - completion / descriptor contents written before the publish index or owner bit moves
+  - completion / descriptor contents written before the publish index, owner bit, or freshness marker moves
 - **consume order**
-  - consuming side reads the visibility marker before treating the record contents as valid
+  - consuming side reads the visibility or freshness marker before treating the record contents as valid
 - **cache visibility**
   - non-coherent paths may require invalidation or explicit synchronization before completion bytes become trustworthy
 - **shadow-vs-MMIO split**
   - some designs publish progress into host memory first and only later reclaim through MMIO
+- **freshness rule**
+  - ring wrap, phase/tag toggles, or owner-bit polarity may define whether the next slot is actually new
 - **identity continuity**
   - request ID, slot index, descriptor pointer, or sequence tag survives from publish through reclaim
 
@@ -214,6 +217,9 @@ A completion record present in RAM is not the same thing as a completion record 
 ### 2. Treating interrupt arrival as publication proof
 Interrupts often accompany visibility; they are not the same thing as the ownership-transfer boundary.
 
+### 2.5 Treating populated completion bytes as fresh completion proof
+A slot can look structurally correct while still being stale under an owner/phase/tag rule.
+
 ### 3. Ignoring cache-coherency and stale-read problems
 If the system is non-coherent, software may still read stale completion bytes after the device wrote them.
 
@@ -237,6 +243,20 @@ device DMA-writes completion record
 
 Best move:
 - anchor on the record-write -> WR_IDX publication ordering, not the record bytes alone.
+
+### Scenario A2: Completion slot looks populated, but phase/owner freshness is still old
+Pattern:
+
+```text
+completion-shaped bytes are visible in the next slot
+  -> consumer still ignores the slot
+  -> wrap/phase/owner rule shows the slot is not fresh yet
+  -> later freshness transition occurs
+  -> only then do consumption and reclaim happen
+```
+
+Best move:
+- treat freshness semantics as part of the proof object rather than as an afterthought once the bytes "look right."
 
 ### Scenario B: Completion bytes exist, but stale cache hides them
 Pattern:
@@ -294,6 +314,7 @@ It is grounded by:
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `sources/protocol-and-network-recovery/2026-03-22-descriptor-ownership-transfer-and-completion-visibility-notes.md`
+- `sources/protocol-and-network-recovery/2026-03-24-descriptor-ownership-transfer-and-completion-visibility-notes.md`
 
 The external evidence used for this run repeatedly emphasized:
 - ordered publication of completion entries before publishing progress indices
