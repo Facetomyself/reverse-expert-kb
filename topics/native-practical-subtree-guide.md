@@ -11,6 +11,7 @@ Related pages:
 - topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md
 - topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md
 - topics/native-callback-registration-to-event-loop-consumer-workflow-note.md
+- topics/native-completion-port-and-thread-pool-first-consumer-workflow-note.md
 - topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md
 - topics/runtime-behavior-recovery.md
 
@@ -235,6 +236,7 @@ Primary note:
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 
 Common thinner continuation:
+- `topics/native-completion-port-and-thread-pool-first-consumer-workflow-note.md` when the async-ownership break has already narrowed specifically into posted work, completion packets, thread-pool callbacks, or queue-dequeue ownership rather than broad callback-plumbing truth
 - `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md` when the async-ownership break has already narrowed specifically into Win32 message-pump / subclass or Qt signal-slot ownership and the real bottleneck is one per-instance or per-connection first consumer rather than broad callback-plumbing truth
 
 Possible next handoff:

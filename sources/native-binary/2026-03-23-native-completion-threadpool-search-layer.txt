@@ -1,0 +1,828 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows IOCP completion packet callback worker thread reverse engineering",
+    "Windows thread pool callback object TP_WORK TP_IO reverse engineering",
+    "libuv async callback queue worker event loop reverse engineering",
+    "epoll event loop callback ownership consumer reverse engineering"
+  ],
+  "count": 43,
+  "results": [
+    {
+      "title": "PoolParty GitHub Repository - SafeBreach-Labs",
+      "url": "https://github.com/SafeBreach-Labs/PoolParty",
+      "snippet": "Proof-of-concept collection of fully-undetectable process injection techniques abusing Windows Thread Pools, explicitly covering TP_WORK, TP_IO, TP_WAIT, and other objects with implementation details from reverse engineering efforts.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.7333
+    },
+    {
+      "title": "GitHub - fin3ss3g0d/IoDllProxyLoad: DLL proxy load example using the Windows thread pool API, I/O completion callback with named pipes, and C++/assembly",
+      "url": "https://github.com/fin3ss3g0d/IoDllProxyLoad",
+      "snippet": "",
+      "published_date": "2024-03-19T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.7333
+    },
+    {
+      "title": "Add APIs to allow adding callbacks to worker/event loop queue from any thread · Pull Request #3938 · libuv/libuv",
+      "url": "https://github.com/libuv/libuv/pull/3938",
+      "snippet": "",
+      "published_date": "2023-03-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.7
+    },
+    {
+      "title": "Thread Pools - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/procthread/thread-pools",
+      "snippet": "# Thread Pools. ## Thread Pool Architecture. The following applications can benefit from using a thread pool:. The new thread pool is improved because it provides a single worker thread type (supports both I/O and non-I/O), does not use a timer thread, provides a single timer queue, and provides a dedicated persistent thread. * A default thread pool for each process. The following are best practices when using a thread pool:. * The threads of a process share the thread pool. These worker threads are managed by the thread pool. Canceling I/O on a thread pool thread requires synchronization because the cancel function might run on a different thread than the one that is handling the I/O request, which can result in cancellation of an unknown operation. * Before unloading a DLL that uses the thread pool, cancel all work items, I/O, wait operations, and timers, and wait for executing callbacks to complete. Using the Thread Pool Functions. Want to try using Ask Learn to clarify or guide you through this topic?",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.7
+    },
+    {
+      "title": "I/O Completion Ports - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports",
+      "snippet": "Processes that handle many concurrent asynchronous I/O requests can do so more quickly and efficiently by using I/O completion ports in conjunction with a pre-allocated thread pool than by creating threads at the time they receive an I/O request. A thread (either one created by the main thread or the main thread itself) uses the **GetQueuedCompletionStatus** function to wait for a completion packet to be queued to the I/O completion port, rather than waiting directly for the asynchronous I/O to complete. When a completion packet is queued to an I/O completion port, the system first checks how many threads associated with that port are running. Threads can use the PostQueuedCompletionStatus function to place completion packets in an I/O completion port's queue. The system also allows a thread waiting in GetQueuedCompletionStatus to process a completion packet if another running thread associated with the same I/O completion port enters a wait state for other reasons, for example the SuspendThread function.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.7
+    },
+    {
+      "title": "libuv/src/unix/async.c source code",
+      "url": "https://github.com/libuv/libuv/blob/v1.x/src/unix/async.c",
+      "snippet": "Source code implementation of the async handle (uv_async_t) which allows queueing callbacks from other threads into the event loop.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6667
+    },
+    {
+      "title": "libuv/src/unix/thread.c – worker threads and thread pool",
+      "url": "https://github.com/libuv/libuv/blob/v1.x/src/unix/thread.c",
+      "snippet": "Implementation of the thread pool used for blocking operations (file I/O, DNS, crypto, etc.) and how completed work is queued back to the event loop via async handles.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6667
+    },
+    {
+      "title": "GitHub - SafeBreach-Labs/PoolParty: A set of fully-undetectable process injection techniques abusing Windows Thread Pools",
+      "url": "https://github.com/safebreach-labs/poolparty",
+      "snippet": "",
+      "published_date": "2023-05-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6667
+    },
+    {
+      "title": "How libuv put callback function into event queue? · Issue #62 - GitHub",
+      "url": "https://github.com/libuv/help/issues/62",
+      "snippet": "Many people say that callback function is enqueued in Event Queue and event loop iterate that queue and process that callback function.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "libuv/src/queue.h – intrusive circular queue",
+      "url": "https://github.com/libuv/libuv/blob/v1.x/src/queue.h",
+      "snippet": "The QUEUE structure and macros used throughout libuv to manage callback queues, work queue, handle queues, and timer heaps.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6333
+    },
+    {
+      "title": "libuv/src/unix/core.c – main loop and run modes",
+      "url": "https://github.com/libuv/libuv/blob/v1.x/src/unix/core.c",
+      "snippet": "Core implementation of uv_run() showing how the event loop processes timers → pending callbacks → idle handles → prepared handles → I/O polling → check handles → closing handles, including how async callbacks are invoked.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6333
+    },
+    {
+      "title": "How to pass a callback function pointer to epoll_event structure in C++",
+      "url": "https://stackoverflow.com/questions/28446631/how-to-pass-a-callback-function-pointer-to-epoll-event-structure-in-c",
+      "snippet": "epoll_ctl() has an epoll_data_t union member of the epoll_event structure which can be used to execute a callback function on a timerfd event firing.",
+      "published_date": "",
+      "source": "tavily, exa, grok",
+      "score": 0.6333
+    },
+    {
+      "title": "Asynchronous I/O in C#: I/O Completion Ports - A sea of code",
+      "url": "https://dschenkelman.github.io/2013/10/29/asynchronous-io-in-c-io-completion-ports/",
+      "snippet": "# Asynchronous I/O in C#: I/O Completion Ports. As this article.aspx) explains, an I/O Completion Port (IOCP from now on) is a queue-like operating system object that can be used to simultaneously manage multiple I/O operations. Another alternative that some framework components implement is using IOCP together with completion port threads. I did not know about this before, but ThreadPool threads can be either worker threads or completion port threads (this is explained with detail in this article). With this approach, the ThreadPool is in charge of monitoring IOCPs and dispatching tasks to completion port threads that are in charge of handling the completion of an operation (also shown in this article). That component is in charge of checking the completion port for queued elements and invoking the related asynchronous callback (and also some cleanup). 3. **CompletionPortThreadsSample**:Shows that some asynchronous callbacks are invoked in completion port threads, while others are invoked in worked threads.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.6167
+    },
+    {
+      "title": "GitHub - DavidLeeds/event: Tiny epoll-based event loop library for ...",
+      "url": "https://github.com/DavidLeeds/event",
+      "snippet": "Tiny epoll-based event loop library for event-driven Linux applications. Features. I/O listeners for handling events on sockets and friends; Timers with",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Basics of libuv - libuv documentation",
+      "url": "https://docs.libuv.org/en/v1.x/guide/basics.html",
+      "snippet": "Its core job is to provide an event loop and callback based notifications of I/O and other activities. The responsibility of gathering events from the operating system or monitoring other sources of events is handled by libuv, and the user can register callbacks to be invoked when an event occurs. This event loop is encapsulated by `uv_run()` – the end-all function when using libuv. A libuv event loop has to be told to watch out for events using the various API functions. */ typedef  struct  uv_loop_s  uv_loop_t; typedef  struct  uv_handle_s  uv_handle_t; typedef  struct  uv_dir_s  uv_dir_t; typedef  struct  uv_stream_s  uv_stream_t; typedef  struct  uv_tcp_s  uv_tcp_t; typedef  struct  uv_udp_s  uv_udp_t; typedef  struct  uv_pipe_s  uv_pipe_t; typedef  struct  uv_tty_s  uv_tty_t; typedef  struct  uv_poll_s  uv_poll_t; typedef  struct  uv_timer_s  uv_timer_t; typedef  struct  uv_prepare_s  uv_prepare_t; typedef  struct  uv_check_s  uv_check_t; typedef  struct  uv_idle_s  uv_idle_t; typedef  struct  uv_async_s  uv_async_t; typedef  struct  uv_process_s  uv_process_t; typedef  struct  uv_fs_event_s  uv_fs_event_t; typedef  struct  uv_fs_poll_s  uv_fs_poll_t; typedef  struct  uv_signal_s  uv_signal_t;/* Request types.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5833
+    },
+    {
+      "title": "Advanced event loops - libuv documentation",
+      "url": "https://docs.libuv.org/en/v1.x/guide/eventloops.html",
+      "snippet": "`uv_stop()` can be used to stop an event loop. This means that events that are ready to be processed in this iteration of the loop will still be processed, so `uv_stop()` can’t be used as a kill switch. When `uv_stop()` is called, the loop **won’t** block for i/o on this iteration. Now all libuv callbacks are invoked within the event loop, which is why invoking `uv_stop()` in them will still lead to this iteration of the loop occurring. `uv_stop()` is useful to shutdown a loop when a result has been computed or there is an error, without having to ensure that all handlers are stopped one by one. 1 #include    2 #include    3  4 int64_t  counter  =  0;  5  6 void  idle_cb(uv_idle_t  * handle)  { 7  printf(\"Idle callback \\n \");  8  counter ++;  9 10  if  (counter  >=  5)  {11 uv_stop(uv_default_loop()); 11  uv_stop(uv_default_loop()); 12  printf(\"uv_stop() called \\n \"); 13  } 14} 15 16 void  prep_cb(uv_prepare_t  * handle)  {17  printf(\"Prep callback \\n \"); 18} 19 20 int  main()  {21  uv_idle_t  idler; 22  uv_prepare_t  prep; 23 24  uv_idle_init(uv_default_loop(),  & idler); 25  uv_idle_start(& idler,  idle_cb); 26 27  uv_prepare_init(uv_default_loop(),  & prep); 28  uv_prepare_start(& prep,  prep_cb); 29 30  uv_run(uv_default_loop(),  UV_RUN_DEFAULT); 31 32  return  0; 33}.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5833
+    },
+    {
+      "title": "Enumerating process, thread, and image load notification callback ...",
+      "url": "https://www.reddit.com/r/ReverseEngineering/comments/70r7ec/enumerating_process_thread_and_image_load/",
+      "snippet": "There's some fun ways around these callbacks as well as filtering object callbacks from a loaded driver signed/unsigned. AC engineers beware :P.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5667
+    },
+    {
+      "title": "Visualizing I/O Completion Ports based Async I/O on Windows",
+      "url": "https://medium.com/@rahulsingh_88457/visualizing-i-o-completion-ports-based-async-i-o-on-windows-8773d51ac19f",
+      "snippet": "Illustrates IOCP internals: kernel notifies IOCP on I/O completion, waking one blocked worker thread via GetQueuedCompletionStatus. Explains worker threads blocking on the port and processing returned overlapped structures.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.5667
+    },
+    {
+      "title": "libuv Design overview",
+      "url": "https://docs.libuv.org/en/v1.x/design/overview.html",
+      "snippet": "libuv is cross-platform support library with a focus on asynchronous I/O. This document describes the internal design and architecture.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.55
+    },
+    {
+      "title": "General-Purpose Threads with I/O Completion Ports",
+      "url": "http://www.pennelynn.com/Documents/CUJ/HTML/16.04/MANLEY/MANLEY.HTM",
+      "snippet": "This article introduces code that encapsulates the functionality of Windows NT IOCPs and their associated worker threads in reusable C++ classes. > To service these events, you then create one or more worker threads that wait on the port by calling the function. > CThreadPool (see Listing 1) is a wrapper class for an IOCP that is responsible for creating and destroying the IOCP and managing the worker threads associated with it. Either a normal completion packet is received, in which case ThreadMain calls the derived CWorkerThread object's OnReceivedCompletionPacket function to handle the event; or, a special packet with a dwKey value of STOP\\_WORKER\\_THREAD is received. > MTWC uses the IOCP-based thread pooling classes explained above to spread the work of counting words in n files among a small number of threads. It then kicks off the worker threads by calling CThreadPool::PostQueuedCompletionStatus once for each file, passing in the CWordCountContext object for that file.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.5
+    },
+    {
+      "title": "UNDER THE LIBUV HOOD: HOW THE NODE.JS EVENT LOOP ...",
+      "url": "https://medium.com/@kaygeea/under-the-libuv-hood-how-the-node-js-event-loop-works-158347ec2261",
+      "snippet": "When the event loop enters a given phase, it will perform any operations specific to that phase, then execute callbacks in that phase's queue",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4333
+    },
+    {
+      "title": "Weaponizing Windows Thread Pool APIs: Proxying DLL Loads Using I/O Completion Callbacks - fin3ss3g0d's Blog",
+      "url": "https://fin3ss3g0d.net/index.php/2024/03/18/weaponizing-windows-thread-pool-apis-proxying-dll-loads/",
+      "snippet": "",
+      "published_date": "2024-03-18T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.4333
+    },
+    {
+      "title": "I/O completion port does not deliver requests in the order they were ...",
+      "url": "https://community.osr.com/t/i-o-completion-port-does-not-deliver-requests-in-the-order-they-were-completed/31208",
+      "snippet": "Here to my surprise the application thread sometimes receive packets out of order from the IOCP! To further investigate the problem I have",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4333
+    },
+    {
+      "title": "Node.js: How libuv Manages Asynchronous Operations with the Event Loop and Semi-Infinite Loop. | by Parvez Pappu | Feb, 2026 | Medium",
+      "url": "https://medium.com/@ParvezPappu/node-js-how-libuv-manages-asynchronous-operations-with-the-event-loop-and-semi-infinite-loop-a0b3ce4d014e",
+      "snippet": "",
+      "published_date": "2026-02-28T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Inside Node.js: My Journey into libuv and the Async Engine",
+      "url": "https://medium.com/@lukaguledani123/inside-node-js-my-journey-into-libuv-and-the-async-engine-5c2d414f7ded",
+      "snippet": "",
+      "published_date": "2025-08-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Work Items & System Worker Threads - Part 3 - — uf0",
+      "url": "https://www.matteomalvica.com/blog/2021/03/10/practical-re-win-solutions-ch3-work-items/",
+      "snippet": "Once the work items are enqueued by the driver, a system worker thread will eventually retrieve the item from the queue and run the callback routine. _IO_WORKITEM -r 1 +0x000 WorkItem : _WORK_QUEUE_ITEM +0x000 List : _LIST_ENTRY +0x000 Flink : ???? _IO_WORKITEM +0x000 WorkItem : _WORK_QUEUE_ITEM +0x020 Routine : (null) +0x028 IoObject : 0xffffb58f`2e15e9a0 Void +0x030 Context : (null) +0x038 WorkOnBehalfThread : (null) +0x040 Type : 1 +0x044 ActivityId : _GUID {00000000-0000-0000-0000-000000000000} 2: kd> dx -id 0,0,ffffb58f2c93d080 -r1 (*((ntkrnlmp! _WORK_QUEUE_ITEM +0x000 List : _LIST_ENTRY [ 0x00000000`00000000 - 0xffffdb01`089848f0 ] +0x010 WorkerRoutine : 0xfffff804`0ed5a300 void nt! _IO_WORKITEM +0x000 WorkItem : _WORK_QUEUE_ITEM +0x020 Routine : 0xfffff804`17741000 void workitem! _IO_WORKITEM +0x000 WorkItem : _WORK_QUEUE_ITEM +0x020 Routine : 0xfffff804`17741000 void workitem! As we saw earlier, the thread pool responsible for executing our work item routine is `ExpWorkerThread`, which is initialized via the `ExpWorkerInitialization` function and which, in turn, references `PspSystemPartition` at offset 0x10 (that is `PspSystemPartition->ExPartition`).",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.4
+    },
+    {
+      "title": "IO Completion question: should we use callback?",
+      "url": "https://microsoft.public.win32.programmer.kernel.narkive.com/yNj4RBkq/io-completion-question-should-we-use-callback",
+      "snippet": "I've been reading up on IO completion ports in hopes to change my async IO code from using events to using IO completion ports along with a thread pool.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Mastering epoll: The Engine Behind High-Performance Linux ...",
+      "url": "https://medium.com/@m-ibrahim.research/mastering-epoll-the-engine-behind-high-performance-linux-networking-85a15e6bde90",
+      "snippet": "And because you call it repeatedly in an event loop, the cost multiplies. But with the epoll you don't re-send the entire FD list every time.",
+      "published_date": "",
+      "source": "tavily, exa, grok",
+      "score": 0.4
+    },
+    {
+      "title": "The Event Loop in asyncio: How Python Code Works on Top of Linux Mechanisms | by Stanislav Garanzha | Feb, 2026 | Medium",
+      "url": "https://medium.com/@garanzhasa/the-event-loop-in-asyncio-how-python-code-works-on-top-of-linux-mechanisms-d5d9b8bc4041",
+      "snippet": "",
+      "published_date": "2026-02-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Thread Pool Callback Shellcode Execution | Infiltr8 - The Red-Book",
+      "url": "https://red.infiltr8.io/redteam/weapon/code-and-process-injection/thread-pool-callback-shellcode-execution",
+      "snippet": "",
+      "published_date": "2025-03-15T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Process Injection Using Windows Thread Pools - SafeBreach",
+      "url": "https://www.safebreach.com/blog/process-injection-using-windows-thread-pools/",
+      "snippet": "",
+      "published_date": "2023-12-06T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.3667
+    },
+    {
+      "title": "The Pool Party You Will Never Forget: New Process Injection ...",
+      "url": "https://securityboulevard.com/2023/12/the-pool-party-you-will-never-forget-new-process-injection-techniques-using-windows-thread-pools/",
+      "snippet": "Attacking Thread Pools: TP_IO. Recalling the queue types, asynchronous work items are queued to the I/O completion queue. The I/O completion",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.3667
+    },
+    {
+      "title": "Node.js Architecture: Libuv, Thread Pool, Event Loop - LinkedIn",
+      "url": "https://www.linkedin.com/posts/nourhan-hasan_what-actually-makes-nodejs-fast-it-activity-7425070676421578752-VY8A",
+      "snippet": "",
+      "published_date": "2026-02-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Abusing Thread Pools | V Vinoth's Blog",
+      "url": "https://vvinoth.com/post/threadpools/",
+      "snippet": "",
+      "published_date": "2024-05-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Depths of Windows APC - Aspects of internals of the Asynchronous Procedure Calls from the kernel mode.",
+      "url": "https://dennisbabkin.com/blog/?t=depths-of-windows-apc-aspects-of-asynchronous-procedure-call-internals-from-kernel-mode",
+      "snippet": "",
+      "published_date": "2020-11-28T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Windows Process Injection: Asynchronous Procedure Call (APC)",
+      "url": "https://modexp.wordpress.com/2019/08/27/process-injection-apc/",
+      "snippet": "",
+      "published_date": "2019-08-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "System.Linux.Epoll.EventLoop - Hackage",
+      "url": "https://hackage.haskell.org/package/epoll/docs/System-Linux-Epoll-EventLoop.html",
+      "snippet": "EventLoop's can be used to get notified when certain events occur on a file descriptor. One can add callback functions for any EventType combination.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3333
+    },
+    {
+      "title": "How libuv Actually Schedules Async Tasks: A Visual Breakdown of Node.js’ Event Loop | by Lakin Mohapatra | Medium",
+      "url": "https://office.qz.com/how-libuv-actually-schedules-async-tasks-a-visual-breakdown-of-node-js-event-loop-64cd852c5fd1",
+      "snippet": "",
+      "published_date": "2025-11-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "What Can You Do with APCs? – Pavel Yosifovich",
+      "url": "https://scorpiosoftware.net/2024/07/24/what-can-you-do-with-apcs/",
+      "snippet": "",
+      "published_date": "2024-07-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "epoll: I/O event notification facility - Linux Manuals (7) - SysTutorials",
+      "url": "https://www.systutorials.com/docs/linux/man/7-epoll/",
+      "snippet": "The epoll API performs a similar task to poll(2): monitoring multiple file descriptors to see if I/O is possible on any of them. The epoll API can be used",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Epoll and Event Loop: Just Enough You Need for Interview",
+      "url": "https://guxi.me/posts/epoll-and-event-loop-just-enough-you-need-for-interview/",
+      "snippet": "",
+      "published_date": "2019-07-24T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.3
+    },
+    {
+      "title": "epoll(7) - Linux manual page",
+      "url": "https://man7.org/linux/man-pages/man7/epoll.7.html",
+      "snippet": "Official documentation of the epoll API, including event registration, EPOLLONESHOT ownership semantics where the consumer must re-arm the fd after event delivery.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.3
+    },
+    {
+      "title": "Writing a reverse proxy/loadbalancer from the ground up in C - Part 2: Handling multiple connections with epoll",
+      "url": "https://www.gilesthomas.com/2013/09/writing-a-reverse-proxyloadbalancer-from-the-ground-up-in-c-part-2-handling-multiple-connections-with-epoll",
+      "snippet": "This structure provides callback-like functionality from epoll using epoll_event.data.ptr to store a pointer to a handler struct containing the callback function and closure data for ownership and dispatch in the event loop.",
+      "published_date": "2013-09-07",
+      "source": "grok",
+      "score": 0.2867
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Node.js: How libuv Manages Asynchronous Operations with the Event Loop and Semi-Infinite Loop. | by Parvez Pappu | Feb, 2026 | Medium",
+        "url": "https://medium.com/@ParvezPappu/node-js-how-libuv-manages-asynchronous-operations-with-the-event-loop-and-semi-infinite-loop-a0b3ce4d014e",
+        "snippet": "",
+        "published_date": "2026-02-28T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Add APIs to allow adding callbacks to worker/event loop queue from any thread · Pull Request #3938 · libuv/libuv",
+        "url": "https://github.com/libuv/libuv/pull/3938",
+        "snippet": "",
+        "published_date": "2023-03-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.7
+      },
+      {
+        "title": "How libuv Actually Schedules Async Tasks: A Visual Breakdown of Node.js’ Event Loop | by Lakin Mohapatra | Medium",
+        "url": "https://office.qz.com/how-libuv-actually-schedules-async-tasks-a-visual-breakdown-of-node-js-event-loop-64cd852c5fd1",
+        "snippet": "",
+        "published_date": "2025-11-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Inside Node.js: My Journey into libuv and the Async Engine",
+        "url": "https://medium.com/@lukaguledani123/inside-node-js-my-journey-into-libuv-and-the-async-engine-5c2d414f7ded",
+        "snippet": "",
+        "published_date": "2025-08-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Node.js Architecture: Libuv, Thread Pool, Event Loop - LinkedIn",
+        "url": "https://www.linkedin.com/posts/nourhan-hasan_what-actually-makes-nodejs-fast-it-activity-7425070676421578752-VY8A",
+        "snippet": "",
+        "published_date": "2026-02-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Weaponizing Windows Thread Pool APIs: Proxying DLL Loads Using I/O Completion Callbacks - fin3ss3g0d's Blog",
+        "url": "https://fin3ss3g0d.net/index.php/2024/03/18/weaponizing-windows-thread-pool-apis-proxying-dll-loads/",
+        "snippet": "",
+        "published_date": "2024-03-18T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.4333
+      },
+      {
+        "title": "Abusing Thread Pools | V Vinoth's Blog",
+        "url": "https://vvinoth.com/post/threadpools/",
+        "snippet": "",
+        "published_date": "2024-05-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Thread Pool Callback Shellcode Execution | Infiltr8 - The Red-Book",
+        "url": "https://red.infiltr8.io/redteam/weapon/code-and-process-injection/thread-pool-callback-shellcode-execution",
+        "snippet": "",
+        "published_date": "2025-03-15T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "GitHub - SafeBreach-Labs/PoolParty: A set of fully-undetectable process injection techniques abusing Windows Thread Pools",
+        "url": "https://github.com/safebreach-labs/poolparty",
+        "snippet": "",
+        "published_date": "2023-05-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6667
+      },
+      {
+        "title": "Process Injection Using Windows Thread Pools - SafeBreach",
+        "url": "https://www.safebreach.com/blog/process-injection-using-windows-thread-pools/",
+        "snippet": "",
+        "published_date": "2023-12-06T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.3667
+      },
+      {
+        "title": "GitHub - fin3ss3g0d/IoDllProxyLoad: DLL proxy load example using the Windows thread pool API, I/O completion callback with named pipes, and C++/assembly",
+        "url": "https://github.com/fin3ss3g0d/IoDllProxyLoad",
+        "snippet": "",
+        "published_date": "2024-03-19T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.7333
+      },
+      {
+        "title": "Weaponizing Windows Thread Pool APIs: Proxying DLL Loads ...",
+        "url": "https://fin3ss3g0d.net/index.php/2024/03/18/weaponizing-windows-thread-pool-apis-proxying-dll-loads/",
+        "snippet": "",
+        "published_date": "2024-03-18T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "What Can You Do with APCs? – Pavel Yosifovich",
+        "url": "https://scorpiosoftware.net/2024/07/24/what-can-you-do-with-apcs/",
+        "snippet": "",
+        "published_date": "2024-07-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Depths of Windows APC - Aspects of internals of the Asynchronous Procedure Calls from the kernel mode.",
+        "url": "https://dennisbabkin.com/blog/?t=depths-of-windows-apc-aspects-of-asynchronous-procedure-call-internals-from-kernel-mode",
+        "snippet": "",
+        "published_date": "2020-11-28T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Windows Process Injection: Asynchronous Procedure Call (APC)",
+        "url": "https://modexp.wordpress.com/2019/08/27/process-injection-apc/",
+        "snippet": "",
+        "published_date": "2019-08-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "The Event Loop in asyncio: How Python Code Works on Top of Linux Mechanisms | by Stanislav Garanzha | Feb, 2026 | Medium",
+        "url": "https://medium.com/@garanzhasa/the-event-loop-in-asyncio-how-python-code-works-on-top-of-linux-mechanisms-d5d9b8bc4041",
+        "snippet": "",
+        "published_date": "2026-02-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Mastering epoll: The Engine Behind High-Performance Linux ...",
+        "url": "https://medium.com/@m-ibrahim.research/mastering-epoll-the-engine-behind-high-performance-linux-networking-85a15e6bde90",
+        "snippet": "",
+        "published_date": "2025-08-26T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "System.Linux.Epoll.EventLoop - Hackage",
+        "url": "https://hackage.haskell.org/package/epoll/docs/System-Linux-Epoll-EventLoop.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "How to pass a callback function pointer to epoll_event structure in C++",
+        "url": "https://stackoverflow.com/questions/28446631/how-to-pass-a-callback-function-pointer-to-epoll-event-structure-in-c",
+        "snippet": "",
+        "published_date": "2015-02-11T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Epoll and Event Loop: Just Enough You Need for Interview",
+        "url": "https://guxi.me/posts/epoll-and-event-loop-just-enough-you-need-for-interview/",
+        "snippet": "",
+        "published_date": "2019-07-24T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "How libuv put callback function into event queue? · Issue #62 - GitHub",
+        "url": "https://github.com/libuv/help/issues/62",
+        "snippet": "Many people say that callback function is enqueued in Event Queue and event loop iterate that queue and process that callback function.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "Basics of libuv - libuv documentation",
+        "url": "https://docs.libuv.org/en/v1.x/guide/basics.html",
+        "snippet": "Its core job is to provide an event loop and callback based notifications of I/O and other activities. The responsibility of gathering events from the operating system or monitoring other sources of events is handled by libuv, and the user can register callbacks to be invoked when an event occurs. This event loop is encapsulated by `uv_run()` – the end-all function when using libuv. A libuv event loop has to be told to watch out for events using the various API functions. */ typedef  struct  uv_loop_s  uv_loop_t; typedef  struct  uv_handle_s  uv_handle_t; typedef  struct  uv_dir_s  uv_dir_t; typedef  struct  uv_stream_s  uv_stream_t; typedef  struct  uv_tcp_s  uv_tcp_t; typedef  struct  uv_udp_s  uv_udp_t; typedef  struct  uv_pipe_s  uv_pipe_t; typedef  struct  uv_tty_s  uv_tty_t; typedef  struct  uv_poll_s  uv_poll_t; typedef  struct  uv_timer_s  uv_timer_t; typedef  struct  uv_prepare_s  uv_prepare_t; typedef  struct  uv_check_s  uv_check_t; typedef  struct  uv_idle_s  uv_idle_t; typedef  struct  uv_async_s  uv_async_t; typedef  struct  uv_process_s  uv_process_t; typedef  struct  uv_fs_event_s  uv_fs_event_t; typedef  struct  uv_fs_poll_s  uv_fs_poll_t; typedef  struct  uv_signal_s  uv_signal_t;/* Request types.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5833
+      },
+      {
+        "title": "Advanced event loops - libuv documentation",
+        "url": "https://docs.libuv.org/en/v1.x/guide/eventloops.html",
+        "snippet": "`uv_stop()` can be used to stop an event loop. This means that events that are ready to be processed in this iteration of the loop will still be processed, so `uv_stop()` can’t be used as a kill switch. When `uv_stop()` is called, the loop **won’t** block for i/o on this iteration. Now all libuv callbacks are invoked within the event loop, which is why invoking `uv_stop()` in them will still lead to this iteration of the loop occurring. `uv_stop()` is useful to shutdown a loop when a result has been computed or there is an error, without having to ensure that all handlers are stopped one by one. 1 #include    2 #include    3  4 int64_t  counter  =  0;  5  6 void  idle_cb(uv_idle_t  * handle)  { 7  printf(\"Idle callback \\n \");  8  counter ++;  9 10  if  (counter  >=  5)  {11 uv_stop(uv_default_loop()); 11  uv_stop(uv_default_loop()); 12  printf(\"uv_stop() called \\n \"); 13  } 14} 15 16 void  prep_cb(uv_prepare_t  * handle)  {17  printf(\"Prep callback \\n \"); 18} 19 20 int  main()  {21  uv_idle_t  idler; 22  uv_prepare_t  prep; 23 24  uv_idle_init(uv_default_loop(),  & idler); 25  uv_idle_start(& idler,  idle_cb); 26 27  uv_prepare_init(uv_default_loop(),  & prep); 28  uv_prepare_start(& prep,  prep_cb); 29 30  uv_run(uv_default_loop(),  UV_RUN_DEFAULT); 31 32  return  0; 33}.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5833
+      },
+      {
+        "title": "Node.js: How libuv Manages Asynchronous Operations with the ...",
+        "url": "https://medium.com/@ParvezPappu/node-js-how-libuv-manages-asynchronous-operations-with-the-event-loop-and-semi-infinite-loop-a0b3ce4d014e",
+        "snippet": "In this blog, we'll explore how libuv and the event loop work together to handle asynchronous tasks in Node.js, focusing on how the event",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "UNDER THE LIBUV HOOD: HOW THE NODE.JS EVENT LOOP ...",
+        "url": "https://medium.com/@kaygeea/under-the-libuv-hood-how-the-node-js-event-loop-works-158347ec2261",
+        "snippet": "When the event loop enters a given phase, it will perform any operations specific to that phase, then execute callbacks in that phase's queue",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4333
+      },
+      {
+        "title": "The Pool Party You Will Never Forget: New Process Injection ...",
+        "url": "https://securityboulevard.com/2023/12/the-pool-party-you-will-never-forget-new-process-injection-techniques-using-windows-thread-pools/",
+        "snippet": "Attacking Thread Pools: TP_IO. Recalling the queue types, asynchronous work items are queued to the I/O completion queue. The I/O completion",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.3667
+      },
+      {
+        "title": "Work Items & System Worker Threads - Part 3 - — uf0",
+        "url": "https://www.matteomalvica.com/blog/2021/03/10/practical-re-win-solutions-ch3-work-items/",
+        "snippet": "Once the work items are enqueued by the driver, a system worker thread will eventually retrieve the item from the queue and run the callback routine. _IO_WORKITEM -r 1 +0x000 WorkItem : _WORK_QUEUE_ITEM +0x000 List : _LIST_ENTRY +0x000 Flink : ???? _IO_WORKITEM +0x000 WorkItem : _WORK_QUEUE_ITEM +0x020 Routine : (null) +0x028 IoObject : 0xffffb58f`2e15e9a0 Void +0x030 Context : (null) +0x038 WorkOnBehalfThread : (null) +0x040 Type : 1 +0x044 ActivityId : _GUID {00000000-0000-0000-0000-000000000000} 2: kd> dx -id 0,0,ffffb58f2c93d080 -r1 (*((ntkrnlmp! _WORK_QUEUE_ITEM +0x000 List : _LIST_ENTRY [ 0x00000000`00000000 - 0xffffdb01`089848f0 ] +0x010 WorkerRoutine : 0xfffff804`0ed5a300 void nt! _IO_WORKITEM +0x000 WorkItem : _WORK_QUEUE_ITEM +0x020 Routine : 0xfffff804`17741000 void workitem! _IO_WORKITEM +0x000 WorkItem : _WORK_QUEUE_ITEM +0x020 Routine : 0xfffff804`17741000 void workitem! As we saw earlier, the thread pool responsible for executing our work item routine is `ExpWorkerThread`, which is initialized via the `ExpWorkerInitialization` function and which, in turn, references `PspSystemPartition` at offset 0x10 (that is `PspSystemPartition->ExPartition`).",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.4
+      },
+      {
+        "title": "Thread Pool Callback Shellcode Execution | Infiltr8 - The Red-Book",
+        "url": "https://red.infiltr8.io/redteam/weapon/code-and-process-injection/thread-pool-callback-shellcode-execution",
+        "snippet": "Key Concepts: Thread Pool: A collection of worker threads managed by the Windows kernel, allowing efficient execution of asynchronous tasks.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Thread Pools - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/procthread/thread-pools",
+        "snippet": "# Thread Pools. ## Thread Pool Architecture. The following applications can benefit from using a thread pool:. The new thread pool is improved because it provides a single worker thread type (supports both I/O and non-I/O), does not use a timer thread, provides a single timer queue, and provides a dedicated persistent thread. * A default thread pool for each process. The following are best practices when using a thread pool:. * The threads of a process share the thread pool. These worker threads are managed by the thread pool. Canceling I/O on a thread pool thread requires synchronization because the cancel function might run on a different thread than the one that is handling the I/O request, which can result in cancellation of an unknown operation. * Before unloading a DLL that uses the thread pool, cancel all work items, I/O, wait operations, and timers, and wait for executing callbacks to complete. Using the Thread Pool Functions. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.7
+      },
+      {
+        "title": "Enumerating process, thread, and image load notification callback ...",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/70r7ec/enumerating_process_thread_and_image_load/",
+        "snippet": "There's some fun ways around these callbacks as well as filtering object callbacks from a loaded driver signed/unsigned. AC engineers beware :P.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5667
+      },
+      {
+        "title": "General-Purpose Threads with I/O Completion Ports",
+        "url": "http://www.pennelynn.com/Documents/CUJ/HTML/16.04/MANLEY/MANLEY.HTM",
+        "snippet": "This article introduces code that encapsulates the functionality of Windows NT IOCPs and their associated worker threads in reusable C++ classes. > To service these events, you then create one or more worker threads that wait on the port by calling the function. > CThreadPool (see Listing 1) is a wrapper class for an IOCP that is responsible for creating and destroying the IOCP and managing the worker threads associated with it. Either a normal completion packet is received, in which case ThreadMain calls the derived CWorkerThread object's OnReceivedCompletionPacket function to handle the event; or, a special packet with a dwKey value of STOP\\_WORKER\\_THREAD is received. > MTWC uses the IOCP-based thread pooling classes explained above to spread the work of counting words in n files among a small number of threads. It then kicks off the worker threads by calling CThreadPool::PostQueuedCompletionStatus once for each file, passing in the CWordCountContext object for that file.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.5
+      },
+      {
+        "title": "Asynchronous I/O in C#: I/O Completion Ports - A sea of code",
+        "url": "https://dschenkelman.github.io/2013/10/29/asynchronous-io-in-c-io-completion-ports/",
+        "snippet": "# Asynchronous I/O in C#: I/O Completion Ports. As this article.aspx) explains, an I/O Completion Port (IOCP from now on) is a queue-like operating system object that can be used to simultaneously manage multiple I/O operations. Another alternative that some framework components implement is using IOCP together with completion port threads. I did not know about this before, but ThreadPool threads can be either worker threads or completion port threads (this is explained with detail in this article). With this approach, the ThreadPool is in charge of monitoring IOCPs and dispatching tasks to completion port threads that are in charge of handling the completion of an operation (also shown in this article). That component is in charge of checking the completion port for queued elements and invoking the related asynchronous callback (and also some cleanup). 3. **CompletionPortThreadsSample**:Shows that some asynchronous callbacks are invoked in completion port threads, while others are invoked in worked threads.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.6167
+      },
+      {
+        "title": "I/O Completion Ports - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports",
+        "snippet": "Processes that handle many concurrent asynchronous I/O requests can do so more quickly and efficiently by using I/O completion ports in conjunction with a pre-allocated thread pool than by creating threads at the time they receive an I/O request. A thread (either one created by the main thread or the main thread itself) uses the **GetQueuedCompletionStatus** function to wait for a completion packet to be queued to the I/O completion port, rather than waiting directly for the asynchronous I/O to complete. When a completion packet is queued to an I/O completion port, the system first checks how many threads associated with that port are running. Threads can use the PostQueuedCompletionStatus function to place completion packets in an I/O completion port's queue. The system also allows a thread waiting in GetQueuedCompletionStatus to process a completion packet if another running thread associated with the same I/O completion port enters a wait state for other reasons, for example the SuspendThread function.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.7
+      },
+      {
+        "title": "I/O completion port does not deliver requests in the order they were ...",
+        "url": "https://community.osr.com/t/i-o-completion-port-does-not-deliver-requests-in-the-order-they-were-completed/31208",
+        "snippet": "Here to my surprise the application thread sometimes receive packets out of order from the IOCP! To further investigate the problem I have",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4333
+      },
+      {
+        "title": "IO Completion question: should we use callback?",
+        "url": "https://microsoft.public.win32.programmer.kernel.narkive.com/yNj4RBkq/io-completion-question-should-we-use-callback",
+        "snippet": "I've been reading up on IO completion ports in hopes to change my async IO code from using events to using IO completion ports along with a thread pool.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "System.Linux.Epoll.EventLoop - Hackage",
+        "url": "https://hackage.haskell.org/package/epoll/docs/System-Linux-Epoll-EventLoop.html",
+        "snippet": "EventLoop's can be used to get notified when certain events occur on a file descriptor. One can add callback functions for any EventType combination.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3333
+      },
+      {
+        "title": "GitHub - DavidLeeds/event: Tiny epoll-based event loop library for ...",
+        "url": "https://github.com/DavidLeeds/event",
+        "snippet": "Tiny epoll-based event loop library for event-driven Linux applications. Features. I/O listeners for handling events on sockets and friends; Timers with",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "How to pass a callback function pointer to epoll_event structure in C++",
+        "url": "https://stackoverflow.com/questions/28446631/how-to-pass-a-callback-function-pointer-to-epoll-event-structure-in-c",
+        "snippet": "epoll_ctl() has an epoll_data_t union member of the epoll_event structure which can be used to execute a callback function on a timerfd event firing.",
+        "published_date": "",
+        "source": "tavily, exa, grok",
+        "score": 0.6333
+      },
+      {
+        "title": "epoll: I/O event notification facility - Linux Manuals (7) - SysTutorials",
+        "url": "https://www.systutorials.com/docs/linux/man/7-epoll/",
+        "snippet": "The epoll API performs a similar task to poll(2): monitoring multiple file descriptors to see if I/O is possible on any of them. The epoll API can be used",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Mastering epoll: The Engine Behind High-Performance Linux ...",
+        "url": "https://medium.com/@m-ibrahim.research/mastering-epoll-the-engine-behind-high-performance-linux-networking-85a15e6bde90",
+        "snippet": "And because you call it repeatedly in an event loop, the cost multiplies. But with the epoll you don't re-send the entire FD list every time.",
+        "published_date": "",
+        "source": "tavily, exa, grok",
+        "score": 0.4
+      }
+    ],
+    "grok": [
+      {
+        "title": "libuv Design overview",
+        "url": "https://docs.libuv.org/en/v1.x/design/overview.html",
+        "snippet": "libuv is cross-platform support library with a focus on asynchronous I/O. This document describes the internal design and architecture.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.55
+      },
+      {
+        "title": "libuv/src/unix/async.c source code",
+        "url": "https://github.com/libuv/libuv/blob/v1.x/src/unix/async.c",
+        "snippet": "Source code implementation of the async handle (uv_async_t) which allows queueing callbacks from other threads into the event loop.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6667
+      },
+      {
+        "title": "libuv/src/unix/thread.c – worker threads and thread pool",
+        "url": "https://github.com/libuv/libuv/blob/v1.x/src/unix/thread.c",
+        "snippet": "Implementation of the thread pool used for blocking operations (file I/O, DNS, crypto, etc.) and how completed work is queued back to the event loop via async handles.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6667
+      },
+      {
+        "title": "libuv/src/queue.h – intrusive circular queue",
+        "url": "https://github.com/libuv/libuv/blob/v1.x/src/queue.h",
+        "snippet": "The QUEUE structure and macros used throughout libuv to manage callback queues, work queue, handle queues, and timer heaps.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6333
+      },
+      {
+        "title": "libuv/src/unix/core.c – main loop and run modes",
+        "url": "https://github.com/libuv/libuv/blob/v1.x/src/unix/core.c",
+        "snippet": "Core implementation of uv_run() showing how the event loop processes timers → pending callbacks → idle handles → prepared handles → I/O polling → check handles → closing handles, including how async callbacks are invoked.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6333
+      },
+      {
+        "title": "Process Injection Using Windows Thread Pools",
+        "url": "https://www.safebreach.com/blog/process-injection-using-windows-thread-pools",
+        "snippet": "Detailed analysis of Windows thread pool internals, including TP_WORK and TP_IO structures, their helper structures (TP_TASK, TP_DIRECT), queueing mechanisms (TpPostTask), and reverse engineering insights for process injection techniques like remote TP_IO work item insertion. Covers undocumented aspects and Pool Party variants.",
+        "published_date": "2023-12-06",
+        "source": "grok"
+      },
+      {
+        "title": "The Pool Party You Will Never Forget: New Process Injection Techniques Using Windows Thread Pools",
+        "url": "https://securityboulevard.com/2023/12/the-pool-party-you-will-never-forget-new-process-injection-techniques-using-windows-thread-pools",
+        "snippet": "Explores attacking thread pools via TP_WORK and TP_IO, including structure reverse engineering, task queue tampering using NtQueryInformationWorkerFactory to access TP_POOL, and variants for remote insertion of TP_IO work items.",
+        "published_date": "2023-12-06",
+        "source": "grok"
+      },
+      {
+        "title": "PoolParty GitHub Repository - SafeBreach-Labs",
+        "url": "https://github.com/SafeBreach-Labs/PoolParty",
+        "snippet": "Proof-of-concept collection of fully-undetectable process injection techniques abusing Windows Thread Pools, explicitly covering TP_WORK, TP_IO, TP_WAIT, and other objects with implementation details from reverse engineering efforts.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.7333
+      },
+      {
+        "title": "Thread Pools - Win32 apps (Microsoft Learn)",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/procthread/thread-pools",
+        "snippet": "Official documentation on Windows thread pools, including work items, I/O binding (relevant to TP_IO), callbacks, and debugger extensions like !tp for inspecting pool objects, worker threads, and queues.",
+        "published_date": "2025-07-14",
+        "source": "grok"
+      },
+      {
+        "title": "Work Items & System Worker Threads - Part 3",
+        "url": "https://www.matteomalvica.com/blog/2021/03/10/practical-re-win-solutions-ch3-work-items",
+        "snippet": "Practical reverse engineering discussion of work items in Windows internals, including related structures and execution flow, providing context for thread pool callback mechanisms.",
+        "published_date": "2021-03-10",
+        "source": "grok"
+      },
+      {
+        "title": "I/O Completion Ports - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports",
+        "snippet": "I/O completion ports provide an efficient threading model for processing multiple asynchronous I/O requests on a multiprocessor system. Threads use GetQueuedCompletionStatus to dequeue completion packets, including those posted via PostQueuedCompletionStatus for custom notifications to worker threads.",
+        "published_date": "2022-08-08",
+        "source": "grok"
+      },
+      {
+        "title": "Visualizing I/O Completion Ports based Async I/O on Windows",
+        "url": "https://medium.com/@rahulsingh_88457/visualizing-i-o-completion-ports-based-async-i-o-on-windows-8773d51ac19f",
+        "snippet": "Illustrates IOCP internals: kernel notifies IOCP on I/O completion, waking one blocked worker thread via GetQueuedCompletionStatus. Explains worker threads blocking on the port and processing returned overlapped structures.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.5667
+      },
+      {
+        "title": "Weaponizing Windows Thread Pool APIs: Proxying DLL Loads",
+        "url": "https://fin3ss3g0d.net/index.php/2024/03/18/weaponizing-windows-thread-pool-apis-proxying-dll-loads",
+        "snippet": "Discusses I/O completion callbacks in the Windows thread pool (CreateThreadpoolIo, IoCompletionCallback). Includes code for associating handles and handling completions in callbacks, relevant to reverse engineering thread pool IOCP usage.",
+        "published_date": "2024-03-18",
+        "source": "grok"
+      },
+      {
+        "title": "General-Purpose Threads with I/O Completion Ports",
+        "url": "http://www.pennelynn.com/Documents/CUJ/HTML/16.04/MANLEY/MANLEY.HTM",
+        "snippet": "Encapsulates IOCP and worker threads in C++ classes. Worker threads dequeue packets via GetQueuedCompletionStatus and process them in OnReceivedCompletionPacket virtual functions.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Asynchronous I/O in C#: I/O Completion Ports",
+        "url": "https://dschenkelman.github.io/2013/10/29/asynchronous-io-in-c-io-completion-ports",
+        "snippet": "Explains IOCP interaction with .NET CLR thread pool, distinguishing worker threads and completion port threads that monitor IOCPs and invoke callbacks on completion.",
+        "published_date": "2013-10-29",
+        "source": "grok"
+      },
+      {
+        "title": "How to pass a callback function pointer to epoll_event structure in C",
+        "url": "https://stackoverflow.com/questions/28446631/how-to-pass-a-callback-function-pointer-to-epoll-event-structure-in-c",
+        "snippet": "epoll_ctl() has an epoll_data_t union member of the epoll_event structure which can be used to execute a callback function on a timerfd event firing.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Writing a reverse proxy/loadbalancer from the ground up in C - Part 2: Handling multiple connections with epoll",
+        "url": "https://www.gilesthomas.com/2013/09/writing-a-reverse-proxyloadbalancer-from-the-ground-up-in-c-part-2-handling-multiple-connections-with-epoll",
+        "snippet": "This structure provides callback-like functionality from epoll using epoll_event.data.ptr to store a pointer to a handler struct containing the callback function and closure data for ownership and dispatch in the event loop.",
+        "published_date": "2013-09-07",
+        "source": "grok",
+        "score": 0.2867
+      },
+      {
+        "title": "Mastering epoll: The Engine Behind High-Performance Linux Networking",
+        "url": "https://medium.com/@m-ibrahim.research/mastering-epoll-the-engine-behind-high-performance-linux-networking-85a15e6bde90",
+        "snippet": "Explains the kernel-side epoll callback mechanism where driver's poll callback triggers epoll's internal callback to queue ready epitems for epoll_wait consumers.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "epoll(7) - Linux manual page",
+        "url": "https://man7.org/linux/man-pages/man7/epoll.7.html",
+        "snippet": "Official documentation of the epoll API, including event registration, EPOLLONESHOT ownership semantics where the consumer must re-arm the fd after event delivery.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.3
+      },
+      {
+        "title": "Epoll and Event Loop: Just Enough You Need for Interview",
+        "url": "https://guxi.me/posts/epoll-and-event-loop-just-enough-you-need-for-interview",
+        "snippet": "Overview of epoll internals and its role in user-space event loops (libuv, Tokio, etc.) where callbacks are dispatched after epoll_wait notifies the consumer.",
+        "published_date": "2019-07-24",
+        "source": "grok"
+      }
+    ]
+  }
+}
