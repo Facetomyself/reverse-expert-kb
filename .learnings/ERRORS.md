@@ -173,3 +173,60 @@ When patching remote files via SSH, prefer single-quoted here-doc payloads with 
 - Related Files: /root/grok2api/config.defaults.toml
 
 ---
+## [ERR-20260321-2116] search-layer-cli-json-flag
+
+**Logged**: 2026-03-21T13:16:00Z
+**Priority**: low
+**Status**: pending
+**Area**: docs
+
+### Summary
+Assumed local `skills/search-layer/scripts/search.py` supported `--json`, but this host copy does not.
+
+### Error
+```
+search.py: error: unrecognized arguments: --json
+```
+
+### Context
+- Command attempted during reverse KB autosync external research run
+- Tool: `/root/.openclaw/workspace/skills/search-layer/scripts/search.py`
+- Fallback worked by capturing stdout with `tee`
+
+### Suggested Fix
+Document the actual supported flags in the skill or add structured output support if needed.
+
+### Metadata
+- Reproducible: yes
+- Related Files: skills/search-layer/SKILL.md
+
+---
+## [ERR-20260323-001] git-commit-identity-missing
+
+**Logged**: 2026-03-23T06:33:00Z
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Temporary git worktree commit failed because local git user.name/user.email were not configured on this OpenClaw host.
+
+### Error
+```
+Author identity unknown
+fatal: unable to auto-detect email address (got 'root@instance-20250911-1634.(none)')
+```
+
+### Context
+- Operation attempted: create and commit a new safe-sync branch for the user's fork of grok2api
+- Environment: local OpenClaw host, ephemeral clone under /tmp
+- GitHub auth via gh was available, but git commit identity was unset
+
+### Suggested Fix
+Set repository-local git identity for temporary worktrees used for automated fork-sync commits. Avoid relying on global git identity being present.
+
+### Metadata
+- Reproducible: yes
+- Related Files: .learnings/ERRORS.md
+
+---

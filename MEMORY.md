@@ -54,3 +54,11 @@
     - `apiKey`: the current Tavily proxy token
   - `skills/search-layer/scripts/search.py` was updated to support Tavily object credentials (`apiUrl` + `apiKey`) and a custom Tavily base URL instead of assuming only the official `https://api.tavily.com` endpoint.
   - Verified locally: `search.py --mode answer --source tavily` now returns results successfully through `proxy.zhangxuemin.work:9874`.
+
+- 2026-03-23: For oracle-proxy `/root/grok2api`, the safe long-term git topology is now:
+  - `origin = Facetomyself/grok2api` (personal fork)
+  - `upstream = chenyme/grok2api` (canonical upstream)
+  - `legacy-tqzhr = TQZHR/grok2api` (historical reference only)
+  - preserved production custom branch: `oracle-proxy/local-custom-20260321` @ `2413e6c`
+  - selective integration branch: `oracle-proxy/safe-sync-20260323`
+  Direct full-sync to `chenyme/main` is considered unsafe because current oracle-proxy deployment contains registration-sensitive local customizations and older code layout; future updates should be manually ported in small commits and pushed to the fork before any deployment.

@@ -131,7 +131,25 @@ Checks:
 - 2026-03-21: documented that live secrets/config are sourced from `data/config.toml`, not from `config.defaults.toml`
 - 2026-03-21: documented local deployment customizations and recorded local preservation branch `oracle-proxy/local-custom-20260321` with commit `2413e6c`
 - 2026-03-21: recorded cleanup of hardcoded default keys in `config.defaults.toml` so baseline defaults are no longer treated as live production secrets
- upstream proxy clients fail
+- 2026-03-23: repository topology was rewired for safer long-term maintenance:
+  - `origin` now points to personal fork `Facetomyself/grok2api`
+  - `upstream` now points to canonical upstream `chenyme/grok2api`
+  - historical `TQZHR/grok2api` remote was retained as `legacy-tqzhr`
+- 2026-03-23: pushed preserved production customizations to GitHub fork branch `oracle-proxy/local-custom-20260321` (`2413e6c`)
+- 2026-03-23: created integration lane branch `oracle-proxy/safe-sync-20260323` for selective upstream adoption under the rule “do not break registration”
+
+## 14. Git / Sync Strategy
+Current intended git model for this deployment:
+- production-preservation branch: `oracle-proxy/local-custom-20260321`
+- selective-integration branch: `oracle-proxy/safe-sync-20260323`
+- personal fork default remote: `origin = Facetomyself/grok2api`
+- canonical upstream for future feature review: `upstream = chenyme/grok2api`
+- historical reference only: `legacy-tqzhr = TQZHR/grok2api`
+
+Operational rule:
+- do **not** directly hard-reset or full-merge production custom branch onto `upstream/main`
+- first review upstream changes for registration/token/config blast radius
+- record each accepted manual port as its own commit and push to the personal fork before considering deployment
 
 ## 11. Failure Modes / Troubleshooting
 ### Symptom: local Grok/OpenAI-compatible endpoint fails
