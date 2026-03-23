@@ -160,6 +160,7 @@ Priority 2 candidates include:
 - `topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md`
 - `topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md`
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
+- `topics/native-completion-port-and-thread-pool-first-consumer-workflow-note.md`
 - `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md`
 - `topics/decompilation-and-code-reconstruction.md`
 
@@ -189,6 +190,7 @@ This branch should now be read as a practical bridge from baseline native synthe
 - plugin-loader / first-real-module-consumer proof (`native-plugin-loader-to-first-real-module-consumer-workflow-note`), which acts as the usual fourth native step when one route or concrete implementation family is already plausible but plugin/module loaders, export-resolution helpers, or provider-installation code still hide the first loaded component that actually becomes behaviorally trustworthy; the branch should explicitly leave broad loader/provider work here once one retained owner is already good enough and the real bottleneck becomes service-owned worker proof or async delivery rather than ownership
 - service-dispatcher / worker-owned-consumer proof (`native-service-dispatcher-to-worker-owned-consumer-workflow-note`), which acts as the usual fifth native step when service/daemon entry, control handlers, command dispatchers, or worker launchers are visible enough to read but the first worker-owned consumer that actually changes behavior is still unclear; the branch should explicitly leave broad service/daemon ownership work here once one worker-owned consumer is already good enough and the real bottleneck becomes narrower callback/event-loop delivery, reverse-causality, or broader runtime-evidence strategy
 - async callback/consumer proof (`native-callback-registration-to-event-loop-consumer-workflow-note`), which acts as the usual sixth native step when one route, concrete implementation family, loaded-module owner, or service-owned worker path is already plausible but registrations, message pumps, completions, or reactor-loop helpers still hide the first consequence-bearing callback delivery or event-loop consumer that makes the subsystem map behaviorally trustworthy; the branch should explicitly leave broad async callback/event-loop work here once one consequence-bearing consumer is already good enough and the real bottleneck becomes reverse-causality, broader runtime-evidence strategy, or one narrower output-side continuation
+- completion-port / thread-pool first-consumer continuation (`native-completion-port-and-thread-pool-first-consumer-workflow-note`), which acts as the thinner native continuation once the broad async bottleneck has already been reduced into posted work, completion packets, helper-owned thread-pool callbacks, or queue-dequeue ownership and the remaining question is specifically which delivered work item first changes behavior rather than which callback family exists at all
 
 ### Protocol / firmware practical branch
 - `topics/protocol-firmware-practical-subtree-guide.md`
