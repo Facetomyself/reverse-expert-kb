@@ -1,0 +1,570 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "virtio vring avail used idx ownership barriers reverse engineering",
+    "descriptor ring ownership transfer completion visibility dma coherent memory barrier driver firmware",
+    "NVMe submission completion queue phase tag ownership doorbell reverse engineering"
+  ],
+  "count": 26,
+  "results": [
+    {
+      "title": "Virtual I/O Device (VIRTIO) Version 1.2 - OASIS Open Specification",
+      "url": "https://docs.oasis-open.org/virtio/virtio/v1.2/cs01/virtio-v1.2-cs01.pdf",
+      "snippet": "Official OASIS VirtIO 1.2 specification detailing vring layout, avail ring (driver-owned, writes idx), used ring (device-owned, writes idx), memory barriers (virtio_mb/rmb/wmb equivalents), ownership rules (single writer per structure), event idx suppression, and synchronization requirements.",
+      "published_date": "2022-01-01",
+      "source": "grok",
+      "score": 0.7033
+    },
+    {
+      "title": "kvm-guest-drivers-windows/VirtIO/VirtIORing.c at master - GitHub",
+      "url": "https://github.com/virtio-win/kvm-guest-drivers-windows/blob/master/VirtIO/VirtIORing.c",
+      "snippet": "Windows paravirtualized drivers for QEMU\\KVM. Contribute to virtio-win/kvm-guest-drivers-windows development by creating an account on GitHub.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "DOCA Libraries - NVIDIA Documentation",
+      "url": "https://docs.nvidia.com/doca/sdk/doca-libraries.pdf",
+      "snippet": "DOCA Core objects provide a unified and holistic interface for application developers to interact with various DOCA libraries involving DMA, memory mapping, and buffer ownership considerations in driver and firmware contexts.",
+      "published_date": "2026-03-10",
+      "source": "grok",
+      "score": 0.6233
+    },
+    {
+      "title": "Rx descriptor dma mapping in device driver what that actually ...",
+      "url": "https://stackoverflow.com/questions/66074607/rx-descriptor-dma-mapping-in-device-driver-what-that-actually-means-does-it-mea",
+      "snippet": "The function dma_alloc_coherent allocates memory and introduces a mapping into the DMA page tables so that the memory is accessible to the device.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "NVME_COMPLETION_QUEUE_...",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/nvme/ns-nvme-nvme_completion_queue_head_doorbell",
+      "snippet": "Defines the doorbell register that updates the Head entry pointer for Completion Queue y. The value of y is equivalent to the Queue",
+      "published_date": "",
+      "source": "tavily, exa, grok",
+      "score": 0.6
+    },
+    {
+      "title": "Virtual I/O Device (VIRTIO) Version 1.1 - Index of /",
+      "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.5833
+    },
+    {
+      "title": "drivers/virtio/virtio_ring.c Source File - Linux Kernel - Huihoo",
+      "url": "https://docs.huihoo.com/doxygen/linux/kernel/3.7/virtio__ring_8c_source.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.5833
+    },
+    {
+      "title": "NVIDIA GPU Confidential Computing Demystified",
+      "url": "https://arxiv.org/html/2507.02770v1",
+      "snippet": "For the memory transfers between CVM and GSP, the driver uses the CPU-GSP DMA. As DMA cannot access the private memory in the CVM directly, the driver needs to allocate and map a staging buffer ...",
+      "published_date": "2025-07-03",
+      "source": "grok",
+      "score": 0.56
+    },
+    {
+      "title": "DPA Development",
+      "url": "https://docs.nvidia.com/doca/archive/2-5-5/DPA-Development/index.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.55
+    },
+    {
+      "title": "Ring Buffer — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/next/gpu/amdgpu/ring-buffer.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.55
+    },
+    {
+      "title": "How Hardware and Software Share a Queue: Understanding DMA Rings - DEV Community",
+      "url": "https://dev.to/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+      "snippet": "",
+      "published_date": "2026-02-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "A rant/question about NVMe : r/osdev - Reddit",
+      "url": "https://www.reddit.com/r/osdev/comments/1crr2kh/a_rantquestion_about_nvme/",
+      "snippet": "No, you shouldn't write to the completion queue doorbell until after you've read from the queue. Other than that I think you've got it",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.5
+    },
+    {
+      "title": "VirtIO实现原理——vring数据结构-CSDN博客",
+      "url": "https://blog.csdn.net/huang987246510/article/details/103739592",
+      "snippet": "",
+      "published_date": "2024-08-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4667
+    },
+    {
+      "title": "Notes about NVMe Shadow doorbell buffer - L",
+      "url": "http://liujunming.github.io/2024/03/30/Notes-about-NVMe-Shadow-doorbell-buffer/",
+      "snippet": "",
+      "published_date": "2024-03-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "[dpdk-dev] [PATCH v2 2/2] virtio: one way barrier for split vring avail idx",
+      "url": "https://mails.dpdk.org/archives/dev/2020-April/161651.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.4333
+    },
+    {
+      "title": "virtIO vring工作机制分析 | OENHAN",
+      "url": "https://oenhan.com/virtio-vring",
+      "snippet": "",
+      "published_date": "2017-08-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "Virtqueues and virtio ring: How the data travels - Red Hat",
+      "url": "https://www.redhat.com/en/blog/virtqueues-and-virtio-ring-how-data-travels",
+      "snippet": "From now on, the driver should not modify the available descriptor or the exposed buffer at any moment: It is under the device's control. For example, if the driver has sent us two buffers in a chain with descriptor table indexes 0 and 1 as first operation, the device would see the scenario in Figure 3, and it would be the step 2 again. After that, the steps are the same as with regular descriptors: The driver adds the index of the descriptor marked with the  flag in the descriptor area to the avail ring (#0 in this case, step 4 in the diagram), and notify the device as usual (step 5). As a trusted adviser to the Fortune 500, Red Hat offers cloud, developer, Linux, automation, and application platform technologies, as well as award-winning services.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.3667
+    },
+    {
+      "title": "NVMe Command Submission and Completion Mechanism - My Blog",
+      "url": "https://jingliu.me/posts/2021-01-22-nvmemechanism.html",
+      "snippet": "* SQ (Submission Queue): A submission queue is a circular buffer with a fixed slot size that the host software used to submit commands for execution by the controller. + The CQ Head pointer is updated by host software after processing completion queue entries indicating the last free CQ slot. + A controller executes command submitted by a host on a submission queue and posts an completion on a Completion Queue. The central data structures used for this data transfer between the host and controller is the `qpair` (one submission queue and one completion queue), plus two doorbells. A small trick here is that, the controller uses SQ Head Pointer (SQHD) field in CQ entries to communicate the most recent value of SQ Header Pointer to the host, which indicates that SQ entries have been consumed by the controller, but does not indicate either execution or completion of any command.",
+      "published_date": "",
+      "source": "tavily, exa, grok",
+      "score": 0.3333
+    },
+    {
+      "title": "DRM Memory Management",
+      "url": "https://www.kernel.org/doc/html/v4.16/gpu/drm-mm.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Re-architecting End-host Networking with CXL: Coherence ...",
+      "url": "https://dl.acm.org/doi/10.1145/3725843.3756102",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.3
+    },
+    {
+      "title": "PCIe dma not working as expected - OSR Developer Community",
+      "url": "https://community.osr.com/t/pcie-dma-not-working-as-expected/57522",
+      "snippet": "Also, please verify that you have WinDbg set up… and that you’re actually looking at the buffer in question via WinDbg. I assume that, setting up for a DMA write operation to memory (data coming FROM the device TO host memory), you initialize the buffer to something (just as a test, for example, you set it to all 0xFF or something), setup and do the DMA write to memory, then look at the memory buffer and see… that it hasn’t changed?? A common DMA gotcha I’ve seen, especially on ARM platforms, is the need for a memory barrier between the write to the buffer and the write to trigger the DMA controller. Also, please verify that you have WinDbg set up… and that you’re actually looking at the buffer in question via WinDbg. I assume that, setting up for a DMA write operation to memory (data coming FROM the device TO host memory), you initialize the buffer to something (just as a test, for example, you set it to all 0xFF or something), setup and do the DMA write to memory, then look at the memory buffer and see… that it hasn’t changed??",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Implementing NVMe Driver for OS: Queues, Doorbells, and PCIe ...",
+      "url": "https://www.linkedin.com/posts/dev-sharma-465759307_systemsengineering-osdev-kernel-activity-7429177792258506752--aoz",
+      "snippet": "The kernel actively checks the \"Phase Bit\" in the completion entry to detect when the drive has flipped it, signaling that the job is done.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3
+    },
+    {
+      "title": "[PDF] NVM Express Explained",
+      "url": "https://nvmexpress.org/wp-content/uploads/2013/04/NVM_whitepaper.pdf",
+      "snippet": "The specification defines a streamlined set of registers whose functionality includes: x Indication of controller capabilities x Status for device failures (command status is processed via CQ directly) x Admin Queue configuration (I/O Queue configuration processed via Admin commands) x Doorbell registers for scalable number of Submission and Completion Queues The capabilities that the controller supports are indicated in the Controller Capabilities (CAP) register and as part of the Controller and Namespace data structures returned in the Identify command. An Admin Submission and associated Completion Queue exist for the purpose of device management and control – e.g., creation and deletion of I/O Submission and Completion Queues, aborting commands, etc. This specification defines one I/O Command Set, named the NVM Command Set. Host software creates queues, up to the maximum supported by the controller.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.3
+    },
+    {
+      "title": "SPDK: Submitting I/O to an NVMe Device",
+      "url": "https://spdk.io/doc/nvme_spec.html",
+      "snippet": "Detailed explanation of NVMe I/O submission: constructing commands in submission queues, ringing the submission queue tail doorbell, phase bit toggling in completion entries (0/1 per loop), processing completions, and ringing the completion queue head doorbell. Covers phase tag usage for detecting new completions without register polling.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.3
+    },
+    {
+      "title": "An NVM Express Tutorial",
+      "url": "https://files.futurememorystorage.com/proceedings/2013/20130812_PreConfD_Marks.pdf",
+      "snippet": "In-depth tutorial on NVMe queues: submission/completion queue mechanics, doorbell registers (tail for submission, head for completion), phase tag (P bit) inversion by controller each round to indicate new entries, and command completion flow including SQ head pointer in completions.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.3
+    },
+    {
+      "title": "CDNA4 Instruction Set Architecture: Reference Guide - AMD",
+      "url": "https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/amd-instinct-cdna4-instruction-set-architecture.pdf",
+      "snippet": "The CDNA memory controller has direct access to all CDNA device memory and the host-specified areas of system memory, performing functions of a direct-memory access (DMA) controller including computing memory-address offsets based on the format of the requested data in memory.",
+      "published_date": "2025-08-05",
+      "source": "grok",
+      "score": 0.26
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "DPA Development",
+        "url": "https://docs.nvidia.com/doca/archive/2-5-5/DPA-Development/index.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.55
+      },
+      {
+        "title": "How Hardware and Software Share a Queue: Understanding DMA Rings - DEV Community",
+        "url": "https://dev.to/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5
+      },
+      {
+        "title": "DRM Memory Management",
+        "url": "https://www.kernel.org/doc/html/v4.16/gpu/drm-mm.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Ring Buffer — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/next/gpu/amdgpu/ring-buffer.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.55
+      },
+      {
+        "title": "Re-architecting End-host Networking with CXL: Coherence ...",
+        "url": "https://dl.acm.org/doi/10.1145/3725843.3756102",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.3
+      },
+      {
+        "title": "[dpdk-dev] [PATCH v2 2/2] virtio: one way barrier for split vring avail idx",
+        "url": "https://mails.dpdk.org/archives/dev/2020-April/161651.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.4333
+      },
+      {
+        "title": "Virtual I/O Device (VIRTIO) Version 1.1 - Index of /",
+        "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.5833
+      },
+      {
+        "title": "drivers/virtio/virtio_ring.c Source File - Linux Kernel - Huihoo",
+        "url": "https://docs.huihoo.com/doxygen/linux/kernel/3.7/virtio__ring_8c_source.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.5833
+      },
+      {
+        "title": "VirtIO实现原理——vring数据结构-CSDN博客",
+        "url": "https://blog.csdn.net/huang987246510/article/details/103739592",
+        "snippet": "",
+        "published_date": "2024-08-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4667
+      },
+      {
+        "title": "virtIO vring工作机制分析 | OENHAN",
+        "url": "https://oenhan.com/virtio-vring",
+        "snippet": "",
+        "published_date": "2017-08-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "Implementing NVMe Driver for OS: Queues, Doorbells, and PCIe ...",
+        "url": "https://www.linkedin.com/posts/dev-sharma-465759307_systemsengineering-osdev-kernel-activity-7429177792258506752--aoz",
+        "snippet": "",
+        "published_date": "2026-02-16T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "NVMe Command Submission and Completion Mechanism - My Blog",
+        "url": "https://jingliu.me/posts/2021-01-22-nvmemechanism.html",
+        "snippet": "",
+        "published_date": "2021-01-22T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "NVME_COMPLETION_QUEUE_...",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/nvme/ns-nvme-nvme_completion_queue_head_doorbell",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Notes about NVMe Shadow doorbell buffer - L",
+        "url": "http://liujunming.github.io/2024/03/30/Notes-about-NVMe-Shadow-doorbell-buffer/",
+        "snippet": "",
+        "published_date": "2024-03-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "A rant/question about NVMe : r/osdev - Reddit",
+        "url": "https://www.reddit.com/r/osdev/comments/1crr2kh/a_rantquestion_about_nvme/",
+        "snippet": "",
+        "published_date": "2024-05-14T00:00:00.000Z",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Rx descriptor dma mapping in device driver what that actually ...",
+        "url": "https://stackoverflow.com/questions/66074607/rx-descriptor-dma-mapping-in-device-driver-what-that-actually-means-does-it-mea",
+        "snippet": "The function dma_alloc_coherent allocates memory and introduces a mapping into the DMA page tables so that the memory is accessible to the device.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Re-architecting End-host Networking with CXL: Coherence, Memory ...",
+        "url": "https://dl.acm.org/doi/10.1145/3725843.3756102",
+        "snippet": "While polling effectively avoids interrupt delays, DPDK still depends on PCIe-based DMA and MMIO operations for updating descriptor rings,",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "DRM Memory Management — The Linux Kernel documentation",
+        "url": "https://www.kernel.org/doc/html/v4.16/gpu/drm-mm.html",
+        "snippet": "Device-specific operations, such as command execution, pinning, buffer read & write, mapping, and domain ownership transfers are left to driver-specific ioctls.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "DPA Development - NVIDIA Docs",
+        "url": "https://docs.nvidia.com/doca/archive/2-5-5/DPA-Development/index.html",
+        "snippet": "Poll CQ owner bit in DPA memory until the value indicates the CQE is in software ownership. Coherency model ensures update to the CQ is",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "PCIe dma not working as expected - OSR Developer Community",
+        "url": "https://community.osr.com/t/pcie-dma-not-working-as-expected/57522",
+        "snippet": "Also, please verify that you have WinDbg set up… and that you’re actually looking at the buffer in question via WinDbg. I assume that, setting up for a DMA write operation to memory (data coming FROM the device TO host memory), you initialize the buffer to something (just as a test, for example, you set it to all 0xFF or something), setup and do the DMA write to memory, then look at the memory buffer and see… that it hasn’t changed?? A common DMA gotcha I’ve seen, especially on ARM platforms, is the need for a memory barrier between the write to the buffer and the write to trigger the DMA controller. Also, please verify that you have WinDbg set up… and that you’re actually looking at the buffer in question via WinDbg. I assume that, setting up for a DMA write operation to memory (data coming FROM the device TO host memory), you initialize the buffer to something (just as a test, for example, you set it to all 0xFF or something), setup and do the DMA write to memory, then look at the memory buffer and see… that it hasn’t changed??",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "[dpdk-dev] [PATCH v2 2/2] virtio: one way barrier for split vring avail idx",
+        "url": "https://mails.dpdk.org/archives/dev/2020-April/161651.html",
+        "snippet": "[dpdk-dev] [PATCH v2 2/2] virtio: one way barrier for split vring avail idx. Joyce Kong joyce.kong at arm.com. Thu Apr 2 04:57:53 CEST 2020.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Virtual I/O Device (VIRTIO) Version 1.1 - Index of /",
+        "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+        "snippet": "A driver MUST NOT decrement the available idx on a virtqueue (ie. there is no way to “unexpose” buffers). 2.6.7 Used Buffer Notification Suppression.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Virtqueues and virtio ring: How the data travels - Red Hat",
+        "url": "https://www.redhat.com/en/blog/virtqueues-and-virtio-ring-how-data-travels",
+        "snippet": "From now on, the driver should not modify the available descriptor or the exposed buffer at any moment: It is under the device's control. For example, if the driver has sent us two buffers in a chain with descriptor table indexes 0 and 1 as first operation, the device would see the scenario in Figure 3, and it would be the step 2 again. After that, the steps are the same as with regular descriptors: The driver adds the index of the descriptor marked with the  flag in the descriptor area to the avail ring (#0 in this case, step 4 in the diagram), and notify the device as usual (step 5). As a trusted adviser to the Fortune 500, Red Hat offers cloud, developer, Linux, automation, and application platform technologies, as well as award-winning services.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.3667
+      },
+      {
+        "title": "drivers/virtio/virtio_ring.c Source File - Linux Kernel - Huihoo",
+        "url": "https://docs.huihoo.com/doxygen/linux/kernel/3.7/virtio__ring_8c_source.html",
+        "snippet": "virtio guest is communicating with a virtual \"device\" that actually runs on 28 * a host processor. Memory barriers are used to control SMP effects.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "kvm-guest-drivers-windows/VirtIO/VirtIORing.c at master - GitHub",
+        "url": "https://github.com/virtio-win/kvm-guest-drivers-windows/blob/master/VirtIO/VirtIORing.c",
+        "snippet": "Windows paravirtualized drivers for QEMU\\KVM. Contribute to virtio-win/kvm-guest-drivers-windows development by creating an account on GitHub.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "A rant/question about NVMe : r/osdev - Reddit",
+        "url": "https://www.reddit.com/r/osdev/comments/1crr2kh/a_rantquestion_about_nvme/",
+        "snippet": "No, you shouldn't write to the completion queue doorbell until after you've read from the queue. Other than that I think you've got it",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.5
+      },
+      {
+        "title": "Implementing NVMe Driver for OS: Queues, Doorbells, and PCIe ...",
+        "url": "https://www.linkedin.com/posts/dev-sharma-465759307_systemsengineering-osdev-kernel-activity-7429177792258506752--aoz",
+        "snippet": "The kernel actively checks the \"Phase Bit\" in the completion entry to detect when the drive has flipped it, signaling that the job is done.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3
+      },
+      {
+        "title": "NVMe Command Submission and Completion Mechanism - My Blog",
+        "url": "https://jingliu.me/posts/2021-01-22-nvmemechanism.html",
+        "snippet": "* SQ (Submission Queue): A submission queue is a circular buffer with a fixed slot size that the host software used to submit commands for execution by the controller. + The CQ Head pointer is updated by host software after processing completion queue entries indicating the last free CQ slot. + A controller executes command submitted by a host on a submission queue and posts an completion on a Completion Queue. The central data structures used for this data transfer between the host and controller is the `qpair` (one submission queue and one completion queue), plus two doorbells. A small trick here is that, the controller uses SQ Head Pointer (SQHD) field in CQ entries to communicate the most recent value of SQ Header Pointer to the host, which indicates that SQ entries have been consumed by the controller, but does not indicate either execution or completion of any command.",
+        "published_date": "",
+        "source": "tavily, exa, grok",
+        "score": 0.3333
+      },
+      {
+        "title": "NVME_COMPLETION_QUEUE_...",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/nvme/ns-nvme-nvme_completion_queue_head_doorbell",
+        "snippet": "Defines the doorbell register that updates the Head entry pointer for Completion Queue y. The value of y is equivalent to the Queue",
+        "published_date": "",
+        "source": "tavily, exa, grok",
+        "score": 0.6
+      },
+      {
+        "title": "[PDF] NVM Express Explained",
+        "url": "https://nvmexpress.org/wp-content/uploads/2013/04/NVM_whitepaper.pdf",
+        "snippet": "The specification defines a streamlined set of registers whose functionality includes: x Indication of controller capabilities x Status for device failures (command status is processed via CQ directly) x Admin Queue configuration (I/O Queue configuration processed via Admin commands) x Doorbell registers for scalable number of Submission and Completion Queues The capabilities that the controller supports are indicated in the Controller Capabilities (CAP) register and as part of the Controller and Namespace data structures returned in the Identify command. An Admin Submission and associated Completion Queue exist for the purpose of device management and control – e.g., creation and deletion of I/O Submission and Completion Queues, aborting commands, etc. This specification defines one I/O Command Set, named the NVM Command Set. Host software creates queues, up to the maximum supported by the controller.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.3
+      }
+    ],
+    "grok": [
+      {
+        "title": "DPA Development - NVIDIA DOCA Documentation",
+        "url": "https://docs.nvidia.com/doca/archive/2-5-5/DPA-Development/index.html",
+        "snippet": "Poll CQ owner bit in DPA memory until the value indicates the CQE is in software ownership. Coherency model ensures update to the CQ is visible to the DPA execution unit without additional fences or cache control operations. Coherency model ensures that data in the CQE or referenced by it are visible when the CQE changes ownership to software.",
+        "published_date": "2026-01-06",
+        "source": "grok"
+      },
+      {
+        "title": "Re-architecting End-host Networking with CXL: Coherence ...",
+        "url": "https://dl.acm.org/doi/10.1145/3725843.3756102",
+        "snippet": "While DMA enables bulk data transfers to the host with considerable bandwidth, its setup and completion overhead renders it inefficient for the frequent, small- ...",
+        "published_date": "2025-10-17",
+        "source": "grok"
+      },
+      {
+        "title": "DOCA Libraries - NVIDIA Documentation",
+        "url": "https://docs.nvidia.com/doca/sdk/doca-libraries.pdf",
+        "snippet": "DOCA Core objects provide a unified and holistic interface for application developers to interact with various DOCA libraries involving DMA, memory mapping, and buffer ownership considerations in driver and firmware contexts.",
+        "published_date": "2026-03-10",
+        "source": "grok",
+        "score": 0.6233
+      },
+      {
+        "title": "CDNA4 Instruction Set Architecture: Reference Guide - AMD",
+        "url": "https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/amd-instinct-cdna4-instruction-set-architecture.pdf",
+        "snippet": "The CDNA memory controller has direct access to all CDNA device memory and the host-specified areas of system memory, performing functions of a direct-memory access (DMA) controller including computing memory-address offsets based on the format of the requested data in memory.",
+        "published_date": "2025-08-05",
+        "source": "grok",
+        "score": 0.26
+      },
+      {
+        "title": "NVIDIA GPU Confidential Computing Demystified",
+        "url": "https://arxiv.org/html/2507.02770v1",
+        "snippet": "For the memory transfers between CVM and GSP, the driver uses the CPU-GSP DMA. As DMA cannot access the private memory in the CVM directly, the driver needs to allocate and map a staging buffer ...",
+        "published_date": "2025-07-03",
+        "source": "grok",
+        "score": 0.56
+      },
+      {
+        "title": "Virtual I/O Device (VIRTIO) Version 1.2 - OASIS Open Specification",
+        "url": "https://docs.oasis-open.org/virtio/virtio/v1.2/cs01/virtio-v1.2-cs01.pdf",
+        "snippet": "Official OASIS VirtIO 1.2 specification detailing vring layout, avail ring (driver-owned, writes idx), used ring (device-owned, writes idx), memory barriers (virtio_mb/rmb/wmb equivalents), ownership rules (single writer per structure), event idx suppression, and synchronization requirements.",
+        "published_date": "2022-01-01",
+        "source": "grok",
+        "score": 0.7033
+      },
+      {
+        "title": "Virtual I/O Device (VIRTIO) Version 1.1",
+        "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+        "snippet": "OASIS VirtIO 1.1 draft/spec with detailed rules on avail idx (driver MUST NOT decrement), used ring processing, barriers for SMP correctness, descriptor flags, and no 'unexpose' of buffers; covers ownership implicitly via write-once semantics.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Virtqueues and virtio ring: How the data travels - Red Hat Blog",
+        "url": "https://www.redhat.com/en/blog/virtqueues-and-virtio-ring-how-data-travels",
+        "snippet": "Detailed explanation of virtqueue data flow: avail ring (driver writes idx/flags, device reads), used ring (device writes idx, driver reads), single-writer ownership to avoid locks, barriers implied in updates.",
+        "published_date": "2020-07-08",
+        "source": "grok"
+      },
+      {
+        "title": "Linux Kernel - drivers/virtio/virtio_ring.c",
+        "url": "https://docs.huihoo.com/doxygen/linux/kernel/3.7/virtio__ring_8c_source.html",
+        "snippet": "Kernel source implementing virtio_ring with explicit virtio_wmb/rmb barriers around avail->idx and used idx updates, last seen idx tracking, event idx handling, and SMP synchronization notes.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "[dpdk-dev] one way barrier for split vring avail idx",
+        "url": "https://mails.dpdk.org/archives/dev/2020-April/161651.html",
+        "snippet": "DPDK patch discussion optimizing virtio split vring avail idx updates using one-way barriers (rte_smp_wmb) instead of full virtio_wmb for performance on x86, highlighting barrier semantics in avail idx ownership.",
+        "published_date": "2020-04-02",
+        "source": "grok"
+      },
+      {
+        "title": "SPDK: Submitting I/O to an NVMe Device",
+        "url": "https://spdk.io/doc/nvme_spec.html",
+        "snippet": "Detailed explanation of NVMe I/O submission: constructing commands in submission queues, ringing the submission queue tail doorbell, phase bit toggling in completion entries (0/1 per loop), processing completions, and ringing the completion queue head doorbell. Covers phase tag usage for detecting new completions without register polling.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.3
+      },
+      {
+        "title": "An NVM Express Tutorial",
+        "url": "https://files.futurememorystorage.com/proceedings/2013/20130812_PreConfD_Marks.pdf",
+        "snippet": "In-depth tutorial on NVMe queues: submission/completion queue mechanics, doorbell registers (tail for submission, head for completion), phase tag (P bit) inversion by controller each round to indicate new entries, and command completion flow including SQ head pointer in completions.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.3
+      },
+      {
+        "title": "NVM Express Explained",
+        "url": "https://nvmexpress.org/wp-content/uploads/2013/04/NVM_whitepaper.pdf",
+        "snippet": "Official NVM Express whitepaper outlining paired submission/completion queues, doorbell registers for scalable queues, phase (P) bit in completion entries inverted per round for ownership/new entry detection without constant register checks.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "NVMe Command Submission and Completion Mechanism",
+        "url": "https://jingliu.me/posts/2021-01-22-nvmemechanism.html",
+        "snippet": "Blog post explaining NVMe mechanism: phase tag (P bit) in completion queue entries to indicate newly posted completions, controller inverts it each round through the circular buffer for host to determine freshness without doorbells.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "NVME_COMPLETION_QUEUE_HEAD_DOORBELL - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/nvme/ns-nvme-nvme_completion_queue_head_doorbell",
+        "snippet": "Windows API documentation for NVMe Completion Queue Head Doorbell register: host updates this to signal consumption of completions, enabling controller reuse of slots. Ties into phase tag for efficient polling.",
+        "published_date": "2024-02-22",
+        "source": "grok"
+      }
+    ]
+  },
+  "freshness_filter": "py"
+}
