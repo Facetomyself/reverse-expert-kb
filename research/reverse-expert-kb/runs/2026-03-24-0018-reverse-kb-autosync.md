@@ -101,5 +101,7 @@ Grok endpoint: `http://proxy.zhangxuemin.work:8000/v1`
 
 ## Commit / sync status
 - KB changes detected: yes
-- Planned action: commit the KB changes and run `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh`
-- If sync fails, preserve local KB progress and leave the failure noted here
+- Commit created: `72fb7ed` (`reverse-kb: deepen descriptor ownership visibility workflow`)
+- Sync command run: `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh`
+- Sync result: success
+- Remote sync target reported by script: `https://github.com/Facetomyself/reverse-expert-kb` on branch `main`
