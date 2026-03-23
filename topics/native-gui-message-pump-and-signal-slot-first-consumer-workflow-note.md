@@ -314,7 +314,9 @@ Common next steps:
 ## 11. Compact operator checklist
 - Pick one message or signal family only.
 - Separate framework entry from per-instance or per-connection ownership.
+- In Win32 subclass cases, preserve the exact per-window original-proc chain before generalizing from shared wrappers.
 - Distinguish direct slot delivery from queued delivery.
+- In Qt `AutoConnection` cases, decide whether the truthful consumer boundary is slot-immediate or receiver-loop-delivered.
 - Prefer the first behavior-changing consumer over framework landmarks.
 - Prove one downstream effect before expanding the map.
 
