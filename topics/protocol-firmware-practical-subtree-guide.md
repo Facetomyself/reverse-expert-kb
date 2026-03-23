@@ -65,21 +65,23 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - a visible object exists, but it still mixes framing, compression, serialization, crypto wrapping, RPC shell, or continuation structure and has not yet been reduced into one smaller trustworthy contract
 5. **schema externalization / replay-harness uncertainty**
    - one smaller trustworthy contract already exists, but it has not yet been converted into one reusable schema, service-contract artifact, or representative replay/edit/fuzz harness surface
-6. **content-pipeline continuation uncertainty**
+6. **method-contract -> minimal replay-fixture uncertainty**
+   - one representative method-bearing contract is already externalized, but the analyst still has not frozen one truthful request/response, request/completion, stream-slice, or opnum-level representative call bundle plus one smallest constructor path
+7. **content-pipeline continuation uncertainty**
    - the first authenticated API family is visible, but the real analyst object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder
-7. **ingress ownership uncertainty**
+8. **ingress ownership uncertainty**
    - inbound traffic is visible, but the first local receive owner that feeds parser-relevant handling is still unclear
-8. **parser-to-consequence uncertainty**
+9. **parser-to-consequence uncertainty**
    - the parser or dispatch region is visible, but the first state/reply/peripheral consequence edge is still unknown
-9. **acceptance / replay-precondition uncertainty**
+10. **acceptance / replay-precondition uncertainty**
    - structurally plausible replay or mutation still fails because one narrow state/precondition gate is unproved
-10. **reply-emission / output-handoff uncertainty**
+11. **reply-emission / output-handoff uncertainty**
    - local acceptance or reply-object creation is visible, but the first committed output path is still unclear
-11. **mailbox / doorbell command publish-completion uncertainty**
+12. **mailbox / doorbell command publish-completion uncertainty**
    - one mailbox, command queue, slot, or submission path is already plausible, but the first publish edge and request-linked completion chain are still unclear
-12. **descriptor ownership-transfer / completion-visibility uncertainty**
+13. **descriptor ownership-transfer / completion-visibility uncertainty**
    - one descriptor, ring, or completion record is already visible, but the exact ownership-transfer, trust/visibility, or reclaim boundary is still unclear
-13. **hardware-side effect / interrupt consequence uncertainty**
+14. **hardware-side effect / interrupt consequence uncertainty**
    - the path already reaches peripheral or interrupt/deferred boundaries, but the first durable effect-bearing write or later consequence handoff is still unproved
 
 A compact operator ladder for this branch is:
@@ -97,6 +99,7 @@ The subtree is strongest when read as:
 - **peel** the visible object into one smaller trustworthy contract
 - **recover** one service shell or representative method surface when the family is clearly service-oriented
 - **externalize** that contract into one reusable schema or harness target
+- **freeze** one representative replay fixture and smallest constructor path when one method-bearing contract is already good enough but replay is still too vague
 - **own** the right inbound object
 - **reduce** one parser/state consequence
 - **accept** one interaction under the right local precondition
@@ -203,6 +206,21 @@ Do **not** start here when:
 - the service shell itself is still implicit and the real missing step is one registration/dispatch anchor
 - replay is already structurally plausible and the real bottleneck is now local state/auth/freshness gating
 - local acceptance already exists and the missing edge is the first emitted output path
+
+### Start with `protocol-method-contract-to-minimal-replay-fixture-workflow-note`
+Use:
+- `topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md`
+
+Start here when:
+- one representative method-bearing contract is already externalized enough to name and build outside the target
+- but replay still lacks one truthful request/response, request/completion, streaming-aware ordered slice, or opnum-level representative call bundle
+- the next practical bottleneck is freezing one compare-friendly fixture and one smallest constructor path before replay-gate debugging starts
+- schema recovery is already good enough, but the replay object is still too vague to mutate honestly
+
+Do **not** start here when:
+- the service shell or representative method contract is still implicit
+- the visible object is still too layered and contract externalization is not yet complete
+- structurally plausible replay already exists and the real missing edge is now acceptance gating or later output handoff
 
 ### Start with `protocol-ingress-ownership-and-receive-path-workflow-note`
 Use:
@@ -317,7 +335,7 @@ Do **not** start here when:
 - the real bottleneck is earlier in parser/state or replay-gate work
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as thirteen common bottleneck families that often chain into one another.
+A useful way to read the branch is as fourteen common bottleneck families that often chain into one another.
 
 ### A. Broad firmware/protocol uncertainty -> correct recovery object
 Typical question:
@@ -391,7 +409,24 @@ Possible next handoff:
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/protocol-content-pipeline-recovery-workflow-note.md`
 
-### F. Visible continuation object -> first trustworthy artifact ladder
+### F. Visible method-bearing contract -> first truthful replay fixture
+Typical question:
+- if one representative method-bearing contract is already visible and externalized, what is the smallest truthful request/response, request/completion, ordered stream slice, or opnum-level call bundle that should be frozen before replay-gate debugging starts?
+
+Primary note:
+- `topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md`
+
+Routing reminder:
+- stay here while the missing proof is still one representative replay object plus one smallest constructor path
+- leave broad minimal-fixture work once one truthful fixture package is already good enough and the real bottleneck becomes replay acceptance, parser/state consequence, or later output handoff
+
+Possible next handoff:
+- `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
+- `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+- `topics/analytic-provenance-and-evidence-management.md`
+
+### G. Visible continuation object -> first trustworthy artifact ladder
 Typical question:
 - if the first authenticated API family is already visible, what continuation path turns a manifest/handle/key/chunk/segment ladder into one representative artifact proof?
 
@@ -408,7 +443,7 @@ Possible next handoff:
 - key/crypto recovery for the artifact layer
 - `topics/analytic-provenance-and-evidence-management.md` when one representative artifact ladder is already good enough but the remaining problem is preserving the claim, path assumptions, and proof slices so a later analyst can re-run or automate without rediscovering the same continuation logic
 
-### F. Visible inbound activity -> first local receive owner
+### H. Visible inbound activity -> first local receive owner
 Typical question:
 - which local queue, ring, framing commit, callback, or deferred receive worker first takes ownership of the inbound object?
 
@@ -424,7 +459,7 @@ Possible next handoff:
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 
-### G. Parser visibility -> first state or effect consequence
+### I. Parser visibility -> first state or effect consequence
 Typical question:
 - what first state write, reply-family selector, queue/timer insertion, or peripheral action actually predicts later behavior?
 
@@ -441,7 +476,7 @@ Possible next handoff:
 - `topics/mailbox-doorbell-command-completion-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 
-### H. Structurally plausible replay -> accepted interaction
+### J. Structurally plausible replay -> accepted interaction
 Typical question:
 - which first local phase, freshness, pending-request, capability, or state gate decides whether the interaction really advances?
 
@@ -459,7 +494,7 @@ Possible next handoff:
 - `topics/analytic-provenance-and-evidence-management.md` when one consequence-bearing parser/state edge is already good enough and the main remaining problem is preserving exactly which inputs, state assumptions, and reduced proof slices justified the claim
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 
-### I. Accepted local path -> real output behavior
+### K. Accepted local path -> real output behavior
 Typical question:
 - where does accepted local state become one real emitted reply, serializer path, queue commit, descriptor submission, or transport-visible send?
 
@@ -478,7 +513,7 @@ Possible next handoff:
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 
-### J. Visible descriptor/ring publication -> trustworthy ownership and reclaim contract
+### L. Visible descriptor/ring publication -> trustworthy ownership and reclaim contract
 Typical question:
 - after publish/tail/doorbell proof is already partly good enough, when does the other side actually own and trust the record, and what reclaim or slot reuse proves durable completion?
 
@@ -494,7 +529,7 @@ Possible next handoff:
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 - rehosting or emulation realism work
 
-### K. Peripheral or completion visibility -> durable hardware-side consequence
+### M. Peripheral or completion visibility -> durable hardware-side consequence
 Typical question:
 - after reply-emission / transport-handoff proof or descriptor-visibility proof is already good enough, which first MMIO write, arm, status-latch, ISR reduction, or deferred-worker consequence actually predicts later durable behavior?
 
@@ -532,14 +567,16 @@ When a case is clearly firmware/protocol shaped, ask these in order:
    - if yes, start with content-pipeline recovery
 8. **Is inbound traffic visible, but the first local receive owner still unclear?**
    - if yes, start with ingress ownership
-8. **Is parser or dispatch visibility present, but the first state/effect consequence still unclear?**
+9. **Is parser or dispatch visibility present, but the first state/effect consequence still unclear?**
    - if yes, start with parser-to-state localization
-9. **Is replay or mutation structurally plausible, but still not accepted?**
+10. **Is replay or mutation structurally plausible, but still not accepted?**
    - if yes, start with replay-precondition / state-gate localization
-10. **Is local acceptance visible, but one real emitted output still unproved?**
+11. **Is local acceptance visible, but one real emitted output still unproved?**
    - if yes, start with reply-emission / transport handoff
-11. **Has the case already crossed into peripheral or interrupt/deferred consequences?**
-   - if yes, choose MMIO effect proof or ISR/deferred consequence proof depending on whether the first effect-bearing hardware edge or the later durable completion-driven reduction is still missing
+12. **Is the accepted local path already visible, but the true bottleneck is now mailbox/doorbell command publish-to-completion rather than broader output emission?**
+   - if yes, start with mailbox/doorbell command publish-completion proof
+13. **Has the case already crossed into descriptor ownership/visibility or peripheral or interrupt/deferred consequences?**
+   - if yes, choose descriptor ownership/visibility, MMIO effect proof, or ISR/deferred consequence proof depending on whether the trust/reclaim boundary, the first effect-bearing hardware edge, or the later durable completion-driven reduction is still missing
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
 That usually means:

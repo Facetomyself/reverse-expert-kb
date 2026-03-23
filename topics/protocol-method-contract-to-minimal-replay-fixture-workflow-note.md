@@ -15,6 +15,7 @@ Supporting source notes:
 - sources/firmware-protocol/2026-03-21-schema-externalization-and-replay-harness-notes.md
 - sources/firmware-protocol/2026-03-22-grpc-method-contract-minimal-fixture-notes.md
 - sources/firmware-protocol/2026-03-23-streaming-first-minimal-replay-fixture-notes.md
+- sources/firmware-protocol/2026-03-23-streaming-and-opnum-minimal-replay-fixture-notes.md
 
 ## 1. When to use this note
 Use this note when a protocol or RPC-shaped case has already progressed far enough that:
@@ -31,7 +32,8 @@ Typical entry conditions:
 
 Use it for cases like:
 - gRPC / protobuf service families where one method contract is known and the next useful output is one fixture-backed request constructor or replay script
-- Windows RPC or custom RPC families where one operation stub is known and the analyst needs one smallest argument bundle worth replaying
+- streaming RPC families where the missing practical object is one truthful ordered slice plus one close / half-close boundary rather than just one payload blob
+- Windows RPC or custom RPC families where one operation stub or opnum is known and the analyst needs one smallest argument bundle worth replaying
 - proprietary framed protocols where one opcode + payload shape is already recovered and the missing step is shrinking it into one mutation-safe fixture surface
 - firmware command/mailbox cases where one command family is already credible and the next useful object is one representative command fixture plus the few sequence / nonce / state assumptions that still matter
 
@@ -66,7 +68,7 @@ It is:
 - one minimal replay/edit harness that keeps later gate debugging honest
 
 This note exists to keep the branch practical:
-- **freeze one representative method replay surface before broadening into whole-client folklore**.
+- **freeze one representative method replay surface before broadening into whole-client folklore**
 
 ## 3. Target pattern
 The recurring shape is:
@@ -92,6 +94,8 @@ Treat these as good first targets:
 - one constructor input object plus the serialized bytes it emits
 - one fixture pair captured from a truthful runtime path, with clear provenance about where it was observed
 - one fixture family where the method/opcode identity, framing, and message body are all explicit
+- for streaming RPC, one **ordered slice** plus the relevant close / half-close semantics
+- for Windows RPC, one **opnum-level representative call bundle**: interface/binding target, opnum identity, argument bundle, and explicit context/auth assumptions
 
 Treat these as weaker and usually incomplete:
 - raw pcap slices without method identity
@@ -99,6 +103,8 @@ Treat these as weaker and usually incomplete:
 - a giant corpus of many messages but no chosen representative family
 - one replay script that silently bakes in hidden ambient state and gives no reduced fixture boundary
 - generic “sample request” docs with no proof they correspond to the recovered live method contract
+- for streaming methods, one payload blob that omits ordering or close semantics
+- for Windows RPC, a full interface inventory with no single replay-worthy call object
 
 ## 5. Practical workflow
 
@@ -110,6 +116,7 @@ Good choices:
 - smallest request family that consistently reaches parser acceptance
 - one method whose request/response pair already has stable captures
 - one mailbox/command family whose publish/completion chain is already plausible enough to compare later
+- for Windows RPC, one opnum whose argument shape and callable path are already plausible enough to preserve as a single call bundle
 
 Bad choices:
 - the busiest or most feature-rich method just because it looks central
@@ -120,6 +127,8 @@ Write down:
 - method/opcode/path identity
 - request shape already believed to be true
 - response/ack expectation if known
+- stream class if relevant: unary, server-streaming, client-streaming, or bidi
+- for Windows RPC, binding / endpoint / interface UUID assumptions if already known
 - why this family is the chosen representative replay target
 
 ### Step 2: Preserve provenance for the fixture source
@@ -128,7 +137,8 @@ Before editing anything, preserve where the fixture came from.
 Record:
 - capture boundary or runtime boundary
 - whether bytes are pre-wrap, post-wrap, plaintext, serialized object, or builder input
-- whether the fixture is request-only, request/response, or request/completion-derived
+- whether the fixture is request-only, request/response, request/completion-derived, or stream-slice-derived
+- for streaming cases, whether the slice includes opener, mid-stream messages, half-close, first server event, or completion edge
 - what environment assumptions were already true at capture time
 
 This matters because later replay failures are often not schema failures at all; they are provenance failures.
@@ -137,11 +147,11 @@ This matters because later replay failures are often not schema failures at all;
 For the representative request, explicitly separate fields into:
 
 1. **identity / routing core**
-   - method name, opcode, path, service ID
+   - method name, opcode, path, service ID, opnum
    - stream shape if it is part of the callable contract
    - message body fields that select the code path or semantic family
 2. **likely gate-bearing fields**
-   - nonce, timestamp, session, auth token, sequence, pending-request ID, device/context binding
+   - nonce, timestamp, session, auth token, sequence, pending-request ID, device/context binding, context handle assumptions
 3. **decoration / low-priority fields**
    - optional metadata, logging hints, cosmetic labels, duplicated mirrors, seemingly inert padding when not part of MAC/signature coverage
 
@@ -151,7 +161,11 @@ For gRPC-like families, a compact first route core is often already available as
 - response message type
 - unary vs client-streaming vs server-streaming vs bidi shape
 
-That compact route core should usually be frozen before spending much time on metadata or auth folklore.
+For Windows RPC-like families, a compact first route core is often:
+- interface UUID or interface binding target
+- endpoint or transport family if known
+- opnum
+- one representative argument family
 
 The goal is not perfect semantics.
 The goal is to stop treating every field as equally mysterious.
@@ -164,6 +178,8 @@ Prefer:
 - one generated client helper
 - one builder object path
 - one serializer call chain that only touches the chosen request family
+- for streaming RPC, one call-level surface that preserves message order and close / half-close semantics
+- for Windows RPC, one stub/helper/invocation path that preserves opnum and argument shape before broad transport recreation
 
 Prefer these before:
 - hand-built HTTP/2 or transport framing
@@ -191,9 +207,11 @@ A good fixture package usually contains:
 - one table or bullet list marking which fields are believed stable, variable, or unknown
 
 Also preserve the layer and provenance explicitly:
-- whether the fixture is a builder input, serialized protobuf body, gRPC message body, framed request, or transport-visible unit
+- whether the fixture is a builder input, serialized protobuf body, gRPC message body, framed request, stream-slice, transport-visible unit, or stub-argument bundle
 - where it was captured or reconstructed from
 - whether reflection / descriptor metadata was available or whether the fixture was recovered under a weaker compare-driven model
+- for streaming methods, whether ordering and close semantics are preserved inside the fixture package
+- for Windows RPC, whether the package already includes binding/context assumptions or still depends on ambient runtime state
 
 Keep the package small enough that a later analyst can:
 - diff two runs
@@ -208,6 +226,8 @@ Good edits:
 - a benign string or count field that should stay inside the same method family
 - one payload field that should change business content but not routing
 - one optional field removal if it is believed decorative
+- for streaming cases, one payload-field change while holding message count, ordering, and close timing constant
+- for Windows RPC, one argument change while holding opnum, binding, and context assumptions constant
 
 This proves the fixture is not just a dead recording artifact.
 It gives a compare pair that helps separate route identity from gate-bearing obligations.
@@ -222,6 +242,8 @@ Typical blockers:
 - pending-request correlation or sequence ownership
 - transport wrapper or channel binding still missing
 - output-side handoff still not proved
+- for streaming methods, close / half-close, message ordering, or stream-lifecycle reproduction still incomplete
+- for Windows RPC, binding/authn level, transfer syntax, or context-handle lifecycle still ambient rather than frozen into the fixture package
 
 A fixture package without this blocker list invites overclaiming.
 
@@ -240,6 +262,8 @@ Useful anchors for this stage:
 - request enqueue sites that still preserve correlation IDs or method identity
 - fixture capture points just before framing/encryption and just after parse/materialization
 - response dispatch sites that can tie an observed reply/completion back to the representative request
+- for streaming cases, open/send/half-close boundaries and first server-event dispatch
+- for Windows RPC, stub marshalling helpers, `NdrClientCall*`-adjacent invocation boundaries, or opnum-bearing call sites that still preserve argument shape
 
 If noise is high:
 - prefer the single chosen method family
@@ -264,6 +288,12 @@ That usually makes failures harder to localize, not easier.
 A good fixture package only earns a better gate-debugging position.
 It does not prove live success.
 
+### 6. Treating stream close semantics as optional polish
+For some streaming RPCs, half-close or close timing is part of the smallest truthful fixture.
+
+### 7. Treating Windows RPC replay as whole-interface recovery
+The first replay-worthy object is often one opnum-level call bundle, not complete interface coverage.
+
 ## 8. Concrete scenario patterns
 
 ### Scenario A: gRPC method known, but no representative request package exists
@@ -286,7 +316,23 @@ If reflection is unavailable or stripped:
 - fall back to embedded descriptor blobs, generated-code evidence, path strings, registration code, or live compare pairs
 - narrow fixture scope instead of pretending the whole service roster is already known
 
-### Scenario B: Windows/custom RPC opnum known, but arguments are still folklore
+### Scenario B: streaming gRPC method known, but the decisive reply never appears
+Pattern:
+
+```text
+method path is known
+  -> per-message payloads look plausible
+  -> replay still stalls or times out
+  -> close / half-close behavior or message ordering is not preserved truthfully
+```
+
+Best move:
+- freeze one ordered slice, not one payload blob
+- record whether client half-close / close is required for the decisive reply or completion
+- hold message count, ordering, and close timing constant in the first compare pair
+- treat lifecycle reproduction as part of fixture identity before jumping to auth or schema guesses
+
+### Scenario C: Windows/custom RPC opnum known, but arguments are still folklore
 Pattern:
 
 ```text
@@ -299,9 +345,10 @@ interface/opnum is known
 Best move:
 - preserve one representative argument bundle
 - separate opnum identity from auth/context handles and per-call correlation fields
+- preserve binding or endpoint assumptions explicitly
 - build one minimal call surface before widening argument taxonomy
 
-### Scenario C: Proprietary command protocol already has one opcode contract
+### Scenario D: Proprietary command protocol already has one opcode contract
 Pattern:
 
 ```text
@@ -318,11 +365,13 @@ Best move:
 
 ## 9. What good output looks like
 A strong result from this workflow usually contains:
-- one chosen representative method/opcode family
+- one chosen representative method/opcode/opnum family
 - one frozen route identity boundary
-  - method/path/opcode identity
+  - method/path/opcode/opnum identity
   - stream shape if relevant
 - one provenance-tagged request fixture, plus response/ack fixture if available
+- for streaming cases, one truthful ordered slice and explicit close / half-close statement
+- for Windows RPC, one representative argument bundle plus explicit binding/context assumptions
 - one reduced split of stable identity vs likely gate-bearing vs decorative fields
 - one minimal constructor / serializer / invocation path
 - one conservative edit compare pair
@@ -359,19 +408,14 @@ Primary retained source influences for this page:
   - `sources/firmware-protocol/2026-03-22-grpc-method-contract-minimal-fixture-notes.md`
 - streaming-first and reflection-disabled continuation material summarized in:
   - `sources/firmware-protocol/2026-03-23-streaming-first-minimal-replay-fixture-notes.md`
+- streaming / half-close and Windows RPC representative call-bundle material summarized in:
+  - `sources/firmware-protocol/2026-03-23-streaming-and-opnum-minimal-replay-fixture-notes.md`
 - existing schema-externalization source note:
   - `sources/firmware-protocol/2026-03-21-schema-externalization-and-replay-harness-notes.md`
 
 Confidence note:
 - strong for the workflow gap and stop rules
-- medium for tool-specific implementation details because concrete targets vary widely
-- intentionally conservative about claiming that any one fixture package solves live replay by itself
-or tool-specific implementation details because concrete targets vary widely
-- intentionally conservative about claiming that any one fixture package solves live replay by itself
-ion source note:
-  - `sources/firmware-protocol/2026-03-21-schema-externalization-and-replay-harness-notes.md`
-
-Confidence note:
-- strong for the workflow gap and stop rules
+- strong for preserving streaming-shape and half-close as fixture identity in streaming cases
+- medium-to-strong for the Windows RPC reduction from interface discovery to one opnum-level representative call bundle
 - medium for tool-specific implementation details because concrete targets vary widely
 - intentionally conservative about claiming that any one fixture package solves live replay by itself
