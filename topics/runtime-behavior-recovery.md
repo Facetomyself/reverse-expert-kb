@@ -246,6 +246,7 @@ The branch is now best entered through these recurring bottlenecks:
 - **hook-placement / truth-boundary uncertainty** when runtime work is clearly needed and a broad layer is already plausible, but the next truthful observation surface or minimal hook family still competes with several neighbors
 - **capture-stability / replay-worthiness uncertainty** when the interesting behavior is transient, delayed, expensive, or too painful to keep rediscovering live and the real question is whether to stabilize one representative execution first
 - **representative-execution / trace-anchor selection** when replay already looks attractive, but the analyst still needs to choose which execution window is worth preserving and which first event family should partition the trace before broader reverse-causality work begins
+- **compare-run design / divergence isolation** when one representative execution and one first anchor are already good enough to support comparison, but the analyst still needs to design a useful near-neighbor compare pair, classify noisy early mismatches, and isolate the first behavior-bearing divergence before backward causal work becomes trustworthy
 - **late-effect to causal-boundary localization** when one suspicious late effect is already visible and revisitable enough, but the first earlier write, branch, queue edge, reducer, or state slot that predicts it is still unknown
 - **evidence package / handoff continuation** when one representative execution, compare-run result, or causal claim is already technically good enough, but still too scattered, assumption-heavy, or analyst-private to survive delay, handoff, or narrower branch reuse cleanly
 
@@ -259,11 +260,12 @@ choose the current runtime-evidence bottleneck
 ```
 
 Read the branch in this order when helpful:
-- subtree routing and bottleneck selection (`topics/runtime-evidence-practical-subtree-guide.md`), which acts as the branch entry surface when the analyst first needs to decide whether the case is still dominated by broad observability uncertainty, smaller truth-boundary choice, replay-worthiness, backward causal localization, or package/handoff continuation
+- subtree routing and bottleneck selection (`topics/runtime-evidence-practical-subtree-guide.md`), which acts as the branch entry surface when the analyst first needs to decide whether the case is still dominated by broad observability uncertainty, smaller truth-boundary choice, replay-worthiness, compare-run alignment/divergence isolation, backward causal localization, or package/handoff continuation
 - broad runtime answerability and observability framing (`topics/runtime-behavior-recovery.md`)
 - hook-placement and truthful observation-surface reduction (`topics/hook-placement-and-observability-workflow-note.md`)
 - execution-history / replay stabilization (`topics/record-replay-and-omniscient-debugging.md`)
 - representative-execution / trace-anchor selection (`topics/representative-execution-selection-and-trace-anchor-workflow-note.md`)
+- compare-run design / first-divergence isolation (`topics/compare-run-design-and-divergence-isolation-workflow-note.md`)
 - reverse-causality / first-causal-boundary reduction (`topics/causal-write-and-reverse-causality-localization-workflow-note.md`)
 - runtime-evidence package / handoff continuation (`topics/runtime-evidence-package-and-handoff-workflow-note.md`)
 
@@ -294,7 +296,9 @@ A practical routing rule worth preserving here is:
 - leave broad runtime-observation strategy once one broad layer is already plausible and the real uncertainty has narrowed into one smaller truth-boundary or hook-family choice
 - leave broad hook-placement work once one truthful observation surface is already good enough and the real bottleneck has become replay-worthiness or backward causal localization
 - leave broad replay/tooling discussion once one representative execution is already good enough and the real bottleneck has narrowed further into which execution window is worth preserving and which first event family should anchor triage
-- leave representative-execution / trace-anchor selection work once one bounded execution and one stable first anchor are already good enough and the real bottleneck has become causal-boundary proof, branch-specific follow-up, or evidence packaging
+- leave representative-execution / trace-anchor selection work once one bounded execution and one stable first anchor are already good enough and the real bottleneck has become compare-run design, causal-boundary proof, branch-specific follow-up, or evidence packaging
+- leave compare-run alignment work once one trustworthy pair and one first behavior-bearing divergence are already good enough and the real bottleneck has become causal-boundary proof, branch-specific follow-up, or evidence packaging
+- if the first raw mismatches are dominated by timing, scheduler, checksum, handle, or bookkeeping churn, repair the compare boundary or compare level before widening into explanation
 - leave broad reverse-causality work once one causal boundary is already good enough and the real bottleneck has become narrower native, protocol, malware, mobile, protected-runtime, or provenance work
 
 Practitioner-community casework adds several concrete patterns here:

@@ -53,7 +53,7 @@ Runtime-evidence practical work is easiest to navigate when the analyst first cl
 4. **representative-execution and trace-anchor selection**
    - replay already looks attractive, but the analyst still needs to choose which execution window is worth preserving and which first event family should partition the trace before broader backward search begins
 5. **compare-run design and first-divergence isolation**
-   - two nearby runs already exist or can be produced, but the analyst still needs to design a useful compare pair, hold the right invariants steady, choose one compare boundary, and isolate the first meaningful divergence before deeper causal work begins
+   - two nearby runs already exist or can be produced, but the analyst still needs to design a useful compare pair, hold the right invariants steady, choose one compare boundary, classify noisy early mismatches honestly, and isolate the first behavior-bearing divergence before deeper causal work begins
 6. **late-effect to causal-boundary localization**
    - one suspicious late effect or one now-bounded compare-run divergence is already visible and revisitable enough, but the first causal write, branch, queue edge, or state reduction that predicts it is still unknown
 7. **evidence package / handoff continuation**
@@ -252,7 +252,8 @@ Possible next handoff:
 - `topics/runtime-evidence-package-and-handoff-workflow-note.md` when the compare result is already technically good enough and mainly needs preservation for later reuse
 
 Routing reminder:
-- leave compare-run design work once one trustworthy compare pair and one first meaningful divergence are already good enough and the real bottleneck becomes reverse-causality, branch-specific proof, or packaging
+- leave compare-run design work once one trustworthy compare pair and one first behavior-bearing divergence are already good enough and the real bottleneck becomes reverse-causality, branch-specific proof, or packaging
+- if early mismatches are dominated by scheduler/timing/randomness/bookkeeping churn, repair the compare boundary or compare level before treating those mismatches as explanatory
 
 ### F. Visible late effect or bounded divergence -> first causal boundary
 Typical question:

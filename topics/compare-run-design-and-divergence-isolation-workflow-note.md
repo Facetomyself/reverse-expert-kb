@@ -205,6 +205,27 @@ Meaningful divergence is not the same as earliest textual diff.
 Ignore differences that are obviously incidental:
 - addresses, handles, unrelated timestamps, allocator churn, trivial logging order, or known non-semantic noise
 
+A practical refinement worth preserving explicitly is:
+- the first mismatch is not automatically the first meaningful divergence
+- early differences often need to be classified as either:
+  - expected nondeterministic churn
+  - setup drift that means the compare pair itself still needs repair
+  - or true semantic split candidates worth deeper work
+
+Representative noisy-early-diff families include:
+- checksums, nonces, or freshness fields that are already known to vary but do not yet predict the behavior difference
+- scheduler/context-switch churn, queue ordering drift, or background worker activity that perturbs the trace before the target path separates semantically
+- late-bound handles, addresses, allocator layout, or bookkeeping fields whose variation is structurally normal
+
+When those dominate, do not immediately widen into deeper reverse-causality.
+Instead:
+- move to a compare level or boundary that preserves semantic continuity better
+- compare calls, validated objects, queue ownership, reducer outputs, or context-bearing fields before raw instruction churn
+- if needed, increase observation density only around the suspected boundary so the first behavior-bearing divergence becomes easier to catch
+
+A compact operator rule is:
+- when the early diff is noisy, re-ask the comparison question at a better boundary before treating the first mismatch as explanatory
+
 ### Step 6: decide the next handoff
 After the first meaningful divergence is bounded, choose the next note by the remaining bottleneck:
 - reverse-causality if the first causal boundary behind the divergence is still missing
@@ -224,12 +245,14 @@ This note is meant to prevent:
 This note is supported by several practical source families:
 - Tetrane’s trace-diffing write-up explicitly shows that compare value depends on choosing two nearby scenarios and selecting an appropriate comparison level, often starting from calls or coverage before instruction-level detail.
 - rr/Pernosco style replay material reinforces that deterministic replay is most useful when the analyst can preserve and revisit one intended behavior difference rather than broad uncontrolled execution history.
+- rr divergence-debugging material also reinforces that early visible divergence may need denser checking or narrower observation before the real causal split is caught close enough to explain.
 - Binary Ninja’s TTD guidance highlights the need to scope queries and avoid broad, expensive searches without a well-chosen target boundary.
 
 The practical convergence is:
 - choose the pair on purpose
 - choose the compare level on purpose
-- use the earliest meaningful divergence, not the fullest possible diff, as the bridge to deeper analysis
+- classify noisy early differences before overexplaining them
+- use the earliest meaningful divergence, not the fullest possible diff and not the first raw mismatch, as the bridge to deeper analysis
 
 ## 11. Topic summary
 This note turns compare-run work into a designed workflow step rather than an ad hoc diff.
