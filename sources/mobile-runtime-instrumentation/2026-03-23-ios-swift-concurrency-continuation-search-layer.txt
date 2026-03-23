@@ -1,0 +1,614 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Swift concurrency CheckedContinuation callback completion handler reverse engineering block async await iOS",
+    "withCheckedContinuation AsyncStream delegate callback completion handler state machine Swift iOS debugging",
+    "Swift async await generated state machine continuation resumption callback Objective-C bridge reverse engineering iOS"
+  ],
+  "count": 31,
+  "results": [
+    {
+      "title": "Considerations when adapting completion-block async code to Swift ...",
+      "url": "https://forums.swift.org/t/considerations-when-adapting-completion-block-async-code-to-swift-concurrency-via-withtaskcancellationhandler-withcheckedcontinuation/68892",
+      "snippet": "i was recently thinking about some code that adapts a completion-block-based API to Swift concurrency with support for cancelation of the async work. this implementation would not compile due to the mutable reference to the cancelation handler being identified as potentially being accessed concurrently (aside: it's great that this can be surfaced statically!). And another problem I see is that you're not actually concluding the continuation when cancellation occurs 'successfully' (when your work item never actually runs, due to the cancellation), so in that situation your code will either never return from `doAsyncWorkWithCancelation` or trigger a runtime error when the continuation deinits without first being resumed. And another problem I see is that you're not actually concluding the continuation when cancellation occurs 'successfully' (when your work item never actually runs, due to the cancellation), so in that situation your code will either never return from `doAsyncWorkWithCancelation` or trigger a runtime error when the continuation deinits without first being resumed.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.75
+    },
+    {
+      "title": "Swift concurrency async/await with do-something-only-on-success ...",
+      "url": "https://stackoverflow.com/questions/78186928/swift-concurrency-async-await-with-do-something-only-on-success-and-retry",
+      "snippet": "I'm converting our app's networking to use async/await, and I'm having a little trouble coming up with a satisfactory pattern to replace the completion handler.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "CheckedContinuation | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/checkedcontinuation",
+      "snippet": "CheckedContinuation performs runtime checks for missing or multiple resume operations. A mechanism to interface between synchronous and asynchronous code, logging correctness violations. Use withCheckedContinuation or withCheckedThrowingContinuation to bridge completion-handler APIs to async/await.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.725
+    },
+    {
+      "title": "Meet async/await in Swift - WWDC21",
+      "url": "https://developer.apple.com/videos/play/wwdc2021/10132",
+      "snippet": "The Swift compiler automatically takes a look at completion handler code imported from Objective-C and provides an async alternative... This pattern... has a name: a continuation... Swift provides a feature so that you can create, manage, and resume continuations in a high-level and safe way.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.725
+    },
+    {
+      "title": "swift-evolution/proposals/0297-concurrency-objc.md",
+      "url": "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0297-concurrency-objc.md",
+      "snippet": "When the compiler sees a call to such a method, it effectively uses withUnsafeContinuation to form a continuation... then wraps the given continuation in a closure... passLibrary.sign( signData, using: pass, completionHandler: { ... continuation.resume(throwing: error) ... continuation.resume(returning: ...) })",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.7
+    },
+    {
+      "title": "Bridging the delegate pattern to AsyncStream with Swift6 and ...",
+      "url": "https://forums.swift.org/t/bridging-the-delegate-pattern-to-asyncstream-with-swift6-and-sendability-issues/75754",
+      "snippet": "",
+      "published_date": "2024-11-01T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.65
+    },
+    {
+      "title": "Round-tripping Swift async tasks through Objective-C interfaces",
+      "url": "https://forums.swift.org/t/round-tripping-swift-async-tasks-through-objective-c-interfaces/76025",
+      "snippet": "",
+      "published_date": "2024-11-15T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.65
+    },
+    {
+      "title": "How are Objective-C `completion` APIs made available via async ...",
+      "url": "https://stackoverflow.com/questions/78905100/how-are-objective-c-completion-apis-made-available-via-async-await",
+      "snippet": "",
+      "published_date": "2024-08-23T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.65
+    },
+    {
+      "title": "Running code after resuming from withCheckedContinuation",
+      "url": "https://stackoverflow.com/questions/79088851/running-code-after-resuming-from-withcheckedcontinuation",
+      "snippet": "",
+      "published_date": "2024-10-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "Swift Concurrency Deep Dive: From GCD to Async/Await Best ...",
+      "url": "https://medium.com/techtrends-digest/swift-concurrency-deep-dive-from-gcd-to-async-await-best-practices-0d63333e72d5",
+      "snippet": "Convert a few completion handlers to async/await; Wrap an async call in a Task; Maybe mark a view controller with @MainActor. That's it. That's",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "Mastering withCheckedThrowingContinuation in Swift Concurrency",
+      "url": "https://medium.com/@sayefeddineh/mastering-withcheckedthrowingcontinuation-in-swift-concurrency-8eb2df65100c",
+      "snippet": "Swift’s structured concurrency has made async programming more intuitive, but what if you need to integrate older callback-based APIs? Use `withCheckedThrowingContinuation` when: ✅ You need to convert a **callback-based** API into `async` syntax. func fetchUserDataAsync() async throws -> String {    return try await withCheckedThrowingContinuation { continuation in        fetchUserData { result in            switch result {            case .success(let data):                continuation.resume(returning: data)            case .failure(let error):                continuation.resume(throwing: error)            }        }    }} func fetchUserDataAsync async throws String return try await in in switch case let case let. `withCheckedThrowingContinuation` is a game-changer for integrating legacy callback-based APIs into Swift’s modern concurrency model. iPhone 16 Pro Max displaying live real-time iOS app with animated data streams, WebSocket connection indicators, and GraphQL subscription updates — featuring official WebSocket, GraphQL, Swift, Combine, and Async/Await logos on gradient background. ## Building Real-Time Features in iOS: WebSockets, GraphQL & Combine vs Async. Swift Concurrency Interoperability: Bridging async/await with Combine, GCD, and Legacy Code. ## Swift Concurrency Interoperability: Bridging async/await with Combine, GCD, and Legacy Code.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "Efficiently Migrating from Completion Handlers to Async-Await in Swift",
+      "url": "https://medium.com/@ankitakotadita/efficiently-migrating-from-completion-handlers-to-async-await-in-swift-ab7f55ca9ae4",
+      "snippet": "",
+      "published_date": "2024-11-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.525
+    },
+    {
+      "title": "Swift: Continuation, Convert Completion Handlers/Callback into async & async throws, Prevent Continuation Misuse Error",
+      "url": "https://medium.com/towardsdev/swift-continuation-and-convert-completion-handlers-callback-into-async-async-throws-3895c76980c1",
+      "snippet": "",
+      "published_date": "2024-05-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.525
+    },
+    {
+      "title": "Part 8: Mixing Old and New (Bridging Legacy APIs ... - Stackademic",
+      "url": "https://blog.stackademic.com/mastering-modern-concurrency-in-swift-part-8-mixing-old-and-new-bridging-legacy-apis-3689d06ea72c",
+      "snippet": "Completion handlers; Delegates; Legacy callbacks. To incrementally modernize your app, Swift provides continuations: withCheckedContinuation and",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.525
+    },
+    {
+      "title": "Swift: Continuation, Convert Completion Handlers/Callback into ...",
+      "url": "https://medium.com/@itsuki.enjoy/swift-continuation-and-convert-completion-handlers-callback-into-async-async-throws-3895c76980c1",
+      "snippet": "I will also be showing you how to precent this SWIFT TASK CONTINUATION MISUSE error you might be running into while using CheckedContinuation .",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.525
+    },
+    {
+      "title": "🚀Continuations in Swift: Turning Legacy Callbacks into Async Code | by Shlok Patil | Medium",
+      "url": "https://medium.com/@shlokpatil089/continuations-in-swift-turning-legacy-callbacks-into-async-code-3dcd6d94e451",
+      "snippet": "",
+      "published_date": "2025-10-31T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.475
+    },
+    {
+      "title": "iOS Concurrency - Stewart Lynch - The Masterclass - YouTube",
+      "url": "https://www.youtube.com/watch?v=GvSeLajZZJ4",
+      "snippet": "This is the first of 6 videos in the Swift Concurrency - from Completion Handler to Async and Await series. In this first video,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.475
+    },
+    {
+      "title": "Bridging completion handlers to Swift's async/await",
+      "url": "https://tanaschita.com/swift-async-completions-to-async-await",
+      "snippet": "Learn how to bridge callback-based code to Swift's async/await system using continuations like withCheckedContinuation for completion handler APIs.",
+      "published_date": "",
+      "source": "grok, tavily, exa",
+      "score": 0.475
+    },
+    {
+      "title": "Swift Concurrency: Part 3 — Bridging Legacy APIs with Continuations | by Nick Vasilev | Feb, 2026 | Medium",
+      "url": "https://nsvasilev.medium.com/swift-concurrency-part-3-bridging-legacy-apis-with-continuations-32455d050fd0",
+      "snippet": "",
+      "published_date": "2026-02-02T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.45
+    },
+    {
+      "title": "Swift Concurrency Deep Dive: Continuation vs UnsafeContinuation — Power, Pitfalls, and Best Practices | by Anand Mishra | Feb, 2026 | Medium",
+      "url": "https://medium.com/%40anand.mishra.mca/swift-concurrency-deep-dive-continuation-vs-unsafecontinuation-power-pitfalls-and-best-77ae865aa45b",
+      "snippet": "",
+      "published_date": "2026-02-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "Migrating callback based code to Swift Concurrency with continuations",
+      "url": "https://www.donnywals.com/migrating-callback-based-code-to-swift-concurrency-with-continuations",
+      "snippet": "Demonstrates how to convert callback-based asynchronous code into functions compatible with async/await using CheckedContinuation and withCheckedThrowingContinuation for completion handlers in iOS/Swift.",
+      "published_date": "2022-04-24",
+      "source": "grok",
+      "score": 0.445
+    },
+    {
+      "title": "Swift Continuations Demystified: Checked vs. Unsafe Explained | by Himali Marasinghe | Stackademic",
+      "url": "https://blog.stackademic.com/swift-continuations-demystified-checked-vs-unsafe-explained-d31b5a4c9dfd",
+      "snippet": "",
+      "published_date": "2025-08-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.425
+    },
+    {
+      "title": "Debugging Swift Code Effectively with LLDB - Commit Studio - Medium",
+      "url": "https://medium.com/@commit.studio/debugging-swift-code-effectively-with-lldb-e5e52da180af",
+      "snippet": "",
+      "published_date": "2024-11-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.425
+    },
+    {
+      "title": "Async/Await | Complete Course | Part 7 | Continuation - YouTube",
+      "url": "https://www.youtube.com/watch?v=QYWfeI2UdV0",
+      "snippet": "In this video, Mohammad Azam will explain the concepts of structured concurrency in Swift. Azam will also cover async-let tasks,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "How to use continuations to convert completion handlers into async ...",
+      "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-continuations-to-convert-completion-handlers-into-async-functions",
+      "snippet": "",
+      "published_date": "2024-11-16T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.375
+    },
+    {
+      "title": "Intermediate async/await & CheckedContinuation",
+      "url": "https://www.kodeco.com/books/modern-concurrency-in-swift/v1.0/chapters/5-intermediate-async-await-checkedcontinuation",
+      "snippet": "When you need to handle multiple values, you should use an AsyncStream to bridge the delegate pattern to newer code. In other cases ... continuations are used.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.375
+    },
+    {
+      "title": "IOS Promises/A+ Bridge: Bridging Async Code In Swift/Objective-C",
+      "url": "https://web.nutritionjobs.com/strategic-field/ios-promisesa-bridge-bridging-async-code-in-swiftobjective-c-1767648863",
+      "snippet": "Asynchronous operations are a fundamental part of iOS development, whether you're fetching data from a network, reading files, or performing any",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "IOS Promises Bridge: Seamless Async Code In Swift & Obj-C",
+      "url": "https://nutritionjobs.com/strategic-field/ios-promises-bridge-seamless-async-code-in-swift-and-obj-c-1767648863",
+      "snippet": "Using promises, you can chain asynchronous operations together in a more structured and readable manner, avoiding the tangled mess of nested",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Wrapping delegates with Swift async/await and continuations",
+      "url": "https://tarikdahic.com/posts/wrapping-delegates-with-swift-async-await-and-continuations",
+      "snippet": "In this article you will learn how to convert or use existing delegate patterns and wrap them with Swift's structured concurrency to use it with async/await ...",
+      "published_date": "2022-06-30",
+      "source": "grok",
+      "score": 0.32
+    },
+    {
+      "title": "How to create and use AsyncStreams to return buffered data",
+      "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-create-and-use-asyncstreams-to-return-buffered-data",
+      "snippet": "You can see immediately that AsyncStream looks like using withCheckedContinuation(): we give it a closure to run to generate its values, and we ...",
+      "published_date": "2024-11-16",
+      "source": "grok",
+      "score": 0.27
+    },
+    {
+      "title": "AsyncThrowingStream and AsyncStream explained with ...",
+      "url": "https://www.avanderlee.com/swift/asyncthrowingstream-asyncstream",
+      "snippet": "AsyncThrowingStream and AsyncStream allow you to rewrite existing closure based code to async-await overloading methods.",
+      "published_date": "2022-04-26",
+      "source": "grok",
+      "score": 0.27
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Swift Concurrency: Part 3 — Bridging Legacy APIs with Continuations | by Nick Vasilev | Feb, 2026 | Medium",
+        "url": "https://nsvasilev.medium.com/swift-concurrency-part-3-bridging-legacy-apis-with-continuations-32455d050fd0",
+        "snippet": "",
+        "published_date": "2026-02-02T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.45
+      },
+      {
+        "title": "How to use continuations to convert completion handlers into async ...",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-continuations-to-convert-completion-handlers-into-async-functions",
+        "snippet": "",
+        "published_date": "2024-11-16T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.375
+      },
+      {
+        "title": "Efficiently Migrating from Completion Handlers to Async-Await in Swift",
+        "url": "https://medium.com/@ankitakotadita/efficiently-migrating-from-completion-handlers-to-async-await-in-swift-ab7f55ca9ae4",
+        "snippet": "",
+        "published_date": "2024-11-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.525
+      },
+      {
+        "title": "Swift Continuations Demystified: Checked vs. Unsafe Explained | by Himali Marasinghe | Stackademic",
+        "url": "https://blog.stackademic.com/swift-continuations-demystified-checked-vs-unsafe-explained-d31b5a4c9dfd",
+        "snippet": "",
+        "published_date": "2025-08-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.425
+      },
+      {
+        "title": "🚀Continuations in Swift: Turning Legacy Callbacks into Async Code | by Shlok Patil | Medium",
+        "url": "https://medium.com/@shlokpatil089/continuations-in-swift-turning-legacy-callbacks-into-async-code-3dcd6d94e451",
+        "snippet": "",
+        "published_date": "2025-10-31T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.475
+      },
+      {
+        "title": "Debugging Swift Code Effectively with LLDB - Commit Studio - Medium",
+        "url": "https://medium.com/@commit.studio/debugging-swift-code-effectively-with-lldb-e5e52da180af",
+        "snippet": "",
+        "published_date": "2024-11-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.425
+      },
+      {
+        "title": "Swift Concurrency Deep Dive: Continuation vs UnsafeContinuation — Power, Pitfalls, and Best Practices | by Anand Mishra | Feb, 2026 | Medium",
+        "url": "https://medium.com/%40anand.mishra.mca/swift-concurrency-deep-dive-continuation-vs-unsafecontinuation-power-pitfalls-and-best-77ae865aa45b",
+        "snippet": "",
+        "published_date": "2026-02-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "Swift: Continuation, Convert Completion Handlers/Callback into async & async throws, Prevent Continuation Misuse Error",
+        "url": "https://medium.com/towardsdev/swift-continuation-and-convert-completion-handlers-callback-into-async-async-throws-3895c76980c1",
+        "snippet": "",
+        "published_date": "2024-05-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.525
+      },
+      {
+        "title": "Running code after resuming from withCheckedContinuation",
+        "url": "https://stackoverflow.com/questions/79088851/running-code-after-resuming-from-withcheckedcontinuation",
+        "snippet": "",
+        "published_date": "2024-10-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "Bridging the delegate pattern to AsyncStream with Swift6 and ...",
+        "url": "https://forums.swift.org/t/bridging-the-delegate-pattern-to-asyncstream-with-swift6-and-sendability-issues/75754",
+        "snippet": "",
+        "published_date": "2024-11-01T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.65
+      },
+      {
+        "title": "Round-tripping Swift async tasks through Objective-C interfaces",
+        "url": "https://forums.swift.org/t/round-tripping-swift-async-tasks-through-objective-c-interfaces/76025",
+        "snippet": "",
+        "published_date": "2024-11-15T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.65
+      },
+      {
+        "title": "Swift Concurrency: Part 3 — Bridging Legacy APIs with Continuations",
+        "url": "https://nsvasilev.medium.com/swift-concurrency-part-3-bridging-legacy-apis-with-continuations-32455d050fd0",
+        "snippet": "",
+        "published_date": "2026-02-01T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "How to use continuations to convert completion handlers into async ...",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-continuations-to-convert-completion-handlers-into-async-functions",
+        "snippet": "",
+        "published_date": "2024-11-16T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "How are Objective-C `completion` APIs made available via async ...",
+        "url": "https://stackoverflow.com/questions/78905100/how-are-objective-c-completion-apis-made-available-via-async-await",
+        "snippet": "",
+        "published_date": "2024-08-23T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.65
+      },
+      {
+        "title": "Bridging completion handlers to Swift's async/await - Tanaschita.com",
+        "url": "https://tanaschita.com/swift-async-completions-to-async-await/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "How to use continuations to convert completion handlers into async ...",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-continuations-to-convert-completion-handlers-into-async-functions",
+        "snippet": "Swift uses continuations to solve this problem, allowing us to create a bridge between older functions with completion handlers and newer async code.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Considerations when adapting completion-block async code to Swift ...",
+        "url": "https://forums.swift.org/t/considerations-when-adapting-completion-block-async-code-to-swift-concurrency-via-withtaskcancellationhandler-withcheckedcontinuation/68892",
+        "snippet": "i was recently thinking about some code that adapts a completion-block-based API to Swift concurrency with support for cancelation of the async work. this implementation would not compile due to the mutable reference to the cancelation handler being identified as potentially being accessed concurrently (aside: it's great that this can be surfaced statically!). And another problem I see is that you're not actually concluding the continuation when cancellation occurs 'successfully' (when your work item never actually runs, due to the cancellation), so in that situation your code will either never return from `doAsyncWorkWithCancelation` or trigger a runtime error when the continuation deinits without first being resumed. And another problem I see is that you're not actually concluding the continuation when cancellation occurs 'successfully' (when your work item never actually runs, due to the cancellation), so in that situation your code will either never return from `doAsyncWorkWithCancelation` or trigger a runtime error when the continuation deinits without first being resumed.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.75
+      },
+      {
+        "title": "Swift concurrency async/await with do-something-only-on-success ...",
+        "url": "https://stackoverflow.com/questions/78186928/swift-concurrency-async-await-with-do-something-only-on-success-and-retry",
+        "snippet": "I'm converting our app's networking to use async/await, and I'm having a little trouble coming up with a satisfactory pattern to replace the completion handler.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "Swift Concurrency Deep Dive: From GCD to Async/Await Best ...",
+        "url": "https://medium.com/techtrends-digest/swift-concurrency-deep-dive-from-gcd-to-async-await-best-practices-0d63333e72d5",
+        "snippet": "Convert a few completion handlers to async/await; Wrap an async call in a Task; Maybe mark a view controller with @MainActor. That's it. That's",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "iOS Concurrency - Stewart Lynch - The Masterclass - YouTube",
+        "url": "https://www.youtube.com/watch?v=GvSeLajZZJ4",
+        "snippet": "This is the first of 6 videos in the Swift Concurrency - from Completion Handler to Async and Await series. In this first video,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.475
+      },
+      {
+        "title": "Bridging completion handlers to Swift's async/await - Tanaschita.com",
+        "url": "https://tanaschita.com/swift-async-completions-to-async-await/",
+        "snippet": "# Bridging completion handlers to Swift's async/await. ## Learn how to adapt completion-based APIs to Swift's concurrency model using continuations. Before Swift introduced structured concurrency and async/await, most asynchronous APIs in iOS used completion handlers. While many system frameworks have since adopted native async functions, we still often encounter callback-based APIs. To integrate those with Swift’s modern concurrency model, we can bridge them using **continuations**. When an awaited function completes, the captured state is recreated from the continuation and the original code resumes. To create our own async functions, we can use so called continuation functions. In the example above, we use Swift's withCheckedContinuation function to suspend and then call resume after we get a result from our completion handler function. Besides withCheckedContinuation(), there are other continuation functions we can use:. Covering Swift & Objective-C, SwiftUI & UIKit, Combine, HTTP Networking, iOS File System, Core Data, Concurrency with async/await, Security, Automated Testing, Machine Learning and more. How to use async/await in synchronous Swift code with tasks.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Mastering withCheckedThrowingContinuation in Swift Concurrency",
+        "url": "https://medium.com/@sayefeddineh/mastering-withcheckedthrowingcontinuation-in-swift-concurrency-8eb2df65100c",
+        "snippet": "Swift’s structured concurrency has made async programming more intuitive, but what if you need to integrate older callback-based APIs? Use `withCheckedThrowingContinuation` when: ✅ You need to convert a **callback-based** API into `async` syntax. func fetchUserDataAsync() async throws -> String {    return try await withCheckedThrowingContinuation { continuation in        fetchUserData { result in            switch result {            case .success(let data):                continuation.resume(returning: data)            case .failure(let error):                continuation.resume(throwing: error)            }        }    }} func fetchUserDataAsync async throws String return try await in in switch case let case let. `withCheckedThrowingContinuation` is a game-changer for integrating legacy callback-based APIs into Swift’s modern concurrency model. iPhone 16 Pro Max displaying live real-time iOS app with animated data streams, WebSocket connection indicators, and GraphQL subscription updates — featuring official WebSocket, GraphQL, Swift, Combine, and Async/Await logos on gradient background. ## Building Real-Time Features in iOS: WebSockets, GraphQL & Combine vs Async. Swift Concurrency Interoperability: Bridging async/await with Combine, GCD, and Legacy Code. ## Swift Concurrency Interoperability: Bridging async/await with Combine, GCD, and Legacy Code.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "Part 8: Mixing Old and New (Bridging Legacy APIs ... - Stackademic",
+        "url": "https://blog.stackademic.com/mastering-modern-concurrency-in-swift-part-8-mixing-old-and-new-bridging-legacy-apis-3689d06ea72c",
+        "snippet": "Completion handlers; Delegates; Legacy callbacks. To incrementally modernize your app, Swift provides continuations: withCheckedContinuation and",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.525
+      },
+      {
+        "title": "Swift: Continuation, Convert Completion Handlers/Callback into ...",
+        "url": "https://medium.com/@itsuki.enjoy/swift-continuation-and-convert-completion-handlers-callback-into-async-async-throws-3895c76980c1",
+        "snippet": "I will also be showing you how to precent this SWIFT TASK CONTINUATION MISUSE error you might be running into while using CheckedContinuation .",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.525
+      },
+      {
+        "title": "How to use continuations to convert completion handlers into async ...",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-continuations-to-convert-completion-handlers-into-async-functions",
+        "snippet": "Swift uses continuations to solve this problem, allowing us to create a bridge between older functions with completion handlers and newer async code.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "IOS Promises/A+ Bridge: Bridging Async Code In Swift/Objective-C",
+        "url": "https://web.nutritionjobs.com/strategic-field/ios-promisesa-bridge-bridging-async-code-in-swiftobjective-c-1767648863",
+        "snippet": "Asynchronous operations are a fundamental part of iOS development, whether you're fetching data from a network, reading files, or performing any",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Continuations in Swift: Turning Legacy Callbacks into Async Code",
+        "url": "https://medium.com/@shlokpatil089/continuations-in-swift-turning-legacy-callbacks-into-async-code-3dcd6d94e451",
+        "snippet": "Continuations in Swift provide a mechanism to bridge the gap between old callback-based APIs and modern async/await functions. 1. The Problem —",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to use continuations to convert completion handlers into async ...",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-continuations-to-convert-completion-handlers-into-async-functions",
+        "snippet": "Swift uses continuations to solve this problem, allowing us to create a bridge between older functions with completion handlers and newer async code.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Async/Await | Complete Course | Part 7 | Continuation - YouTube",
+        "url": "https://www.youtube.com/watch?v=QYWfeI2UdV0",
+        "snippet": "In this video, Mohammad Azam will explain the concepts of structured concurrency in Swift. Azam will also cover async-let tasks,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "IOS Promises Bridge: Seamless Async Code In Swift & Obj-C",
+        "url": "https://nutritionjobs.com/strategic-field/ios-promises-bridge-seamless-async-code-in-swift-and-obj-c-1767648863",
+        "snippet": "Using promises, you can chain asynchronous operations together in a more structured and readable manner, avoiding the tangled mess of nested",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      }
+    ],
+    "grok": [
+      {
+        "title": "CheckedContinuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/checkedcontinuation",
+        "snippet": "CheckedContinuation performs runtime checks for missing or multiple resume operations. A mechanism to interface between synchronous and asynchronous code, logging correctness violations. Use withCheckedContinuation or withCheckedThrowingContinuation to bridge completion-handler APIs to async/await.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.725
+      },
+      {
+        "title": "How to use continuations to convert completion handlers into async functions – Hacking with Swift",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-continuations-to-convert-completion-handlers-into-async-functions",
+        "snippet": "Swift uses continuations to solve this problem, allowing us to create a bridge between older functions with completion handlers and newer async code. Example using withCheckedContinuation to wrap a completion handler callback.",
+        "published_date": "2024-11-16",
+        "source": "grok"
+      },
+      {
+        "title": "Migrating callback based code to Swift Concurrency with continuations",
+        "url": "https://www.donnywals.com/migrating-callback-based-code-to-swift-concurrency-with-continuations",
+        "snippet": "Demonstrates how to convert callback-based asynchronous code into functions compatible with async/await using CheckedContinuation and withCheckedThrowingContinuation for completion handlers in iOS/Swift.",
+        "published_date": "2022-04-24",
+        "source": "grok",
+        "score": 0.445
+      },
+      {
+        "title": "Bridging completion handlers to Swift's async/await",
+        "url": "https://tanaschita.com/swift-async-completions-to-async-await",
+        "snippet": "Learn how to bridge callback-based code to Swift's async/await system using continuations like withCheckedContinuation for completion handler APIs.",
+        "published_date": "",
+        "source": "grok, tavily, exa",
+        "score": 0.475
+      },
+      {
+        "title": "Considerations when adapting completion-block async code to Swift concurrency via withTaskCancellationHandler & withCheckedContinuation",
+        "url": "https://forums.swift.org/t/considerations-when-adapting-completion-block-async-code-to-swift-concurrency-via-withtaskcancellationhandler-withcheckedcontinuation/68892",
+        "snippet": "Swift.org forums discussion on adapting completion-block based APIs to concurrency, including cancellation handling with CheckedContinuation.",
+        "published_date": "2023-12-08",
+        "source": "grok"
+      },
+      {
+        "title": "Bridging the delegate pattern to AsyncStream with Swift6 ...",
+        "url": "https://forums.swift.org/t/bridging-the-delegate-pattern-to-asyncstream-with-swift6-and-sendability-issues/75754",
+        "snippet": "The problem arises when providing a way to listen to any changes in authorization status or user location, the proper async way to do would be AsyncStreams.",
+        "published_date": "2024-11-01",
+        "source": "grok"
+      },
+      {
+        "title": "How to create and use AsyncStreams to return buffered data",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-create-and-use-asyncstreams-to-return-buffered-data",
+        "snippet": "You can see immediately that AsyncStream looks like using withCheckedContinuation(): we give it a closure to run to generate its values, and we ...",
+        "published_date": "2024-11-16",
+        "source": "grok",
+        "score": 0.27
+      },
+      {
+        "title": "AsyncThrowingStream and AsyncStream explained with ...",
+        "url": "https://www.avanderlee.com/swift/asyncthrowingstream-asyncstream",
+        "snippet": "AsyncThrowingStream and AsyncStream allow you to rewrite existing closure based code to async-await overloading methods.",
+        "published_date": "2022-04-26",
+        "source": "grok",
+        "score": 0.27
+      },
+      {
+        "title": "Wrapping delegates with Swift async/await and continuations",
+        "url": "https://tarikdahic.com/posts/wrapping-delegates-with-swift-async-await-and-continuations",
+        "snippet": "In this article you will learn how to convert or use existing delegate patterns and wrap them with Swift's structured concurrency to use it with async/await ...",
+        "published_date": "2022-06-30",
+        "source": "grok",
+        "score": 0.32
+      },
+      {
+        "title": "Intermediate async/await & CheckedContinuation",
+        "url": "https://www.kodeco.com/books/modern-concurrency-in-swift/v1.0/chapters/5-intermediate-async-await-checkedcontinuation",
+        "snippet": "When you need to handle multiple values, you should use an AsyncStream to bridge the delegate pattern to newer code. In other cases ... continuations are used.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.375
+      },
+      {
+        "title": "How are Objective-C `completion` APIs made available via async/await",
+        "url": "https://stackoverflow.com/questions/78905100/how-are-objective-c-completion-apis-made-available-via-async-await",
+        "snippet": "It pretty much just uses a continuation, in the same way that you would bridge completion handler APIs to Swift Concurrency using withXXXContinuation. The SIL generated isn't much different... The call to present is roughly transformed to create an UnsafeContinuation... pass a closure to present... in that closure, call UnsafeContinuation.resume... await the result (see the await_async_continuation instruction)",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "swift-evolution/proposals/0297-concurrency-objc.md",
+        "url": "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0297-concurrency-objc.md",
+        "snippet": "When the compiler sees a call to such a method, it effectively uses withUnsafeContinuation to form a continuation... then wraps the given continuation in a closure... passLibrary.sign( signData, using: pass, completionHandler: { ... continuation.resume(throwing: error) ... continuation.resume(returning: ...) })",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.7
+      },
+      {
+        "title": "Round-tripping Swift async tasks through Objective-C interfaces",
+        "url": "https://forums.swift.org/t/round-tripping-swift-async-tasks-through-objective-c-interfaces/76025",
+        "snippet": "The caller will call a new runtime function that enters a 'foreign continuation'... the callee will call a new runtime function that tries to perform the handshake... awaits the foreign continuation... resumes the foreign continuation",
+        "published_date": "2024-11-15",
+        "source": "grok"
+      },
+      {
+        "title": "Meet async/await in Swift - WWDC21",
+        "url": "https://developer.apple.com/videos/play/wwdc2021/10132",
+        "snippet": "The Swift compiler automatically takes a look at completion handler code imported from Objective-C and provides an async alternative... This pattern... has a name: a continuation... Swift provides a feature so that you can create, manage, and resume continuations in a high-level and safe way.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.725
+      },
+      {
+        "title": "Swift Concurrency: Part 3 — Bridging Legacy APIs with Continuations",
+        "url": "https://nsvasilev.medium.com/swift-concurrency-part-3-bridging-legacy-apis-with-continuations-32455d050fd0",
+        "snippet": "When you mark a suspension point with await, Swift doesn’t simply pause and wait, it captures the entire execution context into a lightweight continuation object... Continuations... act as a powerful bridge... between callback-based APIs and Swift’s structured concurrency model.",
+        "published_date": "",
+        "source": "grok"
+      }
+    ]
+  }
+}

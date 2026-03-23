@@ -16,6 +16,7 @@ Related pages:
 - topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md
 - topics/ios-block-callback-landing-and-signature-recovery-workflow-note.md
 - topics/ios-mitigation-aware-replay-repair-workflow-note.md
+- topics/ios-swift-concurrency-continuation-to-policy-workflow-note.md
 - topics/ios-result-callback-to-policy-state-workflow-note.md
 - topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
 
@@ -510,7 +511,27 @@ The compact reading is:
 - reconstruct the smallest truthful callable path when needed
 - reduce one narrower runtime-table or initialization obligation when replay is already close-but-wrong
 - prove the right callback/block landing when the callback family is plausible but still structurally ambiguous
+- reduce the right continuation-owned or stream-owned consequence boundary when modern Swift task logic still hides the first meaningful consumer
 - repair the right replay-close mitigation-aware path when the landing is already good enough but one smaller context/materialization/init gap remains
+- prove the right callback/result consumer
+
+That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which iOS workflow note to read first.
+rkflow note to read first.
+e branch easier to enter, easier to sequence, and less dependent on already knowing which iOS workflow note to read first.
+
+- choose the right traffic surface
+- normalize the right environment/deployment recipe
+- stabilize the right runtime/setup gate
+- localize the right trust path when routing-vs-trust is still the blocker
+- prove the right owner
+- reconstruct the smallest truthful callable path when needed
+- reduce one narrower runtime-table or initialization obligation when replay is already close-but-wrong
+- prove the right callback/block landing when the callback family is plausible but still structurally ambiguous
+- repair the right replay-close mitigation-aware path when the landing is already good enough but one smaller context/materialization/init gap remains
+- prove the right callback/result consumer
+
+That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which iOS workflow note to read first.
+ains
 - prove the right callback/result consumer
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which iOS workflow note to read first.
