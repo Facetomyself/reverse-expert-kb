@@ -1,0 +1,546 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "opaque predicate computed next state control flow flattening deobfuscation helper-mediated state update",
+    "symbolic execution opaque predicates control flow flattening next-state recovery",
+    "Tigress control flow flattening opaque predicates deobfuscation state transition"
+  ],
+  "count": 25,
+  "results": [
+    {
+      "title": "Generalized Dynamic Opaque Predicates: A New Control Flow Obfuscation Method",
+      "url": "https://faculty.ist.psu.edu/wu/papers/opaque-isc16.pdf",
+      "snippet": "Introduces generalized dynamic opaque predicates for control flow obfuscation, extending beyond straight-line code to branches and loops, resilient to deobfuscation, often combined with or compared to control flow flattening.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6636
+    },
+    {
+      "title": "[PDF] Defeating Opaque Predicates Statically through Machine Learning ...",
+      "url": "https://arxiv.org/pdf/1909.01640",
+      "snippet": "",
+      "published_date": "2019-09-04T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "Control-Flow Deobfuscation Using Trace-Informed Reinforcement Learning",
+      "url": "https://bmarwritescode.github.io/assets/pdf/chisel.pdf",
+      "snippet": "Discusses deobfuscation of combined control flow flattening and opaque predicate (dead-code) insertions, state handling in flattened code, and limitations of rule-based approaches.",
+      "published_date": "2024",
+      "source": "grok, exa, tavily",
+      "score": 0.6409
+    },
+    {
+      "title": "Deconstructing Obfuscation: A four-dimensional framework for evaluating Large Language Models assembly code deobfuscation capabilities",
+      "url": "https://arxiv.org/html/2505.19887v2",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "Control-Flow Splitting by Opaque Predicate Insertion - Tigress",
+      "url": "https://tigress.cs.arizona.edu/transformPage/docs/addOpaque/index.html",
+      "snippet": "Break up code blocks by inserting opaque predicates. Requires that at least the InitOpaque transform has been previously issued and, preferably,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6091
+    },
+    {
+      "title": "What is a \"control-flow flattening\" obfuscation technique?",
+      "url": "https://reverseengineering.stackexchange.com/questions/2221/what-is-a-control-flow-flattening-obfuscation-technique",
+      "snippet": "Explanation of control flow flattening using a state variable for program state in a dispatcher loop, often combined with opaque predicates to prevent simplification.",
+      "published_date": "2013-06-10",
+      "source": "grok, tavily",
+      "score": 0.5836
+    },
+    {
+      "title": "Control flow flattening - Tigress",
+      "url": "https://tigress.cs.arizona.edu/transformPage/docs/flatten/index.html",
+      "snippet": "This is a classic control-flow transformation that removes structured flow. Flattening is useful as a precursor to other transformations.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.5818
+    },
+    {
+      "title": "[PDF] Opaque Predicate - Penn State College of IST",
+      "url": "https://faculty.ist.psu.edu/wu/papers/dongpeng-xu-dissertation.pdf",
+      "snippet": "An opaque predicate is a predicate whose value is known to the obfuscator but is difficult to deduce. It can be seamlessly applied together with other",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5818
+    },
+    {
+      "title": "DON’T FLATTEN YOURSELF: restoring malware with Control-Flow Flattening obfuscation",
+      "url": "https://www.virusbulletin.com/uploads/pdf/conference/vb2023/papers/Dont-flatten-yourself-restoring-malware-with-Control-Flow-Flattening-obfuscation.pdf",
+      "snippet": "Explains control flow flattening in malware, state machine dispatchers, computed next state values, opaque predicates in jump calculations, and deobfuscation challenges.",
+      "published_date": "",
+      "source": "grok, exa",
+      "score": 0.5455
+    },
+    {
+      "title": "D810: A journey into control flow unflattening",
+      "url": "https://eshard.com/posts/D810-a-journey-into-control-flow-unflattening",
+      "snippet": "Describes unflattening control flow (e.g., Tigress), identifying state variables, computing next states dynamically, handling opaque predicates in state calculations for deobfuscation.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.5182
+    },
+    {
+      "title": "Deobfuscation: recovering an OLLVM-protected program",
+      "url": "https://blog.quarkslab.com/deobfuscation-recovering-an-ollvm-protected-program.html",
+      "snippet": "Details deobfuscation of OLLVM protections including control flow flattening via state variables, dispatcher blocks, and handling opaque predicates in flattened structures.",
+      "published_date": "2014-12-04",
+      "source": "grok, exa",
+      "score": 0.5109
+    },
+    {
+      "title": "Tigress Transformations",
+      "url": "https://tigress.cs.arizona.edu/transformPage/index.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "A parameterized flattening control flow based obfuscation algorithm with opaque predicate for reduplicate obfuscation",
+      "url": "https://ieeexplore.ieee.org/document/8359575",
+      "snippet": "",
+      "published_date": "2024-06-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4364
+    },
+    {
+      "title": "Control-Flow Flattening of SF and Tigress - ResearchGate",
+      "url": "https://www.researchgate.net/figure/Control-Flow-Flattening-of-SF-and-Tigress_fig3_342904744",
+      "snippet": "Opaque predicates have been proposed for program obfuscation in recent years. The main approaches are to add condition branches with bogus program paths",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4364
+    },
+    {
+      "title": "Deobfuscation of Control Flow Flattening based on Abstract ...",
+      "url": "https://www.researchgate.net/publication/400296293_Deobfuscation_of_Control_Flow_Flattening_based_on_Abstract_Interpretation",
+      "snippet": "Control Flow Flattening (CFF) is one of the control flow obfuscation techniques. It flattens control flows to conceal the sequential flow of programs.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "CaDeCFF: Compiler-Agnostic Deobfuscator of Control Flow Flattening",
+      "url": "https://dl.acm.org/doi/10.1145/3545258.3545269",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Attacking Emotet's Control Flow Flattening | SOPHOS",
+      "url": "https://www.sophos.com/en-us/blog/attacking-emotets-control-flow-flattening",
+      "snippet": "",
+      "published_date": "2022-05-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Compiler-Agnostic Deobfuscator of Control Flow Flattening",
+      "url": "https://dl.acm.org/doi/fullHtml/10.1145/3545258.3545269",
+      "snippet": "Presents a method using symbolic execution starting from useful blocks to recover edges and reconstruct the original CFG from flattened control flow.",
+      "published_date": "2022",
+      "source": "grok",
+      "score": 0.3818
+    },
+    {
+      "title": "Control-Flow Deobfuscation using Trace-Informed Program Synthesis",
+      "url": "https://dl.acm.org/doi/full/10.1145/3689789",
+      "snippet": "Studies deobfuscation techniques for control flow obfuscations, including examples from Tigress Flatten combined with AddOpaque transformations involving opaque predicates.",
+      "published_date": "2024-10-08",
+      "source": "grok",
+      "score": 0.3564
+    },
+    {
+      "title": "White House AI Proposal Seeks to Override State Laws, Avoid New ...",
+      "url": "https://decrypt.co/361929/white-house-ai-proposal-override-state-laws-avoid-new-regulator",
+      "snippet": "The White House on Friday released a sweeping national policy framework for artificial intelligence, outlining recommendations to Congress that would set national standards for AI while relying on existing federal agencies—rather than creating a new regulator. The proposal comes as states move ahead with their own AI laws, which the Trump administration has criticized as a burdensome “patchwork” of requirements for companies. “The Trump Administration is committed to winning the AI race to usher in a new era of human flourishing, economic competitiveness, and national security for the American people,” the White House said in a statement. \"The framework proposes a few ideas that would be disastrous, such as barring states from enacting protections for their residents, imposing age-verification requirements on AI platforms and services, and creating a new federal publicity right,\" EFF Legal Director Corynne McSherry told *Decrypt*. The White House’s framework also said parents should be given more control over how children interact with AI systems, and that Congress should enact better protections against abuse.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "Advancing Code Obfuscation: Novel Opaque Predicate Techniques ...",
+      "url": "https://www.sciopen.com/article/10.32604/cmc.2025.062743",
+      "snippet": "",
+      "published_date": "2025-06-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "[PDF] interactive detection and removal of opaque predicates - th0mas.nl",
+      "url": "https://th0mas.nl/downloads/thesis/thesis.pdf",
+      "snippet": "",
+      "published_date": "2017-08-23T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "CMC | Free Full-Text | Advancing Code Obfuscation: Novel Opaque Predicate Techniques to Counter Dynamic Symbolic Execution",
+      "url": "https://www.techscience.com/cmc/v84n1/61718/html",
+      "snippet": "",
+      "published_date": "2025-06-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "Effectiveness of synthesis in concolic deobfuscation - ScienceDirect",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0167404817301475",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "Automated Detection of Control-flow Flattening",
+      "url": "https://synthesis.to/2021/03/03/flattening_detection.html",
+      "snippet": "Discusses heuristics for detecting flattening and references symbolic execution approaches (e.g., Quarkslab's Miasm-based method) for automated recovery of control flow.",
+      "published_date": "2021-03-03",
+      "source": "grok",
+      "score": 0.3018
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "A parameterized flattening control flow based obfuscation algorithm with opaque predicate for reduplicate obfuscation",
+        "url": "https://ieeexplore.ieee.org/document/8359575",
+        "snippet": "",
+        "published_date": "2024-06-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4364
+      },
+      {
+        "title": "CaDeCFF: Compiler-Agnostic Deobfuscator of Control Flow Flattening",
+        "url": "https://dl.acm.org/doi/10.1145/3545258.3545269",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Deconstructing Obfuscation: A four-dimensional framework for evaluating Large Language Models assembly code deobfuscation capabilities",
+        "url": "https://arxiv.org/html/2505.19887v2",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "[PDF] Defeating Opaque Predicates Statically through Machine Learning ...",
+        "url": "https://arxiv.org/pdf/1909.01640",
+        "snippet": "",
+        "published_date": "2019-09-04T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "Attacking Emotet's Control Flow Flattening | SOPHOS",
+        "url": "https://www.sophos.com/en-us/blog/attacking-emotets-control-flow-flattening",
+        "snippet": "",
+        "published_date": "2022-05-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "[PDF] restoring malware with Control-Flow Flattening obfuscation",
+        "url": "https://www.virusbulletin.com/uploads/pdf/conference/vb2023/papers/Dont-flatten-yourself-restoring-malware-with-Control-Flow-Flattening-obfuscation.pdf",
+        "snippet": "",
+        "published_date": "2023-10-04T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Advancing Code Obfuscation: Novel Opaque Predicate Techniques ...",
+        "url": "https://www.sciopen.com/article/10.32604/cmc.2025.062743",
+        "snippet": "",
+        "published_date": "2025-06-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "Effectiveness of synthesis in concolic deobfuscation - ScienceDirect",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0167404817301475",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3273
+      },
+      {
+        "title": "[PDF] interactive detection and removal of opaque predicates - th0mas.nl",
+        "url": "https://th0mas.nl/downloads/thesis/thesis.pdf",
+        "snippet": "",
+        "published_date": "2017-08-23T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "Tigress Transformations",
+        "url": "https://tigress.cs.arizona.edu/transformPage/index.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5
+      },
+      {
+        "title": "restoring malware with Control-Flow Flattening obfuscation",
+        "url": "https://www.virusbulletin.com/uploads/pdf/conference/vb2023/papers/Dont-flatten-yourself-restoring-malware-with-Control-Flow-Flattening-obfuscation.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Deobfuscation: recovering an OLLVM-protected program",
+        "url": "https://blog.quarkslab.com/deobfuscation-recovering-an-ollvm-protected-program.html",
+        "snippet": "",
+        "published_date": "2014-12-04T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Defeating Opaque Predicates Statically through Machine ...",
+        "url": "https://arxiv.org/pdf/1909.01640",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Control-Flow Deobfuscation Using Trace-Informed ...",
+        "url": "https://bmarwritescode.github.io/assets/pdf/chisel.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "CMC | Free Full-Text | Advancing Code Obfuscation: Novel Opaque Predicate Techniques to Counter Dynamic Symbolic Execution",
+        "url": "https://www.techscience.com/cmc/v84n1/61718/html",
+        "snippet": "",
+        "published_date": "2025-06-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3545
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Deobfuscation of Control Flow Flattening based on Abstract ...",
+        "url": "https://www.researchgate.net/publication/400296293_Deobfuscation_of_Control_Flow_Flattening_based_on_Abstract_Interpretation",
+        "snippet": "Control Flow Flattening (CFF) is one of the control flow obfuscation techniques. It flattens control flows to conceal the sequential flow of programs.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "CaDeCFF: Compiler-Agnostic Deobfuscator of Control Flow Flattening",
+        "url": "https://dl.acm.org/doi/10.1145/3545258.3545269",
+        "snippet": "The results demonstrate that the proposed system outperforms state-of-the-art CFF deobfuscation tools, and the success rate is increased from 39.77% to 99.62%.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "White House AI Proposal Seeks to Override State Laws, Avoid New ...",
+        "url": "https://decrypt.co/361929/white-house-ai-proposal-override-state-laws-avoid-new-regulator",
+        "snippet": "The White House on Friday released a sweeping national policy framework for artificial intelligence, outlining recommendations to Congress that would set national standards for AI while relying on existing federal agencies—rather than creating a new regulator. The proposal comes as states move ahead with their own AI laws, which the Trump administration has criticized as a burdensome “patchwork” of requirements for companies. “The Trump Administration is committed to winning the AI race to usher in a new era of human flourishing, economic competitiveness, and national security for the American people,” the White House said in a statement. \"The framework proposes a few ideas that would be disastrous, such as barring states from enacting protections for their residents, imposing age-verification requirements on AI platforms and services, and creating a new federal publicity right,\" EFF Legal Director Corynne McSherry told *Decrypt*. The White House’s framework also said parents should be given more control over how children interact with AI systems, and that Congress should enact better protections against abuse.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "Control-Flow Flattening of SF and Tigress - ResearchGate",
+        "url": "https://www.researchgate.net/figure/Control-Flow-Flattening-of-SF-and-Tigress_fig3_342904744",
+        "snippet": "Opaque predicates have been proposed for program obfuscation in recent years. The main approaches are to add condition branches with bogus program paths",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4364
+      },
+      {
+        "title": "Effectiveness of synthesis in concolic deobfuscation - ScienceDirect",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0167404817301475",
+        "snippet": "Control flow flattening transformations can be reinforced by implementing the dispatcher with cryptographic hash functions and opaque predicates (Cappaert and",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Control-Flow Splitting by Opaque Predicate Insertion - Tigress",
+        "url": "https://tigress.cs.arizona.edu/transformPage/docs/addOpaque/index.html",
+        "snippet": "Break up code blocks by inserting opaque predicates. Requires that at least the InitOpaque transform has been previously issued and, preferably,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6091
+      },
+      {
+        "title": "Control flow flattening - Tigress",
+        "url": "https://tigress.cs.arizona.edu/transformPage/docs/flatten/index.html",
+        "snippet": "This is a classic control-flow transformation that removes structured flow. Flattening is useful as a precursor to other transformations.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.5818
+      },
+      {
+        "title": "[PDF] interactive detection and removal of opaque predicates - th0mas.nl",
+        "url": "https://th0mas.nl/downloads/thesis/thesis.pdf",
+        "snippet": "Additionally, we show that the ability for an analyst to provide interactive input during the deobfuscation process can be rather useful in various scenarios, and the ability to provide a speciﬁc type of constraint on program arguments can even help detect and reverse an otherwise very strong type of control-ﬂow obfuscation: input-invariant opaque predicates. From experiments in Section 5.3 we draw the conclusion that it is in fact possible to detect and revert obfuscations that forego the functionality property (i.e. obfuscations that require the obfuscated program to produce identical output to the original program only for valid inputs) such as input-invariant opaque predicates which are only opaque given the fact that a certain invariant over the program arguments holds.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] Opaque Predicate - Penn State College of IST",
+        "url": "https://faculty.ist.psu.edu/wu/papers/dongpeng-xu-dissertation.pdf",
+        "snippet": "An opaque predicate is a predicate whose value is known to the obfuscator but is difficult to deduce. It can be seamlessly applied together with other",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5818
+      },
+      {
+        "title": "[PDF] Control-Flow Deobfuscation Using Trace-Informed Compositional ...",
+        "url": "https://bmarwritescode.github.io/assets/pdf/chisel.pdf",
+        "snippet": "The benchmarks are obfuscated with 3 different control-flow extensions: branch insertion, dead-code insertion (via opaque predicates), and flattening. It",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] interactive detection and removal of opaque predicates - th0mas.nl",
+        "url": "https://th0mas.nl/downloads/thesis/thesis.pdf",
+        "snippet": "Additionally, we show that the ability for an analyst to provide interactive input during the deobfuscation process can be rather useful in various scenarios, and the ability to provide a speciﬁc type of constraint on program arguments can even help detect and reverse an otherwise very strong type of control-ﬂow obfuscation: input-invariant opaque predicates. From experiments in Section 5.3 we draw the conclusion that it is in fact possible to detect and revert obfuscations that forego the functionality property (i.e. obfuscations that require the obfuscated program to produce identical output to the original program only for valid inputs) such as input-invariant opaque predicates which are only opaque given the fact that a certain invariant over the program arguments holds.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "What is a \"control-flow flattening\" obfuscation technique?",
+        "url": "https://reverseengineering.stackexchange.com/questions/2221/what-is-a-control-flow-flattening-obfuscation-technique",
+        "snippet": "# What is a \"control-flow flattening\" obfuscation technique? I recently heard about the \"control-flow flattening\" obfuscation which seems to be is used to break the structure of the CFG of the binary program (see Symbolic Execution and CFG Flattening). Recovering it shouldn't be *too* difficult in most cases - just track the control variable updates and replace jumps to the dispatcher node with jumps to the next block corresponding to the new control variable value. ***`Image showing how control-flow flattening obfuscation alters code that contains loop structures.`***. If you are familiar with how `switch` statements are written in `assembly` (i know **2** ways, the **if-style** and the **jumptable** one) then the above example is easy to de-obfuscate.The `break;` instruction is a `jmp`.You could make it jump to the block thats supposed to be next. Control flow flattening is an obfuscation\\transformation technique that can be applied to code for almost all languages in order to make it more difficult to understand and reverse engineer.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] Defeating Opaque Predicates Statically through Machine Learning ...",
+        "url": "https://arxiv.org/pdf/1909.01640",
+        "snippet": "Thus, based on the same dataset of core-utils and structured-based Set-1 Set-2 Set-3 0 50 100 77 87 94 57 68 88 Accuracy (%) Detection Deobfuscation Figure 2: Predictions accuracy on the different raw data sets opaque predicates generated with Tigress, we measure the average of our models accuracies for both detection and deobfuscation, evaluated with a 20-fold cross-validation. As we can see in Table 7, Datasets Types of OP Other transforms Analysis time Accuracy(%) F1 Score(%) Dataset 1 Floats None 0.6 s 93 % 93 % Dataset 2 Symbolic-memory fla, sub 0.9 s 98 % 98 % Table 7: Evaluations of stealth using Bi-opaque predicates from [44] our model is efficient at detecting bi-opaque predicates with 93% accuracy for float-based constructs.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": [
+      {
+        "title": "Generalized Dynamic Opaque Predicates: A New Control Flow Obfuscation Method",
+        "url": "https://faculty.ist.psu.edu/wu/papers/opaque-isc16.pdf",
+        "snippet": "Introduces generalized dynamic opaque predicates for control flow obfuscation, extending beyond straight-line code to branches and loops, resilient to deobfuscation, often combined with or compared to control flow flattening.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6636
+      },
+      {
+        "title": "Deobfuscation: recovering an OLLVM-protected program",
+        "url": "https://blog.quarkslab.com/deobfuscation-recovering-an-ollvm-protected-program.html",
+        "snippet": "Details deobfuscation of OLLVM protections including control flow flattening via state variables, dispatcher blocks, and handling opaque predicates in flattened structures.",
+        "published_date": "2014-12-04",
+        "source": "grok, exa",
+        "score": 0.5109
+      },
+      {
+        "title": "DON’T FLATTEN YOURSELF: restoring malware with Control-Flow Flattening obfuscation",
+        "url": "https://www.virusbulletin.com/uploads/pdf/conference/vb2023/papers/Dont-flatten-yourself-restoring-malware-with-Control-Flow-Flattening-obfuscation.pdf",
+        "snippet": "Explains control flow flattening in malware, state machine dispatchers, computed next state values, opaque predicates in jump calculations, and deobfuscation challenges.",
+        "published_date": "",
+        "source": "grok, exa",
+        "score": 0.5455
+      },
+      {
+        "title": "Control-Flow Deobfuscation Using Trace-Informed Reinforcement Learning",
+        "url": "https://bmarwritescode.github.io/assets/pdf/chisel.pdf",
+        "snippet": "Discusses deobfuscation of combined control flow flattening and opaque predicate (dead-code) insertions, state handling in flattened code, and limitations of rule-based approaches.",
+        "published_date": "2024",
+        "source": "grok, exa, tavily",
+        "score": 0.6409
+      },
+      {
+        "title": "D810: A journey into control flow unflattening",
+        "url": "https://eshard.com/posts/D810-a-journey-into-control-flow-unflattening",
+        "snippet": "Describes unflattening control flow (e.g., Tigress), identifying state variables, computing next states dynamically, handling opaque predicates in state calculations for deobfuscation.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.5182
+      },
+      {
+        "title": "Control flow flattening - Tigress Official Documentation",
+        "url": "https://tigress.cs.arizona.edu/transformPage/docs/flatten/index.html",
+        "snippet": "This is a classic control-flow transformation that removes structured flow. Flattening is useful as a precursor to other transformations. The dispatch variable can be obfuscated using opaque predicates. Options include FlattenOpaqueStructs for using arrays or lists in opaque expressions.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "D810: A journey into control flow unflattening",
+        "url": "https://eshard.com/posts/D810-a-journey-into-control-flow-unflattening",
+        "snippet": "Demonstrates how D-810 can be used and configured to remove control flow flattening generated by Tigress obfuscator, including switch dispatcher and indirect dispatcher methods using state variables and jump tables.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Don't flatten yourself: restoring malware with Control-Flow Flattening obfuscation",
+        "url": "https://www.virusbulletin.com/uploads/pdf/conference/vb2023/papers/Dont-flatten-yourself-restoring-malware-with-Control-Flow-Flattening-obfuscation.pdf",
+        "snippet": "Paper discussing control-flow flattening (CFF) as an obfuscation technique, altering function control flow, often relevant to tools like Tigress and deobfuscation approaches.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Control-Flow Deobfuscation using Trace-Informed Program Synthesis",
+        "url": "https://dl.acm.org/doi/full/10.1145/3689789",
+        "snippet": "Studies deobfuscation techniques for control flow obfuscations, including examples from Tigress Flatten combined with AddOpaque transformations involving opaque predicates.",
+        "published_date": "2024-10-08",
+        "source": "grok",
+        "score": 0.3564
+      },
+      {
+        "title": "What is a \"control-flow flattening\" obfuscation technique?",
+        "url": "https://reverseengineering.stackexchange.com/questions/2221/what-is-a-control-flow-flattening-obfuscation-technique",
+        "snippet": "Explanation of control flow flattening using a state variable for program state in a dispatcher loop, often combined with opaque predicates to prevent simplification.",
+        "published_date": "2013-06-10",
+        "source": "grok, tavily",
+        "score": 0.5836
+      },
+      {
+        "title": "Deobfuscation: recovering an OLLVM-protected program",
+        "url": "https://blog.quarkslab.com/deobfuscation-recovering-an-ollvm-protected-program.html",
+        "snippet": "Detailed guide on using symbolic execution (with Miasm) to simplify opaque predicates and recover control flow from OLLVM flattening by computing basic block destinations and next states.",
+        "published_date": "2014-12-04",
+        "source": "grok"
+      },
+      {
+        "title": "Don't flatten yourself: restoring malware with Control-Flow Flattening obfuscation",
+        "url": "https://www.virusbulletin.com/uploads/pdf/conference/vb2023/papers/Dont-flatten-yourself-restoring-malware-with-Control-Flow-Flattening-obfuscation.pdf",
+        "snippet": "Research paper describing symbolic execution techniques to recover next state values for original basic blocks (OBBs) in control-flow flattened malware.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "D810: A journey into control flow unflattening",
+        "url": "https://eshard.com/posts/D810-a-journey-into-control-flow-unflattening",
+        "snippet": "Explains control flow unflattening using microcode emulation and references symbolic execution (e.g., Miasm) for state variable recovery in Tigress and OLLVM flattened code.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Compiler-Agnostic Deobfuscator of Control Flow Flattening",
+        "url": "https://dl.acm.org/doi/fullHtml/10.1145/3545258.3545269",
+        "snippet": "Presents a method using symbolic execution starting from useful blocks to recover edges and reconstruct the original CFG from flattened control flow.",
+        "published_date": "2022",
+        "source": "grok",
+        "score": 0.3818
+      },
+      {
+        "title": "Automated Detection of Control-flow Flattening",
+        "url": "https://synthesis.to/2021/03/03/flattening_detection.html",
+        "snippet": "Discusses heuristics for detecting flattening and references symbolic execution approaches (e.g., Quarkslab's Miasm-based method) for automated recovery of control flow.",
+        "published_date": "2021-03-03",
+        "source": "grok",
+        "score": 0.3018
+      }
+    ]
+  }
+}

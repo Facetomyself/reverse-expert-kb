@@ -332,6 +332,7 @@ Better move:
 ### Mistake 2: demanding full predicate simplification before any progress
 Why it hurts:
 - many practical wins only require one normalized split or one solved successor pair
+- real-world flatteners can deliberately obfuscate `next` or inflate copied-code branches, so full predicate cleanup is often a poor first milestone
 
 Better move:
 - recover one trustworthy next-state relation first, then decide if deeper predicate cleanup is worth it
