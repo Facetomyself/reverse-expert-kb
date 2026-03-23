@@ -82,16 +82,19 @@ Typical forms:
 - `withCheckedContinuation` / `withUnsafeContinuation` resume sites
 - continuation wrappers around completion handlers
 - `AsyncStream` buffering or yield-to-consumer wakeups
+- `URLSession.AsyncBytes` or similar `AsyncSequence` delivery loops where header-time truth and body-consumption truth should not be collapsed
 - task wakeup or state-machine resume points after `await`
 
 What to separate:
 - wrapper/setup code that only prepares the continuation
 - the actual resume/delivery boundary
+- whether the flow is really **single-shot continuation**, **multi-value stream**, or **sequence-consumption** shaped
 - later reducers and consumers that matter behaviorally
 
 Useful reminder:
 - the first useful proof object is often not the prettiest async function name, but the first truthful resume/delivery edge
 - a resume call is also not automatically the first behavior-changing consumer: Swift continuation material can be resumed first and only later rescheduled into the task/executor context where one reducer, mapper, or coordinator finally changes behavior
+- do not flatten single-shot continuation cases, `AsyncStream` cases, and `AsyncSequence`/bytes-consumption cases into one generic “async callback” bucket, because their truthful stop rules differ
 
 ### C. Resume visibility vs policy reduction
 Seeing result material after resume is still not the same thing as understanding app-local meaning.
@@ -161,6 +164,7 @@ If not settled, route back first.
 Good candidates include:
 - the exact continuation resume edge
 - the first stream yield/dequeue pair that wakes the relevant consumer
+- the first `for await` / iterator-consumption edge that turns `AsyncSequence` delivery into app-owned reduction
 - the first resumed task frame that consistently appears only on the frozen flow
 - the narrowest boundary where result material becomes available to app-owned Swift logic
 
@@ -168,6 +172,7 @@ Bad default choices include:
 - the highest-level public async method name with no proof of downstream consequence
 - every task/wrapper near the flow
 - every helper that only creates or stores the continuation without owning delivery
+- treating `URLSession.bytes(...)` header return as equivalent to the later byte-consumer that actually parses, frames, or classifies the stream
 
 A source-backed discipline worth preserving here:
 - continuation setup runs immediately in the current async context, but task progress after `resume(...)` is still scheduler/executor mediated rather than “inline callback code just kept going”
@@ -175,6 +180,10 @@ A source-backed discipline worth preserving here:
   - continuation creation/storage
   - resume or stream-delivery event
   - first resumed task-side reducer / consumer that actually predicts later behavior
+- for stream-shaped cases, also separate:
+  - stream construction
+  - first yield / delivery
+  - first iterator-side consumption that actually changes later behavior
 
 ### Step 5: separate normalization from policy mapping
 Use small role labels:
@@ -254,7 +263,21 @@ Best move:
 - keep the callback proof fixed
 - localize the first stream delivery / consumer boundary instead of reopening callback search
 
-### Scenario C: replay is good enough to expose results, but policy still looks hidden
+### Scenario C: async bytes / sequence delivery is visible, but the decisive effect lives at the first parser or classifier
+Pattern:
+
+```text
+URLSession async bytes or similar AsyncSequence starts cleanly
+  -> headers / sequence object appear truthful
+  -> later for-await parser, framer, or classifier decides behavior
+```
+
+Best move:
+- do not stop at “the async sequence exists”
+- separate sequence construction from first iterator-side consumer that turns bytes/events into app-local meaning
+- prove whether the first decisive boundary is framing, parsing, reduction, or later coordinator use
+
+### Scenario D: replay is good enough to expose results, but policy still looks hidden
 Pattern:
 
 ```text
@@ -267,7 +290,7 @@ Best move:
 - distinguish replay-close infrastructure success from consequence proof
 - find the first continuation-owned mapper or consumer before assuming the replay path is fully explained
 
-### Scenario D: nice Swift enum/object exists, but task coordinator owns the real consequence
+### Scenario E: nice Swift enum/object exists, but task coordinator owns the real consequence
 Pattern:
 
 ```text
@@ -283,14 +306,14 @@ Best move:
 ## 6. Breakpoint / hook placement guidance
 Useful anchors include:
 - the frozen callback/delegate/completion family or imported-async owner path
-- the candidate continuation resume or stream delivery boundary
-- the first Swift reducer that collapses raw resumed output into one smaller app-local family
+- the candidate continuation resume, stream delivery, or iterator-consumption boundary
+- the first Swift reducer that collapses raw resumed output or streamed bytes/events into one smaller app-local family
 - the first task/coordinator/controller consumer that writes state or selects the next route
 - one later effect that proves the chosen consumer mattered
 
 If evidence is noisy, prefer:
 - one async-facing flow and one compare pair
-- one resume boundary, not every task helper nearby
+- one resume/delivery/iterator boundary, not every task helper nearby
 - one reducer and one consumer, not every Swift wrapper
 - one downstream effect, not every later async hop
 
@@ -308,10 +331,13 @@ Normalization is often easier to read than consequence ownership.
 ### 4. Confusing continuation setup, continuation resume, and post-resume consequence
 Creating/storing a continuation, calling `resume`, and reaching the first resumed task-side reducer are related but not identical proof objects.
 
-### 5. Reopening broad owner search when the real next gap is continuation-owned delivery or consumption
+### 5. Flattening continuation, `AsyncStream`, and `AsyncSequence`/bytes-consumption cases into one bucket
+Single-shot resume, multi-value stream delivery, and iterator-side consumption often have different truthful stop rules.
+
+### 6. Reopening broad owner search when the real next gap is continuation-owned delivery or consumption
 Once callback truth is already good enough, widening too early usually wastes effort.
 
-### 6. Confusing replay-close infrastructure success with proved behavioral ownership
+### 7. Confusing replay-close infrastructure success with proved behavioral ownership
 A result returning through async machinery is still not the same thing as proving the first policy-bearing consumer.
 
 ## 8. Relationship to nearby pages
