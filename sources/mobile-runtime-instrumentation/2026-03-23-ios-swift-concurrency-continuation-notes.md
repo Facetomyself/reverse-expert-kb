@@ -130,11 +130,24 @@ That proof object often looks like:
 - one result normalization or policy-mapping reducer inside Swift-owned logic
 - one first behavior-changing consumer or downstream effect
 
+A sharper operator distinction now worth preserving from the sources is:
+- continuation setup/creation is not yet consequence ownership
+- `resume(...)` is an important truth boundary, but later task progress is still scheduler/executor mediated rather than “the callback just kept executing synchronously as Swift logic”
+- therefore analysts should often separate three adjacent proof objects instead of two:
+  - continuation creation/storage
+  - resume or stream-delivery event
+  - first resumed task-side reducer / consumer
+
 This helps classify ambiguity more honestly:
 - callback truth still not solved
 - callback truth solved, but resume/stream ownership still unclear
 - resume ownership solved, but policy mapper/consumer still unclear
 - replay-close path still missing one narrower init/context/materialization obligation
+
+It also suggests one useful compare-run symptom family:
+- the same callback family may fire in both runs
+- yet one run never reaches the same resumed task-side reducer/consumer
+- in that situation, the best next question may be exact-once resume, stream buffering/wakeup, cancellation conclusion, timeout cleanup, or stale-task handling rather than more callback hunting
 
 ## What this run deliberately did not claim
 - that every modern iOS callback case becomes a Swift-concurrency case
