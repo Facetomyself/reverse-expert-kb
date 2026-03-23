@@ -12,6 +12,7 @@ Related pages:
 - topics/runtime-evidence-package-and-handoff-workflow-note.md
 - topics/analytic-provenance-and-evidence-management.md
 - sources/runtime-evidence/2026-03-22-first-bad-write-watchpoint-and-time-travel-workflows-notes.md
+- sources/runtime-evidence/2026-03-24-first-bad-write-tool-patterns-notes.md
 
 ## 1. Why this page exists
 The runtime-evidence branch already had a useful broad note for reverse-causality localization:
@@ -187,11 +188,17 @@ If the first raw write still leaves the real decision unresolved, you probably w
 
 ### Step 5: localize the first causally useful boundary
 Use the tool support available:
-- reverse watchpoint
-- access breakpoint plus backward run
-- trace query over writes/reads/calls near the watched object
+- rr-style reverse watchpoint plus reverse continue when one field or slot is already stable enough to watch
+- WinDbg TTD-style `ba` plus `g-` when one suspect variable address is known and the analyst wants the last access/write behind a visible failure or bad state
+- scoped Binary Ninja TTD memory/call queries when whole-trace navigation is already too large, but the watched object and time window are narrow enough to query safely
+- Pernosco-style capture-now / analyze-later workflows when the real bottleneck is preserving the bad run long enough to ask one watched-object question well
 - compare-run alignment around the watched-object change
 - narrower hook/logging on one suspected writer or reducer family
+
+Practical rule:
+- prefer the smallest watched object that still predicts the consequence
+- prefer the narrowest query or reverse-run window that still plausibly contains the cause
+- if the first boundary you find is still semantically too rich, too downstream, or only points at another variable behind it, repeat once on that earlier smaller variable instead of widening the search back out
 
 The output should be phrased as:
 
@@ -300,6 +307,8 @@ Best move:
 - treating the first related write as sufficient when the first decisive reducer is later and more useful
 - turning one late-state problem into generic reverse-debugger tourism
 - asking for the whole history before choosing one bounded search window
+- issuing broad memory-event or call queries before shrinking the watched object enough to make the query truthful and tractable
+- mistaking tool power for workflow clarity: replay, TTD, or omniscient query support does not remove the need for good watched-object choice
 - trying to prove an entire subsystem before proving one dependency edge
 - staying in broad reverse-causality work after one useful watched-object boundary already exists
 
@@ -345,9 +354,11 @@ Grounding for this page comes from:
 - `sources/runtime-evidence/2026-03-14-record-replay-notes.md`
 - `sources/runtime-evidence/2026-03-16-causal-write-and-reverse-causality-workflow-notes.md`
 - `sources/runtime-evidence/2026-03-22-first-bad-write-watchpoint-and-time-travel-workflows-notes.md`
-- rr reverse-watchpoint material
+- `sources/runtime-evidence/2026-03-24-first-bad-write-tool-patterns-notes.md`
+- rr reverse-watchpoint material and rr project guidance
 - Microsoft TTD overview and walkthrough material
 - Binary Ninja debugger/TTD documentation
+- Pernosco workflow guidance for capture-now / analyze-later execution-history use
 - Ghidra and IDA debugger/tracing documentation used conservatively for workflow signals
 
 The page stays conservative:
