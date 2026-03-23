@@ -85,7 +85,7 @@ The subtree is strongest when read as:
 - **reduce** one callback-heavy kernel telemetry path into one first enforcement-relevant consumer
 - **reposition** observation when the current topology itself is the problem
 - **anchor** noisy protected execution when the first stable semantic anchor is still missing
-- **normalize** one opaque-predicate or computed-next-state bottleneck into one trustworthy successor relation
+- **normalize** one opaque-predicate or computed-next-state bottleneck into one trustworthy successor relation, often by anchoring on one helper output, normalized compare family, table index, or other smaller recovery object instead of the whole flattened block
 - **reduce** one recognizable flattened dispatcher or protected state machine into one durable state edge
 - **handoff** out of staged startup when packing/bootstrap dominates
 - **consume** recovered artifacts when readable material exists but ordinary use is still unproved
@@ -530,11 +530,5 @@ The compact reading is:
 - prove the first consequence-bearing integrity tripwire
 - recover one handler-owned transfer boundary when traps, faults, or signal delivery hide the real branch
 - then leave the branch once the remaining work is ordinary native, browser, protocol, mobile, or broader runtime-evidence continuation rather than protection-shaped uncertainty
-
-That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which leaf note to read first.
-
-That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which leaf note to read first.
-e, and less dependent on already knowing which leaf note to read first.
-tion rather than protection-shaped uncertainty
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which leaf note to read first.

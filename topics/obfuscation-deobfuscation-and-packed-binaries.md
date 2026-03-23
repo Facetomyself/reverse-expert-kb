@@ -268,7 +268,7 @@ Source cluster:
 High-signal findings:
 - flattening diversity matters operationally: `switch`, `goto`, `indirect`, and `call` dispatch shapes do not leave the same stable recovery objects
 - `FlattenObfuscateNext`, flag-based branch encoding, and AddOpaque-style copied-code / bogus-branch inflation often obscure next-state recovery even after the dispatcher is obvious
-- practical progress often comes from recovering one trustworthy successor relation, OBB/state mapping, or branch-normalized split before broader CFG beautification
+- practical progress often comes from recovering one trustworthy successor relation, OBB/state mapping, helper-output anchor, table-index/target-family relation, or branch-normalized split before broader CFG beautification
 - symbolic execution and IL-level repair are often used as narrow bridge tools for this middle stage, not as all-or-nothing whole-function recovery demands
 
 Why it matters:
