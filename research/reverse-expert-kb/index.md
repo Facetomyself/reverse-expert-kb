@@ -198,6 +198,7 @@ This branch should now be read as a practical bridge from baseline native synthe
 - `topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md`
 - `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
 - `topics/protocol-schema-externalization-and-replay-harness-workflow-note.md`
+- `topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md`
 - `topics/protocol-content-pipeline-recovery-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
