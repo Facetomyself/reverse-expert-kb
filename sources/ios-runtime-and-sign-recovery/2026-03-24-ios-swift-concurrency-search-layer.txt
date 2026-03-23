@@ -1,0 +1,650 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Swift CheckedContinuation AsyncStream reverse engineering iOS async callback resume practical",
+    "URLSession async await delegate continuation AsyncStream practical behavior Apple docs",
+    "Swift concurrency Task MainActor AsyncStream continuation scheduling reverse engineering practical"
+  ],
+  "count": 35,
+  "results": [
+    {
+      "title": "AsyncStream and Actors - Using Swift - Swift Forums",
+      "url": "https://forums.swift.org/t/asyncstream-and-actors/70545",
+      "snippet": "Title: AsyncStream and Actors - Using Swift - Swift Forums\nSwitching on strict checking lights up my code in golden warnings, so I tried to use an actor to take control of things... The only way I was able to compile this functionality into an actor was by declaring `frames`, `frameContinuation` and `frameIterator` as `nonisolated(unsafe)`, which makes me rather uneasy. That seems to be covered with this proposal - swift-evolution/proposals/0420-inheritance-of-actor-isolation.md at main · apple/swift-evolution · GitHub. Yet it is not going to be available until Swift 6, so right now I suppose the only way to handle this is to make function `nonisolated`. I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? The second, is that concurrency itself is a hard thing to get, it is complex, and no amount of compiler checks will make it easy. I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? I just recently reverted from using actors in a tiny little plugin framework I wrote, changing it back to synchronous code, because at every boundary between the platform (UIKit/AppKit) and my code, I had to wrap things in `Task { }` or `await MainActor.run { }`, or change the overall design of my code to silence compiler errors related to actor initialization. // WARNING: Passing argument of non-sendable type 'inout AsyncStream<Data>.Iterator' outside of main actor-isolated context may introduce data races. // WARNING: Type 'AsyncStream<Data>.Continuation.YieldResult' does not conform to the 'Sendable' protocol. So if I understand correctly, that means the class implementing the network code, running on a background thread, should expose the AsyncStream, and post to it on an agreed actor, e.g MainActor.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.69
+    },
+    {
+      "title": "Swift Concurrency: Combine TaskGroup and AsyncStream? - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/77935108/swift-concurrency-combine-taskgroup-and-asyncstream",
+      "snippet": "Title: Swift Concurrency: Combine TaskGroup and AsyncStream? - Stack Overflow\n### your communities. ### more stack exchange communities. ##### Collectives™ on Stack Overflow. # Swift Concurrency: Combine TaskGroup and AsyncStream? Suppose I want to download 300 images in the background using Swift Concurrency. `AsyncStream` lets me return images as they're downloaded, but has no parallelism on its own—downloads happen one at a time, in sequence. `let stream = AsyncStream(NSImage.self) { continuation in. _ = await withTaskGroup(of: NSImage.self, returning: [NSImage].self) { taskGroup in. // array of 300 URLs to download. taskGroup.addTask { await downloadImage(url: imageURL) }. The idea is that you would bridge from the synchronous context of `AsyncStream` to Swift concurrency by creating a `Task` for the asynchronous work. `func images(for urls: [URL]) -> AsyncStream<NSImage> {. await withTaskGroup(of: NSImage.self) { group in. group.addTask { await self.downloadImage(url: url) }. for await image in group {. Obviously, since you are doing all of these network requests concurrently, you must recognize that these will likely not finish in the order corresponding to the original array of URLs. So, you might return a tuple of the original URL and the resulting image:. `func images(for urls: [URL]) -> AsyncStream<(URL, NSImage)> {. await withTaskGroup(of: (URL, NSImage).self) { group in. group.addTask { await (url, self.downloadImage(url: url)) }. `func images(for urls: [URL]) -> AsyncStream<(Int, NSImage)> {. await withTaskGroup(of: (Int, NSImage).self) { group in. group.addTask { await (index, self.downloadImage(url: url)) }. `func downloadImage(url: URL) async -> NSImage {. `let stream = AsyncStream(NSImage.self) { continuation in. await withTaskGroup(of: NSImage.self) { taskGroup in. taskGroup.addTask { await downloadImage(url: imageURL) }. `for await image in stream {. Of course consider the order the image appears in this last for loop is no guaranteed to be the same you follow when invoking `downloadImage(url:)`. Luca Angeletti's user avatar. You can use this approach to achieve your requirements. let url1 = \"https://sample-videos.com/img/Sample-png-image-100kb.png\". let url2 = \"https://sample-videos.com/img/Sample-png-image-200kb.png\". let url3 = \"https://sample-videos.com/img/Sample-png-image-500kb.png\". let url4 = \"https://sample-videos.com/img/Sample-png-image-1mb.png\". return await withTaskGroup(of: (Int, UIImage).self) { group -> Void in. group.addTask { await (i, self.loadImage(url: url)) }. let (data, _) = try await URLSession.shared.data(from: url). workingdog support Ukraine's user avatar. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. ##### Stack Overflow. ##### Stack Exchange Network.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.69
+    },
+    {
+      "title": "AsyncStream | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream",
+      "snippet": "AsyncStream conforms to AsyncSequence, providing a convenient way to create an asynchronous sequence without manually implementing an asynchronous iterator.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.66
+    },
+    {
+      "title": "CheckedContinuation | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/checkedcontinuation",
+      "snippet": "A mechanism to interface between synchronous and asynchronous code, logging correctness violations.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.66
+    },
+    {
+      "title": "Use async/await with URLSession - WWDC21 - Apple Developer",
+      "url": "https://developer.apple.com/videos/play/wwdc2021/10095/",
+      "snippet": "Here, we used the new async data method on URLSession. Please note that concurrency Task is unrelated to URLSessionTask, even though they share the name \"Task.\" The methods we just talked about -- data, upload, download -- wait for the entire response body to arrive before returning. Let's use the new async sequence API to consume the response of the endpoint and update the favorite counts as real-time events are parsed. Our Dogs app has a simple data-fetching layer written with the new async APIs. For some of our data-fetching tasks, such as marking a photo as favorite or fetching all favorited photos, the user needs to be authenticated. What's new here is that the delegate can be used to handle events that are specific to an instance of a URLSession task, which is handy when the logic inside your delegate methods only applies to certain URLSession tasks and not others.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.63
+    },
+    {
+      "title": "URLSession | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlsession",
+      "snippet": "The URLSession class and related classes provide an API for downloading data from and uploading data to endpoints indicated by URLs. ... You can also use the bytes(from:delegate:) method to receive data as an AsyncSequence. With this approach, you use the for-await-in syntax to iterate over the data as your app receives it.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.63
+    },
+    {
+      "title": "URLSession.AsyncBytes | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlsession/asyncbytes",
+      "snippet": "Retrieves the contents of a URL based on the specified URL request and delivers an asynchronous sequence of bytes.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.63
+    },
+    {
+      "title": "download(from:delegate:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlsession/download(from:delegate:)",
+      "snippet": "Retrieves the contents of a URL and delivers the URL of the saved file asynchronously.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.63
+    },
+    {
+      "title": "Modern Networking in iOS with URLSession and async/await",
+      "url": "https://dev.to/markkazakov/modern-networking-in-ios-with-urlsession-and-asyncawait-a-practical-guide-4o0o",
+      "snippet": "",
+      "published_date": "2025-04-05T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.56
+    },
+    {
+      "title": "[Concurrency] Understanding AsyncStream in Swift: A Comprehensive Guide | by Mohit Dubey | Medium",
+      "url": "https://medium.com/@mohitdubey_83162/understanding-asyncstream-in-swift-a-comprehensive-guide-9f20521c75c0",
+      "snippet": "Title: [Concurrency] Understanding AsyncStream in Swift: A Comprehensive Guide | by Mohit Dubey | Medium\n# [Concurrency] Understanding AsyncStream in Swift: A Comprehensive Guide. Swift, Apple’s powerful and intuitive programming language, continues to evolve, bringing new features that make asynchronous programming more manageable and efficient. It allows developers to create and manage a stream of asynchronous values, which can be consumed using the `for await` syntax. The basic structure of an `AsyncStream` involves creating a stream and a continuation closure that yields values to the stream. await Task.sleep(for: .milliseconds(Int.random(in: 300...1000)))        return name    }        func getImages() -> AsyncStream<String> {        return AsyncStream { continuation in            let task = Task {                await withTaskGroup(of: String.self) { taskGroup in                    for i in 1...50 {                        if ! \"\"                            }                        }                    }                                        for await item in taskGroup {                        continuation.yield(item)                    }                                        continuation.finish()                }            }                        continuation.onTermination = { _ in                print(\"Task is cancelled\")                task.cancel()            }        }    }}let daso = DummyAsyncStreamOperation()Task {    let stream = daso.getImages()    for await image in stream {        print(\"Image is \\(image)\")    }} import class DummyAsyncStreamOperation private func getImage name String async String try? * `AsyncStream` is used to create a stream of asynchronous values. * **Asynchronous Programming**: The code demonstrates how to create and manage asynchronous operations in Swift using `async`/`await`. * **AsyncStream**: This allows you to create a stream of asynchronous values, which can be consumed using the `for await` syntax. The `for await` syntax, combined with `AsyncStream`, makes asynchronous code more readable and maintainable. For developers new to Swift’s concurrency model, `AsyncStream` may introduce a learning curve. While `AsyncStream` improves readability, debugging asynchronous code can still be challenging. `AsyncStream` is a valuable addition to Swift’s concurrency model, offering a powerful way to handle asynchronous sequences of values. By simplifying asynchronous programming and improving code readability, `AsyncStream` enables developers to build more efficient and maintainable applications. By following best practices, such as properly handling continuations and managing concurrent operations, developers can harness the full potential of `AsyncStream` while avoiding common pitfalls. Embrace `AsyncStream` in your Swift projects to create robust and efficient asynchronous applications, and continue exploring Swift’s evolving capabilities to stay ahead in the world of modern iOS development. ### Migrating from callback-based delegates to async-await in Swift can significantly simplify asynchronous code, making it more readable and…](/@mohitdubey_83162/concurrency-migrating-from-callback-based-delegate-approach-to-async-await-in-ios-swift-54d11fb1b999?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "Advanced Swift Concurrency: AsyncStream - Jacob's Tech Tavern",
+      "url": "https://blog.jacobstechtavern.com/p/async-stream",
+      "snippet": "",
+      "published_date": "2025-05-19T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.49
+    },
+    {
+      "title": "🛂 Modern Swift Concurrency in the Wild: AsyncStream, AsyncSequence & Cancellation Headaches | by Wesley Matlock | Medium",
+      "url": "https://medium.com/@wesleymatlock/modern-swift-concurrency-in-the-wild-asyncstream-asyncsequence-cancelation-headaches-60722d779ccf",
+      "snippet": "You sprinkle in `Task {}` and `async let`, maybe wrap a legacy API with `AsyncStream`, and everything feels clean… until your app leaks memory, animations stutter, and you can’t tell if your task was even canceled. func start() {        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in            let seats = Seat.generateRandomSeats()            self.delegate?.seatFeedService(self, didUpdate: seats)        }    }    func stop() {        timer?.invalidate()        timer = nil    }}protocol SeatFeedDelegate: AnyObject {    func seatFeedService(_ service: SeatFeedService, didUpdate seats: [Seat])} final class SeatFeedService weak var SeatFeedDelegate private var Timer func start = Timer0.5 true _ in let = Seat self? func startStreaming(service: SeatFeedService) {        streamTask?.cancel()        streamTask = Task {            do {                let stream = AsyncThrottleSequence(                    base: makeSeatStream(service: service),                    delay: .milliseconds(800)                )                for try await update in stream {                    await MainActor.run {                        withAnimation(.easeInOut(duration: 0.3)) {                            self.seats = update                        }                    }                }            } catch {                // timeout or cancelation error            }        }    }    func cancel() {        streamTask?.cancel()    }} @Observable final class SeatViewModel @MainActor @Publishedprivate(set) var Seat = private var Task Void Never func startStreaming service SeatFeedService?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.49
+    },
+    {
+      "title": "Mastering URLSession with Async/Await in Swift: A Modern Approach to Networking | by Suraphel Birhane | Medium",
+      "url": "https://medium.com/@suraphelbirhane_49799/mastering-urlsession-with-async-await-in-swift-a-modern-approach-to-networking-65184d44934c",
+      "snippet": "",
+      "published_date": "2024-08-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.46
+    },
+    {
+      "title": "Practical Swift Concurrency: Continuations, TaskGroup & More",
+      "url": "https://medium.com/@anubhavgiri01/concurrency-in-ios-part-5-b-practical-swift-concurrency-patterns-6a853aaed156",
+      "snippet": "",
+      "published_date": "2025-11-08T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.46
+    },
+    {
+      "title": "Swift Concurrency Part 2 : Mastering Actors, AsyncSequence, TaskGroup and Continuations | by Sanchit Mehta | Medium",
+      "url": "https://medium.com/%40sanchit115/swift-concurrency-part-2-mastering-actors-asyncsequence-and-advanced-concepts-2bb4ce02b23c",
+      "snippet": "",
+      "published_date": "2025-11-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.46
+    },
+    {
+      "title": "3 Swift Concurrency Challenges from the Last 2 Weeks",
+      "url": "https://twocentstudios.com/2025/08/12/3-swift-concurrency-challenges-from-the-last-2-weeks",
+      "snippet": "func setNotificationTapHandler(_ handler: @escaping @MainActor(PushNotificationPayload) -> Void){notificationTapHandler = handler} @MainActor func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) as ync{let userInfo = response. From this whole weeks-long process, I’ve learned essentially nothing about the proper usage of Swift Concurrency, my mental model is less well-formed than it used to be, and I still have a lingering problem that I cannot practically devote enough time to comprehensively solve right now. // Version 1: queryActivityStarting Task{@MainActor[weak self] in guard let self else{return}// Check motion history for timeout let timeout = await withCheckedContinuation{continuation in activityManager. However, is it correct to await with a `MainActor`-isolated `Task` while also having the `queryActivityStarting` function return on `OperationQueue.main`? final class SerialProcessor< Input: Sendable, Output: Sendable>{typealias Process = @Sendable(Input) as ync -> Output// Inbound (sync) and outbound (single-consumer) pipes private let inPair:(stream: AsyncStream< Input>, continuation: AsyncStream< Input>. stream{let output = await process(input) outPair. @MainActor @Observable final class ContentViewModel{@ObservationIgnored let serialProcessor: SerialProcessor< CLLocation, RailwayTrackerResult>private(set) var latestResult: RailwayTrackerResult ?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Swift Concurrency Deep Dive: Continuation vs UnsafeContinuation — Power, Pitfalls, and Best Practices | by Anand Mishra | Feb, 2026 | Medium",
+      "url": "https://medium.com/@anand.mishra.mca/swift-concurrency-deep-dive-continuation-vs-unsafecontinuation-power-pitfalls-and-best-77ae865aa45b",
+      "snippet": "",
+      "published_date": "2026-02-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "Swift Concurrency: Part 3 — Bridging Legacy APIs with Continuations | by Nick Vasilev | Feb, 2026 | Medium",
+      "url": "https://nsvasilev.medium.com/swift-concurrency-part-3-bridging-legacy-apis-with-continuations-32455d050fd0",
+      "snippet": "",
+      "published_date": "2026-02-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "Swift Concurrency: Task, Task.detached, Memory Management, Cancellation, and Edge Cases | by Akanksha Singh | Mar, 2026 | Medium",
+      "url": "https://medium.com/@aksingh20feb/swift-concurrency-deep-dive-task-task-detached-memory-management-cancellation-and-edge-cases-baec260c0171",
+      "snippet": "",
+      "published_date": "2026-03-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "Swift Concurrency [PART-5](@MainActor) | by Debdut Saha | Jan, 2026 | Medium",
+      "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-5-mainactor-3c3431cc0700",
+      "snippet": "",
+      "published_date": "2026-01-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "Migrating callback based code to Swift Concurrency with continuations",
+      "url": "https://www.donnywals.com/migrating-callback-based-code-to-swift-concurrency-with-continuations/",
+      "snippet": "# Migrating callback based code to Swift Concurrency with continuations. Swift's async/await feature significantly enhances the readability of asynchronous code for iOS 13 and later versions. In this post, I'll demonstrate how to convert callback-based asynchronous code into functions compatible with async/await, using Swift's `async` keyword. ## Converting a Callback-Based Function to Async/Await. To adapt our `validToken` function for async/await, we create an `async throws` version returning a `Token`. The challenge lies in integrating the existing callback-based `validToken` with our new async version. This function uses `withCheckedThrowingContinuation` to bridge our callback-based `validToken` with the async version. This post illustrated how to transform a callback-based function into an async function using continuations. Continuations are an excellent tool for gradually integrating async/await into your existing codebase without a complete overhaul. In conclusion, continuations offer a straightforward and elegant solution for converting existing callback-based functions into async/await compatible ones. The difference between checked and unsafe continuations in Swift.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.42
+    },
+    {
+      "title": "How to Create Callback-like Behavior Using AsyncStream in Swift",
+      "url": "https://swiftsenpai.com/swift/asyncstream-callback/",
+      "snippet": "In this article, let's explore a simple yet illustrative example of how AsyncStream can be utilized to track the progress of a download operation.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.42
+    },
+    {
+      "title": "How to use continuations to convert completion handlers into async functions – Hacking with Swift",
+      "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-continuations-to-convert-completion-handlers-into-async-functions",
+      "snippet": "Practical guide to bridging completion-handler APIs with withCheckedContinuation. Resume exactly once (e.g. continuation.resume(returning: value)). Checked continuations enforce correct usage to prevent hangs or crashes in async iOS code.",
+      "published_date": "2024-11-16",
+      "source": "grok",
+      "score": 0.4
+    },
+    {
+      "title": "Intermediate async/await & CheckedContinuation - Kodeco",
+      "url": "https://www.kodeco.com/books/modern-concurrency-in-swift/v2.0/chapters/5-intermediate-async-await-checkedcontinuation",
+      "snippet": "The Swift concurrency model assigns each asynchronous unit of work a continuation instead of creating an entire thread for it. Ew utfiq fehuk, meda aw cxey pqivton, tio’bw taoz fo tawfdi i veqxvo tesupafiul getwwilw un u tumktihaiv — umb cxuk’w qxe jinsanh agvuyliluth be ova a xajwihaucioh! Czox’t xek eygoazunudji — newalelut lil kofo limvasj mase roxncal yetdm u hoy caqe yirkopu syig nqes pued na vo. Qojuff o dumhxa lzojimi ih imzuahzj e xajlna eenaid to mquj teml i cubkijoinuej ncah yzoogosh i wulovujo vanexuto glli, aw rie piv uorwouw og kbo hwotlih. An hzim mevmoad, fiu’fp qoywemaa vorhetg ir `TkocjoyYukig.smofiSakiqeav()` gh wlewkabw e koggim radhvecq-bamug IRA bxud camcm o zibutiij appe u xadoj-kuucoxla oxgkajt. Yee wzuld dcaf timmoud xla zule zem mlus zee ajzveeblih jgenperr `MSVageteuqXaxosik`’g selogiji — zj mimxonz `peqcLwuhwihLfvirulcXasqopaabaew(_:)` wo ckoodu e gqicofu fobg u teqpoguudueg ra viffcoc etcdwzfudeef urizeweaq. Tgof gqevizw’s jbimc ay dqij, iq e zafgulf-hofa udm, ux’f um uzaqjoma em hmealivd u peynhesu ktas iqq ed oteoh 91 nuhak iv lovu.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "How to Use URLSession with Async/Await for Network Requests in Swift",
+      "url": "https://avanderlee.com/concurrency/urlsession-async-await-network-requests-in-swift",
+      "snippet": "",
+      "published_date": "2024-11-05T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "Modern Networking in iOS with URLSession and async/await – Part 2 - Coder Legion",
+      "url": "https://coderlegion.com/8902/modern-networking-in-ios-with-urlsession-and-async-await-part-2",
+      "snippet": "",
+      "published_date": "2025-12-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "URLSession async await: API Requests & JSON Decoding - SwiftLee",
+      "url": "https://www.avanderlee.com/concurrency/urlsession-async-await-network-requests-in-swift/",
+      "snippet": "SwiftLee > Concurrency > How to Use URLSession with Async/Await for Network Requests in Swift. # How to Use URLSession with Async/Await for Network Requests in Swift. URLSession allows you to perform network requests and becomes even more powerful with its async/await APIs. You can request data from a given URL and parse it into a decoded structure before displaying its data in a view. This article will explain the basics of performing API requests and decoding JSON data using async/await. let (data, response) = try await URLSession.shared.data(for: request). let (data, response) = try await URLSession.shared.data(for: request) /// Decode the JSON response into the PostResponse struct. let (data, response) = try await URLSession.shared.data(for: request) guard let statusCode = (response as? * Async await in Swift explained with code examples. * Global actor in Swift Concurrency explained with code examples. * How to Use URLSession with Async/Await for Network Requests in Swift. * Tasks in Swift explained with code examples.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Use async/await with URLSession | Documentation - WWDC Notes",
+      "url": "https://wwdcnotes.com/documentation/wwdcnotes/wwdc21-10095-use-asyncawait-with-urlsession/",
+      "snippet": "25 of 198 symbols inside -1166329621. 19 of 198 symbols inside -1166329621 Meet in-app events on the App Store. 17 of 198 symbols inside -1166329621 Meet async/await in Swift. 10 of 198 symbols inside -1166329621 Meet MusicKit for Swift. 5 of 198 symbols inside -1166329621 Meet AsyncSequence. 4 of 198 symbols inside -1166329621. 1 of 198 symbols inside -1166329621. 196 of 198 symbols inside -1166329621 What‘s new in Swift. 193 of 198 symbols inside -1166329621 Use async/await with URLSession. 186 of 198 symbols inside -1166329621 There and back again: Data transfer on Apple Watch. 175 of 198 symbols inside -1166329621 Swift concurrency: Update a sample app. let (data, response) = try await URLSession.shared.upload(for: request, fromFile: fileURL). The new async methods no longer expose the underlying `URLSession.task`, instead, we specify a delegate via an optional argument, a task-specific delegate, allowing you to provide an object to handle delegate messages specific to this data upload, download, or bytes operation.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Swift Concurrency cheat sheet: A Dive into Async/Await, Actors, and More | by Liudas Baronas | Medium",
+      "url": "https://building.theatlantic.com/the-new-world-of-swift-concurrency-a-deep-dive-into-async-await-actors-and-more-e03ee9a72450",
+      "snippet": "",
+      "published_date": "2024-09-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "WWDC21: Use async/await with URLSession | Apple - YouTube",
+      "url": "https://www.youtube.com/watch?v=Owcx2Upk6p8",
+      "snippet": "Explore related documentation, sample code, and more: URLSession: https://developer.apple.com/documentation/foundation/urlsession Eliminate",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "Swift Continuations",
+      "url": "https://byby.dev/swift-continuations",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Understanding Swift Concurrency's AsyncStream and ...",
+      "url": "https://www.donnywals.com/understanding-swift-concurrencys-asyncstream",
+      "snippet": "In this post, I will show you how you can leverage Swift's AsyncStream to build custom async sequences that produce values whenever you need them to. ... More flexibility can be found in the continuation based API for AsyncStream. With a continuation you have the ability to construct an async stream object and send values over the async stream whenever values become available.",
+      "published_date": "2023-01-02",
+      "source": "grok",
+      "score": 0.31
+    },
+    {
+      "title": "How to Implement Networking with URLSession",
+      "url": "https://oneuptime.com/blog/post/2026-02-02-swift-urlsession-networking/view",
+      "snippet": "",
+      "published_date": "2026-02-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "How async/await works internally in Swift",
+      "url": "https://swiftrocks.com/how-async-await-works-internally-in-swift",
+      "snippet": "We're going deep into the Swift compiler to answer these and other questions about how async/await works internally in Swift. ... In the case of MainActor, the call to _enqueueOnMain will cause the job to be forwarded to the global concurrent executor ... via a special function that causes the job to be submitted to GCD’s main queue instead of the cooperative thread pool. Detailed internals on scheduling and MainActor executor.",
+      "published_date": "2023-09-28",
+      "source": "grok",
+      "score": 0.28
+    },
+    {
+      "title": "MainActor usage in Swift explained to dispatch to the main ...",
+      "url": "https://www.avanderlee.com/swift/mainactor-dispatch-main-thread",
+      "snippet": "MainActor in Swift replaces DispatchQueue.main and ensures tasks are performing on the main thread in a performant manner. ... Using @MainActor attribute and MainActor.run for scheduling to the main thread in async contexts.",
+      "published_date": "2025-01-05",
+      "source": "grok",
+      "score": 0.28
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "How to Implement Networking with URLSession",
+        "url": "https://oneuptime.com/blog/post/2026-02-02-swift-urlsession-networking/view",
+        "snippet": "",
+        "published_date": "2026-02-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Mastering URLSession with Async/Await in Swift: A Modern Approach to Networking | by Suraphel Birhane | Medium",
+        "url": "https://medium.com/@suraphelbirhane_49799/mastering-urlsession-with-async-await-in-swift-a-modern-approach-to-networking-65184d44934c",
+        "snippet": "",
+        "published_date": "2024-08-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.46
+      },
+      {
+        "title": "Modern Networking in iOS with URLSession and async/await",
+        "url": "https://dev.to/markkazakov/modern-networking-in-ios-with-urlsession-and-asyncawait-a-practical-guide-4o0o",
+        "snippet": "",
+        "published_date": "2025-04-05T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.56
+      },
+      {
+        "title": "How to Use URLSession with Async/Await for Network Requests in Swift",
+        "url": "https://avanderlee.com/concurrency/urlsession-async-await-network-requests-in-swift",
+        "snippet": "",
+        "published_date": "2024-11-05T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "Modern Networking in iOS with URLSession and async/await – Part 2 - Coder Legion",
+        "url": "https://coderlegion.com/8902/modern-networking-in-ios-with-urlsession-and-async-await-part-2",
+        "snippet": "",
+        "published_date": "2025-12-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "Swift Concurrency Deep Dive: Continuation vs UnsafeContinuation — Power, Pitfalls, and Best Practices | by Anand Mishra | Feb, 2026 | Medium",
+        "url": "https://medium.com/@anand.mishra.mca/swift-concurrency-deep-dive-continuation-vs-unsafecontinuation-power-pitfalls-and-best-77ae865aa45b",
+        "snippet": "",
+        "published_date": "2026-02-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "Swift Concurrency: Part 3 — Bridging Legacy APIs with Continuations | by Nick Vasilev | Feb, 2026 | Medium",
+        "url": "https://nsvasilev.medium.com/swift-concurrency-part-3-bridging-legacy-apis-with-continuations-32455d050fd0",
+        "snippet": "",
+        "published_date": "2026-02-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "Practical Swift Concurrency: Continuations, TaskGroup & More",
+        "url": "https://medium.com/@anubhavgiri01/concurrency-in-ios-part-5-b-practical-swift-concurrency-patterns-6a853aaed156",
+        "snippet": "",
+        "published_date": "2025-11-08T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.46
+      },
+      {
+        "title": "Swift Continuations",
+        "url": "https://byby.dev/swift-continuations",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Advanced Swift Concurrency: AsyncStream - Jacob's Tech Tavern",
+        "url": "https://blog.jacobstechtavern.com/p/async-stream",
+        "snippet": "",
+        "published_date": "2025-05-19T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.49
+      },
+      {
+        "title": "Swift Concurrency: Task, Task.detached, Memory Management, Cancellation, and Edge Cases | by Akanksha Singh | Mar, 2026 | Medium",
+        "url": "https://medium.com/@aksingh20feb/swift-concurrency-deep-dive-task-task-detached-memory-management-cancellation-and-edge-cases-baec260c0171",
+        "snippet": "",
+        "published_date": "2026-03-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "Practical Swift Concurrency: Continuations, TaskGroup & More",
+        "url": "https://medium.com/@anubhavgiri01/concurrency-in-ios-part-5-b-practical-swift-concurrency-patterns-6a853aaed156",
+        "snippet": "",
+        "published_date": "2025-11-08T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Swift Concurrency [PART-5](@MainActor) | by Debdut Saha | Jan, 2026 | Medium",
+        "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-5-mainactor-3c3431cc0700",
+        "snippet": "",
+        "published_date": "2026-01-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "Swift Concurrency Part 2 : Mastering Actors, AsyncSequence, TaskGroup and Continuations | by Sanchit Mehta | Medium",
+        "url": "https://medium.com/%40sanchit115/swift-concurrency-part-2-mastering-actors-asyncsequence-and-advanced-concepts-2bb4ce02b23c",
+        "snippet": "",
+        "published_date": "2025-11-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.46
+      },
+      {
+        "title": "Swift Concurrency cheat sheet: A Dive into Async/Await, Actors, and More | by Liudas Baronas | Medium",
+        "url": "https://building.theatlantic.com/the-new-world-of-swift-concurrency-a-deep-dive-into-async-await-actors-and-more-e03ee9a72450",
+        "snippet": "",
+        "published_date": "2024-09-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Use async/await with URLSession - WWDC21 - Apple Developer",
+        "url": "https://developer.apple.com/videos/play/wwdc2021/10095/",
+        "snippet": "Here, we used the new async data method on URLSession. Please note that concurrency Task is unrelated to URLSessionTask, even though they share the name \"Task.\" The methods we just talked about -- data, upload, download -- wait for the entire response body to arrive before returning. Let's use the new async sequence API to consume the response of the endpoint and update the favorite counts as real-time events are parsed. Our Dogs app has a simple data-fetching layer written with the new async APIs. For some of our data-fetching tasks, such as marking a photo as favorite or fetching all favorited photos, the user needs to be authenticated. What's new here is that the delegate can be used to handle events that are specific to an instance of a URLSession task, which is handy when the logic inside your delegate methods only applies to certain URLSession tasks and not others.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.63
+      },
+      {
+        "title": "AsyncStream | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream",
+        "snippet": "AsyncStream conforms to AsyncSequence, providing a convenient way to create an asynchronous sequence without manually implementing an asynchronous iterator.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.66
+      },
+      {
+        "title": "WWDC21: Use async/await with URLSession | Apple - YouTube",
+        "url": "https://www.youtube.com/watch?v=Owcx2Upk6p8",
+        "snippet": "Explore related documentation, sample code, and more: URLSession: https://developer.apple.com/documentation/foundation/urlsession Eliminate",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "URLSession async await: API Requests & JSON Decoding - SwiftLee",
+        "url": "https://www.avanderlee.com/concurrency/urlsession-async-await-network-requests-in-swift/",
+        "snippet": "SwiftLee > Concurrency > How to Use URLSession with Async/Await for Network Requests in Swift. # How to Use URLSession with Async/Await for Network Requests in Swift. URLSession allows you to perform network requests and becomes even more powerful with its async/await APIs. You can request data from a given URL and parse it into a decoded structure before displaying its data in a view. This article will explain the basics of performing API requests and decoding JSON data using async/await. let (data, response) = try await URLSession.shared.data(for: request). let (data, response) = try await URLSession.shared.data(for: request) /// Decode the JSON response into the PostResponse struct. let (data, response) = try await URLSession.shared.data(for: request) guard let statusCode = (response as? * Async await in Swift explained with code examples. * Global actor in Swift Concurrency explained with code examples. * How to Use URLSession with Async/Await for Network Requests in Swift. * Tasks in Swift explained with code examples.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "Use async/await with URLSession | Documentation - WWDC Notes",
+        "url": "https://wwdcnotes.com/documentation/wwdcnotes/wwdc21-10095-use-asyncawait-with-urlsession/",
+        "snippet": "25 of 198 symbols inside -1166329621. 19 of 198 symbols inside -1166329621 Meet in-app events on the App Store. 17 of 198 symbols inside -1166329621 Meet async/await in Swift. 10 of 198 symbols inside -1166329621 Meet MusicKit for Swift. 5 of 198 symbols inside -1166329621 Meet AsyncSequence. 4 of 198 symbols inside -1166329621. 1 of 198 symbols inside -1166329621. 196 of 198 symbols inside -1166329621 What‘s new in Swift. 193 of 198 symbols inside -1166329621 Use async/await with URLSession. 186 of 198 symbols inside -1166329621 There and back again: Data transfer on Apple Watch. 175 of 198 symbols inside -1166329621 Swift concurrency: Update a sample app. let (data, response) = try await URLSession.shared.upload(for: request, fromFile: fileURL). The new async methods no longer expose the underlying `URLSession.task`, instead, we specify a delegate via an optional argument, a task-specific delegate, allowing you to provide an object to handle delegate messages specific to this data upload, download, or bytes operation.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "Migrating callback based code to Swift Concurrency with continuations",
+        "url": "https://www.donnywals.com/migrating-callback-based-code-to-swift-concurrency-with-continuations/",
+        "snippet": "# Migrating callback based code to Swift Concurrency with continuations. Swift's async/await feature significantly enhances the readability of asynchronous code for iOS 13 and later versions. In this post, I'll demonstrate how to convert callback-based asynchronous code into functions compatible with async/await, using Swift's `async` keyword. ## Converting a Callback-Based Function to Async/Await. To adapt our `validToken` function for async/await, we create an `async throws` version returning a `Token`. The challenge lies in integrating the existing callback-based `validToken` with our new async version. This function uses `withCheckedThrowingContinuation` to bridge our callback-based `validToken` with the async version. This post illustrated how to transform a callback-based function into an async function using continuations. Continuations are an excellent tool for gradually integrating async/await into your existing codebase without a complete overhaul. In conclusion, continuations offer a straightforward and elegant solution for converting existing callback-based functions into async/await compatible ones. The difference between checked and unsafe continuations in Swift.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.42
+      },
+      {
+        "title": "How to Create Callback-like Behavior Using AsyncStream in Swift",
+        "url": "https://swiftsenpai.com/swift/asyncstream-callback/",
+        "snippet": "In this article, let's explore a simple yet illustrative example of how AsyncStream can be utilized to track the progress of a download operation.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.42
+      },
+      {
+        "title": "Intermediate async/await & CheckedContinuation - Kodeco",
+        "url": "https://www.kodeco.com/books/modern-concurrency-in-swift/v2.0/chapters/5-intermediate-async-await-checkedcontinuation",
+        "snippet": "The Swift concurrency model assigns each asynchronous unit of work a continuation instead of creating an entire thread for it. Ew utfiq fehuk, meda aw cxey pqivton, tio’bw taoz fo tawfdi i veqxvo tesupafiul getwwilw un u tumktihaiv — umb cxuk’w qxe jinsanh agvuyliluth be ova a xajwihaucioh! Czox’t xek eygoazunudji — newalelut lil kofo limvasj mase roxncal yetdm u hoy caqe yirkopu syig nqes pued na vo. Qojuff o dumhxa lzojimi ih imzuahzj e xajlna eenaid to mquj teml i cubkijoinuej ncah yzoogosh i wulovujo vanexuto glli, aw rie piv uorwouw og kbo hwotlih. An hzim mevmoad, fiu’fp qoywemaa vorhetg ir `TkocjoyYukig.smofiSakiqeav()` gh wlewkabw e koggim radhvecq-bamug IRA bxud camcm o zibutiij appe u xadoj-kuucoxla oxgkajt. Yee wzuld dcaf timmoud xla zule zem mlus zee ajzveeblih jgenperr `MSVageteuqXaxosik`’g selogiji — zj mimxonz `peqcLwuhwihLfvirulcXasqopaabaew(_:)` wo ckoodu e gqicofu fobg u teqpoguudueg ra viffcoc etcdwzfudeef urizeweaq. Tgof gqevizw’s jbimc ay dqij, iq e zafgulf-hofa udm, ux’f um uzaqjoma em hmealivd u peynhesu ktas iqq ed oteoh 91 nuhak iv lovu.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      },
+      {
+        "title": "CheckedContinuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/checkedcontinuation",
+        "snippet": "A mechanism to interface between synchronous and asynchronous code, logging correctness violations.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.66
+      },
+      {
+        "title": "Advanced Swift Concurrency: AsyncStream - Jacob's Tech Tavern",
+        "url": "https://blog.jacobstechtavern.com/p/async-stream",
+        "snippet": "# Advanced Swift Concurrency: AsyncStream. > *Subscribe to Jacob’s Tech Tavern for free to get ludicrously in-depth articles on iOS, Swift, tech, & indie projects in your inbox every week.*. Essentially, AsyncStream helps you easily push out new data as it becomes available, and consume it through for-await-in loops. The continuation inside the closure allows you to pass values through the stream using `continuation.yield()`. This passes values to consumers in the for-await-in loops. This is nice for our sample project, but in the real world, we would send the true values from URLSessionDownloadDelegate delegate methods, setting the continuation as a local property. We can use an AsyncStream to pass the display link for each frame tick. Here, we use onTermination to clean up the CADisplayLink when the AsyncStream’s task is cancelled. Whether you’re wrapping a closure to propagate location updates, streaming long-running data from a backend, or tracking the performance of your app in real-time, AsyncStream is a powerful and versatile tool.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "3 Swift Concurrency Challenges from the Last 2 Weeks",
+        "url": "https://twocentstudios.com/2025/08/12/3-swift-concurrency-challenges-from-the-last-2-weeks",
+        "snippet": "func setNotificationTapHandler(_ handler: @escaping @MainActor(PushNotificationPayload) -> Void){notificationTapHandler = handler} @MainActor func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) as ync{let userInfo = response. From this whole weeks-long process, I’ve learned essentially nothing about the proper usage of Swift Concurrency, my mental model is less well-formed than it used to be, and I still have a lingering problem that I cannot practically devote enough time to comprehensively solve right now. // Version 1: queryActivityStarting Task{@MainActor[weak self] in guard let self else{return}// Check motion history for timeout let timeout = await withCheckedContinuation{continuation in activityManager. However, is it correct to await with a `MainActor`-isolated `Task` while also having the `queryActivityStarting` function return on `OperationQueue.main`? final class SerialProcessor< Input: Sendable, Output: Sendable>{typealias Process = @Sendable(Input) as ync -> Output// Inbound (sync) and outbound (single-consumer) pipes private let inPair:(stream: AsyncStream< Input>, continuation: AsyncStream< Input>. stream{let output = await process(input) outPair. @MainActor @Observable final class ContentViewModel{@ObservationIgnored let serialProcessor: SerialProcessor< CLLocation, RailwayTrackerResult>private(set) var latestResult: RailwayTrackerResult ?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "AsyncStream and Actors - Using Swift - Swift Forums",
+        "url": "https://forums.swift.org/t/asyncstream-and-actors/70545",
+        "snippet": "Title: AsyncStream and Actors - Using Swift - Swift Forums\nSwitching on strict checking lights up my code in golden warnings, so I tried to use an actor to take control of things... The only way I was able to compile this functionality into an actor was by declaring `frames`, `frameContinuation` and `frameIterator` as `nonisolated(unsafe)`, which makes me rather uneasy. That seems to be covered with this proposal - swift-evolution/proposals/0420-inheritance-of-actor-isolation.md at main · apple/swift-evolution · GitHub. Yet it is not going to be available until Swift 6, so right now I suppose the only way to handle this is to make function `nonisolated`. I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? The second, is that concurrency itself is a hard thing to get, it is complex, and no amount of compiler checks will make it easy. I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? I just recently reverted from using actors in a tiny little plugin framework I wrote, changing it back to synchronous code, because at every boundary between the platform (UIKit/AppKit) and my code, I had to wrap things in `Task { }` or `await MainActor.run { }`, or change the overall design of my code to silence compiler errors related to actor initialization. // WARNING: Passing argument of non-sendable type 'inout AsyncStream<Data>.Iterator' outside of main actor-isolated context may introduce data races. // WARNING: Type 'AsyncStream<Data>.Continuation.YieldResult' does not conform to the 'Sendable' protocol. So if I understand correctly, that means the class implementing the network code, running on a background thread, should expose the AsyncStream, and post to it on an agreed actor, e.g MainActor.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.69
+      },
+      {
+        "title": "[Concurrency] Understanding AsyncStream in Swift: A Comprehensive Guide | by Mohit Dubey | Medium",
+        "url": "https://medium.com/@mohitdubey_83162/understanding-asyncstream-in-swift-a-comprehensive-guide-9f20521c75c0",
+        "snippet": "Title: [Concurrency] Understanding AsyncStream in Swift: A Comprehensive Guide | by Mohit Dubey | Medium\n# [Concurrency] Understanding AsyncStream in Swift: A Comprehensive Guide. Swift, Apple’s powerful and intuitive programming language, continues to evolve, bringing new features that make asynchronous programming more manageable and efficient. It allows developers to create and manage a stream of asynchronous values, which can be consumed using the `for await` syntax. The basic structure of an `AsyncStream` involves creating a stream and a continuation closure that yields values to the stream. await Task.sleep(for: .milliseconds(Int.random(in: 300...1000)))        return name    }        func getImages() -> AsyncStream<String> {        return AsyncStream { continuation in            let task = Task {                await withTaskGroup(of: String.self) { taskGroup in                    for i in 1...50 {                        if ! \"\"                            }                        }                    }                                        for await item in taskGroup {                        continuation.yield(item)                    }                                        continuation.finish()                }            }                        continuation.onTermination = { _ in                print(\"Task is cancelled\")                task.cancel()            }        }    }}let daso = DummyAsyncStreamOperation()Task {    let stream = daso.getImages()    for await image in stream {        print(\"Image is \\(image)\")    }} import class DummyAsyncStreamOperation private func getImage name String async String try? * `AsyncStream` is used to create a stream of asynchronous values. * **Asynchronous Programming**: The code demonstrates how to create and manage asynchronous operations in Swift using `async`/`await`. * **AsyncStream**: This allows you to create a stream of asynchronous values, which can be consumed using the `for await` syntax. The `for await` syntax, combined with `AsyncStream`, makes asynchronous code more readable and maintainable. For developers new to Swift’s concurrency model, `AsyncStream` may introduce a learning curve. While `AsyncStream` improves readability, debugging asynchronous code can still be challenging. `AsyncStream` is a valuable addition to Swift’s concurrency model, offering a powerful way to handle asynchronous sequences of values. By simplifying asynchronous programming and improving code readability, `AsyncStream` enables developers to build more efficient and maintainable applications. By following best practices, such as properly handling continuations and managing concurrent operations, developers can harness the full potential of `AsyncStream` while avoiding common pitfalls. Embrace `AsyncStream` in your Swift projects to create robust and efficient asynchronous applications, and continue exploring Swift’s evolving capabilities to stay ahead in the world of modern iOS development. ### Migrating from callback-based delegates to async-await in Swift can significantly simplify asynchronous code, making it more readable and…](/@mohitdubey_83162/concurrency-migrating-from-callback-based-delegate-approach-to-async-await-in-ios-swift-54d11fb1b999?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "🛂 Modern Swift Concurrency in the Wild: AsyncStream, AsyncSequence & Cancellation Headaches | by Wesley Matlock | Medium",
+        "url": "https://medium.com/@wesleymatlock/modern-swift-concurrency-in-the-wild-asyncstream-asyncsequence-cancelation-headaches-60722d779ccf",
+        "snippet": "You sprinkle in `Task {}` and `async let`, maybe wrap a legacy API with `AsyncStream`, and everything feels clean… until your app leaks memory, animations stutter, and you can’t tell if your task was even canceled. func start() {        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in            let seats = Seat.generateRandomSeats()            self.delegate?.seatFeedService(self, didUpdate: seats)        }    }    func stop() {        timer?.invalidate()        timer = nil    }}protocol SeatFeedDelegate: AnyObject {    func seatFeedService(_ service: SeatFeedService, didUpdate seats: [Seat])} final class SeatFeedService weak var SeatFeedDelegate private var Timer func start = Timer0.5 true _ in let = Seat self? func startStreaming(service: SeatFeedService) {        streamTask?.cancel()        streamTask = Task {            do {                let stream = AsyncThrottleSequence(                    base: makeSeatStream(service: service),                    delay: .milliseconds(800)                )                for try await update in stream {                    await MainActor.run {                        withAnimation(.easeInOut(duration: 0.3)) {                            self.seats = update                        }                    }                }            } catch {                // timeout or cancelation error            }        }    }    func cancel() {        streamTask?.cancel()    }} @Observable final class SeatViewModel @MainActor @Publishedprivate(set) var Seat = private var Task Void Never func startStreaming service SeatFeedService?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.49
+      },
+      {
+        "title": "Swift Concurrency: Combine TaskGroup and AsyncStream? - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/77935108/swift-concurrency-combine-taskgroup-and-asyncstream",
+        "snippet": "Title: Swift Concurrency: Combine TaskGroup and AsyncStream? - Stack Overflow\n### your communities. ### more stack exchange communities. ##### Collectives™ on Stack Overflow. # Swift Concurrency: Combine TaskGroup and AsyncStream? Suppose I want to download 300 images in the background using Swift Concurrency. `AsyncStream` lets me return images as they're downloaded, but has no parallelism on its own—downloads happen one at a time, in sequence. `let stream = AsyncStream(NSImage.self) { continuation in. _ = await withTaskGroup(of: NSImage.self, returning: [NSImage].self) { taskGroup in. // array of 300 URLs to download. taskGroup.addTask { await downloadImage(url: imageURL) }. The idea is that you would bridge from the synchronous context of `AsyncStream` to Swift concurrency by creating a `Task` for the asynchronous work. `func images(for urls: [URL]) -> AsyncStream<NSImage> {. await withTaskGroup(of: NSImage.self) { group in. group.addTask { await self.downloadImage(url: url) }. for await image in group {. Obviously, since you are doing all of these network requests concurrently, you must recognize that these will likely not finish in the order corresponding to the original array of URLs. So, you might return a tuple of the original URL and the resulting image:. `func images(for urls: [URL]) -> AsyncStream<(URL, NSImage)> {. await withTaskGroup(of: (URL, NSImage).self) { group in. group.addTask { await (url, self.downloadImage(url: url)) }. `func images(for urls: [URL]) -> AsyncStream<(Int, NSImage)> {. await withTaskGroup(of: (Int, NSImage).self) { group in. group.addTask { await (index, self.downloadImage(url: url)) }. `func downloadImage(url: URL) async -> NSImage {. `let stream = AsyncStream(NSImage.self) { continuation in. await withTaskGroup(of: NSImage.self) { taskGroup in. taskGroup.addTask { await downloadImage(url: imageURL) }. `for await image in stream {. Of course consider the order the image appears in this last for loop is no guaranteed to be the same you follow when invoking `downloadImage(url:)`. Luca Angeletti's user avatar. You can use this approach to achieve your requirements. let url1 = \"https://sample-videos.com/img/Sample-png-image-100kb.png\". let url2 = \"https://sample-videos.com/img/Sample-png-image-200kb.png\". let url3 = \"https://sample-videos.com/img/Sample-png-image-500kb.png\". let url4 = \"https://sample-videos.com/img/Sample-png-image-1mb.png\". return await withTaskGroup(of: (Int, UIImage).self) { group -> Void in. group.addTask { await (i, self.loadImage(url: url)) }. let (data, _) = try await URLSession.shared.data(from: url). workingdog support Ukraine's user avatar. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. ##### Stack Overflow. ##### Stack Exchange Network.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.69
+      }
+    ],
+    "grok": [
+      {
+        "title": "URLSession | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsession",
+        "snippet": "The URLSession class and related classes provide an API for downloading data from and uploading data to endpoints indicated by URLs. ... You can also use the bytes(from:delegate:) method to receive data as an AsyncSequence. With this approach, you use the for-await-in syntax to iterate over the data as your app receives it.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.63
+      },
+      {
+        "title": "URLSession.AsyncBytes | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsession/asyncbytes",
+        "snippet": "Retrieves the contents of a URL based on the specified URL request and delivers an asynchronous sequence of bytes.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.63
+      },
+      {
+        "title": "AsyncStream | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream",
+        "snippet": "AsyncStream conforms to AsyncSequence, providing a convenient way to create an asynchronous sequence without manually implementing an asynchronous iterator. ... an asynchronous stream is well-suited to adapt callback- or delegation-based APIs to participate with async-await. ... The continuation conforms to Sendable, which permits calling it from concurrent contexts external to the iteration of the AsyncStream.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Use async/await with URLSession - WWDC21 - Videos",
+        "url": "https://developer.apple.com/videos/play/wwdc2021/10095",
+        "snippet": "Discover how you can adopt Swift concurrency in URLSession using async/await and AsyncSequence ... URLSession.bytes methods. They return when the response headers have been received and deliver the response body as an AsyncSequence of bytes.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "download(from:delegate:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsession/download(from:delegate:)",
+        "snippet": "Retrieves the contents of a URL and delivers the URL of the saved file asynchronously.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.63
+      },
+      {
+        "title": "CheckedContinuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/checkedcontinuation",
+        "snippet": "A mechanism to interface between synchronous and asynchronous code, logging correctness violations. Use withCheckedContinuation or withCheckedThrowingContinuation to create one, then call resume(returning:), resume(throwing:), etc. exactly once to resume the suspended async task. Runtime checks detect multiple or missing resumes.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "AsyncStream | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream",
+        "snippet": "To adapt existing callback code to async-await, use callbacks to provide values to the stream via the continuation's yield(_:) method. Call finish() when no more elements. Ideal for multi-value delegate or callback patterns in iOS (e.g., streaming data, progress updates). The continuation is Sendable for concurrent use.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "How to use continuations to convert completion handlers into async functions – Hacking with Swift",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-continuations-to-convert-completion-handlers-into-async-functions",
+        "snippet": "Practical guide to bridging completion-handler APIs with withCheckedContinuation. Resume exactly once (e.g. continuation.resume(returning: value)). Checked continuations enforce correct usage to prevent hangs or crashes in async iOS code.",
+        "published_date": "2024-11-16",
+        "source": "grok",
+        "score": 0.4
+      },
+      {
+        "title": "Migrating callback based code to Swift Concurrency with continuations – Donny Wals",
+        "url": "https://www.donnywals.com/migrating-callback-based-code-to-swift-concurrency-with-continuations",
+        "snippet": "Demonstrates using withCheckedThrowingContinuation to wrap callback APIs into throwing async functions. Call resume(with:) or resume(throwing:) from the callback. Emphasizes resuming exactly once to avoid suspension hangs.",
+        "published_date": "2022-04-24",
+        "source": "grok"
+      },
+      {
+        "title": "How to Create Callback-like Behavior Using AsyncStream – Swift Senpai",
+        "url": "https://swiftsenpai.com/swift/asyncstream-callback",
+        "snippet": "Practical example of using AsyncStream to mimic callback/delegate patterns (e.g., download progress). Yield values via continuation.yield(_:), call finish() at end. Replaces completion handlers with for-await-in loops for multi-event iOS scenarios.",
+        "published_date": "2023-07-18",
+        "source": "grok"
+      },
+      {
+        "title": "Understanding Swift Concurrency's AsyncStream and ...",
+        "url": "https://www.donnywals.com/understanding-swift-concurrencys-asyncstream",
+        "snippet": "In this post, I will show you how you can leverage Swift's AsyncStream to build custom async sequences that produce values whenever you need them to. ... More flexibility can be found in the continuation based API for AsyncStream. With a continuation you have the ability to construct an async stream object and send values over the async stream whenever values become available.",
+        "published_date": "2023-01-02",
+        "source": "grok",
+        "score": 0.31
+      },
+      {
+        "title": "AsyncStream and Actors - Using Swift",
+        "url": "https://forums.swift.org/t/asyncstream-and-actors/70545",
+        "snippet": "I have been using an AsyncStream to serialize reads coming from a classic Thread API, into a Task that awaits new frames of data. ... func receiveData(newData: Data) { Task { @MainActor in frameContinuation?.yield(newData) ... Discussion on scheduling yields to MainActor from background contexts.",
+        "published_date": "2024-03-10",
+        "source": "grok"
+      },
+      {
+        "title": "How async/await works internally in Swift",
+        "url": "https://swiftrocks.com/how-async-await-works-internally-in-swift",
+        "snippet": "We're going deep into the Swift compiler to answer these and other questions about how async/await works internally in Swift. ... In the case of MainActor, the call to _enqueueOnMain will cause the job to be forwarded to the global concurrent executor ... via a special function that causes the job to be submitted to GCD’s main queue instead of the cooperative thread pool. Detailed internals on scheduling and MainActor executor.",
+        "published_date": "2023-09-28",
+        "source": "grok",
+        "score": 0.28
+      },
+      {
+        "title": "Concurrency in iOS — Part 5(b): Practical Swift ...",
+        "url": "https://medium.com/@anubhavgiri01/concurrency-in-ios-part-5-b-practical-swift-concurrency-patterns-6a853aaed156",
+        "snippet": "A hands-on guide to Swift Concurrency in iOS: bridge legacy APIs with continuations, pass context via TaskLocal, ensure safety with Sendable ... Practical patterns including Task priorities, MainActor.run for UI, and continuation bridging.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "MainActor usage in Swift explained to dispatch to the main ...",
+        "url": "https://www.avanderlee.com/swift/mainactor-dispatch-main-thread",
+        "snippet": "MainActor in Swift replaces DispatchQueue.main and ensures tasks are performing on the main thread in a performant manner. ... Using @MainActor attribute and MainActor.run for scheduling to the main thread in async contexts.",
+        "published_date": "2025-01-05",
+        "source": "grok",
+        "score": 0.28
+      }
+    ]
+  }
+}

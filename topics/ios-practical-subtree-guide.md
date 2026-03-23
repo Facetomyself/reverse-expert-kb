@@ -435,11 +435,13 @@ When a case is clearly iOS-shaped, ask these in order:
    - if yes, leave broad replay work and continue into runtime-table / initialization-obligation recovery
 10. **Is one callback/block family already plausible, but the landing or signature contract still too ambiguous to trust?**
    - if yes, continue into callback/block landing and signature-recovery work
-11. **Is callback/delegate truth already good enough, or is one imported-async owner path already plausible, but the real remaining gap is the first continuation-owned or stream-owned consequence boundary inside Swift task logic?**
+11. **Is callback/delegate truth already good enough, or is one imported-async owner path already plausible, but the real remaining gap is the first continuation-owned, stream-owned, or iterator-consumption consequence boundary inside Swift task logic?**
    - if yes, continue into Swift-concurrency continuation-to-policy work
-12. **Is the path already replay-close, but the remaining gap still looks like one authenticated-context, object-materialization, or narrower init/runtime obligation?**
+12. **Before treating that as one generic async seam, can you tell whether the case is really single-shot continuation, multi-value `AsyncStream`, or `AsyncSequence`/async-bytes consumption shaped?**
+   - if not, classify that first so the next truthful boundary is not chosen too high
+13. **Is the path already replay-close, but the remaining gap still looks like one authenticated-context, object-materialization, or narrower init/runtime obligation?**
    - if yes, continue into mitigation-aware replay-repair work
-13. **Are callbacks or result wrappers already visible, and is the landing already trustworthy enough, but the first behavior-changing policy state still hidden?**
+14. **Are callbacks or result wrappers already visible, and is the landing already trustworthy enough, but the first behavior-changing policy state still hidden?**
    - if yes, continue into result/callback-to-policy-state work
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.

@@ -274,7 +274,7 @@ The iOS practical branch should now usually be read through `topics/ios-practica
 - `topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md` when one owner path is already plausible or partly callable, but the next question is still iOS-shaped: prove one last request-finalization boundary, move one hop earlier into preimage/state capture, or stop at one truthful black-box request path
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when replay is already close-but-wrong and the remaining gap has narrowed into one runtime table family, initialized-image boundary, or minimal init/context obligation
 - `topics/ios-block-callback-landing-and-signature-recovery-workflow-note.md` when one callback/block family is already plausible but the truthful invoke landing and usable runtime contract still need to be proved under PAC/callback ambiguity before stronger owner, replay, or policy claims are safe
-- `topics/ios-swift-concurrency-continuation-to-policy-workflow-note.md` when callback/delegate truth is already good enough or one imported-async owner path is already plausible, but the real remaining gap is the first continuation-owned or stream-owned consequence boundary inside Swift task logic
+- `topics/ios-swift-concurrency-continuation-to-policy-workflow-note.md` when callback/delegate truth is already good enough or one imported-async owner path is already plausible, but the real remaining gap is the first continuation-owned, stream-owned, or iterator-consumption consequence boundary inside Swift task logic
 - `topics/ios-result-callback-to-policy-state-workflow-note.md` once controlled replay, black-box invocation, callback/delegate proof, or narrower continuation-owned consequence proof is already good enough to expose truthful result material and the remaining bottleneck is the first behavior-changing local policy state
 
 At the parent-page layer, that iOS route is easier to remember as a compact operator ladder:
@@ -288,6 +288,10 @@ At the parent-page layer, that iOS route is easier to remember as a compact oper
 - **repair** one narrower runtime-table or initialization obligation when replay is already close-but-wrong
 - **land** one callback/block family on one truthful invoke boundary with one usable contract when callback visibility still outruns confidence
 - **consume** one callback/result into one local policy effect
+
+A newer branch-memory reminder is now worth preserving canonically:
+- do not flatten single-shot continuation cases, `AsyncStream`-owned delivery, and `AsyncSequence`/async-bytes consumption into one generic Swift-async seam
+- in practice, their truthful stop rules differ: exact-once resume, first yield/dequeue, and first iterator-side parser/classifier can each be the real consequence boundary
 
 A parent-level routing rule now worth preserving explicitly is:
 - leave broad traffic-topology work once one decisive request family is already visible enough to compare meaningfully
