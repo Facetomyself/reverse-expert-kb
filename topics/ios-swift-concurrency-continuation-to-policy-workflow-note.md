@@ -91,6 +91,7 @@ What to separate:
 
 Useful reminder:
 - the first useful proof object is often not the prettiest async function name, but the first truthful resume/delivery edge
+- a resume call is also not automatically the first behavior-changing consumer: Swift continuation material can be resumed first and only later rescheduled into the task/executor context where one reducer, mapper, or coordinator finally changes behavior
 
 ### C. Resume visibility vs policy reduction
 Seeing result material after resume is still not the same thing as understanding app-local meaning.
@@ -168,6 +169,13 @@ Bad default choices include:
 - every task/wrapper near the flow
 - every helper that only creates or stores the continuation without owning delivery
 
+A source-backed discipline worth preserving here:
+- continuation setup runs immediately in the current async context, but task progress after `resume(...)` is still scheduler/executor mediated rather than “inline callback code just kept going”
+- in practical terms, separate three moments instead of collapsing them:
+  - continuation creation/storage
+  - resume or stream-delivery event
+  - first resumed task-side reducer / consumer that actually predicts later behavior
+
 ### Step 5: separate normalization from policy mapping
 Use small role labels:
 - **resume** — continuation or stream delivery boundary
@@ -189,6 +197,16 @@ What you want to learn:
 - does the same continuation/resume boundary appear in both runs?
 - does normalization differ, or only later policy mapping?
 - which first consumer best predicts later behavior?
+
+A particularly useful compare question in continuation-shaped cases is:
+- does the frozen callback family fire in both runs, yet one run never reaches the same resumed task-side reducer/consumer?
+
+If yes, the best next proof object is often not more callback work at all.
+It is one narrower resume-to-consumer explanation such as:
+- missing exact-once resume
+- stream delivery that buffers but does not wake the same consumer
+- cancellation / timeout / stale-task handling that concludes the async surface differently
+- a resumed value that normalizes the same way, but a later coordinator chooses a different policy bucket
 
 ### Step 7: stop at the first continuation-owned consequence boundary
 The workflow succeeds when you can rewrite the path as:
@@ -287,10 +305,13 @@ They are adjacent, but not identical.
 ### 3. Treating the first readable Swift enum/object as the behavior-changing decision
 Normalization is often easier to read than consequence ownership.
 
-### 4. Reopening broad owner search when the real next gap is continuation-owned delivery or consumption
+### 4. Confusing continuation setup, continuation resume, and post-resume consequence
+Creating/storing a continuation, calling `resume`, and reaching the first resumed task-side reducer are related but not identical proof objects.
+
+### 5. Reopening broad owner search when the real next gap is continuation-owned delivery or consumption
 Once callback truth is already good enough, widening too early usually wastes effort.
 
-### 5. Confusing replay-close infrastructure success with proved behavioral ownership
+### 6. Confusing replay-close infrastructure success with proved behavioral ownership
 A result returning through async machinery is still not the same thing as proving the first policy-bearing consumer.
 
 ## 8. Relationship to nearby pages
@@ -328,6 +349,8 @@ It is grounded by:
 The evidence base is sufficient because the claim stays modest:
 - Objective-C completion handlers are often bridged into Swift async entry points
 - modern Swift code often routes callback/delegate delivery into continuation or stream-owned logic
+- continuation setup and later task progress after `resume(...)` should not be collapsed into one proof boundary
+- checked-continuation misuse patterns and delayed post-resume scheduling are practical reasons analysts should separate callback truth, resume truth, and first resumed consumer truth
 - a practical iOS continuation note adds operator value by separating callback truth from post-resume consequence proof
 
 ## 11. Bottom line
