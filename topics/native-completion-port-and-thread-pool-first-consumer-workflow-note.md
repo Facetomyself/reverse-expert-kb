@@ -106,6 +106,7 @@ Typical anchors include:
 What to capture here:
 - the first reduction from many possible work items to one delivered item
 - the fields that distinguish ownership at dequeue time: completion key, `OVERLAPPED*`, task node, callback slot, context pointer, object pointer, queue family
+- for IOCP specifically, keep `completion key` and `OVERLAPPED*` conceptually separate: the key often identifies the handle or queue family, while `OVERLAPPED*` often leads back to the concrete request/session owner embedded around it
 
 ### C. Helper-wrapper boundary
 This is where frameworks often hide the real callback behind one shared trampoline.
@@ -223,7 +224,9 @@ Best move:
 - prove one state transition, reply emission, or follow-on queue insertion from that consumer
 
 Practical reminder from the source base:
-- completion packets may be queued FIFO but worker release is influenced by thread scheduling/concurrency rather than simple source order, so do not over-trust naive “submit order == consumer order” assumptions
+- completion packets may be queued FIFO but waiting threads are released in LIFO order and actual processing depends on port concurrency and scheduler state, so do not over-trust naive “submit order == consumer order” assumptions
+- not every dequeued packet is a true I/O completion: `PostQueuedCompletionStatus` can inject control packets that look similar at the worker loop level, so first separate control-plane packets from I/O-owned packets before claiming behavioral ownership
+- a FALSE return from `GetQueuedCompletionStatus` does not always mean “nothing happened”; if `lpOverlapped` is non-NULL, a failed I/O completion was still dequeued and may own retry/backoff/degrade behavior
 
 ### Pattern 2: Windows thread-pool work / I/O helper path
 Symptoms:
@@ -259,7 +262,9 @@ Symptoms:
 Best move:
 - treat worker completion as production, not final ownership
 - localize the handoff that moves finished work back into pending/async delivery
+- in libuv specifically, remember the concrete split: `uv_queue_work()` stores `work_cb` and `after_work_cb`; worker threads run `work_cb`, then `uv__work_done()` / `uv__queue_done()` drive `after_work_cb` back on the loop thread
 - prove the first loop-thread callback that mutates later behavior or emits a visible result
+- if the visible symptom is absence of a later effect, inspect cancellation/error delivery in the loop-thread completion path before concluding the worker body is the decisive consumer
 
 ## 7. What this note adds to the native branch
 The native branch previously had:
@@ -290,6 +295,8 @@ The most common next handoffs are:
 - treating queue submission as if it already proved callback ownership
 - over-trusting helper wrapper names and never proving the real callback body
 - assuming completion delivery order from issue order in ways the scheduler does not guarantee
+- failing to distinguish posted control packets from true I/O-owned completions in an IOCP worker loop
+- treating all `GetQueuedCompletionStatus` failure returns as if no real completion was dequeued
 - cataloging every thread-pool callback type before grounding one effect-bearing consumer
 - confusing worker-thread completion with the later loop-thread consumer that actually changes behavior
 
