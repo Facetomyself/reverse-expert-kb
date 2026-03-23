@@ -203,12 +203,61 @@ Bad candidates:
 - every helper the callback calls
 - registration metadata alone
 
+Two especially practical subcases recur often enough to name explicitly:
+
+#### Subcase A: the callback already changes the consequence-bearing object locally
+Typical shape:
+
+```text
+handle create / duplicate
+  -> pre-operation callback runs
+  -> desired or granted access is rewritten
+  -> later user-visible symptom is already explained by the reduced handle
+```
+
+Use this shape when:
+- `ObRegisterCallbacks` is on the hot path
+- the callback rewrites access masks or rights fields directly
+- the practical question is whether a later queue or service path is even needed to explain the symptom
+
+Practical rule:
+- if the downgraded rights object already predicts why attach, open, or memory-access behavior fails, treat that rights-bearing object as the first enforcement-relevant consumer unless stronger evidence shows a later policy path matters more
+
+#### Subcase B: the callback is only the producer and the real consumer is outside callback context
+Typical shape:
+
+```text
+process/thread/image/object callback
+  -> compact reducer / event record
+  -> queue, shared buffer, or IOCTL handoff
+  -> service/game/policy worker
+  -> later deny, degrade, score, or kick behavior
+```
+
+Use this shape when:
+- the callback itself stays short and telemetry-heavy
+- the driver clearly signals outward through queue nodes, shared-memory records, or device-control traffic
+- the visible symptom is delayed, aggregated, or obviously owned by another component
+
+Practical rule:
+- once the callback has been reduced to one emitted record or reducer write, stop overreading callback-local helpers and move to the first consumer of that emitted object
+
 ### Step 5: prove one enforcement-relevant consumer
 Use one narrow proof move:
 - show that the callback still fires, but changing the downstream carrier or consumer changes the later effect
 - correlate one queue item, rights mask, or policy bucket with later deny/degrade/kick behavior
 - compare early-window vs settled-state behavior when callback setup timing matters
 - show that registration exists, but only one later reducer or service handoff predicts the behavior under study
+
+In rights-filter cases, the smallest useful proof often is:
+- requested access vs resulting granted access
+- callback firing vs callback suppressed
+- early-window handle acquisition vs settled-state handle acquisition
+
+In handoff cases, the smallest useful proof often is:
+- callback record emitted vs not emitted
+- emitted record intact vs downstream consumer changed
+- queue / IOCTL / shared-buffer activity present vs absent while the later effect changes
 
 The useful proof is not merely “kernel telemetry exists.”
 It is “this consumer is the first thing that makes this telemetry matter.”
@@ -375,15 +424,17 @@ That gives the protected-runtime branch a concrete answer to a common operator q
 
 ## 12. Source footprint / evidence note
 Grounding for this page comes from:
-- Microsoft Learn callback API references, especially `PsSetCreateThreadNotifyRoutine`
-- SpecterOps work on Windows kernel callbacks and object-callback trigger paths
-- public anti-cheat architecture analysis describing callback telemetry as one layer in a larger protection stack
+- Microsoft Learn callback API references, especially `ObRegisterCallbacks` and the `PsSet*NotifyRoutine` family
+- public write-ups on `ObRegisterCallbacks` / handle-rights filtering that illustrate the local rights-consumer shape
+- public anti-cheat architecture analysis describing callback telemetry as one layer in a larger driver -> service / shared-buffer / IOCTL protection stack
 - the timing paper `Fast and Furious: Outrunning Windows Kernel Notification Routines from User-Mode`
 - `sources/protected-runtime/2026-03-22-kernel-callback-telemetry-enforcement-notes.md`
+- `sources/protected-runtime/2026-03-23-kernel-callback-local-vs-handoff-consumer-notes.md`
 
 The page intentionally stays conservative:
 - it does not assume one anti-cheat architecture stands for all others
 - it does not assume kernel callbacks always enforce locally
+- it does not assume every service handoff is equally important; the target is the first behavior-changing consumer, not every downstream recipient
 - it does not claim undocumented internals without stronger support
 - it treats callback-heavy protected-runtime analysis as a workflow problem of finding the first behavior-changing consumer
 
