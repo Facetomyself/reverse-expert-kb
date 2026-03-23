@@ -435,9 +435,11 @@ When a case is clearly iOS-shaped, ask these in order:
    - if yes, leave broad replay work and continue into runtime-table / initialization-obligation recovery
 10. **Is one callback/block family already plausible, but the landing or signature contract still too ambiguous to trust?**
    - if yes, continue into callback/block landing and signature-recovery work
-11. **Is the path already replay-close, but the remaining gap still looks like one authenticated-context, object-materialization, or narrower init/runtime obligation?**
+11. **Is callback/delegate truth already good enough, or is one imported-async owner path already plausible, but the real remaining gap is the first continuation-owned or stream-owned consequence boundary inside Swift task logic?**
+   - if yes, continue into Swift-concurrency continuation-to-policy work
+12. **Is the path already replay-close, but the remaining gap still looks like one authenticated-context, object-materialization, or narrower init/runtime obligation?**
    - if yes, continue into mitigation-aware replay-repair work
-12. **Are callbacks or result wrappers already visible, and is the landing already trustworthy enough, but the first behavior-changing policy state still hidden?**
+13. **Are callbacks or result wrappers already visible, and is the landing already trustworthy enough, but the first behavior-changing policy state still hidden?**
    - if yes, continue into result/callback-to-policy-state work
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
@@ -462,6 +464,7 @@ This branch is currently strongest at practical guidance for:
 - separating ordinary ObjC / Swift / native owner problems from Flutter/Dart cross-runtime owner problems
 - treating execution-assisted replay as a continuation of owner recovery rather than tool tourism
 - separating callback/block landing truth from later owner or policy claims
+- separating continuation-owned or stream-owned Swift consequence boundaries from ordinary result-to-policy reduction
 - separating visible callback/result material from the first true policy-bearing consumer
 
 That makes the branch good at cases where iOS work is already partly reachable, but the next useful move still depends on disciplined routing rather than broader tracing.
@@ -513,25 +516,6 @@ The compact reading is:
 - prove the right callback/block landing when the callback family is plausible but still structurally ambiguous
 - reduce the right continuation-owned or stream-owned consequence boundary when modern Swift task logic still hides the first meaningful consumer
 - repair the right replay-close mitigation-aware path when the landing is already good enough but one smaller context/materialization/init gap remains
-- prove the right callback/result consumer
-
-That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which iOS workflow note to read first.
-rkflow note to read first.
-e branch easier to enter, easier to sequence, and less dependent on already knowing which iOS workflow note to read first.
-
-- choose the right traffic surface
-- normalize the right environment/deployment recipe
-- stabilize the right runtime/setup gate
-- localize the right trust path when routing-vs-trust is still the blocker
-- prove the right owner
-- reconstruct the smallest truthful callable path when needed
-- reduce one narrower runtime-table or initialization obligation when replay is already close-but-wrong
-- prove the right callback/block landing when the callback family is plausible but still structurally ambiguous
-- repair the right replay-close mitigation-aware path when the landing is already good enough but one smaller context/materialization/init gap remains
-- prove the right callback/result consumer
-
-That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which iOS workflow note to read first.
-ains
 - prove the right callback/result consumer
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which iOS workflow note to read first.
