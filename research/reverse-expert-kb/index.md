@@ -120,7 +120,7 @@ Current practical branch picture:
   - protocol / firmware practical workflows
   - malware practical workflows, now including a sharper Scheduled Task continuation around live-scheduler / reload truth, explicit handoff rules for `ComHandler` and PowerShell Scheduled Job cases, and a thinner dedicated continuation once the real proof object lives in one ScheduledJobs-store definition rather than in task inventory alone
   - runtime-evidence practical workflows, now including a sharper compare-run continuation around noisy early mismatches where scheduler/timing/randomness churn can mask the first behavior-bearing divergence
-  - iOS practical workflows, now including a clearer callback/block stop rule around freezing the first runtime-backed contract instead of reopening broad owner search too early
+  - iOS practical workflows, now including a clearer callback/block stop rule around freezing the first runtime-backed contract instead of reopening broad owner search too early, plus a dedicated Swift-concurrency continuation seam when callback truth is already good enough but the first continuation-owned consequence boundary still hides the real consumer
   - protected-runtime deobfuscation ladders, now including a thinner opaque-predicate / computed-next-state bridge between broad VM anchoring and broader flattened state-edge reduction, with stronger dispatch-family-aware recovery memory around helper outputs, table indexes, and copied-code normalization
 - protected-runtime exception-owned control-transfer work, now sharpened around dispatcher-side landing, dynamic-function-table ownership, and trap-family compare pairs so the branch does not stall at merely proving VEH/SEH existence
 - **main maintenance risks**:
