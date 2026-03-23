@@ -1,0 +1,584 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows VEH SEH KiUserExceptionDispatcher RtlDispatchException RtlLookupFunctionEntry dynamic function table reverse engineering",
+    "Linux signal handler ucontext SIGTRAP SIGSEGV control flow anti debug reverse engineering",
+    "page guard hardware breakpoint exception handler resume address anti debug reverse engineering"
+  ],
+  "count": 30,
+  "results": [
+    {
+      "title": "Anti-Debugging.md - reverse-engineering-reference-manual - GitHub",
+      "url": "https://github.com/mindsleader/reverse-engineering-reference-manual/blob/master/contents/anti-analysis/Anti-Debugging.md",
+      "snippet": "All debuggers and program tracers use ptrace call to setup debugging for a process. #### *Using Flags within the PEB structure to Detect Debugger's Presence (Windows)*. If the Flags field does not have the HEAP\\_GROWABLE(0x2) flag set, then the process is being debugged. * If we detected breakpoints in a process, then we know that process is running under a debugger. If it exists, that means that a software breakpoint has been set and the process is under a debugger. * Manually adding/setting interrupts to the code to help detect present of a debugger. If execution transfer control to that return address, then the program knows that it's under the context of a debugger since STATUS\\_GUARD\\_PAGE\\_VIOLATION exception was absorbed by the debugger. If the process is running under the context of a debugger, the debugger will not pass the exception to the program so the exception handler will never be ran.",
+      "published_date": "",
+      "source": "tavily, grok, exa",
+      "score": 0.6818
+    },
+    {
+      "title": "Structured Exception Handling Functions - Win32 - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/debug/structured-exception-handling-functions",
+      "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. # Structured Exception Handling Functions. The following functions are used in structured exception handling. Registers a vectored exception handler. Unregisters a vectored exception handler. Informs the system of a dynamic function table representing a region of memory containing code. Informs the system that a previously reported dynamic function table is no longer in use. Reports that a dynamic function table has increased in size. Enables an application to supersede the top-level exception handler of each thread and process. An application-defined function that serves as a vectored exception handler. Adds a dynamic function table to the dynamic function table list. Removes a dynamic function table from the dynamic function table list. Adds a dynamic function table to the dynamic function table list. Want to try using Ask Learn to clarify or guide you through this topic?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "x86, amd64: Why SIGTRAP' ucontext instruction pointer does not point to related int3",
+      "url": "https://stackoverflow.com/questions/72973683/x86-amd64-why-sigtrap-ucontext-instruction-pointer-does-not-point-to-related",
+      "snippet": "",
+      "published_date": "2022-07-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "handle SIGSEGV in Linux? - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/3012237/handle-sigsegv-in-linux",
+      "snippet": "The real problem seems the signal_handler cannot pass the control to calling thread, no matter I use post_sem or some others. Any idea to handle",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "[PDF] Anti-debugging techniques - Virtual Server List",
+      "url": "https://users.cs.utah.edu/~aburtsev/malw-sem/slides/02-anti-debugging.pdf",
+      "snippet": "○ Identify the exception handler address. – via View->SEH Chain. ○ Set a breakpoint on the exception handler. ○ Shift+F9 – pass exception. ○ Alternative",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5273
+    },
+    {
+      "title": "Is there any way to watch a block of memory of the current process ...",
+      "url": "https://reverseengineering.stackexchange.com/questions/27978/is-there-any-way-to-watch-a-block-of-memory-of-the-current-process-for-change",
+      "snippet": "VirtualProtect locks whole page and Raises an Exception on access and removes the PAGE_GUARD Memory Protection. In the Exception Handler you",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5
+    },
+    {
+      "title": "Can I trap SIGSEGV (on a Linux) and what are are the conditions to make it works? (for a crackme)",
+      "url": "https://reverseengineering.stackexchange.com/questions/21597/can-i-trap-sigsegv-on-a-linux-and-what-are-are-the-conditions-to-make-it-works/21598",
+      "snippet": "",
+      "published_date": "2020-10-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "Debug program using peculiar anti-debugging technique",
+      "url": "https://reverseengineering.stackexchange.com/questions/21367/debug-program-using-peculiar-anti-debugging-technique",
+      "snippet": "The application registers an exception handler, then forces an exception to occur, thereby transferring control to the exception handler.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.5
+    },
+    {
+      "title": "Applied Reverse Engineering: Exceptions and Interrupts",
+      "url": "https://revers.engineering/applied-re-exceptions",
+      "snippet": "Explains KiUserExceptionDispatcher invoking user-mode SEH dispatcher RtlDispatchException, which uses RtlLookupFunctionEntry to locate function table entries in dynamic function tables for stack unwinding during exception handling; useful for reverse engineering Windows exceptions.",
+      "published_date": "2020-03-24",
+      "source": "grok",
+      "score": 0.4927
+    },
+    {
+      "title": "Exception Hijacking",
+      "url": "https://saza.re/posts/exception_hijack",
+      "snippet": "Covers RtlDispatchException and KiUserExceptionDispatcher in ntdll for SEH/VEH, with RtlLookupFunctionEntry used on CONTEXT->Rip to find unwind info from function tables during reverse engineering of exception behavior.",
+      "published_date": "2022-08-04",
+      "source": "grok",
+      "score": 0.4655
+    },
+    {
+      "title": "Abusing Exceptions for Code Execution, Part 2",
+      "url": "https://billdemirkapi.me/abusing-exceptions-for-code-execution-part-2",
+      "snippet": "Discusses RtlDispatchException performing virtual stack unwinding with RtlLookupFunctionEntry and dynamic function tables in the context of exception-oriented programming and reverse engineering on Windows.",
+      "published_date": "2023-01-30",
+      "source": "grok",
+      "score": 0.4382
+    },
+    {
+      "title": "A deep dive into modern Windows Structured Exception Handler ...",
+      "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+      "snippet": "",
+      "published_date": "2024-11-25T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.4273
+    },
+    {
+      "title": "Abusing Vectored Exception Handling (VEH) - Jacob Branco - Medium",
+      "url": "https://medium.com/@jakerebsaw/abusing-vectored-exception-handling-veh-6f2b9f5b9f6e",
+      "snippet": "",
+      "published_date": "2025-04-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4273
+    },
+    {
+      "title": "Can I trap SIGSEGV (on a Linux) and what are the conditions to make it works",
+      "url": "https://reverseengineering.stackexchange.com/questions/21597/can-i-trap-sigsegv-on-a-linux-and-what-are-are-the-conditions-to-make-it-works",
+      "snippet": "Explains using sigaction for SIGSEGV, accessing ucontext_t in handler to modify RIP (instruction pointer) for control flow changes like jumps or skips, with links to fault handler examples for anti-debug or recovery purposes.",
+      "published_date": "2019-07-01",
+      "source": "grok",
+      "score": 0.42
+    },
+    {
+      "title": "A brief Reverse-Engineering note on Structured Exception Handling ...",
+      "url": "https://sysexit.wordpress.com/2014/02/12/a-brief-reverse-engineering-note-on-structured-exception-handling-after-stack-pivoting/",
+      "snippet": "# sysexit. # A brief Reverse-Engineering note on Structured Exception Handling after Stack Pivoting. A few days ago Nahuel and me took a look at a piece of shellcode that wasn’t working. After performing a stack pivoting and successfully executing a ROP chain, the shellcode was supposed to setup an Structured Exception Handler in order to catch memory access errors when scanning the address space of the process. But for some unknown reason, the Exception Handler wasn’t being called when an exception was triggered. A few instructions later, the *RtlDispatchException* function checks if the address of the first (and only, in this case) EXCEPTION\\_REGISTRATION\\_RECORD (located in the new stack) is located between the stack’s bottom address and the stack’s top address as defined in the thread’s TEB:. ## One thought on “A brief Reverse-Engineering note on Structured Exception Handling after Stack Pivoting”. + sysexit* Already have a WordPress.com account? Design a site like this with WordPress.com.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "深入解析现代 Windows 结构化异常处理（SEH）（x64） - 信息安全知识库",
+      "url": "https://www.gm7.org/archives/19913",
+      "snippet": "",
+      "published_date": "2026-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "RE guide for beginners : bypassing SIGTRAP - Reverse Engineering - 0x00sec - The Home of the Hacker",
+      "url": "https://0x00sec.org/t/re-guide-for-beginners-bypassing-sigtrap/2648",
+      "snippet": "",
+      "published_date": "2017-06-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "Reverse Engineering Anti-Debugging Techniques (with Nathan ...",
+      "url": "https://www.youtube.com/watch?v=0XwhmrIU3fY",
+      "snippet": "Check Nathans channel out here: https://www.youtube.com/@nathanbaggs His video on this game: https://www.youtube.com/watch?v=PKlOCMjaGdc",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "Hardware breakpoints and exceptions on Windows - LingSec",
+      "url": "https://ling.re/hardware-breakpoints/",
+      "snippet": "",
+      "published_date": "2020-07-04T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3273
+    },
+    {
+      "title": "Function Hooking: Software Breakpoints (4/7) - RCE Endeavors",
+      "url": "https://www.codereversing.com/archives/595",
+      "snippet": "First, on a *STATUS\\_GUARD\\_PAGE\\_VIOLATION* exception, you can check to see whether the exception address matches the address of the function that you want to hook. LONG WINAPI ExceptionHandler(EXCEPTION_POINTERS* const exceptionInfo) { if (exceptionInfo->ExceptionRecord->ExceptionCode == STATUS_GUARD_PAGE_VIOLATION) { if (exceptionInfo->ExceptionRecord->ExceptionAddress == drawTextAddress) { static std::string replacementMessage{ \"Hooked Hello World!\" }; // Set to replacement message address exceptionInfo->ContextRecord->Rdx = reinterpret_cast( replacementMessage.c_str()); } // Set single step flag so that memory breakpoints are re-enabled // on the next instruction execution. exceptionInfo->ContextRecord->EFlags |= 0x100; return EXCEPTION_CONTINUE_EXECUTION; } if (exceptionInfo->ExceptionRecord->ExceptionCode == EXCEPTION_SINGLE_STEP) { // Re-enable memory breakpoint since a different address might // have caused the guard page violation. This is also done to prevent issues with the function to be hooked and the exception handler residing in the same memory page, as may be the case if you are hooking a function in your own code for some reason. Since two exceptions (*STATUS\\_GUARD\\_PAGE\\_VIOLATION* and *EXCEPTION\\_SINGLE\\_STEP*) will be raised for every instruction execution on the memory page of the target address, the program may run noticeably slower.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.3273
+    },
+    {
+      "title": "A journey through KiUserExceptionDispatcher - Maurice's Blog",
+      "url": "https://momo5502.com/posts/2024-09-07-a-journey-through-kiuserexceptiondispatcher/",
+      "snippet": "",
+      "published_date": "2024-09-07T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.3273
+    },
+    {
+      "title": "EDR Evasion with Hardware Breakpoints: Blindside Technique",
+      "url": "https://cymulate.com/blog/blindside-a-new-technique-for-edr-evasion-with-hardware-breakpoints/",
+      "snippet": "",
+      "published_date": "2026-03-17T13:17:43.056Z",
+      "source": "exa, grok",
+      "score": 0.3
+    },
+    {
+      "title": "Designing a Malware Loader detector with Guard Violation Exceptions | Reversing codes",
+      "url": "https://reversing.codes/posts/Detecting-injected-code-with-page-guards/",
+      "snippet": "",
+      "published_date": "2023-07-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "[PDF] The Art of Unpacking - Black Hat",
+      "url": "https://blackhat.com/presentations/bh-usa-07/Yason/Whitepaper/bh-usa-07-yason-WP.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Anti-Debug: Exceptions",
+      "url": "https://anti-debug.checkpoint.com/techniques/exceptions.html",
+      "snippet": "",
+      "published_date": "2023-11-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Exception Junction - Where All Exceptions Meet Their Handler",
+      "url": "https://bruteratel.com/research/2024/10/20/Exception-Junction",
+      "snippet": "",
+      "published_date": "2024-10-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "RE guide for beginners : bypassing SIGTRAP - 0x00sec",
+      "url": "https://archive.0x00sec.org/t/re-guide-for-beginners-bypassing-sigtrap/2648.html",
+      "snippet": "",
+      "published_date": "2017-06-27T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Binary protection schemes",
+      "url": "https://www.exploit-db.com/docs/english/13183-binary-protection-schemes.pdf",
+      "snippet": "Detailed PDF covering Linux/ELF binary protections including anti-debugging, self-modifying code, and using SIGSEGV handlers with sigaction, ucontext_t, and mcontext_t to decrypt pages on fault, modify registers (e.g. EIP), and alter control flow for obfuscation.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.3
+    },
+    {
+      "title": "The “Ultimate” Anti-Debugging Reference - Peter Ferrie",
+      "url": "http://pferrie.epizy.com/papers/antidebug.pdf",
+      "snippet": "Comprehensive reference on anti-debugging techniques, including hardware breakpoints detected via SEH/VEH exception handlers and CONTEXT debug registers, PAGE_GUARD/memory breakpoints, exception resume address manipulation (EIP/Context modification), and debugger-specific behaviors with guard pages and exceptions.",
+      "published_date": "2011-05-04",
+      "source": "grok",
+      "score": 0.2745
+    },
+    {
+      "title": "A practical approach for finding anti-debugging routines in the ETM hardware tracer",
+      "url": "https://www.nature.com/articles/s41598-024-65374-w",
+      "snippet": "Academic paper describing debugger detection via SIGSEGV (handler called normally vs intercepted) and SIGTRAP (used for debugging; handler may not execute under debugger), with implications for anti-RE protections.",
+      "published_date": "2024-01-01",
+      "source": "grok",
+      "score": 0.22
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "EDR Evasion with Hardware Breakpoints: Blindside Technique",
+        "url": "https://cymulate.com/blog/blindside-a-new-technique-for-edr-evasion-with-hardware-breakpoints/",
+        "snippet": "",
+        "published_date": "2026-03-17T13:17:43.056Z",
+        "source": "exa, grok",
+        "score": 0.3
+      },
+      {
+        "title": "Designing a Malware Loader detector with Guard Violation Exceptions | Reversing codes",
+        "url": "https://reversing.codes/posts/Detecting-injected-code-with-page-guards/",
+        "snippet": "",
+        "published_date": "2023-07-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Hardware breakpoints and exceptions on Windows - LingSec",
+        "url": "https://ling.re/hardware-breakpoints/",
+        "snippet": "",
+        "published_date": "2020-07-04T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3273
+      },
+      {
+        "title": "[PDF] The Art of Unpacking - Black Hat",
+        "url": "https://blackhat.com/presentations/bh-usa-07/Yason/Whitepaper/bh-usa-07-yason-WP.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Anti-Debug: Exceptions",
+        "url": "https://anti-debug.checkpoint.com/techniques/exceptions.html",
+        "snippet": "",
+        "published_date": "2023-11-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "A deep dive into modern Windows Structured Exception Handler ...",
+        "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+        "snippet": "",
+        "published_date": "2024-11-25T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.4273
+      },
+      {
+        "title": "Exception Junction - Where All Exceptions Meet Their Handler",
+        "url": "https://bruteratel.com/research/2024/10/20/Exception-Junction",
+        "snippet": "",
+        "published_date": "2024-10-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "A journey through KiUserExceptionDispatcher - Maurice's Blog",
+        "url": "https://momo5502.com/posts/2024-09-07-a-journey-through-kiuserexceptiondispatcher/",
+        "snippet": "",
+        "published_date": "2024-09-07T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.3273
+      },
+      {
+        "title": "Abusing Vectored Exception Handling (VEH) - Jacob Branco - Medium",
+        "url": "https://medium.com/@jakerebsaw/abusing-vectored-exception-handling-veh-6f2b9f5b9f6e",
+        "snippet": "",
+        "published_date": "2025-04-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4273
+      },
+      {
+        "title": "深入解析现代 Windows 结构化异常处理（SEH）（x64） - 信息安全知识库",
+        "url": "https://www.gm7.org/archives/19913",
+        "snippet": "",
+        "published_date": "2026-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "RE guide for beginners : bypassing SIGTRAP - 0x00sec",
+        "url": "https://archive.0x00sec.org/t/re-guide-for-beginners-bypassing-sigtrap/2648.html",
+        "snippet": "",
+        "published_date": "2017-06-27T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Anti-Debugging.md - reverse-engineering-reference-manual - GitHub",
+        "url": "https://github.com/mindsleader/reverse-engineering-reference-manual/blob/master/contents/anti-analysis/Anti-Debugging.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "x86, amd64: Why SIGTRAP' ucontext instruction pointer does not point to related int3",
+        "url": "https://stackoverflow.com/questions/72973683/x86-amd64-why-sigtrap-ucontext-instruction-pointer-does-not-point-to-related",
+        "snippet": "",
+        "published_date": "2022-07-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "RE guide for beginners : bypassing SIGTRAP - Reverse Engineering - 0x00sec - The Home of the Hacker",
+        "url": "https://0x00sec.org/t/re-guide-for-beginners-bypassing-sigtrap/2648",
+        "snippet": "",
+        "published_date": "2017-06-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "Can I trap SIGSEGV (on a Linux) and what are are the conditions to make it works? (for a crackme)",
+        "url": "https://reverseengineering.stackexchange.com/questions/21597/can-i-trap-sigsegv-on-a-linux-and-what-are-are-the-conditions-to-make-it-works/21598",
+        "snippet": "",
+        "published_date": "2020-10-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5
+      }
+    ],
+    "tavily": [
+      {
+        "title": "[PDF] Anti-debugging techniques - Virtual Server List",
+        "url": "https://users.cs.utah.edu/~aburtsev/malw-sem/slides/02-anti-debugging.pdf",
+        "snippet": "○ Identify the exception handler address. – via View->SEH Chain. ○ Set a breakpoint on the exception handler. ○ Shift+F9 – pass exception. ○ Alternative",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5273
+      },
+      {
+        "title": "Anti-Debugging.md - reverse-engineering-reference-manual - GitHub",
+        "url": "https://github.com/mindsleader/reverse-engineering-reference-manual/blob/master/contents/anti-analysis/Anti-Debugging.md",
+        "snippet": "All debuggers and program tracers use ptrace call to setup debugging for a process. #### *Using Flags within the PEB structure to Detect Debugger's Presence (Windows)*. If the Flags field does not have the HEAP\\_GROWABLE(0x2) flag set, then the process is being debugged. * If we detected breakpoints in a process, then we know that process is running under a debugger. If it exists, that means that a software breakpoint has been set and the process is under a debugger. * Manually adding/setting interrupts to the code to help detect present of a debugger. If execution transfer control to that return address, then the program knows that it's under the context of a debugger since STATUS\\_GUARD\\_PAGE\\_VIOLATION exception was absorbed by the debugger. If the process is running under the context of a debugger, the debugger will not pass the exception to the program so the exception handler will never be ran.",
+        "published_date": "",
+        "source": "tavily, grok, exa",
+        "score": 0.6818
+      },
+      {
+        "title": "Hardware breakpoints and exceptions on Windows - LingSec",
+        "url": "https://ling.re/hardware-breakpoints/",
+        "snippet": "To distinguish this type of exception from a normal hardware breakpoint exception, the BD flag is enabled in the debug register DR6. When the outlines function gets called by the game, the hardware breakpoint will fire and redirect control flow to the registered exception handler. The second argument should be stored in rcx, simply change it to 100 / 10 before continuing *//* ExceptionInfo->ContextRecord->Rcx = 10; *//* Exception is handled, we can continue normal execution */ return EXCEPTION_CONTINUE_EXECUTION;}/* Try the next exception handler if it is not our exception */ return EXCEPTION_CONTINUE_SEARCH;}[...]/* Somewhere in an initialization function, register our exception handler */ AddVectoredExceptionHandler(1, debug_veh);[...]/* The detection can be triggered whenever you want by raising an exception */ RaiseException(0x1337, 0, 0, nullptr);/* Alternatively, if the above does not work properly, simply trigger a divide by zero error. result){/* VirtualProtect failed, call GetLastError to find out why */ return;}/* Change the assembly to some garbage */*(byte*) test_func^= 0x42;/* Register our VEH */ AddVectoredExceptionHandler(1, debug_veh);/* Set the hardware breakpoint on our function */ CONTEXT context ={0}; context.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Function Hooking: Software Breakpoints (4/7) - RCE Endeavors",
+        "url": "https://www.codereversing.com/archives/595",
+        "snippet": "First, on a *STATUS\\_GUARD\\_PAGE\\_VIOLATION* exception, you can check to see whether the exception address matches the address of the function that you want to hook. LONG WINAPI ExceptionHandler(EXCEPTION_POINTERS* const exceptionInfo) { if (exceptionInfo->ExceptionRecord->ExceptionCode == STATUS_GUARD_PAGE_VIOLATION) { if (exceptionInfo->ExceptionRecord->ExceptionAddress == drawTextAddress) { static std::string replacementMessage{ \"Hooked Hello World!\" }; // Set to replacement message address exceptionInfo->ContextRecord->Rdx = reinterpret_cast( replacementMessage.c_str()); } // Set single step flag so that memory breakpoints are re-enabled // on the next instruction execution. exceptionInfo->ContextRecord->EFlags |= 0x100; return EXCEPTION_CONTINUE_EXECUTION; } if (exceptionInfo->ExceptionRecord->ExceptionCode == EXCEPTION_SINGLE_STEP) { // Re-enable memory breakpoint since a different address might // have caused the guard page violation. This is also done to prevent issues with the function to be hooked and the exception handler residing in the same memory page, as may be the case if you are hooking a function in your own code for some reason. Since two exceptions (*STATUS\\_GUARD\\_PAGE\\_VIOLATION* and *EXCEPTION\\_SINGLE\\_STEP*) will be raised for every instruction execution on the memory page of the target address, the program may run noticeably slower.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.3273
+      },
+      {
+        "title": "Is there any way to watch a block of memory of the current process ...",
+        "url": "https://reverseengineering.stackexchange.com/questions/27978/is-there-any-way-to-watch-a-block-of-memory-of-the-current-process-for-change",
+        "snippet": "VirtualProtect locks whole page and Raises an Exception on access and removes the PAGE_GUARD Memory Protection. In the Exception Handler you",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5
+      },
+      {
+        "title": "A brief Reverse-Engineering note on Structured Exception Handling ...",
+        "url": "https://sysexit.wordpress.com/2014/02/12/a-brief-reverse-engineering-note-on-structured-exception-handling-after-stack-pivoting/",
+        "snippet": "# sysexit. # A brief Reverse-Engineering note on Structured Exception Handling after Stack Pivoting. A few days ago Nahuel and me took a look at a piece of shellcode that wasn’t working. After performing a stack pivoting and successfully executing a ROP chain, the shellcode was supposed to setup an Structured Exception Handler in order to catch memory access errors when scanning the address space of the process. But for some unknown reason, the Exception Handler wasn’t being called when an exception was triggered. A few instructions later, the *RtlDispatchException* function checks if the address of the first (and only, in this case) EXCEPTION\\_REGISTRATION\\_RECORD (located in the new stack) is located between the stack’s bottom address and the stack’s top address as defined in the thread’s TEB:. ## One thought on “A brief Reverse-Engineering note on Structured Exception Handling after Stack Pivoting”. + sysexit* Already have a WordPress.com account? Design a site like this with WordPress.com.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "Structured Exception Handling Functions - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/debug/structured-exception-handling-functions",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. # Structured Exception Handling Functions. The following functions are used in structured exception handling. Registers a vectored exception handler. Unregisters a vectored exception handler. Informs the system of a dynamic function table representing a region of memory containing code. Informs the system that a previously reported dynamic function table is no longer in use. Reports that a dynamic function table has increased in size. Enables an application to supersede the top-level exception handler of each thread and process. An application-defined function that serves as a vectored exception handler. Adds a dynamic function table to the dynamic function table list. Removes a dynamic function table from the dynamic function table list. Adds a dynamic function table to the dynamic function table list. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "handle SIGSEGV in Linux? - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/3012237/handle-sigsegv-in-linux",
+        "snippet": "The real problem seems the signal_handler cannot pass the control to calling thread, no matter I use post_sem or some others. Any idea to handle",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "RE guide for beginners : bypassing SIGTRAP - 0x00sec",
+        "url": "https://archive.0x00sec.org/t/re-guide-for-beginners-bypassing-sigtrap/2648.html",
+        "snippet": "> The SIGTRAP signal is sent to a process when an exception (or trap) occurs: a condition that a debugger has requested to be informed of — for example, when a particular function is executed, or when a particular variable changes value. Indeed, by simply running the binary under GDB, the execution flow stop, showing that this behaviour is due to an emitted SIGTRAP signal. Once detected, we have to follow the execution flow, break into each function till we know where the signal is emitted. Consequently, if we override the function by returning the exact same value, we should be able to bypass the SIGTRAP triggering without changing the software behaviour. We have successfully bypassed the SIGTRAP signal without patching or interacting with the binary. In fact, when SIGTRAP is emitted under gdb, the debugger will handle the signal instead of the binary, making fail the additional check and stop the execution flow …**.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Debug program using peculiar anti-debugging technique",
+        "url": "https://reverseengineering.stackexchange.com/questions/21367/debug-program-using-peculiar-anti-debugging-technique",
+        "snippet": "The application registers an exception handler, then forces an exception to occur, thereby transferring control to the exception handler.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.5
+      },
+      {
+        "title": "Reverse Engineering Anti-Debugging Techniques (with Nathan ...",
+        "url": "https://www.youtube.com/watch?v=0XwhmrIU3fY",
+        "snippet": "Check Nathans channel out here: https://www.youtube.com/@nathanbaggs His video on this game: https://www.youtube.com/watch?v=PKlOCMjaGdc",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "Anti-Debugging.md - reverse-engineering-reference-manual - GitHub",
+        "url": "https://github.com/mindsleader/reverse-engineering-reference-manual/blob/master/contents/anti-analysis/Anti-Debugging.md",
+        "snippet": "All debuggers and program tracers use ptrace call to setup debugging for a process. #### *Using Flags within the PEB structure to Detect Debugger's Presence (Windows)*. If the Flags field does not have the HEAP\\_GROWABLE(0x2) flag set, then the process is being debugged. * If we detected breakpoints in a process, then we know that process is running under a debugger. If it exists, that means that a software breakpoint has been set and the process is under a debugger. * Manually adding/setting interrupts to the code to help detect present of a debugger. If execution transfer control to that return address, then the program knows that it's under the context of a debugger since STATUS\\_GUARD\\_PAGE\\_VIOLATION exception was absorbed by the debugger. If the process is running under the context of a debugger, the debugger will not pass the exception to the program so the exception handler will never be ran.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": [
+      {
+        "title": "Hardware breakpoints and exceptions on Windows - LingSec",
+        "url": "https://ling.re/hardware-breakpoints/",
+        "snippet": "Details hardware breakpoints on Windows, how they trigger #DB exceptions, registration of VEH exception handlers, CONTEXT structure with debug registers (DR0-DR7), common uses in anti-debug/RE (including detection and hooking), and code examples for setting breakpoints and checking registers in handlers.",
+        "published_date": "2020-07-04",
+        "source": "grok"
+      },
+      {
+        "title": "Function Hooking: Software Breakpoints (4/7) - RCE Endeavors",
+        "url": "https://www.codereversing.com/archives/595",
+        "snippet": "Explains implementing software breakpoints using PAGE_GUARD protection on memory pages to trigger STATUS_GUARD_PAGE_VIOLATION exceptions. Covers VirtualProtect to set guard pages, exception handling, removal of PAGE_GUARD on access, and differences from hardware breakpoints in reverse engineering and anti-debug contexts.",
+        "published_date": "2023-05-25",
+        "source": "grok"
+      },
+      {
+        "title": "The “Ultimate” Anti-Debugging Reference - Peter Ferrie",
+        "url": "http://pferrie.epizy.com/papers/antidebug.pdf",
+        "snippet": "Comprehensive reference on anti-debugging techniques, including hardware breakpoints detected via SEH/VEH exception handlers and CONTEXT debug registers, PAGE_GUARD/memory breakpoints, exception resume address manipulation (EIP/Context modification), and debugger-specific behaviors with guard pages and exceptions.",
+        "published_date": "2011-05-04",
+        "source": "grok",
+        "score": 0.2745
+      },
+      {
+        "title": "Anti-Debugging.md - reverse-engineering-reference-manual",
+        "url": "https://github.com/mindsleader/reverse-engineering-reference-manual/blob/master/contents/anti-analysis/Anti-Debugging.md",
+        "snippet": "Covers hardware breakpoints (GetThreadContext/DRx), memory breakpoints with PAGE_GUARD and STATUS_GUARD_PAGE_VIOLATION in exception handlers, false software/memory breakpoints for debugger detection, and techniques involving resume after exceptions in reverse engineering anti-analysis.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "EDR Evasion with Hardware Breakpoints: Blindside Technique - Cymulate",
+        "url": "https://cymulate.com/blog/blindside-a-new-technique-for-edr-evasion-with-hardware-breakpoints/",
+        "snippet": "Describes using hardware breakpoints (#DB/#BP exceptions) for EDR evasion, exception handling, and code execution without traditional hooks. Includes details on debug exceptions, CONTEXT manipulation, and resuming execution in RE/anti-analysis scenarios.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "A deep dive into modern Windows Structured Exception Handler (x64)",
+        "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64",
+        "snippet": "Detailed breakdown of exception flow: KiUserExceptionDispatcher calls RtlDispatchException, which handles VEH via RtlpCallVectoredHandlers, then uses RtlLookupFunctionEntry to find PRUNTIME_FUNCTION entries from the Exception Directory or falls back to RtlpLookupDynamicFunctionEntry for dynamic function tables during reverse engineering of x64 SEH/VEH.",
+        "published_date": "2024-11-25",
+        "source": "grok"
+      },
+      {
+        "title": "Applied Reverse Engineering: Exceptions and Interrupts",
+        "url": "https://revers.engineering/applied-re-exceptions",
+        "snippet": "Explains KiUserExceptionDispatcher invoking user-mode SEH dispatcher RtlDispatchException, which uses RtlLookupFunctionEntry to locate function table entries in dynamic function tables for stack unwinding during exception handling; useful for reverse engineering Windows exceptions.",
+        "published_date": "2020-03-24",
+        "source": "grok",
+        "score": 0.4927
+      },
+      {
+        "title": "A journey through KiUserExceptionDispatcher",
+        "url": "https://momo5502.com/posts/2024-09-07-a-journey-through-kiuserexceptiondispatcher",
+        "snippet": "In-depth reverse engineering analysis of KiUserExceptionDispatcher internals, including calls to RtlLookupFunctionEntry for function entries and RUNTIME_FUNCTION structures relevant to exception dispatching and dynamic tables.",
+        "published_date": "2024-09-07",
+        "source": "grok"
+      },
+      {
+        "title": "Exception Hijacking",
+        "url": "https://saza.re/posts/exception_hijack",
+        "snippet": "Covers RtlDispatchException and KiUserExceptionDispatcher in ntdll for SEH/VEH, with RtlLookupFunctionEntry used on CONTEXT->Rip to find unwind info from function tables during reverse engineering of exception behavior.",
+        "published_date": "2022-08-04",
+        "source": "grok",
+        "score": 0.4655
+      },
+      {
+        "title": "Abusing Exceptions for Code Execution, Part 2",
+        "url": "https://billdemirkapi.me/abusing-exceptions-for-code-execution-part-2",
+        "snippet": "Discusses RtlDispatchException performing virtual stack unwinding with RtlLookupFunctionEntry and dynamic function tables in the context of exception-oriented programming and reverse engineering on Windows.",
+        "published_date": "2023-01-30",
+        "source": "grok",
+        "score": 0.4382
+      },
+      {
+        "title": "Debug program using peculiar anti-debugging technique",
+        "url": "https://reverseengineering.stackexchange.com/questions/21367/debug-program-using-peculiar-anti-debugging-technique",
+        "snippet": "Discussion of anti-debugging via signal handlers (including SIGFPE/SIGSEGV) to alter control flow by forcing exceptions and handling them to jump elsewhere, with examples and links to continuing execution after signals.",
+        "published_date": "2019-05-26",
+        "source": "grok"
+      },
+      {
+        "title": "Binary protection schemes",
+        "url": "https://www.exploit-db.com/docs/english/13183-binary-protection-schemes.pdf",
+        "snippet": "Detailed PDF covering Linux/ELF binary protections including anti-debugging, self-modifying code, and using SIGSEGV handlers with sigaction, ucontext_t, and mcontext_t to decrypt pages on fault, modify registers (e.g. EIP), and alter control flow for obfuscation.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.3
+      },
+      {
+        "title": "Anti-Debugging.md - reverse-engineering-reference-manual",
+        "url": "https://github.com/mindsleader/reverse-engineering-reference-manual/blob/master/contents/anti-analysis/Anti-Debugging.md",
+        "snippet": "Overview of anti-debugging methods including SIGTRAP via int3 breakpoints; program registers SIGTRAP handler which executes only if no debugger intercepts the signal, a common debugger detection and control flow obfuscation technique.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "A practical approach for finding anti-debugging routines in the ETM hardware tracer",
+        "url": "https://www.nature.com/articles/s41598-024-65374-w",
+        "snippet": "Academic paper describing debugger detection via SIGSEGV (handler called normally vs intercepted) and SIGTRAP (used for debugging; handler may not execute under debugger), with implications for anti-RE protections.",
+        "published_date": "2024-01-01",
+        "source": "grok",
+        "score": 0.22
+      },
+      {
+        "title": "Can I trap SIGSEGV (on a Linux) and what are the conditions to make it works",
+        "url": "https://reverseengineering.stackexchange.com/questions/21597/can-i-trap-sigsegv-on-a-linux-and-what-are-are-the-conditions-to-make-it-works",
+        "snippet": "Explains using sigaction for SIGSEGV, accessing ucontext_t in handler to modify RIP (instruction pointer) for control flow changes like jumps or skips, with links to fault handler examples for anti-debug or recovery purposes.",
+        "published_date": "2019-07-01",
+        "source": "grok",
+        "score": 0.42
+      }
+    ]
+  }
+}
