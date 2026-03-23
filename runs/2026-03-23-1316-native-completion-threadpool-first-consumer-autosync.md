@@ -127,5 +127,9 @@ Added and preserved practical tactics such as:
   - One direct follow-up fetch against a libuv docs page returned 404, but that did not invalidate the search attempt; the run continued conservatively using stronger official/source-code anchors.
 
 ## Commit / sync status
-- If KB changes are staged and committed successfully, run `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh` immediately after commit.
-- If sync fails, preserve local changes and record the failure here.
+- Commit succeeded in the workspace repository:
+  - `59752a4` — `reverse-kb: add native completion/threadpool first-consumer note`
+- Ran `/root/.openclaw/workspace/scripts/sync-reverse-expert-kb.sh` after commit.
+- Sync result: push failed because the remote `main` contains newer commits and rejected the update as non-fast-forward (`fetch first`).
+- Local KB progress is preserved in the workspace commit above.
+- Follow-up needed on a later maintenance pass: rebase/merge the reverse-KB sync branch against remote `main`, then retry push.
