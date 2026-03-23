@@ -15,8 +15,9 @@ Related pages:
 This note covers a thinner native-desktop case that appears constantly in real work:
 - Win32-style message pumps and window procedures are visible
 - subclass chains or wrapper procedures are visible
-- or Qt-style event delivery, `event()` handling, signal emission, and slot fan-out are visible
-- but the investigation still stalls because the analyst has not proved which handler or slot is the **first behavior-changing consumer**
+- Qt-style event delivery, `event()` handling, signal emission, and slot fan-out are visible
+- or macOS Cocoa event delivery, `NSApplication sendEvent:`, responder-chain routing, target/action dispatch, XPC proxy/object boundaries, or dispatch-source callbacks are visible
+- but the investigation still stalls because the analyst has not proved which handler, slot, responder, exported-object method, or callback is the **first behavior-changing consumer**
 
 This is not the broad problem of understanding all async structure in a native target.
 It is the narrower GUI/framework problem of reducing:
@@ -79,6 +80,11 @@ For Qt, that usually means:
 - distinguish signal emission from direct-vs-queued slot delivery
 - distinguish a broad slot graph from the first slot that writes state, schedules work, or chooses one downstream action family
 
+For macOS Cocoa / XPC / dispatch-heavy cases, that usually means:
+- distinguish `NSApplication` / `sendEvent:` visibility from the first responder or target/action receiver that actually changes behavior
+- distinguish XPC connection/proxy setup from the service-side exported-object method or the first stateful reducer behind it
+- distinguish dispatch-source registration or callback delivery from the first parser/classifier/state reducer that turns queue delivery into app-local meaning
+
 ## 4. Why this narrower continuation matters
 The broader note `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md` already explains how to reduce callback and event-loop ownership in native targets.
 
@@ -128,6 +134,26 @@ That is useful, but it still leaves the analyst with the narrower practical ques
 
 So callback recovery is a map improver, not the endpoint.
 
+### E. Cocoa event-loop and responder-chain visibility are still only framework reduction unless they change ownership
+Apple’s Cocoa architecture documentation makes a practical reversing distinction worth keeping explicit:
+- `NSApplication` sets up the main event loop and receives events from the window server
+- `sendEvent:` dispatches events onward, often into `NSWindow`, controls, target/action logic, and the responder chain
+- `NSApplication sendEvent:` is therefore an early interception boundary, but not automatically the truthful consumer
+
+For reversing, this means:
+- do not stop at `sendEvent:` just because it is the first global app-side hook
+- only treat it as the first real consumer if it suppresses, rewrites, retargets, or policy-gates later behavior
+- otherwise continue until one responder, target/action receiver, exported-object method, or stateful reducer actually predicts the downstream effect
+
+### F. XPC and dispatch-source setup are ownership reducers, not always the decisive consumer
+Apple’s XPC and dispatch-source material also support a narrower stop rule:
+- `NSXPCConnection`, proxy acquisition, listener setup, and dispatch-source registration reduce the search space
+- but they often remain delivery scaffolding rather than the first consequence-bearing consumer
+
+For reversing, this means:
+- preserve the boundary between XPC connection/proxy setup and the service-side exported-object method that actually changes behavior
+- preserve the boundary between dispatch-source registration/callback delivery and the first parser, classifier, or state reducer after callback entry
+
 ## 6. The four boundaries to mark explicitly
 
 ### A. Trigger family
@@ -152,6 +178,9 @@ Typical examples:
 - one `event()` override selecting a narrower event case
 - one `QObject::connect` edge that identifies the relevant receiver set
 - one direct-vs-queued connection decision
+- `NSApplication sendEvent:` into one `NSWindow`, control, target/action receiver, or responder-chain branch
+- one XPC proxy call narrowing into a service-side exported-object method
+- one dispatch-source delivery narrowing into one concrete callback family
 
 Capture:
 - where broad framework routing becomes a smaller candidate set
@@ -164,6 +193,9 @@ Typical examples:
 - one subclass procedure swallowing or rewriting a message before forwarding
 - one slot that schedules a worker, emits a narrower downstream signal, or stores durable UI/business state
 - one handler that bridges from GUI semantics into service/business logic
+- one responder-chain or target/action receiver that performs the first durable write or policy choice
+- one service-side XPC exported-object method that owns the first real behavior change
+- one parser/classifier/state reducer immediately after a dispatch-source callback
 
 Capture:
 - one exact function or slot
@@ -207,12 +239,20 @@ For Qt, label separately:
 - direct vs queued delivery
 - slot(s) that may actually matter
 
+For macOS, label separately:
+- event-source or action family
+- `NSApplication` / `sendEvent:` visibility
+- `NSWindow`, control, or responder-chain reduction
+- target/action receiver or exported-object method candidate set
+- dispatch-source callback delivery vs the first stateful reducer after callback entry
+
 ### Step 3: prove per-instance or per-connection ownership before generalizing
 This is especially important when:
 - the same subclass proc is attached to several controls
 - several windows share a class procedure but differ by user data / properties / attached subclass data
 - several Qt receivers connect to the same signal
-- pseudocode makes several slots look equivalent even though one is the only policy-changing consumer
+- Cocoa responder-chain candidates or target/action receivers share selector names but not behavioral ownership
+- pseudocode makes several slots or callbacks look equivalent even though one is the only policy-changing consumer
 
 A practical rule:
 - in GUI work, never assume framework symmetry implies behavioral symmetry
@@ -296,6 +336,27 @@ Best move:
 - still treat the GUI consumer as the first proof boundary
 - then hand off to runtime-evidence or reverse-causality work once one enqueue/state edge is already grounded
 
+### Pattern 5: Cocoa event seen early in `sendEvent:` but actually consumed later in responder or target/action routing
+Symptoms:
+- a custom `NSApplication` subclass or `sendEvent:` hook is easy to find
+- the event family is obvious, but `sendEvent:` mostly forwards normal processing
+- the first durable consequence appears only after responder-chain or control-action routing
+
+Best move:
+- treat `sendEvent:` as framework reduction unless it actually suppresses or rewrites behavior
+- preserve the later responder or target/action receiver as the first truthful consumer if that is where state, policy, or task ownership changes
+
+### Pattern 6: XPC or dispatch-source cases where the visible callback is still only delivery proof
+Symptoms:
+- `NSXPCConnection`, proxy calls, listeners, or dispatch-source registration are visible
+- callback delivery is easy to hook
+- the real question is still which exported-object method or post-callback reducer changes behavior
+
+Best move:
+- separate connection/registration from actual consumer ownership
+- prove one exported-object method, parser, classifier, or state reducer that first predicts later behavior
+- do not freeze the map at “XPC exists” or “dispatch source fires”
+
 ## 9. Handoff rule
 Leave this note once the main uncertainty is no longer “which GUI message/slot consumer first matters?”
 
@@ -308,6 +369,7 @@ Common next steps:
 - stopping at `WndProc`, `DispatchMessage`, `DefWindowProc`, or `event()` as if framework labels proved ownership
 - assuming subclass chains are globally interchangeable rather than instance-specific
 - assuming all Qt signal/slot edges are queued when many are immediate
+- treating `NSApplication sendEvent:` or XPC proxy visibility as if it automatically proves consumer ownership
 - treating callback recovery as sufficient proof of consequence
 - cataloging whole GUI frameworks before grounding one consumer-to-effect chain
 
@@ -317,6 +379,8 @@ Common next steps:
 - In Win32 subclass cases, preserve the exact per-window original-proc chain before generalizing from shared wrappers.
 - Distinguish direct slot delivery from queued delivery.
 - In Qt `AutoConnection` cases, decide whether the truthful consumer boundary is slot-immediate or receiver-loop-delivered.
+- In Cocoa cases, treat `sendEvent:` as framework reduction unless it actually suppresses, rewrites, retargets, or policy-gates behavior.
+- In XPC/dispatch-source cases, separate connection or registration visibility from the first exported-object method or post-callback state reducer that really changes behavior.
 - Prefer the first behavior-changing consumer over framework landmarks.
 - Prove one downstream effect before expanding the map.
 

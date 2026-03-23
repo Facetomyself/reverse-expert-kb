@@ -1,0 +1,490 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "macOS NSXPC XPC Mach service reverse engineering first consumer practical",
+    "Cocoa NSApplication sendEvent target action reverse engineering first meaningful consumer",
+    "macOS dispatch source runloop callback reverse engineering queued delivery practical"
+  ],
+  "count": 25,
+  "results": [
+    {
+      "title": "Creating XPC Services - Apple Developer",
+      "url": "https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html",
+      "snippet": "The `NSXPCConnection` API is an Objective-C-based API that provides a remote procedure call mechanism, allowing the client application to call methods on proxy objects that transparently relay those calls to corresponding objects in the service helper and vice-versa. The Objective-C `NSXPCConnection` API provides a high-level remote procedure call interface that allows you to call methods on objects in one process from another process (usually an application calling a method in an XPC service). When the main application calls a method on a proxy object, the XPC service’s `NSXPCConnection` object calls that method on the object stored in its `exportedObject` property. However, because connections are bidirectional, the XPC service helper can also reply by calling methods in the interface provided by the main application, if desired. 2. The application calls some combination of `xpc_connection_set_event_handler(3) Mac OS X Developer Tools Manual Page` or `xpc_connection_set_target_queue(3) Mac OS X Developer Tools Manual Page` as needed to configure connection parameters prior to actually connecting to the service.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.69
+    },
+    {
+      "title": "An Armchair Guide To Cocoa Reverse Engineering",
+      "url": "https://github.com/msolo/simbl/wiki/An-Armchair-Guide-To-Cocoa-Reverse-Engineering",
+      "snippet": "",
+      "published_date": "2019-01-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "Cocoa: integrate NSApplication into an existing c++ mainloop",
+      "url": "https://stackoverflow.com/questions/6732400/cocoa-integrate-nsapplication-into-an-existing-c-mainloop",
+      "snippet": "Hi, Just in case anybody is wondering how I solve this: I am fetching all relevant events inside a derived NSApplication class sendEvent",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "DispatchSourceProtocol | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/dispatch/dispatchsourceprotocol",
+      "snippet": "DispatchSourceProtocol defines a common set of properties and methods that are shared with all dispatch source types.",
+      "published_date": "",
+      "source": "tavily, exa, grok",
+      "score": 0.6
+    },
+    {
+      "title": "dispatch_source_create | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/dispatch/dispatch_source_create",
+      "snippet": "The type of the dispatch source. For example, to create a timer source, specify DISPATCH_SOURCE_TYPE_TIMER. For a complete list of constants, see ...",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6
+    },
+    {
+      "title": "How to connect a Dispatch Queue to a Run Loop?",
+      "url": "https://stackoverflow.com/questions/76145816/how-to-connect-a-dispatch-queue-to-a-run-loop",
+      "snippet": "Long story short: you cannot \"connect\" a run loop to a dispatch queue, because queues operate in different threads (even if the queues are serial), while a run ...",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6
+    },
+    {
+      "title": "Introduction to Reverse Engineering Cocoa Applications | Mandiant",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/introduction-to-reve/",
+      "snippet": "",
+      "published_date": "2017-03-08T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.56
+    },
+    {
+      "title": "[PDF] Cocoa Fundamentals Guide",
+      "url": "http://class.ece.iastate.edu/cpre388/Fall2011/lecture/CocoaFundamentals.pdf",
+      "snippet": "",
+      "published_date": "2010-06-25T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.5
+    },
+    {
+      "title": "XPC Programming on macOS | Medium - Karol Mazurek",
+      "url": "https://karol-mazurek.medium.com/xpc-programming-on-macos-7e1918573f6d",
+      "snippet": "",
+      "published_date": "2025-03-23T23:17:04.772Z",
+      "source": "exa, tavily",
+      "score": 0.46
+    },
+    {
+      "title": "Cracking Programming Interviews: A Guide for iOS Developers",
+      "url": "https://medium.com/@sachindrapandey/cracking-programming-interviews-a-guide-for-ios-developers-part-2-3-core-topics-84b6c413bcff",
+      "snippet": "GCD uses dispatch queues to manage the execution of tasks. ... reverse engineering tools. These security features collectively help",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.46
+    },
+    {
+      "title": "OverridingSendEventMethod - CocoaDev",
+      "url": "https://cocoadev.github.io/OverridingSendEventMethod/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "Attacking macOS XPC Helpers: Protocol Reverse Engineering",
+      "url": "https://tonygo.tech/blog/2025/how-to-attack-macos-application-xpc-helpers",
+      "snippet": "",
+      "published_date": "2025-11-01T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.42
+    },
+    {
+      "title": "A Look into XPC Internals: Reverse Engineering the XPC ...",
+      "url": "https://www.fortinet.com/blog/threat-research/a-look-into-xpc-internals--reverse-engineering-the-xpc-objects",
+      "snippet": "",
+      "published_date": "2018-12-14T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.39
+    },
+    {
+      "title": "Practical macOS Security Researcher Notes and Guide ...",
+      "url": "https://zeyadazima.com/notes/osmrnotes/",
+      "snippet": "",
+      "published_date": "2025-12-02T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Intercepting MacOS XPC",
+      "url": "https://infosecwriteups.com/intercepting-macos-xpc-e11103dacafd",
+      "snippet": "",
+      "published_date": "2025-04-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "How to Reverse Engineer an Undocumented macOS API to Use It in ...",
+      "url": "https://www.apriorit.com/dev-blog/778-reverse-engineering-undocumented-macos-api",
+      "snippet": "In this article, we describe how to reverse engineer a macOS API. We also show how to use a reversed undocumented macOS API in a proof of concept (PoC) Swift",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Simple Reverse Engineering on Mac - YouTube",
+      "url": "https://www.youtube.com/watch?v=-r2JXRFU9xE",
+      "snippet": "In this video we'll be learning how to use simple reverse engineering techniques on a Mac to look inside an executable.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "The Core Application Architecture on Mac OS X",
+      "url": "https://leopard-adc.pepas.com/documentation/Cocoa/Conceptual/CocoaFundamentals/CoreAppArchitecture/CoreAppArchitecture.html",
+      "snippet": "In target-action connections you can specify the First Responder object as target; when a control or menu sends an action message, the application searches",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "[PDF] Exploiting Reversing (ER) series: Article 04 (macOS/iOS – part 01)",
+      "url": "https://exploitreversing.com/wp-content/uploads/2025/02/exploit_reversing_04.pdf",
+      "snippet": "",
+      "published_date": "2025-02-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "RunLoop ultimate parsing: input source, timing source, observer, interthread communication, port communication, NSPort, NSMessagePort, NSMachPort, NSPortMessage",
+      "url": "https://www.mo4tech.com/runloop-ultimate-parsing-input-source-timing-source-observer-interthread-communication-port-communication-nsport-nsmessageport-nsmachport-nsportmessage.html",
+      "snippet": "",
+      "published_date": "2023-12-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Cocoa® Programming - NSApplication Overview - O'Reilly",
+      "url": "https://www.oreilly.com/library/view/cocoa-r-programming/0672322307/0672322307_ch08lev1sec3.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Dispatch Queues and Run Loop Modes",
+      "url": "https://lapcatsoftware.com/articles/dispatch-queues-and-run-loop-modes.html",
+      "snippet": "Have you ever wondered which run loop modes a block will execute in if you submit the block for asynchronous execution on the main queue?",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.3
+    },
+    {
+      "title": "Michael Tsai - Blog  -  NotificationQueue and Custom Dispatch Source Coalescing",
+      "url": "https://mjtsai.com/blog/2025/11/14/notificationqueue-and-custom-dispatch-source-coalescing/",
+      "snippet": "",
+      "published_date": "2025-11-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "mikeash.com: Friday Q&A 2009-09-11: Intro to Grand Central Dispatch, Part III: Dispatch Sources",
+      "url": "https://www.mikeash.com/pyblog/friday-qa-2009-09-11-intro-to-grand-central-dispatch-part-iii-dispatch-sources.html",
+      "snippet": "",
+      "published_date": "2009-09-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Friday Q&A 2011-04-01: Signal Handling",
+      "url": "https://www.mikeash.com/pyblog/friday-qa-2011-04-01-signal-handling.html",
+      "snippet": "To handle a signal with GCD, we create a dispatch source to monitor the signal: dispatch_source_t source = dispatch_source_create(DISPATCH_SOURCE_TYPE_SIGNAL, SIGUSR1, 0, dispatch_get_global_queue(0, 0)); ... GCD implements them using kqueue internally.",
+      "published_date": "2011-04-01",
+      "source": "grok",
+      "score": 0.22
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Attacking macOS XPC Helpers: Protocol Reverse Engineering",
+        "url": "https://tonygo.tech/blog/2025/how-to-attack-macos-application-xpc-helpers",
+        "snippet": "",
+        "published_date": "2025-11-01T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.42
+      },
+      {
+        "title": "XPC Programming on macOS | Medium - Karol Mazurek",
+        "url": "https://karol-mazurek.medium.com/xpc-programming-on-macos-7e1918573f6d",
+        "snippet": "",
+        "published_date": "2025-03-23T23:17:04.772Z",
+        "source": "exa, tavily",
+        "score": 0.46
+      },
+      {
+        "title": "Practical macOS Security Researcher Notes and Guide ...",
+        "url": "https://zeyadazima.com/notes/osmrnotes/",
+        "snippet": "",
+        "published_date": "2025-12-02T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.36
+      },
+      {
+        "title": "Intercepting MacOS XPC",
+        "url": "https://infosecwriteups.com/intercepting-macos-xpc-e11103dacafd",
+        "snippet": "",
+        "published_date": "2025-04-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "A Look into XPC Internals: Reverse Engineering the XPC ...",
+        "url": "https://www.fortinet.com/blog/threat-research/a-look-into-xpc-internals--reverse-engineering-the-xpc-objects",
+        "snippet": "",
+        "published_date": "2018-12-14T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.39
+      },
+      {
+        "title": "Introduction to Reverse Engineering Cocoa Applications | Mandiant",
+        "url": "https://cloud.google.com/blog/topics/threat-intelligence/introduction-to-reve/",
+        "snippet": "",
+        "published_date": "2017-03-08T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.56
+      },
+      {
+        "title": "An Armchair Guide To Cocoa Reverse Engineering",
+        "url": "https://github.com/msolo/simbl/wiki/An-Armchair-Guide-To-Cocoa-Reverse-Engineering",
+        "snippet": "",
+        "published_date": "2019-01-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "OverridingSendEventMethod - CocoaDev",
+        "url": "https://cocoadev.github.io/OverridingSendEventMethod/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "[PDF] Cocoa Fundamentals Guide",
+        "url": "http://class.ece.iastate.edu/cpre388/Fall2011/lecture/CocoaFundamentals.pdf",
+        "snippet": "",
+        "published_date": "2010-06-25T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.5
+      },
+      {
+        "title": "Cocoa® Programming - NSApplication Overview - O'Reilly",
+        "url": "https://www.oreilly.com/library/view/cocoa-r-programming/0672322307/0672322307_ch08lev1sec3.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "[PDF] Exploiting Reversing (ER) series: Article 04 (macOS/iOS – part 01)",
+        "url": "https://exploitreversing.com/wp-content/uploads/2025/02/exploit_reversing_04.pdf",
+        "snippet": "",
+        "published_date": "2025-02-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "RunLoop ultimate parsing: input source, timing source, observer, interthread communication, port communication, NSPort, NSMessagePort, NSMachPort, NSPortMessage",
+        "url": "https://www.mo4tech.com/runloop-ultimate-parsing-input-source-timing-source-observer-interthread-communication-port-communication-nsport-nsmessageport-nsmachport-nsportmessage.html",
+        "snippet": "",
+        "published_date": "2023-12-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Michael Tsai - Blog  -  NotificationQueue and Custom Dispatch Source Coalescing",
+        "url": "https://mjtsai.com/blog/2025/11/14/notificationqueue-and-custom-dispatch-source-coalescing/",
+        "snippet": "",
+        "published_date": "2025-11-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "DispatchSourceProtocol | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/dispatch/dispatchsourceprotocol",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "mikeash.com: Friday Q&A 2009-09-11: Intro to Grand Central Dispatch, Part III: Dispatch Sources",
+        "url": "https://www.mikeash.com/pyblog/friday-qa-2009-09-11-intro-to-grand-central-dispatch-part-iii-dispatch-sources.html",
+        "snippet": "",
+        "published_date": "2009-09-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "XPC Programming on macOS | Medium - Karol Mazurek",
+        "url": "https://karol-mazurek.medium.com/xpc-programming-on-macos-7e1918573f6d",
+        "snippet": "Guide to XPC (Cross Process Communication) on macOS, covering implementation, debugging, and reverse engineering techniques for security",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Attacking macOS XPC Helpers: Protocol Reverse Engineering",
+        "url": "https://tonygo.tech/blog/2025/how-to-attack-macos-application-xpc-helpers",
+        "snippet": "#import   NSLog(@\"PID: %d\", pid);  // load associated framework (as in your template)   [[NSBundle bundleWithPath:@\"/System/Library/PrivateFrameworks/\"   @\"AppPredictionFoundation.framework/\"] load];  NSLog(@\"AppPredictionFoundation loaded=%d\", ok);  // Initialize the XPC connection (bundle ID you found)   @\"com.apple.proactive.AppPredictionIntentsHelperService\"];  // Set the remote interface using the protocol   // Interruption & invalidation handlers (console logging)   NSLog(@\"Connection was interrupted. Check Console.app for service logs.\");  // Resume connection   // Call the simple selector (matches your disassembly: object + block)   NSLog(@\"[proxy error] %@\", err);  // First call   NSClassFromString(@ \"INIntent\"), nil];  argumentIndex: 0  // reply block argument 0 (first parameter)   NSDate *end = [NSDate dateWithTimeIntervalSinceNow: 3 * 60 * 60];  NSLog(@\"[reply] obj=%@ result=%@\", obj, result);  // Second call   id instance = [NSClassFromString(@ \"LNStaticDeferredLocalizedString\") alloc];  NSSelectorFromString(@\"initWithKey:table:bundleURL:\")]];  [inv setSelector:NSSelectorFromString(@\"initWithKey:table:bundleURL:\")];  NSString *k = @ \"KEY\", *t = @ \"Localizable\";  [inv setArgument:&k atIndex: 2];  [inv setArgument:&t atIndex: 3];  [inv setArgument:&u atIndex: 4];  NSLog(@\"[reply] obj=%@ result=%@\", obj, result);  NSLog(@ \"done\");  // Keep run loop alive to wait for reply   return 0;.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Practical macOS Security Researcher Notes and Guide (OSMR)",
+        "url": "https://zeyadazima.com/notes/osmrnotes/",
+        "snippet": "Mach Services: XPC services register Mach services to facilitate communication via Mach messages. Clients: Applications or processes that",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Creating XPC Services - Apple Developer",
+        "url": "https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html",
+        "snippet": "The `NSXPCConnection` API is an Objective-C-based API that provides a remote procedure call mechanism, allowing the client application to call methods on proxy objects that transparently relay those calls to corresponding objects in the service helper and vice-versa. The Objective-C `NSXPCConnection` API provides a high-level remote procedure call interface that allows you to call methods on objects in one process from another process (usually an application calling a method in an XPC service). When the main application calls a method on a proxy object, the XPC service’s `NSXPCConnection` object calls that method on the object stored in its `exportedObject` property. However, because connections are bidirectional, the XPC service helper can also reply by calling methods in the interface provided by the main application, if desired. 2. The application calls some combination of `xpc_connection_set_event_handler(3) Mac OS X Developer Tools Manual Page` or `xpc_connection_set_target_queue(3) Mac OS X Developer Tools Manual Page` as needed to configure connection parameters prior to actually connecting to the service.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.69
+      },
+      {
+        "title": "A Look into XPC Internals: Reverse Engineering the XPC Objects",
+        "url": "https://www.fortinet.com/blog/threat-research/a-look-into-xpc-internals--reverse-engineering-the-xpc-objects",
+        "snippet": "In this blog, I uncover the XPC internals data types to help researchers (myself included) not only quickly analyze the root causes of XPC vulnerabilities.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] Cocoa Fundamentals Guide",
+        "url": "http://class.ece.iastate.edu/cpre388/Fall2011/lecture/CocoaFundamentals.pdf",
+        "snippet": "In target-action connections you can specify the First Responder object as target; when a control or menu sends an action message, the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "The Core Application Architecture on Mac OS X",
+        "url": "https://leopard-adc.pepas.com/documentation/Cocoa/Conceptual/CocoaFundamentals/CoreAppArchitecture/CoreAppArchitecture.html",
+        "snippet": "In target-action connections you can specify the First Responder object as target; when a control or menu sends an action message, the application searches",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "Cocoa® Programming - NSApplication Overview - O'Reilly",
+        "url": "https://www.oreilly.com/library/view/cocoa-r-programming/0672322307/0672322307_ch08lev1sec3.html",
+        "snippet": "NSApplication provides the interface between an application and the operating system. The NSApplication instance manages a run loop that receives events from",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Cocoa: integrate NSApplication into an existing c++ mainloop",
+        "url": "https://stackoverflow.com/questions/6732400/cocoa-integrate-nsapplication-into-an-existing-c-mainloop",
+        "snippet": "Hi, Just in case anybody is wondering how I solve this: I am fetching all relevant events inside a derived NSApplication class sendEvent",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Introduction to Reverse Engineering Cocoa Applications | Mandiant",
+        "url": "https://cloud.google.com/blog/topics/threat-intelligence/introduction-to-reve/",
+        "snippet": "In this blog, the FLARE team would like to introduce two small tools that can aid in the task of reverse engineering Cocoa applications for macOS.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Cracking Programming Interviews: A Guide for iOS Developers",
+        "url": "https://medium.com/@sachindrapandey/cracking-programming-interviews-a-guide-for-ios-developers-part-2-3-core-topics-84b6c413bcff",
+        "snippet": "GCD uses dispatch queues to manage the execution of tasks. ... reverse engineering tools. These security features collectively help",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.46
+      },
+      {
+        "title": "How to Reverse Engineer an Undocumented macOS API to Use It in ...",
+        "url": "https://www.apriorit.com/dev-blog/778-reverse-engineering-undocumented-macos-api",
+        "snippet": "In this article, we describe how to reverse engineer a macOS API. We also show how to use a reversed undocumented macOS API in a proof of concept (PoC) Swift",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "DispatchSourceProtocol | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/dispatch/dispatchsourceprotocol",
+        "snippet": "DispatchSourceProtocol defines a common set of properties and methods that are shared with all dispatch source types.",
+        "published_date": "",
+        "source": "tavily, exa, grok",
+        "score": 0.6
+      },
+      {
+        "title": "Dispatch Queues and Run Loop Modes",
+        "url": "https://lapcatsoftware.com/articles/dispatch-queues-and-run-loop-modes.html",
+        "snippet": "Have you ever wondered which run loop modes a block will execute in if you submit the block for asynchronous execution on the main queue?",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.3
+      },
+      {
+        "title": "Simple Reverse Engineering on Mac - YouTube",
+        "url": "https://www.youtube.com/watch?v=-r2JXRFU9xE",
+        "snippet": "In this video we'll be learning how to use simple reverse engineering techniques on a Mac to look inside an executable.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      }
+    ],
+    "grok": [
+      {
+        "title": "DispatchSourceProtocol | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/dispatch/dispatchsourceprotocol",
+        "snippet": "DispatchSourceProtocol defines a common set of properties and methods that are shared with all dispatch source types.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "dispatch_source_create | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/dispatch/dispatch_source_create",
+        "snippet": "The type of the dispatch source. For example, to create a timer source, specify DISPATCH_SOURCE_TYPE_TIMER. For a complete list of constants, see ...",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6
+      },
+      {
+        "title": "Dispatch Queues and Run Loop Modes",
+        "url": "https://lapcatsoftware.com/articles/dispatch-queues-and-run-loop-modes.html",
+        "snippet": "Have you ever wondered which run loop modes a block will execute in if you submit the block for asynchronous execution on the main queue? It turns out that the block will only execute in the \"common\" run loops modes...",
+        "published_date": "2014-04-07",
+        "source": "grok"
+      },
+      {
+        "title": "How to connect a Dispatch Queue to a Run Loop?",
+        "url": "https://stackoverflow.com/questions/76145816/how-to-connect-a-dispatch-queue-to-a-run-loop",
+        "snippet": "Long story short: you cannot \"connect\" a run loop to a dispatch queue, because queues operate in different threads (even if the queues are serial), while a run ...",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6
+      },
+      {
+        "title": "Friday Q&A 2011-04-01: Signal Handling",
+        "url": "https://www.mikeash.com/pyblog/friday-qa-2011-04-01-signal-handling.html",
+        "snippet": "To handle a signal with GCD, we create a dispatch source to monitor the signal: dispatch_source_t source = dispatch_source_create(DISPATCH_SOURCE_TYPE_SIGNAL, SIGUSR1, 0, dispatch_get_global_queue(0, 0)); ... GCD implements them using kqueue internally.",
+        "published_date": "2011-04-01",
+        "source": "grok",
+        "score": 0.22
+      }
+    ]
+  }
+}

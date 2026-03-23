@@ -237,8 +237,8 @@ Primary note:
 
 Common thinner continuation:
 - `topics/native-completion-port-and-thread-pool-first-consumer-workflow-note.md` when the async-ownership break has already narrowed specifically into posted work, completion packets, thread-pool callbacks, or queue-dequeue ownership rather than broad callback-plumbing truth
-- `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md` when the async-ownership break has already narrowed specifically into Win32 message-pump / subclass or Qt signal-slot ownership and the real bottleneck is one per-instance or per-connection first consumer rather than broad callback-plumbing truth
-  - preserve one extra stop rule there: do not flatten shared subclass wrappers into one owner, and do not flatten Qt `AutoConnection` / queued delivery into generic “signal found” proof
+- `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md` when the async-ownership break has already narrowed specifically into Win32 message-pump / subclass, Qt signal-slot ownership, or macOS Cocoa / XPC / dispatch delivery ownership and the real bottleneck is one per-instance, per-connection, or per-responder first consumer rather than broad callback-plumbing truth
+  - preserve extra stop rules there: do not flatten shared subclass wrappers into one owner, do not flatten Qt `AutoConnection` / queued delivery into generic “signal found” proof, and do not flatten `NSApplication sendEvent:`, XPC proxy setup, or dispatch-source registration into automatic consumer proof
 
 Possible next handoff:
 - `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md`
@@ -292,7 +292,7 @@ This branch is still weaker than browser/mobile in some areas:
 - it has had less explicit subtree-level routing until now
 - Windows/Linux/macOS-specific operator differences are still lightly integrated
 - it still relies more on workflow notes than on a denser native synthesis stack
-- GUI message-pump / subclass and Qt signal-slot ownership now have a narrower continuation page, but other OS-specific service/daemon variants and further desktop-framework splits are still lightly integrated
+- GUI message-pump / subclass, Qt signal-slot ownership, and a first macOS Cocoa/XPC/dispatch stop rule now have a narrower continuation page, but other OS-specific service/daemon variants and further desktop-framework splits are still lightly integrated
 
 That means the right near-term maintenance pattern is usually:
 - branch-shape repair
