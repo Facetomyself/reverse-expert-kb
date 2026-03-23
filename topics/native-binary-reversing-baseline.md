@@ -218,7 +218,7 @@ Read the branch in this order when helpful:
 - plugin-loader / first-real-module-consumer reduction (`topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md`)
 - service-dispatcher / worker-owned-consumer reduction (`topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md`)
 - callback-registration / event-loop consumer proof (`topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`)
-- GUI message-pump / signal-slot first-consumer continuation (`topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md`) when the async-ownership break narrows specifically into Win32 subclass or Qt signal-slot ownership rather than broad callback plumbing
+- GUI message-pump / signal-slot first-consumer continuation (`topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md`) when the async-ownership break narrows specifically into Win32 subclass, Qt signal-slot, or macOS Cocoa/XPC/dispatch delivery ownership rather than broad callback plumbing
 
 ## 7. Analyst workflow implications
 This topic matters especially during:
