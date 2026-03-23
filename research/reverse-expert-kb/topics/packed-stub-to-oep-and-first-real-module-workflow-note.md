@@ -96,6 +96,16 @@ A stronger handoff is:
 - one OEP-like boundary
 - plus one ordinary-code anchor proving that the analysis has moved past loader churn into a real follow-on target
 
+A practical refinement worth keeping explicit for Windows/native packed targets is that several “entry” boundaries may all be real, but useful in different ways:
+- the **raw PE entry point** the loader initially calls
+- one **raw post-unpack transfer** out of the visible stub
+- one **first payload-bearing post-startup handoff** after TLS callbacks, CRT/runtime startup, constructor/init-table work, or another secondary loader stage stops dominating the trace
+
+In other words:
+- a dramatic post-unpack jump can be late enough to leave the stub
+- yet still too early to count as the best reusable payload handoff
+- because the next region may still be mostly TLS-owned work, CRT startup, callback replay, import-finalization, or another startup-management stage rather than the first ordinary target the analyst actually wants
+
 ## 5. What counts as a trustworthy OEP candidate
 A trustworthy OEP candidate is the smallest boundary that predicts ordinary post-loader analysis better than raw stub churn does.
 
@@ -177,6 +187,8 @@ Typical choices:
 Practical rule:
 - prefer boundaries that reconnect well to one dump, static reopen, watchpoint, or compare-run later
 - prefer candidates that sit just before the first ordinary-code consumer anchor
+- in Windows/native packed targets, explicitly ask whether the candidate still sits inside TLS-callback work, CRT/runtime startup, constructor/init-table churn, or a secondary loader stage
+- if yes, treat it as a **raw post-unpack transfer candidate** first and keep looking for the smaller **payload-bearing post-startup handoff** unless startup behavior itself is the thing you are trying to study
 
 ### Step 5: localize the first real module/import/object/consumer anchor
 Ask:
@@ -192,6 +204,10 @@ Typical answers:
 - first parser/config/request/policy routine with ordinary dataflow
 - first section/image state that can be dumped and reopened cleanly
 - first consumer routine whose xrefs, strings, and control flow now support real static work
+
+Windows-specific practical reminder:
+- if the candidate anchor still looks like TLS callback handling, callback-array replay, security-cookie / CRT normalization, constructor dispatch, import-finalization, or another startup scaffold, that is usually still **startup proof**, not yet **payload proof**
+- prefer the first anchor that persists after those startup obligations quiet down, unless your actual objective is to understand the startup machinery itself
 
 Do not stop at “the jump landed somewhere new.”
 Push to the first downstream anchor that predicts a better next move.
@@ -249,6 +265,16 @@ Use when:
 
 Why it helps:
 - it turns a broad loader narrative into one inspectable boundary question
+
+### E. Raw transfer -> payload-bearing post-startup handoff anchor
+Use when:
+- a plausible post-unpack jump or return already exists
+- but TLS callbacks, CRT/runtime startup, constructor/init-table work, or another secondary loader stage may still dominate the next region
+- the analyst needs to distinguish “left the stub” from “reached the first reusable payload target”
+
+Why it helps:
+- it prevents overclaiming a raw post-unpack transfer as the final handoff
+- it gives the analyst a cleaner stop rule: keep going until one import/module/object/consumer anchor survives **after** startup normalization, not merely after decryption or one dramatic jump
 
 ## 8. Representative scratch schemas
 
@@ -313,9 +339,11 @@ Next move:
 ### Failure mode 2: dramatic control transfer found, but post-unpack value stays vague
 Likely cause:
 - the jump was treated as self-proving without one downstream ordinary-code anchor
+- the candidate was only a raw post-unpack transfer, while TLS callbacks, CRT/runtime startup, constructor/init-table work, or another secondary loader stage still dominated the next region
 
 Next move:
 - push one step further to the first consumer routine, stable import family, or reusable dumped image
+- in Windows/native cases, explicitly ask whether the current region is still mostly startup machinery rather than the first payload-bearing post-startup handoff
 
 ### Failure mode 3: dump taken, but reopened image is still misleading or unstable
 Likely cause:
@@ -337,6 +365,7 @@ Next move:
 ### Failure mode 5: OEP candidate chosen, but static follow-up still sprawls
 Likely cause:
 - the result was not forced into one target class
+- the workflow stopped at formal or raw-entry naming instead of choosing one payload-bearing post-startup object
 
 Next move:
 - rewrite the output as exactly one of:
@@ -345,6 +374,7 @@ Next move:
   - first consumer routine
   - smaller static region
   - quieter watchpoint candidate
+- if necessary, rename the current result as only a raw post-unpack transfer and continue until one startup-normalization-aware payload anchor is found
 
 ## 10. How this page connects to the rest of the KB
 Use this page when the bottleneck is:
@@ -352,6 +382,10 @@ Use this page when the bottleneck is:
 
 Practical handoff rule:
 - stay on this page while the missing proof is still the first trustworthy post-unpack boundary plus one downstream ordinary-code anchor
+- in Windows/native cases, keep distinguishing:
+  - raw PE entry point
+  - raw post-unpack transfer
+  - first payload-bearing post-startup handoff after TLS/CRT/startup scaffolding quiets down
 - leave broad packed-startup work here once that OEP-like boundary and one first real module/import/object/consumer anchor are already good enough
 - once that handoff is already good enough, the next bottleneck is usually one of:
   - semantic-anchor stabilization in the post-unpack region
