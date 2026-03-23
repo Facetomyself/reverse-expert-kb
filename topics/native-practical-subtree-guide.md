@@ -238,6 +238,7 @@ Primary note:
 Common thinner continuation:
 - `topics/native-completion-port-and-thread-pool-first-consumer-workflow-note.md` when the async-ownership break has already narrowed specifically into posted work, completion packets, thread-pool callbacks, or queue-dequeue ownership rather than broad callback-plumbing truth
 - `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md` when the async-ownership break has already narrowed specifically into Win32 message-pump / subclass or Qt signal-slot ownership and the real bottleneck is one per-instance or per-connection first consumer rather than broad callback-plumbing truth
+  - preserve one extra stop rule there: do not flatten shared subclass wrappers into one owner, and do not flatten Qt `AutoConnection` / queued delivery into generic “signal found” proof
 
 Possible next handoff:
 - `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md`

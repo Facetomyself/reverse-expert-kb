@@ -1,0 +1,510 @@
+[grok] error: Expecting value: line 1 column 1 (char 0)
+[grok] error: Expecting value: line 1 column 1 (char 0)
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Win32 message pump subclass SetWindowLongPtr CallWindowProc reverse engineering workflow first consumer",
+    "Qt signal slot queued connection event loop reverse engineering first consumer practical",
+    "reverse engineering GUI message loop callback dispatch first meaningful consumer Windows Qt"
+  ],
+  "count": 27,
+  "results": [
+    {
+      "title": "winapi - Win32 Subclassing - About Messages - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/23858108/win32-subclassing-about-messages",
+      "snippet": "So I'm practicing subclassing a predefined window class in Win32 so I can define my own custom message proc for the predefined classes (e.g.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "CallWindowProcA function (winuser.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-callwindowproca",
+      "snippet": "",
+      "published_date": "2023-02-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6545
+    },
+    {
+      "title": "SetWindowLongPtrA function (winuser.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowlongptra",
+      "snippet": "",
+      "published_date": "2023-09-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6545
+    },
+    {
+      "title": "Tapping into the message pump? #8650 - GitHub",
+      "url": "https://github.com/AvaloniaUI/Avalonia/discussions/8650",
+      "snippet": "What it does is push a message into the message pump. Now, when developing an app in Avalonia, is there a way to access the pump? In winforms",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "Pass child window messages to main program wndproc",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/243845/pass-child-window-messages-to-main-program-wndproc",
+      "snippet": "So I tried to use SetWindowLongPtr(button, GWLP_WNDPROC, WindowProcessMessages) . Now the button doesn't even show up! Any ideas? or is this",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "Windows message loop instead of QApplication - c++ - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/16540743/windows-message-loop-instead-of-qapplicationexec-qapplicationprocesseven",
+      "snippet": "The first thing which comes to my mind is that calling slots across threads won't work because the Qt event loop is executing those calls.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "Using Window Procedures - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/using-window-procedures",
+      "snippet": "",
+      "published_date": "2025-07-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "Queueing calls to a slot in event loop processed in backwards order ...",
+      "url": "https://stackoverflow.com/questions/10984361/queueing-calls-to-a-slot-in-event-loop-processed-in-backwards-order-by-qt",
+      "snippet": "# Queueing calls to a slot in event loop processed in backwards order by Qt. In an application that I am working on I have a QLineEdit that is attached with a standard QObject::connect to a slot:. `QObject::connect(m_searchBar, SIGNAL(textChanged(const QString &)),this,SLOT(slot_searchBar()));`. As you can see it is connecting a textChanged signal to a slot of my creation. It is as though Qt has added the signal emissions to a stack instead of a queue and then served them back to the event loop in reverse order. I have connected a line edit to a text edit such that every time the text changes in the line edit it is printed to the text edit using `QTextEdit::append(( const QString & text ))`. `QObject::connect(m_searchBar, SIGNAL(textChanged(const QString &)),this,SLOT(slot_searchBar(const QString &)));`. Your testing delay loop should be replaced by something like `QTimer::singleShot(1000, this, SLOT(fakeResults()))`, where the code in the slot calls relevant slot in your GUI with some fake results. connect(ed, SIGNAL(textChanged(QString)), SLOT(monitor(QString)));.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6273
+    },
+    {
+      "title": "QtREAnalyzer, a Ghidra extension to reverse-engineer Qt binaries.",
+      "url": "https://github.com/diommsantos/QtREAnalyzer",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "Execution order of a single signal connected to a single slot via Qt::QueuedConnection",
+      "url": "https://stackoverflow.com/questions/68074608/execution-order-of-a-single-signal-connected-to-a-single-slot-via-qtqueuedconn",
+      "snippet": "",
+      "published_date": "2021-06-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Qt signals (QueuedConnection and DirectConnection)",
+      "url": "https://stackoverflow.com/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+      "snippet": "Clear explanation: emitting a signal with queued connection posts an event to the receiver's event loop, which invokes the slot when control returns to it. Useful for inter-thread communication.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6
+    },
+    {
+      "title": "Hints to reverse engineering a QT software",
+      "url": "https://reverseengineering.stackexchange.com/questions/6828/hints-to-reverse-engineering-a-qt-software",
+      "snippet": "I am facing a little bit of problem during reverse a QT application with Ollydbg or IDA. This software use a protection schema to indetify the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5545
+    },
+    {
+      "title": "Understanding Qt's Event Loop and Signals/Slots - deKonvoluted",
+      "url": "https://dekonvoluted.github.io/programming/2018/09/16/qt-event-loop.html",
+      "snippet": "",
+      "published_date": "2018-09-16T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.45
+    },
+    {
+      "title": "Understanding Qt::QueuedConnection: A Deep Dive into Signals ...",
+      "url": "https://medium.com/@alphaneker40/understanding-qt-queuedconnection-a-deep-dive-into-signals-and-slots-in-multithreaded-qt-62184ca5722f",
+      "snippet": "",
+      "published_date": "2024-11-22T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4
+    },
+    {
+      "title": "[PDF] A First Look at Reverse Engineering of Qt Binaries - USENIX",
+      "url": "https://www.usenix.org/system/files/sec23_slides_wen-haohuang.pdf",
+      "snippet": "",
+      "published_date": "2023-08-10T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Quick and dirty subclassing in Win32 - the sporks space",
+      "url": "https://sporks.space/2021/09/28/quick-and-dirty-subclassing-in-win32/",
+      "snippet": "",
+      "published_date": "2021-09-28T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "Win32 API, C, and Windows' native event loop for composing UI",
+      "url": "https://www.youtube.com/watch?v=w9IdIroijGg",
+      "snippet": "In this video, we build a skeleton Windows application by first defining a window (a control, not unlike a React component) and its window",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "Reverse Engineering: [Reverse] QT 4 You",
+      "url": "https://rootbiez.blogspot.com/2025/03/reverse-qt-4-you.html?m=1",
+      "snippet": "",
+      "published_date": "2026-02-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "When you subclass a window, it's the original window procedure of the window you subclass you have to call when you want to call the original window procedure - The Old New Thing",
+      "url": "https://devblogs.microsoft.com/oldnewthing/?p=18333",
+      "snippet": "",
+      "published_date": "2009-05-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "A practical checklist to debug your signal/slot connections | KDAB",
+      "url": "https://www.kdab.com/slot-not-invoked/",
+      "snippet": "**Qt automatically breaks a signal/slot connection if either the sender or the receiver are destroyed** (or if *context object* is destroyed, when using the new connection syntax and connecting to free functions). The second requirement is a consequence of the first: when a queued connection is activated, Qt needs to copy the arguments of the signal into the event sent to the receiver. // the connect to debug // the connect to debugconnect(sender, &Sender::aSignal, receiver, &Receiver::aSlot); connect(, &::,, &::);// add: // add:connect(sender, &Sender::aSignal, // same sender and signal connect(, &::,// same sender and signal receiver, // context object to break this connection ,// context object to break this connection [receiver]() { // debug output [](){// debug output qDebug() << \"Direct?\" << QThread::currentThread() == receiver->thread(); qDebug()<< \"Direct?\"<< QThread:: currentThread() == -> thread(); }, }, Qt::DirectConnection); // see below::);// see below. ## Checking all the signals and slots connected to an object.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.3273
+    },
+    {
+      "title": "How to use Windows Message Loop and Qt Application Exec?",
+      "url": "https://forum.qt.io/topic/29355/how-to-use-windows-message-loop-and-qt-application-exec",
+      "snippet": "If you're using the EDSDK on Windows, you have to have a Windows message loop in your main thread, otherwise callbacks won't happen. (This is",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "[Development] Trigger Qt event loop from external message loop",
+      "url": "https://development.qt-project.narkive.com/DPalpsIr/trigger-qt-event-loop-from-external-message-loop",
+      "snippet": "Hi there, I'm working on an application using Qt5 for its window framework. The requirement for this application is to run standalone and as",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "QCoreApplication::processEvents() and Qt::QueuedConnection | Qt Forum",
+      "url": "https://forum.qt.io/topic/164180/qcoreapplication-processevents-and-qt-queuedconnection/11",
+      "snippet": "",
+      "published_date": "2026-01-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "How Qt Signals and Slots Work - Part 3 - Queued and Inter Thread ...",
+      "url": "https://woboq.com/blog/how-qt-signals-slots-work-part3-queuedconnection.html",
+      "snippet": "",
+      "published_date": "2016-02-04T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3
+    },
+    {
+      "title": "Threads and QObjects | Qt 6.10",
+      "url": "https://doc.qt.io/qt-6/threads-qobject.html",
+      "snippet": "Official Qt documentation on queued connections: the slot is invoked when control returns to the event loop of the receiver's thread. Covers Auto, Queued, and BlockingQueuedConnection types.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.3
+    },
+    {
+      "title": "Qt Reversing - Scott Knight",
+      "url": "https://knight.sc/reverse%20engineering/2008/03/30/qt-reversing.html",
+      "snippet": "",
+      "published_date": "2008-03-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Qt Internals & Reversing",
+      "url": "https://ntcore.com/files/qtrev.htm",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Quick and dirty subclassing in Win32 - the sporks space",
+        "url": "https://sporks.space/2021/09/28/quick-and-dirty-subclassing-in-win32/",
+        "snippet": "",
+        "published_date": "2021-09-28T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "Using Window Procedures - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/using-window-procedures",
+        "snippet": "",
+        "published_date": "2025-07-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "CallWindowProcA function (winuser.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-callwindowproca",
+        "snippet": "",
+        "published_date": "2023-02-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6545
+      },
+      {
+        "title": "SetWindowLongPtrA function (winuser.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowlongptra",
+        "snippet": "",
+        "published_date": "2023-09-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6545
+      },
+      {
+        "title": "When you subclass a window, it's the original window procedure of the window you subclass you have to call when you want to call the original window procedure - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/?p=18333",
+        "snippet": "",
+        "published_date": "2009-05-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "QCoreApplication::processEvents() and Qt::QueuedConnection | Qt Forum",
+        "url": "https://forum.qt.io/topic/164180/qcoreapplication-processevents-and-qt-queuedconnection/11",
+        "snippet": "",
+        "published_date": "2026-01-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Understanding Qt::QueuedConnection: A Deep Dive into Signals ...",
+        "url": "https://medium.com/@alphaneker40/understanding-qt-queuedconnection-a-deep-dive-into-signals-and-slots-in-multithreaded-qt-62184ca5722f",
+        "snippet": "",
+        "published_date": "2024-11-22T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4
+      },
+      {
+        "title": "How Qt Signals and Slots Work - Part 3 - Queued and Inter Thread ...",
+        "url": "https://woboq.com/blog/how-qt-signals-slots-work-part3-queuedconnection.html",
+        "snippet": "",
+        "published_date": "2016-02-04T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3
+      },
+      {
+        "title": "Execution order of a single signal connected to a single slot via Qt::QueuedConnection",
+        "url": "https://stackoverflow.com/questions/68074608/execution-order-of-a-single-signal-connected-to-a-single-slot-via-qtqueuedconn",
+        "snippet": "",
+        "published_date": "2021-06-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Understanding Qt's Event Loop and Signals/Slots - deKonvoluted",
+        "url": "https://dekonvoluted.github.io/programming/2018/09/16/qt-event-loop.html",
+        "snippet": "",
+        "published_date": "2018-09-16T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.45
+      },
+      {
+        "title": "Reverse Engineering: [Reverse] QT 4 You",
+        "url": "https://rootbiez.blogspot.com/2025/03/reverse-qt-4-you.html?m=1",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "QtREAnalyzer, a Ghidra extension to reverse-engineer Qt binaries.",
+        "url": "https://github.com/diommsantos/QtREAnalyzer",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "[PDF] A First Look at Reverse Engineering of Qt Binaries - USENIX",
+        "url": "https://www.usenix.org/system/files/sec23_slides_wen-haohuang.pdf",
+        "snippet": "",
+        "published_date": "2023-08-10T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Qt Reversing - Scott Knight",
+        "url": "https://knight.sc/reverse%20engineering/2008/03/30/qt-reversing.html",
+        "snippet": "",
+        "published_date": "2008-03-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Qt Internals & Reversing",
+        "url": "https://ntcore.com/files/qtrev.htm",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      }
+    ],
+    "grok": [
+      {
+        "title": "How Qt Signals and Slots Work - Part 3 - Queued and Inter-Thread Connections",
+        "url": "https://woboq.com/blog/how-qt-signals-slots-work-part3-queuedconnection.html",
+        "snippet": "Detailed explanation of Qt queued connections, including queued_activate function, posting QMetaCallEvent to the event loop, and how the event loop processes them. Includes code snippets from Qt source.",
+        "published_date": "2016-02-04",
+        "source": "grok"
+      },
+      {
+        "title": "A practical checklist to debug your signal/slot connections",
+        "url": "https://www.kdab.com/slot-not-invoked/",
+        "snippet": "Explains that queued connections post an event to the receiver's thread event loop, requiring a running event loop (e.g., QCoreApplication::exec() or QThread::exec()). Practical debugging tips for when slots are not invoked.",
+        "published_date": "2017-03-09",
+        "source": "grok"
+      },
+      {
+        "title": "Understanding Qt's Event Loop and Signals/Slots",
+        "url": "https://dekonvoluted.github.io/programming/2018/09/16/qt-event-loop.html",
+        "snippet": "Covers how Qt's event loop processes signals and slots, including queued connections that push events onto the loop. Discusses behavior of quit/exit and control flow.",
+        "published_date": "2018-09-16",
+        "source": "grok"
+      },
+      {
+        "title": "Qt signals (QueuedConnection and DirectConnection)",
+        "url": "https://stackoverflow.com/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+        "snippet": "Clear explanation: emitting a signal with queued connection posts an event to the receiver's event loop, which invokes the slot when control returns to it. Useful for inter-thread communication.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6
+      },
+      {
+        "title": "Threads and QObjects | Qt 6.10",
+        "url": "https://doc.qt.io/qt-6/threads-qobject.html",
+        "snippet": "Official Qt documentation on queued connections: the slot is invoked when control returns to the event loop of the receiver's thread. Covers Auto, Queued, and BlockingQueuedConnection types.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "winapi - Win32 Subclassing - About Messages - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/23858108/win32-subclassing-about-messages",
+        "snippet": "So I'm practicing subclassing a predefined window class in Win32 so I can define my own custom message proc for the predefined classes (e.g.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "Quick and dirty subclassing in Win32 - the sporks space",
+        "url": "https://sporks.space/2021/09/28/quick-and-dirty-subclassing-in-win32/",
+        "snippet": "# the sporks space. ## party with sporks in space. ## Quick and dirty subclassing in Win32. Turns out it’s just marking it as having the extended style in the resource editor or calling `DragAcceptFiles`, or so I thought. While I could get my dialog to accept the files, I couldn’t get the list view to do so. It turns out that the list view doesn’t handle these messages, nor does it send a notification back to the parent. One strategy to deal with this is *subclassing*, although we aren’t going through the formal channels to do. static LRESULT CALLBACK MyListViewProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) { switch (msg) { case WM_DROPFILES: SendMessage(GetParent(hwnd), msg, wParam, lParam); break; } return CallWindowProc(ListViewProc, hwnd, msg, wParam, lParam); }. ListViewProc = (WNDPROC)GetWindowLong(hwnd, GWL_WNDPROC); SetWindowLong(lv, GWL_WNDPROC, (LONG)MyListViewProc);. It sucks I needed to do it (why didn’t it send a notification to the parent?), but the time to fix that was a quarter century ago.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Tapping into the message pump? #8650 - GitHub",
+        "url": "https://github.com/AvaloniaUI/Avalonia/discussions/8650",
+        "snippet": "What it does is push a message into the message pump. Now, when developing an app in Avalonia, is there a way to access the pump? In winforms",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "Pass child window messages to main program wndproc",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/243845/pass-child-window-messages-to-main-program-wndproc",
+        "snippet": "So I tried to use SetWindowLongPtr(button, GWLP_WNDPROC, WindowProcessMessages) . Now the button doesn't even show up! Any ideas? or is this",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "Win32 API, C, and Windows' native event loop for composing UI",
+        "url": "https://www.youtube.com/watch?v=w9IdIroijGg",
+        "snippet": "In this video, we build a skeleton Windows application by first defining a window (a control, not unlike a React component) and its window",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "A practical checklist to debug your signal/slot connections | KDAB",
+        "url": "https://www.kdab.com/slot-not-invoked/",
+        "snippet": "**Qt automatically breaks a signal/slot connection if either the sender or the receiver are destroyed** (or if *context object* is destroyed, when using the new connection syntax and connecting to free functions). The second requirement is a consequence of the first: when a queued connection is activated, Qt needs to copy the arguments of the signal into the event sent to the receiver. // the connect to debug // the connect to debugconnect(sender, &Sender::aSignal, receiver, &Receiver::aSlot); connect(, &::,, &::);// add: // add:connect(sender, &Sender::aSignal, // same sender and signal connect(, &::,// same sender and signal receiver, // context object to break this connection ,// context object to break this connection [receiver]() { // debug output [](){// debug output qDebug() << \"Direct?\" << QThread::currentThread() == receiver->thread(); qDebug()<< \"Direct?\"<< QThread:: currentThread() == -> thread(); }, }, Qt::DirectConnection); // see below::);// see below. ## Checking all the signals and slots connected to an object.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.3273
+      },
+      {
+        "title": "Queueing calls to a slot in event loop processed in backwards order ...",
+        "url": "https://stackoverflow.com/questions/10984361/queueing-calls-to-a-slot-in-event-loop-processed-in-backwards-order-by-qt",
+        "snippet": "# Queueing calls to a slot in event loop processed in backwards order by Qt. In an application that I am working on I have a QLineEdit that is attached with a standard QObject::connect to a slot:. `QObject::connect(m_searchBar, SIGNAL(textChanged(const QString &)),this,SLOT(slot_searchBar()));`. As you can see it is connecting a textChanged signal to a slot of my creation. It is as though Qt has added the signal emissions to a stack instead of a queue and then served them back to the event loop in reverse order. I have connected a line edit to a text edit such that every time the text changes in the line edit it is printed to the text edit using `QTextEdit::append(( const QString & text ))`. `QObject::connect(m_searchBar, SIGNAL(textChanged(const QString &)),this,SLOT(slot_searchBar(const QString &)));`. Your testing delay loop should be replaced by something like `QTimer::singleShot(1000, this, SLOT(fakeResults()))`, where the code in the slot calls relevant slot in your GUI with some fake results. connect(ed, SIGNAL(textChanged(QString)), SLOT(monitor(QString)));.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6273
+      },
+      {
+        "title": "Understanding Qt's Event Loop and Signals/Slots - deKonvoluted",
+        "url": "https://dekonvoluted.github.io/programming/2018/09/16/qt-event-loop.html",
+        "snippet": "Understanding Qt's Event Loop and Signals/Slots. This behavior of pushing an event onto the event loop (as a `Qt::QueuedConnection`) tripped me up because I expected the slot would be immediately executed and the application would stop dead in its tracks and quit. Once all the slots connected to signals triggered by events are executed, the control will eventually return back to the main event loop and the cycle begins anew. | ``` 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68  ``` | ``` #include  #include  #include  #include  class Foo: public QObject{Q_OBJECT public: Foo(QObject* parent = 0): QObject(parent){} private: void doStuff(){qDebug()<< \"Emit signal one\"; emit signal1(); qDebug()<< \"Emit finished\"; emit finished(); qDebug()<< \"Emit signal two\"; emit signal2();} signals: void signal1(); void signal2(); void finished(); public slots: void slot1(){qDebug()<< \"Execute slot one\";} void slot2(){qDebug()<< \"Execute slot two\";} void start(){doStuff(); qDebug()<<\"Bye!\";}}; int main(int argc, char** argv){QCoreApplication app(argc, argv); Foo foo; QObject:: connect(& foo, & Foo:: signal1, & foo, & Foo:: slot1); QObject:: connect(& foo, & Foo:: signal2, & foo, & Foo:: slot2); QObject:: connect(& foo, & Foo:: finished, & app, & QCoreApplication:: quit); QTimer:: singleShot(0, & foo, & Foo:: start); return app.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Understanding Qt::QueuedConnection: A Deep Dive into Signals ...",
+        "url": "https://medium.com/@alphaneker40/understanding-qt-queuedconnection-a-deep-dive-into-signals-and-slots-in-multithreaded-qt-62184ca5722f",
+        "snippet": "Qt::QueuedConnection is a connection type that ensures the slot is executed in the thread where the receiving object lives.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How Qt Signals and Slots Work - Part 3 - Queued and Inter Thread ...",
+        "url": "https://woboq.com/blog/how-qt-signals-slots-work-part3-queuedconnection.html",
+        "snippet": "# How Qt Signals and Slots Work - Part 3 - Queued and Inter Thread Connections. Like with a `QueuedConnection`, an event is posted to the other thread's event loop. The thread that delivers the event will release the semaphore right after the slot has been called. Meanwhile, the thread that called the signal will acquire the semaphore in order to wait until the event is processed. But we choose not to because `BlockingQueuedConnection` is something that can only be used if you know what you are doing: You must know from which thread to what other thread the event will be sent. You cannot just call wait here because the child thread might have already emitted, or is about to emit the signal that will wait for the parent thread, which won't go back to its event loop. All the thread cleanup information transfer must only happen with events posted between threads, without using `wait()`.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to use Windows Message Loop and Qt Application Exec?",
+        "url": "https://forum.qt.io/topic/29355/how-to-use-windows-message-loop-and-qt-application-exec",
+        "snippet": "If you're using the EDSDK on Windows, you have to have a Windows message loop in your main thread, otherwise callbacks won't happen. (This is",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3273
+      },
+      {
+        "title": "[PDF] A First Look at Reverse Engineering of Qt Binaries - USENIX",
+        "url": "https://www.usenix.org/system/files/sec23_slides_wen-haohuang.pdf",
+        "snippet": "32 if (v1 == 0) { 33 // Set property value by index 34 *(this + 0x48) = (QString) v2 35 } 36 } Metadata Query index Invoke qt_metaCall v1 = 0 v2 = “test” Symbol revealed Signal Slot Takeaway & Future Work ▶QtRE: A static analysis tool that leverages Qt’s unique insights for function callback and symbol recovery ▶Use QtRE to analyze security-critical Qt applications (automobiles, embedded systems, medical devices) ▶Integrate QtRE with state-of-the-art fuzzers for GUI-fuzzing (e.g., Easter egg hunting) 13 / 14 Introduction Key Insights QtRE Evaluation Application Conclusion References Takeaway 1 MainWindow::MainWindow() { 2 ...",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Windows message loop instead of QApplication - c++ - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/16540743/windows-message-loop-instead-of-qapplicationexec-qapplicationprocesseven",
+        "snippet": "The first thing which comes to my mind is that calling slots across threads won't work because the Qt event loop is executing those calls.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "[Development] Trigger Qt event loop from external message loop",
+        "url": "https://development.qt-project.narkive.com/DPalpsIr/trigger-qt-event-loop-from-external-message-loop",
+        "snippet": "Hi there, I'm working on an application using Qt5 for its window framework. The requirement for this application is to run standalone and as",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3273
+      },
+      {
+        "title": "Hints to reverse engineering a QT software",
+        "url": "https://reverseengineering.stackexchange.com/questions/6828/hints-to-reverse-engineering-a-qt-software",
+        "snippet": "I am facing a little bit of problem during reverse a QT application with Ollydbg or IDA. This software use a protection schema to indetify the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5545
+      }
+    ]
+  }
+}
