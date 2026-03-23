@@ -28,7 +28,8 @@ Typical entry conditions:
 
 Use it for cases like:
 - proprietary request/reply protocols where a seemingly correct response is ignored because it does not match one live pending-request entry
-- Windows RPC / local RPC / ALPC-adjacent cases where the response only matters if it is tied to the correct async call state or completion path
+- Windows RPC / local RPC / ALPC-adjacent cases where the response only matters if it is tied to the correct async call state, notification target, or completion path
+- gRPC or RPC-like async client/server implementations where one completion-queue tag, call-state object, or per-request handle is the real owner of a completion event
 - firmware mailbox / command queue cases where a completion is only consumed if it matches one descriptor, token, or outstanding command slot
 - message-queue RPC patterns where reply queue routing exists, but the client still filters by correlation or pending-request identity
 - mobile or browser-adjacent service bridges where a callback response exists but does not wake the waiting promise/future/callback holder without one request-owner match
@@ -61,6 +62,7 @@ The useful next analyst target is often one of these:
 - callback queue selector
 - request token / slot / descriptor owner
 - completion event / port / future / promise associated with one live request
+- completion-queue tag or per-call tag object whose identity decides which outstanding operation is allowed to advance
 
 The key discipline is:
 - separate **response shape correctness** from **response ownership correctness**
@@ -82,7 +84,7 @@ This note exists because that bottleneck is narrower than general replay gating 
 ## 4. What counts as a high-value ownership gate
 Treat these as high-value targets:
 - first lookup from response-like data into a pending-request table/map/list
-- first comparison against correlation ID, request ID, sequence token, message tag, slot index, or descriptor token
+- first comparison against correlation ID, request ID, sequence token, message tag, slot index, descriptor token, or completion-queue tag identity
 - first async handle / promise / future / event object that must be the live owner of the completion
 - first branch that decides “matched outstanding request” vs “ignore / stale / unknown / unexpected reply”
 - first dequeue or consume step that removes an entry from a pending set only on successful match
@@ -148,6 +150,7 @@ Useful local role labels here:
 - `unknown/stale-drop`
 - `consume/dequeue`
 - `wake/resolve/callback`
+- `completion-tag-delivery`
 - `timeout/cancel cleanup`
 - `post-completion cleanup`
 
@@ -197,6 +200,7 @@ Useful anchors for this stage:
 - async handle initialization and completion APIs
 - callback registration or promise/future allocation
 - correlation-ID copy or comparison sites
+- completion-queue `tag` creation, propagation, and `Next`/delivery sites in async RPC-like runtimes
 - pending-slot dequeue/removal
 - unknown/stale reply discard branches
 - completion event / APC / IOC / callback delivery
@@ -254,7 +258,21 @@ response arrives on the right broad channel
 Best move:
 - prove the first equality/match check and matched-only callback/future resolution
 
-### Scenario C: Firmware/mailbox completion matches one pending descriptor slot
+### Scenario C: Completion-queue tag or per-call handle is the true owner
+Pattern:
+
+```text
+completion arrives on the right broad queue
+  -> transport and broad runtime path look correct
+  -> the waiting side still advances only when one tag / call-state object matches
+  -> wrong or stale tag identity turns the event into noise instead of completion
+```
+
+Best move:
+- follow the smallest per-call state carrier across request issue, pending registration, completion delivery, and matched-only wakeup/dequeue
+- treat completion-queue tag identity as the ownership proof target, not merely as framework bookkeeping
+
+### Scenario D: Firmware/mailbox completion matches one pending descriptor slot
 Pattern:
 
 ```text
@@ -267,7 +285,7 @@ completion code is visible
 Best move:
 - localize descriptor ownership and dequeue-on-match behavior
 
-### Scenario D: Late reply after timeout looks valid but has already lost its owner
+### Scenario E: Late reply after timeout looks valid but has already lost its owner
 Pattern:
 
 ```text
@@ -310,11 +328,13 @@ This note is intentionally workflow-first.
 Primary retained support:
 - `sources/firmware-protocol/2026-03-22-pending-request-correlation-and-async-reply-notes.md`
 - `sources/firmware-protocol/2026-03-23-pending-request-timeout-and-late-reply-lifecycle-notes.md`
+- `sources/protocol-and-network-recovery/2026-03-23-pending-request-correlation-deepening-search-layer.txt`
 - Microsoft Learn async RPC reply/completion documentation
 - Microsoft Learn `RPC_ASYNC_STATE` structure documentation
 - Microsoft Learn MS-RPCE connection timeout note
 - Trail of Bits RPC Investigator note for active-call/ETW-aware RPC visibility
 - ALPC transport internals overview for pending communication-object context
+- gRPC C++ async / `CompletionQueue` documentation for per-call tag delivery and completion ownership patterns
 - RabbitMQ RPC tutorial as a clear generic correlation-ID ownership model
 - Spring AMQP request/reply timeout and late-reply handling documentation
 - Berkeley BitBlaze / Replayer framing for dialogue replay as a practical protocol-RE end state

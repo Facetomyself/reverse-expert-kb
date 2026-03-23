@@ -1,0 +1,677 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "ALPC reply message pending request correlation completion port late reply unknown message reverse engineering",
+    "gRPC async client pending call correlation completion queue late response handling reverse engineering",
+    "RPC async reply correlation timeout stale response request table reverse engineering"
+  ],
+  "count": 38,
+  "results": [
+    {
+      "title": "win32/desktop-src/ETW/alpc-wait-for-reply.md at docs · MicrosoftDocs/win32",
+      "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/ETW/alpc-wait-for-reply.md",
+      "snippet": "[EventType(35), EventTypeName(\"ALPC-Wait-For-Reply\")] class ALPC_Wait_For_Reply : ALPC { uint32 MessageID; };",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "ALPC_Wait_For_Reply class - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/lt-lt/windows/win32/etw/alpc-wait-for-reply",
+      "snippet": "[EventType(35), EventTypeName(\"ALPC-Wait-For-Reply\")] class ALPC_Wait_For_Reply : ALPC { uint32 MessageID; };",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "grpc completion queue delivering messages to application in a reversed order as opposite to client entrusting. · Issue #19658 · grpc/grpc",
+      "url": "https://github.com/grpc/grpc/issues/19658",
+      "snippet": "",
+      "published_date": "2019-07-16T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.675
+    },
+    {
+      "title": "ReverseEngineering - Timeout on TableListBuilder for large DBs #510",
+      "url": "https://github.com/ErikEJ/EFCorePowerTools/issues/510",
+      "snippet": "Currently i got a timeout exception (after 30 seconds) when trying to retrieve the tables list for reverse-engineering.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "Async calls won't respect timeout · Issue #805 - GitHub",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/issues/805",
+      "snippet": "For timeouts, my plan here is to : - store the logical timeout against the pending response wrapper for async requests - hook into the heartbeat",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "Local Inter-Process Communication - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Local_Inter-Process_Communication",
+      "snippet": "The **Local Inter-Process Communication** (**LPC**, often also referred to as **Local Procedure Call** or **Lightweight Procedure Call**) is an internal, undocumented inter-process communication facility provided by the Microsoft Windows NT kernel \"Kernel (operating system)\") for lightweight IPC between processes \"Process (computing)\") on the same computer. As of Windows Vista, LPC has been rewritten as **Asynchronous Local Inter-Process Communication** (**ALPC**, often also **Advanced Local Procedure Call**) in order to provide a high-speed scalable communication mechanism required to efficiently implement User-Mode Driver Framework (UMDF), whose user-mode parts require an efficient communication channel with UMDF's components in the executive. (A)LPC is implemented using kernel \"port\" objects, which are securable (with ACLs, allowing e.g. only specific SIDs to use them) and allow identification of the process on the other side of the connection. The Win32 subsystem uses (A)LPC heavily for communication between client and the subsystem server (CSRSS). The Local Security Authority Subsystem Service (LSASS), Session Manager (SMSS), and Service Control Manager all use (A)LPC ports directly to communicate with client processes.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "How to correlate RPC calls in ETW traces?",
+      "url": "https://stackoverflow.com/questions/41504738/how-to-correlate-rpc-calls-in-etw-traces",
+      "snippet": "",
+      "published_date": "2017-01-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "gRPC C++ async client completion queue drain - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/68731220/grpc-c-async-client-completion-queue-drain",
+      "snippet": "",
+      "published_date": "2021-08-10T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.625
+    },
+    {
+      "title": "Next when multiple server streaming request are sent from client ...",
+      "url": "https://github.com/grpc/grpc/issues/22510",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "ALPC class - Win32 apps (Microsoft Learn)",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/etw/alpc",
+      "snippet": "Official Microsoft ETW documentation for ALPC events, including Send Message, Receive Message, and Wait for Reply events, useful for tracing and understanding ALPC message flows including replies and pending operations.",
+      "published_date": "2021-01-07",
+      "source": "grok",
+      "score": 0.62
+    },
+    {
+      "title": "[MS-RPCE]: Connection Time-Out",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rpce/678e4235-0a3b-4b81-99fb-86ae3ac357f3",
+      "snippet": "",
+      "published_date": "2024-04-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "grpc client may hang forever · Issue #23341",
+      "url": "https://github.com/grpc/grpc/issues/23341",
+      "snippet": "The rpc sent by the first greeter_async_client2 always successed. The rpc sent by the second greeter_async_client2 always failed at first, and",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Handling stale responses in asynchronous RPC systems",
+      "url": "https://stackoverflow.com/questions/24884882/how-to-handle-stale-responses-in-async-rpc-calls",
+      "snippet": "Discussion on techniques to prevent processing of stale/out-of-order responses in asynchronous RPC patterns, including correlation IDs, request tables, generation counters, and discarding late replies after timeout.",
+      "published_date": "2014-07-22",
+      "source": "grok",
+      "score": 0.595
+    },
+    {
+      "title": "Confusion around CompletionQueue in an async C++ client",
+      "url": "https://github.com/grpc/grpc/issues/22266",
+      "snippet": "Discussion on using a shared CompletionQueue across multiple requests/threads in async C++ client. Explains that unique tags per RPC (not per thread) allow correlation of responses. Responses can arrive in any order; the tag identifies which call the completion belongs to, preventing misdelivery in multi-threaded scenarios.",
+      "published_date": "2020-03-08",
+      "source": "grok",
+      "score": 0.595
+    },
+    {
+      "title": "GRPC C++: grpc::CompletionQueue Class Reference",
+      "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_completion_queue.html",
+      "snippet": "Official API reference for CompletionQueue. Describes Next() for blocking until an event, returning the user-provided tag and ok status. Tags are used to correlate asynchronous operations, essential for handling pending calls and out-of-order completions in async clients.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.525
+    },
+    {
+      "title": "How do RPC systems deal with slow or flaky networks?",
+      "url": "https://softwareengineering.stackexchange.com/questions/429580/how-do-rpc-systems-deal-with-slow-or-flaky-networks",
+      "snippet": "In an RPC (Remote Procedure Call) design, an interaction across the network is hidden behind a synchronous API that makes the network interaction look (to the rest of the local program) like \"just another local function call\". In an RPC (Remote Procedure Call) design, an interaction across the network is hidden behind a synchronous API that makes the network interaction look (to the rest of the local program) like \"just another local function call\". However, I think one of the failures of RPC as a style is the idea that we can ignore that network interaction in a application's design. Really RPC is not different than any other network situation, and it can be implemented via UDP or TCP. Because TCP handles resending of lost network packets and guarantees in order delivery, a simple 20 second timeout on your RPC calls is usually enough to get your responses and provide a happy user experience.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5
+    },
+    {
+      "title": "gRPC C++ - Asynchronous API Overview",
+      "url": "https://grpc.github.io/grpc/cpp/md_doc_async.html",
+      "snippet": "Detailed explanation of the gRPC C++ Async API, including how to correlate replies using unique tags, handling completion queues, and dealing with responses that arrive after a call has timed out or been cancelled.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.5
+    },
+    {
+      "title": "Advanced local procedure call (ALPC)",
+      "url": "https://www.tutorialspoint.com/advanced-local-procedure-call-alpc",
+      "snippet": "This channel consists of a pair of private communication ports: one for client-to-server messages and the other for server-to-client messages . Communication channels support a callback mechanism, so the client and server can accept requests",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5
+    },
+    {
+      "title": "[Research] Windows ALPC (EN) - hackyboiz",
+      "url": "https://hackyboiz.github.io/2025/11/29/gongjae/Windows_ALPC/EN/",
+      "snippet": "",
+      "published_date": "2025-11-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.475
+    },
+    {
+      "title": "Retrieve an asynchronous task at a later time by it's correlation_id.",
+      "url": "https://discourse.nameko.io/t/retrieve-an-asynchronous-task-at-a-later-time-by-its-correlation-id/118",
+      "snippet": "# Retrieve an asynchronous task at a later time by it's correlation\\_id. expected to hit the rest service with the correlation\\_id to check if the. correlation\\_id = get\\_and\\_validate(request). result = self.db.get(correlation\\_id). self.db.store(correlation\\_id, result). expected to hit the rest service with the correlation\\_id to check if the. the correlation\\_id from nameko.rpc.RpcReply.correlation\\_id, to request that. expected to hit the rest service with the correlation\\_id to check if the. the Service continues to process the expensive task, I should be able to. expected to hit the rest service with the correlation\\_id to check if the. The way rabbitmq works, you can't cherry-pick messages from a queue (e.g. by correlation id), so the nameko rpc framework isn't really suitable for. the correlation\\_id from nameko.rpc.RpcReply.correlation\\_id, to request that. will be expected to hit the rest service with the correlation\\_id to check. whilst the Service continues to process the expensive task, I should be. will be expected to hit the rest service with the correlation\\_id to check.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "Offensive Windows IPC Internals 3: ALPC",
+      "url": "https://csandker.io/2022/05/24/Offensive-Windows-IPC-3-ALPC.html",
+      "snippet": "Detailed reverse engineering of ALPC message queues including Main queue (message sent, client processing) and Pending queue (message sent, caller waiting for reply but no reply yet). Covers asynchronous replies, I/O completion ports for receiving replies, and ALPC port internals from reverse engineering efforts.",
+      "published_date": "2022-05-24",
+      "source": "grok",
+      "score": 0.42
+    },
+    {
+      "title": "Finding out why grpc async service got a longer latency in ...",
+      "url": "https://groups.google.com/g/grpc-io/c/qjNNMy6TJ78",
+      "snippet": "# Finding out why grpc async service got a longer latency in client side than server. But on a quite high pressure, the clients side got a longer latency than the time our business transaction taken (about 5-6 seconds, it couldn’t be network lagging) I think the requests were queued a long time in the completion-queue, but as I said, adding more threads and completion-queue seemed not helping. I got a reason that maybe related to the problem, we spawn a new CallData after current process done, everything is almost ok:. // the tag uniquely identifying the request (so that different CallData. // the memory address of this CallData instance. // add a new CallData to the completion queue after handled the current request. // otherwise grpc will use the completion queue again. // Spawn a new CallData instance to serve new clients while we process. responder\\_.Finish(reply\\_, grpc::Status::OK, this);. // Once in the FINISH state, deallocate ourselves (CallData).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Understanding gRPC: RPC Lifecycle and Async Behavior",
+      "url": "https://grpc.io/docs/what-is-grpc/core-concepts/",
+      "snippet": "Official gRPC documentation covering request-response lifecycle, server streaming, client streaming, bidirectional streaming, and how asynchronous calls are managed with completion queues and tags for correlation.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.375
+    },
+    {
+      "title": "csrss Waiting for reply to ALPC Message - WINDBG - OSR Developer Community",
+      "url": "https://community.osr.com/discussion/293124/csrss-waiting-for-reply-to-alpc-message",
+      "snippet": "March 13, 2021 - THREAD ffffe00147c3d080 Cid 0194.01cc Teb: 00007ff6f2b9b000 Win32Thread: fffff90140933010 WAIT: (WrLpcReply) UserMode Non-Alertable ffffe00147c3d6b0 Semaphore Limit 0x1 Waiting for reply to ALPC Message ffffc0004da24280 : queued at port ffffe00147b17310 : owned by process ffffe00147b90580 Not impersonating DeviceMap ffffc0004ba0c270 Owning Process ffffe00147c20900 Image: csrss.exe Attached Process N/A Image: N/A Wait",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.34
+    },
+    {
+      "title": "Asynchronous Request-Response - Enterprise Integration Patterns 2",
+      "url": "https://www.enterpriseintegrationpatterns.com/patterns/conversation/RequestResponse.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "gRPC Deadlines and RPC Cancellation",
+      "url": "https://grpc.io/docs/guides/deadlines/",
+      "snippet": "Explains deadlines in gRPC which act as timeouts for RPC calls. Covers how servers detect cancellation and how clients handle timeouts, including correlation of responses that may arrive after deadline expiration.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.325
+    },
+    {
+      "title": "Detection Strategies for COM, WMI, and ALPC-Based Multi-Process Malware | MDPI",
+      "url": "https://www.mdpi.com/1424-8220/24/16/5118",
+      "snippet": "",
+      "published_date": "2024-08-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "The Tragedy of ALPC - Qianxin Threat Intelligence Center",
+      "url": "https://ti.qianxin.com/blog/articles/the-tragedy-of-alpc-unknown-windows-privilege-escalation-nday-vulnerability-research-in-august-en/",
+      "snippet": "",
+      "published_date": "2025-01-07T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.325
+    },
+    {
+      "title": "Completion Queues and Async Model | grpc/grpc | DeepWiki",
+      "url": "https://deepwiki.com/grpc/grpc/3.3-completion-queues-and-async-model",
+      "snippet": "",
+      "published_date": "2026-02-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "Debugging and Reversing ALPC",
+      "url": "https://csandker.io/2022/05/29/Debugging-And-Reversing-ALPC.html",
+      "snippet": "Follow-up guide on debugging and reverse engineering ALPC internals, including hunting ALPC objects in kernel debugging, NtAlpcCreatePort flow, and practical steps for understanding ALPC behavior via tools like Ghidra and kernel debuggers.",
+      "published_date": "2022-05-29",
+      "source": "grok",
+      "score": 0.32
+    },
+    {
+      "title": "Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries",
+      "url": "https://www.ioactive.com/breaking-protocol-buffers-reverse-engineering-grpc-binaries",
+      "snippet": "Guide on reverse engineering gRPC binaries, including vtable layouts for RPC implementations and common patterns in async calls. Useful for understanding internal call correlation and pending operations when analyzing gRPC clients without source code.",
+      "published_date": "2021-07-30",
+      "source": "grok",
+      "score": 0.32
+    },
+    {
+      "title": "Sam's Code: How to Find a RPC Server's Clients Via WinDbg",
+      "url": "https://samscode.blogspot.com/2016/04/how-to-finding-rpc-servers-clients-via.html",
+      "snippet": "",
+      "published_date": "2026-03-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Asynchronous Operation — RPyC - Read the Docs",
+      "url": "https://rpyc.readthedocs.io/en/latest/docs/async.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "New Hacking Techniques and Critical CVEs 27 Jan- 2 Feb 2026",
+      "url": "https://firecompass.com/weekly-report-new-hacking-techniques-and-critical-cves-27-jan-2-feb-2026/",
+      "snippet": "",
+      "published_date": "2026-02-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Chaining N-days to Compromise All: Part 2 — Windows Kernel LPE ...",
+      "url": "https://theori.io/blog/chaining-n-days-to-compromise-all-part-2-windows-kernel-lpe-a-k-a-chrome-sandbox-escape",
+      "snippet": "",
+      "published_date": "2024-03-31T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.3
+    },
+    {
+      "title": "Asynchronous-API tutorial | C++ - gRPC",
+      "url": "https://grpc.io/docs/languages/cpp/async/",
+      "snippet": "",
+      "published_date": "2022-02-17T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3
+    },
+    {
+      "title": "Writing Asynchronous Streaming gRPC Services In C++",
+      "url": "https://www.gresearch.com/news/lessons-learnt-from-writing-asynchronous-streaming-grpc-services-in-c",
+      "snippet": "Details challenges with pending operations and completion queue ordering in async gRPC C++. Notes that writes add to the front of the queue and only one outstanding write per stream is allowed. Uses grpc::Alarm for timing/delayed handling, relevant to late or delayed response processing.",
+      "published_date": "2019-12-03",
+      "source": "grok",
+      "score": 0.295
+    },
+    {
+      "title": "Timeout handling and response correlation in distributed systems",
+      "url": "https://www.microsoft.com/en-us/research/publication/timeouts-distributed-systems/",
+      "snippet": "Microsoft research paper discussing timeout semantics, correlation of asynchronous responses, and strategies to avoid acting on stale replies in large-scale distributed RPC systems.",
+      "published_date": "2019-05-15",
+      "source": "grok",
+      "score": 0.245
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "How to correlate RPC calls in ETW traces?",
+        "url": "https://stackoverflow.com/questions/41504738/how-to-correlate-rpc-calls-in-etw-traces",
+        "snippet": "",
+        "published_date": "2017-01-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "Sam's Code: How to Find a RPC Server's Clients Via WinDbg",
+        "url": "https://samscode.blogspot.com/2016/04/how-to-finding-rpc-servers-clients-via.html",
+        "snippet": "",
+        "published_date": "2026-03-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Asynchronous Request-Response - Enterprise Integration Patterns 2",
+        "url": "https://www.enterpriseintegrationpatterns.com/patterns/conversation/RequestResponse.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "Asynchronous Operation — RPyC - Read the Docs",
+        "url": "https://rpyc.readthedocs.io/en/latest/docs/async.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "[MS-RPCE]: Connection Time-Out",
+        "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rpce/678e4235-0a3b-4b81-99fb-86ae3ac357f3",
+        "snippet": "",
+        "published_date": "2024-04-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "New Hacking Techniques and Critical CVEs 27 Jan- 2 Feb 2026",
+        "url": "https://firecompass.com/weekly-report-new-hacking-techniques-and-critical-cves-27-jan-2-feb-2026/",
+        "snippet": "",
+        "published_date": "2026-02-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "[Research] Windows ALPC (EN) - hackyboiz",
+        "url": "https://hackyboiz.github.io/2025/11/29/gongjae/Windows_ALPC/EN/",
+        "snippet": "",
+        "published_date": "2025-11-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.475
+      },
+      {
+        "title": "Detection Strategies for COM, WMI, and ALPC-Based Multi-Process Malware | MDPI",
+        "url": "https://www.mdpi.com/1424-8220/24/16/5118",
+        "snippet": "",
+        "published_date": "2024-08-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "The Tragedy of ALPC - Qianxin Threat Intelligence Center",
+        "url": "https://ti.qianxin.com/blog/articles/the-tragedy-of-alpc-unknown-windows-privilege-escalation-nday-vulnerability-research-in-august-en/",
+        "snippet": "",
+        "published_date": "2025-01-07T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.325
+      },
+      {
+        "title": "Chaining N-days to Compromise All: Part 2 — Windows Kernel LPE ...",
+        "url": "https://theori.io/blog/chaining-n-days-to-compromise-all-part-2-windows-kernel-lpe-a-k-a-chrome-sandbox-escape",
+        "snippet": "",
+        "published_date": "2024-03-31T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.3
+      },
+      {
+        "title": "Completion Queues and Async Model | grpc/grpc | DeepWiki",
+        "url": "https://deepwiki.com/grpc/grpc/3.3-completion-queues-and-async-model",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "gRPC C++ async client completion queue drain - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/68731220/grpc-c-async-client-completion-queue-drain",
+        "snippet": "",
+        "published_date": "2021-08-10T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.625
+      },
+      {
+        "title": "grpc completion queue delivering messages to application in a reversed order as opposite to client entrusting. · Issue #19658 · grpc/grpc",
+        "url": "https://github.com/grpc/grpc/issues/19658",
+        "snippet": "",
+        "published_date": "2019-07-16T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.675
+      },
+      {
+        "title": "Next when multiple server streaming request are sent from client ...",
+        "url": "https://github.com/grpc/grpc/issues/22510",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "Asynchronous-API tutorial | C++ - gRPC",
+        "url": "https://grpc.io/docs/languages/cpp/async/",
+        "snippet": "",
+        "published_date": "2022-02-17T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Asynchronous Operation — RPyC - Read the Docs",
+        "url": "https://rpyc.readthedocs.io/en/latest/docs/async.html",
+        "snippet": "In particular, multiple subsequent async requests may be executed in reverse order. timed() . timed allows you to set a timeout for a synchronous invocation.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "ReverseEngineering - Timeout on TableListBuilder for large DBs #510",
+        "url": "https://github.com/ErikEJ/EFCorePowerTools/issues/510",
+        "snippet": "Currently i got a timeout exception (after 30 seconds) when trying to retrieve the tables list for reverse-engineering.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "Retrieve an asynchronous task at a later time by it's correlation_id.",
+        "url": "https://discourse.nameko.io/t/retrieve-an-asynchronous-task-at-a-later-time-by-its-correlation-id/118",
+        "snippet": "# Retrieve an asynchronous task at a later time by it's correlation\\_id. expected to hit the rest service with the correlation\\_id to check if the. correlation\\_id = get\\_and\\_validate(request). result = self.db.get(correlation\\_id). self.db.store(correlation\\_id, result). expected to hit the rest service with the correlation\\_id to check if the. the correlation\\_id from nameko.rpc.RpcReply.correlation\\_id, to request that. expected to hit the rest service with the correlation\\_id to check if the. the Service continues to process the expensive task, I should be able to. expected to hit the rest service with the correlation\\_id to check if the. The way rabbitmq works, you can't cherry-pick messages from a queue (e.g. by correlation id), so the nameko rpc framework isn't really suitable for. the correlation\\_id from nameko.rpc.RpcReply.correlation\\_id, to request that. will be expected to hit the rest service with the correlation\\_id to check. whilst the Service continues to process the expensive task, I should be. will be expected to hit the rest service with the correlation\\_id to check.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "Async calls won't respect timeout · Issue #805 - GitHub",
+        "url": "https://github.com/StackExchange/StackExchange.Redis/issues/805",
+        "snippet": "For timeouts, my plan here is to : - store the logical timeout against the pending response wrapper for async requests - hook into the heartbeat",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "How do RPC systems deal with slow or flaky networks?",
+        "url": "https://softwareengineering.stackexchange.com/questions/429580/how-do-rpc-systems-deal-with-slow-or-flaky-networks",
+        "snippet": "In an RPC (Remote Procedure Call) design, an interaction across the network is hidden behind a synchronous API that makes the network interaction look (to the rest of the local program) like \"just another local function call\". In an RPC (Remote Procedure Call) design, an interaction across the network is hidden behind a synchronous API that makes the network interaction look (to the rest of the local program) like \"just another local function call\". However, I think one of the failures of RPC as a style is the idea that we can ignore that network interaction in a application's design. Really RPC is not different than any other network situation, and it can be implemented via UDP or TCP. Because TCP handles resending of lost network packets and guarantees in order delivery, a simple 20 second timeout on your RPC calls is usually enough to get your responses and provide a happy user experience.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5
+      },
+      {
+        "title": "win32/desktop-src/ETW/alpc-wait-for-reply.md at docs · MicrosoftDocs/win32",
+        "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/ETW/alpc-wait-for-reply.md",
+        "snippet": "[EventType(35), EventTypeName(\"ALPC-Wait-For-Reply\")] class ALPC_Wait_For_Reply : ALPC { uint32 MessageID; };",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "ALPC_Wait_For_Reply class - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/lt-lt/windows/win32/etw/alpc-wait-for-reply",
+        "snippet": "[EventType(35), EventTypeName(\"ALPC-Wait-For-Reply\")] class ALPC_Wait_For_Reply : ALPC { uint32 MessageID; };",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "csrss Waiting for reply to ALPC Message - WINDBG - OSR Developer Community",
+        "url": "https://community.osr.com/discussion/293124/csrss-waiting-for-reply-to-alpc-message",
+        "snippet": "March 13, 2021 - THREAD ffffe00147c3d080 Cid 0194.01cc Teb: 00007ff6f2b9b000 Win32Thread: fffff90140933010 WAIT: (WrLpcReply) UserMode Non-Alertable ffffe00147c3d6b0 Semaphore Limit 0x1 Waiting for reply to ALPC Message ffffc0004da24280 : queued at port ffffe00147b17310 : owned by process ffffe00147b90580 Not impersonating DeviceMap ffffc0004ba0c270 Owning Process ffffe00147c20900 Image: csrss.exe Attached Process N/A Image: N/A Wait",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.34
+      },
+      {
+        "title": "Local Inter-Process Communication - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Local_Inter-Process_Communication",
+        "snippet": "The **Local Inter-Process Communication** (**LPC**, often also referred to as **Local Procedure Call** or **Lightweight Procedure Call**) is an internal, undocumented inter-process communication facility provided by the Microsoft Windows NT kernel \"Kernel (operating system)\") for lightweight IPC between processes \"Process (computing)\") on the same computer. As of Windows Vista, LPC has been rewritten as **Asynchronous Local Inter-Process Communication** (**ALPC**, often also **Advanced Local Procedure Call**) in order to provide a high-speed scalable communication mechanism required to efficiently implement User-Mode Driver Framework (UMDF), whose user-mode parts require an efficient communication channel with UMDF's components in the executive. (A)LPC is implemented using kernel \"port\" objects, which are securable (with ACLs, allowing e.g. only specific SIDs to use them) and allow identification of the process on the other side of the connection. The Win32 subsystem uses (A)LPC heavily for communication between client and the subsystem server (CSRSS). The Local Security Authority Subsystem Service (LSASS), Session Manager (SMSS), and Service Control Manager all use (A)LPC ports directly to communicate with client processes.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "Advanced local procedure call (ALPC)",
+        "url": "https://www.tutorialspoint.com/advanced-local-procedure-call-alpc",
+        "snippet": "This channel consists of a pair of private communication ports: one for client-to-server messages and the other for server-to-client messages . Communication channels support a callback mechanism, so the client and server can accept requests",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5
+      },
+      {
+        "title": "gRPC C++ async client completion queue drain",
+        "url": "https://stackoverflow.com/questions/68731220/grpc-c-async-client-completion-queue-drain",
+        "snippet": "I have created an gRPC async client written in C++ which makes both streaming and unary requests to a server, using a completion queue. In the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Asynchronous-API tutorial | C++",
+        "url": "https://grpc.io/docs/languages/cpp/async/",
+        "snippet": "The server implementation requests an RPC call with a tag and then waits for the completion queue to return the tag. To deal with this, our complete async server example uses a `CallData` object to maintain the state of each RPC, and uses the address of this object as the unique tag for the call. class CallData { class CallData { public: public: public // Take in the \"service\" instance (in this case representing an asynchronous  // Take in the \"service\" instance (in this case representing an asynchronous // Take in the \"service\" instance (in this case representing an asynchronous  // server) and the completion queue \"cq\" used for asynchronous communication  // server) and the completion queue \"cq\" used for asynchronous communication // server) and the completion queue \"cq\" used for asynchronous communication  // with the gRPC runtime. new CallData(&service_, cq_.get());  new CallData(&service_, cq_.get());  & void* tag; // uniquely identifies a request. You can see our complete server example in [greeter\\_async\\_server.cc](https://github.com/grpc/grpc/blob/v1.78.1/examples/cpp/helloworld/greeter_async_server.cc).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Finding out why grpc async service got a longer latency in ...",
+        "url": "https://groups.google.com/g/grpc-io/c/qjNNMy6TJ78",
+        "snippet": "# Finding out why grpc async service got a longer latency in client side than server. But on a quite high pressure, the clients side got a longer latency than the time our business transaction taken (about 5-6 seconds, it couldn’t be network lagging) I think the requests were queued a long time in the completion-queue, but as I said, adding more threads and completion-queue seemed not helping. I got a reason that maybe related to the problem, we spawn a new CallData after current process done, everything is almost ok:. // the tag uniquely identifying the request (so that different CallData. // the memory address of this CallData instance. // add a new CallData to the completion queue after handled the current request. // otherwise grpc will use the completion queue again. // Spawn a new CallData instance to serve new clients while we process. responder\\_.Finish(reply\\_, grpc::Status::OK, this);. // Once in the FINISH state, deallocate ourselves (CallData).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "grpc completion queue delivering messages to application ...",
+        "url": "https://github.com/grpc/grpc/issues/19658",
+        "snippet": "grpc completion queue delivering messages to application in a reversed order as opposite to client entrusting. #19658. New issue.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "grpc client may hang forever · Issue #23341",
+        "url": "https://github.com/grpc/grpc/issues/23341",
+        "snippet": "The rpc sent by the first greeter_async_client2 always successed. The rpc sent by the second greeter_async_client2 always failed at first, and",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      }
+    ],
+    "grok": [
+      {
+        "title": "gRPC Deadlines and RPC Cancellation",
+        "url": "https://grpc.io/docs/guides/deadlines/",
+        "snippet": "Explains deadlines in gRPC which act as timeouts for RPC calls. Covers how servers detect cancellation and how clients handle timeouts, including correlation of responses that may arrive after deadline expiration.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.325
+      },
+      {
+        "title": "Understanding gRPC: RPC Lifecycle and Async Behavior",
+        "url": "https://grpc.io/docs/what-is-grpc/core-concepts/",
+        "snippet": "Official gRPC documentation covering request-response lifecycle, server streaming, client streaming, bidirectional streaming, and how asynchronous calls are managed with completion queues and tags for correlation.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.375
+      },
+      {
+        "title": "gRPC C++ - Asynchronous API Overview",
+        "url": "https://grpc.github.io/grpc/cpp/md_doc_async.html",
+        "snippet": "Detailed explanation of the gRPC C++ Async API, including how to correlate replies using unique tags, handling completion queues, and dealing with responses that arrive after a call has timed out or been cancelled.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.5
+      },
+      {
+        "title": "Handling stale responses in asynchronous RPC systems",
+        "url": "https://stackoverflow.com/questions/24884882/how-to-handle-stale-responses-in-async-rpc-calls",
+        "snippet": "Discussion on techniques to prevent processing of stale/out-of-order responses in asynchronous RPC patterns, including correlation IDs, request tables, generation counters, and discarding late replies after timeout.",
+        "published_date": "2014-07-22",
+        "source": "grok",
+        "score": 0.595
+      },
+      {
+        "title": "Timeout handling and response correlation in distributed systems",
+        "url": "https://www.microsoft.com/en-us/research/publication/timeouts-distributed-systems/",
+        "snippet": "Microsoft research paper discussing timeout semantics, correlation of asynchronous responses, and strategies to avoid acting on stale replies in large-scale distributed RPC systems.",
+        "published_date": "2019-05-15",
+        "source": "grok",
+        "score": 0.245
+      },
+      {
+        "title": "Offensive Windows IPC Internals 3: ALPC",
+        "url": "https://csandker.io/2022/05/24/Offensive-Windows-IPC-3-ALPC.html",
+        "snippet": "Detailed reverse engineering of ALPC message queues including Main queue (message sent, client processing) and Pending queue (message sent, caller waiting for reply but no reply yet). Covers asynchronous replies, I/O completion ports for receiving replies, and ALPC port internals from reverse engineering efforts.",
+        "published_date": "2022-05-24",
+        "source": "grok",
+        "score": 0.42
+      },
+      {
+        "title": "Debugging and Reversing ALPC",
+        "url": "https://csandker.io/2022/05/29/Debugging-And-Reversing-ALPC.html",
+        "snippet": "Follow-up guide on debugging and reverse engineering ALPC internals, including hunting ALPC objects in kernel debugging, NtAlpcCreatePort flow, and practical steps for understanding ALPC behavior via tools like Ghidra and kernel debuggers.",
+        "published_date": "2022-05-29",
+        "source": "grok",
+        "score": 0.32
+      },
+      {
+        "title": "The Tragedy of ALPC - Unknown Windows Privilege Escalation Nday Vulnerability Research",
+        "url": "https://ti.qianxin.com/blog/articles/the-tragedy-of-alpc-unknown-windows-privilege-escalation-nday-vulnerability-research-in-august-en",
+        "snippet": "In-depth analysis of ALPC port structures, including PendingQueue, CompletionPort, and message handling like LPC_TERMINATION_MESSAGE. Discusses kernel behaviors around ALPC messages and ports in the context of vulnerability research.",
+        "published_date": "2025-01-07",
+        "source": "grok"
+      },
+      {
+        "title": "Windows Kernel LPE (a.k.a Chrome Sandbox Escape)",
+        "url": "https://theori.io/blog/chaining-n-days-to-compromise-all-part-2-windows-kernel-lpe-a-k-a-chrome-sandbox-escape",
+        "snippet": "Explains ALPC synchronous request flags (ALPC_MSGFLG_SYNC_REQUEST), message reply handling, WaitingThread in messages, and how pending requests/replies are managed in kernel functions like AlpcpProcessSynchronousRequest and AlpcpReceiveSynchronousReply.",
+        "published_date": "2024-03-31",
+        "source": "grok"
+      },
+      {
+        "title": "ALPC class - Win32 apps (Microsoft Learn)",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/etw/alpc",
+        "snippet": "Official Microsoft ETW documentation for ALPC events, including Send Message, Receive Message, and Wait for Reply events, useful for tracing and understanding ALPC message flows including replies and pending operations.",
+        "published_date": "2021-01-07",
+        "source": "grok",
+        "score": 0.62
+      },
+      {
+        "title": "Asynchronous-API tutorial | C++",
+        "url": "https://grpc.io/docs/languages/cpp/async",
+        "snippet": "gRPC uses the CompletionQueue API for asynchronous operations. The basic workflow is: bind a CompletionQueue to an RPC call, perform operations like read or write with a unique void* tag, and wait for completion. A tag indicates the operation is complete. For async clients, create a channel and stub, then use unique tags to correlate responses from the shared completion queue.",
+        "published_date": "2022-02-17",
+        "source": "grok"
+      },
+      {
+        "title": "Confusion around CompletionQueue in an async C++ client",
+        "url": "https://github.com/grpc/grpc/issues/22266",
+        "snippet": "Discussion on using a shared CompletionQueue across multiple requests/threads in async C++ client. Explains that unique tags per RPC (not per thread) allow correlation of responses. Responses can arrive in any order; the tag identifies which call the completion belongs to, preventing misdelivery in multi-threaded scenarios.",
+        "published_date": "2020-03-08",
+        "source": "grok",
+        "score": 0.595
+      },
+      {
+        "title": "GRPC C++: grpc::CompletionQueue Class Reference",
+        "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_completion_queue.html",
+        "snippet": "Official API reference for CompletionQueue. Describes Next() for blocking until an event, returning the user-provided tag and ok status. Tags are used to correlate asynchronous operations, essential for handling pending calls and out-of-order completions in async clients.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.525
+      },
+      {
+        "title": "Writing Asynchronous Streaming gRPC Services In C++",
+        "url": "https://www.gresearch.com/news/lessons-learnt-from-writing-asynchronous-streaming-grpc-services-in-c",
+        "snippet": "Details challenges with pending operations and completion queue ordering in async gRPC C++. Notes that writes add to the front of the queue and only one outstanding write per stream is allowed. Uses grpc::Alarm for timing/delayed handling, relevant to late or delayed response processing.",
+        "published_date": "2019-12-03",
+        "source": "grok",
+        "score": 0.295
+      },
+      {
+        "title": "Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries",
+        "url": "https://www.ioactive.com/breaking-protocol-buffers-reverse-engineering-grpc-binaries",
+        "snippet": "Guide on reverse engineering gRPC binaries, including vtable layouts for RPC implementations and common patterns in async calls. Useful for understanding internal call correlation and pending operations when analyzing gRPC clients without source code.",
+        "published_date": "2021-07-30",
+        "source": "grok",
+        "score": 0.32
+      }
+    ]
+  }
+}
