@@ -1,0 +1,722 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering compare runs nondeterminism first divergence rr pernosco trace diff",
+    "time travel debugging compare execution nondeterministic noise first meaningful divergence replay debugging",
+    "trace diff debugging nondeterminism alignment compare runs scheduler noise"
+  ],
+  "count": 36,
+  "results": [
+    {
+      "title": "bug: compare runs doesn't work properly with multiple traces for ...",
+      "url": "https://github.com/langfuse/langfuse/issues/4541",
+      "snippet": "",
+      "published_date": "2024-12-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "rr delta/diff · Issue #2366 · rr-debugger/rr - GitHub",
+      "url": "https://github.com/rr-debugger/rr/issues/2366",
+      "snippet": "What I want is to do 2 runs of RR, 1 before and 1 after the patch. ... difference by using grep and co, and compare with diff and e.g. diffr .",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.69
+    },
+    {
+      "title": "Time Travel Debugging - Replay a trace - Windows drivers - Microsoft",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-replay",
+      "snippet": "# Time Travel Debugging - Replay a trace. For more information, see Time Travel Debugging - Navigation commands. (3f78.4274): Break instruction exception - code 80000003 (first/second chance not available) Time Travel Position: 29:0 ntdll! 0:000> p Time Travel Position: F:1 ntdll! LdrpInitializeProcess+0x1bd2 (7774f835) [br=1] 0:000> p Time Travel Position: F:2 ntdll! LdrpInitializeProcess+0x1bd2: 7774f835 83bdd0feffff00 cmp dword ptr [ebp-130h],0 ss:002b:010ff454=00000000 0:000> p Time Travel Position: F:3 ntdll! 0:000> t Time Travel Position: F:4 ntdll! LdrpInitializeProcess+0x42f: 7774e092 33c0 xor eax,eax 0:000> t Time Travel Position: F:5 ntdll! 0:000> p- Time Travel Position: F:4 ntdll! LdrpInitializeProcess+0x42f: 7774e092 33c0 xor eax,eax 0:000> p- Time Travel Position: F:3 ntdll! tt command to navigate forward or backwards in time, by skipping to a given position in the trace. positions command output, click on the link next to the third thread (3FFC), to time travel to that position in the trace, 200:0. Time Travel Debugging - Record a trace. Time Travel Debugging - Working with trace files.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "Time Travel Debugging Overview - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-overview",
+      "snippet": "Time Travel Debugging (TTD) is a tool that captures a trace of your process as it executes and replays it later both forwards and backwards. TTD is efficient and works to add as little overhead as possible as it captures code execution in trace files. In addition to recording traces in the WinDbg UI, there is a TTD.exe command line utility available to record a trace. For more information, see Time Travel Debugging - TTD.exe command line utility. A trace file (`.run`) stores the code execution during recording. For more information on working with trace files, see Time Travel Debugging - Working with trace files. For information about working with the TTD debugger object model, see Time Travel Debugging - Introduction to Time Travel Debugging objects. The TTD.exe command line utility to record traces is available. For more information, see Time Travel Debugging - TTD.exe command line utility.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.63
+    },
+    {
+      "title": "A Trace-Based Assurance Framework for Agentic AI Orchestration",
+      "url": "https://arxiv.org/html/2603.18096v1",
+      "snippet": "",
+      "published_date": "2026-03-18T03:17:50.726Z",
+      "source": "exa, tavily, grok",
+      "score": 0.63
+    },
+    {
+      "title": "MCFLY: Time-Travel Debugging for the Web",
+      "url": "https://arxiv.org/pdf/1810.11865",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How can I compare different execution traces of the same exe, but ...",
+      "url": "https://reverseengineering.stackexchange.com/questions/33334/how-can-i-compare-different-execution-traces-of-the-same-exe-but-ran-with-diffe",
+      "snippet": "",
+      "published_date": "2024-12-08T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.59
+    },
+    {
+      "title": "DiffTrace: Efficient Whole-Program Trace Analysis and Diffing for Debugging",
+      "url": "https://userweb.cs.txstate.edu/~mb92/papers/cluster19.pdf",
+      "snippet": "We present a tool called DiffTrace that approaches debugging via whole program tracing and diffing of typical and erroneous traces.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.56
+    },
+    {
+      "title": "Instant replay: Debugging C and C++ programs with rr | Hacker News",
+      "url": "https://news.ycombinator.com/item?id=27034588",
+      "snippet": "In addition to replaying the trace, rr lets you run the program in reverse, in essence allowing you “rewind the tape” to see what happened",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.56
+    },
+    {
+      "title": "[PDF] PERFORMANCE PROFILERS AND DEBUGGING TOOLS FOR ...",
+      "url": "https://people.cs.rutgers.edu/~santosh.nagarakatte/nader-moradi-phd-thesis.pdf",
+      "snippet": "To address this problem, we introduce OMP-ADVISER, a parallelism-centric performance analysis tool for OpenMP programs with what-if analyses. To detect data races, OMP-RACER constructs the program’s OSPG to encode the logical series-parallel relation for different serial fragments of the program. Our results with testing the OMP-ADVISER and OMP-RACER prototypes with 40 OpenMP applications and benchmarks indicate their respective effectiveness in performance analysis and data race detection. In Proceedings of the 21st ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming, PPoPP ’16, pages 28:1–28:13, 2016. In Proceedings of the 14th ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming, PPoPP, pages 229–240, 2009. In Proceedings of the 15th ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming, PPoPP, pages 269–280, 2010.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.53
+    },
+    {
+      "title": "Reverse Engineering through trace diffing - several approaches",
+      "url": "https://blog.tetrane.com/2021/reverse-engineering-through-trace-diffing-several-approaches.html",
+      "snippet": "",
+      "published_date": "2021-06-03T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.52
+    },
+    {
+      "title": "DCR: Replay Debugging for the Datacenter",
+      "url": "https://www2.eecs.berkeley.edu/Pubs/TechRpts/2010/EECS-2010-74.html",
+      "snippet": "To help remedy the situation, we have built a new replay debugging tool. Our tool, called DCR, enables the reproduction and debugging of non-deterministic executions in distributed systems.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.5
+    },
+    {
+      "title": "Taming Nondeterminism: How to Achieve Run-to-Run Consistency ...",
+      "url": "https://medium.com/@shujuanhuang/taming-nondeterminism-how-to-achieve-run-to-run-consistency-in-genai-autograding-95a6539d676b",
+      "snippet": "",
+      "published_date": "2026-02-22T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.43
+    },
+    {
+      "title": "How to debug an Effectively Deterministic Time Travel ...",
+      "url": "https://medium.com/replay-io/how-to-debug-an-effectively-deterministic-time-travel-debugger-seriously-how-ba4d59965b7a",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.4
+    },
+    {
+      "title": "How to debug an Effectively Deterministic Time Travel Debugger? (Seriously…how?!)",
+      "url": "https://blog.replay.io/how-to-debug-an-effectively-deterministic-time-travel-debugger-(seriously...how!)",
+      "snippet": "",
+      "published_date": "2022-03-31T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4
+    },
+    {
+      "title": "A Gray Box Approach For High-Fidelity, High-Speed Time-Travel Debugging",
+      "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/06/GrayBoxTTD.pdf",
+      "snippet": "Time-travel debugging (TTD) lets developers step backward as well as forward through a program's execution. ... The interrogative methods allow the debugger to recreate nondeterministic network events at replay time. ... If this nondeterminism is not faithfully recreated at replay time, subsequent program behavior may diverge from the logging-time behavior. In the example above, divergence would result in the replay-time program taking a different branch than the logging-time program, leading to a divergent assignment to x.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.39
+    },
+    {
+      "title": "How To Track Down Divergence Bugs In rr - Robert O'Callahan",
+      "url": "https://robert.ocallahan.org/2016/06/how-to-track-down-divergence-bugs-in-rr.html",
+      "snippet": "* Update To rr Master To Debug Firefox Trunk. * Using rr To Debug Go Programs. * How To Track Down Divergence Bugs In rr. * Using rr To Debug Dropped Video Frames In Gecko. As you'd hope, rr itself is very useful for this; you can replay right up to the divergence point and reverse-stepi to see where the bad value is set. For bugs where we know we've recorded the correct data but replay goes wrong, we have the ability to record rr replay under rr (and, obviously, replay it), so we can actually use reverse-execution debugging to debug rr's replay code. If QEMU could run rr with record-and-replay support that would be pretty useful to me, but AFAIK performance counters aren't supported unless you use KVM. Yes, I didn't know about rr last time I had to debug PANDA, but I'm currently staring down ~500 failed replays (replaying 50,000 malware samples will do that...) and planning on giving it a try.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.36
+    },
+    {
+      "title": "Selecting A Compression Algorithm For rr - Eyes Above The Waves",
+      "url": "https://robert.ocallahan.org/2017/07/selecting-compression-algorithm-for-rr.html",
+      "snippet": "I used the Squash framework to compare zlib to two contenders, brotli and zstd, on actual rr trace data: a single, fairly short Firefox run, 828MB uncompressed.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Deterministic Debugging: How Time-Travel Traces Supercharge Code-Debugging AI | DebuggAI Resources",
+      "url": "https://debugg.ai/resources/deterministic-debugging-time-travel-traces-ai",
+      "snippet": "",
+      "published_date": "2025-11-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Taming Flaky Tests with Debug AI: Trace Replay Architectures that Actually Work | DebuggAI Resources",
+      "url": "https://debugg.ai/resources/taming-flaky-tests-debug-ai-trace-replay-architectures",
+      "snippet": "",
+      "published_date": "2026-01-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Reproducible Code Debugging AI in CI/CD: Pin Prompts, Seed Models, and Trace Artifacts for Auditable, Rollback-Safe Fixes | DebuggAI Resources",
+      "url": "https://debugg.ai/resources/reproducible-code-debugging-ai-pin-prompts-seed-models-trace-artifacts-ci-cd",
+      "snippet": "",
+      "published_date": "2025-10-28T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Concurrency Debugging with Differential Schedule Projections",
+      "url": "https://www.dpss.inesc-id.pt/~nmachado/papers/pldi15-nmachado.pdf",
+      "snippet": "",
+      "published_date": "2015-09-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "[PDF] TraceSanitizer – Eliminating the Effects of Non-determinism on Error ...",
+      "url": "https://blogs.ubc.ca/karthik/files/2020/04/dsn20-paper.pdf",
+      "snippet": "input : Execution trace σ output : Set O of symbolic memory objects, such that each concrete memory object referenced in σ is mapped to exactly one symbolic memory object 1 O ;; 2 foreach e 2 σ do 3 g idx e.getGlobalIndex(); 4 t e.getThread(); 5 if e.isAllocation() then 6 size e.getSize(); 7 bAddr e.getBaseAddr(); 8 val [g idx, ]; 9 l idx e.getLocalIndex(); 10 s e.isStackAllocation(); 11 o (bAddr, t, l idx, size, val, s); 12 append o to O; 13 if e.isDeAlloaction() then // for heap objects 14 o getObject(e.getBaseAddr()); 15 o.updateValidity(g idx); 16 if e.isNewScope() then 17 sp[t] g idx; 18 if e.isExitScope() then // for stack objects 19 foreach o 2 O s.t. o.getThread() = t ^ o.s ^ o.getValidityStart() > sp[t] do 20 o.updateEndValidity(g idx); 21 sp[t] restoreStackPointer(); object abstraction algorithm that deals with memory alloca-tion non-determinism by tracking the order in which memory addresses are allocated to achieve a canonical naming where ev-ery object is uniquely identiﬁed by its position in the sequence of allocated objects (Section IV-C1), and 2) a thread identity abstraction algorithm that handles non-deterministic scheduling by tracking the order in which threads are spawned relatively to their spawning thread and naming them accordingly to achieve consistent IDs across multiple executions (Section IV-C2).",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.33
+    },
+    {
+      "title": "A formalization of Heisenbugs and their causes in terms of ...",
+      "url": "https://link.springer.com/article/10.1007/s10270-025-01345-7",
+      "snippet": "Our definition accommodates deviations caused by nondeterminism in a single program, e.g., due to concurrency, as well as deviating behavior of",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "[PDF] Efficient Deterministic Multithreading through Schedule Relaxation",
+      "url": "https://www.sigops.org/s/conferences/sosp/2011/current/2011-Cascais/printable/24-cui.pdf",
+      "snippet": "The hybrid schedules it computes are fully deterministic for programs that (1) have no nondeterminism sources beyond thread scheduling, data races, and inputs tracked by PEREGRINE and (2) adhere to the assumptions of the tools PEREGRINE uses. Our results show that PEREGRINE is both determin-istic and efﬁcient (executions reusing schedules range from 68.7% faster to 46.6% slower than nondeterministic executions); it can fre-quently reuse schedules for half of the programs (e.g., two sched-ules cover all possible inputs to PBZip2 compression as long as the number of threads is the same); both its slicing and simpliﬁcation techniques are crucial for increasing schedule-reuse rates, and have reasonable overhead when run ofﬂine; its recording overhead is rel-atively high, but can be reduced using existing techniques [13]; and it requires no manual efforts except a few annotations for handling server programs and for improving precision.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.33
+    },
+    {
+      "title": "Undo vs rr - What's the Difference?",
+      "url": "https://undo.io/resources/undo-vs-rr/",
+      "snippet": "",
+      "published_date": "2025-01-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Diffoscope: recursive diffs",
+      "url": "https://perrotta.dev/2024/08/diffoscope-recursive-diffs",
+      "snippet": "",
+      "published_date": "2024-08-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Time-Travel CI: Deterministic Replay Meets Debug AI to Kill Heisenbugs | DebuggAI Resources",
+      "url": "https://debugg.ai/resources/time-travel-ci-deterministic-replay-debug-ai-heisenbugs",
+      "snippet": "",
+      "published_date": "2025-11-19T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "An interactive debugging approach based on time- ...",
+      "url": "https://theses.hal.science/tel-04512544/file/These_WILLEMBRINCK_SANTANDER_Maximilian.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Time-travel debugging production code - Temporal",
+      "url": "https://temporal.io/blog/time-travel-debugging-production-code",
+      "snippet": "There are three main approaches to implementing time-travel debugging: Record & Replay: Record all non-deterministic inputs to a program during",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Time travel debugging (a.k.a. reversible debugging) - YouTube",
+      "url": "https://www.youtube.com/watch?v=pmu3_6a7U8E",
+      "snippet": "Time travel debugging allows you to step back in your program's execution to see what the program did and examine the data prior to an",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Time Travel Debugging - Greg Law - Meeting C++ 2023 - YouTube",
+      "url": "https://www.youtube.com/watch?v=qyGdk6QMpMY",
+      "snippet": "... Time travel debugging can be incredibly powerful: it allows you to rewind your program's execution to any line of code that executed and see",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "[PDF] Fray: An Efficient General-Purpose Concurrency Testing Platform for ...",
+      "url": "https://rohan.padhye.org/files/fray-oopsla25.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "rr: lightweight recording & deterministic debugging",
+      "url": "https://rr-project.org/",
+      "snippet": "rr records a group of Linux user-space processes and captures all inputs to those processes from the kernel, plus any nondeterministic CPU instructions. You record a failure once, then debug the recording deterministically, as many times as you want. The same execution is replayed every time. Remember, you're debugging the recorded trace deterministically; not a live, nondeterministic execution.",
+      "published_date": "2024-10-18",
+      "source": "grok, exa",
+      "score": 0.25
+    },
+    {
+      "title": "The Record-and-Replay Approach to Debugging",
+      "url": "https://queue.acm.org/detail.cfm?id=3391621",
+      "snippet": "When work began at Mozilla on the record-and-replay debugging tool called rr, the goal was to produce a practical, cost-effective, resource-efficient means for capturing low-frequency nondeterministic test failures in the Firefox browser. ... If you miss something, the behavior you'll observe when you replay is probably going to diverge from what actually happened... If the CPUs are deterministic and you execute one million instructions starting from some particular state while recording, you should end up in the same state in the replay. But if you execute one million and three instructions in the replay, you're probably going to end up in some different state.",
+      "published_date": "2020-03-28",
+      "source": "grok",
+      "score": 0.25
+    },
+    {
+      "title": "Antithesis of a One-in-a-Million Bug: Taming Demonic Nondeterminism",
+      "url": "https://www.cockroachlabs.com/blog/demonic-nondeterminism",
+      "snippet": "A new determinism model premised on the idea that effective debugging entails reproducing the same failure and the same root cause as the original execution.",
+      "published_date": "2024-03-21",
+      "source": "grok",
+      "score": 0.25
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "How to debug an Effectively Deterministic Time Travel ...",
+        "url": "https://medium.com/replay-io/how-to-debug-an-effectively-deterministic-time-travel-debugger-seriously-how-ba4d59965b7a",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.4
+      },
+      {
+        "title": "Time-Travel CI: Deterministic Replay Meets Debug AI to Kill Heisenbugs | DebuggAI Resources",
+        "url": "https://debugg.ai/resources/time-travel-ci-deterministic-replay-debug-ai-heisenbugs",
+        "snippet": "",
+        "published_date": "2025-11-19T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "How to debug an Effectively Deterministic Time Travel Debugger? (Seriously…how?!)",
+        "url": "https://blog.replay.io/how-to-debug-an-effectively-deterministic-time-travel-debugger-(seriously...how!)",
+        "snippet": "",
+        "published_date": "2022-03-31T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Deterministic Debugging: How Time-Travel Traces Supercharge Code-Debugging AI | DebuggAI Resources",
+        "url": "https://debugg.ai/resources/deterministic-debugging-time-travel-traces-ai",
+        "snippet": "",
+        "published_date": "2025-11-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "MCFLY: Time-Travel Debugging for the Web",
+        "url": "https://arxiv.org/pdf/1810.11865",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "An interactive debugging approach based on time- ...",
+        "url": "https://theses.hal.science/tel-04512544/file/These_WILLEMBRINCK_SANTANDER_Maximilian.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "A Trace-Based Assurance Framework for Agentic AI Orchestration",
+        "url": "https://arxiv.org/html/2603.18096v1",
+        "snippet": "",
+        "published_date": "2026-03-18T03:17:50.726Z",
+        "source": "exa, tavily, grok",
+        "score": 0.63
+      },
+      {
+        "title": "Taming Flaky Tests with Debug AI: Trace Replay Architectures that Actually Work | DebuggAI Resources",
+        "url": "https://debugg.ai/resources/taming-flaky-tests-debug-ai-trace-replay-architectures",
+        "snippet": "",
+        "published_date": "2026-01-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Reproducible Code Debugging AI in CI/CD: Pin Prompts, Seed Models, and Trace Artifacts for Auditable, Rollback-Safe Fixes | DebuggAI Resources",
+        "url": "https://debugg.ai/resources/reproducible-code-debugging-ai-pin-prompts-seed-models-trace-artifacts-ci-cd",
+        "snippet": "",
+        "published_date": "2025-10-28T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "[PDF] Fray: An Efficient General-Purpose Concurrency Testing Platform for ...",
+        "url": "https://rohan.padhye.org/files/fray-oopsla25.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Concurrency Debugging with Differential Schedule Projections",
+        "url": "https://www.dpss.inesc-id.pt/~nmachado/papers/pldi15-nmachado.pdf",
+        "snippet": "",
+        "published_date": "2015-09-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Taming Nondeterminism: How to Achieve Run-to-Run Consistency ...",
+        "url": "https://medium.com/@shujuanhuang/taming-nondeterminism-how-to-achieve-run-to-run-consistency-in-genai-autograding-95a6539d676b",
+        "snippet": "",
+        "published_date": "2026-02-22T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.43
+      },
+      {
+        "title": "How can I compare different execution traces of the same exe, but ...",
+        "url": "https://reverseengineering.stackexchange.com/questions/33334/how-can-i-compare-different-execution-traces-of-the-same-exe-but-ran-with-diffe",
+        "snippet": "",
+        "published_date": "2024-12-08T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.59
+      },
+      {
+        "title": "Reverse Engineering through trace diffing - several approaches",
+        "url": "https://blog.tetrane.com/2021/reverse-engineering-through-trace-diffing-several-approaches.html",
+        "snippet": "",
+        "published_date": "2021-06-03T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.52
+      },
+      {
+        "title": "Undo vs rr - What's the Difference?",
+        "url": "https://undo.io/resources/undo-vs-rr/",
+        "snippet": "",
+        "published_date": "2025-01-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "rr: lightweight recording & deterministic debugging",
+        "url": "https://rr-project.org/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Diffoscope: recursive diffs",
+        "url": "https://perrotta.dev/2024/08/diffoscope-recursive-diffs",
+        "snippet": "",
+        "published_date": "2024-08-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "bug: compare runs doesn't work properly with multiple traces for ...",
+        "url": "https://github.com/langfuse/langfuse/issues/4541",
+        "snippet": "",
+        "published_date": "2024-12-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.69
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Time-travel debugging production code - Temporal",
+        "url": "https://temporal.io/blog/time-travel-debugging-production-code",
+        "snippet": "There are three main approaches to implementing time-travel debugging: Record & Replay: Record all non-deterministic inputs to a program during",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Time Travel Debugging Overview - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-overview",
+        "snippet": "Time Travel Debugging (TTD) is a tool that captures a trace of your process as it executes and replays it later both forwards and backwards. TTD is efficient and works to add as little overhead as possible as it captures code execution in trace files. In addition to recording traces in the WinDbg UI, there is a TTD.exe command line utility available to record a trace. For more information, see Time Travel Debugging - TTD.exe command line utility. A trace file (`.run`) stores the code execution during recording. For more information on working with trace files, see Time Travel Debugging - Working with trace files. For information about working with the TTD debugger object model, see Time Travel Debugging - Introduction to Time Travel Debugging objects. The TTD.exe command line utility to record traces is available. For more information, see Time Travel Debugging - TTD.exe command line utility.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.63
+      },
+      {
+        "title": "Time travel debugging (a.k.a. reversible debugging) - YouTube",
+        "url": "https://www.youtube.com/watch?v=pmu3_6a7U8E",
+        "snippet": "Time travel debugging allows you to step back in your program's execution to see what the program did and examine the data prior to an",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Time Travel Debugging - Greg Law - Meeting C++ 2023 - YouTube",
+        "url": "https://www.youtube.com/watch?v=qyGdk6QMpMY",
+        "snippet": "... Time travel debugging can be incredibly powerful: it allows you to rewind your program's execution to any line of code that executed and see",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Time Travel Debugging - Replay a trace - Windows drivers - Microsoft",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-replay",
+        "snippet": "# Time Travel Debugging - Replay a trace. For more information, see Time Travel Debugging - Navigation commands. (3f78.4274): Break instruction exception - code 80000003 (first/second chance not available) Time Travel Position: 29:0 ntdll! 0:000> p Time Travel Position: F:1 ntdll! LdrpInitializeProcess+0x1bd2 (7774f835) [br=1] 0:000> p Time Travel Position: F:2 ntdll! LdrpInitializeProcess+0x1bd2: 7774f835 83bdd0feffff00 cmp dword ptr [ebp-130h],0 ss:002b:010ff454=00000000 0:000> p Time Travel Position: F:3 ntdll! 0:000> t Time Travel Position: F:4 ntdll! LdrpInitializeProcess+0x42f: 7774e092 33c0 xor eax,eax 0:000> t Time Travel Position: F:5 ntdll! 0:000> p- Time Travel Position: F:4 ntdll! LdrpInitializeProcess+0x42f: 7774e092 33c0 xor eax,eax 0:000> p- Time Travel Position: F:3 ntdll! tt command to navigate forward or backwards in time, by skipping to a given position in the trace. positions command output, click on the link next to the third thread (3FFC), to time travel to that position in the trace, 200:0. Time Travel Debugging - Record a trace. Time Travel Debugging - Working with trace files.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "How to debug an Effectively Deterministic Time Travel Debugger ...",
+        "url": "https://blog.replay.io/how-to-debug-an-effectively-deterministic-time-travel-debugger-(seriously...how!)",
+        "snippet": "Replay turns a program’s entire execution into a first-class object. And why do we want to turn a program execution from an event to an object? Or to be more precise: we don’t understand all the possible ways in which the programs we have written can execute. Traditional debuggers try to do this but they don’t turn executions into objects. It does so by *partially* recording the low-level system interaction of the program from the start of execution to the end, and then reconstructing the execution on-demand by re-executing it from the start in a virtualized environment, using the previously recorded information to simulate “the world as it was” when the original execution occurred. By doing so, it acquires the ability to force programs to re-execute the same way the 2nd, 3rd, or Nth time. And using *that* mechanism, we can build tools and UIs that let us answer questions about the state of the program at any point in time during the execution.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] TraceSanitizer – Eliminating the Effects of Non-determinism on Error ...",
+        "url": "https://blogs.ubc.ca/karthik/files/2020/04/dsn20-paper.pdf",
+        "snippet": "input : Execution trace σ output : Set O of symbolic memory objects, such that each concrete memory object referenced in σ is mapped to exactly one symbolic memory object 1 O ;; 2 foreach e 2 σ do 3 g idx e.getGlobalIndex(); 4 t e.getThread(); 5 if e.isAllocation() then 6 size e.getSize(); 7 bAddr e.getBaseAddr(); 8 val [g idx, ]; 9 l idx e.getLocalIndex(); 10 s e.isStackAllocation(); 11 o (bAddr, t, l idx, size, val, s); 12 append o to O; 13 if e.isDeAlloaction() then // for heap objects 14 o getObject(e.getBaseAddr()); 15 o.updateValidity(g idx); 16 if e.isNewScope() then 17 sp[t] g idx; 18 if e.isExitScope() then // for stack objects 19 foreach o 2 O s.t. o.getThread() = t ^ o.s ^ o.getValidityStart() > sp[t] do 20 o.updateEndValidity(g idx); 21 sp[t] restoreStackPointer(); object abstraction algorithm that deals with memory alloca-tion non-determinism by tracking the order in which memory addresses are allocated to achieve a canonical naming where ev-ery object is uniquely identiﬁed by its position in the sequence of allocated objects (Section IV-C1), and 2) a thread identity abstraction algorithm that handles non-deterministic scheduling by tracking the order in which threads are spawned relatively to their spawning thread and naming them accordingly to achieve consistent IDs across multiple executions (Section IV-C2).",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.33
+      },
+      {
+        "title": "Taming Nondeterminism: How to Achieve Run-to-Run Consistency ...",
+        "url": "https://medium.com/@shujuanhuang/taming-nondeterminism-how-to-achieve-run-to-run-consistency-in-genai-autograding-95a6539d676b",
+        "snippet": "But when we deploy Generative AI as an **automated judge** — a system responsible for evaluating, grading, and gating other AI models — randomness stops being charming and starts being dangerous. This layering ensures targeted fixes — e.g., if decomposition shows 60% batching, prioritize Layer 3 without touching hardware. **Add IRT (Item Response Theory) Diagnostics:**IRT is a psychometric framework from education/testing — to analyze your autograder as a “judge.” It models how reliable the system is per “item” (e.g., rubric criteria like “factuality” or “helpfulness”).IRT spots if certain rubric items are biased (e.g., always scoring high) or too hard/easy (causing variance). **Defeating Nondeterminism in LLM Inference**_Thinking Machines Lab (2025)_ The foundational systems research that isolated “Batch Non-Invariance” as the primary culprit for run-to-run inconsistency, introducing the concept of Batch-Invariant Kernels. **How to Get Consistent and Reproducible LLM Outputs**_Keywords AI (2025)_ A highly practical, API-level overview of controlling random seeds, temperature settings, and managing upstream provider backend drift.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "A formalization of Heisenbugs and their causes in terms of ...",
+        "url": "https://link.springer.com/article/10.1007/s10270-025-01345-7",
+        "snippet": "Our definition accommodates deviations caused by nondeterminism in a single program, e.g., due to concurrency, as well as deviating behavior of",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "[PDF] Efficient Deterministic Multithreading through Schedule Relaxation",
+        "url": "https://www.sigops.org/s/conferences/sosp/2011/current/2011-Cascais/printable/24-cui.pdf",
+        "snippet": "The hybrid schedules it computes are fully deterministic for programs that (1) have no nondeterminism sources beyond thread scheduling, data races, and inputs tracked by PEREGRINE and (2) adhere to the assumptions of the tools PEREGRINE uses. Our results show that PEREGRINE is both determin-istic and efﬁcient (executions reusing schedules range from 68.7% faster to 46.6% slower than nondeterministic executions); it can fre-quently reuse schedules for half of the programs (e.g., two sched-ules cover all possible inputs to PBZip2 compression as long as the number of threads is the same); both its slicing and simpliﬁcation techniques are crucial for increasing schedule-reuse rates, and have reasonable overhead when run ofﬂine; its recording overhead is rel-atively high, but can be reduced using existing techniques [13]; and it requires no manual efforts except a few annotations for handling server programs and for improving precision.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.33
+      },
+      {
+        "title": "[PDF] PERFORMANCE PROFILERS AND DEBUGGING TOOLS FOR ...",
+        "url": "https://people.cs.rutgers.edu/~santosh.nagarakatte/nader-moradi-phd-thesis.pdf",
+        "snippet": "To address this problem, we introduce OMP-ADVISER, a parallelism-centric performance analysis tool for OpenMP programs with what-if analyses. To detect data races, OMP-RACER constructs the program’s OSPG to encode the logical series-parallel relation for different serial fragments of the program. Our results with testing the OMP-ADVISER and OMP-RACER prototypes with 40 OpenMP applications and benchmarks indicate their respective effectiveness in performance analysis and data race detection. In Proceedings of the 21st ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming, PPoPP ’16, pages 28:1–28:13, 2016. In Proceedings of the 14th ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming, PPoPP, pages 229–240, 2009. In Proceedings of the 15th ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming, PPoPP, pages 269–280, 2010.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.53
+      },
+      {
+        "title": "A Trace-Based Assurance Framework for Agentic AI Orchestration",
+        "url": "https://arxiv.org/html/2603.18096v1",
+        "snippet": "Let xx denote a task instance and let τ​(x,δ,Π)\\tau(x,\\delta,\\Pi) be the resulting execution trace when the system is exposed to a perturbation schedule δ\\delta and mediated by a governance policy Π\\Pi. Let Ks=|ℐstep|K\\_{s}=|\\mathcal{I}^{\\mathrm{step}}| and Kτ=|ℐtrace|K\\_{\\tau}=|\\mathcal{I}^{\\mathrm{trace}}| denote the number of step and trace contracts, respectively. Each stored replay is indexed by a *failure signature* derived from MAT, including (i) the first violated contract ID and severity, (ii) the triggering action type (e.g., tool call, memory write, delegation, final response), (iii) the affected interface class (service, retrieval, memory), (iv) the action risk label (high-impact vs. The framework (i) instruments runs as Message-Action Traces with step- and trace-level contracts, enabling localization of the first violating step and replay; (ii) formulates stress testing as budgeted counterexample search over bounded perturbations; (iii) supports structured fault injection at service, retrieval, and memory interfaces to test containment under realistic integration disturbances; and (iv) treats governance as a runtime component that mediates external actions through capability restrictions and allow/rewrite/block decisions at the language-to-action boundary.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "rr delta/diff · Issue #2366 · rr-debugger/rr - GitHub",
+        "url": "https://github.com/rr-debugger/rr/issues/2366",
+        "snippet": "What I want is to do 2 runs of RR, 1 before and 1 after the patch. ... difference by using grep and co, and compare with diff and e.g. diffr .",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.69
+      },
+      {
+        "title": "Reverse Engineering through trace diffing - several approaches",
+        "url": "https://blog.tetrane.com/2021/reverse-engineering-through-trace-diffing-several-approaches.html",
+        "snippet": "In this article, we will see how two analysis scenarios in REVEN can be compared by diffing their traces at different levels.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How To Track Down Divergence Bugs In rr - Robert O'Callahan",
+        "url": "https://robert.ocallahan.org/2016/06/how-to-track-down-divergence-bugs-in-rr.html",
+        "snippet": "* Update To rr Master To Debug Firefox Trunk. * Using rr To Debug Go Programs. * How To Track Down Divergence Bugs In rr. * Using rr To Debug Dropped Video Frames In Gecko. As you'd hope, rr itself is very useful for this; you can replay right up to the divergence point and reverse-stepi to see where the bad value is set. For bugs where we know we've recorded the correct data but replay goes wrong, we have the ability to record rr replay under rr (and, obviously, replay it), so we can actually use reverse-execution debugging to debug rr's replay code. If QEMU could run rr with record-and-replay support that would be pretty useful to me, but AFAIK performance counters aren't supported unless you use KVM. Yes, I didn't know about rr last time I had to debug PANDA, but I'm currently staring down ~500 failed replays (replaying 50,000 malware samples will do that...) and planning on giving it a try.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.36
+      },
+      {
+        "title": "How can I compare different execution traces of the same exe, but ...",
+        "url": "https://reverseengineering.stackexchange.com/questions/33334/how-can-i-compare-different-execution-traces-of-the-same-exe-but-ran-with-diffe",
+        "snippet": "#### Stack Exchange Network. Stack Exchange network consists of 183 Q&A communities including Stack Overflow, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers. ### more stack exchange communities. # How can I compare different execution traces of the same exe, but ran with different parameters? My goal is to compare the execution traces (e.g., function calls, memory accesses, or instruction flows) to identify differences caused by the input parameters. I want to capture the execution trace for two runs: one with `param1` and another with `param2`. How can I compare different execution flows? However, you cant really compare two different executions. Thanks for contributing an answer to Reverse Engineering Stack Exchange! Find the answer to your question by asking. ##### Stack Exchange Network.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Instant replay: Debugging C and C++ programs with rr | Hacker News",
+        "url": "https://news.ycombinator.com/item?id=27034588",
+        "snippet": "In addition to replaying the trace, rr lets you run the program in reverse, in essence allowing you “rewind the tape” to see what happened",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.56
+      },
+      {
+        "title": "Selecting A Compression Algorithm For rr - Eyes Above The Waves",
+        "url": "https://robert.ocallahan.org/2017/07/selecting-compression-algorithm-for-rr.html",
+        "snippet": "I used the Squash framework to compare zlib to two contenders, brotli and zstd, on actual rr trace data: a single, fairly short Firefox run, 828MB uncompressed.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      }
+    ],
+    "grok": [
+      {
+        "title": "rr: lightweight recording & deterministic debugging",
+        "url": "https://rr-project.org/",
+        "snippet": "rr records a group of Linux user-space processes and captures all inputs to those processes from the kernel, plus any nondeterministic CPU instructions. You record a failure once, then debug the recording deterministically, as many times as you want. The same execution is replayed every time. Remember, you're debugging the recorded trace deterministically; not a live, nondeterministic execution.",
+        "published_date": "2024-10-18",
+        "source": "grok, exa",
+        "score": 0.25
+      },
+      {
+        "title": "The Record-and-Replay Approach to Debugging",
+        "url": "https://queue.acm.org/detail.cfm?id=3391621",
+        "snippet": "When work began at Mozilla on the record-and-replay debugging tool called rr, the goal was to produce a practical, cost-effective, resource-efficient means for capturing low-frequency nondeterministic test failures in the Firefox browser. ... If you miss something, the behavior you'll observe when you replay is probably going to diverge from what actually happened... If the CPUs are deterministic and you execute one million instructions starting from some particular state while recording, you should end up in the same state in the replay. But if you execute one million and three instructions in the replay, you're probably going to end up in some different state.",
+        "published_date": "2020-03-28",
+        "source": "grok",
+        "score": 0.25
+      },
+      {
+        "title": "A Gray Box Approach For High-Fidelity, High-Speed Time-Travel Debugging",
+        "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/06/GrayBoxTTD.pdf",
+        "snippet": "Time-travel debugging (TTD) lets developers step backward as well as forward through a program's execution. ... The interrogative methods allow the debugger to recreate nondeterministic network events at replay time. ... If this nondeterminism is not faithfully recreated at replay time, subsequent program behavior may diverge from the logging-time behavior. In the example above, divergence would result in the replay-time program taking a different branch than the logging-time program, leading to a divergent assignment to x.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.39
+      },
+      {
+        "title": "DCR: Replay Debugging for the Datacenter",
+        "url": "https://www2.eecs.berkeley.edu/Pubs/TechRpts/2010/EECS-2010-74.html",
+        "snippet": "To help remedy the situation, we have built a new replay debugging tool. Our tool, called DCR, enables the reproduction and debugging of non-deterministic executions in distributed systems.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.5
+      },
+      {
+        "title": "Time Travel Debugging Overview - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-overview",
+        "snippet": "Time Travel Debugging (TTD) is a tool that captures a trace of your process as it executes and replays it later both forwards and backwards.",
+        "published_date": "2025-11-06",
+        "source": "grok"
+      },
+      {
+        "title": "How to debug an Effectively Deterministic Time Travel Debugger",
+        "url": "https://medium.com/replay-io/how-to-debug-an-effectively-deterministic-time-travel-debugger-seriously-how-ba4d59965b7a",
+        "snippet": "At Replay we're building a time travel debugger the likes of which hasn't been seen before. This is not normal software. ... addressing challenges with nondeterminism in time travel debugging.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "DiffTrace: Efficient Whole-Program Trace Analysis and Diffing for Debugging",
+        "url": "https://userweb.cs.txstate.edu/~mb92/papers/cluster19.pdf",
+        "snippet": "We present a tool called DiffTrace that approaches debugging via whole program tracing and diffing of typical and erroneous traces.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.56
+      },
+      {
+        "title": "TraceSanitizer – Eliminating the Effects of Non-determinism During Fault Localization",
+        "url": "https://blogs.ubc.ca/karthik/files/2020/04/dsn20-paper.pdf",
+        "snippet": "EPA is typically performed by injecting faults into the program, and comparing the fault-affected (faulty run) against the fault-free (golden run) execution.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Taming Nondeterminism: How to Achieve Run-to-Run Consistency in GenAI Autograding",
+        "url": "https://medium.com/@shujuanhuang/taming-nondeterminism-how-to-achieve-run-to-run-consistency-in-genai-autograding-95a6539d676b",
+        "snippet": "In high-throughput inference systems, nondeterminism lives far deeper — inside batching schedulers, CUDA kernels, and floating-point reductions.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Efficient Deterministic Multithreading through Schedule Replay",
+        "url": "https://www.sigops.org/s/conferences/sosp/2011/current/2011-Cascais/printable/24-cui.pdf",
+        "snippet": "This nondeterminism makes it difficult to write, test, and debug multithreaded programs. For instance, testing becomes less assuring because the schedules...",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "A Trace-Based Assurance Framework for Agentic AI Orchestration: Contracts, Testing, and Governance",
+        "url": "https://arxiv.org/html/2603.18096v1",
+        "snippet": "To support comparative evaluations across stochastic seeds, models, and orchestration configurations, the paper defines trace-based metrics for...",
+        "published_date": "2026-03-18",
+        "source": "grok"
+      },
+      {
+        "title": "Antithesis of a One-in-a-Million Bug: Taming Demonic Nondeterminism",
+        "url": "https://www.cockroachlabs.com/blog/demonic-nondeterminism",
+        "snippet": "A new determinism model premised on the idea that effective debugging entails reproducing the same failure and the same root cause as the original execution.",
+        "published_date": "2024-03-21",
+        "source": "grok",
+        "score": 0.25
+      },
+      {
+        "title": "How To Track Down Divergence Bugs In rr",
+        "url": "https://robert.ocallahan.org/2016/06/how-to-track-down-divergence-bugs-in-rr.html",
+        "snippet": "Practical guide to debugging divergence in rr recordings where replay fails to match the recorded execution due to unhandled nondeterminism, including techniques like singlestepping regions, dumping registers, and finding the first divergence point.",
+        "published_date": "2016-06-06",
+        "source": "grok"
+      },
+      {
+        "title": "Reverse Engineering through trace diffing - several approaches",
+        "url": "https://blog.tetrane.com/2021/reverse-engineering-through-trace-diffing-several-approaches.html",
+        "snippet": "Explains multiple methods for diffing execution traces in REVEN (a trace-based reverse debugging tool) to compare runs, analyze changes with different inputs/parameters, and support reverse engineering by identifying divergences.",
+        "published_date": "2021-06-03",
+        "source": "grok"
+      },
+      {
+        "title": "How can I compare different execution traces of the same exe but ran with different parameters?",
+        "url": "https://reverseengineering.stackexchange.com/questions/33334/how-can-i-compare-different-execution-traces-of-the-same-exe-but-ran-with-diffe",
+        "snippet": "Reverse Engineering Stack Exchange discussion on comparing traces from different runs (e.g., with varied parameters), including suggestions for dumping traces and using diff tools, relevant to nondeterministic or parameterized behavior analysis.",
+        "published_date": "2024-12-08",
+        "source": "grok"
+      },
+      {
+        "title": "rr: lightweight recording & deterministic debugging",
+        "url": "https://rr-project.org/",
+        "snippet": "Official rr project site describing how rr captures nondeterministic inputs for deterministic replay, enabling reverse execution and debugging without divergence in replay (assuming complete nondeterminism recording).",
+        "published_date": "2024-10-18",
+        "source": "grok"
+      },
+      {
+        "title": "The Record-and-Replay Approach to Debugging",
+        "url": "https://queue.acm.org/detail.cfm?id=3391621",
+        "snippet": "ACM article on rr's record-and-replay for handling nondeterministic failures (e.g., in Firefox), explaining how missing nondeterminism sources cause replay divergence and the need to record all such events precisely.",
+        "published_date": "2020-03-28",
+        "source": "grok"
+      },
+      {
+        "title": "rr delta/diff",
+        "url": "https://github.com/rr-debugger/rr/issues/2366",
+        "snippet": "GitHub issue discussing workflows for comparing two rr recordings (e.g., before/after a patch) via trace differences, grep/diff on logs, or tools like diffr to spot divergences.",
+        "published_date": "2019-06-11",
+        "source": "grok"
+      }
+    ]
+  }
+}
