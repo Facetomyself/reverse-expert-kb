@@ -224,13 +224,14 @@ Choose the smallest object that proves who owns the path, such as:
 - one `AddVectoredExceptionHandler` registration
 - one dispatcher-side landing at `KiUserExceptionDispatcher` or one useful breakpoint/trace boundary at `RtlDispatchException`
 - one `RUNTIME_FUNCTION` / `UNWIND_INFO` region or `RtlLookupFunctionEntry` result
-- one `RtlInstallFunctionTableCallback` site
+- one `RtlInstallFunctionTableCallback` site or one `RtlAddFunctionTable` / `RtlAddGrowableFunctionTable` registration that truthfully owns the generated-code region
 - one `sigaction` registration
 - one debug-register/page-guard setup site plus the first consuming handler
 
 Practical rule:
 - prefer the earliest boundary that still predicts the later odd control transfer
 - if registration exists but still feels too broad, drop to dispatcher-side landing or one concrete unwind lookup rather than collecting more exception APIs
+- if static exception metadata looks incomplete but dispatcher-side lookup keeps recurring, treat dynamic-function-table ownership as a first-class explanation instead of as a documentation footnote
 - prefer one concrete ownership site over a broad list of exception-adjacent helpers
 
 ### Step 4: prove one consequence-bearing handler action
@@ -250,6 +251,8 @@ Useful compare pairs include:
 - handler active vs registration suppressed/altered in a controlled experiment
 - faulting path vs non-faulting path
 - traced vs untraced when signal/trap ownership is suspected
+- page-guard first hit vs re-armed next-step behavior when the visible trigger is not yet the meaningful branch
+- hardware-breakpoint-fired path vs same path after debug-register state changes when the handler appears to rewrite resume context rather than merely observe the event
 
 Scratch form:
 
@@ -377,9 +380,11 @@ Next move:
 ### Failure mode 3: static control flow still looks wrong after likely handler APIs are found
 Likely cause:
 - the case is owned by dispatcher-side lookup, unwind metadata, or dynamic function-table registration, not by visible direct branches alone
+- the analyst proved registration names but never proved which runtime-owned code range or lookup result actually owns the exceptional path
 
 Next move:
 - localize one dispatcher-side landing, one concrete unwind/function-table lookup result, or one runtime-installed exception table callback
+- if the same generated or relocated region keeps appearing in lookup results, freeze that range as the truthful owner before widening back into broader protection theory
 
 ### Failure mode 4: every crash is treated as anti-debug
 Likely cause:
@@ -421,7 +426,7 @@ That strengthens the protected-runtime branch by giving it a practical answer to
 
 ## 12. Source footprint / evidence note
 Grounding for this page comes from:
-- Microsoft documentation on vectored exception handling
+- Microsoft documentation on vectored exception handling and structured exception handling functions, including the official dynamic-function-table API surface
 - practitioner material on `KiUserExceptionDispatcher`, `RtlDispatchException`, and unwind lookup behavior
 - x64 SEH/unwind writeups and dynamic function-table discussions
 - practical demo material showing trap-triggered VEH/SEH behavior and context-based resume changes
