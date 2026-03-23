@@ -282,6 +282,7 @@ Symptoms:
 
 Best move:
 - classify direct vs queued delivery first
+- include receiver thread affinity or `AutoConnection` behavior in that classification when visible
 - choose one receiver that changes policy, state, or downstream action
 - prove one consumer-to-effect edge instead of cataloging every receiver
 
