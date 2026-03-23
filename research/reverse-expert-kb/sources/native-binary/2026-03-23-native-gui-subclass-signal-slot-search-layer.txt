@@ -1,0 +1,578 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Win32 subclass CallWindowProc per-window original procedure reversing",
+    "Qt direct connection queued connection signal slot event loop reverse engineering",
+    "Win32 subclassing Raymond Chen per-window original wndproc SetWindowSubclass"
+  ],
+  "count": 27,
+  "results": [
+    {
+      "title": "Using Window Procedures - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/using-window-procedures",
+      "snippet": "The subclass window procedure must use the CallWindowProc function to call the original window procedure. To subclass an instance of a window, call the SetWindowLong function and specify the handle to the window to subclass the GWL_WNDPROC flag and a pointer to the subclass procedure. SetWindowLong returns a pointer to the original window procedure; use this pointer to pass messages to the original procedure.",
+      "published_date": "2025-07-14",
+      "source": "grok",
+      "score": 0.7743
+    },
+    {
+      "title": "Passing messages from subclass to original WndProc - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/223548/passing-messages-from-subclass-to-original-wndproc",
+      "snippet": "As an example, if I have a window, with a sub-classed groupbox control and a button as a child of that groupbox, I want to handle the button event in the original window procedure, not the subclassed groupbox procedure. Because you've subclassed the group box, your `SubClassFunc` receives these messages, which then passes them to the group box's original window procedure using `CallWindowProc`. If you want the button notifications to go to the parent window (i.e, `window` in your code), you could either set the button's parent to `window` instead of `group_box`, or use `PostMessage` from within `SubClassFunc` to post the message (`WM_COMMAND` or `WM_NOTIFY` as appropriate) to `window`. Edit: The group box's original window procedure doesn't send `WM_COMMAND` messages to its parent. You should find that button notifications don't get through to `window` even if you don't subclass the group box. I suspect if you remove the subclass all together the button events will still not reach the original window procedure as you expect.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.7714
+    },
+    {
+      "title": "SetWindowSubclass function (commctrl.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-setwindowsubclass?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2023-10-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6857
+    },
+    {
+      "title": "Safer subclassing APIs reference (ComCtl32)",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-setwindowsubclass",
+      "snippet": "Official documentation for SetWindowSubclass, which installs a subclass procedure for a window (safer alternative to direct SetWindowLongPtr subclassing). Related functions: DefSubclassProc, RemoveWindowSubclass.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6857
+    },
+    {
+      "title": "About Window Procedures - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/about-window-procedures",
+      "snippet": "",
+      "published_date": "2025-07-14T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.6857
+    },
+    {
+      "title": "using-window-procedures.md - MicrosoftDocs/win32 - GitHub",
+      "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/winmsg/using-window-procedures.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6857
+    },
+    {
+      "title": "About Window Procedures - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/about-window-procedures?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2021-07-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6857
+    },
+    {
+      "title": "A few questions about using SetWindowSubclass and ...",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/364820/a-few-questions-about-using-setwindowsubclass-and",
+      "snippet": "",
+      "published_date": "2021-04-20T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6429
+    },
+    {
+      "title": "How does Qt::DirectConnection act when used in multi-threaded environment?",
+      "url": "https://stackoverflow.com/questions/59513149/how-does-qtdirectconnection-act-when-used-in-multi-threaded-environment",
+      "snippet": "",
+      "published_date": "2019-12-28T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Queueing calls to a slot in event loop processed ...",
+      "url": "https://stackoverflow.com/questions/10984361/queueing-calls-to-a-slot-in-event-loop-processed-in-backwards-order-by-qt",
+      "snippet": "It is as though Qt has added the signal emissions to a stack instead of a queue and then served them back to the event loop in reverse order.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Qt signals (QueuedConnection and DirectConnection)",
+      "url": "https://stackoverflow.com/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+      "snippet": "Comprehensive Stack Overflow answer explaining the differences: DirectConnection is a direct function call in the same thread; QueuedConnection posts an event to the receiver's event loop for later execution, enabling safe cross-thread communication without manual locking.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6
+    },
+    {
+      "title": "Are Signals and Slots running on different threads?",
+      "url": "https://www.reddit.com/r/QtFramework/comments/qo3zd3/are_signals_and_slots_running_on_different_threads/",
+      "snippet": "If you used Qt::QueuedConnection, the slots will be queued up and called in the next event loop. QObjects can belong to different QThreads",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5
+    },
+    {
+      "title": "Why \"CallWindowProc()\" instead of directly calling subclassed Wnd",
+      "url": "https://microsoft.public.win32.programmer.ui.narkive.com/aezCDFeo/why-callwindowproc-instead-of-directly-calling-subclassed-wnd",
+      "snippet": "The reverse would also be true (i.e. window procedure is ansi, you subclass ... The subclassing process may not use the original window procedure address",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4714
+    },
+    {
+      "title": "When you subclass a window, it's the original window procedure of the window you subclass you have to call when you want to call the original window procedure - The Old New Thing",
+      "url": "https://devblogs.microsoft.com/oldnewthing/?p=18333",
+      "snippet": "",
+      "published_date": "2009-05-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4286
+    },
+    {
+      "title": "When you subclass a window, it's the original window procedure of ...",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20090507-00/?p=18333",
+      "snippet": "When you subclass a window, you set the window procedure to a function of your choosing, and you remember the original window procedure so you can pass it to",
+      "published_date": "",
+      "source": "tavily, grok, exa",
+      "score": 0.4286
+    },
+    {
+      "title": "Understanding Qt::QueuedConnection: A Deep Dive into Signals ...",
+      "url": "https://medium.com/@alphaneker40/understanding-qt-queuedconnection-a-deep-dive-into-signals-and-slots-in-multithreaded-qt-62184ca5722f",
+      "snippet": "",
+      "published_date": "2024-11-22T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Quick and dirty subclassing in Win32 - the sporks space",
+      "url": "https://sporks.space/2021/09/28/quick-and-dirty-subclassing-in-win32",
+      "snippet": "Get the old window procedure with GetWindowLong(hwnd, GWL_WNDPROC), then SetWindowLong to install your own. Return CallWindowProc(oldProc, hwnd, msg, wParam, lParam) from your subclass procedure. Note that CallWindowProc was used instead of directly calling the function. You need to do this as part of subclassing, and it’ll crash if called directly.",
+      "published_date": "2021-09-28",
+      "source": "grok",
+      "score": 0.3914
+    },
+    {
+      "title": "Qt Internals & Reversing",
+      "url": "https://www.ntcore.com/files/qtrev.htm",
+      "snippet": "Article on reverse engineering Qt applications, covering signals and slots internals: how connect() stores signal/slot IDs in Connection objects, emission looks up connections, and dynamic invokes. Useful for understanding the underlying mechanism in binaries.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.3429
+    },
+    {
+      "title": "How unique must the  uIdSubclass  parameter be when I call  Set­Window­Subclass ?",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20230323-00/?p=107962",
+      "snippet": "",
+      "published_date": "2023-03-23T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.3429
+    },
+    {
+      "title": "Safer subclassing - The Old New Thing",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20031111-00/?p=41883",
+      "snippet": "",
+      "published_date": "2003-11-11T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3429
+    },
+    {
+      "title": "[PDF] Homework assignment about window subclassing",
+      "url": "https://mirror.gpmidi.net/vx-underground/Archive/The%20Old%20New%20Thing/2003/2003-11-10%20-%20Homework%20assignment%20about%20window%20subclassing.pdf",
+      "snippet": "Subclass the window for a little while. WNDPROC OldWndProc = SubclassWindow(hwnd, NewWndProc); ... do stuff .",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "Homework assignment about window subclassing - The Old New ...",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20031110-00/?p=41893",
+      "snippet": "Window subclassing is trickier than you think. Consider this code sketch: // Subclass the window for a little while WNDPROC OldWndProc",
+      "published_date": "",
+      "source": "tavily, grok, exa",
+      "score": 0.3429
+    },
+    {
+      "title": "QCoreApplication::processEvents() and Qt::QueuedConnection",
+      "url": "https://forum.qt.io/topic/164180/qcoreapplication-processevents-and-qt-queuedconnection",
+      "snippet": "",
+      "published_date": "2026-01-29T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "How Qt Signals and Slots Work - Part 3 - Queued and Inter Thread ...",
+      "url": "https://woboq.com/blog/how-qt-signals-slots-work-part3-queuedconnection.html",
+      "snippet": "",
+      "published_date": "2016-02-04T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.3
+    },
+    {
+      "title": "Threads and QObjects | Qt 6.10 - Qt Documentation",
+      "url": "https://doc.qt.io/qt-6/threads-qobject.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.3
+    },
+    {
+      "title": "A practical checklist to debug your signal/slot connections",
+      "url": "https://www.kdab.com/slot-not-invoked/",
+      "snippet": "**Qt automatically breaks a signal/slot connection if either the sender or the receiver are destroyed** (or if *context object* is destroyed, when using the new connection syntax and connecting to free functions). The second requirement is a consequence of the first: when a queued connection is activated, Qt needs to copy the arguments of the signal into the event sent to the receiver. // the connect to debug // the connect to debugconnect(sender, &Sender::aSignal, receiver, &Receiver::aSlot); connect(, &::,, &::);// add: // add:connect(sender, &Sender::aSignal, // same sender and signal connect(, &::,// same sender and signal receiver, // context object to break this connection ,// context object to break this connection [receiver]() { // debug output [](){// debug output qDebug() << \"Direct?\" << QThread::currentThread() == receiver->thread(); qDebug()<< \"Direct?\"<< QThread:: currentThread() == -> thread(); }, }, Qt::DirectConnection); // see below::);// see below. ## Checking all the signals and slots connected to an object.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Signals & Slots | Qt Core | Qt 6.10.2",
+      "url": "https://doc.qt.io/qt-6/signalsandslots.html",
+      "snippet": "Official Qt documentation on signals and slots. Explains that with queued connections, the code after emit continues immediately and slots execute later via the event loop. Direct connections behave like normal function calls. Covers connection types including Auto, Direct, and Queued.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Understanding Qt::QueuedConnection: A Deep Dive into Signals ...",
+        "url": "https://medium.com/@alphaneker40/understanding-qt-queuedconnection-a-deep-dive-into-signals-and-slots-in-multithreaded-qt-62184ca5722f",
+        "snippet": "",
+        "published_date": "2024-11-22T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4
+      },
+      {
+        "title": "QCoreApplication::processEvents() and Qt::QueuedConnection",
+        "url": "https://forum.qt.io/topic/164180/qcoreapplication-processevents-and-qt-queuedconnection",
+        "snippet": "",
+        "published_date": "2026-01-29T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "How Qt Signals and Slots Work - Part 3 - Queued and Inter Thread ...",
+        "url": "https://woboq.com/blog/how-qt-signals-slots-work-part3-queuedconnection.html",
+        "snippet": "",
+        "published_date": "2016-02-04T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.3
+      },
+      {
+        "title": "Threads and QObjects | Qt 6.10 - Qt Documentation",
+        "url": "https://doc.qt.io/qt-6/threads-qobject.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.3
+      },
+      {
+        "title": "How does Qt::DirectConnection act when used in multi-threaded environment?",
+        "url": "https://stackoverflow.com/questions/59513149/how-does-qtdirectconnection-act-when-used-in-multi-threaded-environment",
+        "snippet": "",
+        "published_date": "2019-12-28T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "How unique must the  uIdSubclass  parameter be when I call  Set­Window­Subclass ?",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20230323-00/?p=107962",
+        "snippet": "",
+        "published_date": "2023-03-23T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.3429
+      },
+      {
+        "title": "When you subclass a window, it's the original window procedure of the window you subclass you have to call when you want to call the original window procedure - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/?p=18333",
+        "snippet": "",
+        "published_date": "2009-05-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4286
+      },
+      {
+        "title": "Safer subclassing - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20031111-00/?p=41883",
+        "snippet": "",
+        "published_date": "2003-11-11T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3429
+      },
+      {
+        "title": "A few questions about using SetWindowSubclass and ...",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/364820/a-few-questions-about-using-setwindowsubclass-and",
+        "snippet": "",
+        "published_date": "2021-04-20T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6429
+      },
+      {
+        "title": "SetWindowSubclass function (commctrl.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-setwindowsubclass?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2023-10-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6857
+      },
+      {
+        "title": "About Window Procedures - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/about-window-procedures",
+        "snippet": "",
+        "published_date": "2025-07-14T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.6857
+      },
+      {
+        "title": "When you subclass a window, it's the original window procedure of ...",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20090507-00/?p=18333",
+        "snippet": "",
+        "published_date": "2009-05-07T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "using-window-procedures.md - MicrosoftDocs/win32 - GitHub",
+        "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/winmsg/using-window-procedures.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6857
+      },
+      {
+        "title": "About Window Procedures - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/about-window-procedures?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2021-07-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6857
+      },
+      {
+        "title": "Homework assignment about window subclassing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20031110-00/?p=41893",
+        "snippet": "",
+        "published_date": "2003-11-10T00:00:00.000Z",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Queueing calls to a slot in event loop processed ...",
+        "url": "https://stackoverflow.com/questions/10984361/queueing-calls-to-a-slot-in-event-loop-processed-in-backwards-order-by-qt",
+        "snippet": "It is as though Qt has added the signal emissions to a stack instead of a queue and then served them back to the event loop in reverse order.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "A practical checklist to debug your signal/slot connections",
+        "url": "https://www.kdab.com/slot-not-invoked/",
+        "snippet": "**Qt automatically breaks a signal/slot connection if either the sender or the receiver are destroyed** (or if *context object* is destroyed, when using the new connection syntax and connecting to free functions). The second requirement is a consequence of the first: when a queued connection is activated, Qt needs to copy the arguments of the signal into the event sent to the receiver. // the connect to debug // the connect to debugconnect(sender, &Sender::aSignal, receiver, &Receiver::aSlot); connect(, &::,, &::);// add: // add:connect(sender, &Sender::aSignal, // same sender and signal connect(, &::,// same sender and signal receiver, // context object to break this connection ,// context object to break this connection [receiver]() { // debug output [](){// debug output qDebug() << \"Direct?\" << QThread::currentThread() == receiver->thread(); qDebug()<< \"Direct?\"<< QThread:: currentThread() == -> thread(); }, }, Qt::DirectConnection); // see below::);// see below. ## Checking all the signals and slots connected to an object.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Are Signals and Slots running on different threads?",
+        "url": "https://www.reddit.com/r/QtFramework/comments/qo3zd3/are_signals_and_slots_running_on_different_threads/",
+        "snippet": "If you used Qt::QueuedConnection, the slots will be queued up and called in the next event loop. QObjects can belong to different QThreads",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5
+      },
+      {
+        "title": "Understanding Qt::QueuedConnection: A Deep Dive into ...",
+        "url": "https://medium.com/@alphaneker40/understanding-qt-queuedconnection-a-deep-dive-into-signals-and-slots-in-multithreaded-qt-62184ca5722f",
+        "snippet": "When a signal is emitted, the event carrying the signal is posted to the receiver's thread's event loop. The slot is not executed immediately.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "QCoreApplication::processEvents() and Qt",
+        "url": "https://forum.qt.io/topic/164180/qcoreapplication-processevents-and-qt-queuedconnection",
+        "snippet": "I have a signal connected with Qt::QueuedConnection . It is connected to a slot which changes something visual in the UI (button enablement/",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "A few questions about using SetWindowSubclass and ...",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/364820/a-few-questions-about-using-setwindowsubclass-and",
+        "snippet": "Raymond Chen suggests callling RemoveWindowSubclass from within the subclasser itself when it gets a \"destruction-notification\" message like",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "When you subclass a window, it's the original window procedure of ...",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20090507-00/?p=18333",
+        "snippet": "When you subclass a window, you set the window procedure to a function of your choosing, and you remember the original window procedure so you can pass it to",
+        "published_date": "",
+        "source": "tavily, grok, exa",
+        "score": 0.4286
+      },
+      {
+        "title": "[PDF] Homework assignment about window subclassing",
+        "url": "https://mirror.gpmidi.net/vx-underground/Archive/The%20Old%20New%20Thing/2003/2003-11-10%20-%20Homework%20assignment%20about%20window%20subclassing.pdf",
+        "snippet": "Subclass the window for a little while. WNDPROC OldWndProc = SubclassWindow(hwnd, NewWndProc); ... do stuff .",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "Safer subclassing - The Old New Thing - Microsoft Developer Blogs",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20031111-00/?p=41883",
+        "snippet": "RemoveWindowSubclass does all the work to do the right thing if you are not the window procedure at the top of the chain. One gotcha that isn't",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Homework assignment about window subclassing - The Old New ...",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20031110-00/?p=41893",
+        "snippet": "Window subclassing is trickier than you think. Consider this code sketch: // Subclass the window for a little while WNDPROC OldWndProc",
+        "published_date": "",
+        "source": "tavily, grok, exa",
+        "score": 0.3429
+      },
+      {
+        "title": "About Window Procedures - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/about-window-procedures",
+        "snippet": "In *global subclassing*, an application replaces the address of the window procedure in the **WNDCLASSEX** structure of a window class. The application must also have the original window procedure address to remove the subclass from the window. To remove the subclass, the application calls **SetWindowLongPtr** again, passing the address of the original window procedure with the **GWL\\_WNDPROC** flag and the handle to the window. If the application must subclass a window that belongs to a system global class, the developer may need to update the application when a new version of the system is released. The application removes the subclass from the window class by calling **SetClassLongPtr** again, specifying the address of the original window procedure, the **GCL\\_WNDPROC** flag, and the handle to a window of the class being subclassed. The application must save this address, to pass messages to the original window procedure, and then copy the address of the superclass procedure into the **lpfnWndProc** member.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Why \"CallWindowProc()\" instead of directly calling subclassed Wnd",
+        "url": "https://microsoft.public.win32.programmer.ui.narkive.com/aezCDFeo/why-callwindowproc-instead-of-directly-calling-subclassed-wnd",
+        "snippet": "The reverse would also be true (i.e. window procedure is ansi, you subclass ... The subclassing process may not use the original window procedure address",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4714
+      },
+      {
+        "title": "Passing messages from subclass to original WndProc - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/223548/passing-messages-from-subclass-to-original-wndproc",
+        "snippet": "As an example, if I have a window, with a sub-classed groupbox control and a button as a child of that groupbox, I want to handle the button event in the original window procedure, not the subclassed groupbox procedure. Because you've subclassed the group box, your `SubClassFunc` receives these messages, which then passes them to the group box's original window procedure using `CallWindowProc`. If you want the button notifications to go to the parent window (i.e, `window` in your code), you could either set the button's parent to `window` instead of `group_box`, or use `PostMessage` from within `SubClassFunc` to post the message (`WM_COMMAND` or `WM_NOTIFY` as appropriate) to `window`. Edit: The group box's original window procedure doesn't send `WM_COMMAND` messages to its parent. You should find that button notifications don't get through to `window` even if you don't subclass the group box. I suspect if you remove the subclass all together the button events will still not reach the original window procedure as you expect.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.7714
+      },
+      {
+        "title": "using-window-procedures.md - MicrosoftDocs/win32 - GitHub",
+        "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/winmsg/using-window-procedures.md",
+        "snippet": "The subclass window procedure must use the CallWindowProc function to call the original window procedure. Note. To write code that is compatible with both 32",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "When you subclass a window, it's the original window procedure of ...",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20090507-00/?p=18333",
+        "snippet": "The window procedure you pass to CallWindowProc is the one which was the window procedure of that window before you subclassed it, not the",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": [
+      {
+        "title": "How Qt Signals and Slots Work - Part 3 - Queued and Inter-Thread Connections",
+        "url": "https://woboq.com/blog/how-qt-signals-slots-work-part3-queuedconnection.html",
+        "snippet": "Detailed explanation of Qt::QueuedConnection implementation. Queued connections post a QMetaCallEvent to the receiver's event loop. When processed, the event calls the slot similarly to direct connections via QMetaObject::activate. Includes code analysis of queued_activate and how arguments are copied and stored in the event.",
+        "published_date": "2016-02-04",
+        "source": "grok"
+      },
+      {
+        "title": "Signals & Slots | Qt Core | Qt 6.10.2",
+        "url": "https://doc.qt.io/qt-6/signalsandslots.html",
+        "snippet": "Official Qt documentation on signals and slots. Explains that with queued connections, the code after emit continues immediately and slots execute later via the event loop. Direct connections behave like normal function calls. Covers connection types including Auto, Direct, and Queued.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.3
+      },
+      {
+        "title": "Threads and QObjects | Qt 6.10",
+        "url": "https://doc.qt.io/qt-6/threads-qobject.html",
+        "snippet": "Official Qt documentation detailing signal-slot connection types across threads: Qt::DirectConnection (immediate, in emitter's thread), Qt::QueuedConnection (via receiver's event loop), and AutoConnection (chooses based on thread affinity). Warns about thread safety with direct connections across threads.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Qt signals (QueuedConnection and DirectConnection)",
+        "url": "https://stackoverflow.com/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+        "snippet": "Comprehensive Stack Overflow answer explaining the differences: DirectConnection is a direct function call in the same thread; QueuedConnection posts an event to the receiver's event loop for later execution, enabling safe cross-thread communication without manual locking.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6
+      },
+      {
+        "title": "Qt Internals & Reversing",
+        "url": "https://www.ntcore.com/files/qtrev.htm",
+        "snippet": "Article on reverse engineering Qt applications, covering signals and slots internals: how connect() stores signal/slot IDs in Connection objects, emission looks up connections, and dynamic invokes. Useful for understanding the underlying mechanism in binaries.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.3429
+      },
+      {
+        "title": "Safer subclassing - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20031111-00?p=41883",
+        "snippet": "The SetWindowSubclass function does all the grunt work of installing a subclass procedure, remembering the previous one, and passing reference data... You use the DefSubclassProc function to forward the message to the previous subclass procedure, and when you're done, you use the RemoveWindowSubclass function to remove yourself from the chain.",
+        "published_date": "2003-11-11",
+        "source": "grok"
+      },
+      {
+        "title": "When you subclass a window, it's the original window procedure that gets the...",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20090507-00?p=18333",
+        "snippet": "When you subclass a window, you set the window procedure to a function of your choosing, and you remember the original window procedure so you can pass it to CallWindowProc... Example shows storing original via SetWindowLongPtr or SubclassWindow and calling it in default case.",
+        "published_date": "2009-05-07",
+        "source": "grok"
+      },
+      {
+        "title": "Homework assignment about window subclassing - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20031110-00?p=41893",
+        "snippet": "Window subclassing is trickier than you think... Discusses issues with naive subclassing and unsubclassing by restoring old WNDPROC, which can break if someone else subclasses in between.",
+        "published_date": "2003-11-10",
+        "source": "grok"
+      },
+      {
+        "title": "How unique must the uIdSubclass parameter be when I use SetWindowSubclass?",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20230323-00?p=107962",
+        "snippet": "The SetWindowSubclass function manages window subclassing in a safer way. When you use it to subclass a window, you provide four pieces of information...",
+        "published_date": "2023-03-23",
+        "source": "grok"
+      },
+      {
+        "title": "Safer subclassing APIs reference (ComCtl32)",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-setwindowsubclass",
+        "snippet": "Official documentation for SetWindowSubclass, which installs a subclass procedure for a window (safer alternative to direct SetWindowLongPtr subclassing). Related functions: DefSubclassProc, RemoveWindowSubclass.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6857
+      },
+      {
+        "title": "About Window Procedures - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/about-window-procedures",
+        "snippet": "The subclass procedure passes messages to the original window procedure by calling CallWindowProc. The application removes the subclass from ... Subclassing is a technique that allows an application to intercept and process messages sent or posted to a particular window before the window has a chance to process them. An application subclasses a window by replacing the address of the window's original window procedure with the address of a new window procedure, called the subclass procedure. The application must save this address, using it in subsequent calls to the CallWindowProc function, to pass intercepted messages to the original window procedure.",
+        "published_date": "2025-07-14",
+        "source": "grok"
+      },
+      {
+        "title": "Using Window Procedures - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/using-window-procedures",
+        "snippet": "The subclass window procedure must use the CallWindowProc function to call the original window procedure. To subclass an instance of a window, call the SetWindowLong function and specify the handle to the window to subclass the GWL_WNDPROC flag and a pointer to the subclass procedure. SetWindowLong returns a pointer to the original window procedure; use this pointer to pass messages to the original procedure.",
+        "published_date": "2025-07-14",
+        "source": "grok",
+        "score": 0.7743
+      },
+      {
+        "title": "When you subclass a window, it's the original window procedure of the window you subclass you have to call when you want to call the original window procedure - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20090507-00?p=18333",
+        "snippet": "When you subclass a window, you set the window procedure to a function of your choosing, and you remember the original window procedure so you can pass it to the CallWindowProc. The window procedure you pass to CallWindowProc is the one which was the window procedure of that window before you subclassed it.",
+        "published_date": "2009-05-07",
+        "source": "grok"
+      },
+      {
+        "title": "Quick and dirty subclassing in Win32 - the sporks space",
+        "url": "https://sporks.space/2021/09/28/quick-and-dirty-subclassing-in-win32",
+        "snippet": "Get the old window procedure with GetWindowLong(hwnd, GWL_WNDPROC), then SetWindowLong to install your own. Return CallWindowProc(oldProc, hwnd, msg, wParam, lParam) from your subclass procedure. Note that CallWindowProc was used instead of directly calling the function. You need to do this as part of subclassing, and it’ll crash if called directly.",
+        "published_date": "2021-09-28",
+        "source": "grok",
+        "score": 0.3914
+      },
+      {
+        "title": "Passing messages from subclass to original WndProc - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/223548/passing-messages-from-subclass-to-original-wndproc",
+        "snippet": "Your SubClassFunc receives these messages, which then passes them to the group box's original window procedure using CallWindowProc. Use SetWindowLong instead of SetClassLong to subclass individual windows rather than the entire class.",
+        "published_date": "",
+        "source": "grok"
+      }
+    ]
+  }
+}
