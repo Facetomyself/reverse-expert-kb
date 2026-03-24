@@ -254,6 +254,7 @@ Possible next handoff:
 Routing reminder:
 - leave compare-run design work once one trustworthy compare pair and one first behavior-bearing divergence are already good enough and the real bottleneck becomes reverse-causality, branch-specific proof, or packaging
 - if early mismatches are dominated by scheduler/timing/randomness/bookkeeping churn, repair the compare boundary or compare level before treating those mismatches as explanatory
+- preserve an explicit **alignment truth** step inside compare-run work: separate tolerated early variation, pair-breaking misalignment, and the first behavior-bearing split before widening into reverse-causality
 
 ### F. Visible late effect or bounded divergence -> first causal boundary
 Typical question:
