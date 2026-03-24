@@ -304,14 +304,49 @@ Why it helps:
 Practical reminder:
 - if `KiUserExceptionDispatcher` keeps recurring but later unwind ownership still looks nonsensical, verify that your model preserves dispatcher-side stack/context realism before broadening into more handler-family theory
 - a good stop rule is not “I know the name of the dispatcher”; it is “this landing layout now explains one `RtlLookupFunctionEntry`/unwind decision or one later resume edge well enough to predict behavior”
+- an even better stop rule is to separate **landing truth** from **resume truth**:
+  - dispatcher landing proves where exceptional ownership becomes re-findable
+  - it does **not** yet prove which resumed target or context mutation actually owns the behavior that matters
 
 Concrete compare pair ideas:
 - guessed register-argument model vs observed dispatcher-side stack-layout model
 - dispatcher landing with implausible unwind ownership vs dispatcher landing after correcting the landing/context layout assumptions
 - same trap family with stable dispatcher landing but different later lookup region or resume target
+- same dispatcher arrival with the same lookup family but different `ContextRecord` / `ucontext_t` resume target, instruction-pointer edit, or skip length
 
 Common payoff:
 - this often turns a vague Windows exception case back into one smaller ownership question: which looked-up region, handler action, or resumed target actually owns the next ordinary branch?
+- it also prevents a recurring mistake: treating the first truthful dispatcher landing as if it were already the behavior-bearing consumer, when the real proof object is still one later resume target or context mutation
+
+### B1. Dispatcher landing is infrastructure; resume target is often the first behavior truth
+Use when:
+- `KiUserExceptionDispatcher`, `RtlDispatchException`, or a Linux `SA_SIGINFO` landing is already stable enough to breakpoint, trace, or compare reliably
+- the remaining ambiguity is no longer where exception/signal ownership becomes visible, but which resume target, instruction-pointer rewrite, skip length, or small state mutation actually predicts later behavior
+- analysts keep over-crediting dispatcher arrival itself even though multiple later outcomes are still possible from the same landing family
+
+Why it helps:
+- it preserves a practical three-part split that the branch still needed more explicitly:
+  - **landing truth** -> where exceptional ownership becomes re-findable
+  - **lookup/range truth** -> which handler-owned region or callback-owned range is actually in play
+  - **resume truth** -> which concrete resumed target or context mutation first predicts the behavior that matters
+- this keeps exception-owned work from stalling at infrastructure proof
+- it also aligns Windows and Linux cases under the same stop rule: registration/landing alone is still infrastructure; one resumed target or context mutation is the first practical consumer-level proof object
+
+Practical stop rule:
+- do not leave the branch merely because dispatcher-side landing is now understandable
+- leave once one of the following is preserved well enough to predict the next ordinary behavior:
+  - one resumed target / resume IP
+  - one instruction skip or trap-family-specific resume delta
+  - one concrete context/register mutation
+  - one small state write that reliably accompanies the resumed path
+
+Concrete compare pair ideas:
+- same dispatcher landing, different resumed RIP/PC
+- same signal family, handler present vs handler altered, with the resumed target compared directly
+- same lookup-owned region, but different resume delta after `int3`, guard-page, or single-step delivery
+
+Common payoff:
+- this reduces a broad exception case into a smaller practical question: is the real next task ordinary route proof, integrity consequence proof, or anti-debug continuation from the resumed target rather than from dispatcher infrastructure itself?
 
 ### C. x64 unwind metadata hides the real local branch
 Use when:

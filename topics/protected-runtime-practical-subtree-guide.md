@@ -265,6 +265,7 @@ Start here when:
 - Windows VEH/SEH, dispatcher-side landing, unwind metadata, dynamic function-table installation, Linux signal handlers, or trap-resume logic look like the real transfer surface
 - the next useful output is one handler-ownership boundary plus one consequence-bearing context/state action before resuming ordinary route proof
 - especially when `KiUserExceptionDispatcher` / `RtlDispatchException` / `RtlLookupFunctionEntry` keep recurring without a stable static owner, when the dispatcher-side stack/context layout itself still decides whether unwind ownership looks truthful, or when `sigaction` / `SA_SIGINFO` visibility exists but the resume target or `ucontext_t` mutation is still the missing proof object
+- preserve the split between **landing truth** and **resume truth**: dispatcher/signal landing may be the first re-findable infrastructure boundary, but the first behavior-bearing proof object is often one resumed target, one context/register mutation, or one trap-specific resume delta
 
 Do **not** start here when:
 - the case is still better described as broad anti-instrumentation family triage rather than a clearly handler-owned transfer problem
