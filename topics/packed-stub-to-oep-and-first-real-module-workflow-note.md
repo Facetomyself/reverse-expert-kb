@@ -276,6 +276,25 @@ Why it helps:
 - it prevents overclaiming a raw post-unpack transfer as the final handoff
 - it gives the analyst a cleaner stop rule: keep going until one import/module/object/consumer anchor survives **after** startup normalization, not merely after decryption or one dramatic jump
 
+### F. Three-boundary startup-normalization check
+Use when:
+- the analyst already has one dramatic jump, return, or callback-owned transfer that clearly leaves obvious stub churn
+- but the next region still looks ambiguous between startup-management code and actual payload/business logic
+- the case is Windows/native enough that TLS callbacks, CRT startup, security-cookie setup, constructor replay, or callback-array repair are realistic explanations for the ambiguity
+
+Keep these three boundaries separate:
+1. **raw PE entry point**
+   - the loader-facing process entry the OS initially calls
+2. **raw post-unpack transfer**
+   - the first convincing handoff out of visible stub/decrypt/fixup churn
+3. **payload-bearing post-startup handoff**
+   - the first boundary after which one import/module/object/consumer anchor persists *after* TLS/CRT/startup obligations quiet down
+
+Fast practical check:
+- if the region is still dominated by TLS callback replay, CRT/language startup, security-cookie/runtime normalization, constructor/init-table dispatch, or callback-array repair, treat it as **startup proof**, not yet **payload proof**
+- if a dump becomes readable but later imports/object use still look startup-shaped, rename the current result as only a **raw post-unpack transfer candidate**
+- only stop when one downstream import/module/object/consumer anchor remains useful after those startup obligations stop dominating
+
 ## 8. Representative scratch schemas
 
 ### Minimal packed-stub to OEP note
