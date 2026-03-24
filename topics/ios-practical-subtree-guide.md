@@ -73,6 +73,8 @@ iOS practical work is easiest to navigate when the analyst first classifies the 
 
 Inside families 2 and 3, a recurring practical reminder now deserves to stay explicit: do not collapse all early iOS setup into one vague "jailbroken vs not" bucket. Installation/signing path, rootful vs rootless mode, Frida deployment coherence, and rewrite/repack stability can each change whether later evidence is trustworthy; some cases first need environment normalization before broader gate diagnosis is even meaningful.
 
+A newer continuation reminder also deserves to stay explicit here: once callback/delegate truth and continuation resume truth are already good enough, some modern Swift-heavy cases still hide the first usable consequence one hop later at a MainActor-isolated view-model, coordinator, or UI-state boundary. In those cases, do not reopen broad callback hunting; freeze one MainActor-side state consumer and one later effect instead.
+
 A compact operator ladder for this branch is:
 
 ```text
