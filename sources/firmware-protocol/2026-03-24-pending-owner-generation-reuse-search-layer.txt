@@ -1,0 +1,472 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "pending request generation epoch stale reply slot reuse correlation id reverse engineering practical",
+    "grpc completion queue tag stale late reply generation reuse practical",
+    "io_uring user_data completion stale reuse generation request correlation practical"
+  ],
+  "count": 27,
+  "results": [
+    {
+      "title": "Only one pending refresh on staleRefreshTimeout · Issue #132 · epicweb-dev/cachified",
+      "url": "https://github.com/epicweb-dev/cachified/issues/132",
+      "snippet": "",
+      "published_date": "2025-03-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Object lifetime - linux io_uring (liburing) asynchronous ...",
+      "url": "https://stackoverflow.com/questions/79669469/object-lifetime-linux-io-uring-liburing-asynchronous-programming",
+      "snippet": "I've a question about the Linux io_uring feature ( liburing ). I understand there's a request-queue and a completion queue and that my code can submit to the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.625
+    },
+    {
+      "title": "microservices - How to properly deal with Correlation IDs?",
+      "url": "https://stackoverflow.com/questions/62828643/how-to-properly-deal-with-correlation-ids",
+      "snippet": "",
+      "published_date": "2021-03-24T00:18:13.329Z",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "Overwriting Messages with Same Correlation ID and Sequence ...",
+      "url": "https://stackoverflow.com/questions/30419178/overwriting-messages-with-same-correlation-id-and-sequence-number-in-spring",
+      "snippet": "You need to use a custom release strategy (it can have the same logic as the default SequenceSizeReleaseStrategy , but it can't be that",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.625
+    },
+    {
+      "title": "GRPC-cpp : Completion Queue does not return events leading to hang",
+      "url": "https://stackoverflow.com/questions/78828846/grpc-cpp-completion-queue-does-not-return-events-leading-to-hang",
+      "snippet": "",
+      "published_date": "2024-08-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Surprising behavior of `IORING_OP_TIMEOUT` with duplicated user_data (timers). · Issue #1120 · axboe/liburing",
+      "url": "https://github.com/axboe/liburing/issues/1120",
+      "snippet": "",
+      "published_date": "2024-04-05T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Need for `user_data` field in `io_uring_prep_*` functions · Issue #548 · axboe/liburing",
+      "url": "https://github.com/axboe/liburing/issues/548",
+      "snippet": "",
+      "published_date": "2022-03-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "io_uring user_data field is always zero",
+      "url": "https://stackoverflow.com/questions/67042050/io-uring-user-data-field-is-always-zero",
+      "snippet": "",
+      "published_date": "2021-04-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Correlation IDs - Engineering Fundamentals Playbook",
+      "url": "https://microsoft.github.io/code-with-engineering-playbook/observability/correlation-id/",
+      "snippet": "# Correlation IDs. A Correlation ID is a unique identifier that is added to the very first interaction (incoming request) to identify the context and is passed to all components that are involved in the transaction flow. Correlation ID becomes the glue that binds the transaction together and helps to draw an overall picture of events. Note: Before implementing your own Correlation ID, investigate if your telemetry tool of choice provides an auto-generated Correlation ID and that it serves the purposes of your application. It takes care of automatically creating and managing the \"Correlation-id\", called TraceId. ### Log Correlation. Log correlation is the ability to track disparate events through different parts of the application. Having a Correlation ID provides more context making it easy to build rules for reporting and analysis. Using Correlation ID helps secondary systems to correlate data without application context. For troubleshooting an errors, Correlation ID is a great starting point to trace the workflow of a transaction.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.525
+    },
+    {
+      "title": "GRPC C++: grpc::CompletionQueue Class Reference",
+      "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_completion_queue.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Mastering Correlation IDs: Enhancing Tracing and ...",
+      "url": "https://medium.com/@nynptel/mastering-correlation-ids-enhancing-tracing-and-debugging-in-distributed-systems-602a84e1ded6",
+      "snippet": "",
+      "published_date": "2024-03-24T00:18:13.329Z",
+      "source": "exa, tavily",
+      "score": 0.425
+    },
+    {
+      "title": "A consistent approach to track correlation IDs through microservices",
+      "url": "https://theburningmonk.com/2015/05/a-consistent-approach-to-track-correlation-ids-through-microservices/",
+      "snippet": "The correlation ID can then be used to quickly find all the relevant log messages for this request (very easy to do in Elasticsearch). * HTTP handler to parse and capture correlation ID passed in via HTTP headers. * HTTP client to include captured correlation IDs as HTTP headers. This *HttpClient* is also augmented to look for any captured correlation IDs and send them along as  headers in every HTTP call. ### Providing the Correlation IDs. For the logger and HTTP client, they need to have a consistent way to get the captured correlation IDs for the current request. The tricky thing is that depending on the hosting framework for your web application – we use both *Nancy* and *Asp.Net WebApi* – you might need a different way to track the correlation IDs, hence the *ICorrelationIdsProvider* abstraction. Unfortunately, I can’t use HttpContext.Current in Nancy, so we need to find an alternative way to ensure the captured correlation IDs flow through async-await operations.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Finding out why grpc async service got a longer latency in ...",
+      "url": "https://groups.google.com/g/grpc-io/c/qjNNMy6TJ78",
+      "snippet": "# Finding out why grpc async service got a longer latency in client side than server. But on a quite high pressure, the clients side got a longer latency than the time our business transaction taken (about 5-6 seconds, it couldn’t be network lagging) I think the requests were queued a long time in the completion-queue, but as I said, adding more threads and completion-queue seemed not helping. I got a reason that maybe related to the problem, we spawn a new CallData after current process done, everything is almost ok:. // the tag uniquely identifying the request (so that different CallData. // the memory address of this CallData instance. // add a new CallData to the completion queue after handled the current request. // otherwise grpc will use the completion queue again. // Spawn a new CallData instance to serve new clients while we process. responder\\_.Finish(reply\\_, grpc::Status::OK, this);. // Once in the FINISH state, deallocate ourselves (CallData).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "Enhancing Streaming and Request Handling Efficiency ...",
+      "url": "https://sair.synerise.com/enhancing-streaming-and-request-handling-efficiency-with-grpc-and-coroutines-part-2/",
+      "snippet": "Next, we will define a class responsible for sending requests to the workers and managing the completion queue. Class RequestContext { public: RequestContext(std::shared_ptr>, /* other necessary data */ ); Awaitable& awaitable() { return awaitable; } const Response& response { return response; } void asyncHandle() { context = std::make_unique(); // Initialize a request    responder = client.AsyncHandle(&context, request, cq); // As a tag we send this because we want to reuse this // class when we receive a response        responder->Finish( &response, &status, reinterpret_cast(this)); } private: using Reader = grpc::ClientAsyncResponseReader; std::shared_ptr> awaitable; std::unique_ptr context; grpc::Status status; Response response; std::unique_ptr responder; };. while (cq->Next(&tag, &ok)) { RequestContext* requestContext = static_cast(tag); threadPool.pushtask([requestContext]() { auto& awaitble = requestContext->awaitable(); const grpc::Status& status = requestContext->status(); // get grpc::Status and check if we send // and receive a request properly    if (status.ok()) { awaitable.complete(requestContext->response()); delete requestContext; return; } const auto code = status.error_code(); // Request takes too long            if (code == grpc::StatusCode::DEADLINE_EXCEEDED) { // Notify a user about deadline exceeded    onDeadline(requestContext); } else if (code == grpc::StatusCode::CANCELED) { // Request was canceled (eg: Server shudown).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "How to Use Request-Scoped Correlation IDs That Unify Traces, Logs,",
+      "url": "https://oneuptime.com/blog/post/2026-02-06-otel-request-scoped-correlation-ids/view",
+      "snippet": "Implement request-scoped correlation IDs that unify OpenTelemetry traces, structured logs, and custom business metrics for full request",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "Asynchronous-API tutorial | C++",
+      "url": "https://grpc.io/docs/languages/cpp/async/",
+      "snippet": "The server implementation requests an RPC call with a tag and then waits for the completion queue to return the tag. To deal with this, our complete async server example uses a `CallData` object to maintain the state of each RPC, and uses the address of this object as the unique tag for the call. class CallData { class CallData { public: public: public // Take in the \"service\" instance (in this case representing an asynchronous  // Take in the \"service\" instance (in this case representing an asynchronous // Take in the \"service\" instance (in this case representing an asynchronous  // server) and the completion queue \"cq\" used for asynchronous communication  // server) and the completion queue \"cq\" used for asynchronous communication // server) and the completion queue \"cq\" used for asynchronous communication  // with the gRPC runtime. new CallData(&service_, cq_.get());  new CallData(&service_, cq_.get());  & void* tag; // uniquely identifies a request. You can see our complete server example in [greeter\\_async\\_server.cc](https://github.com/grpc/grpc/blob/v1.78.1/examples/cpp/helloworld/greeter_async_server.cc).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.325
+    },
+    {
+      "title": "Linking requests — Lord of the io_uring documentation",
+      "url": "https://unixism.net/loti/tutorial/link_liburing.html",
+      "snippet": "In io_uring , completions do not arrive in the order that submissions were issues in. This was discussed in the chapter The Low-level io_uring Interface.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.325
+    },
+    {
+      "title": "Stupid tricks with io_uring: a server that does zero syscalls per ...",
+      "url": "https://wjwh.eu/posts/2021-10-01-no-syscall-server-iouring.html",
+      "snippet": "The `io_uring` based version is also an event loop system, but instead of waiting for socket readiness we’ll submit all the operations asynchronously and wait until the kernel is done with them to read the result of the syscall. void add_accept_request(int server_socket, struct sockaddr_in *client_addr, socklen_t *client_addr_len) { struct io_uring_sqe *sqe = io_uring_get_sqe(&ring); io_uring_prep_accept(sqe, server_socket, (struct sockaddr *) client_addr, client_addr_len, 0); // magic number in the userdata to differentiate between accept CQEs // and other types of CQE io_uring_sqe_set_data(sqe, (void*) 123); io_uring_submit(&ring); }. When using `liburing`, `io_uring_submit()` will automagically keep track of whether the kernel thread is still alive and skip the syscall if it is not required. As long as we submit at least one SQE every two minutes, the kernel thread will never die and so we’ll never incur a syscall when we call `io_uring_submit()`. peek_result){ if (cqe->user_data == 123) { // magic number for an accept CQE add_write_and_close_requests(cqe->res); add_accept_request(server_socket, &client_addr, &client_addr_len); } else { // no action required } io_uring_cqe_seen(&ring, cqe); } }.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.325
+    },
+    {
+      "title": "RevK®'s ramblings: OTS correlation ID",
+      "url": "https://www.revk.uk/2024/09/ots-correlation-id.html",
+      "snippet": "",
+      "published_date": "2024-09-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "Completion Queues and Async Model | grpc/grpc | DeepWiki",
+      "url": "https://deepwiki.com/grpc/grpc/3.3-completion-queues-and-async-model",
+      "snippet": "",
+      "published_date": "2026-02-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "What is the mechanism of Completion Queue?",
+      "url": "https://groups.google.com/g/grpc-io/c/JpGURpAANss",
+      "snippet": "",
+      "published_date": "2024-05-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Best Practices",
+      "url": "https://grpc.io/docs/languages/cpp/best_practices",
+      "snippet": "",
+      "published_date": "2024-06-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Understand using user data for tracking operations",
+      "url": "https://app.studyraid.com/en/read/15033/519881/using-user-data-for-tracking-operations",
+      "snippet": "",
+      "published_date": "2025-03-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "io_uring_cqe_get_data(3) - Linux manual page - man7.org",
+      "url": "https://man7.org/linux/man-pages/man3/io_uring_cqe_get_data.3.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Efficient IO with io_uring",
+      "url": "https://kernel.dk/io_uring.pdf",
+      "snippet": "The params structure is both read and written by the kernel, it is deﬁned as follows: struct io_uring_params { __u32 sq_entries; __u32 cq_entries; __u32 flags; __u32 sq_thread_cpu; __u32 sq_thread_idle; __u32 resv[5]; struct io_sqring_offsets sq_off; struct io_cqring_offsets cq_off; }; The sq_entries will be ﬁlled out by the kernel, letting the application know how many sqe entries this ring supports. The io_sqring_oﬀsets structure looks as follows: struct io_sqring_offsets { __u32 head; /* offset of ring head */ __u32 tail; /* offset of ring tail */ __u32 ring_mask; /* ring mask value */ __u32 ring_entries; /* entries in ring */ __u32 flags; /* ring flags */ __u32 dropped; /* number of sqes not submitted */ __u32 array; /* sqe index array / __u32 resv1; __u64 resv2; }; To access this memory, the application must call mmap(2) using the io_uring ﬁle descriptor and the memory oﬀset associated with the SQ ring. The kernel will modify CQ ring tail directly, hence completions can be consumed by the application without necessarily having to call io_uring_enter(2) with IORING_ENTER_GETEVENTS set. For both use cases, the application must call io_uring_cqe_seen(3) once it is done with this completion event.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "BIG-IP 15.1.1 Fixes and Known Issues",
+      "url": "https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/releasenotes/related/relnote-supplement-bigip-15-1-1.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Performance Best Practices",
+      "url": "https://grpc.io/docs/guides/performance/",
+      "snippet": "* *(Special topic)* Each gRPC channel uses 0 or more HTTP/2 connections and each connection usually has a limit on the number of concurrent streams. Applications with high load or long-lived streaming RPCs might see performance issues because of this queueing. 2. **Use a pool of gRPC channels** to distribute RPCs over multiple connections (channels must have different channel args to prevent re-use so define a use-specific channel arg such as channel number). * If having to use the async completion-queue API, the **best scalability trade-off is having `numcpu`’s threads.** The ideal number of completion queues in relation to the number of threads can change over time (as gRPC C++ evolves), but as of gRPC 1.41 (Sept 2021), using 2 threads per completion queue seems to give the best performance. * Streaming RPCs create extra threads for receiving and possibly sending the messages, which makes **streaming RPCs much slower than unary RPCs** in gRPC Python, unlike the other languages supported by gRPC.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.24
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Completion Queues and Async Model | grpc/grpc | DeepWiki",
+        "url": "https://deepwiki.com/grpc/grpc/3.3-completion-queues-and-async-model",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "GRPC-cpp : Completion Queue does not return events leading to hang",
+        "url": "https://stackoverflow.com/questions/78828846/grpc-cpp-completion-queue-does-not-return-events-leading-to-hang",
+        "snippet": "",
+        "published_date": "2024-08-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "What is the mechanism of Completion Queue?",
+        "url": "https://groups.google.com/g/grpc-io/c/JpGURpAANss",
+        "snippet": "",
+        "published_date": "2024-05-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "GRPC C++: grpc::CompletionQueue Class Reference",
+        "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_completion_queue.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Best Practices",
+        "url": "https://grpc.io/docs/languages/cpp/best_practices",
+        "snippet": "",
+        "published_date": "2024-06-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Surprising behavior of `IORING_OP_TIMEOUT` with duplicated user_data (timers). · Issue #1120 · axboe/liburing",
+        "url": "https://github.com/axboe/liburing/issues/1120",
+        "snippet": "",
+        "published_date": "2024-04-05T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Understand using user data for tracking operations",
+        "url": "https://app.studyraid.com/en/read/15033/519881/using-user-data-for-tracking-operations",
+        "snippet": "",
+        "published_date": "2025-03-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "io_uring_cqe_get_data(3) - Linux manual page - man7.org",
+        "url": "https://man7.org/linux/man-pages/man3/io_uring_cqe_get_data.3.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Need for `user_data` field in `io_uring_prep_*` functions · Issue #548 · axboe/liburing",
+        "url": "https://github.com/axboe/liburing/issues/548",
+        "snippet": "",
+        "published_date": "2022-03-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "io_uring user_data field is always zero",
+        "url": "https://stackoverflow.com/questions/67042050/io-uring-user-data-field-is-always-zero",
+        "snippet": "",
+        "published_date": "2021-04-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "BIG-IP 15.1.1 Fixes and Known Issues",
+        "url": "https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/releasenotes/related/relnote-supplement-bigip-15-1-1.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Only one pending refresh on staleRefreshTimeout · Issue #132 · epicweb-dev/cachified",
+        "url": "https://github.com/epicweb-dev/cachified/issues/132",
+        "snippet": "",
+        "published_date": "2025-03-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "RevK®'s ramblings: OTS correlation ID",
+        "url": "https://www.revk.uk/2024/09/ots-correlation-id.html",
+        "snippet": "",
+        "published_date": "2024-09-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "microservices - How to properly deal with Correlation IDs?",
+        "url": "https://stackoverflow.com/questions/62828643/how-to-properly-deal-with-correlation-ids",
+        "snippet": "",
+        "published_date": "2021-03-24T00:18:13.329Z",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "Mastering Correlation IDs: Enhancing Tracing and ...",
+        "url": "https://medium.com/@nynptel/mastering-correlation-ids-enhancing-tracing-and-debugging-in-distributed-systems-602a84e1ded6",
+        "snippet": "",
+        "published_date": "2024-03-24T00:18:13.329Z",
+        "source": "exa, tavily",
+        "score": 0.425
+      }
+    ],
+    "tavily": [
+      {
+        "title": "GRPC C++: grpc::CompletionQueue Class Reference",
+        "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_completion_queue.html",
+        "snippet": "Read from the queue, blocking up to deadline (or the queue's shutdown). Both tag and ok are updated upon success (if an event is available within the deadline).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Finding out why grpc async service got a longer latency in ...",
+        "url": "https://groups.google.com/g/grpc-io/c/qjNNMy6TJ78",
+        "snippet": "# Finding out why grpc async service got a longer latency in client side than server. But on a quite high pressure, the clients side got a longer latency than the time our business transaction taken (about 5-6 seconds, it couldn’t be network lagging) I think the requests were queued a long time in the completion-queue, but as I said, adding more threads and completion-queue seemed not helping. I got a reason that maybe related to the problem, we spawn a new CallData after current process done, everything is almost ok:. // the tag uniquely identifying the request (so that different CallData. // the memory address of this CallData instance. // add a new CallData to the completion queue after handled the current request. // otherwise grpc will use the completion queue again. // Spawn a new CallData instance to serve new clients while we process. responder\\_.Finish(reply\\_, grpc::Status::OK, this);. // Once in the FINISH state, deallocate ourselves (CallData).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "Enhancing Streaming and Request Handling Efficiency ...",
+        "url": "https://sair.synerise.com/enhancing-streaming-and-request-handling-efficiency-with-grpc-and-coroutines-part-2/",
+        "snippet": "Next, we will define a class responsible for sending requests to the workers and managing the completion queue. Class RequestContext { public: RequestContext(std::shared_ptr>, /* other necessary data */ ); Awaitable& awaitable() { return awaitable; } const Response& response { return response; } void asyncHandle() { context = std::make_unique(); // Initialize a request    responder = client.AsyncHandle(&context, request, cq); // As a tag we send this because we want to reuse this // class when we receive a response        responder->Finish( &response, &status, reinterpret_cast(this)); } private: using Reader = grpc::ClientAsyncResponseReader; std::shared_ptr> awaitable; std::unique_ptr context; grpc::Status status; Response response; std::unique_ptr responder; };. while (cq->Next(&tag, &ok)) { RequestContext* requestContext = static_cast(tag); threadPool.pushtask([requestContext]() { auto& awaitble = requestContext->awaitable(); const grpc::Status& status = requestContext->status(); // get grpc::Status and check if we send // and receive a request properly    if (status.ok()) { awaitable.complete(requestContext->response()); delete requestContext; return; } const auto code = status.error_code(); // Request takes too long            if (code == grpc::StatusCode::DEADLINE_EXCEEDED) { // Notify a user about deadline exceeded    onDeadline(requestContext); } else if (code == grpc::StatusCode::CANCELED) { // Request was canceled (eg: Server shudown).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "Asynchronous-API tutorial | C++",
+        "url": "https://grpc.io/docs/languages/cpp/async/",
+        "snippet": "The server implementation requests an RPC call with a tag and then waits for the completion queue to return the tag. To deal with this, our complete async server example uses a `CallData` object to maintain the state of each RPC, and uses the address of this object as the unique tag for the call. class CallData { class CallData { public: public: public // Take in the \"service\" instance (in this case representing an asynchronous  // Take in the \"service\" instance (in this case representing an asynchronous // Take in the \"service\" instance (in this case representing an asynchronous  // server) and the completion queue \"cq\" used for asynchronous communication  // server) and the completion queue \"cq\" used for asynchronous communication // server) and the completion queue \"cq\" used for asynchronous communication  // with the gRPC runtime. new CallData(&service_, cq_.get());  new CallData(&service_, cq_.get());  & void* tag; // uniquely identifies a request. You can see our complete server example in [greeter\\_async\\_server.cc](https://github.com/grpc/grpc/blob/v1.78.1/examples/cpp/helloworld/greeter_async_server.cc).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.325
+      },
+      {
+        "title": "Performance Best Practices",
+        "url": "https://grpc.io/docs/guides/performance/",
+        "snippet": "* *(Special topic)* Each gRPC channel uses 0 or more HTTP/2 connections and each connection usually has a limit on the number of concurrent streams. Applications with high load or long-lived streaming RPCs might see performance issues because of this queueing. 2. **Use a pool of gRPC channels** to distribute RPCs over multiple connections (channels must have different channel args to prevent re-use so define a use-specific channel arg such as channel number). * If having to use the async completion-queue API, the **best scalability trade-off is having `numcpu`’s threads.** The ideal number of completion queues in relation to the number of threads can change over time (as gRPC C++ evolves), but as of gRPC 1.41 (Sept 2021), using 2 threads per completion queue seems to give the best performance. * Streaming RPCs create extra threads for receiving and possibly sending the messages, which makes **streaming RPCs much slower than unary RPCs** in gRPC Python, unlike the other languages supported by gRPC.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.24
+      },
+      {
+        "title": "io_uring_cqe_get_data(3) - Linux manual page",
+        "url": "https://man7.org/linux/man-pages/man3/io_uring_cqe_get_data.3.html",
+        "snippet": "The io_uring_cqe_get_data(3) function returns the user_data with the completion queue entry cqe as a data pointer.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Efficient IO with io_uring",
+        "url": "https://kernel.dk/io_uring.pdf",
+        "snippet": "The params structure is both read and written by the kernel, it is deﬁned as follows: struct io_uring_params { __u32 sq_entries; __u32 cq_entries; __u32 flags; __u32 sq_thread_cpu; __u32 sq_thread_idle; __u32 resv[5]; struct io_sqring_offsets sq_off; struct io_cqring_offsets cq_off; }; The sq_entries will be ﬁlled out by the kernel, letting the application know how many sqe entries this ring supports. The io_sqring_oﬀsets structure looks as follows: struct io_sqring_offsets { __u32 head; /* offset of ring head */ __u32 tail; /* offset of ring tail */ __u32 ring_mask; /* ring mask value */ __u32 ring_entries; /* entries in ring */ __u32 flags; /* ring flags */ __u32 dropped; /* number of sqes not submitted */ __u32 array; /* sqe index array / __u32 resv1; __u64 resv2; }; To access this memory, the application must call mmap(2) using the io_uring ﬁle descriptor and the memory oﬀset associated with the SQ ring. The kernel will modify CQ ring tail directly, hence completions can be consumed by the application without necessarily having to call io_uring_enter(2) with IORING_ENTER_GETEVENTS set. For both use cases, the application must call io_uring_cqe_seen(3) once it is done with this completion event.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Linking requests — Lord of the io_uring documentation",
+        "url": "https://unixism.net/loti/tutorial/link_liburing.html",
+        "snippet": "In io_uring , completions do not arrive in the order that submissions were issues in. This was discussed in the chapter The Low-level io_uring Interface.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.325
+      },
+      {
+        "title": "Stupid tricks with io_uring: a server that does zero syscalls per ...",
+        "url": "https://wjwh.eu/posts/2021-10-01-no-syscall-server-iouring.html",
+        "snippet": "The `io_uring` based version is also an event loop system, but instead of waiting for socket readiness we’ll submit all the operations asynchronously and wait until the kernel is done with them to read the result of the syscall. void add_accept_request(int server_socket, struct sockaddr_in *client_addr, socklen_t *client_addr_len) { struct io_uring_sqe *sqe = io_uring_get_sqe(&ring); io_uring_prep_accept(sqe, server_socket, (struct sockaddr *) client_addr, client_addr_len, 0); // magic number in the userdata to differentiate between accept CQEs // and other types of CQE io_uring_sqe_set_data(sqe, (void*) 123); io_uring_submit(&ring); }. When using `liburing`, `io_uring_submit()` will automagically keep track of whether the kernel thread is still alive and skip the syscall if it is not required. As long as we submit at least one SQE every two minutes, the kernel thread will never die and so we’ll never incur a syscall when we call `io_uring_submit()`. peek_result){ if (cqe->user_data == 123) { // magic number for an accept CQE add_write_and_close_requests(cqe->res); add_accept_request(server_socket, &client_addr, &client_addr_len); } else { // no action required } io_uring_cqe_seen(&ring, cqe); } }.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.325
+      },
+      {
+        "title": "Object lifetime - linux io_uring (liburing) asynchronous ...",
+        "url": "https://stackoverflow.com/questions/79669469/object-lifetime-linux-io-uring-liburing-asynchronous-programming",
+        "snippet": "I've a question about the Linux io_uring feature ( liburing ). I understand there's a request-queue and a completion queue and that my code can submit to the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.625
+      },
+      {
+        "title": "Correlation IDs - Engineering Fundamentals Playbook",
+        "url": "https://microsoft.github.io/code-with-engineering-playbook/observability/correlation-id/",
+        "snippet": "# Correlation IDs. A Correlation ID is a unique identifier that is added to the very first interaction (incoming request) to identify the context and is passed to all components that are involved in the transaction flow. Correlation ID becomes the glue that binds the transaction together and helps to draw an overall picture of events. Note: Before implementing your own Correlation ID, investigate if your telemetry tool of choice provides an auto-generated Correlation ID and that it serves the purposes of your application. It takes care of automatically creating and managing the \"Correlation-id\", called TraceId. ### Log Correlation. Log correlation is the ability to track disparate events through different parts of the application. Having a Correlation ID provides more context making it easy to build rules for reporting and analysis. Using Correlation ID helps secondary systems to correlate data without application context. For troubleshooting an errors, Correlation ID is a great starting point to trace the workflow of a transaction.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.525
+      },
+      {
+        "title": "Overwriting Messages with Same Correlation ID and Sequence ...",
+        "url": "https://stackoverflow.com/questions/30419178/overwriting-messages-with-same-correlation-id-and-sequence-number-in-spring",
+        "snippet": "You need to use a custom release strategy (it can have the same logic as the default SequenceSizeReleaseStrategy , but it can't be that",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.625
+      },
+      {
+        "title": "Mastering Correlation IDs: Enhancing Tracing and Debugging in ...",
+        "url": "https://medium.com/@nynptel/mastering-correlation-ids-enhancing-tracing-and-debugging-in-distributed-systems-602a84e1ded6",
+        "snippet": "Each service should extract the correlation ID from the incoming request headers and include it in outgoing requests to downstream services.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "A consistent approach to track correlation IDs through microservices",
+        "url": "https://theburningmonk.com/2015/05/a-consistent-approach-to-track-correlation-ids-through-microservices/",
+        "snippet": "The correlation ID can then be used to quickly find all the relevant log messages for this request (very easy to do in Elasticsearch). * HTTP handler to parse and capture correlation ID passed in via HTTP headers. * HTTP client to include captured correlation IDs as HTTP headers. This *HttpClient* is also augmented to look for any captured correlation IDs and send them along as  headers in every HTTP call. ### Providing the Correlation IDs. For the logger and HTTP client, they need to have a consistent way to get the captured correlation IDs for the current request. The tricky thing is that depending on the hosting framework for your web application – we use both *Nancy* and *Asp.Net WebApi* – you might need a different way to track the correlation IDs, hence the *ICorrelationIdsProvider* abstraction. Unfortunately, I can’t use HttpContext.Current in Nancy, so we need to find an alternative way to ensure the captured correlation IDs flow through async-await operations.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "How to Use Request-Scoped Correlation IDs That Unify Traces, Logs,",
+        "url": "https://oneuptime.com/blog/post/2026-02-06-otel-request-scoped-correlation-ids/view",
+        "snippet": "Implement request-scoped correlation IDs that unify OpenTelemetry traces, structured logs, and custom business metrics for full request",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      }
+    ],
+    "grok": []
+  }
+}

@@ -10,6 +10,7 @@ Related pages:
 - topics/protocol-reply-emission-and-transport-handoff-workflow-note.md
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
 - topics/protocol-ingress-ownership-and-receive-path-workflow-note.md
+- topics/protocol-pending-request-generation-epoch-and-slot-reuse-workflow-note.md
 - topics/runtime-behavior-recovery.md
 - topics/analytic-provenance-and-evidence-management.md
 
@@ -193,6 +194,9 @@ Once the owner-match edge is localized, hand the case to one next task only:
 - provenance packaging if the hard part is preserving the compare slices and assumptions
 
 Do not widen immediately back into generic replay theory.
+
+If the broad owner-match question is already solved and the remaining failure is specifically about timeout, cancel, reconnect, generation/epoch drift, or slot/tag reuse realism, continue with:
+- `topics/protocol-pending-request-generation-epoch-and-slot-reuse-workflow-note.md`
 
 ## 6. Breakpoint / hook placement guidance
 Useful anchors for this stage:
