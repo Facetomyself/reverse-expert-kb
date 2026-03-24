@@ -1,0 +1,586 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Linux DMA API dma_sync_single_for_cpu dma_sync_single_for_device non-coherent descriptor ring stale completion reverse engineering",
+    "descriptor ring cache coherency dma_rmb dma_wmb device sees stale descriptors completion queue embedded firmware",
+    "doorbell descriptor ownership transfer cache visibility non coherent systems DMA API barrier completion ring"
+  ],
+  "count": 31,
+  "results": [
+    {
+      "title": "Questions about dma_sync_single_for_cpu ... - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/53246379/questions-about-dma-sync-single-for-cpu-dma-sync-single-for-device",
+      "snippet": "It's a question of ownership. dma_sync_single_for_device() grants ownership to the DMA controller where dma_sync_single_for_cpu() gains ownership back.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "Linux kernel memory barriers",
+      "url": "https://docs.kernel.org/core-api/wrappers/memory-barriers.html",
+      "snippet": "DMA vs. cache coherency section: descriptor ownership before device sees it, dma_mb(), consistent memory, and ensuring device visibility of CPU writes to descriptors/ownership bits in non-coherent setups.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.675
+    },
+    {
+      "title": "Dynamic DMA mapping using the generic device",
+      "url": "https://docs.kernel.org/core-api/dma-api.html",
+      "snippet": "Linux DMA API documentation covering non-coherent DMA allocations, explicit memory ownership management between kernel and device, dma_alloc_pages, and related coherency/visibility rules.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.675
+    },
+    {
+      "title": "Dynamic DMA mapping Guide - The Linux Kernel documentation",
+      "url": "https://docs.kernel.org/core-api/dma-api-howto.html",
+      "snippet": "This is a guide to device driver writers on how to use the DMA API with example pseudo-code. For a concise description of the API, see Dynamic DMA mapping",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.625
+    },
+    {
+      "title": "lock free ring buffer works on x86 but breaks on ARM - memory barriers not helping?",
+      "url": "https://stackoverflow.com/questions/79860498/lock-free-ring-buffer-works-on-x86-but-breaks-on-arm-memory-barriers-not-helpi",
+      "snippet": "",
+      "published_date": "2026-01-05T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "RFC: Memory Barriers API Design · Issue #642 · au-ts/sddf - GitHub",
+      "url": "https://github.com/au-ts/sddf/issues/642",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.625
+    },
+    {
+      "title": "Linux-Kernel Archive: [PATCH v5 4/4] fm10k/igb/ixgbe: Use dma_rmb on Rx descriptor reads",
+      "url": "https://lkml.indiana.edu/1411.2/02242.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.575
+    },
+    {
+      "title": "How Hardware and Software Share a Queue: Understanding DMA Rings - DEV Community",
+      "url": "https://dev.to/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+      "snippet": "",
+      "published_date": "2026-02-21T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.55
+    },
+    {
+      "title": "Linux-Kernel Archive: [net-next PATCH v7 resubmit 2/4] arch: Add lightweight memory barriers dma_rmb() and dma_wmb()",
+      "url": "https://lkml.rescloud.iu.edu/1412.1/02851.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.55
+    },
+    {
+      "title": "Framework desktop AMD GPU Linux instability - Reddit",
+      "url": "https://www.reddit.com/r/framework/comments/1rpsjns/framework_desktop_amd_gpu_linux_instability/",
+      "snippet": "The AMD GPU has been such a PITA with stability trying to do inference, broken firmware, and crashes like this. Anyone else encountering this/",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "Issue with DMA on NXP S32K324 : r/embedded - Reddit",
+      "url": "https://www.reddit.com/r/embedded/comments/1o2046f/issue_with_dma_on_nxp_s32k324/",
+      "snippet": "Hi everyone, I am using NXPs S32K324 processor on one of my projects. Here is the issue I am experiencing: I am trying to use DMA together",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.525
+    },
+    {
+      "title": "Understanding Cache Coherency - DEV Community",
+      "url": "https://dev.to/ripan030/understanding-cache-coherency-4lj8",
+      "snippet": "",
+      "published_date": "2026-02-25T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.5
+    },
+    {
+      "title": "RDMA Doorbell Batching - Sekwon Lee",
+      "url": "https://sekwonlee.github.io/posts/2024/07/rdma-doorbell-batching/",
+      "snippet": "",
+      "published_date": "2024-07-05T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.475
+    },
+    {
+      "title": "DMA-API-HOWTO.txt (Android MSM kernel)",
+      "url": "https://android.googlesource.com/kernel/msm/+/android-wear-5.0.2_r0.1/Documentation/DMA-API-HOWTO.txt",
+      "snippet": "DMA API howto with examples of dma_sync_single_for_cpu() and dma_sync_single_for_device() usage in drivers, including for network card descriptor rings.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.45
+    },
+    {
+      "title": "DMA-API.txt - The Linux Kernel Archives",
+      "url": "https://www.kernel.org/doc/Documentation/DMA-API.txt",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.375
+    },
+    {
+      "title": "The DMA API changes - LWN.net",
+      "url": "https://lwn.net/Articles/75780/",
+      "snippet": "dma_sync_single_for_cpu() gives ownership of the DMA buffer back to the processor. After that call, driver code can read or modify the buffer,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "dma_sync_single_for_cpu takes a really long time",
+      "url": "https://linux-arm-kernel.infradead.narkive.com/0JjK0RFX/dma-sync-single-for-cpu-takes-a-really-long-time",
+      "snippet": "Hi, I'm working on a DMA driver that uses the the streaming DMA API to synchronize the access between host and device. The data flow is",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Changelog - The Linux Kernel Archives",
+      "url": "https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.18.19",
+      "snippet": "Fixes: 79cfe9e59c2a (\"io\\_uring/register: add IORING\\_REGISTER\\_RESIZE\\_RINGS\"). Fixes: 79cfe9e59c2a (\"io\\_uring/register: add IORING\\_REGISTER\\_RESIZE\\_RINGS\"). Fixes: 4dcf6caddaa0 (\"lib/crypto: tests: Add KUnit tests for SHA-224 and SHA-256\"). Fixes: 571eaeddb67d (\"lib/crypto: tests: Add KUnit tests for SHA-384 and SHA-512\"). Fixes: 6dd4d9f7919e (\"lib/crypto: tests: Add KUnit tests for Poly1305\"). Fixes: 66b130607908 (\"lib/crypto: tests: Add KUnit tests for SHA-1 and HMAC-SHA1\"). Fixes: d6b6aac0cdb4 (\"lib/crypto: tests: Add KUnit tests for MD5 and HMAC-MD5\"). Fixes: 6401fd334ddf (\"lib/crypto: tests: Add KUnit tests for BLAKE2b\"). Fixes: 15c64c47e484 (\"lib/crypto: tests: Add SHA3 kunit tests\"). Fixes: b3aed551b3fc (\"lib/crypto: tests: Add KUnit tests for POLYVAL\"). Fixes: ed894faccb8d (\"lib/crypto: tests: Add KUnit tests for ML-DSA verification\"). Fixes: 7246fe6cd644 (\"lib/crypto: tests: Add KUnit tests for NH\"). Fix the abort handling by checking whether the ring is running before. i3c: mipi-i3c-hci: Fix race in DMA ring dequeue. Fixes: 60df548277b7 (\"iio: proximity: Add driver support for TYHX's HX9023S capacitive proximity sensor\"). Fixes: 3b29bcee8f6f (\"iio: imu: adis: Add custom ops struct\"). Fixes: 9eeee3b0bf19 (\"iio: Add output buffer support\").",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Linux Kernel Memory Management: In-Depth Analysis of DMA Mechanisms - Oreate AI Blog",
+      "url": "https://www.oreateai.com/blog/linux-kernel-memory-management-indepth-analysis-of-dma-mechanisms/5f6ed7a805e575f92f444f67ce346f5f",
+      "snippet": "",
+      "published_date": "2026-01-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "A security fix briefly breaks DMA - LWN.net",
+      "url": "https://lwn.net/Articles/889593/",
+      "snippet": "When a DMA buffer is first mapped, the ownership belongs to the CPU. A call to dma_sync_single_for_device() sets the ownership to the device,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "STM32F746 Ethernet DMA Transmit problem - Page 2",
+      "url": "https://community.st.com/t5/stm32-mcus-embedded-software/stm32f746-ethernet-dma-transmit-problem/td-p/414083/page/2",
+      "snippet": "I am developing Ethernet driver on STM32F7-DISCO board. I set buffer address, buffer size in Tx descriptor. Then I set control bits in TDES0 of Tx descriptor",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "DMA Cache Coherency Issue on Cortex-M7",
+      "url": "https://www.linkedin.com/posts/nivedita1811_embedded-firmware-dma-activity-7419234936769028096-JP-0",
+      "snippet": "DMA was clearly receiving data (DMA interrupt fired, scope confirmed activity), but when my code read the buffer, it was still showing old values. ... DMA writes directly to RAM. But the CPU often reads from cache, not RAM. So the data did arrive… but the CPU kept reading the stale cached copy.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.35
+    },
+    {
+      "title": "US6735642B2 - DMA doorbell - Google Patents",
+      "url": "https://patents.google.com/patent/US6735642B2/en",
+      "snippet": "Direct memory access (DMA) is an efficient means for transferring data to and from a memory without direct involvement of a central processing unit (CPU). A DMA",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.35
+    },
+    {
+      "title": "i.MX 6 and PCIe DMA issues",
+      "url": "https://linux-arm-kernel.infradead.narkive.com/JamBQKRx/i-mx-6-and-pcie-dma-issues",
+      "snippet": "Discussion on DMA buffer handling with dma_alloc_coherent() vs dma_map_single(), sync calls on descriptor rings, and issues with stale data in caches on non-coherent ARM systems.",
+      "published_date": "2021-01-25",
+      "source": "grok",
+      "score": 0.345
+    },
+    {
+      "title": "About dma_sync_single_for_{cpu,device}",
+      "url": "https://linux-arm-kernel.infradead.narkive.com/gTw60mYr/about-dma-sync-single-for-cpu-device",
+      "snippet": "",
+      "published_date": "2012-07-31T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "Noncoherent DMA mappings",
+      "url": "https://lwn.net/Articles/855328/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "[PATCH v7 2/4] arch: Add lightweight memory barriers dma_rmb() and  dma_wmb()",
+      "url": "https://linux.kernel.narkive.com/6qmZjg9r/patch-v7-2-4-arch-add-lightweight-memory-barriers-dma-rmb-and-dma-wmb",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.325
+    },
+    {
+      "title": "API — ROCR 1.18.0 Documentation",
+      "url": "https://rocm.docs.amd.com/projects/ROCR-Runtime/en/latest/api-reference/api.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "[PDF] Advanced Industrial Control Technology",
+      "url": "https://ndl.ethernet.edu.et/bitstream/123456789/1036/1/Advanced%20Industrial%20Control%20Technology.pdf",
+      "snippet": "When needing to start the next task, the interr[...]s, 3 5 implementation methods, 7 11 hardware implementation, control function mapping for, 8 9 software implementation, control logic modeling for, 9 11 Embedded industrial computers, see Embedded computers Embedded machine controller, 543 Embedded microprocessor, 21, 224, 566, 741 Embedded networks, see Networking Embedded processors in SoC architecture, 740 2 Embedded single board computers, 352 Embedded software, 10 Emitter, 120 Encapsulating bridges, 408 Enhanced IDE (E IDE), 577 818 Index Enterprise networks, industrial, 402 local area network (wired LAN), 405 12 architectures, 405 7 media access methods, 411 2 protocols, 409 10 topologies, 407 9 transmission methods, 412 Rockwell Automation, 404 Texas Instruments, 404 5 virtual local area network (VLAN), 405 19 deﬁning, 415 6 implementing, 416 7 standards, 418 9 wireless local area network (WLAN), 419 25 industrial solutions, 425 operational modes, 421 2 system components, 420 technical issues, 422 4 see also Networking Enterprise scale production automation system, 64 Erasable programmable read only memory (EPROM), 166 Error active node, 373 Error echo ﬂag, 373 Error frame, 373 Error handling, 372 error conditions, 372 3 error states, 373 Error passive node, 373 ESA (Extended Industrial Standard Architecture), 349 EtherCAT, 398 Ethernet, 33, 35, 354, 376, 391, 429, 542 Ethernet 100Base T, 34, 429 Ethernet bridges, 455 Ethernet hardware, 393 5 Ethernet LAN model, 34 Ethernet network, industrial, 391 beneﬁts, 392 3 communication, 396 EtherCAT, 398 Ethernet/IP, 397 Modbus TCP, 398 Proﬁnet, 397 hardware, 393 5 versus ofﬁce Ethernet, 391 redundancy, 400 1, 402 reliability, 392 industrial Ethernet network redundancy, 400 1 Power over Ethernet, 398 400 software, 395 IGMP snooping, 395 port security and access control lists, 395 SNMP support, 396 Spanning Tree protocol, 396 see also Networking Ethernet protocol suite, 396 Evaporator level process control, 48 Event brokers, 698 9 Event handling routines, 662 Event notiﬁcation service (ENS), 660 1 Event triggers and broadcasts, 661 2 Execution time, 13 Expansion",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Cache Coherency- Risks and Resolution in case of Direct Memory Access (DMA)",
+      "url": "https://www.einfochips.com/blog/cache-coherency-risks-and-resolution-in-case-of-direct-memory-access-dma/",
+      "snippet": "In multicore processor scenario if the shared cache memory is used to store the EMAC data such as buffer descriptors. There is chance that host processor may read the descriptor before the DMA write hit the memory. Host processor could read the old stale data. ... when EMAC addresses are descriptors in cacheable memory space, it is important to ensure that the descriptor is written back and invalidated prior to updating the next receiver buffer.",
+      "published_date": "2024-02-12",
+      "source": "grok",
+      "score": 0.295
+    },
+    {
+      "title": "Hint: DMA and cache coherency",
+      "url": "https://community.st.com/t5/stm32-mcus-products/hint-dma-and-cache-coherency/td-p/439559",
+      "snippet": "DMA is not coherent, they do not force an update on DCACHE. ... DMA writes directly to memory. If DCACHE is enabled, the same memory location already hosted in cache - any update on memory (done by DMA) is not 'visible' for MCU. MCU will still see the 'old' content because it is read from cache.",
+      "published_date": "2023-09-11",
+      "source": "grok",
+      "score": 0.245
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "DMA-API.txt - The Linux Kernel Archives",
+        "url": "https://www.kernel.org/doc/Documentation/DMA-API.txt",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.375
+      },
+      {
+        "title": "Linux Kernel Memory Management: In-Depth Analysis of DMA Mechanisms - Oreate AI Blog",
+        "url": "https://www.oreateai.com/blog/linux-kernel-memory-management-indepth-analysis-of-dma-mechanisms/5f6ed7a805e575f92f444f67ce346f5f",
+        "snippet": "",
+        "published_date": "2026-01-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "Understanding Cache Coherency - DEV Community",
+        "url": "https://dev.to/ripan030/understanding-cache-coherency-4lj8",
+        "snippet": "",
+        "published_date": "2026-02-25T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.5
+      },
+      {
+        "title": "About dma_sync_single_for_{cpu,device}",
+        "url": "https://linux-arm-kernel.infradead.narkive.com/gTw60mYr/about-dma-sync-single-for-cpu-device",
+        "snippet": "",
+        "published_date": "2012-07-31T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "Noncoherent DMA mappings",
+        "url": "https://lwn.net/Articles/855328/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "How Hardware and Software Share a Queue: Understanding DMA Rings - DEV Community",
+        "url": "https://dev.to/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.55
+      },
+      {
+        "title": "Linux-Kernel Archive: [net-next PATCH v7 resubmit 2/4] arch: Add lightweight memory barriers dma_rmb() and dma_wmb()",
+        "url": "https://lkml.rescloud.iu.edu/1412.1/02851.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.55
+      },
+      {
+        "title": "Linux-Kernel Archive: [PATCH v5 4/4] fm10k/igb/ixgbe: Use dma_rmb on Rx descriptor reads",
+        "url": "https://lkml.indiana.edu/1411.2/02242.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.575
+      },
+      {
+        "title": "[PATCH v7 2/4] arch: Add lightweight memory barriers dma_rmb() and  dma_wmb()",
+        "url": "https://linux.kernel.narkive.com/6qmZjg9r/patch-v7-2-4-arch-add-lightweight-memory-barriers-dma-rmb-and-dma-wmb",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.325
+      },
+      {
+        "title": "lock free ring buffer works on x86 but breaks on ARM - memory barriers not helping?",
+        "url": "https://stackoverflow.com/questions/79860498/lock-free-ring-buffer-works-on-x86-but-breaks-on-arm-memory-barriers-not-helpi",
+        "snippet": "",
+        "published_date": "2026-01-05T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "RFC: Memory Barriers API Design · Issue #642 · au-ts/sddf - GitHub",
+        "url": "https://github.com/au-ts/sddf/issues/642",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.625
+      },
+      {
+        "title": "Understanding Cache Coherency - DEV Community",
+        "url": "https://dev.to/ripan030/understanding-cache-coherency-4lj8",
+        "snippet": "",
+        "published_date": "2026-02-25T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "API — ROCR 1.18.0 Documentation",
+        "url": "https://rocm.docs.amd.com/projects/ROCR-Runtime/en/latest/api-reference/api.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "How Hardware and Software Share a Queue: Understanding DMA Rings - DEV Community",
+        "url": "https://dev.to/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "RDMA Doorbell Batching - Sekwon Lee",
+        "url": "https://sekwonlee.github.io/posts/2024/07/rdma-doorbell-batching/",
+        "snippet": "",
+        "published_date": "2024-07-05T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.475
+      }
+    ],
+    "tavily": [
+      {
+        "title": "The DMA API changes - LWN.net",
+        "url": "https://lwn.net/Articles/75780/",
+        "snippet": "dma_sync_single_for_cpu() gives ownership of the DMA buffer back to the processor. After that call, driver code can read or modify the buffer,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "dma_sync_single_for_cpu takes a really long time",
+        "url": "https://linux-arm-kernel.infradead.narkive.com/0JjK0RFX/dma-sync-single-for-cpu-takes-a-really-long-time",
+        "snippet": "Hi, I'm working on a DMA driver that uses the the streaming DMA API to synchronize the access between host and device. The data flow is",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Questions about dma_sync_single_for_cpu ... - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/53246379/questions-about-dma-sync-single-for-cpu-dma-sync-single-for-device",
+        "snippet": "It's a question of ownership. dma_sync_single_for_device() grants ownership to the DMA controller where dma_sync_single_for_cpu() gains ownership back.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "A security fix briefly breaks DMA - LWN.net",
+        "url": "https://lwn.net/Articles/889593/",
+        "snippet": "When a DMA buffer is first mapped, the ownership belongs to the CPU. A call to dma_sync_single_for_device() sets the ownership to the device,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "Dynamic DMA mapping Guide - The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/core-api/dma-api-howto.html",
+        "snippet": "This is a guide to device driver writers on how to use the DMA API with example pseudo-code. For a concise description of the API, see Dynamic DMA mapping",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.625
+      },
+      {
+        "title": "Issue with DMA on NXP S32K324 : r/embedded - Reddit",
+        "url": "https://www.reddit.com/r/embedded/comments/1o2046f/issue_with_dma_on_nxp_s32k324/",
+        "snippet": "Hi everyone, I am using NXPs S32K324 processor on one of my projects. Here is the issue I am experiencing: I am trying to use DMA together",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.525
+      },
+      {
+        "title": "STM32F746 Ethernet DMA Transmit problem - Page 2",
+        "url": "https://community.st.com/t5/stm32-mcus-embedded-software/stm32f746-ethernet-dma-transmit-problem/td-p/414083/page/2",
+        "snippet": "I am developing Ethernet driver on STM32F7-DISCO board. I set buffer address, buffer size in Tx descriptor. Then I set control bits in TDES0 of Tx descriptor",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "Framework desktop AMD GPU Linux instability - Reddit",
+        "url": "https://www.reddit.com/r/framework/comments/1rpsjns/framework_desktop_amd_gpu_linux_instability/",
+        "snippet": "The AMD GPU has been such a PITA with stability trying to do inference, broken firmware, and crashes like this. Anyone else encountering this/",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "US6735642B2 - DMA doorbell - Google Patents",
+        "url": "https://patents.google.com/patent/US6735642B2/en",
+        "snippet": "Direct memory access (DMA) is an efficient means for transferring data to and from a memory without direct involvement of a central processing unit (CPU). A DMA",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.35
+      },
+      {
+        "title": "Changelog - The Linux Kernel Archives",
+        "url": "https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.18.19",
+        "snippet": "Fixes: 79cfe9e59c2a (\"io\\_uring/register: add IORING\\_REGISTER\\_RESIZE\\_RINGS\"). Fixes: 79cfe9e59c2a (\"io\\_uring/register: add IORING\\_REGISTER\\_RESIZE\\_RINGS\"). Fixes: 4dcf6caddaa0 (\"lib/crypto: tests: Add KUnit tests for SHA-224 and SHA-256\"). Fixes: 571eaeddb67d (\"lib/crypto: tests: Add KUnit tests for SHA-384 and SHA-512\"). Fixes: 6dd4d9f7919e (\"lib/crypto: tests: Add KUnit tests for Poly1305\"). Fixes: 66b130607908 (\"lib/crypto: tests: Add KUnit tests for SHA-1 and HMAC-SHA1\"). Fixes: d6b6aac0cdb4 (\"lib/crypto: tests: Add KUnit tests for MD5 and HMAC-MD5\"). Fixes: 6401fd334ddf (\"lib/crypto: tests: Add KUnit tests for BLAKE2b\"). Fixes: 15c64c47e484 (\"lib/crypto: tests: Add SHA3 kunit tests\"). Fixes: b3aed551b3fc (\"lib/crypto: tests: Add KUnit tests for POLYVAL\"). Fixes: ed894faccb8d (\"lib/crypto: tests: Add KUnit tests for ML-DSA verification\"). Fixes: 7246fe6cd644 (\"lib/crypto: tests: Add KUnit tests for NH\"). Fix the abort handling by checking whether the ring is running before. i3c: mipi-i3c-hci: Fix race in DMA ring dequeue. Fixes: 60df548277b7 (\"iio: proximity: Add driver support for TYHX's HX9023S capacitive proximity sensor\"). Fixes: 3b29bcee8f6f (\"iio: imu: adis: Add custom ops struct\"). Fixes: 9eeee3b0bf19 (\"iio: Add output buffer support\").",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "[PDF] Advanced Industrial Control Technology",
+        "url": "https://ndl.ethernet.edu.et/bitstream/123456789/1036/1/Advanced%20Industrial%20Control%20Technology.pdf",
+        "snippet": "When needing to start the next task, the interr[...]s, 3 5 implementation methods, 7 11 hardware implementation, control function mapping for, 8 9 software implementation, control logic modeling for, 9 11 Embedded industrial computers, see Embedded computers Embedded machine controller, 543 Embedded microprocessor, 21, 224, 566, 741 Embedded networks, see Networking Embedded processors in SoC architecture, 740 2 Embedded single board computers, 352 Embedded software, 10 Emitter, 120 Encapsulating bridges, 408 Enhanced IDE (E IDE), 577 818 Index Enterprise networks, industrial, 402 local area network (wired LAN), 405 12 architectures, 405 7 media access methods, 411 2 protocols, 409 10 topologies, 407 9 transmission methods, 412 Rockwell Automation, 404 Texas Instruments, 404 5 virtual local area network (VLAN), 405 19 deﬁning, 415 6 implementing, 416 7 standards, 418 9 wireless local area network (WLAN), 419 25 industrial solutions, 425 operational modes, 421 2 system components, 420 technical issues, 422 4 see also Networking Enterprise scale production automation system, 64 Erasable programmable read only memory (EPROM), 166 Error active node, 373 Error echo ﬂag, 373 Error frame, 373 Error handling, 372 error conditions, 372 3 error states, 373 Error passive node, 373 ESA (Extended Industrial Standard Architecture), 349 EtherCAT, 398 Ethernet, 33, 35, 354, 376, 391, 429, 542 Ethernet 100Base T, 34, 429 Ethernet bridges, 455 Ethernet hardware, 393 5 Ethernet LAN model, 34 Ethernet network, industrial, 391 beneﬁts, 392 3 communication, 396 EtherCAT, 398 Ethernet/IP, 397 Modbus TCP, 398 Proﬁnet, 397 hardware, 393 5 versus ofﬁce Ethernet, 391 redundancy, 400 1, 402 reliability, 392 industrial Ethernet network redundancy, 400 1 Power over Ethernet, 398 400 software, 395 IGMP snooping, 395 port security and access control lists, 395 SNMP support, 396 Spanning Tree protocol, 396 see also Networking Ethernet protocol suite, 396 Evaporator level process control, 48 Event brokers, 698 9 Event handling routines, 662 Event notiﬁcation service (ENS), 660 1 Event triggers and broadcasts, 661 2 Execution time, 13 Expansion",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      }
+    ],
+    "grok": [
+      {
+        "title": "DMA-API.txt - Linux Kernel Documentation",
+        "url": "https://www.kernel.org/doc/Documentation/DMA-API.txt",
+        "snippet": "Documentation for the Linux DMA API, including detailed descriptions and usage of dma_sync_single_for_cpu() and dma_sync_single_for_device() for synchronizing mappings between CPU and device on non-coherent architectures.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Dynamic DMA mapping Guide - Linux Kernel Documentation",
+        "url": "https://docs.kernel.org/core-api/dma-api-howto.html",
+        "snippet": "Howto guide covering streaming DMA mappings, dma_map_single(), and the sync functions dma_sync_single_for_device() and dma_sync_single_for_cpu() with examples for proper use before/after device access.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Understanding Cache Coherency",
+        "url": "https://dev.to/ripan030/understanding-cache-coherency-4lj8",
+        "snippet": "Explains DMA failures on non-coherent systems, use of dma_sync_single_for_device() before device reads descriptors, and dma_sync_single_for_cpu() after device writes completions in descriptor rings allocated with kzalloc().",
+        "published_date": "2026-02-25",
+        "source": "grok"
+      },
+      {
+        "title": "i.MX 6 and PCIe DMA issues",
+        "url": "https://linux-arm-kernel.infradead.narkive.com/JamBQKRx/i-mx-6-and-pcie-dma-issues",
+        "snippet": "Discussion on DMA buffer handling with dma_alloc_coherent() vs dma_map_single(), sync calls on descriptor rings, and issues with stale data in caches on non-coherent ARM systems.",
+        "published_date": "2021-01-25",
+        "source": "grok",
+        "score": 0.345
+      },
+      {
+        "title": "DMA-API-HOWTO.txt (Android MSM kernel)",
+        "url": "https://android.googlesource.com/kernel/msm/+/android-wear-5.0.2_r0.1/Documentation/DMA-API-HOWTO.txt",
+        "snippet": "DMA API howto with examples of dma_sync_single_for_cpu() and dma_sync_single_for_device() usage in drivers, including for network card descriptor rings.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.45
+      },
+      {
+        "title": "Dynamic DMA mapping Guide",
+        "url": "https://docs.kernel.org/core-api/dma-api-howto.html",
+        "snippet": "Coherent DMA memory does not preclude the usage of proper memory barriers. The CPU may reorder stores to coherent memory just as it may normal memory. ... Network card DMA ring descriptors. ... if it is important for the device to see the first word of a descriptor updated before the second, you must do something like: desc->word0 = address; wmb(); desc->word1 = DESC_VALID;",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Add lightweight memory barriers dma_rmb() and dma_wmb()",
+        "url": "https://linux.kernel.narkive.com/6qmZjg9r/patch-v7-2-4-arch-add-lightweight-memory-barriers-dma-rmb-and-dma-wmb",
+        "snippet": "dma_rmb() and dma_wmb() ... These are for use with consistent memory to guarantee the ordering of writes or reads of shared memory accessible to both the CPU and a DMA capable device. For example, consider a device driver that shares memory with a device and uses a descriptor status value to indicate if the descriptor belongs to the device or the CPU ... dma_wmb(); ... dma_rmb();",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Cache Coherency- Risks and Resolution in case of Direct Memory Access (DMA)",
+        "url": "https://www.einfochips.com/blog/cache-coherency-risks-and-resolution-in-case-of-direct-memory-access-dma/",
+        "snippet": "In multicore processor scenario if the shared cache memory is used to store the EMAC data such as buffer descriptors. There is chance that host processor may read the descriptor before the DMA write hit the memory. Host processor could read the old stale data. ... when EMAC addresses are descriptors in cacheable memory space, it is important to ensure that the descriptor is written back and invalidated prior to updating the next receiver buffer.",
+        "published_date": "2024-02-12",
+        "source": "grok",
+        "score": 0.295
+      },
+      {
+        "title": "Hint: DMA and cache coherency",
+        "url": "https://community.st.com/t5/stm32-mcus-products/hint-dma-and-cache-coherency/td-p/439559",
+        "snippet": "DMA is not coherent, they do not force an update on DCACHE. ... DMA writes directly to memory. If DCACHE is enabled, the same memory location already hosted in cache - any update on memory (done by DMA) is not 'visible' for MCU. MCU will still see the 'old' content because it is read from cache.",
+        "published_date": "2023-09-11",
+        "source": "grok",
+        "score": 0.245
+      },
+      {
+        "title": "DMA Cache Coherency Issue on Cortex-M7",
+        "url": "https://www.linkedin.com/posts/nivedita1811_embedded-firmware-dma-activity-7419234936769028096-JP-0",
+        "snippet": "DMA was clearly receiving data (DMA interrupt fired, scope confirmed activity), but when my code read the buffer, it was still showing old values. ... DMA writes directly to RAM. But the CPU often reads from cache, not RAM. So the data did arrive… but the CPU kept reading the stale cached copy.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.35
+      },
+      {
+        "title": "RFC: Memory Barriers API Design · Issue #642 · au-ts/sddf",
+        "url": "https://github.com/au-ts/sddf/issues/642",
+        "snippet": "Descriptor ownership transfer via 'own' bit update, followed by doorbell write to trigger device. Discusses lack of barrier between descriptor ownership transfer and doorbell on non-coherent Arm/RISC-V systems, potential reordering, and cache maintenance vs. memory barriers (dma_wmb, iowmb, etc.) for DMA visibility and completion rings.",
+        "published_date": "2026-02-22",
+        "source": "grok"
+      },
+      {
+        "title": "Understanding DMA Rings",
+        "url": "https://dev.to/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+        "snippet": "Explains DMA descriptor rings, ownership transfer, cache coherency issues on non-coherent systems, cache invalidate before reading completions, WR_IDX, and visibility guarantees when device writes back to rings after DMA.",
+        "published_date": "2026-02-21",
+        "source": "grok"
+      },
+      {
+        "title": "Linux kernel memory barriers",
+        "url": "https://docs.kernel.org/core-api/wrappers/memory-barriers.html",
+        "snippet": "DMA vs. cache coherency section: descriptor ownership before device sees it, dma_mb(), consistent memory, and ensuring device visibility of CPU writes to descriptors/ownership bits in non-coherent setups.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.675
+      },
+      {
+        "title": "Dynamic DMA mapping using the generic device",
+        "url": "https://docs.kernel.org/core-api/dma-api.html",
+        "snippet": "Linux DMA API documentation covering non-coherent DMA allocations, explicit memory ownership management between kernel and device, dma_alloc_pages, and related coherency/visibility rules.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.675
+      },
+      {
+        "title": "US6735642B2 - DMA doorbell",
+        "url": "https://patents.google.com/patent/US6735642B2/en",
+        "snippet": "Patent on DMA doorbell mechanism: ringing doorbell after preparing descriptor lists/chains, notifying DMA engine to read descriptors, and linking for continuous operation.",
+        "published_date": "",
+        "source": "grok"
+      }
+    ]
+  }
+}
