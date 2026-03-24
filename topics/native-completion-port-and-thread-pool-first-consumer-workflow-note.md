@@ -171,6 +171,12 @@ Usually this is one of:
 - one worker queue pop retrieving one task node
 - one worker-complete path promoting one finished request into one loop-thread callback family
 
+For IOCP-shaped cases, preserve one narrower stop rule immediately:
+- treat **completion key** and **`OVERLAPPED*`** as different ownership carriers
+- the completion key often reduces the queue family or handle family
+- the `OVERLAPPED*` often leads back to the concrete embedded request/session owner
+- do not stop at “this worker dequeued the packet” until one of those carriers predicts one later state edge, retry/degrade branch, or emitted reply more truthfully than queue chronology alone
+
 If you cannot identify this reduction, you are probably still reading queue setup rather than behavior.
 
 ### Step 4: unwrap the shared helper layer
