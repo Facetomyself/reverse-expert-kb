@@ -15,6 +15,8 @@ Related pages:
 - topics/protocol-ingress-ownership-and-receive-path-workflow-note.md
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
+- topics/protocol-pending-request-correlation-and-async-reply-workflow-note.md
+- topics/protocol-pending-request-generation-epoch-and-slot-reuse-workflow-note.md
 - topics/protocol-reply-emission-and-transport-handoff-workflow-note.md
 - topics/mailbox-doorbell-command-completion-workflow-note.md
 - topics/descriptor-ownership-transfer-and-completion-visibility-workflow-note.md
@@ -53,7 +55,7 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of eleven recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of fifteen recurring families:
 
 1. **context / object-of-recovery framing uncertainty**
    - the analyst still needs to decide whether the real object is environment recovery, protocol structure, peripheral context, or downstream rehosting/fuzzing utility
@@ -75,13 +77,15 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - the parser or dispatch region is visible, but the first state/reply/peripheral consequence edge is still unknown
 10. **acceptance / replay-precondition uncertainty**
    - structurally plausible replay or mutation still fails because one narrow state/precondition gate is unproved
-11. **reply-emission / output-handoff uncertainty**
+11. **pending-request ownership-lifecycle uncertainty**
+   - broad owner-match is already plausible, but late replies, timeout cleanup, generation/epoch drift, phase/wrap mismatch, or slot/tag reuse still decide whether an arrival belongs to the current live request
+12. **reply-emission / output-handoff uncertainty**
    - local acceptance or reply-object creation is visible, but the first committed output path is still unclear
-12. **mailbox / doorbell command publish-completion uncertainty**
+13. **mailbox / doorbell command publish-completion uncertainty**
    - one mailbox, command queue, slot, or submission path is already plausible, but the first publish edge and request-linked completion chain are still unclear
-13. **descriptor ownership-transfer / completion-visibility uncertainty**
+14. **descriptor ownership-transfer / completion-visibility uncertainty**
    - one descriptor, ring, or completion record is already visible, but the exact ownership-transfer, trust/visibility, or reclaim boundary is still unclear
-14. **hardware-side effect / interrupt consequence uncertainty**
+15. **hardware-side effect / interrupt consequence uncertainty**
    - the path already reaches peripheral or interrupt/deferred boundaries, but the first durable effect-bearing write or later consequence handoff is still unproved
 
 A compact operator ladder for this branch is:
@@ -103,6 +107,7 @@ The subtree is strongest when read as:
 - **own** the right inbound object
 - **reduce** one parser/state consequence
 - **accept** one interaction under the right local precondition
+- **stabilize** one pending-request lifetime contract when broad owner-match is already good enough but late replies or reuse still drift
 - **emit** one real output
 - **publish** one mailbox/doorbell command when that narrower seam is the true bottleneck
 - **stabilize** one descriptor ownership-transfer / completion-visibility contract when publication is visible but trust/reclaim semantics still drift
@@ -262,7 +267,23 @@ Start here when:
 Do **not** start here when:
 - parser/state consequence is still unclear
 - the case is still earlier at capture-failure or receive ownership
+- the broad acceptance question is already solved and the remaining failure is specifically stale-owner / late-reply / generation-or-reuse realism
 - the decisive missing edge is later on the output side
+
+### Start with `protocol-pending-request-generation-epoch-and-slot-reuse-workflow-note`
+Use:
+- `topics/protocol-pending-request-generation-epoch-and-slot-reuse-workflow-note.md`
+
+Start here when:
+- one outstanding-request owner or broad correlation rule is already good enough to name
+- a reply or completion still looks structurally plausible at arrival time
+- but timeout cleanup, cancel, reconnect, generation/epoch drift, phase/wrap mismatch, or slot/tag reuse now seems to decide whether it is treated as current or stale
+- the next useful output is one compact lifetime contract rather than more broad replay-gate narration
+
+Do **not** start here when:
+- the first owner-match check is still unknown
+- the response/completion family is still speculative
+- the real missing edge is whether any reply/output is emitted at all rather than whether an arrival still belongs to the current live request
 
 ### Start with `protocol-reply-emission-and-transport-handoff-workflow-note`
 Use:
@@ -335,7 +356,7 @@ Do **not** start here when:
 - the real bottleneck is earlier in parser/state or replay-gate work
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as fourteen common bottleneck families that often chain into one another.
+A useful way to read the branch is as fifteen common bottleneck families that often chain into one another.
 
 ### A. Broad firmware/protocol uncertainty -> correct recovery object
 Typical question:
@@ -489,12 +510,30 @@ Routing reminder:
 
 Possible next handoff:
 - `topics/protocol-pending-request-correlation-and-async-reply-workflow-note.md` when the broad replay gate has already collapsed to one outstanding-request owner, correlation-id match, async handle, pending slot, callback queue, or late-reply lifecycle problem deciding whether a response-like artifact is consumed at all
+- `topics/protocol-pending-request-generation-epoch-and-slot-reuse-workflow-note.md` when broad owner-match is already good enough and the remaining drift is specifically timeout/cancel cleanup, generation/epoch drift, phase/wrap mismatch, or slot/tag reuse realism
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/analytic-provenance-and-evidence-management.md` when one consequence-bearing parser/state edge is already good enough and the main remaining problem is preserving exactly which inputs, state assumptions, and reduced proof slices justified the claim
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 
-### K. Accepted local path -> real output behavior
+### K. Broad owner-match solved -> current-vs-stale lifetime realism
+Typical question:
+- when the broad pending owner already looks right, what generation, epoch, phase, wrap, or slot/tag reuse rule still decides whether an arrival belongs to the current live request?
+
+Primary note:
+- `topics/protocol-pending-request-generation-epoch-and-slot-reuse-workflow-note.md`
+
+Routing reminder:
+- stay here while the missing proof is specifically the live-vs-stale ownership contract after timeout, cancel, reconnect, wrap, or reuse
+- leave this thinner ownership-lifecycle work once one generation/phase/liveness contract is already good enough and the real bottleneck becomes truthful output emission, descriptor trust/reclaim semantics, or evidence packaging
+
+Possible next handoff:
+- `topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md`
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+- `topics/descriptor-ownership-transfer-and-completion-visibility-workflow-note.md`
+- `topics/analytic-provenance-and-evidence-management.md`
+
+### L. Accepted local path -> real output behavior
 Typical question:
 - where does accepted local state become one real emitted reply, serializer path, queue commit, descriptor submission, or transport-visible send?
 
@@ -513,7 +552,7 @@ Possible next handoff:
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 
-### L. Visible descriptor/ring publication -> trustworthy ownership and reclaim contract
+### M. Visible descriptor/ring publication -> trustworthy ownership and reclaim contract
 Typical question:
 - after publish/tail/doorbell proof is already partly good enough, when does the other side actually own and trust the record, and what reclaim or slot reuse proves durable completion?
 
@@ -529,7 +568,7 @@ Possible next handoff:
 - `topics/isr-and-deferred-worker-consequence-proof-workflow-note.md`
 - rehosting or emulation realism work
 
-### M. Peripheral or completion visibility -> durable hardware-side consequence
+### N. Peripheral or completion visibility -> durable hardware-side consequence
 Typical question:
 - after reply-emission / transport-handoff proof or descriptor-visibility proof is already good enough, which first MMIO write, arm, status-latch, ISR reduction, or deferred-worker consequence actually predicts later durable behavior?
 
@@ -571,11 +610,13 @@ When a case is clearly firmware/protocol shaped, ask these in order:
    - if yes, start with parser-to-state localization
 10. **Is replay or mutation structurally plausible, but still not accepted?**
    - if yes, start with replay-precondition / state-gate localization
-11. **Is local acceptance visible, but one real emitted output still unproved?**
+11. **Is broad pending-owner match already visible, but one current-vs-stale lifetime rule still unproved?**
+   - if yes, start with pending-request generation / epoch / slot-reuse work
+12. **Is local acceptance visible, but one real emitted output still unproved?**
    - if yes, start with reply-emission / transport handoff
-12. **Is the accepted local path already visible, but the true bottleneck is now mailbox/doorbell command publish-to-completion rather than broader output emission?**
+13. **Is the accepted local path already visible, but the true bottleneck is now mailbox/doorbell command publish-to-completion rather than broader output emission?**
    - if yes, start with mailbox/doorbell command publish-completion proof
-13. **Has the case already crossed into descriptor ownership/visibility or peripheral or interrupt/deferred consequences?**
+14. **Has the case already crossed into descriptor ownership/visibility or peripheral or interrupt/deferred consequences?**
    - if yes, choose descriptor ownership/visibility, MMIO effect proof, or ISR/deferred consequence proof depending on whether the trust/reclaim boundary, the first effect-bearing hardware edge, or the later durable completion-driven reduction is still missing
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
