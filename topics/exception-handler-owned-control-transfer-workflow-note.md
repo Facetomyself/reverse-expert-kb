@@ -36,14 +36,16 @@ odd trap/fault/breakpoint behavior appears
   -> hand back one ordinary post-handler target
 ```
 
-A Windows-specific refinement worth preserving is:
-- do not stop at proving that VEH/SEH exists
+A Windows/Linux-specific refinement worth preserving is:
+- do not stop at proving that VEH/SEH exists, or that `sigaction`/signal registration exists
 - the smallest truthful boundary is often one of:
   - vectored registration that already predicts the later branch
   - dispatcher-side landing in `KiUserExceptionDispatcher`
   - `RtlDispatchException` / `RtlLookupFunctionEntry` / dynamic-function-table lookup into one concrete region
   - one runtime-installed function-table callback that explains why static unwind ownership stays incomplete
+  - one `SA_SIGINFO` handler whose `ucontext_t` edits or resume target already predict the later branch
 - once one of those boundaries plus one consequence-bearing resume/state action is good enough, leave broad exception theory and hand the case back to ordinary route/state proof, integrity consequence proof, or observation-topology repair
+- practical stop rule: dispatcher landing by itself is still infrastructure; `sigaction` registration by itself is still infrastructure; stop only once one owning lookup/registered range or one concrete context/resume mutation is preserved well enough to predict later behavior
 
 This is not the same as:
 - a general SEH/VEH tutorial
@@ -157,27 +159,35 @@ Why it helps:
 Use when:
 - ordinary static exception metadata is incomplete, but the runtime appears to install dynamic function tables or callbacks
 - generated or relocated code owns the meaningful exception path
+- dispatcher-side lookup keeps succeeding for PCs that have no convincing static ownership in the original image
 
 Typical clues:
 - `RtlInstallFunctionTableCallback`
 - `RtlAddFunctionTable` / `RtlAddGrowableFunctionTable`
+- `RtlLookupFunctionEntry` repeatedly resolving into callback-owned or runtime-added regions
 - code regions whose unwind ownership appears only at runtime
+- debugger or stack-unwind behavior only making sense after the dynamic table range is installed
 
 Why it helps:
 - it explains why static PE metadata alone cannot fully account for exception-owned transfer
+- it gives a concrete stop rule: once one runtime-installed range plus one later resume/consequence edge is proved, do not keep expanding broad unwind theory
 
 ### E. Signal-handler-owned control transfer on Linux
 Use when:
 - `SIGTRAP`, `SIGSEGV`, `SIGILL`, or similar signals appear as meaningful execution steps rather than mere crashes
 - signal registration and handler-side context edits explain later behavior better than ordinary call flow
+- `SA_SIGINFO` delivery exposes a usable `ucontext_t` boundary where the resume target or register edits can be compared directly
 
 Typical clues:
 - `sigaction` or related registration
+- `SA_SIGINFO` handlers with a third-argument context pointer
 - `ucontext_t`/context edits in the handler
 - traced-vs-untraced or breakpoint-vs-no-breakpoint divergence through signal delivery
+- a faulting instruction that only becomes behaviorally meaningful after the handler changes RIP/PC-like resume state or a small state bucket
 
 Why it helps:
 - it separates real signal-owned dispatch from generic crash handling or generic ptrace stories
+- it preserves the practical stop rule that `sigaction` visibility alone is not consumer proof; the useful boundary is one resume-target or state mutation that predicts later behavior
 
 ### F. Trap-triggered hook or anti-debug dispatch
 Use when:
