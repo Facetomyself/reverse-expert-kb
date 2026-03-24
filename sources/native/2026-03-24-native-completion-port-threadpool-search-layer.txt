@@ -1,0 +1,475 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows IOCP GetQueuedCompletionStatus completion key OVERLAPPED dequeue order PostQueuedCompletionStatus thread pool practical reversing",
+    "Windows thread pool TP_IO TP_WORK callback wrapper OVERLAPPED context worker callback practical analysis",
+    "libuv uv_queue_work after_work_cb event loop worker completion ownership practical"
+  ],
+  "count": 27,
+  "results": [
+    {
+      "title": "IOCP Threads and GetQueuedCompletionStatus - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/75039683/iocp-threads-and-getqueuedcompletionstatus",
+      "snippet": "I'm trying to do is run a TCP IOCP server, which creates 3 accept sockets and has a thread for each waiting on a GetQueuedCompletionStatus.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6923
+    },
+    {
+      "title": "win32threadpool.cpp should use GetQueuedCompletionStatusEx ...",
+      "url": "https://github.com/dotnet/runtime/issues/11314",
+      "snippet": "So if a batch bigger than 1 is fetched from the io completion port, it goes to a thread local queue that other idle threads can consume.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6923
+    },
+    {
+      "title": "GetQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-getqueuedcompletionstatus",
+      "snippet": "Attempts to dequeue an I/O completion packet from the specified I/O completion port. If there is no completion packet queued, the function",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6692
+    },
+    {
+      "title": "LIFO ordering of return from GetQueuedCompletionStatus",
+      "url": "https://stackoverflow.com/questions/75676397/lifo-ordering-of-return-from-getqueuedcompletionstatus",
+      "snippet": "",
+      "published_date": "2023-03-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6692
+    },
+    {
+      "title": "Why are I/O Completion Port Packets Queued in FIFO order if they may be dequeued in a different order?",
+      "url": "https://stackoverflow.com/questions/27955812/why-are-i-o-completion-port-packets-queued-in-fifo-order-if-they-may-be-dequeued",
+      "snippet": "",
+      "published_date": "2015-01-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6692
+    },
+    {
+      "title": "Latest Windows threadpool API usage for I/O",
+      "url": "https://stackoverflow.com/questions/36474108/latest-windows-threadpool-api-usage-for-i-o",
+      "snippet": "",
+      "published_date": "2016-04-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6692
+    },
+    {
+      "title": "Windows With C++ - The Windows Thread Pool and Work",
+      "url": "https://learn.microsoft.com/en-us/archive/msdn-magazine/2011/august/windows-with-c-the-windows-thread-pool-and-work",
+      "snippet": "The thread pool API is designed as a set of cooperating objects. There are objects representing units of work, timers, asynchronous I/O and more.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6692
+    },
+    {
+      "title": "CreateThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6462
+    },
+    {
+      "title": "Improve Scalability With New Thread Pool APIs | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/archive/msdn-magazine/2007/october/pooled-threads-improve-scalability-with-new-thread-pool-apis",
+      "snippet": "Invoke a callback function when a kernel object is signaled or the wait times out. TP_WORK, Invoke a callback function asynchronously. TP_IO, Invoke a callback",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6462
+    },
+    {
+      "title": "CreateThreadpoolWork function (threadpoolapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolwork",
+      "snippet": "A worker thread calls this callback each time you call SubmitThreadpoolWork to post the work object. For details, see WorkCallback.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6462
+    },
+    {
+      "title": "TpSetCallbackThreadpool function (winnt.h) - Win32 - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-tpsetcallbackthreadpool",
+      "snippet": "A TP_CALLBACK_ENVIRON structure that defines the callback environment. The TpInitializeCallbackEnviron function returns this structure.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6462
+    },
+    {
+      "title": "Understanding runtime errors on an IOCP handle - Microsoft Q&A",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/5668740/understanding-runtime-errors-on-an-iocp-handle",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6231
+    },
+    {
+      "title": "Returning result from uv_queue_work #4765 - libuv libuv - GitHub",
+      "url": "https://github.com/libuv/libuv/discussions/4765",
+      "snippet": "## Navigation Menu. # Search code, repositories, users, issues, pull requests... You signed in with another tab or window. You signed out in another tab or window. You switched accounts on another tab or window. Since these 2 callbacks are run in different threads, do I need a barrier/mutex to sync this value between the 2 callbacks, or does libuv handle this for me? | Libuv takes care of synchronization for you (uses mutexes internally that issue the appropriate memory barriers.)  uv\\_async\\_send() is different. It doesn't issue memory barriers (think `atomic_thread_fence`), that's your responsibility. Libuv takes care of synchronization for you (uses mutexes internally that issue the appropriate memory barriers.). It doesn't issue memory barriers (think `atomic_thread_fence`), that's your responsibility. Menu       reacted with thumbs up emoji  reacted with thumbs down emoji  reacted with laugh emoji  reacted with hooray emoji  reacted with confused emoji  reacted with heart emoji  reacted with rocket emoji  reacted with eyes emoji.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6231
+    },
+    {
+      "title": "Thread pool work scheduling - libuv documentation",
+      "url": "https://docs.libuv.org/en/v1.x/threadpool.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5962
+    },
+    {
+      "title": "Thread pool work scheduling - libuv documentation",
+      "url": "https://docs.libuv.org/en/latest/threadpool.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5962
+    },
+    {
+      "title": "Threads - libuv documentation",
+      "url": "https://docs.libuv.org/en/v1.x/guide/threads.html",
+      "snippet": "No other thread interacts with the event loop (except using `uv_async_send`). `uv_queue_work()` is a convenience function that allows an application to run a task in a separate thread, and have a callback that is triggered when the task is done. The thread function will be launched in a separate thread, passed the `uv_work_t` structure and once the function returns, the *after* function will be called on the thread the event loop is running in. For example you might be running some long duration task in a separate thread (perhaps using `uv_queue_work`) but want to notify progress to the main thread. data  =  (void*)  & size; 17 18  uv_async_init(loop,  & async,  print_progress); 19  uv_queue_work(loop,  & req,  fake_download,  after); 20  return  uv_run(loop,  UV_RUN_DEFAULT); 21}. After this example, which showed the abuse of the `data` field, bnoordhuis pointed out that using the `data` field is not thread safe, and `uv_async_send()` is actually only meant to wake up the event loop. One use case where `uv_async_send` is required is when interoperating with libraries that require thread affinity for their functionality.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5731
+    },
+    {
+      "title": "Advanced event loops - libuv documentation",
+      "url": "https://docs.libuv.org/en/v1.x/guide/eventloops.html",
+      "snippet": "`uv_stop()` can be used to stop an event loop. This means that events that are ready to be processed in this iteration of the loop will still be processed, so `uv_stop()` can’t be used as a kill switch. When `uv_stop()` is called, the loop **won’t** block for i/o on this iteration. Now all libuv callbacks are invoked within the event loop, which is why invoking `uv_stop()` in them will still lead to this iteration of the loop occurring. `uv_stop()` is useful to shutdown a loop when a result has been computed or there is an error, without having to ensure that all handlers are stopped one by one. 1 #include    2 #include    3  4 int64_t  counter  =  0;  5  6 void  idle_cb(uv_idle_t  * handle)  { 7  printf(\"Idle callback \\n \");  8  counter ++;  9 10  if  (counter  >=  5)  {11 uv_stop(uv_default_loop()); 11  uv_stop(uv_default_loop()); 12  printf(\"uv_stop() called \\n \"); 13  } 14} 15 16 void  prep_cb(uv_prepare_t  * handle)  {17  printf(\"Prep callback \\n \"); 18} 19 20 int  main()  {21  uv_idle_t  idler; 22  uv_prepare_t  prep; 23 24  uv_idle_init(uv_default_loop(),  & idler); 25  uv_idle_start(& idler,  idle_cb); 26 27  uv_prepare_init(uv_default_loop(),  & prep); 28  uv_prepare_start(& prep,  prep_cb); 29 30  uv_run(uv_default_loop(),  UV_RUN_DEFAULT); 31 32  return  0; 33}.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "INFO: Design Issues When Using IOCP in a Winsock Server",
+      "url": "https://mskb.pkisolutions.com/kb/192800",
+      "snippet": "You have a pool of worker threads greater than or equal to the number of concurrent threads used by the IOCP so that a worker thread handling a dequeued completion packet can call one of the Win32 \"wait\" functions without delaying the handling of other queued I/O packets. Additionally, if a Winsock2 I/O call returns SUCCESS or IO\\_PENDING, it is guaranteed that a completion packet will be queued to the IOCP when the I/O completes, regardless of whether the socket handle is closed. In the first scenario, you can call PostQueueCompletionStatus (N times, where N is the number of worker threads) to post a special completion packet that informs the worker thread to exit immediately, close all socket handles and their associated overlapped structures, and then close the completion port. The performance penalty of having a global I/O counter protected with a critical section for an IOCP server is not as bad as might be expected because the active worker thread does not switch out if there are more completion packets waiting in the queue.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4385
+    },
+    {
+      "title": "Windows I/O completion - One little trick - James Sturtevant",
+      "url": "https://www.jamessturtevant.com/posts/windows-io-completion/",
+      "snippet": "# Windows I/O completion - One little trick. When I was reading some of the code I found all had slightly different ways of accomplishing detection of a completed I/O call. Then we issue the `Read` passing the reference to the `ioOperation` and wait for it to complete in ;’asyncIO’. The key is a little trick that is used extensively when working with Windows I/O completion ports. type ioOperation struct { o syscall.Overlapped ch chan ioResult }. Since we set up the channel during `prepareio` then passed the pointer to the `Read` sys call **and** the OS only fills in the bits for the `Overlapped` struct when we get the notification that the thread is unsuspended we now have a pointer the the struct that we prepared: `ioOperation` with a go routine. Then we can pass the value through the channel (which is waiting in the `asyncIO` function) and the read completes!",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4154
+    },
+    {
+      "title": "Weaponizing Windows Thread Pool APIs: Proxying DLL Loads Using I/O Completion Callbacks - fin3ss3g0d's Blog",
+      "url": "https://fin3ss3g0d.net/index.php/2024/03/18/weaponizing-windows-thread-pool-apis-proxying-dll-loads/",
+      "snippet": "",
+      "published_date": "2024-03-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3923
+    },
+    {
+      "title": "Thread Pool Callback Shellcode Execution | Infiltr8 - The Red-Book",
+      "url": "https://red.infiltr8.io/redteam/weapon/code-and-process-injection/thread-pool-callback-shellcode-execution",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3462
+    },
+    {
+      "title": "Windows Overlapped I/O and TPL style programming",
+      "url": "https://ayende.com/blog/164545/windows-overlapped-i-o-and-tpl-style-programming",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3462
+    },
+    {
+      "title": "[EPUB] libuv API documentation - uvloop",
+      "url": "https://uvloop.readthedocs.io/_/downloads/en/stable/epub/",
+      "snippet": "Initializes a work request which will run the given work_cb in a thread from the threadpool. Once work_cb is completed, after_work_cb will be called on the loop",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3462
+    },
+    {
+      "title": "Understanding LibUV and Its Thread Pool - Rahul Vijayvergiya",
+      "url": "https://rahulvijayvergiya.hashnode.dev/understanding-libuv-and-its-thread-pool",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3462
+    },
+    {
+      "title": "WinAPI IOCP Programming: Scalable File I/O - Apriorit",
+      "url": "https://www.apriorit.com/dev-blog/412-win-api-programming-iocp",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3231
+    },
+    {
+      "title": "uv_queue_work - Google Groups",
+      "url": "https://groups.google.com/g/libuv/c/EDwfJFWXHBU",
+      "snippet": "I'm new to libuv and I'd like to use libuv's work queue feature in a project. Though I read, that uv_queue_work isn't thread safe and I'm unsure what that",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3231
+    },
+    {
+      "title": "Setting order/priority to callbacks - Google Groups",
+      "url": "https://groups.google.com/g/libuv/c/mGa_jd96eIg",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3231
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Windows I/O completion - One little trick - James Sturtevant",
+        "url": "https://www.jamessturtevant.com/posts/windows-io-completion/",
+        "snippet": "# Windows I/O completion - One little trick. When I was reading some of the code I found all had slightly different ways of accomplishing detection of a completed I/O call. Then we issue the `Read` passing the reference to the `ioOperation` and wait for it to complete in ;’asyncIO’. The key is a little trick that is used extensively when working with Windows I/O completion ports. type ioOperation struct { o syscall.Overlapped ch chan ioResult }. Since we set up the channel during `prepareio` then passed the pointer to the `Read` sys call **and** the OS only fills in the bits for the `Overlapped` struct when we get the notification that the thread is unsuspended we now have a pointer the the struct that we prepared: `ioOperation` with a go routine. Then we can pass the value through the channel (which is waiting in the `asyncIO` function) and the read completes!",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4154
+      },
+      {
+        "title": "GetQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-getqueuedcompletionstatus",
+        "snippet": "Attempts to dequeue an I/O completion packet from the specified I/O completion port. If there is no completion packet queued, the function",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6692
+      },
+      {
+        "title": "IOCP Threads and GetQueuedCompletionStatus - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/75039683/iocp-threads-and-getqueuedcompletionstatus",
+        "snippet": "I'm trying to do is run a TCP IOCP server, which creates 3 accept sockets and has a thread for each waiting on a GetQueuedCompletionStatus.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6923
+      },
+      {
+        "title": "win32threadpool.cpp should use GetQueuedCompletionStatusEx ...",
+        "url": "https://github.com/dotnet/runtime/issues/11314",
+        "snippet": "So if a batch bigger than 1 is fetched from the io completion port, it goes to a thread local queue that other idle threads can consume.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6923
+      },
+      {
+        "title": "INFO: Design Issues When Using IOCP in a Winsock Server",
+        "url": "https://mskb.pkisolutions.com/kb/192800",
+        "snippet": "You have a pool of worker threads greater than or equal to the number of concurrent threads used by the IOCP so that a worker thread handling a dequeued completion packet can call one of the Win32 \"wait\" functions without delaying the handling of other queued I/O packets. Additionally, if a Winsock2 I/O call returns SUCCESS or IO\\_PENDING, it is guaranteed that a completion packet will be queued to the IOCP when the I/O completes, regardless of whether the socket handle is closed. In the first scenario, you can call PostQueueCompletionStatus (N times, where N is the number of worker threads) to post a special completion packet that informs the worker thread to exit immediately, close all socket handles and their associated overlapped structures, and then close the completion port. The performance penalty of having a global I/O counter protected with a critical section for an IOCP server is not as bad as might be expected because the active worker thread does not switch out if there are more completion packets waiting in the queue.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4385
+      },
+      {
+        "title": "CreateThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. The callback function to be called each time an overlapped I/O operation completes on the file. Optional application-defined data to pass to the callback function. If the function succeeds, it returns a pointer to a **TP\\_IO** structure that defines the I/O object. To begin receiving overlapped I/O completion callbacks, call the StartThreadpoolIo function. If the file handle bound to the I/O completion object has the notification mode FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SUCCESS and an asychronous I/O operation returns immediately with success, the I/O completion callback function is not called and threadpool I/O notifications must be canceled. For more information, see CancelThreadpoolIo. To compile an application that uses this function, define \\_WIN32\\_WINNT as 0x0600 or higher. | **Minimum supported client** | Windows Vista [desktop apps | UWP apps] |. | **Minimum supported server** | Windows Server 2008 [desktop apps | UWP apps] |.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Improve Scalability With New Thread Pool APIs | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/archive/msdn-magazine/2007/october/pooled-threads-improve-scalability-with-new-thread-pool-apis",
+        "snippet": "Invoke a callback function when a kernel object is signaled or the wait times out. TP_WORK, Invoke a callback function asynchronously. TP_IO, Invoke a callback",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6462
+      },
+      {
+        "title": "CreateThreadpoolWork function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolwork",
+        "snippet": "A worker thread calls this callback each time you call SubmitThreadpoolWork to post the work object. For details, see WorkCallback.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6462
+      },
+      {
+        "title": "TpSetCallbackThreadpool function (winnt.h) - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-tpsetcallbackthreadpool",
+        "snippet": "A TP_CALLBACK_ENVIRON structure that defines the callback environment. The TpInitializeCallbackEnviron function returns this structure.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6462
+      },
+      {
+        "title": "Windows With C++ - The Windows Thread Pool and Work",
+        "url": "https://learn.microsoft.com/en-us/archive/msdn-magazine/2011/august/windows-with-c-the-windows-thread-pool-and-work",
+        "snippet": "The thread pool API is designed as a set of cooperating objects. There are objects representing units of work, timers, asynchronous I/O and more.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6692
+      },
+      {
+        "title": "[EPUB] libuv API documentation - uvloop",
+        "url": "https://uvloop.readthedocs.io/_/downloads/en/stable/epub/",
+        "snippet": "Initializes a work request which will run the given work_cb in a thread from the threadpool. Once work_cb is completed, after_work_cb will be called on the loop",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3462
+      },
+      {
+        "title": "Threads - libuv documentation",
+        "url": "https://docs.libuv.org/en/v1.x/guide/threads.html",
+        "snippet": "No other thread interacts with the event loop (except using `uv_async_send`). `uv_queue_work()` is a convenience function that allows an application to run a task in a separate thread, and have a callback that is triggered when the task is done. The thread function will be launched in a separate thread, passed the `uv_work_t` structure and once the function returns, the *after* function will be called on the thread the event loop is running in. For example you might be running some long duration task in a separate thread (perhaps using `uv_queue_work`) but want to notify progress to the main thread. data  =  (void*)  & size; 17 18  uv_async_init(loop,  & async,  print_progress); 19  uv_queue_work(loop,  & req,  fake_download,  after); 20  return  uv_run(loop,  UV_RUN_DEFAULT); 21}. After this example, which showed the abuse of the `data` field, bnoordhuis pointed out that using the `data` field is not thread safe, and `uv_async_send()` is actually only meant to wake up the event loop. One use case where `uv_async_send` is required is when interoperating with libraries that require thread affinity for their functionality.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5731
+      },
+      {
+        "title": "Returning result from uv_queue_work #4765 - libuv libuv - GitHub",
+        "url": "https://github.com/libuv/libuv/discussions/4765",
+        "snippet": "## Navigation Menu. # Search code, repositories, users, issues, pull requests... You signed in with another tab or window. You signed out in another tab or window. You switched accounts on another tab or window. Since these 2 callbacks are run in different threads, do I need a barrier/mutex to sync this value between the 2 callbacks, or does libuv handle this for me? | Libuv takes care of synchronization for you (uses mutexes internally that issue the appropriate memory barriers.)  uv\\_async\\_send() is different. It doesn't issue memory barriers (think `atomic_thread_fence`), that's your responsibility. Libuv takes care of synchronization for you (uses mutexes internally that issue the appropriate memory barriers.). It doesn't issue memory barriers (think `atomic_thread_fence`), that's your responsibility. Menu       reacted with thumbs up emoji  reacted with thumbs down emoji  reacted with laugh emoji  reacted with hooray emoji  reacted with confused emoji  reacted with heart emoji  reacted with rocket emoji  reacted with eyes emoji.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6231
+      },
+      {
+        "title": "Advanced event loops - libuv documentation",
+        "url": "https://docs.libuv.org/en/v1.x/guide/eventloops.html",
+        "snippet": "`uv_stop()` can be used to stop an event loop. This means that events that are ready to be processed in this iteration of the loop will still be processed, so `uv_stop()` can’t be used as a kill switch. When `uv_stop()` is called, the loop **won’t** block for i/o on this iteration. Now all libuv callbacks are invoked within the event loop, which is why invoking `uv_stop()` in them will still lead to this iteration of the loop occurring. `uv_stop()` is useful to shutdown a loop when a result has been computed or there is an error, without having to ensure that all handlers are stopped one by one. 1 #include    2 #include    3  4 int64_t  counter  =  0;  5  6 void  idle_cb(uv_idle_t  * handle)  { 7  printf(\"Idle callback \\n \");  8  counter ++;  9 10  if  (counter  >=  5)  {11 uv_stop(uv_default_loop()); 11  uv_stop(uv_default_loop()); 12  printf(\"uv_stop() called \\n \"); 13  } 14} 15 16 void  prep_cb(uv_prepare_t  * handle)  {17  printf(\"Prep callback \\n \"); 18} 19 20 int  main()  {21  uv_idle_t  idler; 22  uv_prepare_t  prep; 23 24  uv_idle_init(uv_default_loop(),  & idler); 25  uv_idle_start(& idler,  idle_cb); 26 27  uv_prepare_init(uv_default_loop(),  & prep); 28  uv_prepare_start(& prep,  prep_cb); 29 30  uv_run(uv_default_loop(),  UV_RUN_DEFAULT); 31 32  return  0; 33}.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "uv_queue_work - Google Groups",
+        "url": "https://groups.google.com/g/libuv/c/EDwfJFWXHBU",
+        "snippet": "I'm new to libuv and I'd like to use libuv's work queue feature in a project. Though I read, that uv_queue_work isn't thread safe and I'm unsure what that",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3231
+      }
+    ],
+    "exa": [
+      {
+        "title": "Weaponizing Windows Thread Pool APIs: Proxying DLL Loads Using I/O Completion Callbacks - fin3ss3g0d's Blog",
+        "url": "https://fin3ss3g0d.net/index.php/2024/03/18/weaponizing-windows-thread-pool-apis-proxying-dll-loads/",
+        "snippet": "",
+        "published_date": "2024-03-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3923
+      },
+      {
+        "title": "Understanding runtime errors on an IOCP handle - Microsoft Q&A",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/5668740/understanding-runtime-errors-on-an-iocp-handle",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6231
+      },
+      {
+        "title": "LIFO ordering of return from GetQueuedCompletionStatus",
+        "url": "https://stackoverflow.com/questions/75676397/lifo-ordering-of-return-from-getqueuedcompletionstatus",
+        "snippet": "",
+        "published_date": "2023-03-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6692
+      },
+      {
+        "title": "Why are I/O Completion Port Packets Queued in FIFO order if they may be dequeued in a different order?",
+        "url": "https://stackoverflow.com/questions/27955812/why-are-i-o-completion-port-packets-queued-in-fifo-order-if-they-may-be-dequeued",
+        "snippet": "",
+        "published_date": "2015-01-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6692
+      },
+      {
+        "title": "WinAPI IOCP Programming: Scalable File I/O - Apriorit",
+        "url": "https://www.apriorit.com/dev-blog/412-win-api-programming-iocp",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3231
+      },
+      {
+        "title": "Thread Pool Callback Shellcode Execution | Infiltr8 - The Red-Book",
+        "url": "https://red.infiltr8.io/redteam/weapon/code-and-process-injection/thread-pool-callback-shellcode-execution",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3462
+      },
+      {
+        "title": "Weaponizing Windows Thread Pool APIs: Proxying DLL Loads ...",
+        "url": "https://fin3ss3g0d.net/index.php/2024/03/18/weaponizing-windows-thread-pool-apis-proxying-dll-loads/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "CreateThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6462
+      },
+      {
+        "title": "Windows Overlapped I/O and TPL style programming",
+        "url": "https://ayende.com/blog/164545/windows-overlapped-i-o-and-tpl-style-programming",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3462
+      },
+      {
+        "title": "Latest Windows threadpool API usage for I/O",
+        "url": "https://stackoverflow.com/questions/36474108/latest-windows-threadpool-api-usage-for-i-o",
+        "snippet": "",
+        "published_date": "2016-04-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6692
+      },
+      {
+        "title": "Returning result from uv_queue_work #4765 - libuv libuv - GitHub",
+        "url": "https://github.com/libuv/libuv/discussions/4765",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Thread pool work scheduling - libuv documentation",
+        "url": "https://docs.libuv.org/en/v1.x/threadpool.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5962
+      },
+      {
+        "title": "Thread pool work scheduling - libuv documentation",
+        "url": "https://docs.libuv.org/en/latest/threadpool.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5962
+      },
+      {
+        "title": "Setting order/priority to callbacks - Google Groups",
+        "url": "https://groups.google.com/g/libuv/c/mGa_jd96eIg",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3231
+      },
+      {
+        "title": "Understanding LibUV and Its Thread Pool - Rahul Vijayvergiya",
+        "url": "https://rahulvijayvergiya.hashnode.dev/understanding-libuv-and-its-thread-pool",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3462
+      }
+    ],
+    "grok": []
+  }
+}

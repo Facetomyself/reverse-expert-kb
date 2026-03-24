@@ -218,6 +218,7 @@ Read the branch in this order when helpful:
 - plugin-loader / first-real-module-consumer reduction (`topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md`)
 - service-dispatcher / worker-owned-consumer reduction (`topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md`)
 - callback-registration / event-loop consumer proof (`topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`)
+- completion-port / thread-pool first-consumer continuation (`topics/native-completion-port-and-thread-pool-first-consumer-workflow-note.md`) when the async-ownership break narrows specifically into posted work, completion packets, helper-owned thread-pool callbacks, or queue-dequeue ownership rather than broad callback plumbing; preserve stop rules there around IOCP dequeue realism, posted-control-packet versus I/O-owned-packet separation, `TP_IO` immediate-success notification gaps under `FILE_SKIP_COMPLETION_PORT_ON_SUCCESS`, and libuv worker-side versus loop-thread completion ownership
 - GUI message-pump / signal-slot first-consumer continuation (`topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md`) when the async-ownership break narrows specifically into Win32 subclass, Qt signal-slot, or macOS Cocoa/XPC/dispatch delivery ownership rather than broad callback plumbing
 
 ## 7. Analyst workflow implications

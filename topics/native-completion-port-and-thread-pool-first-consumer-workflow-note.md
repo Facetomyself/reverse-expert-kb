@@ -241,6 +241,7 @@ Best move:
 
 Practical reminder:
 - thread-pool helper wrappers often execute shared cleanup/unpack code before the real callback, so avoid stopping the analysis at the wrapper name alone
+- for `TP_IO` specifically, do not flatten “I created a thread-pool I/O object” into “every overlapped success will produce the callback”: Microsoft’s `CreateThreadpoolIo` contract requires `StartThreadpoolIo`, and when the handle uses `FILE_SKIP_COMPLETION_PORT_ON_SUCCESS`, immediately successful overlapped I/O can skip the callback path and instead require `CancelThreadpoolIo`; if the callback never fires, verify this notification mode before claiming the consumer is dead or unrelated
 
 ### Pattern 3: Service queue with retry/timer/control packets
 Symptoms:
@@ -265,6 +266,7 @@ Best move:
 - in libuv specifically, remember the concrete split: `uv_queue_work()` stores `work_cb` and `after_work_cb`; worker threads run `work_cb`, then `uv__work_done()` / `uv__queue_done()` drive `after_work_cb` back on the loop thread
 - prove the first loop-thread callback that mutates later behavior or emits a visible result
 - if the visible symptom is absence of a later effect, inspect cancellation/error delivery in the loop-thread completion path before concluding the worker body is the decisive consumer
+- preserve one extra stop rule here: do not flatten `uv_queue_work()` into a generic “background worker owns the outcome” claim. The worker-side `work_cb` and loop-thread `after_work_cb` are different ownership boundaries, and source-backed guidance indicates libuv internally synchronizes the work/done handoff while `uv_async_send()` does not automatically provide the same memory-order guarantee. If a result seems to vanish only at the loop-thread side, verify whether the real consumer is the `after_work_cb` boundary or an `uv_async_send()` continuation rather than reopening worker-body analysis
 
 ## 7. What this note adds to the native branch
 The native branch previously had:
