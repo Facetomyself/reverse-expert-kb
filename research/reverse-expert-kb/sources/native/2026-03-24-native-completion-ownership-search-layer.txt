@@ -1,0 +1,567 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering IOCP completion packet ordering PostQueuedCompletionStatus GetQueuedCompletionStatus threadpool io FILE_SKIP_COMPLETION_PORT_ON_SUCCESS libuv after_work_cb",
+    "Windows IOCP PostQueuedCompletionStatus control packet GetQueuedCompletionStatus FILE_SKIP_COMPLETION_PORT_ON_SUCCESS threadpool io callback reverse engineering",
+    "libuv worker completion after_work_cb uv_async_send reverse engineering event loop ownership"
+  ],
+  "count": 28,
+  "results": [
+    {
+      "title": "How to juggle FILE_SKIP_COMPLETION_PORT_ON_SUCCESS ...",
+      "url": "https://stackoverflow.com/questions/41029652/how-to-juggle-file-skip-completion-port-on-success-iocp-and-cleanup",
+      "snippet": "... IOCP thread and your I/O thread, or a call to PostQueuedCompletionStatus to manually insert a packet to the IOCP queue. When a packet is",
+      "published_date": "",
+      "source": "tavily, exa, grok",
+      "score": 0.725
+    },
+    {
+      "title": "PostQueuedCompletionStatus function (IoAPI.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/postqueuedcompletionstatus",
+      "snippet": "The I/O completion packet will satisfy an outstanding call to the GetQueuedCompletionStatus function. This function returns with the three",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.7
+    },
+    {
+      "title": "PostQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/el-gr/windows/win32/api/ioapiset/nf-ioapiset-postqueuedcompletionstatus",
+      "snippet": "The I/O completion packet will satisfy an outstanding call to the GetQueuedCompletionStatus function. This function returns with the three",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "I/O Completion Ports - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports",
+      "snippet": "Processes that handle many concurrent asynchronous I/O requests can do so more quickly and efficiently by using I/O completion ports in conjunction with a pre-allocated thread pool than by creating threads at the time they receive an I/O request. A thread (either one created by the main thread or the main thread itself) uses the **GetQueuedCompletionStatus** function to wait for a completion packet to be queued to the I/O completion port, rather than waiting directly for the asynchronous I/O to complete. When a completion packet is queued to an I/O completion port, the system first checks how many threads associated with that port are running. Threads can use the PostQueuedCompletionStatus function to place completion packets in an I/O completion port's queue. The system also allows a thread waiting in GetQueuedCompletionStatus to process a completion packet if another running thread associated with the same I/O completion port enters a wait state for other reasons, for example the SuspendThread function.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.7
+    },
+    {
+      "title": "IOCP: notifications without bytes copy - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/10635976/iocp-notifications-without-bytes-copy",
+      "snippet": "FILE_SKIP_COMPLETION_PORT_ON_SUCCESS is enabled... libuv appears to do zero-byte receives on UDP sockets.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.7
+    },
+    {
+      "title": "IOCP Threads and GetQueuedCompletionStatus - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/75039683/iocp-threads-and-getqueuedcompletionstatus",
+      "snippet": "### more stack exchange communities. So far what I'm trying to do is run a TCP IOCP server, which creates 3 accept sockets and has a thread for each waiting on a GetQueuedCompletionStatus. I say I believe this to be the issue because I've run it through debugger and outputted thread id's to console and have seen that right after starting a single client I get 2 outputs of \"Accepted client on thread ...\" with 2 different thread ids. wprintf(L\"CreateIoCompletionPort failed with error: %u\\n\",. if (bind(ListenSocket, (SOCKADDR*)&service, sizeof(service)) == SOCKET_ERROR) {. wprintf(L\"bind failed with error: %u\\n\", WSAGetLastError());. wprintf(L\"WSAIoctl failed with error: %u\\n\", WSAGetLastError());. wprintf(L\"AcceptEx failed with error: %u\\n\", WSAGetLastError());. std::cout << \"Accepted client on thread\" << this_id << \"Going to sleep for 5 seconds\" << std::endl;. hCompPort2 = CreateIoCompletionPort((HANDLE)pOl->client, hCompPort, (u_long)&this_id, 0);. wprintf(L\"CreateIoCompletionPort associate failed with error: %u\\n\",. setsockopt(pOl->client, SOL_SOCKET, SO_UPDATE_ACCEPT_CONTEXT,. if (WSARecv(pOl->client, &wsabuf, 1, &pOl->dwBytes, &flags, &pOl->ProviderOverlapped, NULL) == SOCKET_ERROR). printf(\"WSARecv failed with error: %d\\n\", WSAGetLastError());. wprintf(L\"WSARecv operation failed with error: %d\\n\", WSAGetLastError());. Thanks for contributing an answer to Stack Overflow!",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "win32threadpool.cpp should use GetQueuedCompletionStatusEx ...",
+      "url": "https://github.com/dotnet/runtime/issues/11314",
+      "snippet": "So if a batch bigger than 1 is fetched from the io completion port, it goes to a thread local queue that other idle threads can consume.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.675
+    },
+    {
+      "title": "Newest 'iocp' Questions - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/tagged/iocp?tab=Newest",
+      "snippet": "Windows IOCP documentation states this with regard to GetQueuedCompletionStatus: Threads that block their execution on an I/O completion port are released in last-in-first-out (LIFO) order... Order of Asynchronous I/O Operations... When 4 I/O operations complete simultaneously...",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.675
+    },
+    {
+      "title": "libuv/src/win/tcp.c at v1.x - GitHub",
+      "url": "https://github.com/libuv/libuv/blob/v1.x/src/win/tcp.c",
+      "snippet": "FILE_SKIP_COMPLETION_PORT_ON_SUCCESS; if (!SetFileCompletionNotificationModes((HANDLE) socket, sfcnm_flags)) return GetLastError();",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.675
+    },
+    {
+      "title": "Understanding runtime errors on an IOCP handle",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/5668740/understanding-runtime-errors-on-an-iocp-handle",
+      "snippet": "What you will see through GetQueuedCompletionStatus are results tied to the I/O operations... completion packet will reflect that error... Ensuring that the associated handles (sockets, files) are managed properly...",
+      "published_date": "2025-12-17",
+      "source": "grok",
+      "score": 0.66
+    },
+    {
+      "title": "IO Completion ports: separate thread pool to process the dequeued ...",
+      "url": "https://stackoverflow.com/questions/49172724/io-completion-ports-separate-thread-pool-to-process-the-dequeued-packets",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "How libuv put callback function into event queue? · Issue #62 - GitHub",
+      "url": "https://github.com/libuv/help/issues/62",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.625
+    },
+    {
+      "title": "Thread pool work scheduling - libuv documentation",
+      "url": "https://docs.libuv.org/en/v1.x/threadpool.html",
+      "snippet": "Initializes a work request which will run the given work_cb in a thread from the threadpool. Once work_cb is completed, after_work_cb will be called on the loop thread. Callback passed to uv_queue_work() which will be called on the loop thread after the work on the threadpool has been completed.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.625
+    },
+    {
+      "title": "Question about Using SetFileCompletionNotificationModes with FILE_SKIP_COMPLETION_PORT_ON_SUCCESS",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/2131843/question-about-using-setfilecompletionnotification",
+      "snippet": "Discussion on whether FILE_SKIP_COMPLETION_PORT_ON_SUCCESS prevents IOCP callbacks for successful synchronous completions of operations like WSASendTo/WSASend, and its behavior with threadpool I/O callbacks.",
+      "published_date": "2024-12-16",
+      "source": "grok",
+      "score": 0.62
+    },
+    {
+      "title": "Returning result from uv_queue_work",
+      "url": "https://github.com/libuv/libuv/discussions/4765",
+      "snippet": "If I want to pass a result from the work_cb to the after_work_cb, using the req->data seems like the right place. ... Libuv takes care of synchronization for you (uses mutexes internally that issue the appropriate memory barriers.) uv_async_send() is different. It doesn't issue memory barriers...",
+      "published_date": "2025-04-27",
+      "source": "grok",
+      "score": 0.61
+    },
+    {
+      "title": "libuv - man pages section 1: User Commands",
+      "url": "https://docs.oracle.com/cd/E88353_01/html/E37839/libuv-1.html",
+      "snippet": "+ 7z(1)+ 7za(1)+ 7zr(1)+ a2ps(1)+ a2x(1)+ aafire(1)+ aalib-config(1)+ ab(1)+ accerciser(1)+ accessx(1)+ acctcom(1)+ aclocal-1.16(1)+ acpidump(1)+ acpixtract(1)+ acyclic(1)+ adb(1)+ addbib(1)+ addftinfo(1)+ addr2line(1g)+ admin(1)+ adrci(1)+ afmtodit(1)+ after(1t)+ agentxtrap(1)+ alias(1)+ androiddump(1)+ animate(1)+ annotate(1)+ ansible(1)+ ant(1)+ append(1t)+ apply(1t)+ appres(1)+ apptrace(1)+ apropos(1)+ apxs(1)+ ar(1)+ ar(1g)+ arch(1)+ argc(1t)+ arpaname(1)+ array(1t)+ as(1)+ as(1g)+ asciidoc(1)+ asn1Coding(1)+ asn1Decoding(1)+ asn1parse(1openssl)+ asn1Parser(1)+ aspell-import(1)+ aspell(1)+ at-spi-registryd(1)+ at(1)+ atobm(1)+ atq(1)+ atrm(1)+ audioconvert(1)+ audioctl(1)+ audioplay(1)+ audiorecord(1)+ audiotest(1)+ augparse(1)+ augtool(1)+ auths(1)+ auto\\_ef(1)+ auto\\_execok(1t)+ autoconf-2.13(1)+ autoconf(1)+ autoexpect(1)+ autoheader(1)+ autom4te(1)+ automake-1.16(1)+ autopoint(1)+ autoreconf(1)+ autoscan(1)+ autoupdate(1)+ avahi-browse(1)+ avahi-daemon-bridge-dsd(1)+ avahi-publish(1)+ avahi-resolve(1)+ avahi-set-host-name(1)+ awk(1)+ awk(1)+ awk(1g)+ b2sum(1)+ banner(1)+ baobab(1)+ base32(1)+ base64(1)+ basename(1)+ basename(1g)+ basepods(1)+ bash(1)+ bashbug(1)+ batch(1)+ bc(1)+ bcomps(1)+ bdftogd(1)+ bdftopcf(1)+ bdftruncate(1)+ bdiff(1)+ bell(1t)+ bg(1)+ bgerror(1t)+ binary(1t)+ bind(1t)+ bindtags(1t)+ bison(1)+ bitmap(1)+ bitmap(1t)+ bmtoa(1)+ break(1)+ break(1t)+ brltty(1)+ broadwayd(1)+ bssh(1)+ bugpoint(1)+ builtin(1)+ bunzip2(1)+ busy(1t)+ button(1t)+ bzcat(1)+ bzcmp(1)+ bzdiff(1)+ bzegrep(1)+ bzfgrep(1)+ bzgrep(1)+ bzip2(1)+ bzip2recover(1)+ bzless(1)+ bzmore(1)+ c++filt(1g)+ c\\_rehash(1openssl)+ ca(1openssl)+ CA.pl(1openssl)+ cal(1)+ calendar(1)+ callgrind\\_annotate(1)+ callgrind\\_control(1)+ canberra-gtk-play(1)+ cancel(1)+ canvas(1t)+ capinfos(1)+ card(1)+ card\\_eventmgr(1)+ cargo-bench(1)+ cargo-build(1)+ cargo-check(1)+ cargo-clean(1)+ cargo-doc(1)+ cargo-fetch(1)+ cargo-fix(1)+ cargo-generate-lockfile(1)+ cargo-help(1)+ cargo-init(1)+ cargo-install(1)+ cargo-locate-project(1)+ cargo-login(1)+ cargo-metadata(1)+ cargo-new(1)+ cargo-owner(1)+ cargo-package(1)+ cargo-pkgid(1)+ cargo-publish(1)+ cargo-run(1)+ cargo-rustc(1)+ cargo-rustdoc(1)+ cargo-search(1)+ cargo-test(1)+ cargo-tree(1)+ cargo-uninstall(1)+ cargo-update(1)+ cargo-vendor(1)+ cargo-verify-project(1)+ cargo-version(1)+ cargo-yank(1)+ cargo(1)+ case(1)+ case(1t)+ cat(1)+ cat(1g)+ catch(1t)+ ccache-swig(1)+ ccmake(1)+ ccomps(1)+ ccon(1)+ cd-create-profile(1)+ cd-fix-profile(1)+ cd-it8(1)+ cd(1)+ cd(1t)+ cdc(1)+ cdda2wav(1)+ cdrecord(1)+ cdrw(1)+ cdv(1)+ certtool(1)+ cfgmaker(1)+ cg\\_annotate(1)+ cg\\_diff(1)+ cg\\_merge(1)+ chan(1t)+ charmap(1)+ chdir(1)+ checkbutton(1t)+ checkeq(1)+ checkmk(1)+ checknr(1)+ chem(1)+ chgrp(1)+ chgrp(1g)+ chkey(1)+ chmod(1)+ chmod(1g)+ chown(1)+ chown(1g)+ chroot(1g)+ ciphers(1openssl)+ ciscodump(1)+ cjpeg(1)+ ck-history(1)+ ck-launch-session(1)+ ck-list-sessions(1)+ ckdate(1)+ ckgid(1)+ ckint(1)+ ckitem(1)+ ckkeywd(1)+ ckpath(1)+ ckrange(1)+ ckstr(1)+ cksum(1)+ cksum(1g)+ cktime(1)+ ckuid(1)+ ckyorn(1)+ clang(1)+ clear(1)+ clear(1g)+ clipboard(1t)+ clock(1t)+ close(1t)+ cluster(1)+ clusterssh\\_bash\\_completion.dist(1)+ cmake(1)+ cmap\\_alloc(1)+ cmap\\_compact(1)+ cmp(1)+ cmp(1g)+ cms(1openssl)+ cmtime(1)+ col(1)+ colcrt(1)+ collateindex.pl(1)+ colormgr(1)+ colors(1t)+ colrm(1)+ column(1)+ comb(1)+ combinediff(1)+ comm(1)+ comm(1g)+ command(1)+ comp\\_err(1)+ compare(1)+ composite(1)+ compress(1)+ concat(1t)+ conflict(1)+ conjure(1)+ console(1t)+ constype(1)+ continue(1)+ continue(1t)+ convert(1)+ convmv(1)+ corelist(1)+ coroutine(1t)+ cp(1)+ cp(1g)+ cpack(1)+ cpan(1)+ cpio(1)+ cpp(1)+ cpp(1)+ cputrack(1)+ crl(1openssl)+ crl2pkcs7(1openssl)+ crle(1)+ croco-0.6-config(1)+ crontab(1)+ crsh(1)+ cryptdir(1)+ csftp(1)+ csh(1)+ csplit(1)+ csplit(1g)+ cssh(1)+ csslint-0.6(1)+ ct\\_run(1)+ ctags(1)+ ctags(1g)+ ctel(1)+ ctest(1)+ ctrun(1)+ ctstat(1)+ ctwatch(1)+ cups-config(1)+ cups(1)+ cupstestppd(1)+ curl-config(1)+ curl(1)+ cursors(1t)+ cut(1)+ cut(1g)+ cvs(1)+ cvt(1)+ cvtsudoers(1)+ cwebp(1)+",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "uv_write_cb not being called after write on async_send",
+      "url": "https://github.com/libuv/libuv/discussions/4457",
+      "snippet": "I am writing back to the loop using an async_send cb. However, when I do it that way the uv_write_cb doesn't get called immediately, but it",
+      "published_date": "",
+      "source": "tavily, exa, grok",
+      "score": 0.6
+    },
+    {
+      "title": "Force \"last\" callback added via uv_async_send and ...",
+      "url": "https://github.com/libuv/libuv/issues/533",
+      "snippet": "My question is: 1) is there a way to force immediate invocation of the callbacks after entering them into uv_async_send or uv_queue_work in the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Threads",
+      "url": "https://docs.libuv.org/en/v1.x/guide/threads.html",
+      "snippet": "No other thread interacts with the event loop (except using `uv_async_send`). `uv_queue_work()` is a convenience function that allows an application to run a task in a separate thread, and have a callback that is triggered when the task is done. The thread function will be launched in a separate thread, passed the `uv_work_t` structure and once the function returns, the *after* function will be called on the thread the event loop is running in. For example you might be running some long duration task in a separate thread (perhaps using `uv_queue_work`) but want to notify progress to the main thread. data  =  (void*)  & size; 17 18  uv_async_init(loop,  & async,  print_progress); 19  uv_queue_work(loop,  & req,  fake_download,  after); 20  return  uv_run(loop,  UV_RUN_DEFAULT); 21}. After this example, which showed the abuse of the `data` field, bnoordhuis pointed out that using the `data` field is not thread safe, and `uv_async_send()` is actually only meant to wake up the event loop. One use case where `uv_async_send` is required is when interoperating with libraries that require thread affinity for their functionality.",
+      "published_date": "",
+      "source": "tavily, exa, grok",
+      "score": 0.55
+    },
+    {
+      "title": "When will be queued a packet to the I/O completion port ? - NTDEV",
+      "url": "https://community.osr.com/t/when-will-be-queued-a-packet-to-the-i-o-completion-port/56281",
+      "snippet": "sense here in next - notification to IOCP will be when and only when I/O manager write back status to user mode IO\\_STATUS\\_BLOCK (if no FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SYNCHRONOUS). really I/O request can synchronous return NT\\_ERROR status, but will be IOCP notification !! look - if diver implement FastIoUnlockSingle and it return TRUE (let be with STATUS\\_SUCCESS) - I/O manager just complete request, **without** IOCP. at some (LockFile) point I/O manager post completion to IOCP, even if error status returned. \\*\\*but \\*\\* - look for NtUnlockFile src code (again from wrk - still relevant and in latest win10 at this part) - if driver implement FastIoUnlockSingle and it return TRUE - I/O manager complete request **without** post IOCP entry (or set event, or APC). so I/O can returned STATUS\\_SUCCESS but without IOCP notification (let assume FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SUCCESS not set - for not confuse). but several days ago, when i play with asynchronous file locking, i random catch design bug - NtLockFile returned STATUS\\_LOCK\\_NOT\\_GRANTED but despite this error was notify the I/O completion port and the associated I/O callback function called.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "A question about IOCP on Windows and libuv - Google Groups",
+      "url": "https://groups.google.com/g/libuv/c/rprRTpz93mA",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "IO Completion Ports - Matt Godbolt's blog",
+      "url": "https://xania.org/200807/iocp",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "Windows I/O completion - One little trick - James Sturtevant",
+      "url": "https://www.jamessturtevant.com/posts/windows-io-completion/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "IO Completion question: should we use callback?",
+      "url": "https://microsoft.public.win32.programmer.kernel.narkive.com/yNj4RBkq/io-completion-question-should-we-use-callback",
+      "snippet": "I've been reading up on IO completion ports in hopes to change my async IO code from using events to using IO completion ports along with a thread pool.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.325
+    },
+    {
+      "title": "WinAPI IOCP Programming: Scalable File I/O - Apriorit",
+      "url": "https://www.apriorit.com/dev-blog/412-win-api-programming-iocp",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.325
+    },
+    {
+      "title": "libuv API documentation",
+      "url": "https://uvloop.readthedocs.io/_/downloads/en/stable/pdf/",
+      "snippet": "The event loop follows the rather usual single threaded asynchronous I/O approach: all (network) I/O is performed on non-blocking sockets which",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.325
+    },
+    {
+      "title": "libuv - OpenHarmony/docs - Gitee",
+      "url": "https://gitee.com/openharmony/docs/blob/6356e770ed756392d3e5c353378a78bc7a22c7ac/en/application-dev/reference/native-lib/libuv.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "How to close idle IOCP port? - VBForums",
+      "url": "https://www.vbforums.com/showthread.php?909845-How-to-close-idle-IOCP-port",
+      "snippet": "This can be done by posting a special completion packet with PostQueuedCompletionStatus to notify the threads to exit.",
+      "published_date": "2025-01-26",
+      "source": "grok",
+      "score": 0.32
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "PostQueuedCompletionStatus function (IoAPI.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/postqueuedcompletionstatus",
+        "snippet": "The I/O completion packet will satisfy an outstanding call to the GetQueuedCompletionStatus function. This function returns with the three",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.7
+      },
+      {
+        "title": "PostQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/el-gr/windows/win32/api/ioapiset/nf-ioapiset-postqueuedcompletionstatus",
+        "snippet": "The I/O completion packet will satisfy an outstanding call to the GetQueuedCompletionStatus function. This function returns with the three",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "I/O Completion Ports - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports",
+        "snippet": "Processes that handle many concurrent asynchronous I/O requests can do so more quickly and efficiently by using I/O completion ports in conjunction with a pre-allocated thread pool than by creating threads at the time they receive an I/O request. A thread (either one created by the main thread or the main thread itself) uses the **GetQueuedCompletionStatus** function to wait for a completion packet to be queued to the I/O completion port, rather than waiting directly for the asynchronous I/O to complete. When a completion packet is queued to an I/O completion port, the system first checks how many threads associated with that port are running. Threads can use the PostQueuedCompletionStatus function to place completion packets in an I/O completion port's queue. The system also allows a thread waiting in GetQueuedCompletionStatus to process a completion packet if another running thread associated with the same I/O completion port enters a wait state for other reasons, for example the SuspendThread function.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.7
+      },
+      {
+        "title": "IOCP Threads and GetQueuedCompletionStatus - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/75039683/iocp-threads-and-getqueuedcompletionstatus",
+        "snippet": "### more stack exchange communities. So far what I'm trying to do is run a TCP IOCP server, which creates 3 accept sockets and has a thread for each waiting on a GetQueuedCompletionStatus. I say I believe this to be the issue because I've run it through debugger and outputted thread id's to console and have seen that right after starting a single client I get 2 outputs of \"Accepted client on thread ...\" with 2 different thread ids. wprintf(L\"CreateIoCompletionPort failed with error: %u\\n\",. if (bind(ListenSocket, (SOCKADDR*)&service, sizeof(service)) == SOCKET_ERROR) {. wprintf(L\"bind failed with error: %u\\n\", WSAGetLastError());. wprintf(L\"WSAIoctl failed with error: %u\\n\", WSAGetLastError());. wprintf(L\"AcceptEx failed with error: %u\\n\", WSAGetLastError());. std::cout << \"Accepted client on thread\" << this_id << \"Going to sleep for 5 seconds\" << std::endl;. hCompPort2 = CreateIoCompletionPort((HANDLE)pOl->client, hCompPort, (u_long)&this_id, 0);. wprintf(L\"CreateIoCompletionPort associate failed with error: %u\\n\",. setsockopt(pOl->client, SOL_SOCKET, SO_UPDATE_ACCEPT_CONTEXT,. if (WSARecv(pOl->client, &wsabuf, 1, &pOl->dwBytes, &flags, &pOl->ProviderOverlapped, NULL) == SOCKET_ERROR). printf(\"WSARecv failed with error: %d\\n\", WSAGetLastError());. wprintf(L\"WSARecv operation failed with error: %d\\n\", WSAGetLastError());. Thanks for contributing an answer to Stack Overflow!",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "win32threadpool.cpp should use GetQueuedCompletionStatusEx ...",
+        "url": "https://github.com/dotnet/runtime/issues/11314",
+        "snippet": "So if a batch bigger than 1 is fetched from the io completion port, it goes to a thread local queue that other idle threads can consume.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.675
+      },
+      {
+        "title": "How to juggle FILE_SKIP_COMPLETION_PORT_ON_SUCCESS ...",
+        "url": "https://stackoverflow.com/questions/41029652/how-to-juggle-file-skip-completion-port-on-success-iocp-and-cleanup",
+        "snippet": "... IOCP thread and your I/O thread, or a call to PostQueuedCompletionStatus to manually insert a packet to the IOCP queue. When a packet is",
+        "published_date": "",
+        "source": "tavily, exa, grok",
+        "score": 0.725
+      },
+      {
+        "title": "When will be queued a packet to the I/O completion port ? - NTDEV",
+        "url": "https://community.osr.com/t/when-will-be-queued-a-packet-to-the-i-o-completion-port/56281",
+        "snippet": "sense here in next - notification to IOCP will be when and only when I/O manager write back status to user mode IO\\_STATUS\\_BLOCK (if no FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SYNCHRONOUS). really I/O request can synchronous return NT\\_ERROR status, but will be IOCP notification !! look - if diver implement FastIoUnlockSingle and it return TRUE (let be with STATUS\\_SUCCESS) - I/O manager just complete request, **without** IOCP. at some (LockFile) point I/O manager post completion to IOCP, even if error status returned. \\*\\*but \\*\\* - look for NtUnlockFile src code (again from wrk - still relevant and in latest win10 at this part) - if driver implement FastIoUnlockSingle and it return TRUE - I/O manager complete request **without** post IOCP entry (or set event, or APC). so I/O can returned STATUS\\_SUCCESS but without IOCP notification (let assume FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SUCCESS not set - for not confuse). but several days ago, when i play with asynchronous file locking, i random catch design bug - NtLockFile returned STATUS\\_LOCK\\_NOT\\_GRANTED but despite this error was notify the I/O completion port and the associated I/O callback function called.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "win32threadpool.cpp should use GetQueuedCompletionStatusEx ...",
+        "url": "https://github.com/dotnet/runtime/issues/11314",
+        "snippet": "So if a batch bigger than 1 is fetched from the io completion port, it goes to a thread local queue that other idle threads can consume.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "I/O Completion Ports - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports",
+        "snippet": "Processes that handle many concurrent asynchronous I/O requests can do so more quickly and efficiently by using I/O completion ports in conjunction with a pre-allocated thread pool than by creating threads at the time they receive an I/O request. A thread (either one created by the main thread or the main thread itself) uses the **GetQueuedCompletionStatus** function to wait for a completion packet to be queued to the I/O completion port, rather than waiting directly for the asynchronous I/O to complete. When a completion packet is queued to an I/O completion port, the system first checks how many threads associated with that port are running. Threads can use the PostQueuedCompletionStatus function to place completion packets in an I/O completion port's queue. The system also allows a thread waiting in GetQueuedCompletionStatus to process a completion packet if another running thread associated with the same I/O completion port enters a wait state for other reasons, for example the SuspendThread function.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "IO Completion question: should we use callback?",
+        "url": "https://microsoft.public.win32.programmer.kernel.narkive.com/yNj4RBkq/io-completion-question-should-we-use-callback",
+        "snippet": "I've been reading up on IO completion ports in hopes to change my async IO code from using events to using IO completion ports along with a thread pool.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.325
+      },
+      {
+        "title": "libuv - man pages section 1: User Commands",
+        "url": "https://docs.oracle.com/cd/E88353_01/html/E37839/libuv-1.html",
+        "snippet": "+ 7z(1)+ 7za(1)+ 7zr(1)+ a2ps(1)+ a2x(1)+ aafire(1)+ aalib-config(1)+ ab(1)+ accerciser(1)+ accessx(1)+ acctcom(1)+ aclocal-1.16(1)+ acpidump(1)+ acpixtract(1)+ acyclic(1)+ adb(1)+ addbib(1)+ addftinfo(1)+ addr2line(1g)+ admin(1)+ adrci(1)+ afmtodit(1)+ after(1t)+ agentxtrap(1)+ alias(1)+ androiddump(1)+ animate(1)+ annotate(1)+ ansible(1)+ ant(1)+ append(1t)+ apply(1t)+ appres(1)+ apptrace(1)+ apropos(1)+ apxs(1)+ ar(1)+ ar(1g)+ arch(1)+ argc(1t)+ arpaname(1)+ array(1t)+ as(1)+ as(1g)+ asciidoc(1)+ asn1Coding(1)+ asn1Decoding(1)+ asn1parse(1openssl)+ asn1Parser(1)+ aspell-import(1)+ aspell(1)+ at-spi-registryd(1)+ at(1)+ atobm(1)+ atq(1)+ atrm(1)+ audioconvert(1)+ audioctl(1)+ audioplay(1)+ audiorecord(1)+ audiotest(1)+ augparse(1)+ augtool(1)+ auths(1)+ auto\\_ef(1)+ auto\\_execok(1t)+ autoconf-2.13(1)+ autoconf(1)+ autoexpect(1)+ autoheader(1)+ autom4te(1)+ automake-1.16(1)+ autopoint(1)+ autoreconf(1)+ autoscan(1)+ autoupdate(1)+ avahi-browse(1)+ avahi-daemon-bridge-dsd(1)+ avahi-publish(1)+ avahi-resolve(1)+ avahi-set-host-name(1)+ awk(1)+ awk(1)+ awk(1g)+ b2sum(1)+ banner(1)+ baobab(1)+ base32(1)+ base64(1)+ basename(1)+ basename(1g)+ basepods(1)+ bash(1)+ bashbug(1)+ batch(1)+ bc(1)+ bcomps(1)+ bdftogd(1)+ bdftopcf(1)+ bdftruncate(1)+ bdiff(1)+ bell(1t)+ bg(1)+ bgerror(1t)+ binary(1t)+ bind(1t)+ bindtags(1t)+ bison(1)+ bitmap(1)+ bitmap(1t)+ bmtoa(1)+ break(1)+ break(1t)+ brltty(1)+ broadwayd(1)+ bssh(1)+ bugpoint(1)+ builtin(1)+ bunzip2(1)+ busy(1t)+ button(1t)+ bzcat(1)+ bzcmp(1)+ bzdiff(1)+ bzegrep(1)+ bzfgrep(1)+ bzgrep(1)+ bzip2(1)+ bzip2recover(1)+ bzless(1)+ bzmore(1)+ c++filt(1g)+ c\\_rehash(1openssl)+ ca(1openssl)+ CA.pl(1openssl)+ cal(1)+ calendar(1)+ callgrind\\_annotate(1)+ callgrind\\_control(1)+ canberra-gtk-play(1)+ cancel(1)+ canvas(1t)+ capinfos(1)+ card(1)+ card\\_eventmgr(1)+ cargo-bench(1)+ cargo-build(1)+ cargo-check(1)+ cargo-clean(1)+ cargo-doc(1)+ cargo-fetch(1)+ cargo-fix(1)+ cargo-generate-lockfile(1)+ cargo-help(1)+ cargo-init(1)+ cargo-install(1)+ cargo-locate-project(1)+ cargo-login(1)+ cargo-metadata(1)+ cargo-new(1)+ cargo-owner(1)+ cargo-package(1)+ cargo-pkgid(1)+ cargo-publish(1)+ cargo-run(1)+ cargo-rustc(1)+ cargo-rustdoc(1)+ cargo-search(1)+ cargo-test(1)+ cargo-tree(1)+ cargo-uninstall(1)+ cargo-update(1)+ cargo-vendor(1)+ cargo-verify-project(1)+ cargo-version(1)+ cargo-yank(1)+ cargo(1)+ case(1)+ case(1t)+ cat(1)+ cat(1g)+ catch(1t)+ ccache-swig(1)+ ccmake(1)+ ccomps(1)+ ccon(1)+ cd-create-profile(1)+ cd-fix-profile(1)+ cd-it8(1)+ cd(1)+ cd(1t)+ cdc(1)+ cdda2wav(1)+ cdrecord(1)+ cdrw(1)+ cdv(1)+ certtool(1)+ cfgmaker(1)+ cg\\_annotate(1)+ cg\\_diff(1)+ cg\\_merge(1)+ chan(1t)+ charmap(1)+ chdir(1)+ checkbutton(1t)+ checkeq(1)+ checkmk(1)+ checknr(1)+ chem(1)+ chgrp(1)+ chgrp(1g)+ chkey(1)+ chmod(1)+ chmod(1g)+ chown(1)+ chown(1g)+ chroot(1g)+ ciphers(1openssl)+ ciscodump(1)+ cjpeg(1)+ ck-history(1)+ ck-launch-session(1)+ ck-list-sessions(1)+ ckdate(1)+ ckgid(1)+ ckint(1)+ ckitem(1)+ ckkeywd(1)+ ckpath(1)+ ckrange(1)+ ckstr(1)+ cksum(1)+ cksum(1g)+ cktime(1)+ ckuid(1)+ ckyorn(1)+ clang(1)+ clear(1)+ clear(1g)+ clipboard(1t)+ clock(1t)+ close(1t)+ cluster(1)+ clusterssh\\_bash\\_completion.dist(1)+ cmake(1)+ cmap\\_alloc(1)+ cmap\\_compact(1)+ cmp(1)+ cmp(1g)+ cms(1openssl)+ cmtime(1)+ col(1)+ colcrt(1)+ collateindex.pl(1)+ colormgr(1)+ colors(1t)+ colrm(1)+ column(1)+ comb(1)+ combinediff(1)+ comm(1)+ comm(1g)+ command(1)+ comp\\_err(1)+ compare(1)+ composite(1)+ compress(1)+ concat(1t)+ conflict(1)+ conjure(1)+ console(1t)+ constype(1)+ continue(1)+ continue(1t)+ convert(1)+ convmv(1)+ corelist(1)+ coroutine(1t)+ cp(1)+ cp(1g)+ cpack(1)+ cpan(1)+ cpio(1)+ cpp(1)+ cpp(1)+ cputrack(1)+ crl(1openssl)+ crl2pkcs7(1openssl)+ crle(1)+ croco-0.6-config(1)+ crontab(1)+ crsh(1)+ cryptdir(1)+ csftp(1)+ csh(1)+ csplit(1)+ csplit(1g)+ cssh(1)+ csslint-0.6(1)+ ct\\_run(1)+ ctags(1)+ ctags(1g)+ ctel(1)+ ctest(1)+ ctrun(1)+ ctstat(1)+ ctwatch(1)+ cups-config(1)+ cups(1)+ cupstestppd(1)+ curl-config(1)+ curl(1)+ cursors(1t)+ cut(1)+ cut(1g)+ cvs(1)+ cvt(1)+ cvtsudoers(1)+ cwebp(1)+",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Threads",
+        "url": "https://docs.libuv.org/en/v1.x/guide/threads.html",
+        "snippet": "No other thread interacts with the event loop (except using `uv_async_send`). `uv_queue_work()` is a convenience function that allows an application to run a task in a separate thread, and have a callback that is triggered when the task is done. The thread function will be launched in a separate thread, passed the `uv_work_t` structure and once the function returns, the *after* function will be called on the thread the event loop is running in. For example you might be running some long duration task in a separate thread (perhaps using `uv_queue_work`) but want to notify progress to the main thread. data  =  (void*)  & size; 17 18  uv_async_init(loop,  & async,  print_progress); 19  uv_queue_work(loop,  & req,  fake_download,  after); 20  return  uv_run(loop,  UV_RUN_DEFAULT); 21}. After this example, which showed the abuse of the `data` field, bnoordhuis pointed out that using the `data` field is not thread safe, and `uv_async_send()` is actually only meant to wake up the event loop. One use case where `uv_async_send` is required is when interoperating with libraries that require thread affinity for their functionality.",
+        "published_date": "",
+        "source": "tavily, exa, grok",
+        "score": 0.55
+      },
+      {
+        "title": "libuv API documentation",
+        "url": "https://uvloop.readthedocs.io/_/downloads/en/stable/pdf/",
+        "snippet": "The event loop follows the rather usual single threaded asynchronous I/O approach: all (network) I/O is performed on non-blocking sockets which",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.325
+      },
+      {
+        "title": "uv_write_cb not being called after write on async_send",
+        "url": "https://github.com/libuv/libuv/discussions/4457",
+        "snippet": "I am writing back to the loop using an async_send cb. However, when I do it that way the uv_write_cb doesn't get called immediately, but it",
+        "published_date": "",
+        "source": "tavily, exa, grok",
+        "score": 0.6
+      },
+      {
+        "title": "Force \"last\" callback added via uv_async_send and ...",
+        "url": "https://github.com/libuv/libuv/issues/533",
+        "snippet": "My question is: 1) is there a way to force immediate invocation of the callbacks after entering them into uv_async_send or uv_queue_work in the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      }
+    ],
+    "exa": [
+      {
+        "title": "IO Completion ports: separate thread pool to process the dequeued ...",
+        "url": "https://stackoverflow.com/questions/49172724/io-completion-ports-separate-thread-pool-to-process-the-dequeued-packets",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "A question about IOCP on Windows and libuv - Google Groups",
+        "url": "https://groups.google.com/g/libuv/c/rprRTpz93mA",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "IO Completion Ports - Matt Godbolt's blog",
+        "url": "https://xania.org/200807/iocp",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "Windows I/O completion - One little trick - James Sturtevant",
+        "url": "https://www.jamessturtevant.com/posts/windows-io-completion/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "win32threadpool.cpp should use GetQueuedCompletionStatusEx ...",
+        "url": "https://github.com/dotnet/runtime/issues/11314",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "How to juggle FILE_SKIP_COMPLETION_PORT_ON_SUCCESS ...",
+        "url": "https://stackoverflow.com/questions/41029652/how-to-juggle-file-skip-completion-port-on-success-iocp-and-cleanup",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "WinAPI IOCP Programming: Scalable File I/O - Apriorit",
+        "url": "https://www.apriorit.com/dev-blog/412-win-api-programming-iocp",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.325
+      },
+      {
+        "title": "uv_write_cb not being called after write on async_send #4457",
+        "url": "https://github.com/libuv/libuv/discussions/4457",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "libuv - OpenHarmony/docs - Gitee",
+        "url": "https://gitee.com/openharmony/docs/blob/6356e770ed756392d3e5c353378a78bc7a22c7ac/en/application-dev/reference/native-lib/libuv.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "Threads - libuv documentation",
+        "url": "https://docs.libuv.org/en/v1.x/guide/threads.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "How libuv put callback function into event queue? · Issue #62 - GitHub",
+        "url": "https://github.com/libuv/help/issues/62",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.625
+      },
+      {
+        "title": "[PDF] libuv API documentation - uvloop",
+        "url": "https://uvloop.readthedocs.io/_/downloads/en/stable/pdf/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "grok": [
+      {
+        "title": "Understanding runtime errors on an IOCP handle",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/5668740/understanding-runtime-errors-on-an-iocp-handle",
+        "snippet": "What you will see through GetQueuedCompletionStatus are results tied to the I/O operations... completion packet will reflect that error... Ensuring that the associated handles (sockets, files) are managed properly...",
+        "published_date": "2025-12-17",
+        "source": "grok",
+        "score": 0.66
+      },
+      {
+        "title": "Newest 'iocp' Questions - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/tagged/iocp?tab=Newest",
+        "snippet": "Windows IOCP documentation states this with regard to GetQueuedCompletionStatus: Threads that block their execution on an I/O completion port are released in last-in-first-out (LIFO) order... Order of Asynchronous I/O Operations... When 4 I/O operations complete simultaneously...",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.675
+      },
+      {
+        "title": "How to close idle IOCP port? - VBForums",
+        "url": "https://www.vbforums.com/showthread.php?909845-How-to-close-idle-IOCP-port",
+        "snippet": "This can be done by posting a special completion packet with PostQueuedCompletionStatus to notify the threads to exit.",
+        "published_date": "2025-01-26",
+        "source": "grok",
+        "score": 0.32
+      },
+      {
+        "title": "IOCP: notifications without bytes copy - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/10635976/iocp-notifications-without-bytes-copy",
+        "snippet": "FILE_SKIP_COMPLETION_PORT_ON_SUCCESS is enabled... libuv appears to do zero-byte receives on UDP sockets.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.7
+      },
+      {
+        "title": "libuv/src/win/tcp.c at v1.x - GitHub",
+        "url": "https://github.com/libuv/libuv/blob/v1.x/src/win/tcp.c",
+        "snippet": "FILE_SKIP_COMPLETION_PORT_ON_SUCCESS; if (!SetFileCompletionNotificationModes((HANDLE) socket, sfcnm_flags)) return GetLastError();",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.675
+      },
+      {
+        "title": "PostQueuedCompletionStatus function - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/postqueuedcompletionstatus",
+        "snippet": "The PostQueuedCompletionStatus function posts an I/O completion packet to an I/O completion port. The I/O completion packet will satisfy an outstanding call to the GetQueuedCompletionStatus function. This function returns with the three values that were passed to PostQueuedCompletionStatus.",
+        "published_date": "2021-07-01",
+        "source": "grok"
+      },
+      {
+        "title": "I/O Completion Ports - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports",
+        "snippet": "I/O completion ports provide an efficient threading model for processing multiple asynchronous I/O requests on a multiprocessor system. Processes that handle many concurrent asynchronous I/O requests can do so more quickly and efficiently by using I/O completion ports in conjunction with a pre-allocated thread pool.",
+        "published_date": "2022-08-08",
+        "source": "grok"
+      },
+      {
+        "title": "Question about Using SetFileCompletionNotificationModes with FILE_SKIP_COMPLETION_PORT_ON_SUCCESS",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/2131843/question-about-using-setfilecompletionnotification",
+        "snippet": "Discussion on whether FILE_SKIP_COMPLETION_PORT_ON_SUCCESS prevents IOCP callbacks for successful synchronous completions of operations like WSASendTo/WSASend, and its behavior with threadpool I/O callbacks.",
+        "published_date": "2024-12-16",
+        "source": "grok",
+        "score": 0.62
+      },
+      {
+        "title": "How to juggle FILE_SKIP_COMPLETION_PORT_ON_SUCCESS, IOCP, and cleanup",
+        "url": "https://stackoverflow.com/questions/41029652/how-to-juggle-file-skip-completion-port-on-success-iocp-and-cleanup",
+        "snippet": "Detailed explanation of handling FILE_SKIP_COMPLETION_PORT_ON_SUCCESS with IOCP: when an I/O call succeeds immediately, treat it as a queued packet or manually call PostQueuedCompletionStatus. Covers OVERLAPPED lifetime, callbacks, and querying notification modes.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "WinAPI IOCP Programming: Scalable File I/O",
+        "url": "https://www.apriorit.com/dev-blog/412-win-api-programming-iocp",
+        "snippet": "Overview of I/O Completion Ports (IOCP) including PostQueuedCompletionStatus for custom packets, GetQueuedCompletionStatus for dequeuing, and using FILE_SKIP_COMPLETION_PORT_ON_SUCCESS to avoid queuing packets for immediate successful operations.",
+        "published_date": "2016-11-09",
+        "source": "grok"
+      },
+      {
+        "title": "Thread pool work scheduling - libuv documentation",
+        "url": "https://docs.libuv.org/en/v1.x/threadpool.html",
+        "snippet": "Initializes a work request which will run the given work_cb in a thread from the threadpool. Once work_cb is completed, after_work_cb will be called on the loop thread. Callback passed to uv_queue_work() which will be called on the loop thread after the work on the threadpool has been completed.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.625
+      },
+      {
+        "title": "Threads - libuv documentation",
+        "url": "https://docs.libuv.org/en/v1.x/guide/threads.html",
+        "snippet": "This chapter makes the following assumption: There is only one event loop, running in one thread (the main thread). ... Warning: It is important to realize that since the message send is *async*, the callback may be invoked immediately after uv_async_send is called in another thread... uv_async_send() is actually only meant to wake up the event loop.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Returning result from uv_queue_work",
+        "url": "https://github.com/libuv/libuv/discussions/4765",
+        "snippet": "If I want to pass a result from the work_cb to the after_work_cb, using the req->data seems like the right place. ... Libuv takes care of synchronization for you (uses mutexes internally that issue the appropriate memory barriers.) uv_async_send() is different. It doesn't issue memory barriers...",
+        "published_date": "2025-04-27",
+        "source": "grok",
+        "score": 0.61
+      },
+      {
+        "title": "uv_write_cb not being called after write on async_send",
+        "url": "https://github.com/libuv/libuv/discussions/4457",
+        "snippet": "I am writing back to the loop using an async_send cb. However, when I do it that way the uv_write_cb doesn't get called immediately, but it seems to be called the next time some other event callback happens on the loop. ... using uv_async_t to wake up the main loop from worker threads.",
+        "published_date": "2024-08-20",
+        "source": "grok"
+      },
+      {
+        "title": "How libuv put callback function into event queue?",
+        "url": "https://github.com/libuv/help/issues/62",
+        "snippet": "In threadpool.c, the worker function (thread) issues uv_async_send (&w->loop->wq_async) whenever it completes work. ... after_work_cb. Note that uv__work_done is not declared static ...",
+        "published_date": "",
+        "source": "grok"
+      }
+    ]
+  },
+  "freshness_filter": "py"
+}
