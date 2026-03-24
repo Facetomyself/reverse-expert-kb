@@ -143,6 +143,13 @@ The compare pair should make it obvious which of these is:
 - tolerated noise
 - still-open uncertainty
 
+A practical refinement worth preserving is an **alignment truth** split:
+- which early differences are merely real-but-non-explanatory variation that the pair can tolerate
+- which early differences show the pair is misaligned and needs redesign
+- which early differences are credible first semantic split candidates
+
+That keeps the operator from collapsing every early mismatch into one vague "divergence" bucket.
+
 ## 7. How to choose the first compare boundary
 Do not begin by diffing the entire trace blindly.
 Choose one first boundary where alignment is still plausible and downstream divergence is likely to matter.
@@ -211,6 +218,15 @@ A practical refinement worth preserving explicitly is:
   - expected nondeterministic churn
   - setup drift that means the compare pair itself still needs repair
   - or true semantic split candidates worth deeper work
+
+A stronger operator stop rule is:
+- **alignment truth comes before causality truth**
+- before asking "what caused this divergence?", first ask whether the observed early mismatch is:
+  - tolerated alignment noise
+  - evidence that the pair itself is not yet comparable at this level
+  - or the first behavior-bearing split worth causal follow-up
+
+This matters because an early mismatch can be perfectly real while still being non-explanatory for the analyst's actual question.
 
 Representative noisy-early-diff families include:
 - checksums, nonces, or freshness fields that are already known to vary but do not yet predict the behavior difference
