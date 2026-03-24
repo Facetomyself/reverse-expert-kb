@@ -174,6 +174,28 @@ The remaining practical question can still be whether the current live requester
 
 Use those source families conservatively as operator analogies, not as a claim that every target implements the same exact field or callback machinery.
 
+#### Reminder C: ring wraps and stable indexes often hide a phase-owned lifetime contract
+Firmware / storage / queue-driven systems such as NVMe-style completion handling are a practical reminder that the same visible slot or completion index can remain legible while ownership silently changes across wrap and phase transitions.
+
+A good operator reduction is:
+- freeze one completion that is accepted before wrap or before the phase changes
+- compare it with one later completion record at the same visible index after wrap or reuse
+- prove where the consumer trusts the current phase/owner state rather than the stable index alone
+- only then decide whether a repeated index is current work or stale ring noise
+
+This keeps ring bookkeeping from being dismissed as mere implementation detail when it is actually the request-lifetime contract.
+
+#### Reminder D: direct-reply or callback-queue success is still weaker than waiter-liveness proof
+RabbitMQ-style tutorials and direct-reply examples are useful because they show both halves of the trap:
+- a reply can arrive on the right callback path
+- a matching correlation field can still be only the outer identifier
+
+For operator purposes, the stronger question is whether the waiter map, pending marker, future, or reply consumer that the runtime still trusts is the same current one that was created for the request under study.
+
+That narrower liveness question is often the bridge from broad async-reply reasoning into one concrete stale-drop or matched-only wakeup branch.
+
+Use all of these source families conservatively as operator analogies, not as a claim that every target implements the same exact field, callback, or queue machinery.
+
 ### Step 4: Prove one retire/reuse path, not only one consume path
 Do not stop at the accepted case.
 
@@ -328,9 +350,11 @@ Primary retained support:
 - `sources/firmware-protocol/2026-03-24-pending-owner-generation-epoch-and-slot-reuse-notes.md`
 - `sources/firmware-protocol/2026-03-23-pending-request-timeout-and-late-reply-lifecycle-notes.md`
 - `sources/firmware-protocol/2026-03-24-pending-owner-generation-reuse-search-layer.txt`
+- `sources/protocol-and-network-recovery/2026-03-25-pending-request-generation-slot-reuse-search-layer.txt`
 - `topics/protocol-pending-request-correlation-and-async-reply-workflow-note.md`
-- gRPC C++ completion-queue documentation and async best-practice notes on per-call tag/state and final completion behavior
-- liburing documentation for `user_data`-carried completion identity, used conservatively as a request/completion identity pattern rather than as a direct protocol analogy
+- gRPC C++ completion-queue documentation and async tutorial material on per-call tag/state and final completion behavior
+- RabbitMQ RPC and direct-reply tutorial/doc material on callback-queue delivery plus correlation-based pending-request completion
+- NVMe queue/completion explanations used conservatively as a ring phase/owner analogy rather than as a direct protocol claim
 
 Confidence note:
 - strong for the recurring workflow shape

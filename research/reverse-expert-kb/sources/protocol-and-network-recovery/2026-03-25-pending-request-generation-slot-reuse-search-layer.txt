@@ -1,0 +1,628 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering pending request generation epoch slot reuse async reply completion queue tag stale completion",
+    "gRPC completion queue tag request lifetime stale callback async rpc debugging",
+    "NVMe completion queue phase tag ring wrap request completion stale slot reverse engineering",
+    "RabbitMQ RPC correlation id reply queue stale reply pending request debugging"
+  ],
+  "count": 36,
+  "results": [
+    {
+      "title": "GRPC(1.46.6) C++ Async Server CompletionQueue Delivery Delay",
+      "url": "https://github.com/grpc/grpc/issues/41415",
+      "snippet": "GrpcServer::GrpcServer(std::string name, const uint32_t port, int num_threads) : name_(std::move(name)), port_(port), is_closed_(true), num_threads_(num_threads) { cqs_.resize(num_threads_); grpc::EnableDefaultHealthCheckService(true); } void GrpcServer::Run() { uint32_t specified_port = port_; std::string server_address(\"0.0.0.0:\" + std::to_string(port_)); grpc::ServerBuilder builder; builder.AddChannelArgument(GRPC_ARG_ALLOW_REUSEPORT, 0); builder.AddChannelArgument(GRPC_ARG_MAX_SEND_MESSAGE_LENGTH, RayConfig::instance().max_grpc_message_size()); builder.AddChannelArgument(GRPC_ARG_MAX_RECEIVE_MESSAGE_LENGTH, RayConfig::instance().max_grpc_message_size()); builder.AddListeningPort(server_address, grpc::InsecureServerCredentials(), &port_); for (auto &entry : services_) { builder.RegisterService(&entry.get()); } // Get hold of the completion queue used for the asynchronous communication // with the gRPC runtime. for (auto &entry : server_call_factories_) { for (int i = 0; i < num_threads_; i++) { int buffer_size = 100; for (int j = 0; j < buffer_size; j++) { entry->CreateCall(); } } } // Start threads that polls incoming requests. is_closed_ = false; } void GrpcServer::RegisterService(GrpcService &service) { services_.emplace_back(service.GetGrpcService()); for (int i = 0; i < num_threads_; i++) { service.InitServerCallFactories(cqs_[i], &server_call_factories_); } } void GrpcServer::PollEventsFromCompletionQueue(int index) { SetThreadName(\"server.poll\" + std::to_string(index)); void *tag; bool ok; // Keep reading events from the `CompletionQueue` until it's shutdown.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7286
+    },
+    {
+      "title": "Not receiving async done tag for failed incoming call requests #10136",
+      "url": "https://github.com/grpc/grpc/issues/10136",
+      "snippet": "",
+      "published_date": "2017-03-13T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6643
+    },
+    {
+      "title": "AsyncNotifyWhenDone is called before the CQ returns the tag · Issue #36065 · grpc/grpc · GitHub",
+      "url": "https://github.com/grpc/grpc/issues/36065",
+      "snippet": "",
+      "published_date": "2024-03-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "GRPC-cpp : Completion Queue does not return events leading to hang",
+      "url": "https://stackoverflow.com/questions/78828846/grpc-cpp-completion-queue-does-not-return-events-leading-to-hang",
+      "snippet": "",
+      "published_date": "2024-08-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "How to get visibility into completion queue on C++ gRPC server",
+      "url": "https://stackoverflow.com/questions/73683029/how-to-get-visibility-into-completion-queue-on-c-grpc-server",
+      "snippet": "",
+      "published_date": "2022-09-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "Checking admin completion queue is going into infinite loop (NVMe over PCIe)",
+      "url": "https://stackoverflow.com/questions/78535490/checking-admin-completion-queue-is-going-into-infinite-loop-nvme-over-pcie",
+      "snippet": "",
+      "published_date": "2024-05-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "Reverse engineering Claude's CVE-2026-2796 exploit",
+      "url": "https://red.anthropic.com/2026/exploit/",
+      "snippet": "JS functions get a pass here because they're dynamically typed, but the engine has a different safety mechanism for these: every call to a JS-backed import goes through an interop layer that converts Wasm values to JS values and back again. To exercise the bug, you need two modules: one that imports a function and calls it, and another that exports a function. Normally, you’d pass a JS function or Module B’s export directly as Module A’s import. But the optimization placed a wasm function from Module B into Module A's import record without checking that their types match. The callable field is also read by getExportedFunction(),[[1]](https://red.anthropic.com/2026/exploit/#ftnt1) which is called when Wasm code uses ref.func to get a reference to an imported function. The agent set up the now-familiar pattern: module B defines a GC struct type {i64 mut, i64 mut}and exports a function that reads field 0 via struct.get. Module A imports call.bind(f), then calls it via ref.func+ call_ref—the same unchecked path used in the exploit.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6229
+    },
+    {
+      "title": "c++ - How should I manage gRPC reactors when using outside ...",
+      "url": "https://stackoverflow.com/questions/79621286/how-should-i-manage-grpc-reactors-when-using-outside-reactor-flow",
+      "snippet": "",
+      "published_date": "2025-05-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "RabbitMQ, RPC, and Correlation ID Matching - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/56615866/rabbitmq-rpc-and-correlation-id-matching",
+      "snippet": "",
+      "published_date": "2019-06-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "6.6 Technical Notes | Red Hat Enterprise Linux | 6",
+      "url": "https://docs.redhat.com/en/documentation/Red_Hat_Enterprise_Linux/6/html-single/6.6_Technical_Notes/index.html",
+      "snippet": "The NVMe driver has been updated to include device and queue numbers in interrupt names. MCE decoding support has been expanded for the mce_amd driver",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5714
+    },
+    {
+      "title": "Reverse Engineering EVM Storage | wavey",
+      "url": "https://wavey0x.github.io/posts/2025/reverse-engineering-evm-storage/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4929
+    },
+    {
+      "title": "Building an RPC System with RabbitMQ and Direct Reply-to - Medium",
+      "url": "https://medium.com/@andhikaprbw/building-an-rpc-system-with-rabbitmq-and-direct-reply-to-f55ad49b6685",
+      "snippet": "",
+      "published_date": "2024-11-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4214
+    },
+    {
+      "title": "How to Implement Request-Reply Pattern in RabbitMQ - OneUptime",
+      "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+      "snippet": "// rpc-client.ts import amqp, { Connection, Channel, ConsumeMessage } from 'amqplib'; import { randomUUID } from 'crypto'; import { EventEmitter } from 'events'; interface PendingRequest { resolve: (value: any) => void; reject: (error: Error) => void; timeout: NodeJS.Timeout; startTime: number; } interface RpcClientOptions { url: string; defaultTimeout?: number; reconnectInterval?: number; maxReconnectAttempts?: number; } export class RpcClient extends EventEmitter { private connection: Connection | null = null; private channel: Channel | null = null; private replyQueue: string = ''; private pendingRequests: Map = new Map(); private options: Required; private isConnected: boolean = false; private reconnectAttempts: number = 0; constructor(options: RpcClientOptions) { super(); this.options = { defaultTimeout: 30000, reconnectInterval: 5000, maxReconnectAttempts: 10, ...options, }; } async connect(): Promise { try { // Establish connection to RabbitMQ this.connection = await amqp.connect(this.options.url); this.channel = await this.connection.createChannel(); // Create exclusive reply queue for this client instance // The empty string tells RabbitMQ to generate a unique name const { queue } = await this.channel.assertQueue('', { exclusive: true, // Only this connection can use it autoDelete: true, // Delete when connection closes durable: false, // Don't survive broker restart }); this.replyQueue = queue; // Start consuming responses from reply queue await this.channel.consume( this.replyQueue, this.handleResponse.bind(this), { noAck: true } ); // Set up connection error handling this.connection.on('error', this.handleConnectionError.bind(this)); this.connection.on('close', this.handleConnectionClose.bind(this)); this.isConnected = true; this.reconnectAttempts = 0; this.emit('connected'); console.log(`RPC Client connected, reply queue: ${this.replyQueue}`); } catch (error) { this.emit('error', error); throw error; } } private handleResponse(msg: ConsumeMessage | null): void { if (!",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4071
+    },
+    {
+      "title": "NVMExpress 4 Data Structure",
+      "url": "https://blog.csdn.net/qq_45919531/article/details/140926012",
+      "snippet": "",
+      "published_date": "2024-08-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "How to fix Feature Request: Pre-send queue check — suppress stale replies when newer messages are pending | StepCodex",
+      "url": "https://www.stepcodex.com/en/issue/feature-request-pre-send-queue-check",
+      "snippet": "",
+      "published_date": "2026-03-17T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3857
+    },
+    {
+      "title": "Reverse Engineering REST APIs: Ingress – Walking the Call Stack (9/12) « RCE Endeavors",
+      "url": "https://www.codereversing.com/archives/468",
+      "snippet": "We now can see plaintext data for outgoing requests, but we have no idea what a response to any of these requests looks like. Fortunately, finding the response data follows a similar process to getting the request data. We can set a breakpoint on the recv function and work backwards in the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "Asynchronous stale-while-revalidate · Changelog",
+      "url": "https://developers.cloudflare.com/changelog/post/2026-02-26-async-stale-while-revalidate/",
+      "snippet": "1 month ago - The first request after cache expiry now receives stale content immediately with an UPDATING status while revalidation happens asynchronously, instead of blocking until the origin responds .",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "Requests stuck in the Pending Requests after a Reconciliation interrupted",
+      "url": "https://www.ibm.com/support/pages/requests-stuck-pending-requests-after-reconciliation-interrupted",
+      "snippet": "How to get requests processed, moved forward from the Pending Requests queue, after a Reconciliation is interrupted .",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "[PDF] IN DEPTH - Karbust",
+      "url": "https://ebooks.karbust.me/Technology/RabbitMQ%20in%20Depth%20-%20Gavin%20Roy%20-%20Manning%20Publications%20(2018).pdf",
+      "snippet": "See message proper-ties protocol header 20–23 protocols 177–204 MQTT 178–189 message structure 179–180 plugin configuration 187–189 protocol 178–181 publishing via 182–184 subscribers 184–187 variable headers 180–181 stateless publishing via HTTP 200–204 STOMP 189–200 consuming messages 195–198 plugin configurations 198–199 protocols 190 publishing messages 191–195 using in web browsers 199–200 PUBLISH command message 180–181 Publish method 25 Publisher Confirms feature, as alternative to transactions 64–66 publishers MQTT, writing 182–183 RPC 110–114 acknowledging messages 113 binding exchanges 112 closing up 114 constructing request messages 112–113 declaring exchanges 112 iterating through available images 112 processing responses 114 specifying imported libraries 111–112 testing whole applications 114 waiting for reply 113 publishing 58–78 checking connection status with rabbitpy 77 clusters 140–141 messages 29–30 via pg_amqp extensions 210–212 via statelessd 203–204 with STOMP 191–195 writing in Python 32–35 using guaranteed delivery 59–75 batch processing with transactions 68–70 HA queues with transactions 72 persisting messages to disk via delivery-mode 2 72–75 RabbitMQ won’t accept non-routable messages with mandatory set 62–64 INDEX 244 publishing (continued) surviving node failures with HA queues 70–72 trade-offs when using no guarantees 60–62 using alternate exchanges for non-routable messages 66–68 using Publisher Confirms feature as alternative to transactions 64–66 using management API for connection status 77–78 via MQTT 182–184 creating message destinations 182 getting MQTT-published messages via AMQP 183–184 writing MQTT publishers 182–183 via NOTIFY SQL statement 218 See also stateless publishing Python, writing message publishers in 32–35 Q QoS (quality of service) settings 86–88 acknowledging multiple mes-sages at once 87–88 calibrating prefetch values 87 QoS flag 179 queue arguments 99 queue-based federation 152 Queue.Bind command 29, 34 Queue.consumer method 85 Queue.Declare command 28, 34, 70, 92 queues 94–100 AMQP-defined sending messages to 192 subscribing to 198 arbitrary settings 99–100 behavior of 139–142 highly available queues 142 node-specific consumers 141–142 publishing considerations 140–141 binding 108, 118 binding to exchanges 29 connecting 108 creating 118 declaring 28, 108 federating 149–153 in AMQ model 15",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "Block Slots for Epoch 423510 | Mainnet Beacon Chain (Phase 0) Ethereum 2.0 Explorer",
+      "url": "https://beaconscan.com/slots?epoch=423510",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "大同 Work Notes: 原理NVM Express - NVMe Submission Queue & Completion Queue (SQ & CQ)",
+      "url": "http://datongfirmware.blogspot.com/2021/11/nvm-express-nvme-overview.html",
+      "snippet": "",
+      "published_date": "2021-11-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "[PATCH] nvme: Acknowledge completion queue on each iteration",
+      "url": "https://lists.infradead.org/pipermail/linux-nvme/2017-July/012072.html",
+      "snippet": "",
+      "published_date": "2017-07-17T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "NVMe confusion - OSDev.org",
+      "url": "https://forum.osdev.org/viewtopic.php?t=38736",
+      "snippet": "The host may consume many entries before updating the associated Completion Queue Head Doorbell register. I'm confused though on the doorbells.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "NVMe queue command processing - Dell Technologies Info Hub",
+      "url": "https://infohub.delltechnologies.com/en-sg/l/an-in-depth-overview-of-nvme-and-nvme-of/nvme-queue-command-processing/",
+      "snippet": "This universal workflow is comprised of seven common steps: Command Preparation - The host stages I/O operations in memory-based Submission Queues (SQs).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "Block Slot 13908034 | Mainnet Beacon Chain (Phase 0) Ethereum 2.0 Explorer",
+      "url": "https://beaconscan.com/slot/13908034",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "Core concepts, architecture and lifecycle - gRPC",
+      "url": "https://grpc.io/docs/what-is-grpc/core-concepts/",
+      "snippet": "* Server streaming RPCs where the client sends a request to the server and gets a stream to read a sequence of messages back. 1. Once the client calls a stub method, the server is notified that the RPC has been invoked with the client’s metadata for this call, the method name, and the specified deadline if applicable. A server-streaming RPC is similar to a unary RPC, except that the server returns a stream of messages in response to a client’s request. A client-streaming RPC is similar to a unary RPC, except that the client sends a stream of messages to the server instead of a single message. In a bidirectional streaming RPC, the call is initiated by the client invoking the method and the server receiving the client metadata, method name, and deadline. The server can choose to send back its initial metadata or wait for the client to start streaming messages.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3214
+    },
+    {
+      "title": "Diff - third_party/grpc - Fuchsia",
+      "url": "https://fuchsia.googlesource.com/third_party/grpc/+/3c18c777750b0491f25fe83f0ec909ed19d56eb5%5E2..3c18c777750b0491f25fe83f0ec909ed19d56eb5/",
+      "snippet": "Asynchronous and futures based +which returns `true` when the state is something other than the +`source_state` and `false` if the deadline expires.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3214
+    },
+    {
+      "title": "Basics - bRPC - Apache Software Foundation",
+      "url": "https://brpc.apache.org/docs/client/basics/",
+      "snippet": "ChannelOptions.backup\\_request\\_ms affects all RPC via the Channel, unit is milliseconds, Default value is -1(disabled), Controller.set\\_backup\\_request\\_ms() overrides value for one RPC. * “h2:grpc”, which is the protocol of [gRPC](https://grpc.io) and based on h2, using single connection by default, check out [h2:grpc](https://github.com/apache/brpc/blob/master/docs/en/http_derivatives.md#h2grpc) for details. * single connection: all clients in one process has at most one connection to one server, one connection may carry multiple requests at the same time. As a client, data set in Controller::request\\_attachment() will be received by server and response\\_attachment() contains attachment sent back by the server. When the user calls the RPC interface with a single connection to the same server, the framework guarantee that once the TCP connection has been established, the first request on the connection will contain the authentication string generated by `GenerateCredential`. 2. According to how the Channel is initialized, choose a server from global [SocketMap](https://github.com/brpc/brpc/blob/master/src/brpc/socket_map.h) or [LoadBalancer](https://github.com/brpc/brpc/blob/master/src/brpc/load_balancer.h) as destination of the request. 5. According to protocol of the Channel, choose corresponding serialization callback to serialize request into [IOBuf](https://github.com/brpc/brpc/blob/master/src/butil/iobuf.h).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3214
+    },
+    {
+      "title": "[rabbitmq-discuss] Handle Stale Connections on Clients",
+      "url": "https://lists.rabbitmq.com/pipermail/rabbitmq-discuss/2012-July/021213.html",
+      "snippet": "[rabbitmq-discuss] Handle Stale Connections on Clients. Gary Russell grussell at vmware.com. Thu Jul 12 13:35:44 BST 2012.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3214
+    },
+    {
+      "title": "Direct Reply-To - RabbitMQ",
+      "url": "https://www.rabbitmq.com/docs/direct-reply-to",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "[EventHub] The behavior of EPH SDK behavior of Epoch | Microsoft Community Hub",
+      "url": "https://techcommunity.microsoft.com/blog/azurepaasblog/eventhub-the-behavior-of-eph-sdk-behavior-of-epoch/3888275",
+      "snippet": "August 1, 2023 - Are you seeing logs where Epoch ‘0’ is getting disconnected? Does your consumer group consist of numerous consumers but only one partition? If so, this",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3014
+    },
+    {
+      "title": "13 Common RabbitMQ Mistakes and How to Avoid Them",
+      "url": "https://www.cloudamqp.com/blog/part4-rabbitmq-13-common-errors.html",
+      "snippet": "**Update August 2023:** RabbitMQ strongly advice you to use Quorum Queues in favour of classic mirrored queues. 2. **Don’t use too many connections or channels.**. When this happens, RabbitMQ will start flushing (page out) messages to disk to free up RAM, and when that happens queueing speeds will deteriorate. With lazy queues, the messages go straight to disk, thereby minimizing the RAM usage, though throughput will be lower. *Update: Starting from RabbitMQ version 3.12, the queue mode will be* disregarded as classic queues will now exhibit similar behavior to lazy queues. Applications that get hit by spikes of messages, and where throughput is a priority, set a max-length on the queue. 9. **Use multiple queues and consumers.**. For high throughput send transient messages to non-lazy queues. You will, therefore, get better performance if you split your queues into different cores, and also into different nodes if you have a RabbitMQ cluster. Make sure that your consumer consumes messages from the queue instead of using basic get actions.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3014
+    },
+    {
+      "title": "NVM Express PCI Express Transport Specification, Revision 1.1",
+      "url": "https://anfang.consserra.com/docs/NVM-Express-PCI-Express-Transport-Specification-Revision-1.1-2024.08.05-Ratified.pdf",
+      "snippet": "",
+      "published_date": "2024-08-05T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "[PDF] NVM Express Base Specification 2.0",
+      "url": "https://nvmexpress.org/wp-content/uploads/NVMe-NVM-Express-2.0a-2021.07.26-Ratified.pdf",
+      "snippet": "The mapping of extensions defined in this document to a specific NVMe Transport are defined in an NVMe Transport binding specification. The. NVMe Transport",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Java Client API Guide - RabbitMQ",
+      "url": "https://www.rabbitmq.com/client-libraries/java-api-guide",
+      "snippet": "and `Channel`, representing an AMQP 0-9-1 connection and. `import com.rabbitmq.client.Connection;. The `Connection` interface can then be used to open a channel:. To disconnect, simply close the channel and the connection:. ## Connection and Channel Lifespan​. AMQP 0-9-1 client connections, including the RabbitMQ Java client, can provide a custom identifier. the **client-provided connection name**. To publish a message to an exchange, use `Channel.basicPublish` as follows:. is called when channels and connections close, and. `Connection` or `Channel`, such as. The connection and channel objects possess the. information whether it was a connection or a channel. RabbitMQ Java client supports automatic recovery of connections. Messages that are published using `Channel.basicPublish` when connection is down. must be unique across all channels on connections that use automatic connection recovery. Connection recovery will not kick in when a channel is closed due to a. Closed channels won't be recovered even after connection recovery kicks in. Unhandled exceptions related to connection, channel, recovery,.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "RPC with RabbitMQ (using correlationId) - Google Groups",
+      "url": "https://groups.google.com/g/rabbitmq-users/c/y-aC9CoKXOc",
+      "snippet": "",
+      "published_date": "2023-03-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "How to fix Feature Request: Pre-send queue check — suppress stale replies when newer messages are pending | StepCodex",
+        "url": "https://www.stepcodex.com/en/issue/feature-request-pre-send-queue-check",
+        "snippet": "",
+        "published_date": "2026-03-17T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3857
+      },
+      {
+        "title": "Not receiving async done tag for failed incoming call requests #10136",
+        "url": "https://github.com/grpc/grpc/issues/10136",
+        "snippet": "",
+        "published_date": "2017-03-13T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6643
+      },
+      {
+        "title": "Reverse Engineering EVM Storage | wavey",
+        "url": "https://wavey0x.github.io/posts/2025/reverse-engineering-evm-storage/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4929
+      },
+      {
+        "title": "Block Slots for Epoch 423510 | Mainnet Beacon Chain (Phase 0) Ethereum 2.0 Explorer",
+        "url": "https://beaconscan.com/slots?epoch=423510",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "Block Slot 13908034 | Mainnet Beacon Chain (Phase 0) Ethereum 2.0 Explorer",
+        "url": "https://beaconscan.com/slot/13908034",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "AsyncNotifyWhenDone is called before the CQ returns the tag · Issue #36065 · grpc/grpc · GitHub",
+        "url": "https://github.com/grpc/grpc/issues/36065",
+        "snippet": "",
+        "published_date": "2024-03-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "c++ - How should I manage gRPC reactors when using outside ...",
+        "url": "https://stackoverflow.com/questions/79621286/how-should-i-manage-grpc-reactors-when-using-outside-reactor-flow",
+        "snippet": "",
+        "published_date": "2025-05-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "GRPC-cpp : Completion Queue does not return events leading to hang",
+        "url": "https://stackoverflow.com/questions/78828846/grpc-cpp-completion-queue-does-not-return-events-leading-to-hang",
+        "snippet": "",
+        "published_date": "2024-08-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "How to get visibility into completion queue on C++ gRPC server",
+        "url": "https://stackoverflow.com/questions/73683029/how-to-get-visibility-into-completion-queue-on-c-grpc-server",
+        "snippet": "",
+        "published_date": "2022-09-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "Not receiving async done tag for failed incoming call requests #10136",
+        "url": "https://github.com/grpc/grpc/issues/10136",
+        "snippet": "",
+        "published_date": "2017-03-13T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Checking admin completion queue is going into infinite loop (NVMe over PCIe)",
+        "url": "https://stackoverflow.com/questions/78535490/checking-admin-completion-queue-is-going-into-infinite-loop-nvme-over-pcie",
+        "snippet": "",
+        "published_date": "2024-05-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "NVM Express PCI Express Transport Specification, Revision 1.1",
+        "url": "https://anfang.consserra.com/docs/NVM-Express-PCI-Express-Transport-Specification-Revision-1.1-2024.08.05-Ratified.pdf",
+        "snippet": "",
+        "published_date": "2024-08-05T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "NVMExpress 4 Data Structure",
+        "url": "https://blog.csdn.net/qq_45919531/article/details/140926012",
+        "snippet": "",
+        "published_date": "2024-08-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "大同 Work Notes: 原理NVM Express - NVMe Submission Queue & Completion Queue (SQ & CQ)",
+        "url": "http://datongfirmware.blogspot.com/2021/11/nvm-express-nvme-overview.html",
+        "snippet": "",
+        "published_date": "2021-11-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "[PATCH] nvme: Acknowledge completion queue on each iteration",
+        "url": "https://lists.infradead.org/pipermail/linux-nvme/2017-July/012072.html",
+        "snippet": "",
+        "published_date": "2017-07-17T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "How to Implement Request-Reply Pattern in RabbitMQ - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+        "snippet": "",
+        "published_date": "2026-01-27T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Building an RPC System with RabbitMQ and Direct Reply-to - Medium",
+        "url": "https://medium.com/@andhikaprbw/building-an-rpc-system-with-rabbitmq-and-direct-reply-to-f55ad49b6685",
+        "snippet": "",
+        "published_date": "2024-11-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4214
+      },
+      {
+        "title": "Direct Reply-To - RabbitMQ",
+        "url": "https://www.rabbitmq.com/docs/direct-reply-to",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "RabbitMQ, RPC, and Correlation ID Matching - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/56615866/rabbitmq-rpc-and-correlation-id-matching",
+        "snippet": "",
+        "published_date": "2019-06-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "RPC with RabbitMQ (using correlationId) - Google Groups",
+        "url": "https://groups.google.com/g/rabbitmq-users/c/y-aC9CoKXOc",
+        "snippet": "",
+        "published_date": "2023-03-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Reverse Engineering REST APIs: Ingress – Walking the Call Stack (9/12) « RCE Endeavors",
+        "url": "https://www.codereversing.com/archives/468",
+        "snippet": "We now can see plaintext data for outgoing requests, but we have no idea what a response to any of these requests looks like. Fortunately, finding the response data follows a similar process to getting the request data. We can set a breakpoint on the recv function and work backwards in the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "Asynchronous stale-while-revalidate · Changelog",
+        "url": "https://developers.cloudflare.com/changelog/post/2026-02-26-async-stale-while-revalidate/",
+        "snippet": "1 month ago - The first request after cache expiry now receives stale content immediately with an UPDATING status while revalidation happens asynchronously, instead of blocking until the origin responds .",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "Requests stuck in the Pending Requests after a Reconciliation interrupted",
+        "url": "https://www.ibm.com/support/pages/requests-stuck-pending-requests-after-reconciliation-interrupted",
+        "snippet": "How to get requests processed, moved forward from the Pending Requests queue, after a Reconciliation is interrupted .",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "[EventHub] The behavior of EPH SDK behavior of Epoch | Microsoft Community Hub",
+        "url": "https://techcommunity.microsoft.com/blog/azurepaasblog/eventhub-the-behavior-of-eph-sdk-behavior-of-epoch/3888275",
+        "snippet": "August 1, 2023 - Are you seeing logs where Epoch ‘0’ is getting disconnected? Does your consumer group consist of numerous consumers but only one partition? If so, this",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3014
+      },
+      {
+        "title": "Reverse engineering Claude's CVE-2026-2796 exploit",
+        "url": "https://red.anthropic.com/2026/exploit/",
+        "snippet": "JS functions get a pass here because they're dynamically typed, but the engine has a different safety mechanism for these: every call to a JS-backed import goes through an interop layer that converts Wasm values to JS values and back again. To exercise the bug, you need two modules: one that imports a function and calls it, and another that exports a function. Normally, you’d pass a JS function or Module B’s export directly as Module A’s import. But the optimization placed a wasm function from Module B into Module A's import record without checking that their types match. The callable field is also read by getExportedFunction(),[[1]](https://red.anthropic.com/2026/exploit/#ftnt1) which is called when Wasm code uses ref.func to get a reference to an imported function. The agent set up the now-familiar pattern: module B defines a GC struct type {i64 mut, i64 mut}and exports a function that reads field 0 via struct.get. Module A imports call.bind(f), then calls it via ref.func+ call_ref—the same unchecked path used in the exploit.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6229
+      },
+      {
+        "title": "Not receiving async done tag for failed incoming call requests #10136",
+        "url": "https://github.com/grpc/grpc/issues/10136",
+        "snippet": "This is a known deficiency of the CQ-based async API. At this point, we would recommend users migrate to the newer callback-style API instead.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "GRPC(1.46.6) C++ Async Server CompletionQueue Delivery Delay",
+        "url": "https://github.com/grpc/grpc/issues/41415",
+        "snippet": "GrpcServer::GrpcServer(std::string name, const uint32_t port, int num_threads) : name_(std::move(name)), port_(port), is_closed_(true), num_threads_(num_threads) { cqs_.resize(num_threads_); grpc::EnableDefaultHealthCheckService(true); } void GrpcServer::Run() { uint32_t specified_port = port_; std::string server_address(\"0.0.0.0:\" + std::to_string(port_)); grpc::ServerBuilder builder; builder.AddChannelArgument(GRPC_ARG_ALLOW_REUSEPORT, 0); builder.AddChannelArgument(GRPC_ARG_MAX_SEND_MESSAGE_LENGTH, RayConfig::instance().max_grpc_message_size()); builder.AddChannelArgument(GRPC_ARG_MAX_RECEIVE_MESSAGE_LENGTH, RayConfig::instance().max_grpc_message_size()); builder.AddListeningPort(server_address, grpc::InsecureServerCredentials(), &port_); for (auto &entry : services_) { builder.RegisterService(&entry.get()); } // Get hold of the completion queue used for the asynchronous communication // with the gRPC runtime. for (auto &entry : server_call_factories_) { for (int i = 0; i < num_threads_; i++) { int buffer_size = 100; for (int j = 0; j < buffer_size; j++) { entry->CreateCall(); } } } // Start threads that polls incoming requests. is_closed_ = false; } void GrpcServer::RegisterService(GrpcService &service) { services_.emplace_back(service.GetGrpcService()); for (int i = 0; i < num_threads_; i++) { service.InitServerCallFactories(cqs_[i], &server_call_factories_); } } void GrpcServer::PollEventsFromCompletionQueue(int index) { SetThreadName(\"server.poll\" + std::to_string(index)); void *tag; bool ok; // Keep reading events from the `CompletionQueue` until it's shutdown.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7286
+      },
+      {
+        "title": "Core concepts, architecture and lifecycle - gRPC",
+        "url": "https://grpc.io/docs/what-is-grpc/core-concepts/",
+        "snippet": "* Server streaming RPCs where the client sends a request to the server and gets a stream to read a sequence of messages back. 1. Once the client calls a stub method, the server is notified that the RPC has been invoked with the client’s metadata for this call, the method name, and the specified deadline if applicable. A server-streaming RPC is similar to a unary RPC, except that the server returns a stream of messages in response to a client’s request. A client-streaming RPC is similar to a unary RPC, except that the client sends a stream of messages to the server instead of a single message. In a bidirectional streaming RPC, the call is initiated by the client invoking the method and the server receiving the client metadata, method name, and deadline. The server can choose to send back its initial metadata or wait for the client to start streaming messages.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3214
+      },
+      {
+        "title": "Diff - third_party/grpc - Fuchsia",
+        "url": "https://fuchsia.googlesource.com/third_party/grpc/+/3c18c777750b0491f25fe83f0ec909ed19d56eb5%5E2..3c18c777750b0491f25fe83f0ec909ed19d56eb5/",
+        "snippet": "Asynchronous and futures based +which returns `true` when the state is something other than the +`source_state` and `false` if the deadline expires.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3214
+      },
+      {
+        "title": "Basics - bRPC - Apache Software Foundation",
+        "url": "https://brpc.apache.org/docs/client/basics/",
+        "snippet": "ChannelOptions.backup\\_request\\_ms affects all RPC via the Channel, unit is milliseconds, Default value is -1(disabled), Controller.set\\_backup\\_request\\_ms() overrides value for one RPC. * “h2:grpc”, which is the protocol of [gRPC](https://grpc.io) and based on h2, using single connection by default, check out [h2:grpc](https://github.com/apache/brpc/blob/master/docs/en/http_derivatives.md#h2grpc) for details. * single connection: all clients in one process has at most one connection to one server, one connection may carry multiple requests at the same time. As a client, data set in Controller::request\\_attachment() will be received by server and response\\_attachment() contains attachment sent back by the server. When the user calls the RPC interface with a single connection to the same server, the framework guarantee that once the TCP connection has been established, the first request on the connection will contain the authentication string generated by `GenerateCredential`. 2. According to how the Channel is initialized, choose a server from global [SocketMap](https://github.com/brpc/brpc/blob/master/src/brpc/socket_map.h) or [LoadBalancer](https://github.com/brpc/brpc/blob/master/src/brpc/load_balancer.h) as destination of the request. 5. According to protocol of the Channel, choose corresponding serialization callback to serialize request into [IOBuf](https://github.com/brpc/brpc/blob/master/src/butil/iobuf.h).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3214
+      },
+      {
+        "title": "[PATCH] nvme: Acknowledge completion queue on each iteration",
+        "url": "https://lists.infradead.org/pipermail/linux-nvme/2017-July/012072.html",
+        "snippet": "Problem is that code is throttling the HW as HW cannot queue more completions until SW get a chance to clear it. As an example: for each in N (",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NVMe confusion - OSDev.org",
+        "url": "https://forum.osdev.org/viewtopic.php?t=38736",
+        "snippet": "The host may consume many entries before updating the associated Completion Queue Head Doorbell register. I'm confused though on the doorbells.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "NVMe queue command processing - Dell Technologies Info Hub",
+        "url": "https://infohub.delltechnologies.com/en-sg/l/an-in-depth-overview-of-nvme-and-nvme-of/nvme-queue-command-processing/",
+        "snippet": "This universal workflow is comprised of seven common steps: Command Preparation - The host stages I/O operations in memory-based Submission Queues (SQs).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "6.6 Technical Notes | Red Hat Enterprise Linux | 6",
+        "url": "https://docs.redhat.com/en/documentation/Red_Hat_Enterprise_Linux/6/html-single/6.6_Technical_Notes/index.html",
+        "snippet": "The NVMe driver has been updated to include device and queue numbers in interrupt names. MCE decoding support has been expanded for the mce_amd driver",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5714
+      },
+      {
+        "title": "[PDF] NVM Express Base Specification 2.0",
+        "url": "https://nvmexpress.org/wp-content/uploads/NVMe-NVM-Express-2.0a-2021.07.26-Ratified.pdf",
+        "snippet": "The mapping of extensions defined in this document to a specific NVMe Transport are defined in an NVMe Transport binding specification. The. NVMe Transport",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "How to Implement Request-Reply Pattern in RabbitMQ - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+        "snippet": "// rpc-client.ts import amqp, { Connection, Channel, ConsumeMessage } from 'amqplib'; import { randomUUID } from 'crypto'; import { EventEmitter } from 'events'; interface PendingRequest { resolve: (value: any) => void; reject: (error: Error) => void; timeout: NodeJS.Timeout; startTime: number; } interface RpcClientOptions { url: string; defaultTimeout?: number; reconnectInterval?: number; maxReconnectAttempts?: number; } export class RpcClient extends EventEmitter { private connection: Connection | null = null; private channel: Channel | null = null; private replyQueue: string = ''; private pendingRequests: Map = new Map(); private options: Required; private isConnected: boolean = false; private reconnectAttempts: number = 0; constructor(options: RpcClientOptions) { super(); this.options = { defaultTimeout: 30000, reconnectInterval: 5000, maxReconnectAttempts: 10, ...options, }; } async connect(): Promise { try { // Establish connection to RabbitMQ this.connection = await amqp.connect(this.options.url); this.channel = await this.connection.createChannel(); // Create exclusive reply queue for this client instance // The empty string tells RabbitMQ to generate a unique name const { queue } = await this.channel.assertQueue('', { exclusive: true, // Only this connection can use it autoDelete: true, // Delete when connection closes durable: false, // Don't survive broker restart }); this.replyQueue = queue; // Start consuming responses from reply queue await this.channel.consume( this.replyQueue, this.handleResponse.bind(this), { noAck: true } ); // Set up connection error handling this.connection.on('error', this.handleConnectionError.bind(this)); this.connection.on('close', this.handleConnectionClose.bind(this)); this.isConnected = true; this.reconnectAttempts = 0; this.emit('connected'); console.log(`RPC Client connected, reply queue: ${this.replyQueue}`); } catch (error) { this.emit('error', error); throw error; } } private handleResponse(msg: ConsumeMessage | null): void { if (!",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4071
+      },
+      {
+        "title": "[rabbitmq-discuss] Handle Stale Connections on Clients",
+        "url": "https://lists.rabbitmq.com/pipermail/rabbitmq-discuss/2012-July/021213.html",
+        "snippet": "[rabbitmq-discuss] Handle Stale Connections on Clients. Gary Russell grussell at vmware.com. Thu Jul 12 13:35:44 BST 2012.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3214
+      },
+      {
+        "title": "[PDF] IN DEPTH - Karbust",
+        "url": "https://ebooks.karbust.me/Technology/RabbitMQ%20in%20Depth%20-%20Gavin%20Roy%20-%20Manning%20Publications%20(2018).pdf",
+        "snippet": "See message proper-ties protocol header 20–23 protocols 177–204 MQTT 178–189 message structure 179–180 plugin configuration 187–189 protocol 178–181 publishing via 182–184 subscribers 184–187 variable headers 180–181 stateless publishing via HTTP 200–204 STOMP 189–200 consuming messages 195–198 plugin configurations 198–199 protocols 190 publishing messages 191–195 using in web browsers 199–200 PUBLISH command message 180–181 Publish method 25 Publisher Confirms feature, as alternative to transactions 64–66 publishers MQTT, writing 182–183 RPC 110–114 acknowledging messages 113 binding exchanges 112 closing up 114 constructing request messages 112–113 declaring exchanges 112 iterating through available images 112 processing responses 114 specifying imported libraries 111–112 testing whole applications 114 waiting for reply 113 publishing 58–78 checking connection status with rabbitpy 77 clusters 140–141 messages 29–30 via pg_amqp extensions 210–212 via statelessd 203–204 with STOMP 191–195 writing in Python 32–35 using guaranteed delivery 59–75 batch processing with transactions 68–70 HA queues with transactions 72 persisting messages to disk via delivery-mode 2 72–75 RabbitMQ won’t accept non-routable messages with mandatory set 62–64 INDEX 244 publishing (continued) surviving node failures with HA queues 70–72 trade-offs when using no guarantees 60–62 using alternate exchanges for non-routable messages 66–68 using Publisher Confirms feature as alternative to transactions 64–66 using management API for connection status 77–78 via MQTT 182–184 creating message destinations 182 getting MQTT-published messages via AMQP 183–184 writing MQTT publishers 182–183 via NOTIFY SQL statement 218 See also stateless publishing Python, writing message publishers in 32–35 Q QoS (quality of service) settings 86–88 acknowledging multiple mes-sages at once 87–88 calibrating prefetch values 87 QoS flag 179 queue arguments 99 queue-based federation 152 Queue.Bind command 29, 34 Queue.consumer method 85 Queue.Declare command 28, 34, 70, 92 queues 94–100 AMQP-defined sending messages to 192 subscribing to 198 arbitrary settings 99–100 behavior of 139–142 highly available queues 142 node-specific consumers 141–142 publishing considerations 140–141 binding 108, 118 binding to exchanges 29 connecting 108 creating 118 declaring 28, 108 federating 149–153 in AMQ model 15",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "13 Common RabbitMQ Mistakes and How to Avoid Them",
+        "url": "https://www.cloudamqp.com/blog/part4-rabbitmq-13-common-errors.html",
+        "snippet": "**Update August 2023:** RabbitMQ strongly advice you to use Quorum Queues in favour of classic mirrored queues. 2. **Don’t use too many connections or channels.**. When this happens, RabbitMQ will start flushing (page out) messages to disk to free up RAM, and when that happens queueing speeds will deteriorate. With lazy queues, the messages go straight to disk, thereby minimizing the RAM usage, though throughput will be lower. *Update: Starting from RabbitMQ version 3.12, the queue mode will be* disregarded as classic queues will now exhibit similar behavior to lazy queues. Applications that get hit by spikes of messages, and where throughput is a priority, set a max-length on the queue. 9. **Use multiple queues and consumers.**. For high throughput send transient messages to non-lazy queues. You will, therefore, get better performance if you split your queues into different cores, and also into different nodes if you have a RabbitMQ cluster. Make sure that your consumer consumes messages from the queue instead of using basic get actions.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3014
+      },
+      {
+        "title": "Java Client API Guide - RabbitMQ",
+        "url": "https://www.rabbitmq.com/client-libraries/java-api-guide",
+        "snippet": "and `Channel`, representing an AMQP 0-9-1 connection and. `import com.rabbitmq.client.Connection;. The `Connection` interface can then be used to open a channel:. To disconnect, simply close the channel and the connection:. ## Connection and Channel Lifespan​. AMQP 0-9-1 client connections, including the RabbitMQ Java client, can provide a custom identifier. the **client-provided connection name**. To publish a message to an exchange, use `Channel.basicPublish` as follows:. is called when channels and connections close, and. `Connection` or `Channel`, such as. The connection and channel objects possess the. information whether it was a connection or a channel. RabbitMQ Java client supports automatic recovery of connections. Messages that are published using `Channel.basicPublish` when connection is down. must be unique across all channels on connections that use automatic connection recovery. Connection recovery will not kick in when a channel is closed due to a. Closed channels won't be recovered even after connection recovery kicks in. Unhandled exceptions related to connection, channel, recovery,.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      }
+    ],
+    "grok": []
+  }
+}
