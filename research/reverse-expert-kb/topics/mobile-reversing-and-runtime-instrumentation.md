@@ -292,6 +292,7 @@ At the parent-page layer, that iOS route is easier to remember as a compact oper
 A newer branch-memory reminder is now worth preserving canonically:
 - do not flatten single-shot continuation cases, `AsyncStream`-owned delivery, and `AsyncSequence`/async-bytes consumption into one generic Swift-async seam
 - in practice, their truthful stop rules differ: exact-once resume, first yield/dequeue, and first iterator-side parser/classifier can each be the real consequence boundary
+- likewise, when callback/delegate truth and continuation truth are already good enough, do not collapse the first MainActor-isolated view-model/UI-state consumer into the same bucket as generic post-resume logic; in some Swift-heavy iOS cases that MainActor-side handoff is the first behavior-bearing proof object that actually matters
 
 A parent-level routing rule now worth preserving explicitly is:
 - leave broad traffic-topology work once one decisive request family is already visible enough to compare meaningfully
