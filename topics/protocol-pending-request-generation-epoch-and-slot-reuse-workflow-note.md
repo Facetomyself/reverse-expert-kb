@@ -151,6 +151,29 @@ When many fields are present, prioritize the earliest reduction that predicts st
 
 That is usually more valuable than fully decoding every completion structure first.
 
+Two practical source-backed reminders are worth preserving here.
+
+#### Reminder A: completion-queue delivery is not the same as stable per-request ownership
+In async RPC-style runtimes such as gRPC C++, a completion queue can return a tag for an event, but the useful analyst question is still which per-call state that tag represents and whether that state is still the current live owner.
+
+A good operator reduction is:
+- first freeze where the tag or per-call object is created
+- then freeze where that same object is retired, replaced, or deleted
+- only then decide whether a late returned tag proves current completion or stale delivery against dead per-call state
+
+This is why a broad statement like “the completion arrived on the right queue” is too weak once the case has narrowed to owner lifetime realism.
+
+#### Reminder B: shared reply channels still need current-owner proof
+Request/reply systems such as QMUX- or RabbitMQ-style flows remind us that broad queue correctness and broad correlation-field correctness are only the outer layer.
+
+Even when:
+- the reply reaches the expected callback or receive queue
+- the broad correlation field still looks right
+
+The remaining practical question can still be whether the current live requester, pending marker, or waiting object is the same one that the runtime still trusts to consume the reply.
+
+Use those source families conservatively as operator analogies, not as a claim that every target implements the same exact field or callback machinery.
+
 ### Step 4: Prove one retire/reuse path, not only one consume path
 Do not stop at the accepted case.
 
