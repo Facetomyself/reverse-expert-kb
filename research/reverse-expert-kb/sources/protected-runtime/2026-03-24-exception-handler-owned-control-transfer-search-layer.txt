@@ -1,0 +1,584 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering vectored exception handler dispatcher-side landing RtlLookupFunctionEntry dynamic function table protected runtime",
+    "KiUserExceptionDispatcher RtlDispatchException RtlLookupFunctionEntry RtlInstallFunctionTableCallback reverse engineering",
+    "signal handler ucontext resume target SIGTRAP SIGSEGV anti debug reverse engineering"
+  ],
+  "count": 30,
+  "results": [
+    {
+      "title": "How to uninstall RtlInstallFunctionTableCallback? - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/68827883/how-to-uninstall-rtlinstallfunctiontablecallback",
+      "snippet": "### current community. ### your communities. ### more stack exchange communities. Communities for your favorite technologies. Stack Overflow for Teams is now called **Stack Internal**. ##### Collectives™ on Stack Overflow. What is the reverse of the RtlInstallFunctionTableCallback function ? I have been looking at it to avoid the rather slow RtlAddFunctionTable/RtlDeleteFunctionTable for transient JIT'ed math expressions, but I could not find a way to uninstall a callback... PRUNTIME\\_FUNCTION type, see WinNT.h. Eric Grange's user avatar. ## 1 Answer 1. As remarked by Hans Passant in a comment, the answer is in RtlDeleteFunctionTable documentation. NTSYSAPI BOOLEAN RtlDeleteFunctionTable( PRUNTIME\\_FUNCTION. A pointer to an array of function entries that were previously passed. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Start asking to get answers. Find the answer to your question by asking. # Subscribe to RSS. To subscribe to this RSS feed, copy and paste this URL into your RSS reader. ##### Stack Overflow. ##### Stack Exchange Network.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6923
+    },
+    {
+      "title": "Unable to hook ntdll.dll!KiUserExceptionDispatcher function for ...",
+      "url": "https://github.com/frida/frida/issues/2888",
+      "snippet": "Unable to hook ntdll.dll!KiUserExceptionDispatcher function for VMProtected software #2888. New issue. Copy link. New issue. Copy link. Open.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6692
+    },
+    {
+      "title": "Vectored Exception Handling - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/debug/vectored-exception-handling",
+      "snippet": "Official Microsoft documentation on Vectored Exception Handlers (VEH), registration via AddVectoredExceptionHandler, and their role before SEH dispatching in the exception chain.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6692
+    },
+    {
+      "title": "GitHub - brew02/KiUserExceptionDispatcherHook: Hooking the Windows usermode exception handler",
+      "url": "https://github.com/brew02/KiUserExceptionDispatcherHook",
+      "snippet": "",
+      "published_date": "2024-08-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6462
+    },
+    {
+      "title": "Unable to backtrace JIT frames on Windows · Issue #751 - GitHub",
+      "url": "https://github.com/bytecodealliance/wasmtime/issues/751",
+      "snippet": "I think we'll need to use RtlCaptureContext and then RtlVirtualUnwind in combination with RtlLookupFunctionEntry to properly walk the stack. A",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6462
+    },
+    {
+      "title": "RtlLookupFunctionEntry function (winnt.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtllookupfunctionentry",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6462
+    },
+    {
+      "title": "How to debug program with signal handler for SIGSEGV",
+      "url": "https://stackoverflow.com/questions/3414860/how-to-debug-program-with-signal-handler-for-sigsegv",
+      "snippet": "### more stack exchange communities. # How to debug program with signal handler for SIGSEGV. I am writing a plugin for a application, occasionally a SIGSEGV would be throw out. The error occurs in my plugin and dynamical library. Currently I am using gdb as debug tool. ## 2 Answers 2. GDB *will* catch `SIGSEGV` before the application does. What you described in comment to Logan's answer makes no sense. I suspect what's really happening is that the application creates a new process, and only gets `SIGSEGV` in that other process, not the one you attached GDB to. Even if the program traps SIGSEGV, gdb should still get it first and give you an opportunity to debug the program. There is absolutely no warranty for GDB. Program received signal SIGSEGV, Segmentation fault. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. ##### Stack Overflow. ##### Stack Exchange Network.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6462
+    },
+    {
+      "title": "How to write a signal handler to catch SIGSEGV?",
+      "url": "https://stackoverflow.com/questions/2663456/how-to-write-a-signal-handler-to-catch-sigsegv",
+      "snippet": "Explains using sigaction with SA_SIGINFO to receive ucontext_t in the handler for SIGSEGV. Details accessing and modifying uc_mcontext.gregs[REG_RIP] (program counter) to resume execution after the faulting instruction or redirect control flow. Architecture-specific but key for signal-based anti-debug or fault handling.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6231
+    },
+    {
+      "title": "x86, amd64: Why SIGTRAP' ucontext instruction pointer does not point to related int3",
+      "url": "https://stackoverflow.com/questions/72973683/x86-amd64-why-sigtrap-ucontext-instruction-pointer-does-not-point-to-related",
+      "snippet": "",
+      "published_date": "2022-07-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Eating/ignoring SIGTRAP? · Issue #3888 · rr-debugger/rr - GitHub",
+      "url": "https://github.com/rr-debugger/rr/issues/3888",
+      "snippet": "I tried --ignore-signal=5 and --continue-through-signal=SIGTRAP , but neither seems to stop my target from halting itself. =(",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "A deep dive into modern Windows Structured Exception Handling (x64)",
+      "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+      "snippet": "In-depth analysis of SEH flow starting from KiUserExceptionDispatcher → RtlDispatchException → RtlpCallVectoredHandlers → RtlLookupFunctionEntry → RtlpLookupDynamicFunctionEntry (which involves RtlInstallFunctionTableCallback for dynamic entries) → RtlVirtualUnwind and handler execution. Covers RUNTIME_FUNCTION and dynamic function tables.",
+      "published_date": "2024-11-25",
+      "source": "grok",
+      "score": 0.5046
+    },
+    {
+      "title": "Debug program using peculiar anti-debugging technique",
+      "url": "https://reverseengineering.stackexchange.com/questions/21367/debug-program-using-peculiar-anti-debugging-technique",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.5
+    },
+    {
+      "title": "Can I trap SIGSEGV (on a Linux) and what are are the conditions to make it works? (for a crackme)",
+      "url": "https://reverseengineering.stackexchange.com/questions/21597/can-i-trap-sigsegv-on-a-linux-and-what-are-are-the-conditions-to-make-it-works",
+      "snippet": "",
+      "published_date": "2019-07-01T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.5
+    },
+    {
+      "title": "KiUserExceptionDispatcher hook - Reverse Engineering Stack Exchange",
+      "url": "https://reverseengineering.stackexchange.com/questions/8809/kiuserexceptiondispatcher-hook",
+      "snippet": "Discussion on malware techniques hooking KiUserExceptionDispatcher (pushing a custom address and RET) to intercept exceptions before standard SEH processing via RtlDispatchException.",
+      "published_date": "2015-05-04",
+      "source": "grok",
+      "score": 0.4892
+    },
+    {
+      "title": "Fantastic unwind information and where to find them | klezVirus",
+      "url": "https://klezvirus.github.io/posts/Byoud",
+      "snippet": "",
+      "published_date": "2026-03-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "Reverse Engineering Vectored Exception Handlers: Functionality (2/3)",
+      "url": "https://www.codereversing.com/archives/548",
+      "snippet": "This post will continue where the first one left off and explain the operations happening on the doubly linked list of exception handlers.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4385
+    },
+    {
+      "title": "Applied Reverse Engineering: Exceptions and Interrupts",
+      "url": "https://revers.engineering/applied-re-exceptions/",
+      "snippet": "Detailed reverse engineering of Windows exception dispatching, including KiUserExceptionDispatcher, RtlDispatchException, RtlLookupFunctionEntry for locating function table entries in dynamic function tables, and unwind mechanics for protected runtime.",
+      "published_date": "2020-03-24",
+      "source": "grok",
+      "score": 0.4277
+    },
+    {
+      "title": "Reverse Engineering Vectored Exception Handlers: Structures (1/3)",
+      "url": "https://www.codereversing.com/archives/205",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.4154
+    },
+    {
+      "title": "Reverse Engineering Vectored Exception Handlers - RCE Endeavors",
+      "url": "https://www.codereversing.com/archives/207",
+      "snippet": "Reverse Engineering Vectored Exception Handlers: Implementation (3/3) ... Here an implementation of AddVectoredExceptionHandler as it was reverse engineered.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4154
+    },
+    {
+      "title": "TryHackMe Incident handling with Splunk Write-Up - Medium",
+      "url": "https://medium.com/@laupeiip/tryhackme-incident-handling-with-splunk-write-up-ed09e3cc0dbc",
+      "snippet": "I will be doing all the Splunk room in the SOC Level 1 path again for more practice, and to write the corresponding write-up. Let's get started!",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "A brief Reverse-Engineering note on Structured Exception Handling ...",
+      "url": "https://sysexit.wordpress.com/2014/02/12/a-brief-reverse-engineering-note-on-structured-exception-handling-after-stack-pivoting/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.3692
+    },
+    {
+      "title": "RtlAddFunctionTable and Dynamic Function Tables",
+      "url": "https://pmeerw.net/blog/programming/RtlAddFunctionTable.html",
+      "snippet": "Explanation and sample code for RtlAddFunctionTable to register dynamic function tables, with usage of RtlLookupFunctionEntry to verify entries in protected or runtime-generated code.",
+      "published_date": "2019-10-03",
+      "source": "grok",
+      "score": 0.3585
+    },
+    {
+      "title": "Detecting Vectored Exception Handling Squared in an EDR",
+      "url": "https://fluxsec.red/detecting-vectored-exception-handling-malware-rust-edr-windows-kernel",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3462
+    },
+    {
+      "title": "A journey through KiUserExceptionDispatcher - Maurice's Blog",
+      "url": "https://momo5502.com/posts/2024-09-07-a-journey-through-kiuserexceptiondispatcher/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.3231
+    },
+    {
+      "title": "Exception Hijacking - saza.RE",
+      "url": "https://saza.re/posts/exception_hijack/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.3231
+    },
+    {
+      "title": "Windows Instrumentation Callbacks – Part 2 - cirosec GmbH",
+      "url": "https://cirosec.de/en/news/windows-instrumentation-callbacks-hooks/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Invisible Execution: Hiding Malware with Unwind Metadata Manipulation",
+      "url": "https://core-jmp.org/2026/03/invisible-execution-hiding-malware-with-unwind-metadata-manipulation/",
+      "snippet": "",
+      "published_date": "2026-03-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "RE guide for beginners : bypassing SIGTRAP - 0x00sec",
+      "url": "https://archive.0x00sec.org/t/re-guide-for-beginners-bypassing-sigtrap/2648.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.3
+    },
+    {
+      "title": "Anti Debugging Protection Techniques with Examples - Apriorit",
+      "url": "https://www.apriorit.com/dev-blog/367-anti-reverse-engineering-protection-techniques-to-use-before-releasing-software",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Debugging with self-single-stepping code on x86",
+      "url": "https://ayrtonm.com/posts/2023/Self-single-stepping-code.html",
+      "snippet": "Describes using SIGSEGV handler to set the trap flag (TF) in EFLAGS via ucontext/mcontext, triggering SIGTRAP after each instruction for single-stepping/sandboxing. Combines SIGSEGV and SIGTRAP for advanced control flow and anti-analysis techniques.",
+      "published_date": "2023-10-20",
+      "source": "grok",
+      "score": 0.2431
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "A journey through KiUserExceptionDispatcher - Maurice's Blog",
+        "url": "https://momo5502.com/posts/2024-09-07-a-journey-through-kiuserexceptiondispatcher/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.3231
+      },
+      {
+        "title": "GitHub - brew02/KiUserExceptionDispatcherHook: Hooking the Windows usermode exception handler",
+        "url": "https://github.com/brew02/KiUserExceptionDispatcherHook",
+        "snippet": "",
+        "published_date": "2024-08-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6462
+      },
+      {
+        "title": "Exception Hijacking - saza.RE",
+        "url": "https://saza.re/posts/exception_hijack/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.3231
+      },
+      {
+        "title": "Windows Instrumentation Callbacks – Part 2 - cirosec GmbH",
+        "url": "https://cirosec.de/en/news/windows-instrumentation-callbacks-hooks/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "A brief Reverse-Engineering note on Structured Exception Handling ...",
+        "url": "https://sysexit.wordpress.com/2014/02/12/a-brief-reverse-engineering-note-on-structured-exception-handling-after-stack-pivoting/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.3692
+      },
+      {
+        "title": "Invisible Execution: Hiding Malware with Unwind Metadata Manipulation",
+        "url": "https://core-jmp.org/2026/03/invisible-execution-hiding-malware-with-unwind-metadata-manipulation/",
+        "snippet": "",
+        "published_date": "2026-03-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Reverse Engineering Vectored Exception Handlers: Structures (1/3)",
+        "url": "https://www.codereversing.com/archives/205",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.4154
+      },
+      {
+        "title": "RtlLookupFunctionEntry function (winnt.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtllookupfunctionentry",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6462
+      },
+      {
+        "title": "Detecting Vectored Exception Handling Squared in an EDR",
+        "url": "https://fluxsec.red/detecting-vectored-exception-handling-malware-rust-edr-windows-kernel",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3462
+      },
+      {
+        "title": "Fantastic unwind information and where to find them | klezVirus",
+        "url": "https://klezvirus.github.io/posts/Byoud",
+        "snippet": "",
+        "published_date": "2026-03-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "Debug program using peculiar anti-debugging technique",
+        "url": "https://reverseengineering.stackexchange.com/questions/21367/debug-program-using-peculiar-anti-debugging-technique",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.5
+      },
+      {
+        "title": "Can I trap SIGSEGV (on a Linux) and what are are the conditions to make it works? (for a crackme)",
+        "url": "https://reverseengineering.stackexchange.com/questions/21597/can-i-trap-sigsegv-on-a-linux-and-what-are-are-the-conditions-to-make-it-works",
+        "snippet": "",
+        "published_date": "2019-07-01T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.5
+      },
+      {
+        "title": "RE guide for beginners : bypassing SIGTRAP - 0x00sec",
+        "url": "https://archive.0x00sec.org/t/re-guide-for-beginners-bypassing-sigtrap/2648.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.3
+      },
+      {
+        "title": "x86, amd64: Why SIGTRAP' ucontext instruction pointer does not point to related int3",
+        "url": "https://stackoverflow.com/questions/72973683/x86-amd64-why-sigtrap-ucontext-instruction-pointer-does-not-point-to-related",
+        "snippet": "",
+        "published_date": "2022-07-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Anti Debugging Protection Techniques with Examples - Apriorit",
+        "url": "https://www.apriorit.com/dev-blog/367-anti-reverse-engineering-protection-techniques-to-use-before-releasing-software",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "How to uninstall RtlInstallFunctionTableCallback? - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/68827883/how-to-uninstall-rtlinstallfunctiontablecallback",
+        "snippet": "### current community. ### your communities. ### more stack exchange communities. Communities for your favorite technologies. Stack Overflow for Teams is now called **Stack Internal**. ##### Collectives™ on Stack Overflow. What is the reverse of the RtlInstallFunctionTableCallback function ? I have been looking at it to avoid the rather slow RtlAddFunctionTable/RtlDeleteFunctionTable for transient JIT'ed math expressions, but I could not find a way to uninstall a callback... PRUNTIME\\_FUNCTION type, see WinNT.h. Eric Grange's user avatar. ## 1 Answer 1. As remarked by Hans Passant in a comment, the answer is in RtlDeleteFunctionTable documentation. NTSYSAPI BOOLEAN RtlDeleteFunctionTable( PRUNTIME\\_FUNCTION. A pointer to an array of function entries that were previously passed. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Start asking to get answers. Find the answer to your question by asking. # Subscribe to RSS. To subscribe to this RSS feed, copy and paste this URL into your RSS reader. ##### Stack Overflow. ##### Stack Exchange Network.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6923
+      },
+      {
+        "title": "Unable to hook ntdll.dll!KiUserExceptionDispatcher function for ...",
+        "url": "https://github.com/frida/frida/issues/2888",
+        "snippet": "Unable to hook ntdll.dll!KiUserExceptionDispatcher function for VMProtected software #2888. New issue. Copy link. New issue. Copy link. Open.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6692
+      },
+      {
+        "title": "Unable to backtrace JIT frames on Windows · Issue #751 - GitHub",
+        "url": "https://github.com/bytecodealliance/wasmtime/issues/751",
+        "snippet": "I think we'll need to use RtlCaptureContext and then RtlVirtualUnwind in combination with RtlLookupFunctionEntry to properly walk the stack. A",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6462
+      },
+      {
+        "title": "Reverse Engineering Vectored Exception Handlers - RCE Endeavors",
+        "url": "https://www.codereversing.com/archives/207",
+        "snippet": "Reverse Engineering Vectored Exception Handlers: Implementation (3/3) ... Here an implementation of AddVectoredExceptionHandler as it was reverse engineered.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4154
+      },
+      {
+        "title": "Reverse Engineering Vectored Exception Handlers: Functionality (2/3)",
+        "url": "https://www.codereversing.com/archives/548",
+        "snippet": "This post will continue where the first one left off and explain the operations happening on the doubly linked list of exception handlers.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4385
+      },
+      {
+        "title": "Reverse Engineering Vectored Exception Handlers: Structures (1/3)",
+        "url": "https://www.codereversing.com/archives/205",
+        "snippet": "### Reverse Engineering Vectored Exception Handlers: Structures (1/3). This series of posts will cover the details of reverse engineering the AddVectoredExceptionHandler function, a Windows API function responsible for registering a special type of exception handler at runtime. The series will be split in to three parts: first identifying key structures that are used, second understanding the implementation, and lastly re-implementing the reverse engineered assembly to working C code. The third field at *+0x8* is always set to 1 in this function, and the fourth at *+0xC* is set to hold the encoded handler address. struct MysteryStruct { DWORD dwUnknown1; +0x0 DWORD dwUnknown2; +0x4 DWORD dwAlwaysOne; +0x8 PVECTORED\\_EXCEPTION\\_HANDLER pVectoredHandler; +0xC };. The code in **bright pink** begins by loading the second field in the *\\_LdrpVectorHandlerList* structure in to *EDI*. typedef struct \\_LdrpVectorHandlerEntry { \\_LdrpVectorHandlerEntry \\*pLink1; +0x0 \\_LdrpVectorHandlerEntry \\*pLink2; +0x4 DWORD dwAlwaysOne; +0x8 PVECTORED\\_EXCEPTION\\_HANDLER pVectoredHandler; +0xC } VECTORED\\_HANDLER\\_ENTRY, \\*PVECTORED\\_HANDLER\\_ENTRY;. typedef struct \\_LdrpVectorHandlerList { SRWLOCK srwLock; +0x0 VECTORED\\_HANDLER\\_ENTRY \\*pLink1; +0x4 VECTORED\\_HANDLER\\_ENTRY \\*pLink2; +0x8 } VECTORED\\_HANDLER\\_LIST, \\*PVECTORED\\_HANDLER\\_LIST; +0xC.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "TryHackMe Incident handling with Splunk Write-Up - Medium",
+        "url": "https://medium.com/@laupeiip/tryhackme-incident-handling-with-splunk-write-up-ed09e3cc0dbc",
+        "snippet": "I will be doing all the Splunk room in the SOC Level 1 path again for more practice, and to write the corresponding write-up. Let's get started!",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Can I trap SIGSEGV (on a Linux) and what are are the conditions to ...",
+        "url": "https://reverseengineering.stackexchange.com/questions/21597/can-i-trap-sigsegv-on-a-linux-and-what-are-are-the-conditions-to-make-it-works",
+        "snippet": "Thus, when using `printf()` from within a signal handler, we may sometimes see strange output—or even a program crash or data corruption—if the handler interrupts the main program in the middle of executing a call to `printf()` or another `stdio` function. Implementing an exception handler for `SIGSEGV` may result in unintended signal handler behavior if non-reentrant library functions are called within the exception handler, since it may be possible to trigger a segmentation fault outside of the specific conditions you anticipate. The most interesting approach for your case would probably be changing the `uc_mcontext.gregs[REG_RIP]` (RIP here is the x86-64 instruction pointer) value in the signal handler's `context` struct to point to a function somewhere else in the program. After the signal handler finishes, program execution would resume at that function. Some related example code can also be found here: In a signal handler, how to know where the program is interrupted?",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RE guide for beginners : bypassing SIGTRAP - 0x00sec",
+        "url": "https://archive.0x00sec.org/t/re-guide-for-beginners-bypassing-sigtrap/2648.html",
+        "snippet": "> The SIGTRAP signal is sent to a process when an exception (or trap) occurs: a condition that a debugger has requested to be informed of — for example, when a particular function is executed, or when a particular variable changes value. Indeed, by simply running the binary under GDB, the execution flow stop, showing that this behaviour is due to an emitted SIGTRAP signal. Once detected, we have to follow the execution flow, break into each function till we know where the signal is emitted. Consequently, if we override the function by returning the exact same value, we should be able to bypass the SIGTRAP triggering without changing the software behaviour. We have successfully bypassed the SIGTRAP signal without patching or interacting with the binary. In fact, when SIGTRAP is emitted under gdb, the debugger will handle the signal instead of the binary, making fail the additional check and stop the execution flow …**.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to debug program with signal handler for SIGSEGV",
+        "url": "https://stackoverflow.com/questions/3414860/how-to-debug-program-with-signal-handler-for-sigsegv",
+        "snippet": "### more stack exchange communities. # How to debug program with signal handler for SIGSEGV. I am writing a plugin for a application, occasionally a SIGSEGV would be throw out. The error occurs in my plugin and dynamical library. Currently I am using gdb as debug tool. ## 2 Answers 2. GDB *will* catch `SIGSEGV` before the application does. What you described in comment to Logan's answer makes no sense. I suspect what's really happening is that the application creates a new process, and only gets `SIGSEGV` in that other process, not the one you attached GDB to. Even if the program traps SIGSEGV, gdb should still get it first and give you an opportunity to debug the program. There is absolutely no warranty for GDB. Program received signal SIGSEGV, Segmentation fault. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. ##### Stack Overflow. ##### Stack Exchange Network.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6462
+      },
+      {
+        "title": "Eating/ignoring SIGTRAP? · Issue #3888 · rr-debugger/rr - GitHub",
+        "url": "https://github.com/rr-debugger/rr/issues/3888",
+        "snippet": "I tried --ignore-signal=5 and --continue-through-signal=SIGTRAP , but neither seems to stop my target from halting itself. =(",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Anti Debugging Protection Techniques with Examples - Apriorit",
+        "url": "https://www.apriorit.com/dev-blog/367-anti-reverse-engineering-protection-techniques-to-use-before-releasing-software",
+        "snippet": "To bypass the NtGlobalFlag check, just performing reverse the actions that we took before the check; in other words, set the the `NtGlobalFlag` field of the PEB structure of the debugged process to 0 before this value is checked by the anti debugging protection. EXCEPTION_DISPOSITION ExceptionRoutine(EXCEPTION_DISPOSITION  ExceptionRoutine( PEXCEPTION_RECORD ExceptionRecord,  PEXCEPTION_RECORD  ExceptionRecord, PVOID EstablisherFrame,  PVOID  EstablisherFrame, PCONTEXT ContextRecord,  PCONTEXT  ContextRecord, PVOID DispatcherContext)  PVOID  DispatcherContext){{ if (EXCEPTION_INVALID_HANDLE == ExceptionRecord->ExceptionCode)  if (EXCEPTION_INVALID_HANDLE ==  ExceptionRecord -> ExceptionCode) { { std::cout << \"Stop debugging program!\" << std::endl; std::cout <<  \"Stop debugging program!\"  << std::endl; exit(-1);  exit(- 1); } } return ExceptionContinueExecution;  return ExceptionContinueExecution;}}int main() int  main(){{ __asm  __asm { { // set SEH handler // set SEH handler  push ExceptionRoutine  push ExceptionRoutine push dword ptr fs : [0]  push dword ptr fs : [0] mov dword ptr fs : [0], esp  mov dword ptr fs : [0], esp } } CloseHandle((HANDLE)0xBAAD);  CloseHandle((HANDLE) 0x BAAD);  __asm  __asm { { // return original SEH handler // return original SEH handler mov eax, [esp] mov eax, [esp] mov dword ptr fs : [0], eax mov dword ptr fs : [0], eax add esp, 8 add esp, 8 } }  return 0  return  0}}.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": [
+      {
+        "title": "A journey through KiUserExceptionDispatcher - Maurice's Blog",
+        "url": "https://momo5502.com/posts/2024-09-07-a-journey-through-kiuserexceptiondispatcher/",
+        "snippet": "Detailed reverse engineering exploration of KiUserExceptionDispatcher, including its interaction with RtlDispatchException, RtlUnwindEx, and RtlLookupFunctionEntry for handling function entries and stack unwinding in Windows exception infrastructure.",
+        "published_date": "2024-09-07",
+        "source": "grok"
+      },
+      {
+        "title": "A deep dive into modern Windows Structured Exception Handling (x64)",
+        "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+        "snippet": "In-depth analysis of SEH flow starting from KiUserExceptionDispatcher → RtlDispatchException → RtlpCallVectoredHandlers → RtlLookupFunctionEntry → RtlpLookupDynamicFunctionEntry (which involves RtlInstallFunctionTableCallback for dynamic entries) → RtlVirtualUnwind and handler execution. Covers RUNTIME_FUNCTION and dynamic function tables.",
+        "published_date": "2024-11-25",
+        "source": "grok",
+        "score": 0.5046
+      },
+      {
+        "title": "Exception Hijacking - saza.RE",
+        "url": "https://saza.re/posts/exception_hijack/",
+        "snippet": "Reverse engineering of exception handling with focus on KiUserExceptionDispatcher calling RtlDispatchException, RtlLookupFunctionEntry for locating RUNTIME_FUNCTION entries, and unwind mechanics relevant to hijacking and obfuscation techniques.",
+        "published_date": "2022-08-04",
+        "source": "grok"
+      },
+      {
+        "title": "KiUserExceptionDispatcher hook - Reverse Engineering Stack Exchange",
+        "url": "https://reverseengineering.stackexchange.com/questions/8809/kiuserexceptiondispatcher-hook",
+        "snippet": "Discussion on malware techniques hooking KiUserExceptionDispatcher (pushing a custom address and RET) to intercept exceptions before standard SEH processing via RtlDispatchException.",
+        "published_date": "2015-05-04",
+        "source": "grok",
+        "score": 0.4892
+      },
+      {
+        "title": "A brief Reverse-Engineering note on Structured Exception Handling after stack pivoting",
+        "url": "https://sysexit.wordpress.com/2014/02/12/a-brief-reverse-engineering-note-on-structured-exception-handling-after-stack-pivoting/",
+        "snippet": "RE analysis showing KiUserExceptionDispatcher directly calling RtlDispatchException, followed by vectored handlers and stack limit checks in the exception dispatching process.",
+        "published_date": "2014-02-12",
+        "source": "grok"
+      },
+      {
+        "title": "Applied Reverse Engineering: Exceptions and Interrupts",
+        "url": "https://revers.engineering/applied-re-exceptions/",
+        "snippet": "Detailed reverse engineering of Windows exception dispatching, including KiUserExceptionDispatcher, RtlDispatchException, RtlLookupFunctionEntry for locating function table entries in dynamic function tables, and unwind mechanics for protected runtime.",
+        "published_date": "2020-03-24",
+        "source": "grok",
+        "score": 0.4277
+      },
+      {
+        "title": "A deep dive into modern Windows Structured Exception Handling (x64)",
+        "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+        "snippet": "In-depth analysis of SEH/VEH flow: KiUserExceptionDispatcher → RtlDispatchException → RtlpCallVectoredHandlers → RtlLookupFunctionEntry (scans .pdata) → RtlpLookupDynamicFunctionEntry for dynamic tables, with protected runtime considerations.",
+        "published_date": "2024-11-25",
+        "source": "grok"
+      },
+      {
+        "title": "Reverse Engineering Vectored Exception Handlers",
+        "url": "https://www.codereversing.com/archives/205",
+        "snippet": "Reverse engineering of AddVectoredExceptionHandler, internal structures like _LdrpVectorHandlerList and _LdrpVectorHandlerEntry, and dispatcher integration in ntdll.",
+        "published_date": "2015-04-08",
+        "source": "grok"
+      },
+      {
+        "title": "RtlAddFunctionTable and Dynamic Function Tables",
+        "url": "https://pmeerw.net/blog/programming/RtlAddFunctionTable.html",
+        "snippet": "Explanation and sample code for RtlAddFunctionTable to register dynamic function tables, with usage of RtlLookupFunctionEntry to verify entries in protected or runtime-generated code.",
+        "published_date": "2019-10-03",
+        "source": "grok",
+        "score": 0.3585
+      },
+      {
+        "title": "Vectored Exception Handling - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/debug/vectored-exception-handling",
+        "snippet": "Official Microsoft documentation on Vectored Exception Handlers (VEH), registration via AddVectoredExceptionHandler, and their role before SEH dispatching in the exception chain.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6692
+      },
+      {
+        "title": "Debug program using peculiar anti-debugging technique",
+        "url": "https://reverseengineering.stackexchange.com/questions/21367/debug-program-using-peculiar-anti-debugging-technique",
+        "snippet": "Discussion of an anti-debugging technique using signal handlers to change control flow. The application registers an exception handler, forces an exception (e.g., SIGSEGV), and modifies execution in the handler, potentially using ucontext to resume or redirect after the signal. Mentions continuing after SIGSEGV/SIGFPE and non-standard resumption behavior.",
+        "published_date": "2019-05-26",
+        "source": "grok"
+      },
+      {
+        "title": "How to write a signal handler to catch SIGSEGV?",
+        "url": "https://stackoverflow.com/questions/2663456/how-to-write-a-signal-handler-to-catch-sigsegv",
+        "snippet": "Explains using sigaction with SA_SIGINFO to receive ucontext_t in the handler for SIGSEGV. Details accessing and modifying uc_mcontext.gregs[REG_RIP] (program counter) to resume execution after the faulting instruction or redirect control flow. Architecture-specific but key for signal-based anti-debug or fault handling.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6231
+      },
+      {
+        "title": "Can I trap SIGSEGV (on a Linux) and what are the conditions to make it works?",
+        "url": "https://reverseengineering.stackexchange.com/questions/21597/can-i-trap-sigsegv-on-a-linux-and-what-are-are-the-conditions-to-make-it-works",
+        "snippet": "Covers trapping SIGSEGV in Linux signal handlers using ucontext_t to modify uc_mcontext.gregs[REG_RIP] for resuming at a different address or skipping instructions. References anti-debug techniques where signals redirect execution flow, with links to fault handler examples.",
+        "published_date": "2019-07-01",
+        "source": "grok"
+      },
+      {
+        "title": "RE guide for beginners : bypassing SIGTRAP",
+        "url": "https://archive.0x00sec.org/t/re-guide-for-beginners-bypassing-sigtrap/2648.html",
+        "snippet": "Reverse engineering guide on bypassing SIGTRAP-based anti-debugging. Explains identifying the signal emission function and handling/resuming execution without patching, relevant to SIGTRAP handlers in anti-RE protections.",
+        "published_date": "2017-06-27",
+        "source": "grok"
+      },
+      {
+        "title": "Debugging with self-single-stepping code on x86",
+        "url": "https://ayrtonm.com/posts/2023/Self-single-stepping-code.html",
+        "snippet": "Describes using SIGSEGV handler to set the trap flag (TF) in EFLAGS via ucontext/mcontext, triggering SIGTRAP after each instruction for single-stepping/sandboxing. Combines SIGSEGV and SIGTRAP for advanced control flow and anti-analysis techniques.",
+        "published_date": "2023-10-20",
+        "source": "grok",
+        "score": 0.2431
+      }
+    ]
+  }
+}
