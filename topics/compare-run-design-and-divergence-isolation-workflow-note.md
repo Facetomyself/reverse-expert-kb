@@ -242,11 +242,40 @@ Instead:
 A compact operator rule is:
 - when the early diff is noisy, re-ask the comparison question at a better boundary before treating the first mismatch as explanatory
 
-### Step 6: decide the next handoff
-After the first meaningful divergence is bounded, choose the next note by the remaining bottleneck:
-- reverse-causality if the first causal boundary behind the divergence is still missing
+### Step 6: decide whether the divergence is already the watched object
+Once the first meaningful divergence is bounded, ask one more question before widening into reverse-causality or branch-specific proof:
+- is this divergence already the smallest durable object that a watchpoint, memory query, or reducer-localization workflow can answer well?
+
+Often the answer is **no**.
+The first meaningful divergence can still be:
+- one callback family rather than the queue slot or registration bit that predicts it
+- one request-object difference rather than the field or reduced mode bit inside it
+- one policy/result family rather than the local enum or bucket slot that stores the reduced decision
+- one consumer/consequence difference rather than the earlier state slot that makes the later difference inevitable
+
+A practical bridge rule worth preserving is:
+- **first meaningful divergence** and **best watched object** are often adjacent, but they are not automatically the same proof object
+- if the divergence is still semantically rich, aggregate, or awkward to query directly, shrink it into the narrowest truthful watched object before continuing
+
+A compact operator ladder is:
+
+```text
+first meaningful divergence isolated
+  -> ask whether it is already a good watched object
+  -> if not, shrink it into one field / slot / slice / reducer output
+  -> only then hand off into first-bad-write / decisive-reducer localization or wider reverse-causality
+```
+
+### Step 7: decide the next handoff
+After the first meaningful divergence is either accepted as the watched object or reduced into one smaller watched object, choose the next note by the remaining bottleneck:
+- `topics/first-bad-write-and-decisive-reducer-localization-workflow-note.md` if the real next move is now one watched object, one first useful write/reducer boundary, and one downstream dependency proof
+- reverse-causality if the first causal boundary behind the divergence is still missing at a broader level than one watched object
 - native/protocol/malware/mobile/protected-runtime branch notes if the divergence now clearly belongs to one domain-specific operator question
 - evidence packaging if the compare result is already good enough technically and now needs preservation
+
+A practical stop rule is:
+- once the compare pair is trustworthy and one first meaningful divergence is already small enough to shrink into a durable watched object, do **not** keep improving the diff by default
+- leave broad compare-run work and let watched-object reduction carry the next proof step
 
 ## 9. Common mistakes this note prevents
 This note is meant to prevent:

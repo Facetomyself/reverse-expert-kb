@@ -1,0 +1,448 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering compare run first bad write watchpoint time travel debugging",
+    "rr reverse watchpoint first changed value compare runs debugging",
+    "WinDbg TTD memory write watchpoint first divergence reverse engineering"
+  ],
+  "count": 24,
+  "results": [
+    {
+      "title": "xusheng6/awesome-ttd: Rerousces related to time-travel debugging ...",
+      "url": "https://github.com/xusheng6/awesome-ttd",
+      "snippet": "IDA Pro - WinDbg TTD Debugging - Documentation for using WinDbg Time Travel Debugging with IDA Pro for reverse engineering and malware analysis. Tutorials",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7364
+    },
+    {
+      "title": "Time Travel Debugging Overview - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-overview",
+      "snippet": "Time Travel Debugging (TTD) is a tool that captures a trace of your process as it executes and replays it later both forwards and backwards. TTD is efficient and works to add as little overhead as possible as it captures code execution in trace files. In addition to recording traces in the WinDbg UI, there is a TTD.exe command line utility available to record a trace. For more information, see Time Travel Debugging - TTD.exe command line utility. A trace file (`.run`) stores the code execution during recording. For more information on working with trace files, see Time Travel Debugging - Working with trace files. For information about working with the TTD debugger object model, see Time Travel Debugging - Introduction to Time Travel Debugging objects. The TTD.exe command line utility to record traces is available. For more information, see Time Travel Debugging - TTD.exe command line utility.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7091
+    },
+    {
+      "title": "Time Travel Debugging - Record a trace  - Windows drivers",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-record",
+      "snippet": "",
+      "published_date": "2024-11-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6818
+    },
+    {
+      "title": "Time Travel Debugging - Sample App Walkthrough - Windows drivers",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-walkthrough",
+      "snippet": "",
+      "published_date": "2024-11-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6818
+    },
+    {
+      "title": "Reverse-singlestep doesn't trigger watchpoints on ARM · Issue #3936",
+      "url": "https://github.com/rr-debugger/rr/issues/3936",
+      "snippet": "# Search code, repositories, users, issues, pull requests... You signed in with another tab or window. You signed out in another tab or window. You switched accounts on another tab or window. # Reverse-singlestep doesn't trigger watchpoints on ARM #3936. Reverse-singlestep doesn't trigger watchpoints on ARM#3936. So when an instruction at address A triggers a watchpoint, the watchpoint is reported before that instruction has executed, with the PC pointing to A. GDB fixes things up so that the user-visible behavior is the same as x86, by singlestepping over the instruction and then reporting the breakpoint. During a reverse-continue, rr reports the watchpoint firing before the instruction reverse-executes, i.e. with the PC is at address A+4. GDB applies its fixup by reverse-singlestepping and everything works as expected. Therefore when the PC is at address A+4 and we reverse-singlestep, rr should report the watchpoint firing with the PC still at A+4. Unfortunately rr reverse-singlesteps and does not report the watchpoint firing at all. ## Issue actions.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "[PDF] EXPOSITOR: Scriptable Time-Travel Debugging with First-Class ...",
+      "url": "https://www.cs.umd.edu/~mwh/papers/expositor-tse-submitted.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6091
+    },
+    {
+      "title": "TTD Memory Objects - Windows drivers",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-memory-objects",
+      "snippet": "",
+      "published_date": "2023-10-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Time Travel Triage: An Introduction to Time Travel Debugging using ...",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/time-travel-debugging-using-net-process-hollowing",
+      "snippet": "",
+      "published_date": "2025-11-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5818
+    },
+    {
+      "title": "Rreverrse Debugging | Huon on the internet",
+      "url": "https://huonw.github.io/blog/2015/10/rreverse-debugging/",
+      "snippet": "Of course, there’s an element of a vicious cycle: I only use debuggers (generally gdb for native code, and pdb for Python) occasionally and so I’m not an expert, so things end up being annoying, slow and require searching the internet a lot, and this discourages me from using them. The recording step with `rr` is simple: tell it your binary and it’ll run it, saving the state it needs for replaying as the program executes. The thing I’ve really fallen in love with is reverse debugging: instead of just being able to let the program’s execution progress forward in various forms (`step`, `next`, `continue` etc.), you can do the same in reverse. * record executions with `rr` until the bug exhibits how I want[1,. 2. The rr developers point out this means tracking down rare bugs is made easier: run rr on a test-case in a loop until the bug triggers, and then you can dissect it at leisure, instead of just hoping to catch it by chance in a traditional debugger.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5318
+    },
+    {
+      "title": "rr – record and replay debugger for C/C++ - Hacker News",
+      "url": "https://news.ycombinator.com/item?id=41023547",
+      "snippet": "",
+      "published_date": "2024-07-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "Unpacking VIDAR using Time-Travel Debugging (TTD) in ... - YouTube",
+      "url": "https://www.youtube.com/watch?v=HcyCZPNO3qI",
+      "snippet": "Unpacking VIDAR using Time-Travel Debugging (TTD) in WinDbg Preview\nDr Josh Stroschein - The Cyber Yeti\n26000 subscribers\n82 likes\n2776 views\n12 Jan 2023\nIn the last video, we looked for signs of packing in our malicious sample using IDA Pro. What we found was fairly clear evidence of the use of process hollowing, a common technique of code injection used by malware authors. In this video, I'll introduce Time-Travel Debugging (TTD) in WinDbg Preview. TTD allows you to create a trace of a debug session, then easily step forwards and backwards in the session. This can streamline your debug sessions as you no longer need to restart every time you miss that break point! We'll discuss basic TTD commands and finally extract our stealer.\n\nCybersecurity, reverse engineering, malware analysis and ethical hacking content!\n🎓 Courses on Pluralsight 👉🏻 https://www.pluralsight.com/authors/josh-stroschein\n🌶️ YouTube 👉🏻 Like, Comment & Subscribe!\n🙏🏻 Support my work 👉🏻 https://patreon.com/JoshStroschein\n🌎 Follow me 👉🏻 https://twitter.com/jstrosch, https://www.linkedin.com/in/joshstroschein/\n⚙️ Tinker with me on Github 👉🏻 https://github.com/jstrosch\n\nIn case you missed it, the last video covers identifying signs of packing: https://youtu.be/pEjcmJRa7T8.\n\nThe video before this covers initial analysis using Detect-It-Easy: https://youtu.be/FB_e1mIhykk\n\n00:00 Introduction\n00:18 Looking for WriteProcessMemory in IDA Pro\n02:30 Launching WinDbg Preview\n04:27 Starting a Time-Travel Debug Session\n07:44 User-Interface Basics\n08:47 TTD Timelines\n10:46 Debugger Commands\n11:21 Finding Virtual Addresses in IDA Pro\n15:38 Finding the Injected PE File\n18:15 Dumping the PE File from Memory\n22:13 Analyzing the Dumped file with Detect-it-Easy\n25:00 Analyzing the Dumped File with IDA Pro\n8 comments\n",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4436
+    },
+    {
+      "title": "Two Reverse-Execution Optimizations",
+      "url": "https://robert.ocallahan.org/2015/07/two-reverse-execution-optimizations.html",
+      "snippet": "* Debugging Gdb Using rr: Ptrace Emulation. * Update To rr Master To Debug Firefox Trunk. * Using rr To Debug Go Programs. * Using rr To Debug rr. * rr 4.0 Released With Reverse Execution. * Using rr To Debug Dropped Video Frames In Gecko. Following the above procedure, rr would reverse-continue to the most recent triggering of the breakpoint (or watchpoint), then stop and signal gdb; gdb would read program state via rr to evaluate the breakpoint, and then signal rr to continue with reverse execution. Thus, every time the breakpoint is hit, rr must perform at least two clonings of checkpoint state plus some amount of forward execution. So we add to rr a little interpreter for gdb's bytecode; then rr can implement reverse execution by executing forwards over some time interval, and every time a breakpoint is hit, evaluating its condition and ignoring the hit if the condition evaluates to false.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4364
+    },
+    {
+      "title": "[PDF] Scriptable Time-Travel Debugging with First Class Traces",
+      "url": "https://www.cs.ox.ac.uk/ralf.hinze/WG2.8/30/slides/michael-paper.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "Time Travel Debugging for C/C++ - Nutrient",
+      "url": "https://www.nutrient.io/blog/time-travel-debugging-for-c/",
+      "snippet": "With the ability to set breakpoints and let time run backward, it's suddenly much easier to catch who set a variable to the wrong value or who",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "Time-travel debugging production code - Temporal",
+      "url": "https://temporal.io/blog/time-travel-debugging-production-code",
+      "snippet": "So, instead of debugging in production, what we do is replicate on our dev machine whatever issue we're investigating and use a debugger locally (or, more often, add log statements 😄), and re-run as many times as required to figure it out. While running traditional debuggers doesn't make sense, time-travel debuggers can record a process execution on one machine and replay it on another machine. We can also download the execution’s history, checkout the version of the code that's running in prod, and pass the file to a replayer (Temporal has runtimes for Go, Java, JavaScript, Python, .NET, and PHP) so we can see in a debugger exactly what the code did during that production function execution. I transitioned from talking about TTD to methods of debugging production code via recording, so while Temporal doesn’t have TTD yet, it does record all the non-deterministic inputs to the program and is able to replay execution, so it’s definitely possible to implement.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "Microsoft WinDbg Time Travel Debugging versus Intel Processor ...",
+      "url": "https://whiteknightlabs.com/2025/10/14/microsoft-windbg-ttd-versus-intel-pt/",
+      "snippet": "Loading Dump File [C:\\Users\\alans\\OneDrive\\Documents\\NullPtrRead02.run] JavaScript script successfully loaded from 'C:\\Program Files\\WindowsApps\\Microsoft.WinDbg_1.2508.27001.0_x64__8wekyb3d8bbwe\\amd64\\TTD\\Analyzers\\HeapAnalysis.js' JavaScript script successfully loaded from 'C:\\Program Files\\WindowsApps\\Microsoft.WinDbg_1.2508.27001.0_x64__8wekyb3d8bbwe\\amd64\\TTD\\Analyzers\\TtdAnalyze.js' ************* Path validation summary ************** Response                         Time (ms)     Location Deferred                                       srv* Symbol search path is: srv* Executable search path is: ModLoad: 00007ff6`062b0000 00007ff6`062d7000   C:\\Users\\alans\\source\\repos\\NullPtrRead\\x64\\Debug\\NullPtrRead.exe ModLoad: 00007ffb`ba750000 00007ffb`ba8fb000   C:\\Users\\alans\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.WinDbg_8wekyb3d8bbwe\\amd64\\TTD\\TTDRecordCPU.dll ModLoad: 00007ffb`ba900000 00007ffb`bab04000   C:\\WINDOWS\\SYSTEM32\\ucrtbased.dll ModLoad: 00007ffb`c4a00000 00007ffb`c4ae1000   C:\\WINDOWS\\SYSTEM32\\MSVCP140D.dll ModLoad: 00007ffc`96db0000 00007ffc`96de0000   C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140D.dll ModLoad: 00007ffc`abf60000 00007ffc`abf6f000   C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140_1D.dll ModLoad: 00007ffc`bb490000 00007ffc`bb883000   C:\\WINDOWS\\System32\\KERNELBASE.dll ModLoad: 00007ffc`bc4a0000 00007ffc`bc569000   C:\\WINDOWS\\System32\\KERNEL32.DLL ModLoad: 00007ffc`be1c0000 00007ffc`be429000   C:\\WINDOWS\\SYSTEM32\\ntdll.dll ......... Loading Dump File [C:\\Users\\alans\\OneDrive\\Documents\\NullPtrRead02.run] JavaScript script successfully loaded from 'C:\\Program Files\\WindowsApps\\Microsoft.WinDbg_1.2508.27001.0_x64__8wekyb3d8bbwe\\amd64\\TTD\\Analyzers\\HeapAnalysis.js' JavaScript script successfully loaded from 'C:\\Program Files\\WindowsApps\\Microsoft.WinDbg_1.2508.27001.0_x64__8wekyb3d8bbwe\\amd64\\TTD\\Analyzers\\TtdAnalyze.js' WARNING: Whitespace at start of path element ************* Path validation summary ************** Response                         Time (ms)     Location Deferred                                       srv*C:\\\\symbols*http://msdl.microsoft.com/download/symbols OK                                             C:\\Users\\alans\\source\\repos\\NullPtrRead\\x64\\Debug WARNING: Whitespace at start of path element Symbol search path is: srv*C:\\\\symbols*http://msdl.microsoft.com/download/symbols; ;C:\\Users\\alans\\source\\repos\\NullPtrRead\\x64\\Debug Executable search path is: ModLoad: 00007ff6`062b0000 00007ff6`062d7000   C:\\Users\\alans\\source\\repos\\NullPtrRead\\x64\\Debug\\NullPtrRead.exe ModLoad: 00007ffb`ba750000 00007ffb`ba8fb000   C:\\Users\\alans\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.WinDbg_8wekyb3d8bbwe\\amd64\\TTD\\TTDRecordCPU.dll ModLoad: 00007ffb`ba900000 00007ffb`bab04000   C:\\WINDOWS\\SYSTEM32\\ucrtbased.dll ModLoad: 00007ffb`c4a00000 00007ffb`c4ae1000   C:\\WINDOWS\\SYSTEM32\\MSVCP140D.dll ModLoad: 00007ffc`96db0000 00007ffc`96de0000   C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140D.dll ModLoad: 00007ffc`abf60000 00007ffc`abf6f000   C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140_1D.dll ModLoad: 00007ffc`bb490000 00007ffc`bb883000   C:\\WINDOWS\\System32\\KERNELBASE.dll ModLoad: 00007ffc`bc4a0000 00007ffc`bc569000   C:\\WINDOWS\\System32\\KERNEL32.DLL ModLoad: 00007ffc`be1c0000 00007ffc`be429000   C:\\WINDOWS\\SYSTEM32\\ntdll.dll .........",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "Binary Ninja - Having Fun with Flare-on Using Time-Travel Debugging (TTD)",
+      "url": "https://binary.ninja/2024/12/16/flareon-ttd.html",
+      "snippet": "",
+      "published_date": "2024-12-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Intro to Time Travel Debugging - Undo.io",
+      "url": "https://undo.io/resources/technical-paper-time-travel-debugging/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Debug & Modify Game Memory in Real-Time with WinDbg - YouTube",
+      "url": "https://www.youtube.com/watch?v=ogtHK5DUcB4",
+      "snippet": "... Memory in Real-Time with WinDbg | Reverse Engineering (Educational). 1.1K views · 9 months ago. #EthicalHacking #ReverseEngineering #GameHacking.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Time travel debugging with rr debugger",
+      "url": "https://undo.io/resources/gdb-watchpoint/time-travel-debugging-rr-debugger",
+      "snippet": "",
+      "published_date": "2023-02-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "RR: The magic of record and replay debugging",
+      "url": "https://johnnysswlab.com/rr-the-magic-of-recording-and-replay-debugging/",
+      "snippet": "",
+      "published_date": "2020-08-16T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "rr 4.0 Released With Reverse Execution",
+      "url": "https://robert.ocallahan.org/2015/10/rr-40-released-with-reverse-execution.html",
+      "snippet": "",
+      "published_date": "2015-10-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "Warpspeed: Building a Record/Replay Debugger for macOS · Nick Gregory",
+      "url": "https://nickgregory.me/post/2024/06/23/warpspeed/",
+      "snippet": "",
+      "published_date": "2024-06-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Tracking Down Heap Overflows with rr - Sean Heelan's Blog",
+      "url": "https://sean.heelan.io/2016/05/31/tracking-down-heap-overflows-with-rr/",
+      "snippet": "",
+      "published_date": "2016-05-31T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "[PDF] EXPOSITOR: Scriptable Time-Travel Debugging with First-Class ...",
+        "url": "https://www.cs.umd.edu/~mwh/papers/expositor-tse-submitted.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6091
+      },
+      {
+        "title": "[PDF] Scriptable Time-Travel Debugging with First Class Traces",
+        "url": "https://www.cs.ox.ac.uk/ralf.hinze/WG2.8/30/slides/michael-paper.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "Binary Ninja - Having Fun with Flare-on Using Time-Travel Debugging (TTD)",
+        "url": "https://binary.ninja/2024/12/16/flareon-ttd.html",
+        "snippet": "",
+        "published_date": "2024-12-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "Intro to Time Travel Debugging - Undo.io",
+        "url": "https://undo.io/resources/technical-paper-time-travel-debugging/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Warpspeed: Building a Record/Replay Debugger for macOS · Nick Gregory",
+        "url": "https://nickgregory.me/post/2024/06/23/warpspeed/",
+        "snippet": "",
+        "published_date": "2024-06-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "TTD Memory Objects - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-memory-objects",
+        "snippet": "",
+        "published_date": "2023-10-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Time Travel Triage: An Introduction to Time Travel Debugging using ...",
+        "url": "https://cloud.google.com/blog/topics/threat-intelligence/time-travel-debugging-using-net-process-hollowing",
+        "snippet": "",
+        "published_date": "2025-11-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5818
+      },
+      {
+        "title": "Time Travel Debugging - Record a trace  - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-record",
+        "snippet": "",
+        "published_date": "2024-11-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6818
+      },
+      {
+        "title": "Time Travel Debugging - Sample App Walkthrough - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-walkthrough",
+        "snippet": "",
+        "published_date": "2024-11-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6818
+      },
+      {
+        "title": "Binary Ninja - Having Fun with Flare-on Using Time-Travel Debugging (TTD)",
+        "url": "https://binary.ninja/2024/12/16/flareon-ttd.html",
+        "snippet": "",
+        "published_date": "2024-12-16T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "RR: The magic of record and replay debugging",
+        "url": "https://johnnysswlab.com/rr-the-magic-of-recording-and-replay-debugging/",
+        "snippet": "",
+        "published_date": "2020-08-16T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3273
+      },
+      {
+        "title": "Tracking Down Heap Overflows with rr - Sean Heelan's Blog",
+        "url": "https://sean.heelan.io/2016/05/31/tracking-down-heap-overflows-with-rr/",
+        "snippet": "",
+        "published_date": "2016-05-31T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "rr 4.0 Released With Reverse Execution",
+        "url": "https://robert.ocallahan.org/2015/10/rr-40-released-with-reverse-execution.html",
+        "snippet": "",
+        "published_date": "2015-10-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "Time travel debugging with rr debugger",
+        "url": "https://undo.io/resources/gdb-watchpoint/time-travel-debugging-rr-debugger",
+        "snippet": "",
+        "published_date": "2023-02-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "rr – record and replay debugger for C/C++ - Hacker News",
+        "url": "https://news.ycombinator.com/item?id=41023547",
+        "snippet": "",
+        "published_date": "2024-07-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Intro to Time Travel Debugging - Undo.io",
+        "url": "https://undo.io/resources/technical-paper-time-travel-debugging/",
+        "snippet": "| **Logging** *Log of program execution* | Easy to use – every developer knows how to insert logging statements into their code (e.g. printf in C or log4j in Java)   Easy to navigate and understand program execution   Provides clues about what went wrong | Limited in use – not good for thread-related issues   Snapshot only – can’t tell you the value of variables over time   Difficult to determine exact root cause |. Time travel debugging (TTD) is the ability to wind back the clock to any point in an application’s execution and see exactly what the program was doing. Rather than having to continually rerun the program, time travel debugging allows developers to go back in time to before the list was corrupted and use a binary search to quickly find out exactly when the corruption occurred. By contrast, time travel debugging enables developers to zero in on the root cause of the bug in a systematic way without needing to guess and restart the program several times.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Time Travel Debugging for C/C++ - Nutrient",
+        "url": "https://www.nutrient.io/blog/time-travel-debugging-for-c/",
+        "snippet": "With the ability to set breakpoints and let time run backward, it's suddenly much easier to catch who set a variable to the wrong value or who",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "[PDF] Scriptable Time-Travel Debugging with First Class Traces",
+        "url": "https://www.cs.ox.ac.uk/ralf.hinze/WG2.8/30/slides/michael-paper.pdf",
+        "snippet": "At this point, tinyhttpd prints the exploit message, so we interrupt the debugger and use EXPOSITOR to ﬁnd the stack corruption, starting from the time when we interrupted it: 59 Now I pwn your computer 60 ˆC 61 Program received signal SIGINT, Interrupt 62 >>> corrupted addrs = stack corruption() 63 # function containing Sec. II-A code 64 >>> time = the execution.get time() 65 >>> last corrupt = corrupted addrs.get before(time) Items in a trace are indexed by time, so the get before method call above tells EXPOSITOR to start computing corrupted addrs from the interrupted time backwards, and ﬁnd the ﬁrst function call or return when the stack corruption is detected.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] EXPOSITOR: Scriptable Time-Travel Debugging with First-Class ...",
+        "url": "https://www.cs.umd.edu/~mwh/papers/expositor-tse-submitted.pdf",
+        "snippet": "These list combinators 3 1 class execution: 2 # get snapshots 3 get at(t): snapshot at time t 4 5 # derive traces 6 breakpoints(fn): snapshot trace of breakpoints at func fn 7 syscalls(fn): snapshot trace of breakpoints at syscall fn 8 watchpoints(x, rw): 9 snapshot trace of read/write watchpoints at var x 10 all calls(): snapshot trace of all function entries 11 all returns(): snapshot trace of all function exits 12 13 # interactive control 14 cont(): manually continue the execution 15 get time(): latest time of the execution 16 17 class trace: 18 # count/get items 19 len (): called by “ len(trace)” 20 iter (): called by “ for item in trace” 21 get at(t): item at exactly time t 22 get after(t): next item after time t 23 get before(t): previous item before time t 24 25 # create a new trace by ﬁltering/mapping a trace 26 ﬁlter(p): subtrace of items for which p returns true 27 map(f): new trace with f applied to all items 28 slice(t0, t1): subtrace from time t0 to time t1 29 30 # create a new trace by merging two traces 31 merge(f, tr): see Fig. 2a 32 trailing merge(f, tr): see Fig. 2b 33 rev trailing merge(f, tr): see Fig. 2c 34 35 # create a new trace by computing over preﬁxes/sufﬁxes 36 scan(f, acc): see Fig. 2d 37 rev scan(f, acc): see Fig. 2e 38 tscan(f, acc): see Fig. 3a 39 rev tscan(f, acc): see Fig. 3b 40 41 class item: 42 time: item’s execution time 43 value: item’s contents 44 45 class snapshot: 46 read var(x): 47 gdb value of variable x in current stack frame 48 read retaddrs(): 49 gdb values of return addresses on the stack 50 backtrace(): print the stack backtrace 51 .",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Time-travel debugging production code - Temporal",
+        "url": "https://temporal.io/blog/time-travel-debugging-production-code",
+        "snippet": "So, instead of debugging in production, what we do is replicate on our dev machine whatever issue we're investigating and use a debugger locally (or, more often, add log statements 😄), and re-run as many times as required to figure it out. While running traditional debuggers doesn't make sense, time-travel debuggers can record a process execution on one machine and replay it on another machine. We can also download the execution’s history, checkout the version of the code that's running in prod, and pass the file to a replayer (Temporal has runtimes for Go, Java, JavaScript, Python, .NET, and PHP) so we can see in a debugger exactly what the code did during that production function execution. I transitioned from talking about TTD to methods of debugging production code via recording, so while Temporal doesn’t have TTD yet, it does record all the non-deterministic inputs to the program and is able to replay execution, so it’s definitely possible to implement.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "xusheng6/awesome-ttd: Rerousces related to time-travel debugging ...",
+        "url": "https://github.com/xusheng6/awesome-ttd",
+        "snippet": "IDA Pro - WinDbg TTD Debugging - Documentation for using WinDbg Time Travel Debugging with IDA Pro for reverse engineering and malware analysis. Tutorials",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7364
+      },
+      {
+        "title": "Unpacking VIDAR using Time-Travel Debugging (TTD) in ... - YouTube",
+        "url": "https://www.youtube.com/watch?v=HcyCZPNO3qI",
+        "snippet": "Unpacking VIDAR using Time-Travel Debugging (TTD) in WinDbg Preview\nDr Josh Stroschein - The Cyber Yeti\n26000 subscribers\n82 likes\n2776 views\n12 Jan 2023\nIn the last video, we looked for signs of packing in our malicious sample using IDA Pro. What we found was fairly clear evidence of the use of process hollowing, a common technique of code injection used by malware authors. In this video, I'll introduce Time-Travel Debugging (TTD) in WinDbg Preview. TTD allows you to create a trace of a debug session, then easily step forwards and backwards in the session. This can streamline your debug sessions as you no longer need to restart every time you miss that break point! We'll discuss basic TTD commands and finally extract our stealer.\n\nCybersecurity, reverse engineering, malware analysis and ethical hacking content!\n🎓 Courses on Pluralsight 👉🏻 https://www.pluralsight.com/authors/josh-stroschein\n🌶️ YouTube 👉🏻 Like, Comment & Subscribe!\n🙏🏻 Support my work 👉🏻 https://patreon.com/JoshStroschein\n🌎 Follow me 👉🏻 https://twitter.com/jstrosch, https://www.linkedin.com/in/joshstroschein/\n⚙️ Tinker with me on Github 👉🏻 https://github.com/jstrosch\n\nIn case you missed it, the last video covers identifying signs of packing: https://youtu.be/pEjcmJRa7T8.\n\nThe video before this covers initial analysis using Detect-It-Easy: https://youtu.be/FB_e1mIhykk\n\n00:00 Introduction\n00:18 Looking for WriteProcessMemory in IDA Pro\n02:30 Launching WinDbg Preview\n04:27 Starting a Time-Travel Debug Session\n07:44 User-Interface Basics\n08:47 TTD Timelines\n10:46 Debugger Commands\n11:21 Finding Virtual Addresses in IDA Pro\n15:38 Finding the Injected PE File\n18:15 Dumping the PE File from Memory\n22:13 Analyzing the Dumped file with Detect-it-Easy\n25:00 Analyzing the Dumped File with IDA Pro\n8 comments\n",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4436
+      },
+      {
+        "title": "Microsoft WinDbg Time Travel Debugging versus Intel Processor ...",
+        "url": "https://whiteknightlabs.com/2025/10/14/microsoft-windbg-ttd-versus-intel-pt/",
+        "snippet": "Loading Dump File [C:\\Users\\alans\\OneDrive\\Documents\\NullPtrRead02.run] JavaScript script successfully loaded from 'C:\\Program Files\\WindowsApps\\Microsoft.WinDbg_1.2508.27001.0_x64__8wekyb3d8bbwe\\amd64\\TTD\\Analyzers\\HeapAnalysis.js' JavaScript script successfully loaded from 'C:\\Program Files\\WindowsApps\\Microsoft.WinDbg_1.2508.27001.0_x64__8wekyb3d8bbwe\\amd64\\TTD\\Analyzers\\TtdAnalyze.js' ************* Path validation summary ************** Response                         Time (ms)     Location Deferred                                       srv* Symbol search path is: srv* Executable search path is: ModLoad: 00007ff6`062b0000 00007ff6`062d7000   C:\\Users\\alans\\source\\repos\\NullPtrRead\\x64\\Debug\\NullPtrRead.exe ModLoad: 00007ffb`ba750000 00007ffb`ba8fb000   C:\\Users\\alans\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.WinDbg_8wekyb3d8bbwe\\amd64\\TTD\\TTDRecordCPU.dll ModLoad: 00007ffb`ba900000 00007ffb`bab04000   C:\\WINDOWS\\SYSTEM32\\ucrtbased.dll ModLoad: 00007ffb`c4a00000 00007ffb`c4ae1000   C:\\WINDOWS\\SYSTEM32\\MSVCP140D.dll ModLoad: 00007ffc`96db0000 00007ffc`96de0000   C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140D.dll ModLoad: 00007ffc`abf60000 00007ffc`abf6f000   C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140_1D.dll ModLoad: 00007ffc`bb490000 00007ffc`bb883000   C:\\WINDOWS\\System32\\KERNELBASE.dll ModLoad: 00007ffc`bc4a0000 00007ffc`bc569000   C:\\WINDOWS\\System32\\KERNEL32.DLL ModLoad: 00007ffc`be1c0000 00007ffc`be429000   C:\\WINDOWS\\SYSTEM32\\ntdll.dll ......... Loading Dump File [C:\\Users\\alans\\OneDrive\\Documents\\NullPtrRead02.run] JavaScript script successfully loaded from 'C:\\Program Files\\WindowsApps\\Microsoft.WinDbg_1.2508.27001.0_x64__8wekyb3d8bbwe\\amd64\\TTD\\Analyzers\\HeapAnalysis.js' JavaScript script successfully loaded from 'C:\\Program Files\\WindowsApps\\Microsoft.WinDbg_1.2508.27001.0_x64__8wekyb3d8bbwe\\amd64\\TTD\\Analyzers\\TtdAnalyze.js' WARNING: Whitespace at start of path element ************* Path validation summary ************** Response                         Time (ms)     Location Deferred                                       srv*C:\\\\symbols*http://msdl.microsoft.com/download/symbols OK                                             C:\\Users\\alans\\source\\repos\\NullPtrRead\\x64\\Debug WARNING: Whitespace at start of path element Symbol search path is: srv*C:\\\\symbols*http://msdl.microsoft.com/download/symbols; ;C:\\Users\\alans\\source\\repos\\NullPtrRead\\x64\\Debug Executable search path is: ModLoad: 00007ff6`062b0000 00007ff6`062d7000   C:\\Users\\alans\\source\\repos\\NullPtrRead\\x64\\Debug\\NullPtrRead.exe ModLoad: 00007ffb`ba750000 00007ffb`ba8fb000   C:\\Users\\alans\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.WinDbg_8wekyb3d8bbwe\\amd64\\TTD\\TTDRecordCPU.dll ModLoad: 00007ffb`ba900000 00007ffb`bab04000   C:\\WINDOWS\\SYSTEM32\\ucrtbased.dll ModLoad: 00007ffb`c4a00000 00007ffb`c4ae1000   C:\\WINDOWS\\SYSTEM32\\MSVCP140D.dll ModLoad: 00007ffc`96db0000 00007ffc`96de0000   C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140D.dll ModLoad: 00007ffc`abf60000 00007ffc`abf6f000   C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140_1D.dll ModLoad: 00007ffc`bb490000 00007ffc`bb883000   C:\\WINDOWS\\System32\\KERNELBASE.dll ModLoad: 00007ffc`bc4a0000 00007ffc`bc569000   C:\\WINDOWS\\System32\\KERNEL32.DLL ModLoad: 00007ffc`be1c0000 00007ffc`be429000   C:\\WINDOWS\\SYSTEM32\\ntdll.dll .........",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "Time Travel Debugging Overview - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-overview",
+        "snippet": "Time Travel Debugging (TTD) is a tool that captures a trace of your process as it executes and replays it later both forwards and backwards. TTD is efficient and works to add as little overhead as possible as it captures code execution in trace files. In addition to recording traces in the WinDbg UI, there is a TTD.exe command line utility available to record a trace. For more information, see Time Travel Debugging - TTD.exe command line utility. A trace file (`.run`) stores the code execution during recording. For more information on working with trace files, see Time Travel Debugging - Working with trace files. For information about working with the TTD debugger object model, see Time Travel Debugging - Introduction to Time Travel Debugging objects. The TTD.exe command line utility to record traces is available. For more information, see Time Travel Debugging - TTD.exe command line utility.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7091
+      },
+      {
+        "title": "Debug & Modify Game Memory in Real-Time with WinDbg - YouTube",
+        "url": "https://www.youtube.com/watch?v=ogtHK5DUcB4",
+        "snippet": "... Memory in Real-Time with WinDbg | Reverse Engineering (Educational). 1.1K views · 9 months ago. #EthicalHacking #ReverseEngineering #GameHacking.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "RR: The magic of record and replay debugging",
+        "url": "https://johnnysswlab.com/rr-the-magic-of-recording-and-replay-debugging/",
+        "snippet": "How to use RR? · Set up a watchpoint to the wrong or corrupted value and then reverse-continue. · Set up a breakpoint to the previous invocation",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Two Reverse-Execution Optimizations",
+        "url": "https://robert.ocallahan.org/2015/07/two-reverse-execution-optimizations.html",
+        "snippet": "* Debugging Gdb Using rr: Ptrace Emulation. * Update To rr Master To Debug Firefox Trunk. * Using rr To Debug Go Programs. * Using rr To Debug rr. * rr 4.0 Released With Reverse Execution. * Using rr To Debug Dropped Video Frames In Gecko. Following the above procedure, rr would reverse-continue to the most recent triggering of the breakpoint (or watchpoint), then stop and signal gdb; gdb would read program state via rr to evaluate the breakpoint, and then signal rr to continue with reverse execution. Thus, every time the breakpoint is hit, rr must perform at least two clonings of checkpoint state plus some amount of forward execution. So we add to rr a little interpreter for gdb's bytecode; then rr can implement reverse execution by executing forwards over some time interval, and every time a breakpoint is hit, evaluating its condition and ignoring the hit if the condition evaluates to false.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4364
+      },
+      {
+        "title": "Reverse-singlestep doesn't trigger watchpoints on ARM · Issue #3936",
+        "url": "https://github.com/rr-debugger/rr/issues/3936",
+        "snippet": "# Search code, repositories, users, issues, pull requests... You signed in with another tab or window. You signed out in another tab or window. You switched accounts on another tab or window. # Reverse-singlestep doesn't trigger watchpoints on ARM #3936. Reverse-singlestep doesn't trigger watchpoints on ARM#3936. So when an instruction at address A triggers a watchpoint, the watchpoint is reported before that instruction has executed, with the PC pointing to A. GDB fixes things up so that the user-visible behavior is the same as x86, by singlestepping over the instruction and then reporting the breakpoint. During a reverse-continue, rr reports the watchpoint firing before the instruction reverse-executes, i.e. with the PC is at address A+4. GDB applies its fixup by reverse-singlestepping and everything works as expected. Therefore when the PC is at address A+4 and we reverse-singlestep, rr should report the watchpoint firing with the PC still at A+4. Unfortunately rr reverse-singlesteps and does not report the watchpoint firing at all. ## Issue actions.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "Rreverrse Debugging | Huon on the internet",
+        "url": "https://huonw.github.io/blog/2015/10/rreverse-debugging/",
+        "snippet": "Of course, there’s an element of a vicious cycle: I only use debuggers (generally gdb for native code, and pdb for Python) occasionally and so I’m not an expert, so things end up being annoying, slow and require searching the internet a lot, and this discourages me from using them. The recording step with `rr` is simple: tell it your binary and it’ll run it, saving the state it needs for replaying as the program executes. The thing I’ve really fallen in love with is reverse debugging: instead of just being able to let the program’s execution progress forward in various forms (`step`, `next`, `continue` etc.), you can do the same in reverse. * record executions with `rr` until the bug exhibits how I want[1,. 2. The rr developers point out this means tracking down rare bugs is made easier: run rr on a test-case in a loop until the bug triggers, and then you can dissect it at leisure, instead of just hoping to catch it by chance in a traditional debugger.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5318
+      },
+      {
+        "title": "Tracking Down Heap Overflows with rr - Sean Heelan's Blog",
+        "url": "https://sean.heelan.io/2016/05/31/tracking-down-heap-overflows-with-rr/",
+        "snippet": "To figure out what its value was before it was corrupted, and what code set that value, we just reverse-continue again. (rr) reverse-continue",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}

@@ -253,6 +253,7 @@ Possible next handoff:
 
 Routing reminder:
 - leave compare-run design work once one trustworthy compare pair and one first behavior-bearing divergence are already good enough and the real bottleneck becomes reverse-causality, branch-specific proof, or packaging
+- if that divergence is still too aggregate for efficient reverse watchpoint, memory-query, or reducer-localization work, shrink it into one durable watched object before widening further
 - if early mismatches are dominated by scheduler/timing/randomness/bookkeeping churn, repair the compare boundary or compare level before treating those mismatches as explanatory
 - preserve an explicit **alignment truth** step inside compare-run work: separate tolerated early variation, pair-breaking misalignment, and the first behavior-bearing split before widening into reverse-causality
 
@@ -288,6 +289,7 @@ Possible next handoff:
 - one existing branch-specific consumer/consequence note when the remaining gap is the first downstream owner, callback consumer, request builder, scheduler edge, parser, or policy consumer that makes the proved boundary matter operationally
 
 Routing reminder:
+- this note is often the immediate handoff once compare-run work has already isolated a trustworthy divergence but the next move is turning that divergence into one watchable field / slot / slice / reducer output
 - leave broad watchpoint or first-bad-write work once one watched object, one useful write/reducer boundary, and one downstream dependency already make the next task obvious
 - at that point, prefer the narrowest downstream consumer/consequence proof question over more generic replay browsing
 
