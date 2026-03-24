@@ -228,18 +228,19 @@ Why it matters:
 ## 6. Emerging internal structure of the topic
 A stable internal decomposition is emerging.
 
-At the practical branch level, this topic now reads most truthfully as eleven recurring protected-runtime bottlenecks:
+At the practical branch level, this topic now reads most truthfully as twelve recurring protected-runtime bottlenecks:
 1. anti-instrumentation gate triage
 2. watchdog / heartbeat enforcement reduction
 3. kernel-callback telemetry to enforcement-consumer reduction
 4. observation-topology failure
 5. trace-to-semantic-anchor churn
-6. flattened-dispatcher-to-state-edge reduction
-7. packed / staged bootstrap handoff
-8. artifact-to-consumer proof
-9. runtime-artifact / initialization-obligation recovery
-10. integrity / tamper consequence proof
-11. exception-handler-owned control transfer
+6. opaque-predicate / computed-next-state recovery
+7. flattened-dispatcher-to-state-edge reduction
+8. packed / staged bootstrap handoff
+9. artifact-to-consumer proof
+10. runtime-artifact / initialization-obligation recovery
+11. integrity / tamper consequence proof
+12. exception-handler-owned control transfer
 
 That practical ladder matters because the branch should no longer read as only:
 - generic anti-debugging
@@ -251,16 +252,18 @@ It should also preserve where the analyst is supposed to enter and leave the bra
 - reduce one callback-heavy kernel telemetry path into one first enforcement-relevant consumer when registration is visible but policy ownership is still missing
 - reposition observation when the current topology is itself the unstable thing
 - reduce noisy protected execution into one stable semantic anchor before broadening the case again
-- reduce a recognizable flattened dispatcher or protected state machine into one durable state edge once the anchor already exists
+- normalize one opaque-predicate / computed-next-state bottleneck into one trustworthy successor relation when flattening is recognizable but successor truth is still blocked by helper-mediated writes, computed indices, or dispatcher-local mechanics
+- reduce a recognizable flattened dispatcher or protected state machine into one durable state edge once successor recovery is already trustworthy enough
 - hand off out of staged bootstrap into one trustworthy post-protection target, while keeping Windows/native startup-normalization reality explicit when TLS callbacks, CRT/runtime startup, or constructor/init-table work still separate a raw post-unpack transfer from the first payload-bearing post-startup handoff
 - prove the first ordinary consumer of one recovered artifact
 - recover the smallest runtime artifact or init obligation that explains close-but-wrong replay
 - reduce visible checks into one first consequence-bearing tripwire
 
-A compact parent-page memory worth preserving is that the protected-runtime branch should now be remembered not only as a domain family, but as a practical eight-stage reduction ladder for converting protection-shaped uncertainty into one smaller trustworthy target:
+A compact parent-page memory worth preserving is that the protected-runtime branch should now be remembered not only as a domain family, but as a practical reduction ladder for converting protection-shaped uncertainty into one smaller trustworthy target:
 - first triage the earliest anti-instrumentation gate if some detector effect is already visible but the first decisive gate family is still unclear
 - then repair observation topology if the current attach/spawn/app-local posture is itself distorting the case
 - then stabilize one semantic anchor if protected execution is still mostly noisy churn
+- then normalize one blocked successor relation if flattening is recognizable but next-state truth is still obscured by opaque predicates, helper-mediated writes, computed indices, or dispatcher-contract ambiguity
 - then reduce one recognizable dispatcher or protected state machine into one durable state edge
 - then hand off from packed/bootstrap churn into one trustworthy post-protection region
 - then prove the first ordinary consumer of one recovered artifact

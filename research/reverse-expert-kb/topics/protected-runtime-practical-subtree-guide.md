@@ -345,7 +345,23 @@ Possible next handoff:
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md` when the protected execution was really still masking a staged/bootstrap handoff
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md` when the trace reduction yields one readable recovered artifact whose first ordinary consumer is still unclear
 
-### F. Recognizable flattened dispatcher -> durable state edge
+### F. Opaque-predicate / computed-next-state recovery
+Typical question:
+- the flattened region is already recognizable, but which trustworthy successor relation can I actually recover through opaque branches, helper-mediated writes, computed indices, or dispatcher-local mechanics?
+
+Primary note:
+- `topics/opaque-predicate-and-computed-next-state-recovery-workflow-note.md`
+
+Routing reminder:
+- stay here when the main blocker is still one trustworthy successor relation rather than a broader durable state edge
+- in indirect/call-dispatch cases, it is enough to leave this page once one small dispatcher contract plus one trustworthy successor family are already good enough
+
+Possible next handoff:
+- `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
+- `topics/native-interface-to-state-proof-workflow-note.md`
+- `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
+
+### G. Recognizable flattened dispatcher -> durable state edge
 Typical question:
 - which durable state object, reducer helper, or dispatcher-exit family first predicts later behavior more usefully than continued dispatcher cataloging?
 
@@ -354,6 +370,7 @@ Primary note:
 
 Routing reminder:
 - leave broad dispatcher/state-edge work here once one durable state object and one consequence-bearing state edge are already good enough
+- if successor recovery itself is still blocked by opaque predicates, helper-mediated writes, computed indices, or dispatcher-contract ambiguity, route backward into `topics/opaque-predicate-and-computed-next-state-recovery-workflow-note.md` first
 
 Possible next handoff:
 - `topics/native-interface-to-state-proof-workflow-note.md`
@@ -361,7 +378,7 @@ Possible next handoff:
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
 
-### G. Packed startup -> trustworthy post-unpack handoff
+### H. Packed startup -> trustworthy post-unpack handoff
 Typical question:
 - where does loader churn end and reusable post-unpack analysis begin?
 
