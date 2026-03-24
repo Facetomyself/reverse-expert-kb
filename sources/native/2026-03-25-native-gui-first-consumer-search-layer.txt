@@ -1,0 +1,587 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Win32 subclass per-window original wndproc SetWindowSubclass reverse engineering",
+    "Qt AutoConnection queued connection thread affinity slot delivery first consumer",
+    "Cocoa target action responder chain NSApplication sendEvent first responder consumer"
+  ],
+  "count": 28,
+  "results": [
+    {
+      "title": "How to subclass a win32 control and maintain compatibility with older versions of ComCtl32",
+      "url": "https://stackoverflow.com/questions/9747415/how-to-subclass-a-win32-control-and-maintain-compatibility-with-older-versions-o",
+      "snippet": "Stack Overflow discussion with code showing how to wrap SetWindowSubclass for compatibility, including fallback to SetWindowLongPtr/GWLP_WNDPROC. Explains storing the original WNDPROC pointer when using the older method versus the per-window subclass ID approach.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.825
+    },
+    {
+      "title": "SetWindowSubclass function (commctrl.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-setwindowsubclass",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7125
+    },
+    {
+      "title": "Passing messages from subclass to original WndProc - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/223548/passing-messages-from-subclass-to-original-wndproc",
+      "snippet": "As an example, if I have a window, with a sub-classed groupbox control and a button as a child of that groupbox, I want to handle the button event in the original window procedure, not the subclassed groupbox procedure. Because you've subclassed the group box, your `SubClassFunc` receives these messages, which then passes them to the group box's original window procedure using `CallWindowProc`. If you want the button notifications to go to the parent window (i.e, `window` in your code), you could either set the button's parent to `window` instead of `group_box`, or use `PostMessage` from within `SubClassFunc` to post the message (`WM_COMMAND` or `WM_NOTIFY` as appropriate) to `window`. Edit: The group box's original window procedure doesn't send `WM_COMMAND` messages to its parent. You should find that button notifications don't get through to `window` even if you don't subclass the group box. I suspect if you remove the subclass all together the button events will still not reach the original window procedure as you expect.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7125
+    },
+    {
+      "title": "A few questions about using SetWindowSubclass and ...",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/364820/a-few-questions-about-using-setwindowsubclass-and",
+      "snippet": "",
+      "published_date": "2021-04-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "Subclassing Controls - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/controls/subclassing-overview",
+      "snippet": "",
+      "published_date": "2020-08-21T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.675
+    },
+    {
+      "title": "Qt signals (QueuedConnection and DirectConnection)",
+      "url": "https://stackoverflow.com/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+      "snippet": "### more stack exchange communities. `connect( A, SIGNAL(somethingChanged()), B, SLOT(handleChange()), Qt::DirectConnection );`. Assuming `B`'s thread is running an event loop, emitting the signal will post an event to `B`'s event loop. This makes it pretty easy to deal with communication between/among threads in Qt (again, assuming your threads are running their own local event loops). It does make a difference if you *specify* a queued connection - even for two objects on the same thread. However, if you don't specify a connection method, the direct method is automatically used for connections between objects on the same thread (at least it is in Qt 4.8). emitting a signal to a direct connection within the same thread will execute the slot immediately, just like a simple function call. emitting a signal to a queued connection within the same thread will enqueue the call into the threads event loop, thus the execution will *always* happen delayed. Start asking to get answers. Find the answer to your question by asking.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Event Architecture - Apple Developer",
+      "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html",
+      "snippet": "It is usually the first object in a responder chain to receive an event or action message. An NSWindow object's first responder is initially",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.6
+    },
+    {
+      "title": "Event Handling Basics",
+      "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventHandlingBasics/EventHandlingBasics.html",
+      "snippet": "NSApp sendAction:to:from: is used to dispatch action messages. If your view is to handle action messages passed to it via the responder chain, implement the appropriate action methods. The passing of action messages up the responder chain in the Application Kit is predicated merely on whether an object responds to the method.",
+      "published_date": "2016-09-13",
+      "source": "grok",
+      "score": 0.52
+    },
+    {
+      "title": "The Core App Design",
+      "url": "https://developer.apple.com/library/archive/documentation/General/Conceptual/MOSXAppProgrammingGuide/CoreAppDesign/CoreAppDesign.html",
+      "snippet": "The responder chain defines the relationships between event-handling objects in your app. NSApplication dispatches the event to the appropriate target object using the sendEvent: method. Controls use the target-action design pattern.",
+      "published_date": "2015-03-09",
+      "source": "grok",
+      "score": 0.52
+    },
+    {
+      "title": "ResponderChain - CocoaDev",
+      "url": "https://cocoadev.github.io/ResponderChain/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.45
+    },
+    {
+      "title": "Subclassing -> original wndproc? - CodeGuru Forums",
+      "url": "https://forums.codeguru.com/showthread.php?215380-Subclassing-gt-original-wndproc",
+      "snippet": "If i've subclassed a window, how do i call the original window procedure? I've created a class that needs notification of certain messages",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4125
+    },
+    {
+      "title": "Quick and dirty subclassing in Win32 - the sporks space",
+      "url": "https://sporks.space/2021/09/28/quick-and-dirty-subclassing-in-win32/",
+      "snippet": "# the sporks space. ## party with sporks in space. ## Quick and dirty subclassing in Win32. Turns out it’s just marking it as having the extended style in the resource editor or calling `DragAcceptFiles`, or so I thought. While I could get my dialog to accept the files, I couldn’t get the list view to do so. It turns out that the list view doesn’t handle these messages, nor does it send a notification back to the parent. One strategy to deal with this is *subclassing*, although we aren’t going through the formal channels to do. static LRESULT CALLBACK MyListViewProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) { switch (msg) { case WM_DROPFILES: SendMessage(GetParent(hwnd), msg, wParam, lParam); break; } return CallWindowProc(ListViewProc, hwnd, msg, wParam, lParam); }. ListViewProc = (WNDPROC)GetWindowLong(hwnd, GWL_WNDPROC); SetWindowLong(lv, GWL_WNDPROC, (LONG)MyListViewProc);. It sucks I needed to do it (why didn’t it send a notification to the parent?), but the time to fix that was a quarter century ago.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4125
+    },
+    {
+      "title": "Managed Interception of Local Window Messages Using Subclassing",
+      "url": "https://badecho.com/index.php/2023/12/29/local-window-messages/",
+      "snippet": "Detailed article comparing old-school SetWindowLongPtr subclassing (storing original WNDPROC) with new SetWindowSubclass/GetWindowSubclass/RemoveWindowSubclass helpers. Notes limitations like thread affinity and how the ComCtl32 functions manage per-window subclass data internally.",
+      "published_date": "2023-12-29",
+      "source": "grok",
+      "score": 0.4075
+    },
+    {
+      "title": "Understanding Qt::QueuedConnection: A Deep Dive into Signals ...",
+      "url": "https://medium.com/@alphaneker40/understanding-qt-queuedconnection-a-deep-dive-into-signals-and-slots-in-multithreaded-qt-62184ca5722f",
+      "snippet": "",
+      "published_date": "2024-11-22T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4
+    },
+    {
+      "title": "When you subclass a window, it's the original window procedure of the window you subclass you have to call when you want to call the original window procedure - The Old New Thing",
+      "url": "https://devblogs.microsoft.com/oldnewthing/?p=18333",
+      "snippet": "",
+      "published_date": "2009-05-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "Simple example: Subclassing of an edit control - freebasic.net",
+      "url": "https://www.freebasic.net/forum/viewtopic.php?t=26981",
+      "snippet": "However, at MSDN for SetWindowSubclass it says \"To remove a subclass, pass the subclass procedure and this value to the RemoveWindowSubclass",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Safer subclassing - The Old New Thing",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20031111-00/?p=41883",
+      "snippet": "Raymond Chen's blog post explaining the problems with traditional subclassing chains using SetWindowLongPtr and how SetWindowSubclass (from ComCtl32 v6) provides safer per-window subclassing without strict removal order. Covers storing and calling the original window procedure safely.",
+      "published_date": "2003-11-11",
+      "source": "grok",
+      "score": 0.37
+    },
+    {
+      "title": "Subclassing the XP Way - Visual Studio Magazine",
+      "url": "https://visualstudiomagazine.com/articles/2009/07/16/subclassing-the-xp-way.aspx",
+      "snippet": "",
+      "published_date": "2009-07-16T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3375
+    },
+    {
+      "title": "Signals/slots accross threads - Qt Forum",
+      "url": "https://forum.qt.io/topic/66025/signals-slots-accross-threads",
+      "snippet": "",
+      "published_date": "2016-04-13T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3
+    },
+    {
+      "title": "Threads and QObjects | Qt 6.10 - Qt Documentation",
+      "url": "https://doc.qt.io/qt-6/threads-qobject.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.3
+    },
+    {
+      "title": "How Qt Signals and Slots Work - Part 3 - Queued and Inter Thread ...",
+      "url": "https://woboq.com/blog/how-qt-signals-slots-work-part3-queuedconnection.html",
+      "snippet": "",
+      "published_date": "2016-02-04T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3
+    },
+    {
+      "title": "A practical checklist to debug your signal/slot connections | KDAB",
+      "url": "https://www.kdab.com/slot-not-invoked/",
+      "snippet": "",
+      "published_date": "2017-03-09T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.3
+    },
+    {
+      "title": "Qt Signals & Slots: How they work - nidomiro",
+      "url": "https://nidomiro.de/2016/12/qt-signals-and-slots-how-they-work/",
+      "snippet": "To connect a Signal to a Slot you can simply call `QObject::connect(a, &AObject::signalSometing, b, &BObject::recieveAQString)` or `QObject::connect(a, SIGNAL(signalSometing(QString), b, SLOT(recieveAQString(QString))` if you want to use the “old” syntax. This happens because we connected the same Signals & Slots two times (using different methods). If both QObjects that are about to be connected are in the same thread, a `Qt::DirectConnection` is used. A `Qt::DirectConnection` is the connection with the most minimal overhead you can get with Signals & Slots. You can visualize it that way: If you call the Signal the method generated by Qt for you calls all Slots in place and then returns. The `Qt::QueuedConnection` will ensure that the Slot is called in the thread of the corresponding `QObject`. So if you call the Signal of the `QObject` the method generated by Qt will enqueue the command to call the Slot in the Event-queue of the other `QObjects` thread. A `Qt::BlockingQueuedConnection` is like a `Qt::QueuedConnection` but the Signal-method will block until the Slot returns.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "QObject Class | Qt Core | Qt 6.11.0",
+      "url": "https://doc.qt.io/qt-6/qobject.html",
+      "snippet": "A QObject instance is said to have a thread affinity, or that it lives in a certain thread. When a QObject receives a queued signal or a posted event, the slot or event handler will run in the thread that the object lives in.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.3
+    },
+    {
+      "title": "Cocoa AppKit Responder Chain - Christian Tietze",
+      "url": "https://christiantietze.de/posts/2023/08/cocoa-appkit-responder-chain/",
+      "snippet": "",
+      "published_date": "2023-08-13T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.3
+    },
+    {
+      "title": "Daniel Kennett - Handling Responder Chain Actions in SwiftUI (With A 'Lil Help From Objective-C)",
+      "url": "https://ikennd.ac/blog/2024/09/handling-responder-chain-actions-in-swiftui/",
+      "snippet": "",
+      "published_date": "2024-09-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Modernizing the Responder Chain - Cocoatoa",
+      "url": "http://www.cocoatoa.com/posts/2009/12/08/modernizing_the_responder_chain/",
+      "snippet": "",
+      "published_date": "2009-12-08T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Action Messages: Targets and Actions",
+      "url": "https://leopard-adc.pepas.com/documentation/Cocoa/Conceptual/ActionMessages/Concepts/TargetsAndActions.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Understanding Qt::QueuedConnection: A Deep Dive into Signals ...",
+        "url": "https://medium.com/@alphaneker40/understanding-qt-queuedconnection-a-deep-dive-into-signals-and-slots-in-multithreaded-qt-62184ca5722f",
+        "snippet": "",
+        "published_date": "2024-11-22T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Signals/slots accross threads - Qt Forum",
+        "url": "https://forum.qt.io/topic/66025/signals-slots-accross-threads",
+        "snippet": "",
+        "published_date": "2016-04-13T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3
+      },
+      {
+        "title": "Threads and QObjects | Qt 6.10 - Qt Documentation",
+        "url": "https://doc.qt.io/qt-6/threads-qobject.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.3
+      },
+      {
+        "title": "How Qt Signals and Slots Work - Part 3 - Queued and Inter Thread ...",
+        "url": "https://woboq.com/blog/how-qt-signals-slots-work-part3-queuedconnection.html",
+        "snippet": "",
+        "published_date": "2016-02-04T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3
+      },
+      {
+        "title": "A practical checklist to debug your signal/slot connections | KDAB",
+        "url": "https://www.kdab.com/slot-not-invoked/",
+        "snippet": "",
+        "published_date": "2017-03-09T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.3
+      },
+      {
+        "title": "ResponderChain - CocoaDev",
+        "url": "https://cocoadev.github.io/ResponderChain/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.45
+      },
+      {
+        "title": "Cocoa AppKit Responder Chain - Christian Tietze",
+        "url": "https://christiantietze.de/posts/2023/08/cocoa-appkit-responder-chain/",
+        "snippet": "",
+        "published_date": "2023-08-13T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3
+      },
+      {
+        "title": "Daniel Kennett - Handling Responder Chain Actions in SwiftUI (With A 'Lil Help From Objective-C)",
+        "url": "https://ikennd.ac/blog/2024/09/handling-responder-chain-actions-in-swiftui/",
+        "snippet": "",
+        "published_date": "2024-09-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Modernizing the Responder Chain - Cocoatoa",
+        "url": "http://www.cocoatoa.com/posts/2009/12/08/modernizing_the_responder_chain/",
+        "snippet": "",
+        "published_date": "2009-12-08T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Action Messages: Targets and Actions",
+        "url": "https://leopard-adc.pepas.com/documentation/Cocoa/Conceptual/ActionMessages/Concepts/TargetsAndActions.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Subclassing the XP Way - Visual Studio Magazine",
+        "url": "https://visualstudiomagazine.com/articles/2009/07/16/subclassing-the-xp-way.aspx",
+        "snippet": "",
+        "published_date": "2009-07-16T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.3375
+      },
+      {
+        "title": "SetWindowSubclass function (commctrl.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-setwindowsubclass",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7125
+      },
+      {
+        "title": "When you subclass a window, it's the original window procedure of the window you subclass you have to call when you want to call the original window procedure - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/?p=18333",
+        "snippet": "",
+        "published_date": "2009-05-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "A few questions about using SetWindowSubclass and ...",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/364820/a-few-questions-about-using-setwindowsubclass-and",
+        "snippet": "",
+        "published_date": "2021-04-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.675
+      },
+      {
+        "title": "Subclassing Controls - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/controls/subclassing-overview",
+        "snippet": "",
+        "published_date": "2020-08-21T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.675
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Understanding Qt::QueuedConnection: A Deep Dive into Signals ...",
+        "url": "https://medium.com/@alphaneker40/understanding-qt-queuedconnection-a-deep-dive-into-signals-and-slots-in-multithreaded-qt-62184ca5722f",
+        "snippet": "Qt::QueuedConnection is a connection type that ensures the slot is executed in the thread where the receiving object lives.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Signals/slots accross threads - Qt Forum",
+        "url": "https://forum.qt.io/topic/66025/signals-slots-accross-threads",
+        "snippet": "When a signal is emitted Qt checks the connection type, if it's an auto connection it checks the sender and receiver's thread affinity (the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Qt Signals & Slots: How they work - nidomiro",
+        "url": "https://nidomiro.de/2016/12/qt-signals-and-slots-how-they-work/",
+        "snippet": "To connect a Signal to a Slot you can simply call `QObject::connect(a, &AObject::signalSometing, b, &BObject::recieveAQString)` or `QObject::connect(a, SIGNAL(signalSometing(QString), b, SLOT(recieveAQString(QString))` if you want to use the “old” syntax. This happens because we connected the same Signals & Slots two times (using different methods). If both QObjects that are about to be connected are in the same thread, a `Qt::DirectConnection` is used. A `Qt::DirectConnection` is the connection with the most minimal overhead you can get with Signals & Slots. You can visualize it that way: If you call the Signal the method generated by Qt for you calls all Slots in place and then returns. The `Qt::QueuedConnection` will ensure that the Slot is called in the thread of the corresponding `QObject`. So if you call the Signal of the `QObject` the method generated by Qt will enqueue the command to call the Slot in the Event-queue of the other `QObjects` thread. A `Qt::BlockingQueuedConnection` is like a `Qt::QueuedConnection` but the Signal-method will block until the Slot returns.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "How Qt Signals and Slots Work - Part 3 - Queued and Inter Thread ...",
+        "url": "https://woboq.com/blog/how-qt-signals-slots-work-part3-queuedconnection.html",
+        "snippet": "# How Qt Signals and Slots Work - Part 3 - Queued and Inter Thread Connections. Like with a `QueuedConnection`, an event is posted to the other thread's event loop. The thread that delivers the event will release the semaphore right after the slot has been called. Meanwhile, the thread that called the signal will acquire the semaphore in order to wait until the event is processed. But we choose not to because `BlockingQueuedConnection` is something that can only be used if you know what you are doing: You must know from which thread to what other thread the event will be sent. You cannot just call wait here because the child thread might have already emitted, or is about to emit the signal that will wait for the parent thread, which won't go back to its event loop. All the thread cleanup information transfer must only happen with events posted between threads, without using `wait()`.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Qt signals (QueuedConnection and DirectConnection)",
+        "url": "https://stackoverflow.com/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+        "snippet": "### more stack exchange communities. `connect( A, SIGNAL(somethingChanged()), B, SLOT(handleChange()), Qt::DirectConnection );`. Assuming `B`'s thread is running an event loop, emitting the signal will post an event to `B`'s event loop. This makes it pretty easy to deal with communication between/among threads in Qt (again, assuming your threads are running their own local event loops). It does make a difference if you *specify* a queued connection - even for two objects on the same thread. However, if you don't specify a connection method, the direct method is automatically used for connections between objects on the same thread (at least it is in Qt 4.8). emitting a signal to a direct connection within the same thread will execute the slot immediately, just like a simple function call. emitting a signal to a queued connection within the same thread will enqueue the call into the threads event loop, thus the execution will *always* happen delayed. Start asking to get answers. Find the answer to your question by asking.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Cocoa AppKit Responder Chain - Christian Tietze",
+        "url": "https://christiantietze.de/posts/2023/08/cocoa-appkit-responder-chain/",
+        "snippet": "The whole responder chain is traversed like the following, via the documentation for `NSApplication.sendAction(_:to:from:)`:. 2. Try every `nextResponder` in the chain. 3. Try the key window’s delegate. 4. Try the same for main window, if it’s different from the key window. 5. `NSApplication` tries to respond to the message itself. 6. `NSApplication.delegate` is tried last. The app delegate (`NSApplication.shared.delegate`) is used as a fallback when the current key window’s responder chain returns `nil`. The `NSApplicationDelegate` is *not* part of the responder chain, though. -(id) _targetForAction:(SEL) aSelector window:(NSWindow*) window{id resp, delegate; NSDocumentController* sdc; if(window == nil){return nil;}/* traverse the responder chain including the window's delegate */ resp =[window firstResponder]; while(resp!= nil && resp!= self){if([resp respondsToSelector: aSelector]){return resp;} if(resp == window){delegate =[window delegate]; if([delegate respondsToSelector: aSelector]){return delegate;}} resp =[resp nextResponder];}/* in a document based app try the window's document */ sdc =[NSDocumentController sharedDocumentController]; if([[sdc documentClassNames] count]> 0){resp =[sdc documentForWindow: window]; if(resp!= nil &&[resp respondsToSelector: aSelector]){return resp;}}/* nothing found */ return nil;}.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Modernizing the Responder Chain - Cocoatoa",
+        "url": "http://www.cocoatoa.com/posts/2009/12/08/modernizing_the_responder_chain/",
+        "snippet": "The current state of affairs is that NSApplication has -targetForAction:to:from: which does a pre-defined scan of the responder chain,",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "ResponderChain - CocoaDev",
+        "url": "https://cocoadev.github.io/ResponderChain/",
+        "snippet": "The first object in the ResponderChain is called the FirstResponder. To send an action message to the first responder, make the target nil (see",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Event Architecture - Apple Developer",
+        "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html",
+        "snippet": "It is usually the first object in a responder chain to receive an event or action message. An NSWindow object's first responder is initially",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.6
+      },
+      {
+        "title": "Action Messages: Targets and Actions",
+        "url": "https://leopard-adc.pepas.com/documentation/Cocoa/Conceptual/ActionMessages/Concepts/TargetsAndActions.html",
+        "snippet": "It begins with the first responder in the key window and follows nextResponder links up the responder chain to the NSWindow's content view. · It",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Subclassing -> original wndproc? - CodeGuru Forums",
+        "url": "https://forums.codeguru.com/showthread.php?215380-Subclassing-gt-original-wndproc",
+        "snippet": "If i've subclassed a window, how do i call the original window procedure? I've created a class that needs notification of certain messages",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4125
+      },
+      {
+        "title": "Subclassing the XP Way - Visual Studio Magazine",
+        "url": "https://visualstudiomagazine.com/articles/2009/07/16/subclassing-the-xp-way.aspx",
+        "snippet": "The Windows shell team recognized this problem and created the SetWindowSubclass function. When you're through subclassing, you simply call",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Simple example: Subclassing of an edit control - freebasic.net",
+        "url": "https://www.freebasic.net/forum/viewtopic.php?t=26981",
+        "snippet": "However, at MSDN for SetWindowSubclass it says \"To remove a subclass, pass the subclass procedure and this value to the RemoveWindowSubclass",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Quick and dirty subclassing in Win32 - the sporks space",
+        "url": "https://sporks.space/2021/09/28/quick-and-dirty-subclassing-in-win32/",
+        "snippet": "# the sporks space. ## party with sporks in space. ## Quick and dirty subclassing in Win32. Turns out it’s just marking it as having the extended style in the resource editor or calling `DragAcceptFiles`, or so I thought. While I could get my dialog to accept the files, I couldn’t get the list view to do so. It turns out that the list view doesn’t handle these messages, nor does it send a notification back to the parent. One strategy to deal with this is *subclassing*, although we aren’t going through the formal channels to do. static LRESULT CALLBACK MyListViewProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) { switch (msg) { case WM_DROPFILES: SendMessage(GetParent(hwnd), msg, wParam, lParam); break; } return CallWindowProc(ListViewProc, hwnd, msg, wParam, lParam); }. ListViewProc = (WNDPROC)GetWindowLong(hwnd, GWL_WNDPROC); SetWindowLong(lv, GWL_WNDPROC, (LONG)MyListViewProc);. It sucks I needed to do it (why didn’t it send a notification to the parent?), but the time to fix that was a quarter century ago.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4125
+      },
+      {
+        "title": "Passing messages from subclass to original WndProc - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/223548/passing-messages-from-subclass-to-original-wndproc",
+        "snippet": "As an example, if I have a window, with a sub-classed groupbox control and a button as a child of that groupbox, I want to handle the button event in the original window procedure, not the subclassed groupbox procedure. Because you've subclassed the group box, your `SubClassFunc` receives these messages, which then passes them to the group box's original window procedure using `CallWindowProc`. If you want the button notifications to go to the parent window (i.e, `window` in your code), you could either set the button's parent to `window` instead of `group_box`, or use `PostMessage` from within `SubClassFunc` to post the message (`WM_COMMAND` or `WM_NOTIFY` as appropriate) to `window`. Edit: The group box's original window procedure doesn't send `WM_COMMAND` messages to its parent. You should find that button notifications don't get through to `window` even if you don't subclass the group box. I suspect if you remove the subclass all together the button events will still not reach the original window procedure as you expect.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7125
+      }
+    ],
+    "grok": [
+      {
+        "title": "Threads and QObjects | Qt 6.10",
+        "url": "https://doc.qt.io/qt-6/threads-qobject.html",
+        "snippet": "Auto Connection (default) If the signal is emitted in the thread which the receiving object has affinity then the behavior is the same as the Direct Connection. Otherwise, the behavior is the same as the Queued Connection. Queued Connection: The slot is invoked when control returns to the event loop of the receiver's thread. The slot is executed in the receiver's thread.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "QObject Class | Qt Core | Qt 6.11.0",
+        "url": "https://doc.qt.io/qt-6/qobject.html",
+        "snippet": "A QObject instance is said to have a thread affinity, or that it lives in a certain thread. When a QObject receives a queued signal or a posted event, the slot or event handler will run in the thread that the object lives in.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.3
+      },
+      {
+        "title": "How Qt Signals and Slots Work - Part 3 - Queued and Inter-thread Connections",
+        "url": "https://woboq.com/blog/how-qt-signals-slots-work-part3-queuedconnection.html",
+        "snippet": "Detailed explanation of queued_activate in Qt's source, showing how queued connections post events to the receiver's thread event loop for slot delivery based on thread affinity.",
+        "published_date": "2016-02-04",
+        "source": "grok"
+      },
+      {
+        "title": "Signals/slots across threads - Qt Forum",
+        "url": "https://forum.qt.io/topic/66025/signals-slots-accross-threads",
+        "snippet": "Qt::AutoConnection checks sender and receiver thread affinity at emit time: same thread → DirectConnection; different threads → behaves as QueuedConnection, posting to receiver's event loop.",
+        "published_date": "2016-04-13",
+        "source": "grok"
+      },
+      {
+        "title": "A practical checklist to debug your signal/slot connections - KDAB",
+        "url": "https://www.kdab.com/slot-not-invoked/",
+        "snippet": "With Qt::AutoConnection (default), connection type decided at emission: same thread as receiver affinity → direct; otherwise queued. Explains slot delivery in receiver's thread.",
+        "published_date": "2017-03-09",
+        "source": "grok"
+      },
+      {
+        "title": "Cocoa Event Handling Guide - Event Architecture",
+        "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html",
+        "snippet": "If the intended target isn’t nil, the action is simply sent directly to that object; this is called a targeted action message. In the case of an untargeted action message (that is, the target parameter is nil), sendAction:to:from: searches up the full responder chain (starting with the first responder) for an object that implements the action method specified. NSApplication and NSWindow participate in event and action dispatching.",
+        "published_date": "2016-09-13",
+        "source": "grok"
+      },
+      {
+        "title": "Event Handling Basics",
+        "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventHandlingBasics/EventHandlingBasics.html",
+        "snippet": "NSApp sendAction:to:from: is used to dispatch action messages. If your view is to handle action messages passed to it via the responder chain, implement the appropriate action methods. The passing of action messages up the responder chain in the Application Kit is predicated merely on whether an object responds to the method.",
+        "published_date": "2016-09-13",
+        "source": "grok",
+        "score": 0.52
+      },
+      {
+        "title": "The Core App Design",
+        "url": "https://developer.apple.com/library/archive/documentation/General/Conceptual/MOSXAppProgrammingGuide/CoreAppDesign/CoreAppDesign.html",
+        "snippet": "The responder chain defines the relationships between event-handling objects in your app. NSApplication dispatches the event to the appropriate target object using the sendEvent: method. Controls use the target-action design pattern.",
+        "published_date": "2015-03-09",
+        "source": "grok",
+        "score": 0.52
+      },
+      {
+        "title": "Cocoa AppKit Responder Chain",
+        "url": "https://christiantietze.de/posts/2023/08/cocoa-appkit-responder-chain/",
+        "snippet": "This process is done for every main menu item that has no target. It's done for every target–action control, actually, including buttons and context menus. Explains how the responder chain works with target-action in AppKit.",
+        "published_date": "2023-08-13",
+        "source": "grok"
+      },
+      {
+        "title": "ResponderChain - CocoaDev",
+        "url": "https://cocoadev.github.io/ResponderChain/",
+        "snippet": "The first object in the ResponderChain is called the FirstResponder. To send an action message to the first responder, make the target nil. Covers the basics of the responder chain in Cocoa.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Subclassing Controls - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/controls/subclassing-overview",
+        "snippet": "Official Microsoft documentation on subclassing controls using SetWindowSubclass. Describes how SetWindowSubclass installs a per-window subclass identified by pfnSubclass and uIdSubclass, allowing multiple subclasses per window with individual reference data. The subclass procedure (SUBCLASSPROC) receives the original handling via DefSubclassProc or by calling the next in chain. Contrasts with traditional SetWindowLongPtr/GWLP_WNDPROC method for storing and calling the original wndproc.",
+        "published_date": "2020-08-21",
+        "source": "grok"
+      },
+      {
+        "title": "Safer subclassing - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20031111-00/?p=41883",
+        "snippet": "Raymond Chen's blog post explaining the problems with traditional subclassing chains using SetWindowLongPtr and how SetWindowSubclass (from ComCtl32 v6) provides safer per-window subclassing without strict removal order. Covers storing and calling the original window procedure safely.",
+        "published_date": "2003-11-11",
+        "source": "grok",
+        "score": 0.37
+      },
+      {
+        "title": "How to subclass a win32 control and maintain compatibility with older versions of ComCtl32",
+        "url": "https://stackoverflow.com/questions/9747415/how-to-subclass-a-win32-control-and-maintain-compatibility-with-older-versions-o",
+        "snippet": "Stack Overflow discussion with code showing how to wrap SetWindowSubclass for compatibility, including fallback to SetWindowLongPtr/GWLP_WNDPROC. Explains storing the original WNDPROC pointer when using the older method versus the per-window subclass ID approach.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.825
+      },
+      {
+        "title": "Managed Interception of Local Window Messages Using Subclassing",
+        "url": "https://badecho.com/index.php/2023/12/29/local-window-messages/",
+        "snippet": "Detailed article comparing old-school SetWindowLongPtr subclassing (storing original WNDPROC) with new SetWindowSubclass/GetWindowSubclass/RemoveWindowSubclass helpers. Notes limitations like thread affinity and how the ComCtl32 functions manage per-window subclass data internally.",
+        "published_date": "2023-12-29",
+        "source": "grok",
+        "score": 0.4075
+      },
+      {
+        "title": "Subclassing the XP Way",
+        "url": "https://visualstudiomagazine.com/articles/2009/07/16/subclassing-the-xp-way.aspx",
+        "snippet": "Article on safe subclassing introduced in Windows XP via SetWindowSubclass, addressing issues with multiple hooks and teardown order in traditional per-window original wndproc chaining using SetWindowLong.",
+        "published_date": "2009-07-16",
+        "source": "grok"
+      }
+    ]
+  }
+}

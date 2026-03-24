@@ -173,7 +173,8 @@ A compact native reading now worth preserving at the top level is:
   - virtual-dispatch slot / concrete-implementation proof
   - plugin-loader / first-real-module-consumer reduction
   - service-dispatcher / worker-owned-consumer reduction
-  - callback-registration / event-loop consumer proof, with a thinner GUI continuation when the bottleneck narrows specifically into Win32 message-pump / subclass or Qt signal-slot ownership
+  - callback-registration / event-loop consumer proof, with a thinner GUI continuation when the bottleneck narrows specifically into Win32 message-pump / subclass, Qt signal-slot ownership, or Cocoa responder/target-action ownership
+- inside that thinner GUI continuation, preserve one extra practical reminder: global framework hooks are often only reduction boundaries, so prefer one per-window, per-receiver-thread, or per-responder first consumer over stopping at shared subclass wrappers, signal emission, or `NSApplication sendEvent:` visibility
 - the branch should therefore be remembered not only as “ordinary native binaries,” but as a practical ladder where readable pseudocode is converted into one smaller trustworthy proof boundary before broader subsystem expansion resumes
 
 This branch should now also be read as the default comparison case for the rest of the KB’s domain families:
