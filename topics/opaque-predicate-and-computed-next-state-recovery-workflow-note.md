@@ -267,16 +267,46 @@ Why it helps:
 Use when:
 - indirect dispatch or computed-target arithmetic dominates
 - the immediate state constant is less stable than the table/index relation
+- Tigress-like `indirect` or `call` dispatch makes the real stable object look more like an index domain, jump-table family, or arg-struct `next` field than a direct constant write
 
 Why it helps:
 - a truthful target-family map can be enough before exact constant recovery
+- in indirect/call forms, the practical proof object is often the **dispatch contract**:
+  - which index or field values are admissible
+  - which jump-table or call-table family they select
+  - whether the dispatcher itself adds side effects that must be preserved when patching
+
+Practical stop rule:
+- if you can already say `index/field family X reaches target family Y under dispatcher contract Z`, you often have enough to leave broad flattening work even before every constant is explained
 
 ### D. Helper-output anchor first
 Use when:
 - many noisy instructions reduce into one helper output later written to the state carrier
+- backward slicing keeps rediscovering the same reducer helper, compare-normalization helper, or arg-struct updater even though the surrounding block stays messy
 
 Why it helps:
 - reading the helper is often cheaper and more truthful than reading every opaque wrapper around it
+- this matches real operator practice in Miasm / Hex-Rays-style workflows where narrow backward tracking plus emulation is enough to recover one trustworthy successor relation
+
+Practical stop rule:
+- if one helper output already predicts the later `next` write, table index, or arg-struct field family better than the raw block does, freeze that helper as the state carrier for this pass instead of widening back out to the whole OBB
+
+### E. Dispatcher-contract anchoring first
+Use when:
+- call-dispatch or indirect-dispatch flattening keeps mixing real successor selection with dispatcher-local mechanics
+- patching or CFG repair is tempting, but it is still unclear whether dispatcher blocks themselves contribute side effects, normalization writes, or table lookups that must be copied forward
+- the immediate question is not full handler meaning, but what exact dispatcher assumptions must stay true for one recovered edge to remain valid
+
+Why it helps:
+- it separates `recover next target` from `preserve dispatcher-owned semantics`
+- it prevents a common failure mode where analysts correctly recover a successor family but incorrectly delete dispatcher-side writes, lookup steps, or return-shape obligations that still matter
+
+Minimum useful output:
+- one small dispatcher contract note such as:
+  - `state/index domain = {a,b}`
+  - `table/dispatcher maps a->handler_A, b->handler_B`
+  - `dispatcher side effect = writes arg->phase before tail call`
+  - `safe patch boundary = after side-effect copy, before indirect jump`
 
 ## 8. Representative scratch schemas
 
@@ -347,9 +377,11 @@ Better move:
 ### Mistake 4: patching too early
 Why it hurts:
 - premature CFG repair can lock in a wrong successor model
+- in indirect/call-dispatch cases, it can also erase dispatcher-side lookup or side-effect obligations that were still part of the truthful path
 
 Better move:
 - patch only after at least one state/OBB or successor relation is independently trusted
+- if dispatcher-local side effects still look plausible, write the patch boundary as a contract first instead of immediately deleting the dispatcher
 
 ### Mistake 5: staying inside the flattened region after one edge is already enough
 Why it hurts:
@@ -358,12 +390,24 @@ Why it hurts:
 Better move:
 - once one edge is trustworthy, ask which calmer static target it unlocks
 
+### Mistake 6: collapsing target recovery and dispatcher contract into the same question
+Why it hurts:
+- you may prove that an index maps to the right handler family, yet still miss that the dispatcher writes one phase field, normalizes one register, or contributes one arg-struct update before re-entry
+
+Better move:
+- keep two explicit proof objects when needed:
+  - `successor truth`: which target family is reached
+  - `dispatcher contract truth`: which dispatcher-local writes/lookups must survive for that edge to stay valid
+
 ## 10. Stop rule
 You can stop this workflow when you have all of:
 - one named dispatch form and one chosen state carrier
 - one trustworthy OBB/state or state/successor relation
-- one branch-normalized or helper-normalized explanation for why the relation was previously obscured
+- one branch-normalized, helper-normalized, or dispatcher-contract explanation for why the relation was previously obscured
 - one next static or runtime target that is now calmer than the original flattened window
+
+Strong stop signal for indirect/call forms:
+- if you can already name one small dispatcher contract plus one trustworthy successor family, that is usually enough to hand off into calmer CFG repair, helper cleanup, or outer-consumer proof work
 
 If you still only have:
 - “there are many opaque predicates here”

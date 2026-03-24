@@ -1,0 +1,579 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "OLLVM flattening bogus control flow computed next state helper output jump table reverse engineering",
+    "Tigress flatten obfuscate next compute flag indirect next state opaque predicate handler recovery",
+    "control flow flattening indirect dispatcher table index next state symbolic execution miasm angr binary ninja"
+  ],
+  "count": 27,
+  "results": [
+    {
+      "title": "Pushan: Trace-Free Deobfuscation of Virtualization-Based Obfuscation",
+      "url": "https://arxiv.org/html/2603.18355v1",
+      "snippet": "Discusses resolving indirect jumps and pruning constant opaque-predicate branches in obfuscated code, including Tigress VM samples. Uses symbolic emulation for jump targets and indirect jumps without path constraints.",
+      "published_date": "2026-03-18",
+      "source": "grok",
+      "score": 0.7014
+    },
+    {
+      "title": "GitHub - cdong1012/ollvm-unflattener: Obfuscator-llvm Control Flow Flattening Deobfuscator",
+      "url": "https://github.com/cdong1012/ollvm-unflattener",
+      "snippet": "",
+      "published_date": "2025-03-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6857
+    },
+    {
+      "title": "Bogus Control Flow · obfuscator-llvm/obfuscator Wiki - GitHub",
+      "url": "https://github.com/obfuscator-llvm/obfuscator/wiki/Bogus-Control-Flow/5e414953bbe6951d1d8fb42ab8f1c22469c3c3fb",
+      "snippet": "-mllvm -bcf : activates the bogus control flow pass · -mllvm -perBCF=20 : if the pass is activated, applies it on all functions with a probability of 20%. · -",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6643
+    },
+    {
+      "title": "Tigress_protection/README.md at master - GitHub",
+      "url": "https://github.com/JonathanSalwan/Tigress_protection/blob/master/README.md",
+      "snippet": "The hash computation function is obfuscated. Types of possible attacks: In a source recovery attack the task is to identify the algorithm that computes SECRET.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "How to do a full-path symbolic execution with the function ... - GitHub",
+      "url": "https://github.com/angr/angr/issues/1023",
+      "snippet": "",
+      "published_date": "2018-06-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Control flow flattening",
+      "url": "https://tigress.cs.arizona.edu/transformPage/docs/flatten/index.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.5643
+    },
+    {
+      "title": "Deobfuscation: recovering an OLLVM-protected program",
+      "url": "https://blog.quarkslab.com/deobfuscation-recovering-an-ollvm-protected-program.html",
+      "snippet": "Below is documented *Miasm Python* code which enables us to do **symbolic execution** on a basic block in order to compute its **destination address**:. # Here we disassemble target function and collect relevants blocks# Collapsed for clarity but nothing complicated here, and the algorithm is given above relevants = get_relevants_blocks()# Control flow dictionnary {parent: set(childs)} flow ={} # Init flow dictionnary with empty sets of childs for r in relevants: flow[r] = set() # Start loop of symbolic execution while True: block_state = # Get next block state to emulate # Get current branch parameters # \"parent_addr\" is the parent block variable se seen earlier# \"symb\" is the context (symbols) of the current branch parent_addr, block_addr, symb = block_state # If it is a relevant block if block_addr in flow:# We avoid the prologue's parent, as it doesn't exist if parent_addr!= ExprInt32(prologue_parent): # Do the link between the block and its relevant parent flow[parent_addr].",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.5071
+    },
+    {
+      "title": "Control-Flow Deobfuscation Using Trace-Informed ...",
+      "url": "https://bmarwritescode.github.io/assets/pdf/chisel.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4929
+    },
+    {
+      "title": "Unmasking KorPlug: A Technical Breakdown - Part 2",
+      "url": "https://blog.reveng.ai/unmasking-korplug-a-technical-breakdown-part-2/",
+      "snippet": "August 2025 technical breakdown of malware using O-LLVM obfuscation. Describes control flow flattening (switch-based dispatcher with state variable), bogus control flow (spurious branches/unreachable code), and how blocks assign values to the state variable for next execution.",
+      "published_date": "2025-08-19",
+      "source": "grok",
+      "score": 0.4886
+    },
+    {
+      "title": "MODeflattener - Miasm's OLLVM Deflattener",
+      "url": "https://mrt4ntr4.github.io/MODeflattener/",
+      "snippet": "",
+      "published_date": "2021-06-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4714
+    },
+    {
+      "title": "Dissecting LLVM Obfuscator Part 1 - RPISEC",
+      "url": "https://rpis.ec/blog/dissection-llvm-obfuscator-p1/",
+      "snippet": "Bogus Control Flow · Control Flow Flattening. These are simply the ... flattening pass always overwrites the false state with the true state.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4071
+    },
+    {
+      "title": "Control-Flow Flattening | O-MVLL Documentation",
+      "url": "https://obfuscator.re/omvll/passes/control-flow-flattening/",
+      "snippet": "While reverse engineering a function, the control-flow graph is really ... case XXX: return true; case XXX: return false; } }. From this previous code",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.4071
+    },
+    {
+      "title": "Generic O-LLVM Automatic Multi-architecture Deobfuscation ...",
+      "url": "https://dl.acm.org/doi/10.1145/3573834.3574541",
+      "snippet": "... bogus code flattening, and a DeCFF module for control flow flattening reversal. Instruction substitution represents the simplest obfuscation",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.3857
+    },
+    {
+      "title": "[PDF] restoring malware with Control-Flow Flattening obfuscation",
+      "url": "https://www.virusbulletin.com/uploads/pdf/conference/vb2023/papers/Dont-flatten-yourself-restoring-malware-with-Control-Flow-Flattening-obfuscation.pdf",
+      "snippet": "REVAY 30 VIRUS BULLETIN CONFERENCE OCTOBER 2023 return True return False def is_jmp_fixed(instr): if instr.itype == idaapi.NN_jmp: if instr.Op1.type == idaapi.o_far or instr.Op1.type == idaapi.o_near: return True return False def find_OBBs(func, flow_chart): # Heuristics to identify OBBS: # - BB has more then 3 insructions # - last instruction is a fixed jmp # - second last instruction is a mov if func is None: print(\"No function at the current cursor position.\") return [] blocks = [] for bb in flow_chart: instr_count = 0 last_instr = None second_last_instr = None for head in idautils.Heads(bb.start_ea, bb.end_ea): instr = idaapi.insn_t() idaapi.decode_insn(instr, head) if instr is not None: instr_count += 1 second_last_instr = last_instr last_instr = instr if instr_count >= 3 and is_mov_imm(second_last_instr) and is_jmp_fixed(last_instr): print(\"OBB found: (0x{:X} - 0x{:X})\".format(bb.start_ea, bb.end_ea)) blocks.append(bb.start_ea) return blocks def get_obb_states(project, func_start, basic_block_addresses): # use symbolic execution to execute into each OBB and check the state value obb_states = [] initial_state = project.factory.blank_state(addr = func_start) initial_state.options.add(angr.options.CALLLESS) # Start the simulation # iterate through each obb and run symbolic exec to their address for obb in basic_block_addresses: simgr = project.factory.simgr(initial_state) simgr.explore(find=BASE_ADDR + obb) if simgr.found: state = simgr.found[0] # Calculate the address rbp-0x138, the state variable # FILL OUT: state variable -> state.regs.rbp - 0x138 concrete_value = state.mem[state.regs.rbp - 0x138].uint64_t.concrete bb_address = state.solver.eval(state.regs.rip) DON’T FLATTEN YOURSELF: RESTORING MALWARE WITH CONTROL-FLOW FLATTENING...",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3657
+    },
+    {
+      "title": "[PDF] interactive detection and removal of opaque predicates - th0mas.nl",
+      "url": "https://th0mas.nl/downloads/thesis/thesis.pdf",
+      "snippet": "Additionally, we show that the ability for an analyst to provide interactive input during the deobfuscation process can be rather useful in various scenarios, and the ability to provide a speciﬁc type of constraint on program arguments can even help detect and reverse an otherwise very strong type of control-ﬂow obfuscation: input-invariant opaque predicates. From experiments in Section 5.3 we draw the conclusion that it is in fact possible to detect and revert obfuscations that forego the functionality property (i.e. obfuscations that require the obfuscated program to produce identical output to the original program only for valid inputs) such as input-invariant opaque predicates which are only opaque given the fact that a certain invariant over the program arguments holds.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "Assessing the Effectiveness of the Tigress Obfuscator Against Static Analysis",
+      "url": "https://dl.acm.org/doi/10.1145/3733817.3762702",
+      "snippet": "Evaluates Tigress flatten transformation with opaque predicates. Configuration of opaque predicates influences static analysis precision. Includes control flow flattening options.",
+      "published_date": "2025-12-24",
+      "source": "grok",
+      "score": 0.3643
+    },
+    {
+      "title": "D810: A journey into control flow unflattening",
+      "url": "https://eshard.com/posts/D810-a-journey-into-control-flow-unflattening",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.3643
+    },
+    {
+      "title": "Breaking Control Flow Flattening: A Deep Technical Analysis",
+      "url": "https://zerotistic.blog/posts/cff-remover/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.3643
+    },
+    {
+      "title": "Binary Ninja Shenanigans: Control Flow Unflattening - d0minik's Blog",
+      "url": "https://d0minik.me/posts/cff/",
+      "snippet": "",
+      "published_date": "2023-10-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3643
+    },
+    {
+      "title": "Removing Control Flow Flattening with Binary Ninja - LODSB",
+      "url": "https://www.lodsb.com/removing-control-flow-flattening-with-binary-ninja",
+      "snippet": "",
+      "published_date": "2023-08-03T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "Control Flow Unflattening",
+      "url": "https://eybisi.run/Control-Flow-Unflattening/",
+      "snippet": "",
+      "published_date": "2022-10-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3643
+    },
+    {
+      "title": "Angr Control Flow Deobfuscation - OALABS Research",
+      "url": "https://research.openanalysis.net/angr/symbolic%20execution/deobfuscation/research/2022/03/26/angr_notes.html",
+      "snippet": "",
+      "published_date": "2022-03-26T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "Flatten",
+      "url": "https://tigress.wtf/flatten.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.3
+    },
+    {
+      "title": "Assessing the Effectiveness of the Tigress Obfuscator ...",
+      "url": "https://dl.acm.org/doi/full/10.1145/3733817.3762702",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Analyzing binary programs and obfuscation with graph- ...",
+      "url": "https://theses.hal.science/tel-05449270v1/file/2025UPSLD045.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.3
+    },
+    {
+      "title": "Opaque Predicates",
+      "url": "https://tigress.wtf/opaque.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "A Real-World Benchmark For Evaluating Deobfuscation ...",
+      "url": "https://sure-workshop.org/accepted-papers/2025/sure25-7.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Flatten",
+        "url": "https://tigress.wtf/flatten.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.3
+      },
+      {
+        "title": "Control flow flattening",
+        "url": "https://tigress.cs.arizona.edu/transformPage/docs/flatten/index.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.5643
+      },
+      {
+        "title": "Assessing the Effectiveness of the Tigress Obfuscator ...",
+        "url": "https://dl.acm.org/doi/full/10.1145/3733817.3762702",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Analyzing binary programs and obfuscation with graph- ...",
+        "url": "https://theses.hal.science/tel-05449270v1/file/2025UPSLD045.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.3
+      },
+      {
+        "title": "Opaque Predicates",
+        "url": "https://tigress.wtf/opaque.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "A Real-World Benchmark For Evaluating Deobfuscation ...",
+        "url": "https://sure-workshop.org/accepted-papers/2025/sure25-7.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.3
+      },
+      {
+        "title": "GitHub - cdong1012/ollvm-unflattener: Obfuscator-llvm Control Flow Flattening Deobfuscator",
+        "url": "https://github.com/cdong1012/ollvm-unflattener",
+        "snippet": "",
+        "published_date": "2025-03-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6857
+      },
+      {
+        "title": "D810: A journey into control flow unflattening",
+        "url": "https://eshard.com/posts/D810-a-journey-into-control-flow-unflattening",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.3643
+      },
+      {
+        "title": "Breaking Control Flow Flattening: A Deep Technical Analysis",
+        "url": "https://zerotistic.blog/posts/cff-remover/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.3643
+      },
+      {
+        "title": "Control-Flow Deobfuscation Using Trace-Informed ...",
+        "url": "https://bmarwritescode.github.io/assets/pdf/chisel.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4929
+      },
+      {
+        "title": "Binary Ninja Shenanigans: Control Flow Unflattening - d0minik's Blog",
+        "url": "https://d0minik.me/posts/cff/",
+        "snippet": "",
+        "published_date": "2023-10-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3643
+      },
+      {
+        "title": "MODeflattener - Miasm's OLLVM Deflattener",
+        "url": "https://mrt4ntr4.github.io/MODeflattener/",
+        "snippet": "",
+        "published_date": "2021-06-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4714
+      },
+      {
+        "title": "Removing Control Flow Flattening with Binary Ninja - LODSB",
+        "url": "https://www.lodsb.com/removing-control-flow-flattening-with-binary-ninja",
+        "snippet": "",
+        "published_date": "2023-08-03T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "Binary Ninja Shenanigans: Control Flow Unflattening - d0minik's Blog",
+        "url": "https://d0minik.me/posts/cff/",
+        "snippet": "",
+        "published_date": "2023-10-29T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Breaking Control Flow Flattening: A Deep Technical Analysis",
+        "url": "https://zerotistic.blog/posts/cff-remover/",
+        "snippet": "",
+        "published_date": "2024-11-03T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Angr Control Flow Deobfuscation - OALABS Research",
+        "url": "https://research.openanalysis.net/angr/symbolic%20execution/deobfuscation/research/2022/03/26/angr_notes.html",
+        "snippet": "",
+        "published_date": "2022-03-26T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "How to do a full-path symbolic execution with the function ... - GitHub",
+        "url": "https://github.com/angr/angr/issues/1023",
+        "snippet": "",
+        "published_date": "2018-06-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Control Flow Unflattening",
+        "url": "https://eybisi.run/Control-Flow-Unflattening/",
+        "snippet": "",
+        "published_date": "2022-10-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3643
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Flatten - Tigress C obfuscator",
+        "url": "https://tigress.wtf/flatten.html",
+        "snippet": "Obfuscating the Next Variable. You can use opaque predicates and anti-implicit flow transformations to further obfuscate the next variable.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Control flow flattening - Tigress",
+        "url": "https://tigress.cs.arizona.edu/transformPage/docs/flatten/index.html",
+        "snippet": "The next variable can be obfuscated using different kinds of opaque predicates. Conditional branches can be encoded in several different ways. Dispatch.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Assessing the Effectiveness of the Tigress Obfuscator Against ...",
+        "url": "https://dl.acm.org/doi/full/10.1145/3733817.3762702",
+        "snippet": "This suggests that combining opaque predicates and flattening may foil the mopsa analysis, as opaque predicates somehow resemble uninitialized",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Tigress_protection/README.md at master - GitHub",
+        "url": "https://github.com/JonathanSalwan/Tigress_protection/blob/master/README.md",
+        "snippet": "The hash computation function is obfuscated. Types of possible attacks: In a source recovery attack the task is to identify the algorithm that computes SECRET.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "[PDF] interactive detection and removal of opaque predicates - th0mas.nl",
+        "url": "https://th0mas.nl/downloads/thesis/thesis.pdf",
+        "snippet": "Additionally, we show that the ability for an analyst to provide interactive input during the deobfuscation process can be rather useful in various scenarios, and the ability to provide a speciﬁc type of constraint on program arguments can even help detect and reverse an otherwise very strong type of control-ﬂow obfuscation: input-invariant opaque predicates. From experiments in Section 5.3 we draw the conclusion that it is in fact possible to detect and revert obfuscations that forego the functionality property (i.e. obfuscations that require the obfuscated program to produce identical output to the original program only for valid inputs) such as input-invariant opaque predicates which are only opaque given the fact that a certain invariant over the program arguments holds.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "[PDF] A Real-World Benchmark For Evaluating Deobfuscation Methods",
+        "url": "https://sure-workshop.org/accepted-papers/2025/sure25-7.pdf",
+        "snippet": "Motivated to address these limitations, we take the first step to create DEBRA, a benchmark that incorporates curated and marked obfuscation targets at function-level within real-world and open-source programs to facilitate comprehensive deobfusca-tion method evaluations. 2https://github.com/JonathanSalwan/Tigress_protection/blob/master/solve-vm.py 3https://github.com/binsec/xyntia/tree/2a9ff5/scripts SURE ’25, October 13–17, 2025, Taipei, Taiwan Zheyun Feng and Dongpeng Xu Table 4: A side-by-side comparison between obfuscated hash functions within the custom dataset used in the initial eval-uation of Deobfuscator S and obfuscated samples in DEBRA subset generated by the Virtualization transformation of Tigress. Despite the variance in options and values for using Tigress to generate samples in DEBRA as opposed to those in the custom datasets used in the initial evaluation of Deobfuscator S and Xyntia, our primary focus is to measure the competence of such deobfuscators, whose performance in real-world settings remains unknown, in handling obfuscated samples derived from real-world programs rather than repeatedly analyzing their capabilities across varying protection settings. We applied a selection of obfuscation techniques to function-level targets reported by a metric-driven source code analyzer within 15 real-world programs to generate the benchmark.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Generic O-LLVM Automatic Multi-architecture Deobfuscation ...",
+        "url": "https://dl.acm.org/doi/10.1145/3573834.3574541",
+        "snippet": "... bogus code flattening, and a DeCFF module for control flow flattening reversal. Instruction substitution represents the simplest obfuscation",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.3857
+      },
+      {
+        "title": "Dissecting LLVM Obfuscator Part 1 - RPISEC",
+        "url": "https://rpis.ec/blog/dissection-llvm-obfuscator-p1/",
+        "snippet": "Bogus Control Flow · Control Flow Flattening. These are simply the ... flattening pass always overwrites the false state with the true state.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4071
+      },
+      {
+        "title": "Control-Flow Flattening | O-MVLL Documentation",
+        "url": "https://obfuscator.re/omvll/passes/control-flow-flattening/",
+        "snippet": "While reverse engineering a function, the control-flow graph is really ... case XXX: return true; case XXX: return false; } }. From this previous code",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.4071
+      },
+      {
+        "title": "Bogus Control Flow · obfuscator-llvm/obfuscator Wiki - GitHub",
+        "url": "https://github.com/obfuscator-llvm/obfuscator/wiki/Bogus-Control-Flow/5e414953bbe6951d1d8fb42ab8f1c22469c3c3fb",
+        "snippet": "-mllvm -bcf : activates the bogus control flow pass · -mllvm -perBCF=20 : if the pass is activated, applies it on all functions with a probability of 20%. · -",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6643
+      },
+      {
+        "title": "Deobfuscation: recovering an OLLVM-protected program",
+        "url": "https://blog.quarkslab.com/deobfuscation-recovering-an-ollvm-protected-program.html",
+        "snippet": "Below is documented *Miasm Python* code which enables us to do **symbolic execution** on a basic block in order to compute its **destination address**:. # Here we disassemble target function and collect relevants blocks# Collapsed for clarity but nothing complicated here, and the algorithm is given above relevants = get_relevants_blocks()# Control flow dictionnary {parent: set(childs)} flow ={} # Init flow dictionnary with empty sets of childs for r in relevants: flow[r] = set() # Start loop of symbolic execution while True: block_state = # Get next block state to emulate # Get current branch parameters # \"parent_addr\" is the parent block variable se seen earlier# \"symb\" is the context (symbols) of the current branch parent_addr, block_addr, symb = block_state # If it is a relevant block if block_addr in flow:# We avoid the prologue's parent, as it doesn't exist if parent_addr!= ExprInt32(prologue_parent): # Do the link between the block and its relevant parent flow[parent_addr].",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.5071
+      },
+      {
+        "title": "D810: A journey into control flow unflattening - eShard",
+        "url": "https://eshard.com/posts/D810-a-journey-into-control-flow-unflattening",
+        "snippet": "* Each block of the original function is modified: instead of specifying the next blocks to execute using a branch, it updates the state variable and jumps to the **dispatcher**. * For Tigress Flatten with *indirect dispatcher*, the address of each of the function basic block is stored in a global *jump table*. Each block will update the **state variable**, lookup the address of the next block in the *jump table* and jump to the **dispatcher** which is an indirect jump to the original function block. * **Hex-Rays microcode control flow patching:** We need to change the successors and predecessors of microcode blocks in order to remove the control flow flattening. So, in order to remove the control flow flattening of a function, D-810 will register an `optblock_t` callback and inspect and modify `mblock_t` blocks. To deal with such cases, we duplicate several blocks of the function to ensure we are back in the simple case (i.e. with only one possible value for the **state variable**).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Angr Control Flow Deobfuscation - OALABS Research",
+        "url": "https://research.openanalysis.net/angr/symbolic%20execution/deobfuscation/research/2022/03/26/angr_notes.html",
+        "snippet": "append(ret_bb)# Set symbol for state register eax (32 bit)# eax_state = claripy.BVS('eax_state', 4*8)# state.memory.store(state.regs.eax, eax_state) end_bb = 0x7FF6C4B0706E orig_bb_1_start = 0x00007FF6C4B0691A detatched_bb = 0x00007FF6C4B070D1 interrupt_bb = 0x00007FF6C4B070EA # Run from initial state until we hit an original code block simgr_dispatcher = project. addr print(f\"state_1_eax:{hex(state_1_eax)} -> bb: {hex(state_1_bb)} \")# Run until dispatcher to get new state(s) while True: simgr_dispatcher. addr)} \") if stop_flag: print(f\"Stopped on bb: {hex(state_2_2_eax)} \") else: state_2_2_end = simgr_dispatcher_2_2. addr print(f\"state_1_eax:{hex(state_2_2_eax)} -> bb: {hex(state_2_2_bb)} \") print(f\"** Find next state(s)\")# Run until dispatcher to get new state(s) ob_dead_flag = False while True: simgr_dispatcher_2_2.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Removing Control Flow Flattening with Binary Ninja - LODSB",
+        "url": "https://www.lodsb.com/removing-control-flow-flattening-with-binary-ninja",
+        "snippet": "true_branches = list(filter(lambda x: x.type == BranchType.TrueBranch, condition.il_basic_block.outgoing_edges)). raise Exception(\"Got %d true branches on %s ?!\" % (len(true_branches), condition.il_basic_block.outgoing_edges)). instructions = [func.hlil[x] for x in range(block.start, block.end)]. This part of the code makes another wild assumption that `var_10` only gets set in the last block before going back to the dispatcher. In any case now we can see for example that code `0x2342352` gets set at the end of block `x86_64@0xc-0xe` . We then want the end of block `x86_64@0xc-0xe` to jump directly to `x86_64@0x7-0x8` (from earlier). outasmblock = func.get_basic_block_at(func.hlil[outblock.start].address). For starters, we'll loop over all the blocks where `var_10` gets set, and make sure they end with a `jmp` opcode:. outasmblock = func.get_basic_block_at(func.hlil[outblock.start].address). # we jump to the start of this block so start address is easy here. These are not guaranteed to be in order, but something like `min(x.address for x in func.hlil[6].llils)` might be a better way to get the start address vs my approach of jumping between HLIL and disassembly blocks.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] restoring malware with Control-Flow Flattening obfuscation",
+        "url": "https://www.virusbulletin.com/uploads/pdf/conference/vb2023/papers/Dont-flatten-yourself-restoring-malware-with-Control-Flow-Flattening-obfuscation.pdf",
+        "snippet": "REVAY 30 VIRUS BULLETIN CONFERENCE OCTOBER 2023 return True return False def is_jmp_fixed(instr): if instr.itype == idaapi.NN_jmp: if instr.Op1.type == idaapi.o_far or instr.Op1.type == idaapi.o_near: return True return False def find_OBBs(func, flow_chart): # Heuristics to identify OBBS: # - BB has more then 3 insructions # - last instruction is a fixed jmp # - second last instruction is a mov if func is None: print(\"No function at the current cursor position.\") return [] blocks = [] for bb in flow_chart: instr_count = 0 last_instr = None second_last_instr = None for head in idautils.Heads(bb.start_ea, bb.end_ea): instr = idaapi.insn_t() idaapi.decode_insn(instr, head) if instr is not None: instr_count += 1 second_last_instr = last_instr last_instr = instr if instr_count >= 3 and is_mov_imm(second_last_instr) and is_jmp_fixed(last_instr): print(\"OBB found: (0x{:X} - 0x{:X})\".format(bb.start_ea, bb.end_ea)) blocks.append(bb.start_ea) return blocks def get_obb_states(project, func_start, basic_block_addresses): # use symbolic execution to execute into each OBB and check the state value obb_states = [] initial_state = project.factory.blank_state(addr = func_start) initial_state.options.add(angr.options.CALLLESS) # Start the simulation # iterate through each obb and run symbolic exec to their address for obb in basic_block_addresses: simgr = project.factory.simgr(initial_state) simgr.explore(find=BASE_ADDR + obb) if simgr.found: state = simgr.found[0] # Calculate the address rbp-0x138, the state variable # FILL OUT: state variable -> state.regs.rbp - 0x138 concrete_value = state.mem[state.regs.rbp - 0x138].uint64_t.concrete bb_address = state.solver.eval(state.regs.rip) DON’T FLATTEN YOURSELF: RESTORING MALWARE WITH CONTROL-FLOW FLATTENING...",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3657
+      }
+    ],
+    "grok": [
+      {
+        "title": "Flatten - Tigress Obfuscator Documentation",
+        "url": "https://tigress.wtf/flatten.html",
+        "snippet": "Obfuscating the Next Variable. You can use opaque predicates and anti-implicit flow transformations to further obfuscate the next variable. Options include --FlattenObfuscateNext, --FlattenOpaqueStructs (list, array), --FlattenImplicitFlowNext. Dispatch methods: switch, goto, indirect, call. Conditional kinds: branch, compute, flag.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Control flow flattening - Tigress Documentation",
+        "url": "https://tigress.cs.arizona.edu/transformPage/docs/flatten/index.html",
+        "snippet": "The next variable can be obfuscated using different kinds of opaque predicates. Conditional branches encoded as branch, compute, flag. FlattenObfuscateNext, FlattenOpaqueStructs, FlattenConditionalKinds (branch, compute, flag). Dispatch options including indirect.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Pushan: Trace-Free Deobfuscation of Virtualization-Based Obfuscation",
+        "url": "https://arxiv.org/html/2603.18355v1",
+        "snippet": "Discusses resolving indirect jumps and pruning constant opaque-predicate branches in obfuscated code, including Tigress VM samples. Uses symbolic emulation for jump targets and indirect jumps without path constraints.",
+        "published_date": "2026-03-18",
+        "source": "grok",
+        "score": 0.7014
+      },
+      {
+        "title": "Assessing the Effectiveness of the Tigress Obfuscator Against Static Analysis",
+        "url": "https://dl.acm.org/doi/10.1145/3733817.3762702",
+        "snippet": "Evaluates Tigress flatten transformation with opaque predicates. Configuration of opaque predicates influences static analysis precision. Includes control flow flattening options.",
+        "published_date": "2025-12-24",
+        "source": "grok",
+        "score": 0.3643
+      },
+      {
+        "title": "A Real-World Benchmark For Evaluating Deobfuscation Techniques",
+        "url": "https://sure-workshop.org/accepted-papers/2025/sure25-7.pdf",
+        "snippet": "Benchmark mirroring real-world obfuscation practices, relevant to Tigress-style transformations including flattening and opaque predicates.",
+        "published_date": "2025",
+        "source": "grok"
+      },
+      {
+        "title": "Analyzing binary programs and obfuscation with graph-based methods",
+        "url": "https://theses.hal.science/tel-05449270v1/file/2025UPSLD045.pdf",
+        "snippet": "Discusses opaque predicates redirecting execution to original next basic block in context of Tigress-like obfuscation and bogus control-flow.",
+        "published_date": "2026-01-08",
+        "source": "grok"
+      },
+      {
+        "title": "D810: A journey into control flow unflattening",
+        "url": "https://eshard.com/posts/D810-a-journey-into-control-flow-unflattening",
+        "snippet": "Detailed analysis of OLLVM control flow flattening combined with bogus control flow. Explains the state variable as index in a jump table or dispatcher with comparisons/computed gotos, and how to unflattened using tools like D-810. Covers variations in dispatcher (jump table, binary tree) and next-state computation.",
+        "published_date": "2024-01-01",
+        "source": "grok"
+      },
+      {
+        "title": "Unmasking KorPlug: A Technical Breakdown - Part 2",
+        "url": "https://blog.reveng.ai/unmasking-korplug-a-technical-breakdown-part-2/",
+        "snippet": "August 2025 technical breakdown of malware using O-LLVM obfuscation. Describes control flow flattening (switch-based dispatcher with state variable), bogus control flow (spurious branches/unreachable code), and how blocks assign values to the state variable for next execution.",
+        "published_date": "2025-08-19",
+        "source": "grok",
+        "score": 0.4886
+      },
+      {
+        "title": "Breaking Control Flow Flattening: A Deep Technical Analysis",
+        "url": "https://zerotistic.blog/posts/cff-remover/",
+        "snippet": "November 2024 guide on reversing control flow flattening. Focuses on identifying the state variable driving the dispatcher, handling variants like jump tables, computed goto patterns, binary decision trees, and complex derived state variables.",
+        "published_date": "2024-11-03",
+        "source": "grok"
+      },
+      {
+        "title": "Control-Flow Flattening | O-MVLL Documentation",
+        "url": "https://obfuscator.re/omvll/passes/control-flow-flattening/",
+        "snippet": "Official documentation for O-MVLL (modern OLLVM fork). Explains control-flow flattening implementation, its impact on reverse engineering (flattened CFG with dispatcher), and configuration. References original OLLVM Flattening.cpp and deobfuscation approaches.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Generic O-LLVM Automatic Multi-architecture Deobfuscation Framework",
+        "url": "https://dl.acm.org/doi/10.1145/3573834.3574541",
+        "snippet": "December 2025 ACM paper on automatic deobfuscation of O-LLVM protections including bogus code flattening and a dedicated DeCFF module for control flow flattening reversal.",
+        "published_date": "2025-12-16",
+        "source": "grok"
+      },
+      {
+        "title": "Deobfuscation: recovering an OLLVM-protected program",
+        "url": "https://blog.quarkslab.com/deobfuscation-recovering-an-ollvm-protected-program.html",
+        "snippet": "Classic Quarkslab analysis (referenced in recent works) of OLLVM protections: control flow flattening (with equations computing next state/output), bogus control flow, and instruction substitution. Uses symbolic execution to recover original logic and jump/dispatcher structure.",
+        "published_date": "2014-12-04",
+        "source": "grok"
+      }
+    ]
+  },
+  "freshness_filter": "py"
+}
