@@ -51,6 +51,10 @@ Native practical work is easiest to navigate when the analyst first classifies t
 6. **async ownership break**
    - one route or owner is already plausible, but direct call-graph reading breaks at registration, queue, completion, callback, or event-loop delivery boundaries and the first consequence-bearing consumer is still unclear
 
+A thinner Windows-heavy reminder now worth preserving inside family 4 before jumping ahead to async work:
+- in loader/import-heavy cases, delay-load helpers, forwarded exports, API-set-style indirection, or repeated `GetProcAddress` calls can make resolution mechanics look like the answer
+- but the branch should separate **resolution truth** from **consumer truth** and keep reducing until one caller-side retained use, table slot, provider object, or later dispatch edge first makes the resolved target behaviorally relevant
+
 A compact operator ladder for this branch is:
 
 ```text

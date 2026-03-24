@@ -248,6 +248,18 @@ Best move:
 - prove the config or mode gate that narrows backend eligibility
 - then prove the first retained backend object or callback family that produces the target effect
 
+### Pattern 5: Delay-load / forwarded-export / API-set-heavy import resolution
+Symptoms:
+- `__delayLoadHelper2`, `ResolveDelayLoadedAPI`, delay thunks, forwarded exports, API-set-style names, or repeated `GetProcAddress` lookups are easy to find
+- import resolution looks much richer than ordinary plugin loading
+- the real question is no longer which helper exists, but which resolved edge first becomes behaviorally relevant in the caller
+
+Best move:
+- treat delay-load helper activity, thunk patching, and forwarder resolution as **resolution truth**, not yet consumer truth
+- prove the first caller-side retained function pointer, table slot, provider object, or later dispatch edge that reuses the resolved target
+- if the delayed path is gated or optional, prove the gate that makes it live in the current run before claiming real ownership
+- do not widen into sibling delayed imports or fallback DLLs until one resolved-edge-to-effect chain is grounded
+
 ## 7. How this fits into the native branch
 This note fills a practical native gap between broad route proof and deeper async ownership.
 
@@ -277,18 +289,52 @@ A compact practical rule is:
 - confusing module presence with module use
 - over-crediting the host bootstrap wrapper instead of the first reused provider object or handler table
 - stopping at `GetProcAddress` / `dlsym` rather than the first consequence-bearing consumer
+- treating delay-load helper activity, thunk patching, or forwarded-export resolution as if it already proved caller-side ownership
+- mistaking resolution truth for consumer truth when API-set / forwarder / hookable delay-load paths are involved
 - staying too long in loader/provider analysis after the real bottleneck has shifted to async delivery or callback-consumer proof
 - widening to fallback/backends/sibling modules before one module-to-effect chain is grounded
 
-## 10. Compact operator checklist
+## 10. Practical source-backed reminders
+A small Windows-heavy source pass is enough to preserve a narrower operator rule here.
+
+### A. Delay-load helper activity is a resolution boundary, not automatically a consumer boundary
+Microsoft’s delay-load helper material makes the mechanics explicit: the helper checks whether the DLL is already loaded, may call `LoadLibrary`, may call `GetProcAddress`, and patches the delay-load IAT slot before returning to the thunk.
+
+For reversing, this means:
+- `__delayLoadHelper2`, `ResolveDelayLoadedAPI`, or visible thunk patching prove that import resolution happened
+- they do **not** by themselves prove which caller-side feature, provider path, or later effect is the behaviorally relevant owner
+
+### B. Hookable delay-load paths weaken naive “the helper is the owner” reasoning
+The same Microsoft material shows pre-load, pre-`GetProcAddress`, and failure hooks can alter normal helper behavior.
+
+For reversing, this means:
+- the resolved target may come from alternate DLL selection, hook substitution, or failure handling
+- the more stable proof object is often the first retained caller-side function pointer, table slot, or provider object that survives resolution
+
+### C. Forwarded-export or API-set truth is still weaker than first-consumer truth
+`GetProcAddress` documentation and forwarder-oriented discussions are enough to preserve a conservative reminder:
+- resolved name lookup may land on a forwarded target or API-set mediated implementation
+- that can improve implementation-family truth
+- but the practical proof still often lives one hop later at the first caller-side retained use or later dispatch through the resolved edge
+
+### D. Delay-import metadata can overstate real behavioral relevance
+Recent phantom-DLL discussion is a useful practical reminder that delayed imports may stay condition-gated or dormant on ordinary systems.
+
+For reversing, this means:
+- delay-import presence and even reachable helper code do not automatically prove the path is live in the current run
+- prove the gate and one later caller-side consumer before claiming real ownership
+
+## 11. Compact operator checklist
 - Pick one loader question, not the whole plugin ecosystem.
 - Separate eligibility, resolution, registration, consumption, and effect.
 - Prefer retained provider objects/tables over ceremonial init success.
+- In delay-load or forwarded-export cases, separate **resolution truth** from **consumer truth**.
 - Use one narrow module-to-effect proof, not a full plugin inventory.
 - Rewrite the subsystem map only after one loaded-module chain is proved.
 
-## 10. Topic summary
+## 11. Topic summary
 In native baseline reversing, module/plugin-heavy targets often stall not because loader code is invisible, but because visible loader structure still does not reveal which loaded component actually owns the target behavior.
 
 The practical cure is to reduce loader visibility into one concrete module decision, one resolved export or factory edge, one first real module consumer, and one downstream effect.
 That single proof usually turns a sprawling plugin architecture into a smaller trustworthy working map.
+

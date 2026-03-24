@@ -1,0 +1,405 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows delay load helper forwarded export API set reverse engineering first real consumer",
+    "delay load import thunk __delayLoadHelper2 forwarded exports API set schema reverse engineering",
+    "GetProcAddress forwarder API set loader consumer proof reverse engineering"
+  ],
+  "count": 20,
+  "results": [
+    {
+      "title": "Understand the delay load helper function | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/cpp/build/reference/understanding-the-helper-function?view=msvc-170",
+      "snippet": "",
+      "published_date": "2021-08-03T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6692
+    },
+    {
+      "title": "ResolveDelayLoadedAPI function - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/resolvedelayloadedapi",
+      "snippet": "",
+      "published_date": "2022-08-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6692
+    },
+    {
+      "title": "Delay load import features · Pull Request #2623 · NationalSecurityAgency/ghidra",
+      "url": "https://github.com/NationalSecurityAgency/ghidra/pull/2623",
+      "snippet": "",
+      "published_date": "2021-01-05T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6462
+    },
+    {
+      "title": "how to hook delay imports - c++ - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/50973053/how-to-hook-delay-imports",
+      "snippet": "The delay import table contains stubs that tell them which libraries and functions to load when called at runtime. Rather than hooking the delay",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6462
+    },
+    {
+      "title": "How can I resolve the forwarded API from the IAT on PE?",
+      "url": "https://stackoverflow.com/questions/44279216/how-can-i-resolve-the-forwarded-api-from-the-iat-on-pe",
+      "snippet": "I'm trying to make a Import table builder in python script just like MacT's Import Reconstructor. But I have a trouble to find out the method to get an",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6462
+    },
+    {
+      "title": "GitHub - kleiton0x00/Proxy-DLL-Loads: A proof of concept demonstrating the DLL-load proxying using undocumented Syscalls.",
+      "url": "https://github.com/kleiton0x00/Proxy-DLL-Loads",
+      "snippet": "",
+      "published_date": "2023-10-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6231
+    },
+    {
+      "title": "operating-system-design-review/README.md at main - GitHub",
+      "url": "https://github.com/ElliotKillick/operating-system-design-review/blob/main/README.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "A deep dive into the windows API. : r/ReverseEngineering - Reddit",
+      "url": "https://www.reddit.com/r/ReverseEngineering/comments/1l34vpm/a_deep_dive_into_the_windows_api/",
+      "snippet": "Mate this ain't a blog post it's a collection of 200+ blog posts and it's nothing more than Windows API documentation. More replies",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5923
+    },
+    {
+      "title": "Statically recovering thunks in Windows x86_64 DLL",
+      "url": "https://reverseengineering.stackexchange.com/questions/26567/statically-recovering-thunks-in-windows-x86-64-dll",
+      "snippet": "",
+      "published_date": "2020-12-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5231
+    },
+    {
+      "title": "disassembly - Exports that redirects to other library",
+      "url": "https://reverseengineering.stackexchange.com/a/21110",
+      "snippet": "",
+      "published_date": "2017-08-06T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.5231
+    },
+    {
+      "title": "Dll injection and GetProcAddress with the winapi",
+      "url": "https://reverseengineering.stackexchange.com/questions/2793/dll-injection-and-getprocaddress-with-the-winapi",
+      "snippet": "One thing you need to keep in mind is that code in your process and the code in the target process reside in different address spaces.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5231
+    },
+    {
+      "title": "Dynamically Resolving Windows API Functions via the PEB_LDR_DATA struct | yelhamer",
+      "url": "https://yelhamer.github.io/posts/Resolving-Windows-API-Functions-via-the-PEB_LDR_DATA-Structure/",
+      "snippet": "",
+      "published_date": "2024-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4962
+    },
+    {
+      "title": "Hidden in PEB Sight: Hiding Windows API Imports With a Custom ...",
+      "url": "https://blog.christophetd.fr/hiding-windows-api-imports-with-a-customer-loader/",
+      "snippet": "",
+      "published_date": "2020-02-18T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4462
+    },
+    {
+      "title": "Custom GetProcAddress and GetModuleHandle Implementation (x64)",
+      "url": "https://revers.engineering/custom-getprocaddress-and-getmodulehandle-implementation-x64/",
+      "snippet": "uintptr_t HdnGetProcAddress( void *hModule, const wchar_t *wAPIName ) { #if defined( _WIN32 ) unsigned char *lpBase = reinterpret_cast< unsigned char * >( hModule ); IMAGE_DOS_HEADER *idhDosHeader = reinterpret_cast< IMAGE_DOS_HEADER * >( lpBase ); if ( idhDosHeader->e_magic == 0x5A4D ) { #if defined( _M_IX86 ) IMAGE_NT_HEADERS32 *inhNtHeader = reinterpret_cast< IMAGE_NT_HEADERS32 *>( lpBase + idhDosHeader->e_lfanew ); #elif defined( _M_AMD64 ) IMAGE_NT_HEADERS64 *inhNtHeader = reinterpret_cast< IMAGE_NT_HEADERS64 * >( lpBase + idhDosHeader->e_lfanew ); #endif if ( inhNtHeader->Signature == 0x4550 ) { IMAGE_EXPORT_DIRECTORY *iedExportDirectory = reinterpret_cast< IMAGE_EXPORT_DIRECTORY * >( lpBase + inhNtHeader->OptionalHeader.DataDirectory[ IMAGE_DIRECTORY_ENTRY_EXPORT ].VirtualAddress ); for ( register unsigned int uiIter = 0; uiIter < iedExportDirectory->NumberOfNames; ++uiIter ) { char *szNames = reinterpret_cast< char * >( lpBase + reinterpret_cast< unsigned long * >( lpBase + iedExportDirectory->AddressOfNames )[ uiIter ] ); if ( ! void *HdnGetModuleBase( wchar_t *wModuleName ) { #if defined( _WIN64 ) #define PEBOffset 0x60 #define LdrOffset 0x18 #define ListOffset 0x10 unsigned long long pPeb = __readgsqword( PEBOffset ); #elif defined( _WIN32 ) #define PEBOffset 0x30 #define LdrOffset 0x0C #define ListOffset 0x0C unsigned long pPeb = __readfsdword( PEBOffset ); #endif pPeb = *reinterpret_cast< decltype( pPeb ) * >( pPeb + LdrOffset ); PLDR_DATA_TABLE_ENTRY pModuleList = *reinterpret_cast< PLDR_DATA_TABLE_ENTRY * >( pPeb + ListOffset ); while ( pModuleList->BaseAddress ) { if( !",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3692
+    },
+    {
+      "title": "Memory Dump Analysis Anthology (Dmitry Vostokov) | PDF - Scribd",
+      "url": "https://www.scribd.com/document/617248403/Memory-Dump-Analysis-Anthology-Dmitry-Vostokov-Z-lib-org",
+      "snippet": "Beginner's Guide to Reverse Engineering. PDF. 100% (1). Beginner's Guide to Reverse Engineering. 1,459 pages. Understanding PE File Format Basics. PDF. No",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3462
+    },
+    {
+      "title": "Deep Dive Into Windows PE Format - GetProcAddress Spoofing",
+      "url": "https://dennisbabkin.com/blog/?t=malware-researchers-beware-of-getprocaddress-spoofing",
+      "snippet": "The issue at hand is in the way PE file is loaded (and mapped) into memory, and also in the way how GetProcAddress uses it to resolve function pointers.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3462
+    },
+    {
+      "title": "The delayed import-table phantomDLL opportunities | Hexacorn",
+      "url": "https://www.hexacorn.com/blog/2024/09/14/the-delayed-import-table-phantomdll-opportunities/",
+      "snippet": "",
+      "published_date": "2024-09-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3231
+    },
+    {
+      "title": "zerosum0x0: LoadLibrary() and GetProcAddress() replacements for x86, x64, and ARM",
+      "url": "https://zerosum0x0.blogspot.com/2016/02/loadlibrary-and-getprocaddress.html",
+      "snippet": "",
+      "published_date": "2026-02-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3231
+    },
+    {
+      "title": "Quick Tip: Stop Using GetProcAddress and Let the Linker Do the ...",
+      "url": "https://reversing.codes/posts/Stop-Using-GetProcAddress-And-Let-The-Linker/",
+      "snippet": "In this concise post, my intention is to offer you a quick tip on utilizing undocumented APIs, such as those found in ntdll.dll, and demonstrate how compiler-",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3231
+    },
+    {
+      "title": "Disarming Control Flow Guard Using Advanced Code Reuse Attacks",
+      "url": "https://endgame113.rssing.com/chan-30092997/all_p22.html",
+      "snippet": "When it comes to cyber attacks, the National Institute for Standards and Technology defines a cyber attack as, “An attack, via cyberspace, targeting an enterprise’s use of cyberspace for the purpose of disrupting, disabling, destroying, or maliciously controlling a computing environment/infrastructure; or destroying the integrity of the data or stealing controlled information.” These are useful distinctions when looking at the nuanced and varied objectives of adversaries. [----------------------------------registers-----------------------------------] EAX: 0x0 EBX: 0x804f0ec --> 0xb7fd9000 --> 0x0 ECX: 0x0 EDX: 0x80500a6 --> 0x0 ESI: 0x48484747 ('GGHH') EDI: 0xb7fd9000 --> 0x0 EBP: 0x4d4d4c4c ('LLMM') ESP: 0xbffff640 --> 0x804f0ec --> 0xb7fd9000 --> 0x0 EIP: 0x4e4e4d4d ('MMNN') EFLAGS: 0x10206 (carry PARITY adjust zero sign trap INTERRUPT direction overflow) [-------------------------------------code-------------------------------------] Invalid $PC address: 0x4e4e4d4d [------------------------------------stack-------------------------------------] 0000| 0xbffff640 --> 0x804f0ec --> 0xb7fd9000 --> 0x0 0004| 0xbffff644 (\"OOPPPP\") 0008| 0xbffff648 --> 0xff005050 0012| 0xbffff64c --> 0x1 0016| 0xbffff650 --> 0xb7e2bb98 --> 0x2a5c ('\\\\*') 0020| 0xbffff654 --> 0xb7fdc858 --> 0xb7e1f000 --> 0x464c457f 0024| 0xbffff658 --> 0xbffff866 (\"/home/bool/nonameyet.cgi\") 0028| 0xbffff65c --> 0x80500a0 (\"%Time%\") [------------------------------------------------------------------------------] Legend: code, data, rodata, value Stopped reason: SIGSEGV 0x4e4e4d4d in ??",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "The delayed import-table phantomDLL opportunities | Hexacorn",
+        "url": "https://www.hexacorn.com/blog/2024/09/14/the-delayed-import-table-phantomdll-opportunities/",
+        "snippet": "",
+        "published_date": "2024-09-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3231
+      },
+      {
+        "title": "Understand the delay load helper function | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/cpp/build/reference/understanding-the-helper-function?view=msvc-170",
+        "snippet": "",
+        "published_date": "2021-08-03T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6692
+      },
+      {
+        "title": "ResolveDelayLoadedAPI function - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/resolvedelayloadedapi",
+        "snippet": "",
+        "published_date": "2022-08-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6692
+      },
+      {
+        "title": "Delay load import features · Pull Request #2623 · NationalSecurityAgency/ghidra",
+        "url": "https://github.com/NationalSecurityAgency/ghidra/pull/2623",
+        "snippet": "",
+        "published_date": "2021-01-05T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6462
+      },
+      {
+        "title": "Statically recovering thunks in Windows x86_64 DLL",
+        "url": "https://reverseengineering.stackexchange.com/questions/26567/statically-recovering-thunks-in-windows-x86-64-dll",
+        "snippet": "",
+        "published_date": "2020-12-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5231
+      },
+      {
+        "title": "The delayed import-table phantomDLL opportunities | Hexacorn",
+        "url": "https://www.hexacorn.com/blog/2024/09/14/the-delayed-import-table-phantomdll-opportunities/",
+        "snippet": "",
+        "published_date": "2024-09-14T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Understand the delay load helper function | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/cpp/build/reference/understanding-the-helper-function?view=msvc-170",
+        "snippet": "",
+        "published_date": "2021-08-03T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "ResolveDelayLoadedAPI function - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/resolvedelayloadedapi",
+        "snippet": "",
+        "published_date": "2022-08-22T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "disassembly - Exports that redirects to other library",
+        "url": "https://reverseengineering.stackexchange.com/a/21110",
+        "snippet": "",
+        "published_date": "2017-08-06T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.5231
+      },
+      {
+        "title": "operating-system-design-review/README.md at main - GitHub",
+        "url": "https://github.com/ElliotKillick/operating-system-design-review/blob/main/README.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "zerosum0x0: LoadLibrary() and GetProcAddress() replacements for x86, x64, and ARM",
+        "url": "https://zerosum0x0.blogspot.com/2016/02/loadlibrary-and-getprocaddress.html",
+        "snippet": "",
+        "published_date": "2026-02-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3231
+      },
+      {
+        "title": "GitHub - kleiton0x00/Proxy-DLL-Loads: A proof of concept demonstrating the DLL-load proxying using undocumented Syscalls.",
+        "url": "https://github.com/kleiton0x00/Proxy-DLL-Loads",
+        "snippet": "",
+        "published_date": "2023-10-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6231
+      },
+      {
+        "title": "Dynamically Resolving Windows API Functions via the PEB_LDR_DATA struct | yelhamer",
+        "url": "https://yelhamer.github.io/posts/Resolving-Windows-API-Functions-via-the-PEB_LDR_DATA-Structure/",
+        "snippet": "",
+        "published_date": "2024-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4962
+      },
+      {
+        "title": "disassembly - Exports that redirects to other library",
+        "url": "https://reverseengineering.stackexchange.com/a/21110",
+        "snippet": "",
+        "published_date": "2017-08-06T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Hidden in PEB Sight: Hiding Windows API Imports With a Custom ...",
+        "url": "https://blog.christophetd.fr/hiding-windows-api-imports-with-a-customer-loader/",
+        "snippet": "",
+        "published_date": "2020-02-18T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4462
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Understand the delay load helper function | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/cpp/build/reference/understanding-the-helper-function?view=msvc-170",
+        "snippet": "The helper function for linker-supported delayed loading is what actually loads the DLL at runtime. You can modify the helper function to customize its",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "how to hook delay imports - c++ - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/50973053/how-to-hook-delay-imports",
+        "snippet": "The delay import table contains stubs that tell them which libraries and functions to load when called at runtime. Rather than hooking the delay",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6462
+      },
+      {
+        "title": "Memory Dump Analysis Anthology (Dmitry Vostokov) | PDF - Scribd",
+        "url": "https://www.scribd.com/document/617248403/Memory-Dump-Analysis-Anthology-Dmitry-Vostokov-Z-lib-org",
+        "snippet": "Beginner's Guide to Reverse Engineering. PDF. 100% (1). Beginner's Guide to Reverse Engineering. 1,459 pages. Understanding PE File Format Basics. PDF. No",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3462
+      },
+      {
+        "title": "Disarming Control Flow Guard Using Advanced Code Reuse Attacks",
+        "url": "https://endgame113.rssing.com/chan-30092997/all_p22.html",
+        "snippet": "When it comes to cyber attacks, the National Institute for Standards and Technology defines a cyber attack as, “An attack, via cyberspace, targeting an enterprise’s use of cyberspace for the purpose of disrupting, disabling, destroying, or maliciously controlling a computing environment/infrastructure; or destroying the integrity of the data or stealing controlled information.” These are useful distinctions when looking at the nuanced and varied objectives of adversaries. [----------------------------------registers-----------------------------------] EAX: 0x0 EBX: 0x804f0ec --> 0xb7fd9000 --> 0x0 ECX: 0x0 EDX: 0x80500a6 --> 0x0 ESI: 0x48484747 ('GGHH') EDI: 0xb7fd9000 --> 0x0 EBP: 0x4d4d4c4c ('LLMM') ESP: 0xbffff640 --> 0x804f0ec --> 0xb7fd9000 --> 0x0 EIP: 0x4e4e4d4d ('MMNN') EFLAGS: 0x10206 (carry PARITY adjust zero sign trap INTERRUPT direction overflow) [-------------------------------------code-------------------------------------] Invalid $PC address: 0x4e4e4d4d [------------------------------------stack-------------------------------------] 0000| 0xbffff640 --> 0x804f0ec --> 0xb7fd9000 --> 0x0 0004| 0xbffff644 (\"OOPPPP\") 0008| 0xbffff648 --> 0xff005050 0012| 0xbffff64c --> 0x1 0016| 0xbffff650 --> 0xb7e2bb98 --> 0x2a5c ('\\\\*') 0020| 0xbffff654 --> 0xb7fdc858 --> 0xb7e1f000 --> 0x464c457f 0024| 0xbffff658 --> 0xbffff866 (\"/home/bool/nonameyet.cgi\") 0028| 0xbffff65c --> 0x80500a0 (\"%Time%\") [------------------------------------------------------------------------------] Legend: code, data, rodata, value Stopped reason: SIGSEGV 0x4e4e4d4d in ??",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Understand the delay load helper function | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/cpp/build/reference/understanding-the-helper-function?view=msvc-170",
+        "snippet": "The delay load helper routine needs to calculate two critical pieces of information. To help, there are two inline functions in delayhlp.cpp to",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "disassembly - Exports that redirects to other library",
+        "url": "https://reverseengineering.stackexchange.com/a/21110",
+        "snippet": "A forwarded export is a pointer to an export in another binary; if it is used, the pointed-to export in the other binary is used instead. The",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "A deep dive into the windows API. : r/ReverseEngineering - Reddit",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/1l34vpm/a_deep_dive_into_the_windows_api/",
+        "snippet": "Mate this ain't a blog post it's a collection of 200+ blog posts and it's nothing more than Windows API documentation. More replies",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5923
+      },
+      {
+        "title": "operating-system-design-review/README.md at main - GitHub",
+        "url": "https://github.com/ElliotKillick/operating-system-design-review/blob/main/README.md",
+        "snippet": "... Microsoft introduced delay loading to load dependencies on the first call into libraries. Delay loading worked as a quick fix to help keep the number of loaded",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How can I resolve the forwarded API from the IAT on PE?",
+        "url": "https://stackoverflow.com/questions/44279216/how-can-i-resolve-the-forwarded-api-from-the-iat-on-pe",
+        "snippet": "I'm trying to make a Import table builder in python script just like MacT's Import Reconstructor. But I have a trouble to find out the method to get an",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6462
+      },
+      {
+        "title": "Deep Dive Into Windows PE Format - GetProcAddress Spoofing",
+        "url": "https://dennisbabkin.com/blog/?t=malware-researchers-beware-of-getprocaddress-spoofing",
+        "snippet": "The issue at hand is in the way PE file is loaded (and mapped) into memory, and also in the way how GetProcAddress uses it to resolve function pointers.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3462
+      },
+      {
+        "title": "Quick Tip: Stop Using GetProcAddress and Let the Linker Do the ...",
+        "url": "https://reversing.codes/posts/Stop-Using-GetProcAddress-And-Let-The-Linker/",
+        "snippet": "In this concise post, my intention is to offer you a quick tip on utilizing undocumented APIs, such as those found in ntdll.dll, and demonstrate how compiler-",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3231
+      },
+      {
+        "title": "Hidden in PEB Sight: Hiding Windows API Imports With a Custom ...",
+        "url": "https://blog.christophetd.fr/hiding-windows-api-imports-with-a-customer-loader/",
+        "snippet": "Resolving imports with GetProcAddress. The Windows API exposes a method allowing us to dynamically retrieve the address of a function:",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Dll injection and GetProcAddress with the winapi",
+        "url": "https://reverseengineering.stackexchange.com/questions/2793/dll-injection-and-getprocaddress-with-the-winapi",
+        "snippet": "One thing you need to keep in mind is that code in your process and the code in the target process reside in different address spaces.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5231
+      },
+      {
+        "title": "Custom GetProcAddress and GetModuleHandle Implementation (x64)",
+        "url": "https://revers.engineering/custom-getprocaddress-and-getmodulehandle-implementation-x64/",
+        "snippet": "uintptr_t HdnGetProcAddress( void *hModule, const wchar_t *wAPIName ) { #if defined( _WIN32 ) unsigned char *lpBase = reinterpret_cast< unsigned char * >( hModule ); IMAGE_DOS_HEADER *idhDosHeader = reinterpret_cast< IMAGE_DOS_HEADER * >( lpBase ); if ( idhDosHeader->e_magic == 0x5A4D ) { #if defined( _M_IX86 ) IMAGE_NT_HEADERS32 *inhNtHeader = reinterpret_cast< IMAGE_NT_HEADERS32 *>( lpBase + idhDosHeader->e_lfanew ); #elif defined( _M_AMD64 ) IMAGE_NT_HEADERS64 *inhNtHeader = reinterpret_cast< IMAGE_NT_HEADERS64 * >( lpBase + idhDosHeader->e_lfanew ); #endif if ( inhNtHeader->Signature == 0x4550 ) { IMAGE_EXPORT_DIRECTORY *iedExportDirectory = reinterpret_cast< IMAGE_EXPORT_DIRECTORY * >( lpBase + inhNtHeader->OptionalHeader.DataDirectory[ IMAGE_DIRECTORY_ENTRY_EXPORT ].VirtualAddress ); for ( register unsigned int uiIter = 0; uiIter < iedExportDirectory->NumberOfNames; ++uiIter ) { char *szNames = reinterpret_cast< char * >( lpBase + reinterpret_cast< unsigned long * >( lpBase + iedExportDirectory->AddressOfNames )[ uiIter ] ); if ( ! void *HdnGetModuleBase( wchar_t *wModuleName ) { #if defined( _WIN64 ) #define PEBOffset 0x60 #define LdrOffset 0x18 #define ListOffset 0x10 unsigned long long pPeb = __readgsqword( PEBOffset ); #elif defined( _WIN32 ) #define PEBOffset 0x30 #define LdrOffset 0x0C #define ListOffset 0x0C unsigned long pPeb = __readfsdword( PEBOffset ); #endif pPeb = *reinterpret_cast< decltype( pPeb ) * >( pPeb + LdrOffset ); PLDR_DATA_TABLE_ENTRY pModuleList = *reinterpret_cast< PLDR_DATA_TABLE_ENTRY * >( pPeb + ListOffset ); while ( pModuleList->BaseAddress ) { if( !",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3692
+      }
+    ],
+    "grok": []
+  }
+}
