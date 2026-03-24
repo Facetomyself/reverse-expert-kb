@@ -237,6 +237,7 @@ Primary note:
 
 Common thinner continuation:
 - `topics/native-completion-port-and-thread-pool-first-consumer-workflow-note.md` when the async-ownership break has already narrowed specifically into posted work, completion packets, thread-pool callbacks, or queue-dequeue ownership rather than broad callback-plumbing truth
+  - preserve extra stop rules there: do not infer dequeue/consumer order from submit order alone in IOCP cases, do not flatten posted control packets into I/O-owned completions, do not treat `GetQueuedCompletionStatus(FALSE)` with non-NULL `lpOverlapped` as “no delivery happened,” do not assume `TP_IO` callbacks must fire for immediately successful overlapped operations under `FILE_SKIP_COMPLETION_PORT_ON_SUCCESS`, and do not flatten libuv worker-side `work_cb` ownership into loop-thread `after_work_cb` or `uv_async_send()` ownership
 - `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md` when the async-ownership break has already narrowed specifically into Win32 message-pump / subclass, Qt signal-slot ownership, or macOS Cocoa / XPC / dispatch delivery ownership and the real bottleneck is one per-instance, per-connection, or per-responder first consumer rather than broad callback-plumbing truth
   - preserve extra stop rules there: do not flatten shared subclass wrappers into one owner, do not flatten Qt `AutoConnection` / queued delivery into generic “signal found” proof, and do not flatten `NSApplication sendEvent:`, XPC proxy setup, or dispatch-source registration into automatic consumer proof
 
