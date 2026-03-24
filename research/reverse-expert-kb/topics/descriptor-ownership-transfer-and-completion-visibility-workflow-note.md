@@ -178,6 +178,14 @@ Do not immediately widen into full ring-family documentation unless a later expe
 ## 7. Cache, shadow-index, and ordering checklist
 This topic is especially valuable when analysts keep tripping over "the bytes are there, why doesn't software trust them?"
 
+A practical stop rule worth preserving: once the ring shape is already good enough, do **not** keep widening descriptor anatomy until you have frozen the narrower trust contract.
+Freeze, in writing, these five things first:
+- which side owns the representative slot before publication
+- what exact owner / valid / WR_IDX / tail / phase edge publishes it
+- what ordering or freshness rule makes that publication trustworthy
+- whether non-coherent cache synchronization is required before the consumer may trust the bytes
+- what reclaim / reuse / wakeup fact proves durable consequence
+
 Check explicitly for:
 - **publish order**
   - completion / descriptor contents written before the publish index, owner bit, or freshness marker moves
@@ -321,6 +329,7 @@ The external evidence used for this run repeatedly emphasized:
 - ownership transfer via shared ring indices rather than only via interrupts
 - cache-coherency and stale-read pitfalls on non-coherent systems
 - explicit return-of-ownership through reclaim indices or slot reuse
+- the practical value of treating ownership transfer as a trust contract shaped by ordering, freshness, and sometimes explicit CPU/device synchronization rather than by descriptor bytes alone
 
 That is enough for a conservative practical continuation note because the point is not to claim one universal ring architecture.
 The point is to preserve a recurring analyst move that repeatedly appears once queue structure is already visible.
