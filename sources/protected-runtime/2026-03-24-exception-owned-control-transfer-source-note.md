@@ -66,9 +66,15 @@ It only claims a stronger practical routing rule:
 
 ## Search audit
 Requested sources: exa, tavily, grok
-Succeeded sources: exa, tavily, grok
-Failed sources: none observed in this run
+Succeeded sources: exa, tavily
+Failed sources:
+- grok — `502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions`
 Endpoints used:
 - Exa: http://158.178.236.241:7860
 - Tavily: http://proxy.zhangxuemin.work:9874/api
 - Grok: http://proxy.zhangxuemin.work:8000/v1
+
+Degraded-source-set note:
+- this pass explicitly attempted all three requested sources through `search-layer --source exa,tavily,grok`
+- retained practical signal came from Exa + Tavily
+- Grok failure is recorded here so later KB maintenance does not mistake this for a full three-source-success run
