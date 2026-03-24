@@ -1,0 +1,632 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Swift MainActor callback continuation UI state consumer iOS reverse engineering",
+    "Swift concurrency MainActor task UI update after await first consumer",
+    "iOS reverse engineering callback result MainActor state reducer"
+  ],
+  "count": 33,
+  "results": [
+    {
+      "title": "How to resume a continuation ensuring that the result is delivered on the MainActor",
+      "url": "https://stackoverflow.com/questions/73303931/how-to-resume-a-continuation-ensuring-that-the-result-is-delivered-on-the-mainac",
+      "snippet": "Discussion on resuming continuations while ensuring delivery on @MainActor for UI state updates in Swift concurrency.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.7333
+    },
+    {
+      "title": "Explore concurrency in SwiftUI - WWDC25",
+      "url": "https://developer.apple.com/videos/play/wwdc2025/266/",
+      "snippet": "Apple's guidance on separating async logic from UI logic in SwiftUI. Use state as a bridge: perform async work, then synchronously mutate state on MainActor to trigger UI updates after tasks complete.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.7
+    },
+    {
+      "title": "Effect of @MainActor inference on Obj-C completion callbacks",
+      "url": "https://forums.swift.org/t/effect-of-mainactor-inference-on-obj-c-completion-callbacks/75058",
+      "snippet": "For the purposes of this example, I've written out the code to call both translations of the Obj-C function: \"synchronous\" and \"asynchronous\".",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "How to correctly update the UI from an asynchronous context",
+      "url": "https://forums.swift.org/t/how-to-correctly-update-the-ui-from-an-asynchronous-context/71155",
+      "snippet": "In your exact case it won't run in arbitrary order, but it is easy to eventually call it not from the main actor and the state updates might execute differently. Your state property directly affects view, so it should be isolated and updated from the main actor. You can also make `getRemoteFruits` to be `nonisolated` if they are part of the view model and you want to ensure 100% they won’t run as part of main actor, in that case you will need `Fruit` to be `Sendable` as it will cross isolation boundary from non-isolated code to main-actor isolated. `# Clarify the Execution of Non-Actor-Isolated Async Functions. SE-0306, which introduced actors to Swift, states that `async` functions may be actor-isolated, meaning that they formally run on some actor's executor. Nothing in either SE-0306 or SE-0296 (`async`/`await`) ever specifies where asynchronous functions that *aren't* actor-isolated run. In the current implementation of Swift, `async` functions that aren't actor-isolated never intentionally change the current executor.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.6667
+    },
+    {
+      "title": "Swift concurrency: Update a sample app - WWDC21",
+      "url": "https://developer.apple.com/videos/play/wwdc2021/10194/",
+      "snippet": "Official WWDC session covering migration to async/await. Demonstrates marking update methods @MainActor, grouping UI updates with MainActor.run to avoid suspensions between operations, and handling awaits in concurrent code.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6667
+    },
+    {
+      "title": "Even if you assign the `@MainActor` attribute to a closure, the ...",
+      "url": "https://forums.swift.org/t/even-if-you-assign-the-mainactor-attribute-to-a-closure-the-processing-inside-the-closure-is-not-executed-on-the-main-thread/71239",
+      "snippet": "Detatched Task does not inherit actor context, but since UIViewContrller is implicitly isolated to MainActor, the callback is isolated to",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.6667
+    },
+    {
+      "title": "Issue with Destination reducer in MainActor default isolation - pointfreeco/swift-composable-architecture",
+      "url": "https://github.com/pointfreeco/swift-composable-architecture/discussions/3772",
+      "snippet": "TCA discussion on @MainActor isolation for Destination reducers, including manual macro expansion and CaseReducerState conformance for handling state in Composable Architecture.",
+      "published_date": "2025-12-04",
+      "source": "grok",
+      "score": 0.66
+    },
+    {
+      "title": "Update UI after async await call - swift - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/68252298/update-ui-after-async-await-call",
+      "snippet": "My question is what is better approach to update UI on the main queue? DispatchQueue.main.async look ugly and I guess there is a better approach to do the same.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "Would it make sense for the reducer closure to be marked ... - GitHub",
+      "url": "https://github.com/pointfreeco/swift-composable-architecture/discussions/1272",
+      "snippet": "Given the reducer usually runs on the main thread, would it make sense to make the reducer closure @MainActor , or at least have the possibility to chose",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.6333
+    },
+    {
+      "title": "How to avoid an entire call stack being declared MainActor because ...",
+      "url": "https://stackoverflow.com/questions/74181726/how-to-avoid-an-entire-call-stack-being-declared-mainactor-because-a-low-level-f",
+      "snippet": "I have functions (Eg, Analytics) that at the lowest level require access to the device screen scale UIScreen.main.scale which is isolated to MainActor.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "Fixing a race condition in our iOS app using MainActor isolation",
+      "url": "https://www.reddit.com/r/iosdev/comments/1ozbxvi/fixing_a_race_condition_in_our_ios_app_using/",
+      "snippet": "The fix was straightforward: we isolated the entire view model with MainActor, forcing all state mutations and UI-bound properties to run on the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "@MainActor view model with async let functions : r/SwiftUI - Reddit",
+      "url": "https://www.reddit.com/r/SwiftUI/comments/1btn9uj/mainactor_view_model_with_async_let_functions/",
+      "snippet": "Swift concurrency lets us do two things with regard to your question. First, we can specify the actor used for things in our Task block.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5667
+    },
+    {
+      "title": "[PDF] iOS App Reverse Engineering - GitHub Pages",
+      "url": "https://algorithm-master.github.io/Books/iOSAppReverseEngineering.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.55
+    },
+    {
+      "title": "Cracking Programming Interviews: A Guide for iOS Developers",
+      "url": "https://medium.com/@sachindrapandey/cracking-programming-interviews-a-guide-for-ios-developers-part-2-3-core-topics-84b6c413bcff",
+      "snippet": "Reducers: Specify how state transitions occur. Pros: Great for ... iOS protects binaries from reverse engineering through several",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5333
+    },
+    {
+      "title": "iOS App Reverse Engineering - Que Posa! - Medium",
+      "url": "https://medium.com/@bellaposa/ios-app-reverse-engineering-de33ab6ca462",
+      "snippet": "",
+      "published_date": "2025-01-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "Swift Concurrency: Part 3 — Bridging Legacy APIs with Continuations",
+      "url": "https://nsvasilev.medium.com/swift-concurrency-part-3-bridging-legacy-apis-with-continuations-32455d050fd0",
+      "snippet": "",
+      "published_date": "2026-02-01T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.4667
+    },
+    {
+      "title": "Swift Concurrency [PART-5](@MainActor) | by Debdut Saha | Jan, 2026 | Medium",
+      "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-5-mainactor-3c3431cc0700",
+      "snippet": "",
+      "published_date": "2026-01-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4667
+    },
+    {
+      "title": "Swift Concurrency in Real Apps: Actors, MainActor, and Performance Tradeoffs | by Mushthak Ebrahim | Feb, 2026 | Medium",
+      "url": "https://medium.com/@musmein/swift-concurrency-in-real-apps-actors-mainactor-and-performance-tradeoffs-0150e860c5eb",
+      "snippet": "",
+      "published_date": "2026-02-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4667
+    },
+    {
+      "title": "Migrating callback based code to Swift Concurrency with continuations",
+      "url": "https://www.donnywals.com/migrating-callback-based-code-to-swift-concurrency-with-continuations/",
+      "snippet": "# Migrating callback based code to Swift Concurrency with continuations. Swift's async/await feature significantly enhances the readability of asynchronous code for iOS 13 and later versions. In this post, I'll demonstrate how to convert callback-based asynchronous code into functions compatible with async/await, using Swift's `async` keyword. ## Converting a Callback-Based Function to Async/Await. To adapt our `validToken` function for async/await, we create an `async throws` version returning a `Token`. The challenge lies in integrating the existing callback-based `validToken` with our new async version. This function uses `withCheckedThrowingContinuation` to bridge our callback-based `validToken` with the async version. This post illustrated how to transform a callback-based function into an async function using continuations. Continuations are an excellent tool for gradually integrating async/await into your existing codebase without a complete overhaul. In conclusion, continuations offer a straightforward and elegant solution for converting existing callback-based functions into async/await compatible ones. The difference between checked and unsafe continuations in Swift.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.4333
+    },
+    {
+      "title": "3 Swift Concurrency Challenges from the Last 2 Weeks",
+      "url": "https://twocentstudios.com/2025/08/12/3-swift-concurrency-challenges-from-the-last-2-weeks/",
+      "snippet": "func setNotificationTapHandler(_ handler: @escaping @MainActor(PushNotificationPayload) -> Void){notificationTapHandler = handler} @MainActor func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) as ync{let userInfo = response. From this whole weeks-long process, I’ve learned essentially nothing about the proper usage of Swift Concurrency, my mental model is less well-formed than it used to be, and I still have a lingering problem that I cannot practically devote enough time to comprehensively solve right now. // Version 1: queryActivityStarting Task{@MainActor[weak self] in guard let self else{return}// Check motion history for timeout let timeout = await withCheckedContinuation{continuation in activityManager. However, is it correct to await with a `MainActor`-isolated `Task` while also having the `queryActivityStarting` function return on `OperationQueue.main`? final class SerialProcessor< Input: Sendable, Output: Sendable>{typealias Process = @Sendable(Input) as ync -> Output// Inbound (sync) and outbound (single-consumer) pipes private let inPair:(stream: AsyncStream< Input>, continuation: AsyncStream< Input>. stream{let output = await process(input) outPair. @MainActor @Observable final class ContentViewModel{@ObservationIgnored let serialProcessor: SerialProcessor< CLLocation, RailwayTrackerResult>private(set) var latestResult: RailwayTrackerResult ?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4333
+    },
+    {
+      "title": "Async/Await and MainActor Strategies",
+      "url": "https://medium.com/the-swift-cooperative/async-await-and-mainactor-strategies-cc35b6c58b52",
+      "snippet": "In-depth look at where to place @MainActor (class, method, or Task), using await MainActor.run for UI updates after async work, and strategies for background tasks followed by main-thread UI refreshes.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.4333
+    },
+    {
+      "title": "Wrapping delegates for @MainActor consumers in Swift",
+      "url": "https://augmentedcode.io/2022/10/17/wrapping-delegates-for-mainactor-consumers-in-swift/",
+      "snippet": "",
+      "published_date": "2022-10-17T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.4
+    },
+    {
+      "title": "MainActor usage in Swift explained to dispatch to the main thread",
+      "url": "https://www.avanderlee.com/swift/mainactor-dispatch-main-thread/",
+      "snippet": "SwiftLee > Swift > MainActor usage in Swift explained to dispatch to the main thread. # MainActor usage in Swift explained to dispatch to the main thread. MainActor is a new attribute introduced in Swift 5.5 as a global actor providing an executor that performs its tasks on the main thread. A MainActor is a globally unique actor who performs his tasks on the main thread. Without the global actor attribute, anyone could forget to use `MainActor.run`, potentially leading to UI updates taking place on a background thread. Before Swift 5.5, you might have defined many dispatch statements to ensure tasks are running on the main thread. In those cases, isolating properties, methods, instances, or closures to the main actor ensures tasks perform on the main thread. Therefore, see if you can get your code on Swift 6; otherwise, be sharp when using the main actor attribute. * Global actor in Swift Concurrency explained with code examples. * MainActor usage in Swift explained to dispatch to the main thread.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Using the MainActor attribute to automatically dispatch UI updates ...",
+      "url": "https://www.swiftbysundell.com/articles/the-main-actor-attribute",
+      "snippet": "How the MainActor attribute eliminates the need for us to manually dispatch UI updates on the main queue when using Swift 5.5's new",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.3667
+    },
+    {
+      "title": "SwiftUI Tasks Blocking the MainActor",
+      "url": "https://useyourloaf.com/blog/swiftui-tasks-blocking-the-mainactor/",
+      "snippet": "",
+      "published_date": "2024-03-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "How to use Tasks and MainActor in Swift Concurrency - LinkedIn",
+      "url": "https://www.linkedin.com/posts/jacobmartinbartlett_advanced-swift-concurrency-jumping-to-the-activity-7376964175908007937-qrZr",
+      "snippet": "",
+      "published_date": "2025-09-25T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "iOS 26 - Reversing Swift Like a Pro",
+      "url": "https://hexai.re/blog/reversing-swift-like-a-pro",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "Coruna: Complete Technical Teardown of a State-Grade iOS/macOS Exploit Chain | NadSec-Online",
+      "url": "https://www.nadsec.online/blog/coruna-technical-analysis",
+      "snippet": "",
+      "published_date": "2026-03-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "Reverse engineering UIKit to fix our top crash",
+      "url": "https://www.nutrient.io/blog/reverse-engineering-uikit/",
+      "snippet": "",
+      "published_date": "2021-08-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "Bridging Legacy APIs with MainActor.assumeIsolated",
+      "url": "https://needone.app/bridging-legacy-apis-with-mainactor-assumeisolated/",
+      "snippet": "",
+      "published_date": "2026-03-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "How to Use Swift Concurrency with async/await - OneUptime",
+      "url": "https://oneuptime.com/blog/post/2026-02-03-swift-async-await/view",
+      "snippet": "",
+      "published_date": "2026-02-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "How to use @MainActor to run code on the main queue",
+      "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-mainactor-to-run-code-on-the-main-queue",
+      "snippet": "",
+      "published_date": "2024-11-16T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.3333
+    },
+    {
+      "title": "Redux-like state container in SwiftUI. Swift concurrency migration",
+      "url": "https://swiftwithmajid.com/2022/02/17/redux-like-state-container-in-swiftui-part5/",
+      "snippet": "Migrating a Redux-style state container (with Reducer, Store, and effects using Combine) to Swift concurrency by adding @MainActor to the Store for main-thread state access and UI updates.",
+      "published_date": "2022-02-17",
+      "source": "grok",
+      "score": 0.32
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Bridging Legacy APIs with MainActor.assumeIsolated",
+        "url": "https://needone.app/bridging-legacy-apis-with-mainactor-assumeisolated/",
+        "snippet": "",
+        "published_date": "2026-03-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Swift Concurrency: Part 3 — Bridging Legacy APIs with Continuations",
+        "url": "https://nsvasilev.medium.com/swift-concurrency-part-3-bridging-legacy-apis-with-continuations-32455d050fd0",
+        "snippet": "",
+        "published_date": "2026-02-01T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.4667
+      },
+      {
+        "title": "Swift Concurrency [PART-5](@MainActor) | by Debdut Saha | Jan, 2026 | Medium",
+        "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-5-mainactor-3c3431cc0700",
+        "snippet": "",
+        "published_date": "2026-01-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4667
+      },
+      {
+        "title": "Wrapping delegates for @MainActor consumers in Swift",
+        "url": "https://augmentedcode.io/2022/10/17/wrapping-delegates-for-mainactor-consumers-in-swift/",
+        "snippet": "",
+        "published_date": "2022-10-17T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.4
+      },
+      {
+        "title": "Swift Concurrency in Real Apps: Actors, MainActor, and Performance Tradeoffs | by Mushthak Ebrahim | Feb, 2026 | Medium",
+        "url": "https://medium.com/@musmein/swift-concurrency-in-real-apps-actors-mainactor-and-performance-tradeoffs-0150e860c5eb",
+        "snippet": "",
+        "published_date": "2026-02-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4667
+      },
+      {
+        "title": "Swift Concurrency [PART-5](@MainActor) | by Debdut Saha | Jan, 2026 | Medium",
+        "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-5-mainactor-3c3431cc0700",
+        "snippet": "",
+        "published_date": "2026-01-21T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "How to Use Swift Concurrency with async/await - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-02-03-swift-async-await/view",
+        "snippet": "",
+        "published_date": "2026-02-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "SwiftUI Tasks Blocking the MainActor",
+        "url": "https://useyourloaf.com/blog/swiftui-tasks-blocking-the-mainactor/",
+        "snippet": "",
+        "published_date": "2024-03-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "How to use Tasks and MainActor in Swift Concurrency - LinkedIn",
+        "url": "https://www.linkedin.com/posts/jacobmartinbartlett_advanced-swift-concurrency-jumping-to-the-activity-7376964175908007937-qrZr",
+        "snippet": "",
+        "published_date": "2025-09-25T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "How to use @MainActor to run code on the main queue",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-mainactor-to-run-code-on-the-main-queue",
+        "snippet": "",
+        "published_date": "2024-11-16T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.3333
+      },
+      {
+        "title": "[PDF] iOS App Reverse Engineering - GitHub Pages",
+        "url": "https://algorithm-master.github.io/Books/iOSAppReverseEngineering.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.55
+      },
+      {
+        "title": "iOS 26 - Reversing Swift Like a Pro",
+        "url": "https://hexai.re/blog/reversing-swift-like-a-pro",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "Coruna: Complete Technical Teardown of a State-Grade iOS/macOS Exploit Chain | NadSec-Online",
+        "url": "https://www.nadsec.online/blog/coruna-technical-analysis",
+        "snippet": "",
+        "published_date": "2026-03-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "Reverse engineering UIKit to fix our top crash",
+        "url": "https://www.nutrient.io/blog/reverse-engineering-uikit/",
+        "snippet": "",
+        "published_date": "2021-08-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "iOS App Reverse Engineering - Que Posa! - Medium",
+        "url": "https://medium.com/@bellaposa/ios-app-reverse-engineering-de33ab6ca462",
+        "snippet": "",
+        "published_date": "2025-01-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5
+      }
+    ],
+    "tavily": [
+      {
+        "title": "MainActor usage in Swift explained to dispatch to the main thread",
+        "url": "https://www.avanderlee.com/swift/mainactor-dispatch-main-thread/",
+        "snippet": "SwiftLee > Swift > MainActor usage in Swift explained to dispatch to the main thread. # MainActor usage in Swift explained to dispatch to the main thread. MainActor is a new attribute introduced in Swift 5.5 as a global actor providing an executor that performs its tasks on the main thread. A MainActor is a globally unique actor who performs his tasks on the main thread. Without the global actor attribute, anyone could forget to use `MainActor.run`, potentially leading to UI updates taking place on a background thread. Before Swift 5.5, you might have defined many dispatch statements to ensure tasks are running on the main thread. In those cases, isolating properties, methods, instances, or closures to the main actor ensures tasks perform on the main thread. Therefore, see if you can get your code on Swift 6; otherwise, be sharp when using the main actor attribute. * Global actor in Swift Concurrency explained with code examples. * MainActor usage in Swift explained to dispatch to the main thread.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Wrapping delegates for @MainActor consumers in Swift",
+        "url": "https://augmentedcode.io/2022/10/17/wrapping-delegates-for-mainactor-consumers-in-swift/",
+        "snippet": "With a little bit of code, we achieved what we wanted: listening to delegate callbacks and forwarding them to the view model on the main thread.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Migrating callback based code to Swift Concurrency with continuations",
+        "url": "https://www.donnywals.com/migrating-callback-based-code-to-swift-concurrency-with-continuations/",
+        "snippet": "# Migrating callback based code to Swift Concurrency with continuations. Swift's async/await feature significantly enhances the readability of asynchronous code for iOS 13 and later versions. In this post, I'll demonstrate how to convert callback-based asynchronous code into functions compatible with async/await, using Swift's `async` keyword. ## Converting a Callback-Based Function to Async/Await. To adapt our `validToken` function for async/await, we create an `async throws` version returning a `Token`. The challenge lies in integrating the existing callback-based `validToken` with our new async version. This function uses `withCheckedThrowingContinuation` to bridge our callback-based `validToken` with the async version. This post illustrated how to transform a callback-based function into an async function using continuations. Continuations are an excellent tool for gradually integrating async/await into your existing codebase without a complete overhaul. In conclusion, continuations offer a straightforward and elegant solution for converting existing callback-based functions into async/await compatible ones. The difference between checked and unsafe continuations in Swift.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.4333
+      },
+      {
+        "title": "Using the MainActor attribute to automatically dispatch UI updates ...",
+        "url": "https://www.swiftbysundell.com/articles/the-main-actor-attribute",
+        "snippet": "How the MainActor attribute eliminates the need for us to manually dispatch UI updates on the main queue when using Swift 5.5's new",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.3667
+      },
+      {
+        "title": "Effect of @MainActor inference on Obj-C completion callbacks",
+        "url": "https://forums.swift.org/t/effect-of-mainactor-inference-on-obj-c-completion-callbacks/75058",
+        "snippet": "For the purposes of this example, I've written out the code to call both translations of the Obj-C function: \"synchronous\" and \"asynchronous\".",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "How to use Tasks and MainActor in Swift Concurrency - LinkedIn",
+        "url": "https://www.linkedin.com/posts/jacobmartinbartlett_advanced-swift-concurrency-jumping-to-the-activity-7376964175908007937-qrZr",
+        "snippet": "Advanced Swift Concurrency: Jumping to the Main Thread vs Main Actor It’s critical to move work between background threads and the main thread, in order to update any UI. It’s really important to understand that this is different from executing immediately—the Swift Concurrency runtime global concurrent executor schedules jobs on the cooperative thread pool. 🔗 New Article Published: “Understanding Swift Concurrency – From Callbacks to Actors” I just published a deep dive into how async/await, Task, and actor transform the way we write concurrency in Swift — and how we can avoid the pitfalls of the old GCD world. Check it out on Medium: “Understanding Swift Concurrency: From Callbacks to Actors — A Real iOS Use Case” 🧠 What You’ll Learn Why callbacks and DispatchQueue approaches were fragile How async/await simplifies asynchronous code How actor protects shared mutable state https://lnkd.in/dSwZWxeS. Understanding Swift Concurrency: From Callbacks to Actors — A Real iOS Use Case   medium.com.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to correctly update the UI from an asynchronous context",
+        "url": "https://forums.swift.org/t/how-to-correctly-update-the-ui-from-an-asynchronous-context/71155",
+        "snippet": "In your exact case it won't run in arbitrary order, but it is easy to eventually call it not from the main actor and the state updates might execute differently. Your state property directly affects view, so it should be isolated and updated from the main actor. You can also make `getRemoteFruits` to be `nonisolated` if they are part of the view model and you want to ensure 100% they won’t run as part of main actor, in that case you will need `Fruit` to be `Sendable` as it will cross isolation boundary from non-isolated code to main-actor isolated. `# Clarify the Execution of Non-Actor-Isolated Async Functions. SE-0306, which introduced actors to Swift, states that `async` functions may be actor-isolated, meaning that they formally run on some actor's executor. Nothing in either SE-0306 or SE-0296 (`async`/`await`) ever specifies where asynchronous functions that *aren't* actor-isolated run. In the current implementation of Swift, `async` functions that aren't actor-isolated never intentionally change the current executor.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.6667
+      },
+      {
+        "title": "@MainActor view model with async let functions : r/SwiftUI - Reddit",
+        "url": "https://www.reddit.com/r/SwiftUI/comments/1btn9uj/mainactor_view_model_with_async_let_functions/",
+        "snippet": "Swift concurrency lets us do two things with regard to your question. First, we can specify the actor used for things in our Task block.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5667
+      },
+      {
+        "title": "Update UI after async await call - swift - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/68252298/update-ui-after-async-await-call",
+        "snippet": "My question is what is better approach to update UI on the main queue? DispatchQueue.main.async look ugly and I guess there is a better approach to do the same.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "3 Swift Concurrency Challenges from the Last 2 Weeks",
+        "url": "https://twocentstudios.com/2025/08/12/3-swift-concurrency-challenges-from-the-last-2-weeks/",
+        "snippet": "func setNotificationTapHandler(_ handler: @escaping @MainActor(PushNotificationPayload) -> Void){notificationTapHandler = handler} @MainActor func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) as ync{let userInfo = response. From this whole weeks-long process, I’ve learned essentially nothing about the proper usage of Swift Concurrency, my mental model is less well-formed than it used to be, and I still have a lingering problem that I cannot practically devote enough time to comprehensively solve right now. // Version 1: queryActivityStarting Task{@MainActor[weak self] in guard let self else{return}// Check motion history for timeout let timeout = await withCheckedContinuation{continuation in activityManager. However, is it correct to await with a `MainActor`-isolated `Task` while also having the `queryActivityStarting` function return on `OperationQueue.main`? final class SerialProcessor< Input: Sendable, Output: Sendable>{typealias Process = @Sendable(Input) as ync -> Output// Inbound (sync) and outbound (single-consumer) pipes private let inPair:(stream: AsyncStream< Input>, continuation: AsyncStream< Input>. stream{let output = await process(input) outPair. @MainActor @Observable final class ContentViewModel{@ObservationIgnored let serialProcessor: SerialProcessor< CLLocation, RailwayTrackerResult>private(set) var latestResult: RailwayTrackerResult ?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4333
+      },
+      {
+        "title": "Would it make sense for the reducer closure to be marked ... - GitHub",
+        "url": "https://github.com/pointfreeco/swift-composable-architecture/discussions/1272",
+        "snippet": "Given the reducer usually runs on the main thread, would it make sense to make the reducer closure @MainActor , or at least have the possibility to chose",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.6333
+      },
+      {
+        "title": "Cracking Programming Interviews: A Guide for iOS Developers",
+        "url": "https://medium.com/@sachindrapandey/cracking-programming-interviews-a-guide-for-ios-developers-part-2-3-core-topics-84b6c413bcff",
+        "snippet": "Reducers: Specify how state transitions occur. Pros: Great for ... iOS protects binaries from reverse engineering through several",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5333
+      },
+      {
+        "title": "Even if you assign the `@MainActor` attribute to a closure, the ...",
+        "url": "https://forums.swift.org/t/even-if-you-assign-the-mainactor-attribute-to-a-closure-the-processing-inside-the-closure-is-not-executed-on-the-main-thread/71239",
+        "snippet": "Detatched Task does not inherit actor context, but since UIViewContrller is implicitly isolated to MainActor, the callback is isolated to",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.6667
+      },
+      {
+        "title": "Fixing a race condition in our iOS app using MainActor isolation",
+        "url": "https://www.reddit.com/r/iosdev/comments/1ozbxvi/fixing_a_race_condition_in_our_ios_app_using/",
+        "snippet": "The fix was straightforward: we isolated the entire view model with MainActor, forcing all state mutations and UI-bound properties to run on the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "How to avoid an entire call stack being declared MainActor because ...",
+        "url": "https://stackoverflow.com/questions/74181726/how-to-avoid-an-entire-call-stack-being-declared-mainactor-because-a-low-level-f",
+        "snippet": "I have functions (Eg, Analytics) that at the lowest level require access to the device screen scale UIScreen.main.scale which is isolated to MainActor.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      }
+    ],
+    "grok": [
+      {
+        "title": "Swift Concurrency: Part 3 — Bridging Legacy APIs with Continuations",
+        "url": "https://nsvasilev.medium.com/swift-concurrency-part-3-bridging-legacy-apis-with-continuations-32455d050fd0",
+        "snippet": "Explains using withCheckedContinuation to bridge callback-based legacy APIs to async/await in Swift, including examples of resuming continuations and updating UI (e.g., with UIView.animate).",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Migrating callback based code to Swift Concurrency with continuations",
+        "url": "https://www.donnywals.com/migrating-callback-based-code-to-swift-concurrency-with-continuations/",
+        "snippet": "Detailed guide on converting callback-based asynchronous code to async/await using continuations in Swift, with practical iOS examples.",
+        "published_date": "2022-04-24",
+        "source": "grok"
+      },
+      {
+        "title": "Using the MainActor attribute to automatically dispatch UI updates",
+        "url": "https://www.swiftbysundell.com/articles/the-main-actor-attribute",
+        "snippet": "In-depth explanation of @MainActor for ensuring UI updates run on the main thread in Swift concurrency, including how it applies to UIKit and SwiftUI classes.",
+        "published_date": "2021-06-13",
+        "source": "grok"
+      },
+      {
+        "title": "Wrapping delegates for @MainActor consumers in Swift",
+        "url": "https://augmentedcode.io/2022/10/17/wrapping-delegates-for-mainactor-consumers-in-swift/",
+        "snippet": "Shows how to wrap delegate callbacks to forward results to @MainActor-isolated consumers (e.g., view models) safely on the main thread.",
+        "published_date": "2022-10-17",
+        "source": "grok"
+      },
+      {
+        "title": "How to resume a continuation ensuring that the result is delivered on the MainActor",
+        "url": "https://stackoverflow.com/questions/73303931/how-to-resume-a-continuation-ensuring-that-the-result-is-delivered-on-the-mainac",
+        "snippet": "Discussion on resuming continuations while ensuring delivery on @MainActor for UI state updates in Swift concurrency.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.7333
+      },
+      {
+        "title": "How to correctly update the UI from an asynchronous context",
+        "url": "https://forums.swift.org/t/how-to-correctly-update-the-ui-from-an-asynchronous-context/71155",
+        "snippet": "Discussion on jumping to the main thread for UI updates in async contexts with Swift concurrency. Covers @MainActor isolation, nonisolated code running on generic executors, and best practices for safe UI updates after awaits.",
+        "published_date": "2024-04-09",
+        "source": "grok"
+      },
+      {
+        "title": "How to use @MainActor to run code on the main queue",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-mainactor-to-run-code-on-the-main-queue",
+        "snippet": "Explains using @MainActor and await MainActor.run() for UI updates. Notes that if already on MainActor, code runs immediately without suspension, and contrasts with Task for non-awaiting cases.",
+        "published_date": "2024-11-16",
+        "source": "grok"
+      },
+      {
+        "title": "Async/Await and MainActor Strategies",
+        "url": "https://medium.com/the-swift-cooperative/async-await-and-mainactor-strategies-cc35b6c58b52",
+        "snippet": "In-depth look at where to place @MainActor (class, method, or Task), using await MainActor.run for UI updates after async work, and strategies for background tasks followed by main-thread UI refreshes.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.4333
+      },
+      {
+        "title": "Explore concurrency in SwiftUI - WWDC25",
+        "url": "https://developer.apple.com/videos/play/wwdc2025/266/",
+        "snippet": "Apple's guidance on separating async logic from UI logic in SwiftUI. Use state as a bridge: perform async work, then synchronously mutate state on MainActor to trigger UI updates after tasks complete.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.7
+      },
+      {
+        "title": "Swift concurrency: Update a sample app - WWDC21",
+        "url": "https://developer.apple.com/videos/play/wwdc2021/10194/",
+        "snippet": "Official WWDC session covering migration to async/await. Demonstrates marking update methods @MainActor, grouping UI updates with MainActor.run to avoid suspensions between operations, and handling awaits in concurrent code.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6667
+      },
+      {
+        "title": "Would it make sense for the reducer closure to be marked as @MainActor? - pointfreeco/swift-composable-architecture",
+        "url": "https://github.com/pointfreeco/swift-composable-architecture/discussions/1272",
+        "snippet": "Discussion on marking TCA reducer closures with @MainActor for Swift concurrency, noting that reducers typically run on the main thread but explicit marking would be a breaking change. Covers Store, ViewStore, and integration with Swift concurrency.",
+        "published_date": "2022-01-01",
+        "source": "grok"
+      },
+      {
+        "title": "Redux-like state container in SwiftUI. Swift concurrency migration",
+        "url": "https://swiftwithmajid.com/2022/02/17/redux-like-state-container-in-swiftui-part5/",
+        "snippet": "Migrating a Redux-style state container (with Reducer, Store, and effects using Combine) to Swift concurrency by adding @MainActor to the Store for main-thread state access and UI updates.",
+        "published_date": "2022-02-17",
+        "source": "grok",
+        "score": 0.32
+      },
+      {
+        "title": "Issue with Destination reducer in MainActor default isolation - pointfreeco/swift-composable-architecture",
+        "url": "https://github.com/pointfreeco/swift-composable-architecture/discussions/3772",
+        "snippet": "TCA discussion on @MainActor isolation for Destination reducers, including manual macro expansion and CaseReducerState conformance for handling state in Composable Architecture.",
+        "published_date": "2025-12-04",
+        "source": "grok",
+        "score": 0.66
+      },
+      {
+        "title": "Even if you assign the @MainActor attribute to a closure, the processing inside the closure is not executed on the main thread",
+        "url": "https://forums.swift.org/t/even-if-you-assign-the-mainactor-attribute-to-a-closure-the-processing-inside-the-closure-is-not-executed-on-the-main-thread/71239",
+        "snippet": "Swift forums thread explaining @MainActor behavior with callbacks, detached Tasks, and UIViewController isolation; detached tasks do not inherit actor context but callbacks may still run on MainActor.",
+        "published_date": "2024-04-13",
+        "source": "grok"
+      },
+      {
+        "title": "iOS App Reverse Engineering",
+        "url": "https://algorithm-master.github.io/Books/iOSAppReverseEngineering.pdf",
+        "snippet": "Comprehensive PDF guide to iOS reverse engineering tools and techniques, including locating callbacks (e.g., refresh completion callbacks in Mail app), class-dump, Cycript, LLDB, and tweaking app behavior.",
+        "published_date": "",
+        "source": "grok"
+      }
+    ]
+  }
+}

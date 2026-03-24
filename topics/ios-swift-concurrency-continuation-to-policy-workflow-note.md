@@ -93,8 +93,10 @@ What to separate:
 
 Useful reminder:
 - the first useful proof object is often not the prettiest async function name, but the first truthful resume/delivery edge
-- a resume call is also not automatically the first behavior-changing consumer: Swift continuation material can be resumed first and only later rescheduled into the task/executor context where one reducer, mapper, or coordinator finally changes behavior
+- a resume call is also not automatically the first behavior-changing consumer: Swift continuation material can be resumed first and only later rescheduled into the task/executor context where one reducer, mapper, coordinator, or MainActor-isolated state owner finally changes behavior
+- when a flow is strongly UI-bound or view-model-bound, the next useful consequence boundary may be the first `@MainActor`-isolated state write, route selection, or coordinator handoff rather than the raw resume site itself
 - do not flatten single-shot continuation cases, `AsyncStream` cases, and `AsyncSequence`/bytes-consumption cases into one generic “async callback” bucket, because their truthful stop rules differ
+- also do not flatten generic post-resume Swift logic and MainActor/UI-state handoff into one bucket when the first behavior-bearing consumer is clearly isolated to the main-actor side
 
 ### C. Resume visibility vs policy reduction
 Seeing result material after resume is still not the same thing as understanding app-local meaning.
@@ -308,6 +310,20 @@ result normalized into readable Swift enum/object
 Best move:
 - treat the readable enum/object as normalization
 - prove the first consumer/state write/scheduler decision that changes later behavior
+
+### Scenario F: callback and continuation are truthful, but MainActor/UI-state handoff owns the first usable consequence
+Pattern:
+
+```text
+callback/delegate already frozen
+  -> continuation resume or task wakeup looks correct
+  -> MainActor-isolated view-model / coordinator / UI-state update chooses the real route
+```
+
+Best move:
+- keep callback and resume proof fixed
+- ask whether the first behavior-bearing consumer is actually the first `@MainActor`-isolated state mutation, route selector, or coordinator handoff
+- prove one later effect from that MainActor-side consumer instead of widening back into generic callback hunting
 
 ## 6. Breakpoint / hook placement guidance
 Useful anchors include:
