@@ -93,10 +93,12 @@ What to separate:
 
 Useful reminder:
 - the first useful proof object is often not the prettiest async function name, but the first truthful resume/delivery edge
+- imported `async` surfaces may still just be bridge faces over older completion-handler families, so visible async entry points are handoff candidates rather than automatic consequence owners
 - a resume call is also not automatically the first behavior-changing consumer: Swift continuation material can be resumed first and only later rescheduled into the task/executor context where one reducer, mapper, coordinator, or MainActor-isolated state owner finally changes behavior
 - when a flow is strongly UI-bound or view-model-bound, the next useful consequence boundary may be the first `@MainActor`-isolated state write, route selection, or coordinator handoff rather than the raw resume site itself
 - do not flatten single-shot continuation cases, `AsyncStream` cases, and `AsyncSequence`/bytes-consumption cases into one generic “async callback” bucket, because their truthful stop rules differ
 - also do not flatten generic post-resume Swift logic and MainActor/UI-state handoff into one bucket when the first behavior-bearing consumer is clearly isolated to the main-actor side
+- preserve exact-once continuation discipline as a real operator distinction: callback visibility, continuation creation/storage, actual resume, missing-resume leak/suspend, and double-resume misuse are different failure shapes and can produce misleading compare pairs if collapsed into one vague “async drift” story
 
 ### C. Resume visibility vs policy reduction
 Seeing result material after resume is still not the same thing as understanding app-local meaning.
@@ -178,12 +180,13 @@ Bad default choices include:
 
 A source-backed discipline worth preserving here:
 - imported Objective-C completion-handler APIs may present as Swift `async` surfaces, so the visible `async` entry is not automatically a different semantic family from the underlying completion/delegate path
-- checked continuation semantics reinforce an exact-once proof mindset: treat missing-resume, double-resume, or cancellation-owned conclusion as distinct failure shapes rather than generic “async weirdness”
+- checked continuation semantics reinforce an exact-once proof mindset: treat missing-resume, leaked-suspend, double-resume, or cancellation-owned conclusion as distinct failure shapes rather than generic “async weirdness”
 - continuation setup runs immediately in the current async context, but task progress after `resume(...)` is still scheduler/executor mediated rather than “inline callback code just kept going”
 - in practical terms, separate three moments instead of collapsing them:
   - continuation creation/storage
   - resume or stream-delivery event
   - first resumed task-side reducer / consumer that actually predicts later behavior
+- when the first clear consequence seems UI- or coordinator-owned, preserve one extra split between resumed task-side reducer truth and the first `@MainActor`-isolated state write / route selection / coordinator handoff; do not treat annotation visibility alone as enough
 - for stream-shaped cases, also separate:
   - stream construction
   - first yield / delivery

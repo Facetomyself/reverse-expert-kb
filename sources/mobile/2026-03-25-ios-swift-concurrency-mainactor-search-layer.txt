@@ -1,0 +1,20 @@
+Query: iOS reverse engineering Swift concurrency continuation Task MainActor callback consumer workflow
+Mode: deep
+Intent: exploratory
+Requested sources: exa,tavily,grok
+
+Top returned results retained for this run:
+- https://www.donnywals.com/migrating-callback-based-code-to-swift-concurrency-with-continuations/
+- https://www.avanderlee.com/swift/mainactor-dispatch-main-thread/
+- https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-continuations-to-convert-completion-handlers-into-async-functions
+- https://hackernoon.com/swift-concurrency-part-3
+
+Search result summary:
+- Exa: succeeded
+- Tavily: succeeded
+- Grok: succeeded
+
+Endpoint set for audit:
+- Exa: http://158.178.236.241:7860
+- Tavily: http://proxy.zhangxuemin.work:9874/api
+- Grok: http://proxy.zhangxuemin.work:8000/v1

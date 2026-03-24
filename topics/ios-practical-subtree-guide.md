@@ -75,6 +75,8 @@ Inside families 2 and 3, a recurring practical reminder now deserves to stay exp
 
 A newer continuation reminder also deserves to stay explicit here: once callback/delegate truth and continuation resume truth are already good enough, some modern Swift-heavy cases still hide the first usable consequence one hop later at a MainActor-isolated view-model, coordinator, or UI-state boundary. In those cases, do not reopen broad callback hunting; freeze one MainActor-side state consumer and one later effect instead.
 
+A second Swift-heavy reminder is now also worth preserving canonically: exact-once continuation discipline creates several operator-meaningful failure shapes that should not be collapsed into vague async drift. Callback visibility, continuation creation/storage, actual resume, missing-resume leak/suspend, double-resume misuse, resumed reducer truth, and MainActor-side consumer truth can each break a compare pair differently.
+
 A compact operator ladder for this branch is:
 
 ```text
@@ -441,9 +443,11 @@ When a case is clearly iOS-shaped, ask these in order:
    - if yes, continue into Swift-concurrency continuation-to-policy work
 12. **Before treating that as one generic async seam, can you tell whether the case is really single-shot continuation, multi-value `AsyncStream`, or `AsyncSequence`/async-bytes consumption shaped?**
    - if not, classify that first so the next truthful boundary is not chosen too high
-13. **Is the path already replay-close, but the remaining gap still looks like one authenticated-context, object-materialization, or narrower init/runtime obligation?**
+13. **Inside that Swift-heavy seam, have you also separated callback visibility, continuation creation/storage, actual resume, missing-resume leak/suspend, double-resume misuse, resumed reducer truth, and MainActor-side consumer truth?**
+   - if not, separate those before calling the case “async drift” or widening compare-pair claims
+14. **Is the path already replay-close, but the remaining gap still looks like one authenticated-context, object-materialization, or narrower init/runtime obligation?**
    - if yes, continue into mitigation-aware replay-repair work
-14. **Are callbacks or result wrappers already visible, and is the landing already trustworthy enough, but the first behavior-changing policy state still hidden?**
+15. **Are callbacks or result wrappers already visible, and is the landing already trustworthy enough, but the first behavior-changing policy state still hidden?**
    - if yes, continue into result/callback-to-policy-state work
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
