@@ -47,6 +47,12 @@ Use this note when most of the following are true:
 - the current bottleneck is also no longer broad compare-pair design
 - the missing step is choosing the right watched object and finding the first bad write or first decisive reducer behind it
 
+A routing reminder worth making explicit:
+- this note often begins **after** compare-run work has already done its job
+- one trustworthy compare pair and one first meaningful divergence may already exist
+- but that divergence can still be too aggregate to watch directly
+- the next move is often to shrink it into the smallest durable field / slot / slice / reducer output that a reverse watchpoint, TTD memory query, or bounded backward search can answer efficiently
+
 Representative cases:
 - one field is wrong only in the failing run, but many helper writes happened earlier
 - a normalized/decrypted buffer exists late, but the first materializing write is still unclear
