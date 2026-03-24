@@ -265,6 +265,11 @@ Prefer the handler/slot that:
 - queues a worker or request path
 - suppresses, rewrites, or forwards the event in a behavior-changing way
 
+Preserve three narrower stop rules before generalizing:
+- **Win32:** do not flatten shared subclass wrappers into one owner; recover the exact `HWND` plus live subclass hop, and when helper-based subclassing is in play preserve the callback + subclass-ID pair and instance-local reference data rather than stopping at “this window class is subclassed”
+- **Qt:** do not flatten `AutoConnection` into generic “queued” proof; first determine receiver thread affinity and whether the slot is delivered directly at emit time or later through queued delivery
+- **Cocoa:** do not stop at `NSApplication sendEvent:` unless that method itself suppresses, rewrites, retargets, or policy-gates the path; otherwise continue into one `NSWindow`, responder-chain receiver, target/action consumer, or later exported-object method that actually changes behavior
+
 ### Step 5: use one narrow runtime proof
 Minimal proofs that work well here:
 - breakpoint/log on one `WM_*` branch rather than the whole `WndProc`
