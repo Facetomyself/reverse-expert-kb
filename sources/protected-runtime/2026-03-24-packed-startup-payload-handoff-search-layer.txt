@@ -1,0 +1,623 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "packed malware OEP TLS callbacks CRT startup first payload handoff reverse engineering",
+    "PE unpacking TLS callback CRT startup original entry point first real payload code",
+    "Windows unpacking first payload-bearing handoff after TLS callbacks CRT startup reverse engineering"
+  ],
+  "count": 32,
+  "results": [
+    {
+      "title": "How can I set up Thread-Local Storage (TLS) callbacks on Windows ...",
+      "url": "https://stackoverflow.com/questions/79804173/how-can-i-set-up-thread-local-storage-tls-callbacks-on-windows-without-crt",
+      "snippet": "I'm trying to register a Thread-Local Storage (TLS) callback in a Windows application without using the C runtime (CRT). Compiler: MSVC 14.44.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "Understanding TLS Callbacks : r/ReverseEngineering - Reddit",
+      "url": "https://www.reddit.com/r/ReverseEngineering/comments/10l2h2/understanding_tls_callbacks/",
+      "snippet": "You can place the import table in the TLS callback array, you can point a TLS callback outside of the image into a DLL, you can do all kinds of things.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Exe protection by TLS callback, trying to understand the behaviour",
+      "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour?rq=1",
+      "snippet": "When i tried to unpack it, the first thign that i had is, when i start the process with the debugger/or attach debugger later, i immediatly receive ACCESS VIOLATION exception, because Tls callback gets executed, with the following content:. I attach the full stack trace, this is the stack trace from which this callback is called, when i run the application under ida pro+windbg, tls callback is hit prior to entry point. The code in the TLS gets executed before the executables entry point and the debugger gains control. Possibly putting an INT 3 (0xCC) at the start of the TLS (and replacing the original byte) would break and allow you to step through to find the offending code, but I dont remember if this actually works or not, youll have to test it. TLS callbacks may be executed on attach because the OS creates a new thread pointing to `DbgUiBreakin` with a software breakpoint to stop the execution of the program, and the new thread causes the TLS callback to be executed.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.575
+    },
+    {
+      "title": "A very beginners guide to Malware analysis/Reverse Engineering P.1",
+      "url": "https://medium.com/@nebdar/a-very-beginners-guide-to-malware-analysis-reverse-engineering-p-1-b2d8616eda3a",
+      "snippet": "In an attempt to better understand assembly I started writing and disassembling basic C programs, eventually these posts will lead into reversing a packed malware sample. Before we get started lets go over the difference between global and local variables in C. Global variables in C are defined outside of our functions and remain consistent throughout our program and can be accessed from any function. EX: int x,c, and d are global variables defined outside of our main() function. First we see **mov** **DWORD PTR** **[rbp-0xc],0x3** this moves the integer value 3 into the local variable referenced by the stack address [rbp-0xc] (Our A variable). **mov** **DWROD PTR** **[rbp-0x8],0x5** moves the integer value 5 into local variable referenced by the stack address [rbp-0x8] (Our B variable). **mov DWORD PTR [rbp-0x4],eax** Copies the value specified by the EAX register into the local variable referenced at the stack address **[rbp-0x4]** (our empty c variable). The same C program with global variables disassembled.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.525
+    },
+    {
+      "title": "Unveiling custom packers: A comprehensive guide – Estrellas's Blog – Threat Research & Reverse Engineering.",
+      "url": "https://estr3llas.github.io/unveiling-custom-packers-a-comprehensive-guide/",
+      "snippet": "",
+      "published_date": "2024-02-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "How Malware Defends Itself Using TLS Callback Functions",
+      "url": "https://isc.sans.edu/diary/6655",
+      "snippet": "Explains TLS callbacks as an anti-debugging technique allowing code execution before the debugger pauses at the traditional Entry Point. References usage in GRUM malware for unpacking and other examples.",
+      "published_date": "2009-06-26",
+      "source": "grok",
+      "score": 0.495
+    },
+    {
+      "title": "Matanbuchus 3.0 — A Deep Dive into a Loader-as-a-Service - Malware Cake Factory",
+      "url": "https://malwarecakefactory.github.io/malware-analysis/matanbuchus-3-deep-dive/",
+      "snippet": "",
+      "published_date": "2026-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.475
+    },
+    {
+      "title": "From log.dll To A Decrypted Chrysalis Main Module | Reverse Engineer",
+      "url": "https://taogoldi.github.io/reverse-engineer/blog/chrysalis-offline-unpacking/",
+      "snippet": "",
+      "published_date": "2026-02-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.475
+    },
+    {
+      "title": "TLS Callbacks to bypass debuggers | by Andrea Bocchetti - Medium",
+      "url": "https://medium.com/@andreabocchetti88/tls-callbacks-to-bypass-debuggers-60409195ed76",
+      "snippet": "# TLS Callbacks to bypass debuggers. These callbacks are essentially a collection of functions that are defined within the TLS directory of a PE file. The Windows loader executes these callbacks prior to the creation of a thread, which implies that a TLS callback can be **run even before the main thread**. Looking at it from an anti-analysis standpoint, TLS callbacks can serve as a mechanism to verify if the implementation is under analysis before the main function is executed. This module will employ TLS callbacks to carry out anti-analysis operations. This program utilizes a TLS callback and will check if the first byte of the main function is equal to `0xCC`, if so the main function will be overwritten with `0xAA` bytes, preventing further debugging. In the operation of this program, a TLS callback is employed as a strategic mechanism to inspect whether the initial byte of the main function holds the value 0xCC.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.475
+    },
+    {
+      "title": "Exe protection by TLS callback, trying to understand the behaviour",
+      "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour",
+      "snippet": "Discussion on TLS callbacks in protected executables, noting that exceptions in TLS callbacks are discarded, stop further callbacks, and transfer control to the main entrypoint. Covers anti-debugging usage and debugger configuration to break before or on TLS callbacks.",
+      "published_date": "2017-11-25",
+      "source": "grok",
+      "score": 0.47
+    },
+    {
+      "title": "Malware Analysis — Zero to Hero. MALWARE ANALYSIS | by Or Ben Ari | Mar, 2026 | Medium",
+      "url": "https://medium.com/@OrBenAri/malware-analysis-zero-to-hero-7cc9c22df70f",
+      "snippet": "",
+      "published_date": "2026-03-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.425
+    },
+    {
+      "title": "What are TLS Callbacks and How to Find Them! - YouTube",
+      "url": "https://www.youtube.com/watch?v=zO3KSel22Mc",
+      "snippet": "... tls-callback/ Sample code: https://unprotect.it/technique/tls-callback/ Cybersecurity, reverse engineering, malware analysis and ethical hacking",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "Common System Calls Executed by Packed Malware (Reverse ...",
+      "url": "https://www.youtube.com/watch?v=9AyMZBSqaRI",
+      "snippet": "This is visualizes API calls that you can use to detect packed malware. This is part of a blog series, Reverse Engineering for Beginners",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Why Packers Are Malware's Best Defense - YouTube",
+      "url": "https://www.youtube.com/watch?v=9F8NVXxYvws",
+      "snippet": "... packed executable and uncover its original, malicious code from ... Automated Unpacking (Malware Analysis & Reverse Engineering). Anuj",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Reverse engineering packed malware - Infosec",
+      "url": "https://www.infosecinstitute.com/resources/malware-analysis/reverse-engineering-packed-malware/",
+      "snippet": "# Reverse engineering packed malware. In this article, you’ll get a better understanding of what a packed executable is and how to analyze and unpack malware. ## Analyzing packed malware. * How to Get and Set Up a Free Windows VM for Malware Analysis, Zeltser Security Corp. Even if it checks as not packed, that’s because malware authors sometimes use custom packing or modified versions of packers or scramble the code (change section names, add junk code and so on). Now you have to rebuild imports using an ImpRec (Figure 10), launch the tool and select the running process (malware.exe). ## Top 5 popular packers used in malware. For example, Allaple Polymorphic Packer is not really a packer but a standalone malware program, but its polymorphic engine uses techniques similar to packing. This was just a simple example of a packed malware that uses nothing but compression. 2. Revealing Packed Malware, Secure Systems. * 9 online tools for malware analysis. * Malware analysis arsenal: Top 15 tools.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.4
+    },
+    {
+      "title": "Reverse Engineering Malware: A Practical Beginner's Guide",
+      "url": "https://infosecwriteups.com/reverse-engineering-malware-a-practical-beginners-guide-d7b7fc06f91a",
+      "snippet": "Strings / entropy tools: reveal human readable artifacts and packed/obfuscated regions. High entropy often indicates packing or encryption.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Developing PE file packer step-by-step. Step 6. TLS - Misc",
+      "url": "https://kaimi.io/en/2012/09/developing-pe-file-packer-step-by-step-step-6-tls/",
+      "snippet": "tls->get\\_tls\\_callbacks().empty())  {  //It is necessary to reserve memory  //for original TLS callback addresses  //Plus 1 cell for null DWORD  DWORD first\\_callback\\_offset = data.size();  data.resize(data.size() + sizeof(DWORD) \\* (tls->get\\_tls\\_callbacks().size() + 1));    //First callback will be our empty one (ret 0xC),  //Write its address  \\*reinterpret\\_cast<DWORD\\*>(&data[first\\_callback\\_offset]) =  image.rva\\_to\\_va\\_32(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, empty\\_tls\\_callback\\_offset));    //Write relative virtual address  //of new TLS callbacks table  tls->set\\_callbacks\\_rva(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, first\\_callback\\_offset));    //Now write new callbacks table relative address  //to packed\\_file\\_info structure, which is placed at  //the beginning of first section  reinterpret\\_cast<packed\\_file\\_info\\*>(&image.get\\_image\\_sections().at(0).get\\_raw\\_data()[0])->new\\_rva\\_of\\_tls\\_callbacks = tls->get\\_callbacks\\_rva();  }  else  {  //If no callbacks exist, let's set address to null just in case  tls->set\\_callbacks\\_rva(0);  }    //Clean up callback array, we don't need them anymore  //We created them manually  tls->clear\\_tls\\_callbacks();    //Set new relative address  //of data used to initialize thread local memory  tls->set\\_raw\\_data\\_start\\_rva(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, data.size()));  //Recalculate the address of these data end  tls->recalc\\_raw\\_data\\_end\\_rva();    //Rebuild TLS  //Notify the rebuilder, that it is not needed to write data and callbacks  //We do this manually (callbacks are already written to the right places)  //Also we indicate that we don't need to strip null bytes at the end of the section  image.rebuild\\_tls(\\*tls, unpacker\\_added\\_section, directory\\_pos, false, false, pe\\_base::tls\\_data\\_expand\\_raw, true, false);    //Add data used to initialize local thread memory to the section  unpacker\\_added\\_section.get\\_raw\\_data() += tls->get\\_raw\\_data();  //Now set \"coderpub\" section virtual size  //taking into account SizeOfZeroFill of TLS field  image.set\\_section\\_virtual\\_size(unpacker\\_added\\_section, data.size() + tls->get\\_size\\_of\\_zero\\_fill());  //At last, strip unnecessary null bytes at the end of the section  pe\\_base::strip\\_nullbytes(unpacker\\_added\\_section.get\\_raw\\_data());  //and recalculate its sizes (raw and virtual)  image.prepare\\_section(unpacker\\_added\\_section);  } |.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.4
+    },
+    {
+      "title": "Unraveling the Layers: A Deep Dive into a Multi-Stage .NET Loader Delivering AsyncRAT | by Lucas Cobb | Mar, 2026 | Medium",
+      "url": "https://medium.com/@lucas.cobb18/unraveling-the-layers-a-deep-dive-into-a-multi-stage-net-loader-delivering-asyncrat-0f65d1432444",
+      "snippet": "",
+      "published_date": "2026-03-19T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "[PDF] Malware Reverse Engineering Handbook | CCDCOE",
+      "url": "https://ccdcoe.org/uploads/2020/07/Malware-Reverse-Engineering-Handbook-final.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "Detection Strategy for TLS Callback Injection via PE Memory ...",
+      "url": "https://attack.mitre.org/detectionstrategies/DET0467/",
+      "snippet": "# Detection Strategy for TLS Callback Injection via PE Memory Modification and Hollowing. #### Technique Detected:  Thread Local Storage | T1055.005. ## Analytics. Detects thread local storage (TLS) callback injection by monitoring memory modifications to PE headers and TLS directory structures during or after process hollowing events, followed by anomalous thread behavior prior to main entry point execution. | Module Load (DC0016) | WinEventLog:Sysmon | EventCode=7 |. | Process Access (DC0035) | WinEventLog:Sysmon | EventCode=10 |. | Process Modification (DC0020) | WinEventLog:Sysmon | EventCode=8 |. | OS API Execution (DC0021) | EDR:memory | MemoryWriteToExecutable |. | TargetProcessFilter | Subset of processes whose TLS callbacks should not change post-load (e.g., explorer.exe, lsass.exe) |. | TimeWindowBetweenLoadAndTLSModification | Acceptable delay between image load and memory tampering in .tls or .data sections |. | AnomalousThreadStartThreshold | Number of threads executing prior to main entry point that is considered suspicious |. | PayloadEntropyThreshold | Optional threshold to distinguish injected shellcode from benign memory writes |.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Unpacking StrelaStealer - Kyle Cucci's Cyber Ramblings",
+      "url": "https://securityliterate.com/unpacking-strela-stealer/",
+      "snippet": "Note the TLS storage (callbacks). When the sample first executes, it makes two TLS callbacks... Just run past these. TLS callbacks are normally worth investigating in malware... If we step into this call instruction, we’ll get to the OEP (original entry point) of the payload!",
+      "published_date": "2024-03-14",
+      "source": "grok, exa",
+      "score": 0.37
+    },
+    {
+      "title": "Debugging TLS callbacks | Infosec",
+      "url": "https://www.infosecinstitute.com/resources/reverse-engineering/debugging-tls-callbacks/",
+      "snippet": "0 [ 0] RVA [size] of Certificates Directory. 000001A4 18000000 DD 00000018 ; TLS Table size = 18 (24.). * [SecurityX (CASP+) certification: Overview and career path [2025 update]](https://www.infosecinstitute.com/resources/securityx/securityx-certification-overview-career-path/). * [Network+ certification: Overview and career path [2025 update]](https://www.infosecinstitute.com/resources/network/network-certification-overview-and-career-path/). * [CRISC certification: Overview & career path [updated 2021]](https://www.infosecinstitute.com/resources/crisc/crisc-certification-overview-career-path/). * [PMP certification: Overview and career path [updated 2021]](https://www.infosecinstitute.com/resources/pmp/pmp-certification-overview-and-career-path/). * [CGEIT certification: Overview and career path [updated 2021]](https://www.infosecinstitute.com/resources/cgeit/cgeit-certification-overview-career-path/). * [How To Become CGEIT Certified – Certification Requirements [updated 2021]](https://www.infosecinstitute.com/resources/cgeit/cgeit-certification-requirements/). * [Average CRISC Salary [2023 update]](https://www.infosecinstitute.com/resources/crisc/value-certification-average-crisc-salary/). * [An Introduction to the PMP: Exam Details and Process [updated 2021]](https://www.infosecinstitute.com/resources/pmp/an-introduction-to-the-pmp-exam-details-and-process/). * [CGEIT certification exam: overview of domains [Updated 2021]](https://www.infosecinstitute.com/resources/cgeit/cgeit-overview-domains/). * [Network+: Exam details and process [2025 update]](https://www.infosecinstitute.com/resources/network/network-exam-details-and-process/). * [SecurityX (CASP+): Exam details and process [2025 update]](https://www.infosecinstitute.com/resources/securityx/securityx-exam-details-process/). * [10 Tips for PMP Certification Exam Success [updated 2021]](https://www.infosecinstitute.com/resources/pmp/10-tips-for-pmp-certification-exam-success/). * [CGEIT certification exam details and process [updated 2021]](https://www.infosecinstitute.com/resources/cgeit/cgeit-exam-details-process/). * [How to get the CompTIA Network+ certification: Requirements and step-by-step instructions [2025 update]](https://www.infosecinstitute.com/resources/network/how-to-become-network-plus-certified-certification-requirements/). [SecurityX (CASP+) certification: Overview and career path [2025 update]](https://www.infosecinstitute.com/resources/securityx/securityx-certification-overview-career-path/).",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.37
+    },
+    {
+      "title": "Part 4: Entry Points and TLS Callbacks - YouTube",
+      "url": "https://www.youtube.com/watch?v=9K8WaZ53oOs",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.35
+    },
+    {
+      "title": "The Art of Unpacking",
+      "url": "https://blackhat.com/presentations/bh-usa-07/Yason/Whitepaper/bh-usa-07-yason-WP.pdf",
+      "snippet": "Comprehensive whitepaper on PE unpacking techniques. Section 6.3 covers TLS callbacks used by packers for debugger detection, decryption, and unpacking routines before the actual entry point. Explains identifying TLS directory via pedump, setting breakpoints in OllyDbg at system breakpoint before TLS execution, and relation to original entry point.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.35
+    },
+    {
+      "title": "OysterLoader Multi Stage Malware Evasion framework",
+      "url": "https://cybersecuritypath.com/oysterloader-multi-stage-malware-evasion-framework/",
+      "snippet": "",
+      "published_date": "2026-02-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "TangleCrypt: a sophisticated but buggy malware - WithSecure™ Labs",
+      "url": "https://labs.withsecure.com/publications/tanglecrypt",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.325
+    },
+    {
+      "title": "Malware Reverse Engineering for Beginners - Part 2",
+      "url": "https://intezer.com/blog/malware-reverse-engineering-for-beginners-part-2/",
+      "snippet": "This blog will cover key concepts and examples regarding how malware is packed, obfuscated, delivered, and executed... In this example, we will inspect a packed sample of Locky ransomware... We can see in Intezer that, indeed, it’s Locky ransomware malware.",
+      "published_date": "2023-02-16",
+      "source": "grok",
+      "score": 0.32
+    },
+    {
+      "title": "Analyzing TLS Callbacks - Ring Zero Labs",
+      "url": "https://www.ringzerolabs.com/2019/08/analyzing-tls-callbacks.html",
+      "snippet": "Overview of TLS callbacks in PE files for malware analysis and unpacking. Explains execution before Original Entry Point (OEP), usage for anti-analysis, unpacking routines, and how to locate them in IDA Pro and debuggers.",
+      "published_date": "2019-08-01",
+      "source": "grok",
+      "score": 0.32
+    },
+    {
+      "title": "Unpacking Smokeloader and Reconstructing PE Programatically using LIEF",
+      "url": "https://m.alvar.es/2020/06/unpacking-smokeloader-and.html",
+      "snippet": "",
+      "published_date": "2020-06-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Reversing the Hancitor loader",
+      "url": "https://shadowshell.io/hancitor-loader",
+      "snippet": "",
+      "published_date": "2025-01-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Bypassing EDR in a Crystal Clear Way | Lorenzo Meacci",
+      "url": "https://lorenzomeacci.com/bypassing-edr-in-a-crystal-clear-way",
+      "snippet": "",
+      "published_date": "2026-03-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Practical Malware Analysis - Chapter 18 Lab Write-up",
+      "url": "https://www.jaiminton.com/Tutorials/PracticalMalwareAnalysis/Chapter18/",
+      "snippet": "Unpacking Stub: Unpacks the original executable... Transfers execution from the unpacking stub to the original entry point (OEP). Tail Jump: After unpacking stub finishes, execution must jump to the original entry point (OEP).",
+      "published_date": "2023-11-13",
+      "source": "grok",
+      "score": 0.27
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Matanbuchus 3.0 — A Deep Dive into a Loader-as-a-Service - Malware Cake Factory",
+        "url": "https://malwarecakefactory.github.io/malware-analysis/matanbuchus-3-deep-dive/",
+        "snippet": "",
+        "published_date": "2026-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.475
+      },
+      {
+        "title": "Malware Analysis — Zero to Hero. MALWARE ANALYSIS | by Or Ben Ari | Mar, 2026 | Medium",
+        "url": "https://medium.com/@OrBenAri/malware-analysis-zero-to-hero-7cc9c22df70f",
+        "snippet": "",
+        "published_date": "2026-03-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.425
+      },
+      {
+        "title": "From log.dll To A Decrypted Chrysalis Main Module | Reverse Engineer",
+        "url": "https://taogoldi.github.io/reverse-engineer/blog/chrysalis-offline-unpacking/",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.475
+      },
+      {
+        "title": "[PDF] Malware Reverse Engineering Handbook | CCDCOE",
+        "url": "https://ccdcoe.org/uploads/2020/07/Malware-Reverse-Engineering-Handbook-final.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "OysterLoader Multi Stage Malware Evasion framework",
+        "url": "https://cybersecuritypath.com/oysterloader-multi-stage-malware-evasion-framework/",
+        "snippet": "",
+        "published_date": "2026-02-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "Unpacking StrelaStealer - Kyle Cucci's Cyber Ramblings",
+        "url": "https://securityliterate.com/unpacking-strela-stealer/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Part 4: Entry Points and TLS Callbacks - YouTube",
+        "url": "https://www.youtube.com/watch?v=9K8WaZ53oOs",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.35
+      },
+      {
+        "title": "Unpacking Smokeloader and Reconstructing PE Programatically using LIEF",
+        "url": "https://m.alvar.es/2020/06/unpacking-smokeloader-and.html",
+        "snippet": "",
+        "published_date": "2020-06-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "TangleCrypt: a sophisticated but buggy malware - WithSecure™ Labs",
+        "url": "https://labs.withsecure.com/publications/tanglecrypt",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.325
+      },
+      {
+        "title": "Unveiling custom packers: A comprehensive guide – Estrellas's Blog – Threat Research & Reverse Engineering.",
+        "url": "https://estr3llas.github.io/unveiling-custom-packers-a-comprehensive-guide/",
+        "snippet": "",
+        "published_date": "2024-02-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5
+      },
+      {
+        "title": "From log.dll To A Decrypted Chrysalis Main Module | Reverse Engineer",
+        "url": "https://taogoldi.github.io/reverse-engineer/blog/chrysalis-offline-unpacking/",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Matanbuchus 3.0 — A Deep Dive into a Loader-as-a-Service - Malware Cake Factory",
+        "url": "https://malwarecakefactory.github.io/malware-analysis/matanbuchus-3-deep-dive/",
+        "snippet": "",
+        "published_date": "2026-02-22T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Reversing the Hancitor loader",
+        "url": "https://shadowshell.io/hancitor-loader",
+        "snippet": "",
+        "published_date": "2025-01-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Unraveling the Layers: A Deep Dive into a Multi-Stage .NET Loader Delivering AsyncRAT | by Lucas Cobb | Mar, 2026 | Medium",
+        "url": "https://medium.com/@lucas.cobb18/unraveling-the-layers-a-deep-dive-into-a-multi-stage-net-loader-delivering-asyncrat-0f65d1432444",
+        "snippet": "",
+        "published_date": "2026-03-19T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Bypassing EDR in a Crystal Clear Way | Lorenzo Meacci",
+        "url": "https://lorenzomeacci.com/bypassing-edr-in-a-crystal-clear-way",
+        "snippet": "",
+        "published_date": "2026-03-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Common System Calls Executed by Packed Malware (Reverse ...",
+        "url": "https://www.youtube.com/watch?v=9AyMZBSqaRI",
+        "snippet": "This is visualizes API calls that you can use to detect packed malware. This is part of a blog series, Reverse Engineering for Beginners",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Why Packers Are Malware's Best Defense - YouTube",
+        "url": "https://www.youtube.com/watch?v=9F8NVXxYvws",
+        "snippet": "... packed executable and uncover its original, malicious code from ... Automated Unpacking (Malware Analysis & Reverse Engineering). Anuj",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Reverse engineering packed malware - Infosec",
+        "url": "https://www.infosecinstitute.com/resources/malware-analysis/reverse-engineering-packed-malware/",
+        "snippet": "# Reverse engineering packed malware. In this article, you’ll get a better understanding of what a packed executable is and how to analyze and unpack malware. ## Analyzing packed malware. * How to Get and Set Up a Free Windows VM for Malware Analysis, Zeltser Security Corp. Even if it checks as not packed, that’s because malware authors sometimes use custom packing or modified versions of packers or scramble the code (change section names, add junk code and so on). Now you have to rebuild imports using an ImpRec (Figure 10), launch the tool and select the running process (malware.exe). ## Top 5 popular packers used in malware. For example, Allaple Polymorphic Packer is not really a packer but a standalone malware program, but its polymorphic engine uses techniques similar to packing. This was just a simple example of a packed malware that uses nothing but compression. 2. Revealing Packed Malware, Secure Systems. * 9 online tools for malware analysis. * Malware analysis arsenal: Top 15 tools.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.4
+      },
+      {
+        "title": "Reverse Engineering Malware: A Practical Beginner's Guide",
+        "url": "https://infosecwriteups.com/reverse-engineering-malware-a-practical-beginners-guide-d7b7fc06f91a",
+        "snippet": "Strings / entropy tools: reveal human readable artifacts and packed/obfuscated regions. High entropy often indicates packing or encryption.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "A very beginners guide to Malware analysis/Reverse Engineering P.1",
+        "url": "https://medium.com/@nebdar/a-very-beginners-guide-to-malware-analysis-reverse-engineering-p-1-b2d8616eda3a",
+        "snippet": "In an attempt to better understand assembly I started writing and disassembling basic C programs, eventually these posts will lead into reversing a packed malware sample. Before we get started lets go over the difference between global and local variables in C. Global variables in C are defined outside of our functions and remain consistent throughout our program and can be accessed from any function. EX: int x,c, and d are global variables defined outside of our main() function. First we see **mov** **DWORD PTR** **[rbp-0xc],0x3** this moves the integer value 3 into the local variable referenced by the stack address [rbp-0xc] (Our A variable). **mov** **DWROD PTR** **[rbp-0x8],0x5** moves the integer value 5 into local variable referenced by the stack address [rbp-0x8] (Our B variable). **mov DWORD PTR [rbp-0x4],eax** Copies the value specified by the EAX register into the local variable referenced at the stack address **[rbp-0x4]** (our empty c variable). The same C program with global variables disassembled.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.525
+      },
+      {
+        "title": "Exe protection by TLS callback, trying to understand the behaviour",
+        "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour?rq=1",
+        "snippet": "When i tried to unpack it, the first thign that i had is, when i start the process with the debugger/or attach debugger later, i immediatly receive ACCESS VIOLATION exception, because Tls callback gets executed, with the following content:. I attach the full stack trace, this is the stack trace from which this callback is called, when i run the application under ida pro+windbg, tls callback is hit prior to entry point. The code in the TLS gets executed before the executables entry point and the debugger gains control. Possibly putting an INT 3 (0xCC) at the start of the TLS (and replacing the original byte) would break and allow you to step through to find the offending code, but I dont remember if this actually works or not, youll have to test it. TLS callbacks may be executed on attach because the OS creates a new thread pointing to `DbgUiBreakin` with a software breakpoint to stop the execution of the program, and the new thread causes the TLS callback to be executed.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.575
+      },
+      {
+        "title": "Developing PE file packer step-by-step. Step 6. TLS - Misc",
+        "url": "https://kaimi.io/en/2012/09/developing-pe-file-packer-step-by-step-step-6-tls/",
+        "snippet": "tls->get\\_tls\\_callbacks().empty())  {  //It is necessary to reserve memory  //for original TLS callback addresses  //Plus 1 cell for null DWORD  DWORD first\\_callback\\_offset = data.size();  data.resize(data.size() + sizeof(DWORD) \\* (tls->get\\_tls\\_callbacks().size() + 1));    //First callback will be our empty one (ret 0xC),  //Write its address  \\*reinterpret\\_cast<DWORD\\*>(&data[first\\_callback\\_offset]) =  image.rva\\_to\\_va\\_32(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, empty\\_tls\\_callback\\_offset));    //Write relative virtual address  //of new TLS callbacks table  tls->set\\_callbacks\\_rva(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, first\\_callback\\_offset));    //Now write new callbacks table relative address  //to packed\\_file\\_info structure, which is placed at  //the beginning of first section  reinterpret\\_cast<packed\\_file\\_info\\*>(&image.get\\_image\\_sections().at(0).get\\_raw\\_data()[0])->new\\_rva\\_of\\_tls\\_callbacks = tls->get\\_callbacks\\_rva();  }  else  {  //If no callbacks exist, let's set address to null just in case  tls->set\\_callbacks\\_rva(0);  }    //Clean up callback array, we don't need them anymore  //We created them manually  tls->clear\\_tls\\_callbacks();    //Set new relative address  //of data used to initialize thread local memory  tls->set\\_raw\\_data\\_start\\_rva(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, data.size()));  //Recalculate the address of these data end  tls->recalc\\_raw\\_data\\_end\\_rva();    //Rebuild TLS  //Notify the rebuilder, that it is not needed to write data and callbacks  //We do this manually (callbacks are already written to the right places)  //Also we indicate that we don't need to strip null bytes at the end of the section  image.rebuild\\_tls(\\*tls, unpacker\\_added\\_section, directory\\_pos, false, false, pe\\_base::tls\\_data\\_expand\\_raw, true, false);    //Add data used to initialize local thread memory to the section  unpacker\\_added\\_section.get\\_raw\\_data() += tls->get\\_raw\\_data();  //Now set \"coderpub\" section virtual size  //taking into account SizeOfZeroFill of TLS field  image.set\\_section\\_virtual\\_size(unpacker\\_added\\_section, data.size() + tls->get\\_size\\_of\\_zero\\_fill());  //At last, strip unnecessary null bytes at the end of the section  pe\\_base::strip\\_nullbytes(unpacker\\_added\\_section.get\\_raw\\_data());  //and recalculate its sizes (raw and virtual)  image.prepare\\_section(unpacker\\_added\\_section);  } |.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.4
+      },
+      {
+        "title": "Part 4: Entry Points and TLS Callbacks - YouTube",
+        "url": "https://www.youtube.com/watch?v=9K8WaZ53oOs",
+        "snippet": "Understanding the PE+ File Format - Part 4: Entry Points and TLS Callbacks\nAll things IDA\n5100 subscribers\n63 likes\n1482 views\n28 Mar 2024\nIn Part 4, we focus on the PE+ file format's entry points, specifically the AddressOfEntryPoint and TLS callbacks. The video covers how to find the AddressOfEntryPoint, its role, and entry points' precedence. It also explains locating the IMAGE_TLS_DIRECTORY, enumerating TLS callbacks, and the tools used, including Hiew and an IDAPython script, due to IDA's limitations in viewing these details directly. The session wraps up with a demonstration on dumping TLS entry points for all loaded modules, providing insights into analyzing these crucial elements without unnecessary complexity.\n\nTable of Contents:\n\n00:04 - Introduction\n00:24 - PE entrypoints are detected by IDA but only for the input file\n01:15 - Inspecting entry points of running processes\n01:44 - Starting from the image base / IMAGE_DOS_HEADER\n02:16 - Importing the needed standard types (from the Windows SDK headers / TIL)\n02:51 - Applying the needed structures\n03:11 - Locating the \"AddressOfEntryPoint\"\n03:42 - Understanding entry points precedence\n04:36 - Locating the TLS data directory\n06:49 - Interpreting the IMAGE_TLS_DIRECTORY\n07:56 - IMAGE_TLS_DIRECTORY.AddressOfCallbacks are already relocated\n08:33 - Enumerating the TLS callbacks entry points\n09:16 - TLS callback prototype is the same as DllMain prototype\n09:43 - No built-in in way in IDA to see entry points and TLS callbacks\n10:06 - Using Hiew to inspect the TLS callbacks\n10:55 - IDAPython script to discover entry points\n14:02 - Dumping all TLS entry points for all loaded modules\n14:22 - Testing the script\n15:11 - NTDLL has no entry point\n16:07 - Recap\n\nResources:\n- Understanding the PE+ file format - Part 1: The Headers [https://youtu.be/EG5M_j1JUBU]\n- AllThingsIDA GitHub Repo [https://github.com/0xeb/allthingsida]\n\nIf you found this video useful, please feel free to buy me a coffee here: https://www.buymeacoffee.com/0xeb\n6 comments\n",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Debugging TLS callbacks | Infosec",
+        "url": "https://www.infosecinstitute.com/resources/reverse-engineering/debugging-tls-callbacks/",
+        "snippet": "0 [ 0] RVA [size] of Certificates Directory. 000001A4 18000000 DD 00000018 ; TLS Table size = 18 (24.). * [SecurityX (CASP+) certification: Overview and career path [2025 update]](https://www.infosecinstitute.com/resources/securityx/securityx-certification-overview-career-path/). * [Network+ certification: Overview and career path [2025 update]](https://www.infosecinstitute.com/resources/network/network-certification-overview-and-career-path/). * [CRISC certification: Overview & career path [updated 2021]](https://www.infosecinstitute.com/resources/crisc/crisc-certification-overview-career-path/). * [PMP certification: Overview and career path [updated 2021]](https://www.infosecinstitute.com/resources/pmp/pmp-certification-overview-and-career-path/). * [CGEIT certification: Overview and career path [updated 2021]](https://www.infosecinstitute.com/resources/cgeit/cgeit-certification-overview-career-path/). * [How To Become CGEIT Certified – Certification Requirements [updated 2021]](https://www.infosecinstitute.com/resources/cgeit/cgeit-certification-requirements/). * [Average CRISC Salary [2023 update]](https://www.infosecinstitute.com/resources/crisc/value-certification-average-crisc-salary/). * [An Introduction to the PMP: Exam Details and Process [updated 2021]](https://www.infosecinstitute.com/resources/pmp/an-introduction-to-the-pmp-exam-details-and-process/). * [CGEIT certification exam: overview of domains [Updated 2021]](https://www.infosecinstitute.com/resources/cgeit/cgeit-overview-domains/). * [Network+: Exam details and process [2025 update]](https://www.infosecinstitute.com/resources/network/network-exam-details-and-process/). * [SecurityX (CASP+): Exam details and process [2025 update]](https://www.infosecinstitute.com/resources/securityx/securityx-exam-details-process/). * [10 Tips for PMP Certification Exam Success [updated 2021]](https://www.infosecinstitute.com/resources/pmp/10-tips-for-pmp-certification-exam-success/). * [CGEIT certification exam details and process [updated 2021]](https://www.infosecinstitute.com/resources/cgeit/cgeit-exam-details-process/). * [How to get the CompTIA Network+ certification: Requirements and step-by-step instructions [2025 update]](https://www.infosecinstitute.com/resources/network/how-to-become-network-plus-certified-certification-requirements/). [SecurityX (CASP+) certification: Overview and career path [2025 update]](https://www.infosecinstitute.com/resources/securityx/securityx-certification-overview-career-path/).",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.37
+      },
+      {
+        "title": "TLS Callbacks to bypass debuggers | by Andrea Bocchetti - Medium",
+        "url": "https://medium.com/@andreabocchetti88/tls-callbacks-to-bypass-debuggers-60409195ed76",
+        "snippet": "# TLS Callbacks to bypass debuggers. These callbacks are essentially a collection of functions that are defined within the TLS directory of a PE file. The Windows loader executes these callbacks prior to the creation of a thread, which implies that a TLS callback can be **run even before the main thread**. Looking at it from an anti-analysis standpoint, TLS callbacks can serve as a mechanism to verify if the implementation is under analysis before the main function is executed. This module will employ TLS callbacks to carry out anti-analysis operations. This program utilizes a TLS callback and will check if the first byte of the main function is equal to `0xCC`, if so the main function will be overwritten with `0xAA` bytes, preventing further debugging. In the operation of this program, a TLS callback is employed as a strategic mechanism to inspect whether the initial byte of the main function holds the value 0xCC.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.475
+      },
+      {
+        "title": "Exe protection by TLS callback, trying to understand the behaviour",
+        "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour?rq=1",
+        "snippet": "When i tried to unpack it, the first thign that i had is, when i start the process with the debugger/or attach debugger later, i immediatly receive ACCESS VIOLATION exception, because Tls callback gets executed, with the following content:. I attach the full stack trace, this is the stack trace from which this callback is called, when i run the application under ida pro+windbg, tls callback is hit prior to entry point. The code in the TLS gets executed before the executables entry point and the debugger gains control. Possibly putting an INT 3 (0xCC) at the start of the TLS (and replacing the original byte) would break and allow you to step through to find the offending code, but I dont remember if this actually works or not, youll have to test it. TLS callbacks may be executed on attach because the OS creates a new thread pointing to `DbgUiBreakin` with a software breakpoint to stop the execution of the program, and the new thread causes the TLS callback to be executed.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "What are TLS Callbacks and How to Find Them! - YouTube",
+        "url": "https://www.youtube.com/watch?v=zO3KSel22Mc",
+        "snippet": "... tls-callback/ Sample code: https://unprotect.it/technique/tls-callback/ Cybersecurity, reverse engineering, malware analysis and ethical hacking",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "Understanding TLS Callbacks : r/ReverseEngineering - Reddit",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/10l2h2/understanding_tls_callbacks/",
+        "snippet": "You can place the import table in the TLS callback array, you can point a TLS callback outside of the image into a DLL, you can do all kinds of things.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "How can I set up Thread-Local Storage (TLS) callbacks on Windows ...",
+        "url": "https://stackoverflow.com/questions/79804173/how-can-i-set-up-thread-local-storage-tls-callbacks-on-windows-without-crt",
+        "snippet": "I'm trying to register a Thread-Local Storage (TLS) callback in a Windows application without using the C runtime (CRT). Compiler: MSVC 14.44.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "Detection Strategy for TLS Callback Injection via PE Memory ...",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0467/",
+        "snippet": "# Detection Strategy for TLS Callback Injection via PE Memory Modification and Hollowing. #### Technique Detected:  Thread Local Storage | T1055.005. ## Analytics. Detects thread local storage (TLS) callback injection by monitoring memory modifications to PE headers and TLS directory structures during or after process hollowing events, followed by anomalous thread behavior prior to main entry point execution. | Module Load (DC0016) | WinEventLog:Sysmon | EventCode=7 |. | Process Access (DC0035) | WinEventLog:Sysmon | EventCode=10 |. | Process Modification (DC0020) | WinEventLog:Sysmon | EventCode=8 |. | OS API Execution (DC0021) | EDR:memory | MemoryWriteToExecutable |. | TargetProcessFilter | Subset of processes whose TLS callbacks should not change post-load (e.g., explorer.exe, lsass.exe) |. | TimeWindowBetweenLoadAndTLSModification | Acceptable delay between image load and memory tampering in .tls or .data sections |. | AnomalousThreadStartThreshold | Number of threads executing prior to main entry point that is considered suspicious |. | PayloadEntropyThreshold | Optional threshold to distinguish injected shellcode from benign memory writes |.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      }
+    ],
+    "grok": [
+      {
+        "title": "Unpacking StrelaStealer - Kyle Cucci's Cyber Ramblings",
+        "url": "https://securityliterate.com/unpacking-strela-stealer/",
+        "snippet": "Note the TLS storage (callbacks). When the sample first executes, it makes two TLS callbacks... Just run past these. TLS callbacks are normally worth investigating in malware... If we step into this call instruction, we’ll get to the OEP (original entry point) of the payload!",
+        "published_date": "2024-03-14",
+        "source": "grok, exa",
+        "score": 0.37
+      },
+      {
+        "title": "Reverse engineering packed malware",
+        "url": "https://www.infosecinstitute.com/resources/malware-analysis/reverse-engineering-packed-malware/",
+        "snippet": "Manual unpacking · 1. Trace the code · 2. Find the original entry point (OEP) · 3. Dump the unpacked code · 4. Rebuilt import · 5. Save unpacked file... That last jump (jmp section.UPX0) will lead straight to the unpacked code.",
+        "published_date": "2019-08-20",
+        "source": "grok"
+      },
+      {
+        "title": "Malware Reverse Engineering for Beginners - Part 2",
+        "url": "https://intezer.com/blog/malware-reverse-engineering-for-beginners-part-2/",
+        "snippet": "This blog will cover key concepts and examples regarding how malware is packed, obfuscated, delivered, and executed... In this example, we will inspect a packed sample of Locky ransomware... We can see in Intezer that, indeed, it’s Locky ransomware malware.",
+        "published_date": "2023-02-16",
+        "source": "grok",
+        "score": 0.32
+      },
+      {
+        "title": "Practical Malware Analysis - Chapter 18 Lab Write-up",
+        "url": "https://www.jaiminton.com/Tutorials/PracticalMalwareAnalysis/Chapter18/",
+        "snippet": "Unpacking Stub: Unpacks the original executable... Transfers execution from the unpacking stub to the original entry point (OEP). Tail Jump: After unpacking stub finishes, execution must jump to the original entry point (OEP).",
+        "published_date": "2023-11-13",
+        "source": "grok",
+        "score": 0.27
+      },
+      {
+        "title": "A very beginners guide to Malware analysis/Reverse Engineering P.1",
+        "url": "https://medium.com/@nebdar/a-very-beginners-guide-to-malware-analysis-reverse-engineering-p-1-b2d8616eda3a",
+        "snippet": "If you’re just getting into Malware Analysis and RE... eventually these posts will lead into reversing a packed malware sample.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Developing PE file packer step-by-step. Step 6. TLS - Misc",
+        "url": "https://kaimi.io/en/2012/09/developing-pe-file-packer-step-by-step-step-6-tls/",
+        "snippet": "Detailed explanation of handling TLS callbacks in a custom PE packer, including preserving original TLS, manually executing callbacks after unpacking, setting up empty callbacks for the loader, and restoring original callbacks post-unpacking to maintain CRT startup and reach the original entry point (OEP).",
+        "published_date": "2012-09-21",
+        "source": "grok"
+      },
+      {
+        "title": "The Art of Unpacking",
+        "url": "https://blackhat.com/presentations/bh-usa-07/Yason/Whitepaper/bh-usa-07-yason-WP.pdf",
+        "snippet": "Comprehensive whitepaper on PE unpacking techniques. Section 6.3 covers TLS callbacks used by packers for debugger detection, decryption, and unpacking routines before the actual entry point. Explains identifying TLS directory via pedump, setting breakpoints in OllyDbg at system breakpoint before TLS execution, and relation to original entry point.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.35
+      },
+      {
+        "title": "Debugging TLS callbacks",
+        "url": "https://www.infosecinstitute.com/resources/reverse-engineering/debugging-tls-callbacks/",
+        "snippet": "Guide on debugging TLS callbacks in packed binaries, including PE header analysis, setting entry point to TLS callback code, examples of TLS usage in packers, and fixing the PE for dumping after unpacking to reach the real payload.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Analyzing TLS Callbacks - Ring Zero Labs",
+        "url": "https://www.ringzerolabs.com/2019/08/analyzing-tls-callbacks.html",
+        "snippet": "Overview of TLS callbacks in PE files for malware analysis and unpacking. Explains execution before Original Entry Point (OEP), usage for anti-analysis, unpacking routines, and how to locate them in IDA Pro and debuggers.",
+        "published_date": "2019-08-01",
+        "source": "grok",
+        "score": 0.32
+      },
+      {
+        "title": "TangleCrypt: a sophisticated but buggy malware packer",
+        "url": "https://labs.withsecure.com/publications/tanglecrypt",
+        "snippet": "Analysis of a malware packer using VMProtect and TLS callbacks. Details how the first TLS callback decrypts original PE sections (unpacking the real payload) before CRT startup callbacks and OEP execution; contrasts with original TLS in the unpacked binary.",
+        "published_date": "2025-11-27",
+        "source": "grok"
+      },
+      {
+        "title": "The Art of Unpacking",
+        "url": "https://blackhat.com/presentations/bh-usa-07/Yason/Whitepaper/bh-usa-07-yason-WP.pdf",
+        "snippet": "Detailed whitepaper on anti-reversing techniques in executable packers/protectors, including a dedicated section on TLS Callbacks (section 6.3). Explains how packers use TLS callbacks to execute debugger detection and decryption routines before the actual entry point, with guidance on identifying them via PE parsing (pedump) and debugging by pausing at the system breakpoint in ntdll before LdrpRunInitializeRoutines.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Exe protection by TLS callback, trying to understand the behaviour",
+        "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour",
+        "snippet": "Discussion on TLS callbacks in protected executables, noting that exceptions in TLS callbacks are discarded, stop further callbacks, and transfer control to the main entrypoint. Covers anti-debugging usage and debugger configuration to break before or on TLS callbacks.",
+        "published_date": "2017-11-25",
+        "source": "grok",
+        "score": 0.47
+      },
+      {
+        "title": "How Malware Defends Itself Using TLS Callback Functions",
+        "url": "https://isc.sans.edu/diary/6655",
+        "snippet": "Explains TLS callbacks as an anti-debugging technique allowing code execution before the debugger pauses at the traditional Entry Point. References usage in GRUM malware for unpacking and other examples.",
+        "published_date": "2009-06-26",
+        "source": "grok",
+        "score": 0.495
+      },
+      {
+        "title": "Unpacking StrelaStealer",
+        "url": "https://securityliterate.com/unpacking-strela-stealer/",
+        "snippet": "Practical malware unpacking walkthrough noting multiple TLS callbacks executed on first run. Describes stepping past them in x64dbg during multi-stage unpacking of the payload.",
+        "published_date": "2024-03-14",
+        "source": "grok"
+      },
+      {
+        "title": "Debugging TLS callbacks",
+        "url": "https://www.infosecinstitute.com/resources/reverse-engineering/debugging-tls-callbacks/",
+        "snippet": "Covers issues with malware using TLS callbacks completing work before the debugger stops at the entry point, and techniques for proper debugging setup.",
+        "published_date": "",
+        "source": "grok"
+      }
+    ]
+  }
+}
