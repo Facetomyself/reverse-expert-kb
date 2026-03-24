@@ -230,3 +230,32 @@ Set repository-local git identity for temporary worktrees used for automated for
 - Related Files: .learnings/ERRORS.md
 
 ---
+## [ERR-20260324-001] docker-compose-recreate-name-conflict
+
+**Logged**: 2026-03-24T02:21:26.406040+00:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+`docker compose up -d --build grok2api` failed on oracle-proxy because an existing manually-managed `grok2api` container already occupied the fixed container name.
+
+### Error
+```
+Error response from daemon: Conflict. The container name "/grok2api" is already in use ...
+```
+
+### Context
+- Operation attempted: rebuild/redeploy `/root/grok2api`
+- Host: `oracle-proxy`
+- Compose file pins `container_name: grok2api`
+- Existing runtime was image-based (`grok2api-official-local:latest`), not direct compose build mode
+
+### Suggested Fix
+Before redeploying this service, inspect `docker-compose.yml` + current container/image topology. For this project, rebuild the local image tag first, then `docker rm -f grok2api` and recreate via compose, instead of assuming `compose up --build` can replace the existing named container cleanly.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/TOOLS.md
+
+---

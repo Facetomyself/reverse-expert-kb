@@ -44,6 +44,20 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - Do **not** assume helper subcommands like `gh auth token` exist here.
 - `gh auth status` being OK does **not** guarantee raw `git push` over HTTPS will work; if needed, prefer `gh`-managed flows or run `gh auth setup-git` first.
 
+## Docker / Redeploy Gotcha on oracle-proxy
+
+- For `oracle-proxy:/root/grok2api`, do **not** assume `docker compose up -d --build grok2api` can safely replace the running service.
+- Current compose pins `container_name: grok2api`, and there may already be a long-lived manually recreated container using that exact name.
+- Safe redeploy pattern for this project:
+  1. `cd /root/grok2api`
+  2. ensure deployment env pins `GROK2API_IMAGE=grok2api-official-local:latest` (for example in `.env`)
+  3. `docker build -t grok2api-official-local:latest .`
+  4. `docker rm -f grok2api`
+  5. `docker compose up -d grok2api`
+  6. verify with `docker inspect grok2api --format '{{.Config.Image}}'`
+- Otherwise compose may silently recreate the service from its default remote image `ghcr.io/tqzhr/grok2api:latest`, making local code changes appear to "not take effect".
+- Inspect `docker ps -a`, `docker inspect grok2api`, `.env`, and `docker compose config` first if the runtime topology seems inconsistent.
+
 ## Git / GitHub Auth on This Host
 
 - Git itself is fine here; the fragile part was GitHub credential wiring.
