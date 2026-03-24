@@ -1,0 +1,633 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering Swift AsyncStream AsyncSequence continuation resume iOS callback policy",
+    "URLSession AsyncBytes AsyncSequence reverse engineering iOS response consumer",
+    "Swift CheckedContinuation AsyncStream continuation resume task wakeup practical debugging"
+  ],
+  "count": 33,
+  "results": [
+    {
+      "title": "AsyncSequence / Stream version of PassthroughSubject or ...",
+      "url": "https://forums.swift.org/t/asyncsequence-stream-version-of-passthroughsubject-or-currentvaluesubject/60395",
+      "snippet": "To fix this issue one has to explicitly set a different AsyncStream<Element>.Continuation.BufferingPolicy from the default .unbound to .",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.72
+    },
+    {
+      "title": "AsyncStream.Continuation | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation",
+      "snippet": "A mechanism to interface between synchronous code and an asynchronous stream... AsyncStream.Continuation supports escaping... used when bridging callback-based APIs into Swift concurrency.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.72
+    },
+    {
+      "title": "SWIFT TASK CONTINUATION MISUSE: method leaked its continuation",
+      "url": "https://stackoverflow.com/questions/79189458/swift-task-continuation-misuse-method-leaked-its-continuation-not-blocking",
+      "snippet": "CheckedContinuation detects misuse: dropping the continuation without resuming triggers a warning (task hangs and leaks resources). Resuming twice causes a crash. This is preferred over UnsafeContinuation during development for debugging suspension and resume issues.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.69
+    },
+    {
+      "title": "Use async/await with URLSession - WWDC21",
+      "url": "https://developer.apple.com/videos/play/wwdc2021/10095/",
+      "snippet": "Discover how to adopt Swift concurrency in URLSession using async/await and AsyncSequence. URLSession.AsyncBytes provides incremental consumption of response body, with examples using bytes.lines for line-by-line JSON parsing in event streams.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.66
+    },
+    {
+      "title": "AsyncStream Element delivery - Using Swift - Swift Forums",
+      "url": "https://forums.swift.org/t/asyncstream-element-delivery/73454",
+      "snippet": "",
+      "published_date": "2024-07-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "AsyncStream | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream",
+      "snippet": "AsyncStream conforms to AsyncSequence, providing a convenient way to create an asynchronous sequence without manually implementing an asynchronous iterator.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "CheckedContinuation | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/checkedcontinuation",
+      "snippet": "You must call a resume method exactly once on every execution path throughout the program. Resuming from a continuation more than once is undefined behavior.",
+      "published_date": "",
+      "source": "tavily, exa, grok",
+      "score": 0.66
+    },
+    {
+      "title": "Suspending/resuming multiple tasks by using continuations",
+      "url": "https://forums.swift.org/t/suspending-resuming-multiple-tasks-by-using-continuations/75342",
+      "snippet": "You have a mutable array of continuations, being passed to a task (requiring it to be in a disconnected region) and mutated, plus used after.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "URLSession.AsyncBytes | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlsession/asyncbytes",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.6
+    },
+    {
+      "title": "Cancelling the task of a URLSession.AsyncBytes doesn't seem to work",
+      "url": "https://stackoverflow.com/questions/75464142/cancelling-the-task-of-a-urlsession-asyncbytes-doesnt-seem-to-work",
+      "snippet": "# Cancelling the task of a URLSession.AsyncBytes doesn't seem to work. The issue comes when trying to cancel the ongoing task, as even though the `URLSession.AsyncBytes`'s `Task` has been cancelled, the for-await-in loop keeps processing bytes, so I'm assuming that the download is still ongoing. let (asyncBytes, _) = try await URLSession.shared.bytes(from: url). I would have expected that, as soon as the task is cancelled, the download would have been stopped and, therefore, the for-await-in would stop processing bytes. let (asyncBytes, _) = try await session.bytes(from: url). let (asyncBytes, _) = try await session.bytes(from: url). The cancelation of the `Task` with the `AsyncBytes` will result in the cancelation of the underlying `URLSessionDataTask` (but the sequence will continue to iterate through the bytes in the packets that were successfully received prior to cancelation). let (asyncBytes, _) = try await session.bytes(from: url). let (asyncBytes, _) = try await session.bytes(from: url). try await test_customIterator(timeOut: tap_out, url: URL(string:\"https://example.com/large_file.zip\")!, session: URLSession.shared)`.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.6
+    },
+    {
+      "title": "Unifying Swift's Async Ecosystem: A Practical Guide to Integrating Concurrency, Combine, and AsyncSequence",
+      "url": "https://medium.com/@mrhotfix/integrating-swift-concurrency-with-combine-and-asyncsequence-the-bridge-between-reactive-and-4929370727ce",
+      "snippet": "AsyncStream: The Universal Adapter. AsyncStream bridges callback-based APIs into the async world without boilerplate... seamless interoperability between Combine, Structured Concurrency, and AsyncSequence.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.52
+    },
+    {
+      "title": "Swift Continuations Demystified: Checked vs. Unsafe Explained",
+      "url": "https://blog.stackademic.com/swift-continuations-demystified-checked-vs-unsafe-explained-d31b5a4c9dfd",
+      "snippet": "CheckedContinuation checks your work: If resume is never called → the compiler warns you. If resume is called twice → the app crashes",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.49
+    },
+    {
+      "title": "Advanced Swift Concurrency: AsyncStream",
+      "url": "https://blog.jacobstechtavern.com/p/async-stream",
+      "snippet": "AsyncStream helps you easily push out new data as it becomes available... The continuation inside the closure allows you to pass values through the stream using continuation.yield()... This passes values to consumers in the for-await-in loops... bridging callback-based APIs...",
+      "published_date": "2025-05-19",
+      "source": "grok",
+      "score": 0.48
+    },
+    {
+      "title": "Swift Concurrency[PART-8]AsyncSequence & Streams in ... - Medium",
+      "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-8-asyncsequence-streams-in-swift-concurrency-dc813cc02269",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.46
+    },
+    {
+      "title": "Swift Concurrency: Part 3 — Bridging Legacy APIs with Continuations | by Nick Vasilev | Feb, 2026 | Medium",
+      "url": "https://nsvasilev.medium.com/swift-concurrency-part-3-bridging-legacy-apis-with-continuations-32455d050fd0",
+      "snippet": "",
+      "published_date": "2026-02-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.46
+    },
+    {
+      "title": "Swift Concurrency Deep Dive: Continuation vs UnsafeContinuation — Power, Pitfalls, and Best Practices | by Anand Mishra | Feb, 2026 | Medium",
+      "url": "https://medium.com/@anand.mishra.mca/swift-concurrency-deep-dive-continuation-vs-unsafecontinuation-power-pitfalls-and-best-77ae865aa45b",
+      "snippet": "",
+      "published_date": "2026-02-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.46
+    },
+    {
+      "title": "Swift Concurrency: Part 3 — Bridging Legacy APIs with Continuations | by Nick Vasilev | Feb, 2026 | Medium",
+      "url": "https://medium.com/%40nsvasilev/swift-concurrency-part-3-bridging-legacy-apis-with-continuations-32455d050fd0",
+      "snippet": "",
+      "published_date": "2026-02-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.46
+    },
+    {
+      "title": "How to Create Callback-like Behavior Using AsyncStream in Swift",
+      "url": "https://swiftsenpai.com/swift/asyncstream-callback/",
+      "snippet": "You are currently viewing How to Create Callback-like Behavior Using AsyncStream in Swift. # How to Create Callback-like Behavior Using AsyncStream in Swift. ## The Sample App. In order to showcase the power of `AsyncStream`, let’s create a sample app that will simulate a download operation and display the download progress using a progress bar. static func download(_ files: [File]) -> AsyncStream { // Init AsyncStream with element type = `String` let stream = AsyncStream(String.self) { continuation in // Perform download operation and yield the downloaded file's filename // ... // Init AsyncStream with element type = `String` let stream = AsyncStream(String.self) { continuation in Task { for file in files { // Download the file await file.performDownload() // Yield the element (filename) when download is completed continuation.yield(file.name) } // All files are downloaded // Call the continuation’s finish() method when there are no further elements to produce continuation.finish() } }.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "AsyncThrowingStream and AsyncStream explained with practical examples",
+      "url": "https://www.avanderlee.com/swift/asyncthrowingstream-asyncstream/",
+      "snippet": "Debugging AsyncStream: use breakpoints on yield or onTermination callback to understand why values aren't published or the stream doesn't finish. onTermination helps detect unfinished streams or cancellation, complementing CheckedContinuation resume debugging.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.42
+    },
+    {
+      "title": "AsyncStream and AsyncSequence for Swift Concurrency",
+      "url": "https://matteomanferdini.com/swift-asyncstream/",
+      "snippet": "",
+      "published_date": "2024-07-04T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.39
+    },
+    {
+      "title": "Migrating callback based code to Swift Concurrency with continuations",
+      "url": "https://www.donnywals.com/migrating-callback-based-code-to-swift-concurrency-with-continuations/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "How to create and use AsyncStreams to return buffered data",
+      "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-create-and-use-asyncstreams-to-return-buffered-data",
+      "snippet": "This time, though, we can call yield() as many times as we want, whereas calling continuation.resume(returning:) could be called only once.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.39
+    },
+    {
+      "title": "Continuations for interfacing async tasks with synchronous code",
+      "url": "https://www.hackingwithswift.com/swift/5.5/continuations",
+      "snippet": "The term “checked” continuation means that Swift is performing runtime checks on our behalf: are we calling resume() once and only once? This is important",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "Understanding AsyncSequence in Swift 5.5 | by Mark Lucking",
+      "url": "https://betterprogramming.pub/understanding-asyncsequence-in-swift-5-5-ed2f7d218337",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "WWDC21: Use async/await with URLSession | Apple - YouTube",
+      "url": "https://www.youtube.com/watch?v=Owcx2Upk6p8",
+      "snippet": "Discover how you can adopt Swift concurrency in URLSession using async/await and AsyncSequence, and how you can apply Swift concurrency",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Understanding Swift Concurrency’s AsyncStream and AsyncThrowingStream – Donny Wals",
+      "url": "https://www.donnywals.com/understanding-swift-concurrencys-asyncstream/",
+      "snippet": "",
+      "published_date": "2023-01-02T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.36
+    },
+    {
+      "title": "AsyncStream in the real world: wrapping an Apple Photos callback | Damian Mehers’ blog",
+      "url": "https://damian.fyi/swift/2023/12/03/asyncstream-in-the-real-world-wrapping-an-apple-photos-callback.html",
+      "snippet": "",
+      "published_date": "2023-12-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "Intermediate async/await & CheckedContinuation - Kodeco",
+      "url": "https://www.kodeco.com/books/modern-concurrency-in-swift/v2.0/chapters/5-intermediate-async-await-checkedcontinuation",
+      "snippet": "The Swift concurrency model assigns each asynchronous unit of work a continuation instead of creating an entire thread for it. Ew utfiq fehuk, meda aw cxey pqivton, tio’bw taoz fo tawfdi i veqxvo tesupafiul getwwilw un u tumktihaiv — umb cxuk’w qxe jinsanh agvuyliluth be ova a xajwihaucioh! Czox’t xek eygoazunudji — newalelut lil kofo limvasj mase roxncal yetdm u hoy caqe yirkopu syig nqes pued na vo. Qojuff o dumhxa lzojimi ih imzuahzj e xajlna eenaid to mquj teml i cubkijoinuej ncah yzoogosh i wulovujo vanexuto glli, aw rie piv uorwouw og kbo hwotlih. An hzim mevmoad, fiu’fp qoywemaa vorhetg ir `TkocjoyYukig.smofiSakiqeav()` gh wlewkabw e koggim radhvecq-bamug IRA bxud camcm o zibutiij appe u xadoj-kuucoxla oxgkajt. Yee wzuld dcaf timmoud xla zule zem mlus zee ajzveeblih jgenperr `MSVageteuqXaxosik`’g selogiji — zj mimxonz `peqcLwuhwihLfvirulcXasqopaabaew(_:)` wo ckoodu e gqicofu fobg u teqpoguudueg ra viffcoc etcdwzfudeef urizeweaq. Tgof gqevizw’s jbimc ay dqij, iq e zafgulf-hofa udm, ux’f um uzaqjoma em hmealivd u peynhesu ktas iqq ed oteoh 91 nuhak iv lovu.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.36
+    },
+    {
+      "title": "Building an AsyncSequence with AsyncStream.makeStream",
+      "url": "https://www.donnywals.com/building-an-asyncsequence-with-asyncstream-makestream/",
+      "snippet": "AsyncStream { (continuation: AsyncStream<CLLocation>.Continuation) -> Void in ... This closure receives a continuation object that we can use to push values onto our AsyncStream. Because we’re bridging a callback based API we need access to the continuation from outside...",
+      "published_date": "2024-03-25",
+      "source": "grok",
+      "score": 0.34
+    },
+    {
+      "title": "Modern iOS Networking: URLSession & async/await | Kite Metric",
+      "url": "https://kitemetric.com/blogs/modern-ios-networking-with-urlsession-and-async-await-a-practical-guide",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.33
+    },
+    {
+      "title": "URLSession.AsyncBytes | Documentation",
+      "url": "https://lkzhao.com/UIComponent/documentation/uicomponent/urlsession/asyncbytes",
+      "snippet": "AsyncBytes conforms to AsyncSequence for data delivery. The sequence is single pass. Delegate will not be called for response and data delivery.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "How to use continuations to convert completion handlers into async functions",
+      "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-continuations-to-convert-completion-handlers-into-async-functions",
+      "snippet": "Swift uses continuations to bridge older functions with completion handlers to async code. The continuation must be resumed exactly once. Using withCheckedContinuation provides runtime checks: calling resume twice crashes; failing to resume prints a warning like “SWIFT TASK CONTINUATION MISUSE: leaked its continuation!”.",
+      "published_date": "2024-11-16",
+      "source": "grok",
+      "score": 0.31
+    },
+    {
+      "title": "URLSession async await: API Requests & JSON Decoding",
+      "url": "https://www.avanderlee.com/concurrency/urlsession-async-await-network-requests-in-swift/",
+      "snippet": "Explains performing API requests with URLSession async/await, including handling responses and JSON decoding. Relevant for understanding data vs bytes consumption patterns in modern iOS networking.",
+      "published_date": "2024-11-05",
+      "source": "grok",
+      "score": 0.25
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "URLSession.AsyncBytes | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsession/asyncbytes",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.6
+      },
+      {
+        "title": "Swift Concurrency[PART-8]AsyncSequence & Streams in ... - Medium",
+        "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-8-asyncsequence-streams-in-swift-concurrency-dc813cc02269",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.46
+      },
+      {
+        "title": "Understanding AsyncSequence in Swift 5.5 | by Mark Lucking",
+        "url": "https://betterprogramming.pub/understanding-asyncsequence-in-swift-5-5-ed2f7d218337",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "AsyncStream and AsyncSequence for Swift Concurrency",
+        "url": "https://matteomanferdini.com/swift-asyncstream/",
+        "snippet": "",
+        "published_date": "2024-07-04T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.39
+      },
+      {
+        "title": "Modern iOS Networking: URLSession & async/await | Kite Metric",
+        "url": "https://kitemetric.com/blogs/modern-ios-networking-with-urlsession-and-async-await-a-practical-guide",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.33
+      },
+      {
+        "title": "Swift Concurrency: Part 3 — Bridging Legacy APIs with Continuations | by Nick Vasilev | Feb, 2026 | Medium",
+        "url": "https://nsvasilev.medium.com/swift-concurrency-part-3-bridging-legacy-apis-with-continuations-32455d050fd0",
+        "snippet": "",
+        "published_date": "2026-02-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.46
+      },
+      {
+        "title": "AsyncStream Element delivery - Using Swift - Swift Forums",
+        "url": "https://forums.swift.org/t/asyncstream-element-delivery/73454",
+        "snippet": "",
+        "published_date": "2024-07-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "Migrating callback based code to Swift Concurrency with continuations",
+        "url": "https://www.donnywals.com/migrating-callback-based-code-to-swift-concurrency-with-continuations/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "Understanding Swift Concurrency’s AsyncStream and AsyncThrowingStream – Donny Wals",
+        "url": "https://www.donnywals.com/understanding-swift-concurrencys-asyncstream/",
+        "snippet": "",
+        "published_date": "2023-01-02T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.36
+      },
+      {
+        "title": "AsyncStream in the real world: wrapping an Apple Photos callback | Damian Mehers’ blog",
+        "url": "https://damian.fyi/swift/2023/12/03/asyncstream-in-the-real-world-wrapping-an-apple-photos-callback.html",
+        "snippet": "",
+        "published_date": "2023-12-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "Swift Concurrency Deep Dive: Continuation vs UnsafeContinuation — Power, Pitfalls, and Best Practices | by Anand Mishra | Feb, 2026 | Medium",
+        "url": "https://medium.com/@anand.mishra.mca/swift-concurrency-deep-dive-continuation-vs-unsafecontinuation-power-pitfalls-and-best-77ae865aa45b",
+        "snippet": "",
+        "published_date": "2026-02-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.46
+      },
+      {
+        "title": "CheckedContinuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/checkedcontinuation",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Intermediate async/await & CheckedContinuation - Kodeco",
+        "url": "https://www.kodeco.com/books/modern-concurrency-in-swift/v2.0/chapters/5-intermediate-async-await-checkedcontinuation",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Understanding Swift Concurrency's AsyncStream and ... - Donny Wals",
+        "url": "https://www.donnywals.com/understanding-swift-concurrencys-asyncstream/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Swift Concurrency: Part 3 — Bridging Legacy APIs with Continuations | by Nick Vasilev | Feb, 2026 | Medium",
+        "url": "https://medium.com/%40nsvasilev/swift-concurrency-part-3-bridging-legacy-apis-with-continuations-32455d050fd0",
+        "snippet": "",
+        "published_date": "2026-02-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.46
+      }
+    ],
+    "tavily": [
+      {
+        "title": "URLSession.AsyncBytes | Documentation",
+        "url": "https://lkzhao.com/UIComponent/documentation/uicomponent/urlsession/asyncbytes",
+        "snippet": "AsyncBytes conforms to AsyncSequence for data delivery. The sequence is single pass. Delegate will not be called for response and data delivery.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "URLSession.AsyncBytes | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsession/asyncbytes",
+        "snippet": "AsyncBytes, URLResponse). Retrieves the contents of a URL based on the specified URL request and delivers an asynchronous sequence of bytes.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "WWDC21: Use async/await with URLSession | Apple - YouTube",
+        "url": "https://www.youtube.com/watch?v=Owcx2Upk6p8",
+        "snippet": "Discover how you can adopt Swift concurrency in URLSession using async/await and AsyncSequence, and how you can apply Swift concurrency",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "Cancelling the task of a URLSession.AsyncBytes doesn't seem to work",
+        "url": "https://stackoverflow.com/questions/75464142/cancelling-the-task-of-a-urlsession-asyncbytes-doesnt-seem-to-work",
+        "snippet": "# Cancelling the task of a URLSession.AsyncBytes doesn't seem to work. The issue comes when trying to cancel the ongoing task, as even though the `URLSession.AsyncBytes`'s `Task` has been cancelled, the for-await-in loop keeps processing bytes, so I'm assuming that the download is still ongoing. let (asyncBytes, _) = try await URLSession.shared.bytes(from: url). I would have expected that, as soon as the task is cancelled, the download would have been stopped and, therefore, the for-await-in would stop processing bytes. let (asyncBytes, _) = try await session.bytes(from: url). let (asyncBytes, _) = try await session.bytes(from: url). The cancelation of the `Task` with the `AsyncBytes` will result in the cancelation of the underlying `URLSessionDataTask` (but the sequence will continue to iterate through the bytes in the packets that were successfully received prior to cancelation). let (asyncBytes, _) = try await session.bytes(from: url). let (asyncBytes, _) = try await session.bytes(from: url). try await test_customIterator(timeOut: tap_out, url: URL(string:\"https://example.com/large_file.zip\")!, session: URLSession.shared)`.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.6
+      },
+      {
+        "title": "Modern iOS Networking: URLSession & async/await | Kite Metric",
+        "url": "https://kitemetric.com/blogs/modern-ios-networking-with-urlsession-and-async-await-a-practical-guide",
+        "snippet": "Learn to build a robust, asynchronous network layer using URLSession and async/await for your iOS apps. Improve reliability and maintainability!",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "AsyncSequence / Stream version of PassthroughSubject or ...",
+        "url": "https://forums.swift.org/t/asyncsequence-stream-version-of-passthroughsubject-or-currentvaluesubject/60395",
+        "snippet": "To fix this issue one has to explicitly set a different AsyncStream<Element>.Continuation.BufferingPolicy from the default .unbound to .",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.72
+      },
+      {
+        "title": "How to create and use AsyncStreams to return buffered data",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-create-and-use-asyncstreams-to-return-buffered-data",
+        "snippet": "This time, though, we can call yield() as many times as we want, whereas calling continuation.resume(returning:) could be called only once.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.39
+      },
+      {
+        "title": "AsyncStream and AsyncSequence for Swift Concurrency",
+        "url": "https://matteomanferdini.com/swift-asyncstream/",
+        "snippet": "AsyncStream allows you to easily create asynchronous sequences and quickly adapt old APIs to Swift concurrency.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to Create Callback-like Behavior Using AsyncStream in Swift",
+        "url": "https://swiftsenpai.com/swift/asyncstream-callback/",
+        "snippet": "You are currently viewing How to Create Callback-like Behavior Using AsyncStream in Swift. # How to Create Callback-like Behavior Using AsyncStream in Swift. ## The Sample App. In order to showcase the power of `AsyncStream`, let’s create a sample app that will simulate a download operation and display the download progress using a progress bar. static func download(_ files: [File]) -> AsyncStream { // Init AsyncStream with element type = `String` let stream = AsyncStream(String.self) { continuation in // Perform download operation and yield the downloaded file's filename // ... // Init AsyncStream with element type = `String` let stream = AsyncStream(String.self) { continuation in Task { for file in files { // Download the file await file.performDownload() // Yield the element (filename) when download is completed continuation.yield(file.name) } // All files are downloaded // Call the continuation’s finish() method when there are no further elements to produce continuation.finish() } }.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "AsyncStream | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream",
+        "snippet": "AsyncStream conforms to AsyncSequence, providing a convenient way to create an asynchronous sequence without manually implementing an asynchronous iterator.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "CheckedContinuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/checkedcontinuation",
+        "snippet": "You must call a resume method exactly once on every execution path throughout the program. Resuming from a continuation more than once is undefined behavior.",
+        "published_date": "",
+        "source": "tavily, exa, grok",
+        "score": 0.66
+      },
+      {
+        "title": "Continuations for interfacing async tasks with synchronous code",
+        "url": "https://www.hackingwithswift.com/swift/5.5/continuations",
+        "snippet": "The term “checked” continuation means that Swift is performing runtime checks on our behalf: are we calling resume() once and only once? This is important",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      },
+      {
+        "title": "Swift Continuations Demystified: Checked vs. Unsafe Explained",
+        "url": "https://blog.stackademic.com/swift-continuations-demystified-checked-vs-unsafe-explained-d31b5a4c9dfd",
+        "snippet": "CheckedContinuation checks your work: If resume is never called → the compiler warns you. If resume is called twice → the app crashes",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.49
+      },
+      {
+        "title": "Intermediate async/await & CheckedContinuation - Kodeco",
+        "url": "https://www.kodeco.com/books/modern-concurrency-in-swift/v2.0/chapters/5-intermediate-async-await-checkedcontinuation",
+        "snippet": "The Swift concurrency model assigns each asynchronous unit of work a continuation instead of creating an entire thread for it. Ew utfiq fehuk, meda aw cxey pqivton, tio’bw taoz fo tawfdi i veqxvo tesupafiul getwwilw un u tumktihaiv — umb cxuk’w qxe jinsanh agvuyliluth be ova a xajwihaucioh! Czox’t xek eygoazunudji — newalelut lil kofo limvasj mase roxncal yetdm u hoy caqe yirkopu syig nqes pued na vo. Qojuff o dumhxa lzojimi ih imzuahzj e xajlna eenaid to mquj teml i cubkijoinuej ncah yzoogosh i wulovujo vanexuto glli, aw rie piv uorwouw og kbo hwotlih. An hzim mevmoad, fiu’fp qoywemaa vorhetg ir `TkocjoyYukig.smofiSakiqeav()` gh wlewkabw e koggim radhvecq-bamug IRA bxud camcm o zibutiij appe u xadoj-kuucoxla oxgkajt. Yee wzuld dcaf timmoud xla zule zem mlus zee ajzveeblih jgenperr `MSVageteuqXaxosik`’g selogiji — zj mimxonz `peqcLwuhwihLfvirulcXasqopaabaew(_:)` wo ckoodu e gqicofu fobg u teqpoguudueg ra viffcoc etcdwzfudeef urizeweaq. Tgof gqevizw’s jbimc ay dqij, iq e zafgulf-hofa udm, ux’f um uzaqjoma em hmealivd u peynhesu ktas iqq ed oteoh 91 nuhak iv lovu.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.36
+      },
+      {
+        "title": "Suspending/resuming multiple tasks by using continuations",
+        "url": "https://forums.swift.org/t/suspending-resuming-multiple-tasks-by-using-continuations/75342",
+        "snippet": "You have a mutable array of continuations, being passed to a task (requiring it to be in a disconnected region) and mutated, plus used after.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      }
+    ],
+    "grok": [
+      {
+        "title": "URLSession.AsyncBytes | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsession/asyncbytes",
+        "snippet": "An asynchronous sequence of bytes returned by URLSession.bytes methods. Conforms to AsyncSequence. Returns when response headers are received and delivers the response body incrementally as bytes for streaming consumption.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Use async/await with URLSession - WWDC21",
+        "url": "https://developer.apple.com/videos/play/wwdc2021/10095/",
+        "snippet": "Discover how to adopt Swift concurrency in URLSession using async/await and AsyncSequence. URLSession.AsyncBytes provides incremental consumption of response body, with examples using bytes.lines for line-by-line JSON parsing in event streams.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.66
+      },
+      {
+        "title": "Cancelling the task of a URLSession.AsyncBytes doesn't seem to work - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/75464142/cancelling-the-task-of-a-urlsession-asyncbytes-doesnt-seem-to-work",
+        "snippet": "Discussion on cancellation behavior of URLSession.AsyncBytes: even after cancelling the associated task, the for-await-in loop may continue processing already-received bytes. Covers practical usage and alternatives for streaming responses.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "URLSession async await: API Requests & JSON Decoding",
+        "url": "https://www.avanderlee.com/concurrency/urlsession-async-await-network-requests-in-swift/",
+        "snippet": "Explains performing API requests with URLSession async/await, including handling responses and JSON decoding. Relevant for understanding data vs bytes consumption patterns in modern iOS networking.",
+        "published_date": "2024-11-05",
+        "source": "grok",
+        "score": 0.25
+      },
+      {
+        "title": "Modern iOS Networking: URLSession & async/await",
+        "url": "https://kitemetric.com/blogs/modern-ios-networking-with-urlsession-and-async-await-a-practical-guide",
+        "snippet": "Practical guide to building a network layer with URLSession async/await, covering response handling. Complements AsyncBytes usage for incremental or full response consumption.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "How to create and use AsyncStreams to return buffered data",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-create-and-use-asyncstreams-to-return-buffered-data",
+        "snippet": "AsyncStream and AsyncThrowingStream can be thought of a bit like continuations that can send back multiple values... This time, though, we can call yield() as many times as we want, whereas calling continuation.resume(returning:) could be called only once... set a buffering policy that determines how values get added... The default buffering policy is .unbounded...",
+        "published_date": "2024-11-16",
+        "source": "grok"
+      },
+      {
+        "title": "Advanced Swift Concurrency: AsyncStream",
+        "url": "https://blog.jacobstechtavern.com/p/async-stream",
+        "snippet": "AsyncStream helps you easily push out new data as it becomes available... The continuation inside the closure allows you to pass values through the stream using continuation.yield()... This passes values to consumers in the for-await-in loops... bridging callback-based APIs...",
+        "published_date": "2025-05-19",
+        "source": "grok",
+        "score": 0.48
+      },
+      {
+        "title": "Building an AsyncSequence with AsyncStream.makeStream",
+        "url": "https://www.donnywals.com/building-an-asyncsequence-with-asyncstream-makestream/",
+        "snippet": "AsyncStream { (continuation: AsyncStream<CLLocation>.Continuation) -> Void in ... This closure receives a continuation object that we can use to push values onto our AsyncStream. Because we’re bridging a callback based API we need access to the continuation from outside...",
+        "published_date": "2024-03-25",
+        "source": "grok",
+        "score": 0.34
+      },
+      {
+        "title": "AsyncStream.Continuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation",
+        "snippet": "A mechanism to interface between synchronous code and an asynchronous stream... AsyncStream.Continuation supports escaping... used when bridging callback-based APIs into Swift concurrency.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.72
+      },
+      {
+        "title": "Unifying Swift's Async Ecosystem: A Practical Guide to Integrating Concurrency, Combine, and AsyncSequence",
+        "url": "https://medium.com/@mrhotfix/integrating-swift-concurrency-with-combine-and-asyncsequence-the-bridge-between-reactive-and-4929370727ce",
+        "snippet": "AsyncStream: The Universal Adapter. AsyncStream bridges callback-based APIs into the async world without boilerplate... seamless interoperability between Combine, Structured Concurrency, and AsyncSequence.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.52
+      },
+      {
+        "title": "CheckedContinuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/checkedcontinuation",
+        "snippet": "CheckedContinuation performs runtime checks for missing or multiple resume operations. You must call a resume method exactly once on every execution path. Resuming more than once is undefined behavior; never resuming leaves the task suspended indefinitely and leaks resources. CheckedContinuation logs a message if invariants are violated.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "How to use continuations to convert completion handlers into async functions",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-continuations-to-convert-completion-handlers-into-async-functions",
+        "snippet": "Swift uses continuations to bridge older functions with completion handlers to async code. The continuation must be resumed exactly once. Using withCheckedContinuation provides runtime checks: calling resume twice crashes; failing to resume prints a warning like “SWIFT TASK CONTINUATION MISUSE: leaked its continuation!”.",
+        "published_date": "2024-11-16",
+        "source": "grok",
+        "score": 0.31
+      },
+      {
+        "title": "SWIFT TASK CONTINUATION MISUSE: method leaked its continuation",
+        "url": "https://stackoverflow.com/questions/79189458/swift-task-continuation-misuse-method-leaked-its-continuation-not-blocking",
+        "snippet": "CheckedContinuation detects misuse: dropping the continuation without resuming triggers a warning (task hangs and leaks resources). Resuming twice causes a crash. This is preferred over UnsafeContinuation during development for debugging suspension and resume issues.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.69
+      },
+      {
+        "title": "Understanding Swift Concurrency's AsyncStream and AsyncThrowingStream",
+        "url": "https://www.donnywals.com/understanding-swift-concurrencys-asyncstream/",
+        "snippet": "AsyncStream uses a continuation to yield values. Set onTermination handler for cleanup when the stream is cancelled or finishes. Useful for debugging stream lifetime and ensuring proper termination alongside continuation-based bridging.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "AsyncThrowingStream and AsyncStream explained with practical examples",
+        "url": "https://www.avanderlee.com/swift/asyncthrowingstream-asyncstream/",
+        "snippet": "Debugging AsyncStream: use breakpoints on yield or onTermination callback to understand why values aren't published or the stream doesn't finish. onTermination helps detect unfinished streams or cancellation, complementing CheckedContinuation resume debugging.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.42
+      }
+    ]
+  },
+  "freshness_filter": "py"
+}

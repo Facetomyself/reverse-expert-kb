@@ -175,6 +175,8 @@ Bad default choices include:
 - treating `URLSession.bytes(...)` header return as equivalent to the later byte-consumer that actually parses, frames, or classifies the stream
 
 A source-backed discipline worth preserving here:
+- imported Objective-C completion-handler APIs may present as Swift `async` surfaces, so the visible `async` entry is not automatically a different semantic family from the underlying completion/delegate path
+- checked continuation semantics reinforce an exact-once proof mindset: treat missing-resume, double-resume, or cancellation-owned conclusion as distinct failure shapes rather than generic “async weirdness”
 - continuation setup runs immediately in the current async context, but task progress after `resume(...)` is still scheduler/executor mediated rather than “inline callback code just kept going”
 - in practical terms, separate three moments instead of collapsing them:
   - continuation creation/storage
@@ -184,6 +186,9 @@ A source-backed discipline worth preserving here:
   - stream construction
   - first yield / delivery
   - first iterator-side consumption that actually changes later behavior
+- for `URLSession.AsyncBytes` or similar `AsyncSequence` cases, also separate header-time success from later body-consumption truth; do not treat `bytes(...)` return as equivalent to the parser / framer / classifier that actually turns stream material into policy-relevant meaning
+- for `AsyncStream`-shaped cases, preserve buffering policy, `yield(...)`, `finish()`, and cancellation/termination handling as separate proof objects when they affect whether the same consumer actually wakes
+- when the flow is still not classifiable as single-shot continuation, multi-value stream, or iterator-consumption shaped, stop and classify that shape first before widening back into policy claims
 
 ### Step 5: separate normalization from policy mapping
 Use small role labels:
@@ -214,6 +219,7 @@ If yes, the best next proof object is often not more callback work at all.
 It is one narrower resume-to-consumer explanation such as:
 - missing exact-once resume
 - stream delivery that buffers but does not wake the same consumer
+- iterator-side consumption that never reaches the same parser / framer / classifier even though stream setup looked similar
 - cancellation / timeout / stale-task handling that concludes the async surface differently
 - a resumed value that normalizes the same way, but a later coordinator chooses a different policy bucket
 

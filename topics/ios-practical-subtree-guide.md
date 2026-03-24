@@ -458,6 +458,7 @@ That usually means:
 - if one callback family is plausible but the landing or signature contract is still doubtful, prove that boundary before stronger owner or policy claims
 - if the path is already replay-close and late-failing, isolate one smaller context/materialization/init repair target before reopening broad owner work
 - prove one policy-bearing consumer before widening callback coverage
+- flattening single-shot continuation, `AsyncStream`, and `AsyncSequence`/async-bytes cases into one vague “Swift async seam” and therefore choosing the wrong truthful next boundary
 
 ## 6. What this branch is strongest at
 This branch is currently strongest at practical guidance for:
@@ -466,7 +467,7 @@ This branch is currently strongest at practical guidance for:
 - separating ordinary ObjC / Swift / native owner problems from Flutter/Dart cross-runtime owner problems
 - treating execution-assisted replay as a continuation of owner recovery rather than tool tourism
 - separating callback/block landing truth from later owner or policy claims
-- separating continuation-owned or stream-owned Swift consequence boundaries from ordinary result-to-policy reduction
+- separating single-shot continuation, multi-value `AsyncStream`, and `AsyncSequence`/async-bytes consequence boundaries from ordinary result-to-policy reduction
 - separating visible callback/result material from the first true policy-bearing consumer
 
 That makes the branch good at cases where iOS work is already partly reachable, but the next useful move still depends on disciplined routing rather than broader tracing.
