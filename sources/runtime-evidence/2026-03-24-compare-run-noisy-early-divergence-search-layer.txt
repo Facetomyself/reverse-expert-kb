@@ -1,0 +1,566 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering compare run first meaningful divergence noisy early mismatch trace diff deterministic replay",
+    "rr pernosco divergence debugging first divergence compare runs reverse engineering",
+    "time travel debugging reverse engineering trace diff noise first meaningful divergence"
+  ],
+  "count": 28,
+  "results": [
+    {
+      "title": "Replay step divergence while debugging wine · Issue #3009 - GitHub",
+      "url": "https://github.com/rr-debugger/rr/issues/3009",
+      "snippet": "(If you're running wine under rr, you might also be interested in my gdb patchset to make gdb natively understand wine's data structures and",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.6643
+    },
+    {
+      "title": "Time Travel Debugging (Windows) - Getting Started",
+      "url": "https://docs.binary.ninja/guide/debugger/dbgeng-ttd.html",
+      "snippet": "Time travel debugging (TTD) allows you to record an execution trace of a program or system and replay it back and forth. It can speed up the process of reverse engineering/vulnerability research, and deal with certain tasks that are not easy to handle in regular forward debugging.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.6357
+    },
+    {
+      "title": "GitHub - PrasoonMishra/LLVM-IR-Divergence-Analyzer: A tool that automatically detects divergence in LLVM IR by comparing the dumps generated using --print-after-all for legacy and new pass manager pipeline.",
+      "url": "https://github.com/PrasoonMishra/LLVM-IR-Divergence-Analyzer",
+      "snippet": "",
+      "published_date": "2025-09-17T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6214
+    },
+    {
+      "title": "Time Travel Debugging Overview - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-overview",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.6
+    },
+    {
+      "title": "Search code, repositories, users, issues, pull requests...",
+      "url": "https://github.com/ryosuzuki/trace-diff",
+      "snippet": "",
+      "published_date": "2017-04-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How to debug multiple inferiors simultaniously? · Issue #3608 - GitHub",
+      "url": "https://github.com/rr-debugger/rr/issues/3608",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "19th Conference of the European Chapter of the ... - ACL Anthology",
+      "url": "https://aclanthology.org/events/eacl-2026/",
+      "snippet": "**[Can Reasoning Help Large Language Models Capture Human Annotator Disagreement?](https://aclanthology.org/2026.eacl-long.3/)**. **[J irai B ench: A Bilingual Benchmark for Evaluating Large Language Models’ Detection of Human risky health behavior Content in Jirai Community](https://aclanthology.org/2026.eacl-long.23/)**. **[Council of LLM s: Evaluating Capability of Large Language Models to Annotate Propaganda](https://aclanthology.org/2026.wassa-1.1/)**. Large language models (LLMs) have demonstrated strong performance on emotion understanding tasks, yet their ability to faithfully generate emotionally aligned text remains less well understood.We propose a semantic evaluation framework that jointly assesses emotion understanding, emotion generation, and internal consistency, using a VAE-based emotion cost matrix that captures graded semantic similarity between emotion categories.Our framework introduces four complementary metrics that disentangle baseline understanding, human-perceived emotion in generated text, generation quality, and model consistency.Experimental results show that while understanding and consistency scores are highly correlated, emotion generation exhibits substantially weaker correlations with these metrics.These findings motivate the development of specialized evaluation protocols that independently measure emotional understanding and generation, enabling more reliable assessments of LLM emotional intelligence.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.58
+    },
+    {
+      "title": "How can I compare different execution traces of the same exe, but ...",
+      "url": "https://reverseengineering.stackexchange.com/questions/33334/how-can-i-compare-different-execution-traces-of-the-same-exe-but-ran-with-diffe",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, grok",
+      "score": 0.5643
+    },
+    {
+      "title": "Rreverrse Debugging | Huon on the internet",
+      "url": "https://huonw.github.io/blog/2015/10/rreverse-debugging/",
+      "snippet": "Of course, there’s an element of a vicious cycle: I only use debuggers (generally gdb for native code, and pdb for Python) occasionally and so I’m not an expert, so things end up being annoying, slow and require searching the internet a lot, and this discourages me from using them. The recording step with `rr` is simple: tell it your binary and it’ll run it, saving the state it needs for replaying as the program executes. The thing I’ve really fallen in love with is reverse debugging: instead of just being able to let the program’s execution progress forward in various forms (`step`, `next`, `continue` etc.), you can do the same in reverse. * record executions with `rr` until the bug exhibits how I want[1,. 2. The rr developers point out this means tracking down rare bugs is made easier: run rr on a test-case in a loop until the bug triggers, and then you can dissect it at leisure, instead of just hoping to catch it by chance in a traditional debugger.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5143
+    },
+    {
+      "title": "Reverse Engineering through trace diffing - several approaches",
+      "url": "https://blog.tetrane.com/2021/reverse-engineering-through-trace-diffing-several-approaches.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.4857
+    },
+    {
+      "title": "Eidetic Systems",
+      "url": "https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-devecsery.pdf",
+      "snippet": "Research on deterministic replay systems that detect replay divergence (e.g., due to data races) and use it for debugging, including identifying the first mismatched points in traces.",
+      "published_date": "2014",
+      "source": "grok",
+      "score": 0.4286
+    },
+    {
+      "title": "Temporal Replay Bugs Hide in Plain Sight | by Nexumo | Mar, 2026 | Medium",
+      "url": "https://medium.com/@Nexumo_/temporal-replay-bugs-hide-in-plain-sight-7e436f4b3ea4",
+      "snippet": "",
+      "published_date": "2026-03-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4214
+    },
+    {
+      "title": "Modern Debugging",
+      "url": "https://cacm.acm.org/research/modern-debugging/",
+      "snippet": "Covers differential debugging: comparing logs, traces, or execution data from working vs. failing runs to find the first point of divergence. Includes techniques for log diffing, trace comparison, and using tools like diff for identifying where systems diverge.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.4071
+    },
+    {
+      "title": "Advanced Debugging Technology In Practice",
+      "url": "https://robert.ocallahan.org/2024/10/debt-workshop.html",
+      "snippet": "* Debugging Gdb Using rr: Ptrace Emulation. * Update To rr Master To Debug Firefox Trunk. * Using rr To Debug Go Programs. * Using rr To Debug rr. * Using rr To Debug Dropped Video Frames In Gecko. After a brief explanation of what it is, I talked about what people like about it: the “record first, debug later” workflow; “reverse dataflow analysis” by setting a data watchpoint and reverse-continuing; solving the “stepped too far, start over” problem; breaking at a specific line of output using `rr replay -a -M` and `rr replay -g`; the familiarity of the GDB interface. An interesting point is that awareness of rr and similar tools like Undo and Pernosco is not just a matter of people knowing they *exist*, but believing that they actually *work* in practice. You need an rr recording to use Pernosco, so you usually have the option of just debugging with rr, and some people are completely happy with that.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.4071
+    },
+    {
+      "title": "Reversible Debugging with RR - InfoQ",
+      "url": "https://www.infoq.com/presentations/rr-reversible-debugging/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Debugging a “Hard” browser READ task with Predicate traces",
+      "url": "https://predicatesystems.ai/blog/apa-hard-read-debugging-with-sentience-traces",
+      "snippet": "Scan the trace/log for the first “meaningful divergence”. unexpected navigation (URL jumps to login/SSO); loop/no-op detection (URL and/or snapshot digest ...",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.3857
+    },
+    {
+      "title": "Accurate Differential Analysis using Record and Selective Replay",
+      "url": "https://dl.acm.org/doi/full/10.1145/3733723.3733733",
+      "snippet": "Describes record-and-replay methods that pinpoint the first location of divergence between executions, with extensions for identifying subsequent divergence points in debugging and analysis.",
+      "published_date": "2025",
+      "source": "grok",
+      "score": 0.3857
+    },
+    {
+      "title": "Trustworthy AI Agents: Deterministic Replay",
+      "url": "https://www.sakurasky.com/blog/missing-primitives-for-trustworthy-ai-part-8/",
+      "snippet": "Explains deterministic replay for AI agents, detecting environment drift or mismatches immediately during replay, and handling divergence in decision paths or execution traces.",
+      "published_date": "2025-11-20",
+      "source": "grok",
+      "score": 0.3671
+    },
+    {
+      "title": "How to use Time Travel Analysis to reverse engineer a malware",
+      "url": "https://eshard.com/posts/malware-analysis-with-time-travel-analysis-reverse-engineering",
+      "snippet": "With standard tools, to reverse the C2 communication protocol or the encryption algorithm for the malware config, you would need to repeat the debugging session from the beginning each time, moving up the call stack and seeing where the data came from in the network packet. Andrew needed a way to **capture and analyze malware execution without constantly restarting his work.** That’s when he discovered Time Travel Analysis. Time Travel Debugging (TTD), also known as Time Travel Analysis, enables reverse engineers to record a full execution trace of malware, then rewind and replay it without restarting the debugging session. * Take full advantage of **time travel analysis**, recording a malware’s execution once and navigating through it forward and backward, eliminating the need for repeated debugging sessions. For professionals working in cyber threat intelligence, malware research, exploit investigation, or vulnerability analysis, tools like esReverse make it possible to tackle even the most complex malware samples without losing time on unnecessary debugging steps.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.3643
+    },
+    {
+      "title": "The Pernosco vision",
+      "url": "https://pernos.co/about/vision/",
+      "snippet": "Pernosco omniscient debugger description, including features for comparing closely-related executions (e.g., passing vs. failing runs from minimized testcases or code changes) to explain why something didn't happen. Built on rr recordings for advanced reverse debugging and reverse engineering.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.3643
+    },
+    {
+      "title": "Debugging Unexpected Code Behavior Using Trace Divergences",
+      "url": "https://ryosuzuki.org/trace-diff/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "rr: lightweight recording & deterministic debugging",
+      "url": "https://rr-project.org/",
+      "snippet": "Official rr project site explaining record-and-replay for deterministic debugging of C/C++ on Linux, with efficient reverse execution. Addresses replay divergences and nondeterminism in traces used by tools like Pernosco.",
+      "published_date": "2024-10-18",
+      "source": "grok",
+      "score": 0.3271
+    },
+    {
+      "title": "Divergence-Driven Debugging: Understanding Behavioral Changes Between Two Program Versions",
+      "url": "https://inria.hal.science/hal-05114444v1/document",
+      "snippet": "",
+      "published_date": "2026-01-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "Reverse Debugging / Time Travel Debugging: A Brief History of Time",
+      "url": "https://undo.io/resources/reverse-debugging-time-travel-debugging-brief-hist/",
+      "snippet": "Reverse debugging is the ability of a debugger to stop after a failure in a program has been observed and go back into the history of the execution to uncover",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3214
+    },
+    {
+      "title": "How to Create Trace Comparison",
+      "url": "https://oneuptime.com/blog/post/2026-01-30-trace-comparison/view",
+      "snippet": "",
+      "published_date": "2026-01-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "Publications & Research - Michael Brenndoerfer",
+      "url": "https://mbrenndoerfer.com/publications",
+      "snippet": "Learn how learning rate warmup stabilizes early training by gradually increasing the learning rate, with theory, linear warmup, and large batch scaling rules.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3214
+    },
+    {
+      "title": "How To Track Down Divergence Bugs In rr - Robert O'Callahan",
+      "url": "https://robert.ocallahan.org/2016/06/how-to-track-down-divergence-bugs-in-rr.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.3214
+    },
+    {
+      "title": "Debugging Firefox with Pernosco",
+      "url": "https://firefox-source-docs.mozilla.org/contributing/debugging/debugging_firefox_with_pernosco.html",
+      "snippet": "This page is intended to help Firefox/Gecko developers get started using Pernosco to debug Firefox. Mozilla employees have a paid subscription to Pernosco, and are encouraged to use it. Contributors can use Pernosco as well. See Debugging Firefox with rr. * Employees, you can also generate traces for Pernosco for some CI job failures via Treeherder. At a high level, working with Pernosco consists of recording a trace then uploading the trace for processing. ### Install your Pernosco configuration. Mozilla employees, see the Pernosco install and configuration doc for credentials. > * Your email in `~/.config/pernosco/user`. In general, to gather a trace follow the instruction for recording `rr` traces in Debugging Firefox with rr. However, to gather a local rr trace that’s compatible with Pernosco you need to disable some incompatible CPU features (currently only AVX-512). Find the trace you’re interested in `~/.local/share/rr/`, and call `pernosco-submit`. The last trace recorded is always symlinked, so you can use `~/.local/share/rr/latest-trace` too.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3214
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Debugging Unexpected Code Behavior Using Trace Divergences",
+        "url": "https://ryosuzuki.org/trace-diff/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "Temporal Replay Bugs Hide in Plain Sight | by Nexumo | Mar, 2026 | Medium",
+        "url": "https://medium.com/@Nexumo_/temporal-replay-bugs-hide-in-plain-sight-7e436f4b3ea4",
+        "snippet": "",
+        "published_date": "2026-03-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4214
+      },
+      {
+        "title": "Divergence-Driven Debugging: Understanding Behavioral Changes Between Two Program Versions",
+        "url": "https://inria.hal.science/hal-05114444v1/document",
+        "snippet": "",
+        "published_date": "2026-01-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "Reverse Engineering through trace diffing - several approaches",
+        "url": "https://blog.tetrane.com/2021/reverse-engineering-through-trace-diffing-several-approaches.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.4857
+      },
+      {
+        "title": "Time Travel Debugging Overview - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-overview",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.6
+      },
+      {
+        "title": "Divergence-Driven Debugging: Understanding Behavioral Changes Between Two Program Versions",
+        "url": "https://inria.hal.science/hal-05114444v1/document",
+        "snippet": "",
+        "published_date": "2026-01-15T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Search code, repositories, users, issues, pull requests...",
+        "url": "https://github.com/ryosuzuki/trace-diff",
+        "snippet": "",
+        "published_date": "2017-04-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "How to Create Trace Comparison",
+        "url": "https://oneuptime.com/blog/post/2026-01-30-trace-comparison/view",
+        "snippet": "",
+        "published_date": "2026-01-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "How can I compare different execution traces of the same exe, but ...",
+        "url": "https://reverseengineering.stackexchange.com/questions/33334/how-can-i-compare-different-execution-traces-of-the-same-exe-but-ran-with-diffe",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, grok",
+        "score": 0.5643
+      },
+      {
+        "title": "Reverse Engineering through trace diffing - several approaches",
+        "url": "https://blog.tetrane.com/2021/reverse-engineering-through-trace-diffing-several-approaches.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Divergence-Driven Debugging: Understanding Behavioral Changes Between Two Program Versions",
+        "url": "https://inria.hal.science/hal-05114444v1/document",
+        "snippet": "",
+        "published_date": "2026-01-15T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "How To Track Down Divergence Bugs In rr - Robert O'Callahan",
+        "url": "https://robert.ocallahan.org/2016/06/how-to-track-down-divergence-bugs-in-rr.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.3214
+      },
+      {
+        "title": "GitHub - PrasoonMishra/LLVM-IR-Divergence-Analyzer: A tool that automatically detects divergence in LLVM IR by comparing the dumps generated using --print-after-all for legacy and new pass manager pipeline.",
+        "url": "https://github.com/PrasoonMishra/LLVM-IR-Divergence-Analyzer",
+        "snippet": "",
+        "published_date": "2025-09-17T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6214
+      },
+      {
+        "title": "How to debug multiple inferiors simultaniously? · Issue #3608 - GitHub",
+        "url": "https://github.com/rr-debugger/rr/issues/3608",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Reversible Debugging with RR - InfoQ",
+        "url": "https://www.infoq.com/presentations/rr-reversible-debugging/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Reverse Debugging / Time Travel Debugging: A Brief History of Time",
+        "url": "https://undo.io/resources/reverse-debugging-time-travel-debugging-brief-hist/",
+        "snippet": "Reverse debugging is the ability of a debugger to stop after a failure in a program has been observed and go back into the history of the execution to uncover",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3214
+      },
+      {
+        "title": "Time Travel Debugging Overview - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-overview",
+        "snippet": "Time Travel Debugging (TTD) is a tool that captures a trace of your process as it executes and replays it later both forwards and backwards. TTD is efficient and works to add as little overhead as possible as it captures code execution in trace files. In addition to recording traces in the WinDbg UI, there is a TTD.exe command line utility available to record a trace. For more information, see Time Travel Debugging - TTD.exe command line utility. A trace file (`.run`) stores the code execution during recording. For more information on working with trace files, see Time Travel Debugging - Working with trace files. For information about working with the TTD debugger object model, see Time Travel Debugging - Introduction to Time Travel Debugging objects. The TTD.exe command line utility to record traces is available. For more information, see Time Travel Debugging - TTD.exe command line utility.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to use Time Travel Analysis to reverse engineer a malware",
+        "url": "https://eshard.com/posts/malware-analysis-with-time-travel-analysis-reverse-engineering",
+        "snippet": "With standard tools, to reverse the C2 communication protocol or the encryption algorithm for the malware config, you would need to repeat the debugging session from the beginning each time, moving up the call stack and seeing where the data came from in the network packet. Andrew needed a way to **capture and analyze malware execution without constantly restarting his work.** That’s when he discovered Time Travel Analysis. Time Travel Debugging (TTD), also known as Time Travel Analysis, enables reverse engineers to record a full execution trace of malware, then rewind and replay it without restarting the debugging session. * Take full advantage of **time travel analysis**, recording a malware’s execution once and navigating through it forward and backward, eliminating the need for repeated debugging sessions. For professionals working in cyber threat intelligence, malware research, exploit investigation, or vulnerability analysis, tools like esReverse make it possible to tackle even the most complex malware samples without losing time on unnecessary debugging steps.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.3643
+      },
+      {
+        "title": "Debugging Unexpected Code Behavior Using Trace Divergences",
+        "url": "https://ryosuzuki.org/trace-diff/",
+        "snippet": "Our system compares the dynamic code execution of both incorrect and fixed code and highlights how the error leads to a difference in behavior.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Reverse Engineering through trace diffing - several approaches",
+        "url": "https://blog.tetrane.com/2021/reverse-engineering-through-trace-diffing-several-approaches.html",
+        "snippet": "In this article, we will see how two analysis scenarios in REVEN can be compared by diffing their traces at different levels.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Publications & Research - Michael Brenndoerfer",
+        "url": "https://mbrenndoerfer.com/publications",
+        "snippet": "Learn how learning rate warmup stabilizes early training by gradually increasing the learning rate, with theory, linear warmup, and large batch scaling rules.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3214
+      },
+      {
+        "title": "19th Conference of the European Chapter of the ... - ACL Anthology",
+        "url": "https://aclanthology.org/events/eacl-2026/",
+        "snippet": "**[Can Reasoning Help Large Language Models Capture Human Annotator Disagreement?](https://aclanthology.org/2026.eacl-long.3/)**. **[J irai B ench: A Bilingual Benchmark for Evaluating Large Language Models’ Detection of Human risky health behavior Content in Jirai Community](https://aclanthology.org/2026.eacl-long.23/)**. **[Council of LLM s: Evaluating Capability of Large Language Models to Annotate Propaganda](https://aclanthology.org/2026.wassa-1.1/)**. Large language models (LLMs) have demonstrated strong performance on emotion understanding tasks, yet their ability to faithfully generate emotionally aligned text remains less well understood.We propose a semantic evaluation framework that jointly assesses emotion understanding, emotion generation, and internal consistency, using a VAE-based emotion cost matrix that captures graded semantic similarity between emotion categories.Our framework introduces four complementary metrics that disentangle baseline understanding, human-perceived emotion in generated text, generation quality, and model consistency.Experimental results show that while understanding and consistency scores are highly correlated, emotion generation exhibits substantially weaker correlations with these metrics.These findings motivate the development of specialized evaluation protocols that independently measure emotional understanding and generation, enabling more reliable assessments of LLM emotional intelligence.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.58
+      },
+      {
+        "title": "How To Track Down Divergence Bugs In rr - Robert O'Callahan",
+        "url": "https://robert.ocallahan.org/2016/06/how-to-track-down-divergence-bugs-in-rr.html",
+        "snippet": "* Update To rr Master To Debug Firefox Trunk. * Using rr To Debug Go Programs. * How To Track Down Divergence Bugs In rr. * Using rr To Debug Dropped Video Frames In Gecko. As you'd hope, rr itself is very useful for this; you can replay right up to the divergence point and reverse-stepi to see where the bad value is set. For bugs where we know we've recorded the correct data but replay goes wrong, we have the ability to record rr replay under rr (and, obviously, replay it), so we can actually use reverse-execution debugging to debug rr's replay code. If QEMU could run rr with record-and-replay support that would be pretty useful to me, but AFAIK performance counters aren't supported unless you use KVM. Yes, I didn't know about rr last time I had to debug PANDA, but I'm currently staring down ~500 failed replays (replaying 50,000 malware samples will do that...) and planning on giving it a try.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Advanced Debugging Technology In Practice",
+        "url": "https://robert.ocallahan.org/2024/10/debt-workshop.html",
+        "snippet": "* Debugging Gdb Using rr: Ptrace Emulation. * Update To rr Master To Debug Firefox Trunk. * Using rr To Debug Go Programs. * Using rr To Debug rr. * Using rr To Debug Dropped Video Frames In Gecko. After a brief explanation of what it is, I talked about what people like about it: the “record first, debug later” workflow; “reverse dataflow analysis” by setting a data watchpoint and reverse-continuing; solving the “stepped too far, start over” problem; breaking at a specific line of output using `rr replay -a -M` and `rr replay -g`; the familiarity of the GDB interface. An interesting point is that awareness of rr and similar tools like Undo and Pernosco is not just a matter of people knowing they *exist*, but believing that they actually *work* in practice. You need an rr recording to use Pernosco, so you usually have the option of just debugging with rr, and some people are completely happy with that.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.4071
+      },
+      {
+        "title": "Debugging Firefox with Pernosco",
+        "url": "https://firefox-source-docs.mozilla.org/contributing/debugging/debugging_firefox_with_pernosco.html",
+        "snippet": "This page is intended to help Firefox/Gecko developers get started using Pernosco to debug Firefox. Mozilla employees have a paid subscription to Pernosco, and are encouraged to use it. Contributors can use Pernosco as well. See Debugging Firefox with rr. * Employees, you can also generate traces for Pernosco for some CI job failures via Treeherder. At a high level, working with Pernosco consists of recording a trace then uploading the trace for processing. ### Install your Pernosco configuration. Mozilla employees, see the Pernosco install and configuration doc for credentials. > * Your email in `~/.config/pernosco/user`. In general, to gather a trace follow the instruction for recording `rr` traces in Debugging Firefox with rr. However, to gather a local rr trace that’s compatible with Pernosco you need to disable some incompatible CPU features (currently only AVX-512). Find the trace you’re interested in `~/.local/share/rr/`, and call `pernosco-submit`. The last trace recorded is always symlinked, so you can use `~/.local/share/rr/latest-trace` too.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3214
+      },
+      {
+        "title": "Rreverrse Debugging | Huon on the internet",
+        "url": "https://huonw.github.io/blog/2015/10/rreverse-debugging/",
+        "snippet": "Of course, there’s an element of a vicious cycle: I only use debuggers (generally gdb for native code, and pdb for Python) occasionally and so I’m not an expert, so things end up being annoying, slow and require searching the internet a lot, and this discourages me from using them. The recording step with `rr` is simple: tell it your binary and it’ll run it, saving the state it needs for replaying as the program executes. The thing I’ve really fallen in love with is reverse debugging: instead of just being able to let the program’s execution progress forward in various forms (`step`, `next`, `continue` etc.), you can do the same in reverse. * record executions with `rr` until the bug exhibits how I want[1,. 2. The rr developers point out this means tracking down rare bugs is made easier: run rr on a test-case in a loop until the bug triggers, and then you can dissect it at leisure, instead of just hoping to catch it by chance in a traditional debugger.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5143
+      },
+      {
+        "title": "Replay step divergence while debugging wine · Issue #3009 - GitHub",
+        "url": "https://github.com/rr-debugger/rr/issues/3009",
+        "snippet": "(If you're running wine under rr, you might also be interested in my gdb patchset to make gdb natively understand wine's data structures and",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.6643
+      }
+    ],
+    "grok": [
+      {
+        "title": "Time Travel Debugging (Windows) - Getting Started",
+        "url": "https://docs.binary.ninja/guide/debugger/dbgeng-ttd.html",
+        "snippet": "Time travel debugging (TTD) allows you to record an execution trace of a program or system and replay it back and forth. It can speed up the process of reverse engineering/vulnerability research, and deal with certain tasks that are not easy to handle in regular forward debugging.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.6357
+      },
+      {
+        "title": "Time Travel Debugging Overview - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-overview",
+        "snippet": "Time Travel Debugging (TTD) is a tool that captures a trace of your process as it executes and replays it later both forwards and backwards. TTD helps you debug issues by letting you \"rewind\" your debugger session, instead of having to reproduce the issue until you find the bug.",
+        "published_date": "2025-11-06",
+        "source": "grok"
+      },
+      {
+        "title": "Reverse Engineering through trace diffing - several approaches",
+        "url": "https://blog.tetrane.com/2021/reverse-engineering-through-trace-diffing-several-approaches.html",
+        "snippet": "In this article, we will see how two analysis scenarios in REVEN can be compared by diffing their traces at different levels. ... analyzing the difference between two situations: before/after patches, before/after changing an input, crash/no-crash related to changes in fuzzer-generated inputs, etc.",
+        "published_date": "2021-06-03",
+        "source": "grok"
+      },
+      {
+        "title": "How to use Time Travel Analysis to reverse engineer a malware",
+        "url": "https://eshard.com/posts/malware-analysis-with-time-travel-analysis-reverse-engineering",
+        "snippet": "Time Travel Debugging (TTD), also known as Time Travel Analysis, enables reverse engineers to record a full execution trace of malware, then rewind and replay it without restarting the debugging session. ... Rewind and replay execution without triggering anti-debugging protections.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Debugging a “Hard” browser READ task with Predicate traces",
+        "url": "https://predicatesystems.ai/blog/apa-hard-read-debugging-with-sentience-traces",
+        "snippet": "Scan the trace/log for the first “meaningful divergence”. unexpected navigation (URL jumps to login/SSO); loop/no-op detection (URL and/or snapshot digest ...",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.3857
+      },
+      {
+        "title": "How can I compare different execution traces of the same exe but ran with different parameters?",
+        "url": "https://reverseengineering.stackexchange.com/questions/33334/how-can-i-compare-different-execution-traces-of-the-same-exe-but-ran-with-diffe",
+        "snippet": "Discussion on comparing execution traces from different runs (e.g., with different parameters) using tools like x64dbg tracing, lighthouse, or dumping traces for diff comparison. Addresses challenges in trace diffing for reverse engineering.",
+        "published_date": "2024-12-08",
+        "source": "grok"
+      },
+      {
+        "title": "Modern Debugging",
+        "url": "https://cacm.acm.org/research/modern-debugging/",
+        "snippet": "Covers differential debugging: comparing logs, traces, or execution data from working vs. failing runs to find the first point of divergence. Includes techniques for log diffing, trace comparison, and using tools like diff for identifying where systems diverge.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.4071
+      },
+      {
+        "title": "Accurate Differential Analysis using Record and Selective Replay",
+        "url": "https://dl.acm.org/doi/full/10.1145/3733723.3733733",
+        "snippet": "Describes record-and-replay methods that pinpoint the first location of divergence between executions, with extensions for identifying subsequent divergence points in debugging and analysis.",
+        "published_date": "2025",
+        "source": "grok",
+        "score": 0.3857
+      },
+      {
+        "title": "Trustworthy AI Agents: Deterministic Replay",
+        "url": "https://www.sakurasky.com/blog/missing-primitives-for-trustworthy-ai-part-8/",
+        "snippet": "Explains deterministic replay for AI agents, detecting environment drift or mismatches immediately during replay, and handling divergence in decision paths or execution traces.",
+        "published_date": "2025-11-20",
+        "source": "grok",
+        "score": 0.3671
+      },
+      {
+        "title": "Eidetic Systems",
+        "url": "https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-devecsery.pdf",
+        "snippet": "Research on deterministic replay systems that detect replay divergence (e.g., due to data races) and use it for debugging, including identifying the first mismatched points in traces.",
+        "published_date": "2014",
+        "source": "grok",
+        "score": 0.4286
+      },
+      {
+        "title": "How To Track Down Divergence Bugs In rr - Robert O'Callahan",
+        "url": "https://robert.ocallahan.org/2016/06/how-to-track-down-divergence-bugs-in-rr.html",
+        "snippet": "Guide on tracking down divergence bugs in rr recordings, focusing on conditional-branch counters and control flow changes that cause the first divergence during replay. Explains practical steps for debugging nondeterministic issues in reverse execution.",
+        "published_date": "2016-06-06",
+        "source": "grok"
+      },
+      {
+        "title": "The Pernosco vision",
+        "url": "https://pernos.co/about/vision/",
+        "snippet": "Pernosco omniscient debugger description, including features for comparing closely-related executions (e.g., passing vs. failing runs from minimized testcases or code changes) to explain why something didn't happen. Built on rr recordings for advanced reverse debugging and reverse engineering.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.3643
+      },
+      {
+        "title": "rr: lightweight recording & deterministic debugging",
+        "url": "https://rr-project.org/",
+        "snippet": "Official rr project site explaining record-and-replay for deterministic debugging of C/C++ on Linux, with efficient reverse execution. Addresses replay divergences and nondeterminism in traces used by tools like Pernosco.",
+        "published_date": "2024-10-18",
+        "source": "grok",
+        "score": 0.3271
+      },
+      {
+        "title": "Advanced Debugging Technology In Practice",
+        "url": "https://robert.ocallahan.org/2024/10/debt-workshop.html",
+        "snippet": "Discussion of rr and Pernosco for omniscient debugging, including handling divergences in traces and options for debugging with rr directly versus Pernosco's enhanced features.",
+        "published_date": "2024-10-01",
+        "source": "grok"
+      },
+      {
+        "title": "Replay step divergence while debugging wine · Issue #3009",
+        "url": "https://github.com/rr-debugger/rr/issues/3009",
+        "snippet": "GitHub issue on replay divergences in rr when debugging Wine, with details on unexpected signals, breakpoints, and trace consistency during reverse debugging sessions.",
+        "published_date": "2021-12-14",
+        "source": "grok"
+      }
+    ]
+  }
+}
