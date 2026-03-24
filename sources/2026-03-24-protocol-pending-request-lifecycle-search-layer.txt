@@ -1,0 +1,668 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering pending request correlation async reply slot reuse generation counter protocol",
+    "RPC request reply correlation generation counter slot reuse timeout cleanup reverse engineering",
+    "completion queue tag generation stale reply correlation protocol analyzer"
+  ],
+  "count": 37,
+  "results": [
+    {
+      "title": "Protocol reverse engineering / Reproduce HTTP dialogue",
+      "url": "https://stackoverflow.com/questions/2143663/protocol-reverse-engineering-reproduce-http-dialogue",
+      "snippet": "### your communities. ### more stack exchange communities. ##### Collectives™ on Stack Overflow. I have already done the first step, which is analysing some HTTP exchanges (done using POST request and XML replies) with Wireshark. Basically I don't need much \"programming\" power, just the ability to parse some variables in the server responses and re-use them in the successive request. ## 2 Answers 2. If you don't need a scalable solution, and your app needs to deal with particular requests/response only, you can precreate several requests as XML blobs and just update any variables in them, send them and do basic XML parsing to get the values of the XML elements with the response. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. ##### Stack Overflow. ##### Stack Exchange Network. Site design / logo © 2026 Stack Exchange Inc;.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.78
+    },
+    {
+      "title": "Asynchronous Request-Reply Pattern - Azure Architecture",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/asynchronous-request-reply",
+      "snippet": "The asynchronous request-reply pattern decouples long-running backend operations from frontend clients by returning an immediate acknowledgment with a correlation mechanism (such as a request ID or polling URL). The client polls the status endpoint, which tracks pending requests and returns the eventual reply. This handles correlation of async replies without tight coupling.",
+      "published_date": "2026-03-05",
+      "source": "grok",
+      "score": 0.765
+    },
+    {
+      "title": "jms - What's the best way to implement a Request/Reply pattern if no ...",
+      "url": "https://stackoverflow.com/questions/4849964/whats-the-best-way-to-implement-a-request-reply-pattern-if-no-temporary-queues",
+      "snippet": "The customary solution when several requestors listen for replies on the same queue is to use correlation IDs to select messages.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.675
+    },
+    {
+      "title": "rpc: retain correlation idx across transport resets · Pull Request #6021 · redpanda-data/redpanda",
+      "url": "https://github.com/redpanda-data/redpanda/pull/6021",
+      "snippet": "",
+      "published_date": "2022-08-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Protocol feature proposal: RESP3 (+?) correlation (long term) · Issue #13240 · redis/redis",
+      "url": "https://github.com/redis/redis/issues/13240",
+      "snippet": "",
+      "published_date": "2024-04-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "correlation/http_protocol_proposal_v2.md at master · lmolkova/correlation",
+      "url": "https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md",
+      "snippet": "",
+      "published_date": "2016-12-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "GitHub - rabbitmq/rabbitmq-codegen: RabbitMQ protocol code-generation and machine-readable spec",
+      "url": "https://github.com/rabbitmq/rabbitmq-codegen",
+      "snippet": "",
+      "published_date": "2010-09-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Pre-send queue check — suppress stale replies when generation changes",
+      "url": "https://github.com/openclaw/openclaw/issues/48814",
+      "snippet": "The gap is: no mode prevents a completed-but-stale reply from being delivered when newer input is waiting... Correction: User sends newer input before a stale reply is delivered.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.65
+    },
+    {
+      "title": "GitHub - rabbitmq/rabbitmq-tracer: AMQP 0-9-1 protocol analyzer",
+      "url": "https://github.com/rabbitmq/rabbitmq-tracer",
+      "snippet": "",
+      "published_date": "2016-09-28T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "How to correlate RPC calls in ETW traces?",
+      "url": "https://stackoverflow.com/questions/41504738/how-to-correlate-rpc-calls-in-etw-traces",
+      "snippet": "",
+      "published_date": "2017-01-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "GitHub - ApamaCommunity/apama-log-analyzer: Python 3 script for analyzing Apama correlator log files and extracting useful diagnostic information",
+      "url": "https://github.com/ApamaCommunity/apama-log-analyzer",
+      "snippet": "",
+      "published_date": "2019-04-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How to get gRPC status from grpc::CompletionQueue Usage",
+      "url": "https://stackoverflow.com/questions/75328598/how-to-get-grpc-status-from-grpccompletionqueue-usage",
+      "snippet": "When you submit an operation to the completion queue, you give a tag, the tag is how you figure out what operation the completion is for.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.6
+    },
+    {
+      "title": "Optimize Completion Queue · Issue #60 · grpc/grpc - GitHub",
+      "url": "https://github.com/grpc/grpc/issues/60",
+      "snippet": "This is a catch all to gather thoughts on a more optimal completion queue implementation (the current implementation is very placeholder).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "RPC connection idleness timeout should be independent of request timeout",
+      "url": "https://github.com/smfrpc/smf/issues/335",
+      "snippet": "GitHub issue discussing RPC slot management, request timeouts, idleness timeouts, and scenarios where RPC slots are lost forever if replies never return, with implications for reuse and cleanup.",
+      "published_date": "2019-03-12",
+      "source": "grok",
+      "score": 0.595
+    },
+    {
+      "title": "RPC Requests and Responses - Digi International",
+      "url": "https://docs.digi.com/resources/documentation/digidocs/90001931/RPC_overview/rpc_overview.html",
+      "snippet": "Requests and responses are routed through Device Cloud, which specifies an SCI wrapper around the RCI message indicating which gateway or gateways to send to.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.575
+    },
+    {
+      "title": "The Asynchronous Request-Reply Pattern: Your Guide to Not Waiting Around Like a Chump",
+      "url": "https://dev.to/igornosatov_15/the-asynchronous-request-reply-pattern-your-guide-to-not-waiting-around-like-a-chump-2k8h",
+      "snippet": "",
+      "published_date": "2025-10-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.575
+    },
+    {
+      "title": "[PDF] Automatic Protocol Reverse-Engineering: Message Format ...",
+      "url": "https://people.eecs.berkeley.edu/~dawnsong/papers/2012%20Automatic%20Protocol%20Reverse%20Engineering.pdf",
+      "snippet": "Automatic Protocol Reverse-Engineering: Message Format Extraction and Field Semantics Inference Juan Caballeroa,∗, Dawn Songb aIMDEA Software Institute, Madrid, Spain bUniversity of California, Berkeley, CA, USA Abstract Understanding the command-and-control (C&C) protocol used by a botnet is crucial for anticipating its repertoire of nefarious activity. Our automatic protocol reverse-engineering techniques extract the mes-sage format and ﬁeld semantics of protocol messages sent and received by an application that implements an unknown protocol speciﬁcation. Keywords: protocol reverse-engineering, active botnet inﬁltration, message format extraction, ﬁeld semantics inference, command-and-control protocol 1. Song, Polyglot: Automatic extraction of protocol message format using dy-namic binary analysis, in: Proceedings of the ACM Conference on Computer and Communications Security, Alexandria, VA, 2007. Zhang, Automatic protocol format reverse engineering through context-aware mon-itored execution, in: Proceedings of the Network and Distributed System Security Symposium, San Diego, CA, 2008.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.575
+    },
+    {
+      "title": "Reverse Engineering Network Protocols : r/ReverseEngineering",
+      "url": "https://www.reddit.com/r/ReverseEngineering/comments/yru6p/reverse_engineering_network_protocols/",
+      "snippet": "I've found a large amount of resource for reverse engineering binaries. But is there a different method for reversing network packets? Such as using wireshark?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.575
+    },
+    {
+      "title": "Reverse Engineering Network Protocols",
+      "url": "https://jhalon.github.io/reverse-engineering-protocols/",
+      "snippet": "Guide to protocol reverse engineering focusing on intercepting and analyzing client-server traffic to understand structures, including request identifiers, response correlation, and handling asynchronous or complex packet flows.",
+      "published_date": "2018-03-24",
+      "source": "grok",
+      "score": 0.52
+    },
+    {
+      "title": "GRPC C++: grpc::CompletionQueue Class Reference",
+      "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_completion_queue.html",
+      "snippet": "|  | CompletionQueue (grpc\\_completion\\_queue \\*take) |. | |  |  |  |  | | --- | --- | --- | --- | | NextStatus grpc::CompletionQueue::AsyncNext | ( | void \\*\\* | *tag*, | | bool \\* | *ok*, | | const T & | *deadline* | | ) | | inline |. | |  |  |  |  | | --- | --- | --- | --- | | NextStatus grpc::CompletionQueue::DoThenAsyncNext | ( | F && | *f*, | | void \\*\\* | *tag*, | | bool \\* | *ok*, | | const T & | *deadline* | | ) | | inline |. | |  | | --- | | friend class grpc::internal::BlockingUnaryCallImpl | | friend |. | |  | | --- | | friend class grpc::internal::CallOpSet | | friend |. | |  | | --- | | friend class grpc::internal::ServerReaderWriterBody | | friend |. | |  | | --- | | friend class grpc::internal::TemplatedBidiStreamingHandler | | friend |.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.475
+    },
+    {
+      "title": "Inter Process Communication with RPC | by S12 - Medium",
+      "url": "https://medium.com/@s12deff/inter-process-communication-with-rpc-2addfaa57a24",
+      "snippet": "The RPC runtime sends the request to the server, waits for execution, and returns the response string allocated by the server. The client",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "Introducing RPC Investigator",
+      "url": "https://blog.trailofbits.com/2023/01/17/rpc-investigator-microsoft-windows-remote-procedure-call/",
+      "snippet": "",
+      "published_date": "2023-01-17T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "RFC 9750: The Messaging Layer Security (MLS) Architecture",
+      "url": "https://www.rfc-editor.org/rfc/rfc9750.pdf",
+      "snippet": "The generation counter in MLS messages provides per-sender loss detection, ordering, and replay protection for encrypted group messages. It helps correlate and validate message sequences in a protocol designed for secure asynchronous messaging, preventing manipulation by delivery services.",
+      "published_date": "2025-04",
+      "source": "grok",
+      "score": 0.4
+    },
+    {
+      "title": "Reverse Engineering Tricks: Identifying Opaque Network Protocols",
+      "url": "https://www.skullsecurity.org/2023/reverse-engineering-tricks-identifying-opaque-network-protocols",
+      "snippet": "Techniques for reverse engineering network protocols, including identifying request-response correlation via shared identifiers (e.g., message IDs near the start of packets) and matching pending requests to async replies through observed integer values or structures in traffic dumps.",
+      "published_date": "2023-05-02",
+      "source": "grok",
+      "score": 0.395
+    },
+    {
+      "title": "How to Implement Request-Reply Pattern in RabbitMQ - OneUptime",
+      "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily, grok",
+      "score": 0.35
+    },
+    {
+      "title": "RabbitMQ tutorial - Remote procedure call (RPC)",
+      "url": "https://www.rabbitmq.com/tutorials/tutorial-six-java",
+      "snippet": "# RabbitMQ tutorial - Remote procedure call (RPC). In this tutorial we're going to use RabbitMQ to build an RPC system: a. client and a scalable RPC server. To illustrate how an RPC service could be used we're going to. which sends an RPC request and blocks until the answer is received:. The request-reply pattern in RabbitMQ involves a straightforward interaction between the server and the client. A client sends a request message and a server replies with a response message. channel.basicPublish(\"\", \"rpc_queue\", props, message.getBytes());. then code to read a response message from the callback_queue ...`. Creating a callback queue for every RPC request is inefficient. that the RPC server will die just after sending us the answer, but. happens, the restarted RPC server will process the request again. Our RPC will work like this:. The code for our RPC server can be found here: `RPCServer.java`. The code for our RPC client can be found here: `RPCClient.java`. # => [x] Awaiting RPC requests`.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.35
+    },
+    {
+      "title": "How to Implement Request-Reply Pattern with Azure Service Bus",
+      "url": "https://oneuptime.com/blog/post/2026-02-16-how-to-implement-request-reply-pattern-with-azure-service-bus/view",
+      "snippet": "",
+      "published_date": "2026-02-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "How to Implement Request-Trace Correlation",
+      "url": "https://oneuptime.com/blog/post/2026-01-30-request-trace-correlation/view",
+      "snippet": "",
+      "published_date": "2026-01-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "Asynchronous-API tutorial | C++ - gRPC",
+      "url": "https://grpc.io/docs/languages/cpp/async/",
+      "snippet": "The server implementation requests an RPC call with a tag and then waits for the completion queue to return the tag. To deal with this, our complete async server example uses a `CallData` object to maintain the state of each RPC, and uses the address of this object as the unique tag for the call. class CallData { class CallData { public: public: public // Take in the \"service\" instance (in this case representing an asynchronous  // Take in the \"service\" instance (in this case representing an asynchronous // Take in the \"service\" instance (in this case representing an asynchronous  // server) and the completion queue \"cq\" used for asynchronous communication  // server) and the completion queue \"cq\" used for asynchronous communication // server) and the completion queue \"cq\" used for asynchronous communication  // with the gRPC runtime. new CallData(&service_, cq_.get());  new CallData(&service_, cq_.get());  & void* tag; // uniquely identifies a request. You can see our complete server example in [greeter\\_async\\_server.cc](https://github.com/grpc/grpc/blob/v1.78.1/examples/cpp/helloworld/greeter_async_server.cc).",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.35
+    },
+    {
+      "title": "[PDF] OSCI TLM-2.0 LANGUAGE REFERENCE MANUAL",
+      "url": "https://www.accellera.org/images/downloads/standards/systemc/TLM_2_0_LRM.pdf",
+      "snippet": "OSCI TLM-2.0 LANGUAGE REFERENCE MANUAL Copyright © 2007-2009 by the Open SystemC Initiative (OSCI) 176 OSCI TLM-2.0 LANGUAGE REFERENCE MANUAL Copyright © 2007-2009 by the Open SystemC Initiative (OSCI) 177 12 Index Abstraction level, 5 Accept delay, 112 acquire, 68, 106 Adapter, 63 b/nb conversion, 132 bridge, 61 Address alignment, 87, 88 Address attribute, 72, 73, 75 and DMI, 38, 73 and endianness, 88 and transport_dbg, 46, 73 overlapping, 119 allow_none, 39 allow_read, 39 allow_read_write, 39 allow_write, 39 Analysis port, 161 Approximately-timed, 9 message sequence chart, 26 PEQ, 150 phase sequence, 104 timing annotation, 31 timing parameters, 112 Arithmetic mode and endianness, 87, 91 Auto-extension, 96 b/nb conversion, 132 b_transport, 16 and simple sockets, 123 and timing annotation, 117 base protocol, 113, 118 message sequence chart, 18 re-entrant, 118 simple socket, 131 switching to nb_transport, 120 Backward path, 12, 22, 24 and causality, 113 and DMI, 42 and sockets, 51 message sequence chart, 26 nb_transport, 22 Base protocol, 103 and causality, 113 and memory management, 106 b_transport, 118 exclusion rule, 113 flow control, 114 guidelines, 122 phase sequence, 104 phase transitions, 107 switching between coding styles, 120 timing annotation, 117 transaction ordering, 119 BEGIN_REQ, 101 BEGIN_RESP, 101 base protocol, 106 Big-endian, 88, 90 bind, 56, 130, 163 Binding, 51, 56, 127, 141 hierarchical, 56, 127, 141 Blocking transport interface, 16 vs non-blocking, 10 Bridge, 13, 61, 63, 71, 95 BUSWIDTH, 56, 76, 86 Byte enable array, 72, 77 and deep_copy_from, 70 and endianness, 86 and update_original_from, 70 Byte enable length attribute, 72, 78 Byte enable pointer attribute, 72, 77 Byte order mode and endianness, 91 Callback, 131, 152 cancel_all, 152 Causality and base protocol, 113 clear_extension, 69, 97, 153 clone, 70, 95 Coding style, 5, 6 Combined interfaces, 13, 50 Command attribute, 72, 74 and DMI, 38 and transport_dbg, 46 compute_local_quantum, 49, 148 Convenience socket, 126 Conversion function OSCI TLM-2.0 LANGUAGE REFERENCE MANUAL Copyright © 2007-2009 by the Open SystemC",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.325
+    },
+    {
+      "title": "Advanced Queuing & PL/SQL Notification - Ask TOM",
+      "url": "https://asktom.oracle.com/ords/f?p=100:11:0::::P11_QUESTION_ID:8760267539329",
+      "snippet": "Here is an example of an asyncronous dequeue of a message from a queue using PLSQL. (just a reminder -- i've got a life too, sometimes camping without a laptop)",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.325
+    },
+    {
+      "title": "Correlation: How QMUX Matches Responses | jPOS Project",
+      "url": "https://jpos.org/docs/tutorial/qmux/correlation",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "Exploring ZeroMQ's Request Reply Pattern",
+      "url": "https://www.ics.com/blog/exploring-zeromqs-request-reply-pattern",
+      "snippet": "Covers request-reply in ZeroMQ, including sequencing with counters, timeouts for replies, resending requests, and cleanup of pending transactions to handle lost or out-of-order replies.",
+      "published_date": "2019-09-25",
+      "source": "grok",
+      "score": 0.32
+    },
+    {
+      "title": "Tyranid's Lair: Finding Windows RPC Client Implementations Through Brute Force",
+      "url": "https://www.tiraniddo.dev/2018/11/finding-windows-rpc-client.html",
+      "snippet": "",
+      "published_date": "2026-02-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Stale Delivery Tag Handling | kourier-amqp/kourier | DeepWiki",
+      "url": "https://deepwiki.com/kourier-amqp/kourier/6.3-stale-delivery-tag-handling",
+      "snippet": "",
+      "published_date": "2026-02-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "C++ multiple CompletionQueues blocking eachother - Google Groups",
+      "url": "https://groups.google.com/g/grpc-io/c/-6nTK-p-v1g",
+      "snippet": "I wrote a test that starts 1 client and restarts the server-side multiple times. With restarting I mean shutting down the completion queues with attached",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "NVMe confusion - OSDev.org",
+      "url": "https://forum.osdev.org/viewtopic.php?t=38736",
+      "snippet": "As part of the completion queue entry, the controller indicates the most recent Submission Queue entry that has been consumed... Each new completion queue entry has a Phase Tag inverted from the previous entry to indicate to the host that this completion queue entry is a new entry. The phase bit is only tangentially related: you can tell that you've run out of new entries to read when you find a stale entry, and you can tell that an entry is stale when its phase bit hasn't been inverted.",
+      "published_date": "2020-12-17",
+      "source": "grok",
+      "score": 0.22
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "How to Implement Request-Reply Pattern in RabbitMQ - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily, grok",
+        "score": 0.35
+      },
+      {
+        "title": "rpc: retain correlation idx across transport resets · Pull Request #6021 · redpanda-data/redpanda",
+        "url": "https://github.com/redpanda-data/redpanda/pull/6021",
+        "snippet": "",
+        "published_date": "2022-08-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "How to correlate RPC calls in ETW traces?",
+        "url": "https://stackoverflow.com/questions/41504738/how-to-correlate-rpc-calls-in-etw-traces",
+        "snippet": "",
+        "published_date": "2017-01-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Introducing RPC Investigator",
+        "url": "https://blog.trailofbits.com/2023/01/17/rpc-investigator-microsoft-windows-remote-procedure-call/",
+        "snippet": "",
+        "published_date": "2023-01-17T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Tyranid's Lair: Finding Windows RPC Client Implementations Through Brute Force",
+        "url": "https://www.tiraniddo.dev/2018/11/finding-windows-rpc-client.html",
+        "snippet": "",
+        "published_date": "2026-02-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "How to Implement Request-Reply Pattern with Azure Service Bus",
+        "url": "https://oneuptime.com/blog/post/2026-02-16-how-to-implement-request-reply-pattern-with-azure-service-bus/view",
+        "snippet": "",
+        "published_date": "2026-02-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "How to Implement Request-Trace Correlation",
+        "url": "https://oneuptime.com/blog/post/2026-01-30-request-trace-correlation/view",
+        "snippet": "",
+        "published_date": "2026-01-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "Protocol feature proposal: RESP3 (+?) correlation (long term) · Issue #13240 · redis/redis",
+        "url": "https://github.com/redis/redis/issues/13240",
+        "snippet": "",
+        "published_date": "2024-04-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "correlation/http_protocol_proposal_v2.md at master · lmolkova/correlation",
+        "url": "https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md",
+        "snippet": "",
+        "published_date": "2016-12-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "The Asynchronous Request-Reply Pattern: Your Guide to Not Waiting Around Like a Chump",
+        "url": "https://dev.to/igornosatov_15/the-asynchronous-request-reply-pattern-your-guide-to-not-waiting-around-like-a-chump-2k8h",
+        "snippet": "",
+        "published_date": "2025-10-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.575
+      },
+      {
+        "title": "Stale Delivery Tag Handling | kourier-amqp/kourier | DeepWiki",
+        "url": "https://deepwiki.com/kourier-amqp/kourier/6.3-stale-delivery-tag-handling",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "GitHub - ApamaCommunity/apama-log-analyzer: Python 3 script for analyzing Apama correlator log files and extracting useful diagnostic information",
+        "url": "https://github.com/ApamaCommunity/apama-log-analyzer",
+        "snippet": "",
+        "published_date": "2019-04-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Correlation: How QMUX Matches Responses | jPOS Project",
+        "url": "https://jpos.org/docs/tutorial/qmux/correlation",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "GitHub - rabbitmq/rabbitmq-tracer: AMQP 0-9-1 protocol analyzer",
+        "url": "https://github.com/rabbitmq/rabbitmq-tracer",
+        "snippet": "",
+        "published_date": "2016-09-28T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "GitHub - rabbitmq/rabbitmq-codegen: RabbitMQ protocol code-generation and machine-readable spec",
+        "url": "https://github.com/rabbitmq/rabbitmq-codegen",
+        "snippet": "",
+        "published_date": "2010-09-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      }
+    ],
+    "tavily": [
+      {
+        "title": "jms - What's the best way to implement a Request/Reply pattern if no ...",
+        "url": "https://stackoverflow.com/questions/4849964/whats-the-best-way-to-implement-a-request-reply-pattern-if-no-temporary-queues",
+        "snippet": "The customary solution when several requestors listen for replies on the same queue is to use correlation IDs to select messages.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.675
+      },
+      {
+        "title": "RPC Requests and Responses - Digi International",
+        "url": "https://docs.digi.com/resources/documentation/digidocs/90001931/RPC_overview/rpc_overview.html",
+        "snippet": "Requests and responses are routed through Device Cloud, which specifies an SCI wrapper around the RCI message indicating which gateway or gateways to send to.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.575
+      },
+      {
+        "title": "Inter Process Communication with RPC | by S12 - Medium",
+        "url": "https://medium.com/@s12deff/inter-process-communication-with-rpc-2addfaa57a24",
+        "snippet": "The RPC runtime sends the request to the server, waits for execution, and returns the response string allocated by the server. The client",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "How to Implement Request-Reply Pattern in RabbitMQ - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+        "snippet": "// rpc-client.ts import amqp, { Connection, Channel, ConsumeMessage } from 'amqplib'; import { randomUUID } from 'crypto'; import { EventEmitter } from 'events'; interface PendingRequest { resolve: (value: any) => void; reject: (error: Error) => void; timeout: NodeJS.Timeout; startTime: number; } interface RpcClientOptions { url: string; defaultTimeout?: number; reconnectInterval?: number; maxReconnectAttempts?: number; } export class RpcClient extends EventEmitter { private connection: Connection | null = null; private channel: Channel | null = null; private replyQueue: string = ''; private pendingRequests: Map = new Map(); private options: Required; private isConnected: boolean = false; private reconnectAttempts: number = 0; constructor(options: RpcClientOptions) { super(); this.options = { defaultTimeout: 30000, reconnectInterval: 5000, maxReconnectAttempts: 10, ...options, }; } async connect(): Promise { try { // Establish connection to RabbitMQ this.connection = await amqp.connect(this.options.url); this.channel = await this.connection.createChannel(); // Create exclusive reply queue for this client instance // The empty string tells RabbitMQ to generate a unique name const { queue } = await this.channel.assertQueue('', { exclusive: true, // Only this connection can use it autoDelete: true, // Delete when connection closes durable: false, // Don't survive broker restart }); this.replyQueue = queue; // Start consuming responses from reply queue await this.channel.consume( this.replyQueue, this.handleResponse.bind(this), { noAck: true } ); // Set up connection error handling this.connection.on('error', this.handleConnectionError.bind(this)); this.connection.on('close', this.handleConnectionClose.bind(this)); this.isConnected = true; this.reconnectAttempts = 0; this.emit('connected'); console.log(`RPC Client connected, reply queue: ${this.replyQueue}`); } catch (error) { this.emit('error', error); throw error; } } private handleResponse(msg: ConsumeMessage | null): void { if (!",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RabbitMQ tutorial - Remote procedure call (RPC)",
+        "url": "https://www.rabbitmq.com/tutorials/tutorial-six-java",
+        "snippet": "# RabbitMQ tutorial - Remote procedure call (RPC). In this tutorial we're going to use RabbitMQ to build an RPC system: a. client and a scalable RPC server. To illustrate how an RPC service could be used we're going to. which sends an RPC request and blocks until the answer is received:. The request-reply pattern in RabbitMQ involves a straightforward interaction between the server and the client. A client sends a request message and a server replies with a response message. channel.basicPublish(\"\", \"rpc_queue\", props, message.getBytes());. then code to read a response message from the callback_queue ...`. Creating a callback queue for every RPC request is inefficient. that the RPC server will die just after sending us the answer, but. happens, the restarted RPC server will process the request again. Our RPC will work like this:. The code for our RPC server can be found here: `RPCServer.java`. The code for our RPC client can be found here: `RPCClient.java`. # => [x] Awaiting RPC requests`.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.35
+      },
+      {
+        "title": "Protocol reverse engineering / Reproduce HTTP dialogue",
+        "url": "https://stackoverflow.com/questions/2143663/protocol-reverse-engineering-reproduce-http-dialogue",
+        "snippet": "### your communities. ### more stack exchange communities. ##### Collectives™ on Stack Overflow. I have already done the first step, which is analysing some HTTP exchanges (done using POST request and XML replies) with Wireshark. Basically I don't need much \"programming\" power, just the ability to parse some variables in the server responses and re-use them in the successive request. ## 2 Answers 2. If you don't need a scalable solution, and your app needs to deal with particular requests/response only, you can precreate several requests as XML blobs and just update any variables in them, send them and do basic XML parsing to get the values of the XML elements with the response. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. ##### Stack Overflow. ##### Stack Exchange Network. Site design / logo © 2026 Stack Exchange Inc;.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.78
+      },
+      {
+        "title": "[PDF] Automatic Protocol Reverse-Engineering: Message Format ...",
+        "url": "https://people.eecs.berkeley.edu/~dawnsong/papers/2012%20Automatic%20Protocol%20Reverse%20Engineering.pdf",
+        "snippet": "Automatic Protocol Reverse-Engineering: Message Format Extraction and Field Semantics Inference Juan Caballeroa,∗, Dawn Songb aIMDEA Software Institute, Madrid, Spain bUniversity of California, Berkeley, CA, USA Abstract Understanding the command-and-control (C&C) protocol used by a botnet is crucial for anticipating its repertoire of nefarious activity. Our automatic protocol reverse-engineering techniques extract the mes-sage format and ﬁeld semantics of protocol messages sent and received by an application that implements an unknown protocol speciﬁcation. Keywords: protocol reverse-engineering, active botnet inﬁltration, message format extraction, ﬁeld semantics inference, command-and-control protocol 1. Song, Polyglot: Automatic extraction of protocol message format using dy-namic binary analysis, in: Proceedings of the ACM Conference on Computer and Communications Security, Alexandria, VA, 2007. Zhang, Automatic protocol format reverse engineering through context-aware mon-itored execution, in: Proceedings of the Network and Distributed System Security Symposium, San Diego, CA, 2008.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.575
+      },
+      {
+        "title": "Reverse Engineering Network Protocols : r/ReverseEngineering",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/yru6p/reverse_engineering_network_protocols/",
+        "snippet": "I've found a large amount of resource for reverse engineering binaries. But is there a different method for reversing network packets? Such as using wireshark?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.575
+      },
+      {
+        "title": "[PDF] OSCI TLM-2.0 LANGUAGE REFERENCE MANUAL",
+        "url": "https://www.accellera.org/images/downloads/standards/systemc/TLM_2_0_LRM.pdf",
+        "snippet": "OSCI TLM-2.0 LANGUAGE REFERENCE MANUAL Copyright © 2007-2009 by the Open SystemC Initiative (OSCI) 176 OSCI TLM-2.0 LANGUAGE REFERENCE MANUAL Copyright © 2007-2009 by the Open SystemC Initiative (OSCI) 177 12 Index Abstraction level, 5 Accept delay, 112 acquire, 68, 106 Adapter, 63 b/nb conversion, 132 bridge, 61 Address alignment, 87, 88 Address attribute, 72, 73, 75 and DMI, 38, 73 and endianness, 88 and transport_dbg, 46, 73 overlapping, 119 allow_none, 39 allow_read, 39 allow_read_write, 39 allow_write, 39 Analysis port, 161 Approximately-timed, 9 message sequence chart, 26 PEQ, 150 phase sequence, 104 timing annotation, 31 timing parameters, 112 Arithmetic mode and endianness, 87, 91 Auto-extension, 96 b/nb conversion, 132 b_transport, 16 and simple sockets, 123 and timing annotation, 117 base protocol, 113, 118 message sequence chart, 18 re-entrant, 118 simple socket, 131 switching to nb_transport, 120 Backward path, 12, 22, 24 and causality, 113 and DMI, 42 and sockets, 51 message sequence chart, 26 nb_transport, 22 Base protocol, 103 and causality, 113 and memory management, 106 b_transport, 118 exclusion rule, 113 flow control, 114 guidelines, 122 phase sequence, 104 phase transitions, 107 switching between coding styles, 120 timing annotation, 117 transaction ordering, 119 BEGIN_REQ, 101 BEGIN_RESP, 101 base protocol, 106 Big-endian, 88, 90 bind, 56, 130, 163 Binding, 51, 56, 127, 141 hierarchical, 56, 127, 141 Blocking transport interface, 16 vs non-blocking, 10 Bridge, 13, 61, 63, 71, 95 BUSWIDTH, 56, 76, 86 Byte enable array, 72, 77 and deep_copy_from, 70 and endianness, 86 and update_original_from, 70 Byte enable length attribute, 72, 78 Byte enable pointer attribute, 72, 77 Byte order mode and endianness, 91 Callback, 131, 152 cancel_all, 152 Causality and base protocol, 113 clear_extension, 69, 97, 153 clone, 70, 95 Coding style, 5, 6 Combined interfaces, 13, 50 Command attribute, 72, 74 and DMI, 38 and transport_dbg, 46 compute_local_quantum, 49, 148 Convenience socket, 126 Conversion function OSCI TLM-2.0 LANGUAGE REFERENCE MANUAL Copyright © 2007-2009 by the Open SystemC",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.325
+      },
+      {
+        "title": "Advanced Queuing & PL/SQL Notification - Ask TOM",
+        "url": "https://asktom.oracle.com/ords/f?p=100:11:0::::P11_QUESTION_ID:8760267539329",
+        "snippet": "Here is an example of an asyncronous dequeue of a message from a queue using PLSQL. (just a reminder -- i've got a life too, sometimes camping without a laptop)",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.325
+      },
+      {
+        "title": "GRPC C++: grpc::CompletionQueue Class Reference",
+        "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_completion_queue.html",
+        "snippet": "|  | CompletionQueue (grpc\\_completion\\_queue \\*take) |. | |  |  |  |  | | --- | --- | --- | --- | | NextStatus grpc::CompletionQueue::AsyncNext | ( | void \\*\\* | *tag*, | | bool \\* | *ok*, | | const T & | *deadline* | | ) | | inline |. | |  |  |  |  | | --- | --- | --- | --- | | NextStatus grpc::CompletionQueue::DoThenAsyncNext | ( | F && | *f*, | | void \\*\\* | *tag*, | | bool \\* | *ok*, | | const T & | *deadline* | | ) | | inline |. | |  | | --- | | friend class grpc::internal::BlockingUnaryCallImpl | | friend |. | |  | | --- | | friend class grpc::internal::CallOpSet | | friend |. | |  | | --- | | friend class grpc::internal::ServerReaderWriterBody | | friend |. | |  | | --- | | friend class grpc::internal::TemplatedBidiStreamingHandler | | friend |.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.475
+      },
+      {
+        "title": "How to get gRPC status from grpc::CompletionQueue Usage",
+        "url": "https://stackoverflow.com/questions/75328598/how-to-get-grpc-status-from-grpccompletionqueue-usage",
+        "snippet": "When you submit an operation to the completion queue, you give a tag, the tag is how you figure out what operation the completion is for.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.6
+      },
+      {
+        "title": "Asynchronous-API tutorial | C++ - gRPC",
+        "url": "https://grpc.io/docs/languages/cpp/async/",
+        "snippet": "The server implementation requests an RPC call with a tag and then waits for the completion queue to return the tag. To deal with this, our complete async server example uses a `CallData` object to maintain the state of each RPC, and uses the address of this object as the unique tag for the call. class CallData { class CallData { public: public: public // Take in the \"service\" instance (in this case representing an asynchronous  // Take in the \"service\" instance (in this case representing an asynchronous // Take in the \"service\" instance (in this case representing an asynchronous  // server) and the completion queue \"cq\" used for asynchronous communication  // server) and the completion queue \"cq\" used for asynchronous communication // server) and the completion queue \"cq\" used for asynchronous communication  // with the gRPC runtime. new CallData(&service_, cq_.get());  new CallData(&service_, cq_.get());  & void* tag; // uniquely identifies a request. You can see our complete server example in [greeter\\_async\\_server.cc](https://github.com/grpc/grpc/blob/v1.78.1/examples/cpp/helloworld/greeter_async_server.cc).",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.35
+      },
+      {
+        "title": "Optimize Completion Queue · Issue #60 · grpc/grpc - GitHub",
+        "url": "https://github.com/grpc/grpc/issues/60",
+        "snippet": "This is a catch all to gather thoughts on a more optimal completion queue implementation (the current implementation is very placeholder).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "C++ multiple CompletionQueues blocking eachother - Google Groups",
+        "url": "https://groups.google.com/g/grpc-io/c/-6nTK-p-v1g",
+        "snippet": "I wrote a test that starts 1 client and restarts the server-side multiple times. With restarting I mean shutting down the completion queues with attached",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      }
+    ],
+    "grok": [
+      {
+        "title": "How to Implement Request-Reply Pattern in RabbitMQ",
+        "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+        "snippet": "Learn how to implement the request-reply (RPC) pattern in RabbitMQ with correlation IDs, reply-to queues, and timeout handling. Covers generation of unique correlation IDs (e.g., UUID), matching replies, and production-ready patterns including cleanup.",
+        "published_date": "2026-01-27",
+        "source": "grok"
+      },
+      {
+        "title": "RabbitMQ tutorial - Remote procedure call (RPC)",
+        "url": "https://www.rabbitmq.com/tutorials/tutorial-six-java",
+        "snippet": "Official RabbitMQ tutorial on building an RPC system using correlationId for request-reply correlation, reply_to queues, and handling multiple outstanding requests. Explains generating unique correlation IDs and matching responses.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "What's the best way to implement a Request/Reply pattern if no temporary queues",
+        "url": "https://stackoverflow.com/questions/4849964/whats-the-best-way-to-implement-a-request-reply-pattern-if-no-temporary-queues",
+        "snippet": "Discussion on using correlation IDs to correlate requests and replies on shared reply queues, preventing collisions, and handling request-reply in messaging systems like JMS.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Exploring ZeroMQ's Request Reply Pattern",
+        "url": "https://www.ics.com/blog/exploring-zeromqs-request-reply-pattern",
+        "snippet": "Covers request-reply in ZeroMQ, including sequencing with counters, timeouts for replies, resending requests, and cleanup of pending transactions to handle lost or out-of-order replies.",
+        "published_date": "2019-09-25",
+        "source": "grok",
+        "score": 0.32
+      },
+      {
+        "title": "RPC connection idleness timeout should be independent of request timeout",
+        "url": "https://github.com/smfrpc/smf/issues/335",
+        "snippet": "GitHub issue discussing RPC slot management, request timeouts, idleness timeouts, and scenarios where RPC slots are lost forever if replies never return, with implications for reuse and cleanup.",
+        "published_date": "2019-03-12",
+        "source": "grok",
+        "score": 0.595
+      },
+      {
+        "title": "Asynchronous Request-Reply Pattern - Azure Architecture",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/asynchronous-request-reply",
+        "snippet": "The asynchronous request-reply pattern decouples long-running backend operations from frontend clients by returning an immediate acknowledgment with a correlation mechanism (such as a request ID or polling URL). The client polls the status endpoint, which tracks pending requests and returns the eventual reply. This handles correlation of async replies without tight coupling.",
+        "published_date": "2026-03-05",
+        "source": "grok",
+        "score": 0.765
+      },
+      {
+        "title": "RFC 9750: The Messaging Layer Security (MLS) Architecture",
+        "url": "https://www.rfc-editor.org/rfc/rfc9750.pdf",
+        "snippet": "The generation counter in MLS messages provides per-sender loss detection, ordering, and replay protection for encrypted group messages. It helps correlate and validate message sequences in a protocol designed for secure asynchronous messaging, preventing manipulation by delivery services.",
+        "published_date": "2025-04",
+        "source": "grok",
+        "score": 0.4
+      },
+      {
+        "title": "Reverse Engineering Tricks: Identifying Opaque Network Protocols",
+        "url": "https://www.skullsecurity.org/2023/reverse-engineering-tricks-identifying-opaque-network-protocols",
+        "snippet": "Techniques for reverse engineering network protocols, including identifying request-response correlation via shared identifiers (e.g., message IDs near the start of packets) and matching pending requests to async replies through observed integer values or structures in traffic dumps.",
+        "published_date": "2023-05-02",
+        "source": "grok",
+        "score": 0.395
+      },
+      {
+        "title": "Automatic Protocol Reverse-Engineering: Message Format Extraction and Field Semantics Inference",
+        "url": "https://people.eecs.berkeley.edu/~dawnsong/papers/2012%20Automatic%20Protocol%20Reverse%20Engineering.pdf",
+        "snippet": "Academic paper on automated techniques for protocol reverse engineering, covering extraction of message formats from parsing and construction behaviors, including handling of request-reply patterns, hierarchical fields, and semantic inference for correlation in unknown protocols (applicable to async or slotted designs).",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Reverse Engineering Network Protocols",
+        "url": "https://jhalon.github.io/reverse-engineering-protocols/",
+        "snippet": "Guide to protocol reverse engineering focusing on intercepting and analyzing client-server traffic to understand structures, including request identifiers, response correlation, and handling asynchronous or complex packet flows.",
+        "published_date": "2018-03-24",
+        "source": "grok",
+        "score": 0.52
+      },
+      {
+        "title": "GRPC C++: grpc::CompletionQueue Class Reference",
+        "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_completion_queue.html",
+        "snippet": "Note that each tag sent to the completion queue (through RPC operations or alarms) will be delivered out of the completion queue by a call to Next (or a related method), regardless of whether the operation succeeded or not. Success here means that this operation completed in the normal valid manner.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Asynchronous-API tutorial | C++",
+        "url": "https://grpc.io/docs/languages/cpp/async/",
+        "snippet": "gRPC uses the CompletionQueue API for asynchronous operations. The basic work flow is as follows: bind a CompletionQueue to an RPC call, do something like a read or write, present with a unique void* tag, call to wait for operations to complete. If a tag appears, it indicates that the corresponding operation is complete.",
+        "published_date": "2022-02-17",
+        "source": "grok"
+      },
+      {
+        "title": "NVMe confusion - OSDev.org",
+        "url": "https://forum.osdev.org/viewtopic.php?t=38736",
+        "snippet": "As part of the completion queue entry, the controller indicates the most recent Submission Queue entry that has been consumed... Each new completion queue entry has a Phase Tag inverted from the previous entry to indicate to the host that this completion queue entry is a new entry. The phase bit is only tangentially related: you can tell that you've run out of new entries to read when you find a stale entry, and you can tell that an entry is stale when its phase bit hasn't been inverted.",
+        "published_date": "2020-12-17",
+        "source": "grok",
+        "score": 0.22
+      },
+      {
+        "title": "How to get gRPC status from grpc::CompletionQueue Usage",
+        "url": "https://stackoverflow.com/questions/75328598/how-to-get-grpc-status-from-grpccompletionqueue-usage",
+        "snippet": "When you submit an operation to the completion queue, you give a tag, the tag is how you figure out what operation the completion is for.",
+        "published_date": "",
+        "source": "grok"
+      },
+      {
+        "title": "Pre-send queue check — suppress stale replies when generation changes",
+        "url": "https://github.com/openclaw/openclaw/issues/48814",
+        "snippet": "The gap is: no mode prevents a completed-but-stale reply from being delivered when newer input is waiting... Correction: User sends newer input before a stale reply is delivered.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.65
+      }
+    ]
+  }
+}

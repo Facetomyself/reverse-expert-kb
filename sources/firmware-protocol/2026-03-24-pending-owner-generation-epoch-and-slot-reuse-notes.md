@@ -25,13 +25,14 @@ Search was attempted via search-layer with explicit sources `exa,tavily,grok`.
 Result quality:
 - Exa: succeeded
 - Tavily: succeeded
-- Grok: attempted but failed
+- Grok: succeeded
 
 Useful support recovered from explicit fetches / returned source list:
-- gRPC C++ `CompletionQueue` documentation: tag is arbitrary per-event identity and completion delivery is tied to per-call state
-- gRPC C++ best-practices: final completion / callback semantics reinforce that per-call state lifetime matters, not only broad message correctness
-- liburing `io_uring_cqe_get_data` documentation: completion identity is carried through `user_data`; useful as a pattern for request->completion identity contracts
-- search-layer returns also surfaced practical `io_uring` and gRPC discussions around request context identity, queue-delivered completion semantics, and object lifetime pitfalls
+- gRPC C++ async tutorial: practical per-call `CallData` ownership and use of the call-state object's address as the unique tag for the request lifecycle
+- gRPC C++ `CompletionQueue` documentation: a delivered tag is arbitrary event identity and queue delivery still has to be interpreted against the owning call state and completion semantics
+- jPOS QMUX correlation tutorial: request side places an internal `.req` marker, response side removes the marker and only then delivers the matched response, which is a good concrete reminder that queue arrival and broad correlation are not yet the whole ownership story
+- RabbitMQ RPC tutorial: a shared reply queue still requires the client to check `correlationId` and only complete the waiting future when the expected pending request is the one being satisfied
+- search-layer returns also surfaced additional stale-tag / timeout / slot-management signals that support the same narrower lifecycle reading, though they were noisier and used conservatively
 
 These sources are not being overclaimed as one universal protocol model.
 They are useful because they repeatedly reinforce the same operator lesson:
