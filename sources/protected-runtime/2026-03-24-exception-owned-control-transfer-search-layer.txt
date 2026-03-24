@@ -1,0 +1,463 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows AddVectoredExceptionHandler RtlAddFunctionTable KiUserExceptionDispatcher dynamic function table reverse engineering practical",
+    "Linux sigaction SA_SIGINFO ucontext reverse engineering exception control transfer practical",
+    "guard page exception handler hidden control flow reverse engineering practical"
+  ],
+  "count": 26,
+  "results": [
+    {
+      "title": "SEH Handlers using RtlAddFunctionTable - winapi - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/28549775/seh-handlers-using-rtladdfunctiontable",
+      "snippet": "I've been trying to setup SEH on x64 windows using gcc by calling the RtlAddFunctionTable. Unfortunately, the API call returns success but my handler doesn't",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.72
+    },
+    {
+      "title": "Structured Exception Handling Functions - Win32 - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/debug/structured-exception-handling-functions",
+      "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. # Structured Exception Handling Functions. The following functions are used in structured exception handling. Registers a vectored exception handler. Unregisters a vectored exception handler. Informs the system of a dynamic function table representing a region of memory containing code. Informs the system that a previously reported dynamic function table is no longer in use. Reports that a dynamic function table has increased in size. Enables an application to supersede the top-level exception handler of each thread and process. An application-defined function that serves as a vectored exception handler. Adds a dynamic function table to the dynamic function table list. Removes a dynamic function table from the dynamic function table list. Adds a dynamic function table to the dynamic function table list. Want to try using Ask Learn to clarify or guide you through this topic?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.69
+    },
+    {
+      "title": "AddVectoredExceptionHandler function (errhandlingapi.h)",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-addvectoredexceptionhandler",
+      "snippet": "First. The order in which the handler should be called. If the parameter is nonzero, the handler is the first handler to be called.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "sigaction argument ucontext_t - linux - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/70514624/sigaction-argument-ucontext-t",
+      "snippet": "I set the SA_SIGINFO flags to handle the signal.When I use gdb ... sigaction handler with SIG_INFO results in a Segmentation Fault · 7 · Is",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Practical Reverse Engineering Exercise Solutions - soffensive blog",
+      "url": "https://soffensive.github.io/posts/practical-reverse-engineering/2017-09-17-practical-reverse-engineering-exercise-solutions-page-35-exercise-10/",
+      "snippet": "We learn that the processor fetches instructions from the code segment by using a logical address consisting of both the value in the CS",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.54
+    },
+    {
+      "title": "Can I trap SIGSEGV (on a Linux) and what are are the conditions to ...",
+      "url": "https://reverseengineering.stackexchange.com/questions/21597/can-i-trap-sigsegv-on-a-linux-and-what-are-are-the-conditions-to-make-it-works",
+      "snippet": "Thus, when using `printf()` from within a signal handler, we may sometimes see strange output—or even a program crash or data corruption—if the handler interrupts the main program in the middle of executing a call to `printf()` or another `stdio` function. Implementing an exception handler for `SIGSEGV` may result in unintended signal handler behavior if non-reentrant library functions are called within the exception handler, since it may be possible to trigger a segmentation fault outside of the specific conditions you anticipate. The most interesting approach for your case would probably be changing the `uc_mcontext.gregs[REG_RIP]` (RIP here is the x86-64 instruction pointer) value in the signal handler's `context` struct to point to a function somewhere else in the program. After the signal handler finishes, program execution would resume at that function. Some related example code can also be found here: In a signal handler, how to know where the program is interrupted?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.53
+    },
+    {
+      "title": "Exceptions are hidden control flow : r/programming - Reddit",
+      "url": "https://www.reddit.com/r/programming/comments/1f8ydcq/exceptions_are_hidden_control_flow/",
+      "snippet": "This is an extremely useful property in *some cases*: Systems that ideally don't \"just crash\" on some error, like server software handling many",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5
+    },
+    {
+      "title": "AddVectoredExceptionHandler in action : A CTF challenge - Medium",
+      "url": "https://medium.com/@noureddinezf005/addvectoredexceptionhandler-in-action-a-ctf-challenge-6ba33559d34c",
+      "snippet": "#include <windows.h>#include <winnt.h>#include <iostream>using namespace std;#define CALL_FIRST 1#define CALL_LAST 0LONG WINAPIVectoredHandler(struct _EXCEPTION_POINTERS* ExceptionInfo) {//Surpress compiler warning about not using ExceptionInfo  UNREFERENCED_PARAMETER(ExceptionInfo); cout << \"Entered the handler passed in AddVectoredExceptionHandler\" << endl; return EXCEPTION_CONTINUE_SEARCH;}void test(){ PVOID h = AddVectoredExceptionHandler(CALL_FIRST, VectoredHandler); __try {  RaiseException(1, 0, 0, NULL); } __except (EXCEPTION_EXECUTE_HANDLER) {  cout << \"Entered the try-except block\" << endl; }cout << \"Quitting the vectored exception handler\" << endl; RemoveVectoredExceptionHandler(h);}int main(int argc  , char  **argv){ test(); return EXIT_SUCCESS;}#include <windows.h> include<windows.h>#include <winnt.h> include<winnt.h>#include <iostream> include<iostream> using namespace #define CALL_FIRST 1 define #define CALL_LAST 0 defineLONG WINAPIVectoredHandler(struct _EXCEPTION_POINTERS* ExceptionInfo) VectoredHandler(struct _EXCEPTION_POINTERS* ExceptionInfo) struct. To summarize what have been said , A hardware breakpoint will be registered on Dr1 and Dr2, when reaching the addresses stored into those registers an EXCEPTION\\_SINGLE\\_STEP will occured , the flow will change to the vector exception handler which will call the handler we register and finally continue execution from where the exception occured .",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.46
+    },
+    {
+      "title": "Playing with signals: An overview on sigreturn oriented programming | _cacao",
+      "url": "https://mtalbi.github.io/exploit,/sigreturn/oriented/programming/2015/01/03/playing-with-signals.html",
+      "snippet": "",
+      "published_date": "2015-01-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "A deep dive into modern Windows Structured Exception Handler (SEH) ⚠️ | Elma",
+      "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+      "snippet": "",
+      "published_date": "2024-11-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "[PDF] Practical Reverse Engineering X86 X64 Arm Windows Kernel ...",
+      "url": "https://lan-portal.uob.edu.ly/exe/KINDLE/9V00546F25/practical_reverse__engineering__x86__x64__arm_windows_kernel-reversing_tools_and-obfuscation.pdf",
+      "snippet": "Throughout the book, the reader is given an extensive understanding of Arm instructions and control-flow patterns essential for reverse engineering software",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "Abusing Vectored Exception Handling (VEH) - Jacob Branco - Medium",
+      "url": "https://medium.com/@jakerebsaw/abusing-vectored-exception-handling-veh-6f2b9f5b9f6e",
+      "snippet": "",
+      "published_date": "2025-04-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "C, C++, Reverse Engineering and More: Internals of AddVectoredExceptionHandler",
+      "url": "http://deepinternals.blogspot.com/2015/10/internals-of-addvectoredexceptionhandler.html",
+      "snippet": "",
+      "published_date": "2026-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "Practical Reverse Engineering Tutorials Part 1 - Shantanu Goel",
+      "url": "https://shantanugoel.com/2017/11/16/practical-reverse-engineering-tutorial-1/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "[PDF] Practical Reverse Engineering",
+      "url": "https://ftp.idu.ac.id/wp-content/uploads/ebook/tdg/MILITARY%20REFERENCE%20AND%20REVERSE%20ENGINEERING/Practical%20reverse%20engineering_%20x86,%20x64,%20ARM,%20Windows%20Kernel,%20reversing%20tools,%20and%20obfuscation%20(%20PDFDrive%20).pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.39
+    },
+    {
+      "title": "Applied Reverse Engineering: Exceptions and Interrupts",
+      "url": "https://revers.engineering/applied-re-exceptions/",
+      "snippet": "Things begin to get a little hairy when you discuss interrupt and exception handlers, and it’s important to differentiate between high-level exception handlers used in SEH/VEH versus the OS handlers in the **Interrupt Descriptor Table (IDT)**. If you recall, I mentioned the GDT and IDT are similar in structure, however, the IDT uses the exception/interrupt number to index into the table and access the gate descriptor. Once the #PF is generated it will perform the steps detailed farther up when discussing the IDT and exception/interrupt delivery, call the **page-fault** (#PF) handler, and bring that memory back into physical memory so that the task attempting to access it may read the data properly. A **trap frame** is a structure passed to the kernel that contains state information of the currently executing program (registers, eflags, etc.) at the time of an exception that way control can be returned after the exception or interrupt has been serviced.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "Reverse Engineering Vectored Exception Handlers: Structures (1/3)",
+      "url": "https://www.codereversing.com/archives/205",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Reverse Engineering x64 for Beginners – Linux - Network Intelligence",
+      "url": "https://www.networkintelligence.ai/blogs/reverse-engineering-x64-for-beginners-linux/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Exception Junction - Where All Exceptions Meet Their Handler",
+      "url": "https://bruteratel.com/research/2024/10/20/Exception-Junction",
+      "snippet": "",
+      "published_date": "2024-10-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "How to Send and Handle Unix Signals for Process Control on RHEL",
+      "url": "https://oneuptime.com/blog/post/2026-03-04-send-and-handle-unix-signals-for-process-control/view",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Hands-On System Programming with Linux - O'Reilly",
+      "url": "https://www.oreilly.com/library/view/hands-on-system-programming/9781788998475/86945bdc-023e-402d-b60c-0a334656a2cc.xhtml",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "sigaction(2) - Linux manual page - man7.org",
+      "url": "https://man7.org/linux/man-pages/man2/sigaction.2.html",
+      "snippet": "The siginfo_t data type is a structure with the following fields: siginfo_t { int si_signo; /* Signal number */ int si_errno; /* An errno value */ int si_code; /* Signal code */ int si_trapno; /* Trap number that caused hardware-generated signal (unused on most architectures) */ pid_t si_pid; /* Sending process ID */ uid_t si_uid; /* Real user ID of sending process */ int si_status; /* Exit value or signal */ clock_t si_utime; /* User time consumed */ clock_t si_stime; /* System time consumed */ union sigval si_value; /* Signal value */ int si_int; /* POSIX.1b signal */ void *si_ptr; /* POSIX.1b signal */ int si_overrun; /* Timer overrun count; POSIX.1b timers */ int si_timerid; /* Timer ID; POSIX.1b timers */ void *si_addr; /* Memory location which caused fault */ long si_band; /* Band event (was int in glibc 2.3.2 and earlier) */ int si_fd; /* File descriptor */ short si_addr_lsb; /* Least significant bit of address (since Linux 2.6.32) */ void *si_lower; /* Lower bound when address violation occurred (since Linux 3.19) */ void *si_upper; /* Upper bound when address violation occurred (since Linux 3.19) */ int si_pkey; /* Protection key on PTE that caused fault (since Linux 4.6) */ void *si_call_addr; /* Address of system call instruction (since Linux 3.5) */ int si_syscall; /* Number of attempted system call (since Linux 3.5) */ unsigned int si_arch; /* Architecture of attempted system call (since Linux 3.5) */ } si_signo, si_errno and si_code are defined for all signals.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Bypassing AMSI With Guard Pages: A Deep Dive Into Vectored Exception Handler Exploitation For Advanced Malware Development - Undercode Testing",
+      "url": "https://undercodetesting.com/bypassing-amsi-with-guard-pages-a-deep-dive-into-vectored-exception-handler-exploitation-for-advanced-malware-development/",
+      "snippet": "",
+      "published_date": "2025-12-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "EDR Analysis: Leveraging Fake DLLs, Guard Pages, and VEH for ...",
+      "url": "https://redops.at/en/blog/edr-analysis-leveraging-fake-dlls-guard-pages-and-veh-for-enhanced-detection",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Designing a Malware Loader detector with Guard Violation Exceptions",
+      "url": "https://reversing.codes/posts/Detecting-injected-code-with-page-guards/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Exception Hijacking - saza.RE",
+      "url": "https://saza.re/posts/exception_hijack/",
+      "snippet": "",
+      "published_date": "2022-08-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "A deep dive into modern Windows Structured Exception Handler (SEH) ⚠️ | Elma",
+        "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+        "snippet": "",
+        "published_date": "2024-11-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "C, C++, Reverse Engineering and More: Internals of AddVectoredExceptionHandler",
+        "url": "http://deepinternals.blogspot.com/2015/10/internals-of-addvectoredexceptionhandler.html",
+        "snippet": "",
+        "published_date": "2026-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "Abusing Vectored Exception Handling (VEH) - Jacob Branco - Medium",
+        "url": "https://medium.com/@jakerebsaw/abusing-vectored-exception-handling-veh-6f2b9f5b9f6e",
+        "snippet": "",
+        "published_date": "2025-04-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Reverse Engineering Vectored Exception Handlers: Structures (1/3)",
+        "url": "https://www.codereversing.com/archives/205",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.36
+      },
+      {
+        "title": "Exception Junction - Where All Exceptions Meet Their Handler",
+        "url": "https://bruteratel.com/research/2024/10/20/Exception-Junction",
+        "snippet": "",
+        "published_date": "2024-10-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "How to Send and Handle Unix Signals for Process Control on RHEL",
+        "url": "https://oneuptime.com/blog/post/2026-03-04-send-and-handle-unix-signals-for-process-control/view",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Practical Reverse Engineering Tutorials Part 1 - Shantanu Goel",
+        "url": "https://shantanugoel.com/2017/11/16/practical-reverse-engineering-tutorial-1/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "Playing with signals: An overview on sigreturn oriented programming | _cacao",
+        "url": "https://mtalbi.github.io/exploit,/sigreturn/oriented/programming/2015/01/03/playing-with-signals.html",
+        "snippet": "",
+        "published_date": "2015-01-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "Reverse Engineering x64 for Beginners – Linux - Network Intelligence",
+        "url": "https://www.networkintelligence.ai/blogs/reverse-engineering-x64-for-beginners-linux/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.36
+      },
+      {
+        "title": "Hands-On System Programming with Linux - O'Reilly",
+        "url": "https://www.oreilly.com/library/view/hands-on-system-programming/9781788998475/86945bdc-023e-402d-b60c-0a334656a2cc.xhtml",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Bypassing AMSI With Guard Pages: A Deep Dive Into Vectored Exception Handler Exploitation For Advanced Malware Development - Undercode Testing",
+        "url": "https://undercodetesting.com/bypassing-amsi-with-guard-pages-a-deep-dive-into-vectored-exception-handler-exploitation-for-advanced-malware-development/",
+        "snippet": "",
+        "published_date": "2025-12-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "EDR Analysis: Leveraging Fake DLLs, Guard Pages, and VEH for ...",
+        "url": "https://redops.at/en/blog/edr-analysis-leveraging-fake-dlls-guard-pages-and-veh-for-enhanced-detection",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Designing a Malware Loader detector with Guard Violation Exceptions",
+        "url": "https://reversing.codes/posts/Detecting-injected-code-with-page-guards/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "[PDF] Practical Reverse Engineering",
+        "url": "https://ftp.idu.ac.id/wp-content/uploads/ebook/tdg/MILITARY%20REFERENCE%20AND%20REVERSE%20ENGINEERING/Practical%20reverse%20engineering_%20x86,%20x64,%20ARM,%20Windows%20Kernel,%20reversing%20tools,%20and%20obfuscation%20(%20PDFDrive%20).pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.39
+      },
+      {
+        "title": "Exception Hijacking - saza.RE",
+        "url": "https://saza.re/posts/exception_hijack/",
+        "snippet": "",
+        "published_date": "2022-08-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Reverse Engineering Vectored Exception Handlers: Structures (1/3)",
+        "url": "https://www.codereversing.com/archives/205",
+        "snippet": "### Reverse Engineering Vectored Exception Handlers: Structures (1/3). This series of posts will cover the details of reverse engineering the AddVectoredExceptionHandler function, a Windows API function responsible for registering a special type of exception handler at runtime. The series will be split in to three parts: first identifying key structures that are used, second understanding the implementation, and lastly re-implementing the reverse engineered assembly to working C code. The third field at *+0x8* is always set to 1 in this function, and the fourth at *+0xC* is set to hold the encoded handler address. struct MysteryStruct { DWORD dwUnknown1; +0x0 DWORD dwUnknown2; +0x4 DWORD dwAlwaysOne; +0x8 PVECTORED\\_EXCEPTION\\_HANDLER pVectoredHandler; +0xC };. The code in **bright pink** begins by loading the second field in the *\\_LdrpVectorHandlerList* structure in to *EDI*. typedef struct \\_LdrpVectorHandlerEntry { \\_LdrpVectorHandlerEntry \\*pLink1; +0x0 \\_LdrpVectorHandlerEntry \\*pLink2; +0x4 DWORD dwAlwaysOne; +0x8 PVECTORED\\_EXCEPTION\\_HANDLER pVectoredHandler; +0xC } VECTORED\\_HANDLER\\_ENTRY, \\*PVECTORED\\_HANDLER\\_ENTRY;. typedef struct \\_LdrpVectorHandlerList { SRWLOCK srwLock; +0x0 VECTORED\\_HANDLER\\_ENTRY \\*pLink1; +0x4 VECTORED\\_HANDLER\\_ENTRY \\*pLink2; +0x8 } VECTORED\\_HANDLER\\_LIST, \\*PVECTORED\\_HANDLER\\_LIST; +0xC.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "AddVectoredExceptionHandler function (errhandlingapi.h)",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-addvectoredexceptionhandler",
+        "snippet": "First. The order in which the handler should be called. If the parameter is nonzero, the handler is the first handler to be called.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "AddVectoredExceptionHandler in action : A CTF challenge - Medium",
+        "url": "https://medium.com/@noureddinezf005/addvectoredexceptionhandler-in-action-a-ctf-challenge-6ba33559d34c",
+        "snippet": "#include <windows.h>#include <winnt.h>#include <iostream>using namespace std;#define CALL_FIRST 1#define CALL_LAST 0LONG WINAPIVectoredHandler(struct _EXCEPTION_POINTERS* ExceptionInfo) {//Surpress compiler warning about not using ExceptionInfo  UNREFERENCED_PARAMETER(ExceptionInfo); cout << \"Entered the handler passed in AddVectoredExceptionHandler\" << endl; return EXCEPTION_CONTINUE_SEARCH;}void test(){ PVOID h = AddVectoredExceptionHandler(CALL_FIRST, VectoredHandler); __try {  RaiseException(1, 0, 0, NULL); } __except (EXCEPTION_EXECUTE_HANDLER) {  cout << \"Entered the try-except block\" << endl; }cout << \"Quitting the vectored exception handler\" << endl; RemoveVectoredExceptionHandler(h);}int main(int argc  , char  **argv){ test(); return EXIT_SUCCESS;}#include <windows.h> include<windows.h>#include <winnt.h> include<winnt.h>#include <iostream> include<iostream> using namespace #define CALL_FIRST 1 define #define CALL_LAST 0 defineLONG WINAPIVectoredHandler(struct _EXCEPTION_POINTERS* ExceptionInfo) VectoredHandler(struct _EXCEPTION_POINTERS* ExceptionInfo) struct. To summarize what have been said , A hardware breakpoint will be registered on Dr1 and Dr2, when reaching the addresses stored into those registers an EXCEPTION\\_SINGLE\\_STEP will occured , the flow will change to the vector exception handler which will call the handler we register and finally continue execution from where the exception occured .",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.46
+      },
+      {
+        "title": "Structured Exception Handling Functions - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/debug/structured-exception-handling-functions",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. # Structured Exception Handling Functions. The following functions are used in structured exception handling. Registers a vectored exception handler. Unregisters a vectored exception handler. Informs the system of a dynamic function table representing a region of memory containing code. Informs the system that a previously reported dynamic function table is no longer in use. Reports that a dynamic function table has increased in size. Enables an application to supersede the top-level exception handler of each thread and process. An application-defined function that serves as a vectored exception handler. Adds a dynamic function table to the dynamic function table list. Removes a dynamic function table from the dynamic function table list. Adds a dynamic function table to the dynamic function table list. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.69
+      },
+      {
+        "title": "SEH Handlers using RtlAddFunctionTable - winapi - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/28549775/seh-handlers-using-rtladdfunctiontable",
+        "snippet": "I've been trying to setup SEH on x64 windows using gcc by calling the RtlAddFunctionTable. Unfortunately, the API call returns success but my handler doesn't",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.72
+      },
+      {
+        "title": "sigaction argument ucontext_t - linux - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/70514624/sigaction-argument-ucontext-t",
+        "snippet": "I set the SA_SIGINFO flags to handle the signal.When I use gdb ... sigaction handler with SIG_INFO results in a Segmentation Fault · 7 · Is",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "sigaction(2) - Linux manual page - man7.org",
+        "url": "https://man7.org/linux/man-pages/man2/sigaction.2.html",
+        "snippet": "The siginfo_t data type is a structure with the following fields: siginfo_t { int si_signo; /* Signal number */ int si_errno; /* An errno value */ int si_code; /* Signal code */ int si_trapno; /* Trap number that caused hardware-generated signal (unused on most architectures) */ pid_t si_pid; /* Sending process ID */ uid_t si_uid; /* Real user ID of sending process */ int si_status; /* Exit value or signal */ clock_t si_utime; /* User time consumed */ clock_t si_stime; /* System time consumed */ union sigval si_value; /* Signal value */ int si_int; /* POSIX.1b signal */ void *si_ptr; /* POSIX.1b signal */ int si_overrun; /* Timer overrun count; POSIX.1b timers */ int si_timerid; /* Timer ID; POSIX.1b timers */ void *si_addr; /* Memory location which caused fault */ long si_band; /* Band event (was int in glibc 2.3.2 and earlier) */ int si_fd; /* File descriptor */ short si_addr_lsb; /* Least significant bit of address (since Linux 2.6.32) */ void *si_lower; /* Lower bound when address violation occurred (since Linux 3.19) */ void *si_upper; /* Upper bound when address violation occurred (since Linux 3.19) */ int si_pkey; /* Protection key on PTE that caused fault (since Linux 4.6) */ void *si_call_addr; /* Address of system call instruction (since Linux 3.5) */ int si_syscall; /* Number of attempted system call (since Linux 3.5) */ unsigned int si_arch; /* Architecture of attempted system call (since Linux 3.5) */ } si_signo, si_errno and si_code are defined for all signals.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Practical Reverse Engineering Exercise Solutions - soffensive blog",
+        "url": "https://soffensive.github.io/posts/practical-reverse-engineering/2017-09-17-practical-reverse-engineering-exercise-solutions-page-35-exercise-10/",
+        "snippet": "We learn that the processor fetches instructions from the code segment by using a logical address consisting of both the value in the CS",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.54
+      },
+      {
+        "title": "Can I trap SIGSEGV (on a Linux) and what are are the conditions to ...",
+        "url": "https://reverseengineering.stackexchange.com/questions/21597/can-i-trap-sigsegv-on-a-linux-and-what-are-are-the-conditions-to-make-it-works",
+        "snippet": "Thus, when using `printf()` from within a signal handler, we may sometimes see strange output—or even a program crash or data corruption—if the handler interrupts the main program in the middle of executing a call to `printf()` or another `stdio` function. Implementing an exception handler for `SIGSEGV` may result in unintended signal handler behavior if non-reentrant library functions are called within the exception handler, since it may be possible to trigger a segmentation fault outside of the specific conditions you anticipate. The most interesting approach for your case would probably be changing the `uc_mcontext.gregs[REG_RIP]` (RIP here is the x86-64 instruction pointer) value in the signal handler's `context` struct to point to a function somewhere else in the program. After the signal handler finishes, program execution would resume at that function. Some related example code can also be found here: In a signal handler, how to know where the program is interrupted?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.53
+      },
+      {
+        "title": "Reverse Engineering x64 for Beginners – Linux - Network Intelligence",
+        "url": "https://www.networkintelligence.ai/blogs/reverse-engineering-x64-for-beginners-linux/",
+        "snippet": "The main focus of this blog is to give a push start to the beginners to get in the field of reverse engineering.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] Practical Reverse Engineering",
+        "url": "https://ftp.idu.ac.id/wp-content/uploads/ebook/tdg/MILITARY%20REFERENCE%20AND%20REVERSE%20ENGINEERING/Practical%20reverse%20engineering_%20x86,%20x64,%20ARM,%20Windows%20Kernel,%20reversing%20tools,%20and%20obfuscation%20(%20PDFDrive%20).pdf",
+        "snippet": "The operating system calls the registered exception handler(s). 3. The exception handler dispatches the instruction flow according to its internal logic and",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Designing a Malware Loader detector with Guard Violation Exceptions",
+        "url": "https://reversing.codes/posts/Detecting-injected-code-with-page-guards/",
+        "snippet": "In this article, we will dive into how we can utilize this mechanism to detect code flow redirection to newly allocated memory areas, which are often",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Exceptions are hidden control flow : r/programming - Reddit",
+        "url": "https://www.reddit.com/r/programming/comments/1f8ydcq/exceptions_are_hidden_control_flow/",
+        "snippet": "This is an extremely useful property in *some cases*: Systems that ideally don't \"just crash\" on some error, like server software handling many",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5
+      },
+      {
+        "title": "[PDF] Practical Reverse Engineering X86 X64 Arm Windows Kernel ...",
+        "url": "https://lan-portal.uob.edu.ly/exe/KINDLE/9V00546F25/practical_reverse__engineering__x86__x64__arm_windows_kernel-reversing_tools_and-obfuscation.pdf",
+        "snippet": "Throughout the book, the reader is given an extensive understanding of Arm instructions and control-flow patterns essential for reverse engineering software",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "Applied Reverse Engineering: Exceptions and Interrupts",
+        "url": "https://revers.engineering/applied-re-exceptions/",
+        "snippet": "Things begin to get a little hairy when you discuss interrupt and exception handlers, and it’s important to differentiate between high-level exception handlers used in SEH/VEH versus the OS handlers in the **Interrupt Descriptor Table (IDT)**. If you recall, I mentioned the GDT and IDT are similar in structure, however, the IDT uses the exception/interrupt number to index into the table and access the gate descriptor. Once the #PF is generated it will perform the steps detailed farther up when discussing the IDT and exception/interrupt delivery, call the **page-fault** (#PF) handler, and bring that memory back into physical memory so that the task attempting to access it may read the data properly. A **trap frame** is a structure passed to the kernel that contains state information of the currently executing program (registers, eflags, etc.) at the time of an exception that way control can be returned after the exception or interrupt has been serviced.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      }
+    ],
+    "grok": []
+  }
+}

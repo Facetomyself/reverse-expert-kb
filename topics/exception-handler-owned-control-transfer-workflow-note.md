@@ -294,10 +294,24 @@ Why it helps:
 Use when:
 - handler registration is already known or strongly suspected, but the analyst still needs one re-findable arrival point that turns exception ownership into a practical breakpoint, trace, or compare boundary
 - `KiUserExceptionDispatcher` / `RtlDispatchException` keeps appearing as the first place where trap arrival, context shape, and later unwind/handler decisions line up cleanly
+- pseudocode signatures or shallow API labels look convincing, but the actual dispatcher-side stack/context layout still appears to own whether unwind lookup and resume behavior make sense at all
 
 Why it helps:
 - it prevents the case from stalling at vague “VEH/SEH exists” wording
 - it often yields a smaller stop rule: once dispatcher-side landing plus one consequence-bearing lookup/handler action is good enough, leave broad exception theory
+- it preserves a practical caution from recent practitioner material: on Windows, a wrong mental model of dispatcher-side calling / stack-layout realism can make later unwind or resume reasoning look falsely broken, so the truthful analyst object is often the landing layout plus one later lookup/resume consequence, not an IDA-style guessed prototype alone
+
+Practical reminder:
+- if `KiUserExceptionDispatcher` keeps recurring but later unwind ownership still looks nonsensical, verify that your model preserves dispatcher-side stack/context realism before broadening into more handler-family theory
+- a good stop rule is not “I know the name of the dispatcher”; it is “this landing layout now explains one `RtlLookupFunctionEntry`/unwind decision or one later resume edge well enough to predict behavior”
+
+Concrete compare pair ideas:
+- guessed register-argument model vs observed dispatcher-side stack-layout model
+- dispatcher landing with implausible unwind ownership vs dispatcher landing after correcting the landing/context layout assumptions
+- same trap family with stable dispatcher landing but different later lookup region or resume target
+
+Common payoff:
+- this often turns a vague Windows exception case back into one smaller ownership question: which looked-up region, handler action, or resumed target actually owns the next ordinary branch?
 
 ### C. x64 unwind metadata hides the real local branch
 Use when:
