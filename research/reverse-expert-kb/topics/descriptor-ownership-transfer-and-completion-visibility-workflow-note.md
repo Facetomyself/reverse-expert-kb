@@ -191,8 +191,10 @@ Check explicitly for:
   - completion / descriptor contents written before the publish index, owner bit, or freshness marker moves
 - **consume order**
   - consuming side reads the visibility or freshness marker before treating the record contents as valid
+- **memory class / trust model**
+  - decide whether this slot behaves like coherent shared descriptor memory or like streaming / non-coherent DMA-backed memory where explicit CPU/device ownership transfer still matters
 - **cache visibility**
-  - non-coherent paths may require invalidation or explicit synchronization before completion bytes become trustworthy
+  - non-coherent or streaming paths may require invalidation, `dma_sync_*`-style synchronization, or another explicit trust boundary before completion bytes become CPU-trustworthy
 - **shadow-vs-MMIO split**
   - some designs publish progress into host memory first and only later reclaim through MMIO
 - **freshness rule**
@@ -266,18 +268,18 @@ completion-shaped bytes are visible in the next slot
 Best move:
 - treat freshness semantics as part of the proof object rather than as an afterthought once the bytes "look right."
 
-### Scenario B: Completion bytes exist, but stale cache hides them
+### Scenario B: Completion bytes exist, but stale cache or unsatisfied ownership transfer hides them
 Pattern:
 
 ```text
 completion bytes present in memory backing store
-  -> software path still reads old state
-  -> invalidate / synchronization step occurs
+  -> software path still reads old state or still treats the slot as device-owned
+  -> invalidate / synchronization / ownership-transfer step occurs
   -> now completion path and reclaim logic execute
 ```
 
 Best move:
-- preserve cache visibility as part of the proof object, not as an implementation footnote.
+- preserve cache visibility or explicit CPU-trust handoff as part of the proof object, not as an implementation footnote.
 
 ### Scenario C: Publish is solved, reclaim is the real missing proof
 Pattern:
@@ -323,12 +325,14 @@ It is grounded by:
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `sources/protocol-and-network-recovery/2026-03-22-descriptor-ownership-transfer-and-completion-visibility-notes.md`
 - `sources/protocol-and-network-recovery/2026-03-24-descriptor-ownership-transfer-and-completion-visibility-notes.md`
+- `sources/protocol-and-network-recovery/2026-03-25-descriptor-cache-visibility-ownership-notes.md`
 
 The external evidence used for this run repeatedly emphasized:
 - ordered publication of completion entries before publishing progress indices
 - ownership transfer via shared ring indices rather than only via interrupts
 - cache-coherency and stale-read pitfalls on non-coherent systems
 - explicit return-of-ownership through reclaim indices or slot reuse
+- the practical split between coherent shared descriptor memory and streaming / non-coherent DMA-backed visibility where explicit CPU/device trust transfer can still be the decisive boundary
 - the practical value of treating ownership transfer as a trust contract shaped by ordering, freshness, and sometimes explicit CPU/device synchronization rather than by descriptor bytes alone
 
 That is enough for a conservative practical continuation note because the point is not to claim one universal ring architecture.

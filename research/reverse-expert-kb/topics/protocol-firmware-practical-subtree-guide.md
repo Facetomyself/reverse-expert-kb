@@ -111,7 +111,7 @@ The subtree is strongest when read as:
 - **stabilize** one pending-request lifetime contract when broad owner-match is already good enough but late replies or reuse still drift
 - **emit** one real output
 - **publish** one mailbox/doorbell command when that narrower seam is the true bottleneck
-- **stabilize** one descriptor ownership-transfer / completion-visibility contract when publication is visible but trust/reclaim semantics still drift, especially when non-coherent cache visibility, freshness bits, or reclaim proof still decide whether completion bytes are actually trustworthy
+- **stabilize** one descriptor ownership-transfer / completion-visibility contract when publication is visible but trust/reclaim semantics still drift, especially when the case still has to be classified as coherent shared descriptor memory versus streaming/non-coherent DMA-backed visibility and freshness bits, explicit CPU/device trust transfer, or reclaim proof still decide whether completion bytes are actually trustworthy
 - **prove** one peripheral or interrupt-side consequence
 
 ## 3. How to choose the right entry note
@@ -322,7 +322,7 @@ Use:
 Start here when:
 - one descriptor, ring slot, or completion record is already visible enough to track
 - one owner/valid bit, producer/tail/WR_IDX publication, or reclaim/RD_IDX return path is already plausible
-- the remaining uncertainty is the exact trust boundary: when the other side may consume the record, how ordering/cache visibility affects that, and what reclaim or slot reuse proves durable completion
+- the remaining uncertainty is the exact trust boundary: when the other side may consume the record, whether the case behaves like coherent shared descriptor memory or streaming/non-coherent DMA-backed visibility, how ordering/cache visibility or explicit CPU/device trust transfer affects that, and what reclaim or slot reuse proves durable completion
 - the next useful output is one compact ownership-transfer -> visibility -> reclaim contract rather than broader ring taxonomy
 
 Do **not** start here when:
