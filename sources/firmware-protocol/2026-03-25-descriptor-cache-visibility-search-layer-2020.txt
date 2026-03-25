@@ -1,0 +1,436 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "DMA ring completion visibility cache invalidate ownership transfer firmware driver",
+    "Linux DMA API cache sync non-coherent descriptor completion visibility",
+    "virtio used ring memory barrier avail used idx driver device ordering"
+  ],
+  "count": 23,
+  "results": [
+    {
+      "title": "DMA transfers not working on the STM32F7 · Issue #1677 - GitHub",
+      "url": "https://github.com/micropython/micropython/issues/1677",
+      "snippet": "For Peripheral to Memory direction, you need to invalidate the caches for the destination memory addresses and wait for the invalidate to",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.72
+    },
+    {
+      "title": "linux/drivers/virtio/virtio_ring.c at master · torvalds/linux · GitHub",
+      "url": "https://github.com/torvalds/linux/blob/master/drivers/virtio/virtio_ring.c",
+      "snippet": "* for packed ring: * bits up to VRING_PACKED_EVENT_F_WRAP_CTR include the last used index. * bits from VRING_PACKED_EVENT_F_WRAP_CTR include the used",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "Dynamic DMA mapping Guide - The Linux Kernel documentation",
+      "url": "https://docs.kernel.org/core-api/dma-api-howto.html",
+      "snippet": "This is a guide to device driver writers on how to use the DMA API with example pseudo-code. For a concise description of the API, see Dynamic DMA mapping",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.61
+    },
+    {
+      "title": "How Hardware and Software Share a Queue: Understanding DMA Rings - DEV Community",
+      "url": "https://dev.to/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+      "snippet": "",
+      "published_date": "2026-02-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.56
+    },
+    {
+      "title": "DPA Development - NVIDIA Docs",
+      "url": "https://docs.nvidia.com/doca/archive/2-5-2/DPA+Development/index.html",
+      "snippet": "",
+      "published_date": "2024-07-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.55
+    },
+    {
+      "title": "Virtual I/O Device (VIRTIO) Version 1.0 - Index of /",
+      "url": "https://docs.oasis-open.org/virtio/virtio/v1.0/cs01/virtio-v1.0-cs01.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.55
+    },
+    {
+      "title": "Virtual I/O Device (VIRTIO) Version 1.1 - OASIS Open",
+      "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.55
+    },
+    {
+      "title": "Understanding Cache Coherency - DEV Community",
+      "url": "https://dev.to/ripan030/understanding-cache-coherency-4lj8",
+      "snippet": "",
+      "published_date": "2026-02-25T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.53
+    },
+    {
+      "title": "Virtual I/O Device (VIRTIO) Version 1.0 - GitHub Pages",
+      "url": "https://stefanha.github.io/virtio/vhost-user-slave.html",
+      "snippet": "1 Driver Requirements: Updating idx. The driver MUST perform a suitable memory barrier before the idx update, to ensure the device sees the most up-to-date copy",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.48
+    },
+    {
+      "title": "DMA RX buffer cache invalidation - BEFORE or AFTER a transfer?",
+      "url": "https://community.st.com/t5/stm32-mcus-products/dma-rx-buffer-cache-invalidation-before-or-after-a-transfer/td-p/341082",
+      "snippet": "* DMA RX buffer cache invalidation - BEFORE or AFTER... # DMA RX buffer cache invalidation - BEFORE or AFTER a transfer? I learned about cache coherency stuff, and added cache management code (clean/flush & invalidate) to the DMA transfer code - cache clean for the DAC (TX) buffer before the transfer, and cache invalidate for the ADC (RX) buffer after the transfer. Now it works again, but the strange thing is: it seems I have to invalidate the DMA RX buffer BEFORE the actual transfer. I know that the recommended solution is to use non-cacheable regions for DMA, but there might still be legitimate reasons for explicit cache management - for example, when the data cannot be copied to a separate buffer for evaluation, and the calculations have to be done directly in the RX buffer. As long as the DMA-utilized buffers are aligned and sized for the cache lines and you flush before sending and invalidate before accessing received data you should be OK. For enabling cache again, I moved the SPI DMA buffers in linker file:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "How to invalidate small region of L1 cache after DMA? - Forum",
+      "url": "https://community.renesas.com/rz/f/rz-forum/6363/how-to-invalidate-small-region-of-l1-cache-after-dma",
+      "snippet": "I'm doing a DMA transfer from the SPI module to internal RAM. However, if L1 cache is enabled, I can never actually read the data afterwards.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "64839 - Zynq-7000 SoC Cache invalidate - Is it recommended to do ...",
+      "url": "https://adaptivesupport.amd.com/s/article/64839",
+      "snippet": "According to ARM references, an invalidate should be done before a memory range affected by an incoming DMA transfer is accessed.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "Problem in DMA transfer after enabling the I-Cache & D-Cache",
+      "url": "https://e2e.ti.com/support/processors-group/processors/f/processors-forum/315307/problem-in-dma-transfer-after-enabling-the-i-cache-d-cache",
+      "snippet": "I'm having latest u-boot souce code. I have enabled the DMA in eMMC driver. without enabling the I-cache & D-cache this setup was working fine.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "Hint: DMA and cache coherency - STMicroelectronics Community",
+      "url": "https://community.st.com/t5/stm32-mcus-products/hint-dma-and-cache-coherency/td-p/439559",
+      "snippet": "They can be 'out-of-sync' and we need cache maintenance operations in order to make DMA coherent with MCU (cache).Remark: if you use a lot of other data memory and DCache, it could look like it works (because cache is often updated if we have a lot of other data memory used, some cache lines are ripped out so that an updated memory done by a DMA is reloaded because it is not in cache anymore). I was using global buffer ( uint8\\_t txBuf[5] ; ) and I enabled (using STM32CubeMx) D-Cache inside main() then to perform DMA, I need to call **SCB\\_CleanDCache\\_by\\_Addr((uint32\\_t\\*)&txBuf[0], 5)** before **HAL\\_SPI\\_Transmit\\_DMA(&hspi4, txBuf, 5)** otherwise DMA doesn't work or need to configure **MPU\\_Config()** for the DMA to work.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Understanding DMA Rings - DEV Community",
+      "url": "https://forem.com/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+      "snippet": "",
+      "published_date": "2026-02-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "drivers/virtio/virtio_ring.c · v6.15 - linux-dev",
+      "url": "https://source.mnt.re/reform/linux-dev/-/blob/v6.15/drivers/virtio/virtio_ring.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Noncoherent DMA mappings - LWN.net",
+      "url": "https://lwn.net/Articles/855328/",
+      "snippet": "",
+      "published_date": "2021-05-07T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.33
+    },
+    {
+      "title": "dma_sync_single_for_cpu takes a really long time",
+      "url": "https://linux-arm-kernel.infradead.narkive.com/0JjK0RFX/dma-sync-single-for-cpu-takes-a-really-long-time",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.33
+    },
+    {
+      "title": "DMA attributes — The Linux Kernel documentation",
+      "url": "https://kernel.org/doc/html/latest/core-api/dma-attributes.html",
+      "snippet": "",
+      "published_date": "2023-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Dynamic DMA mapping using the generic device — The Linux Kernel documentation",
+      "url": "https://kernel.org/doc/html/latest/core-api/dma-api.html",
+      "snippet": "",
+      "published_date": "2023-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "[PATCH] virtio_ring: Fix the stale index in available ring",
+      "url": "https://lkml.org/lkml/2024/3/14/386",
+      "snippet": "",
+      "published_date": "2024-03-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "[PDF] Non-Volatile Memory Host Controller Interface - NVM Express",
+      "url": "https://www.nvmexpress.org/wp-content/uploads/NVM-Express-1_1a.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "virtio: towards a de-facto standard for virtual I/O devices",
+      "url": "https://dl.acm.org/doi/pdf/10.1145/1400097.1400108",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Understanding Cache Coherency - DEV Community",
+        "url": "https://dev.to/ripan030/understanding-cache-coherency-4lj8",
+        "snippet": "",
+        "published_date": "2026-02-25T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.53
+      },
+      {
+        "title": "Noncoherent DMA mappings - LWN.net",
+        "url": "https://lwn.net/Articles/855328/",
+        "snippet": "",
+        "published_date": "2021-05-07T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.33
+      },
+      {
+        "title": "dma_sync_single_for_cpu takes a really long time",
+        "url": "https://linux-arm-kernel.infradead.narkive.com/0JjK0RFX/dma-sync-single-for-cpu-takes-a-really-long-time",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.33
+      },
+      {
+        "title": "DMA attributes — The Linux Kernel documentation",
+        "url": "https://kernel.org/doc/html/latest/core-api/dma-attributes.html",
+        "snippet": "",
+        "published_date": "2023-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Dynamic DMA mapping using the generic device — The Linux Kernel documentation",
+        "url": "https://kernel.org/doc/html/latest/core-api/dma-api.html",
+        "snippet": "",
+        "published_date": "2023-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "How Hardware and Software Share a Queue: Understanding DMA Rings - DEV Community",
+        "url": "https://dev.to/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.56
+      },
+      {
+        "title": "Understanding DMA Rings - DEV Community",
+        "url": "https://forem.com/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "Understanding Cache Coherency - DEV Community",
+        "url": "https://dev.to/ripan030/understanding-cache-coherency-4lj8",
+        "snippet": "",
+        "published_date": "2026-02-25T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "[PDF] Non-Volatile Memory Host Controller Interface - NVM Express",
+        "url": "https://www.nvmexpress.org/wp-content/uploads/NVM-Express-1_1a.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "DPA Development - NVIDIA Docs",
+        "url": "https://docs.nvidia.com/doca/archive/2-5-2/DPA+Development/index.html",
+        "snippet": "",
+        "published_date": "2024-07-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.55
+      },
+      {
+        "title": "Virtual I/O Device (VIRTIO) Version 1.0 - Index of /",
+        "url": "https://docs.oasis-open.org/virtio/virtio/v1.0/cs01/virtio-v1.0-cs01.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.55
+      },
+      {
+        "title": "Virtual I/O Device (VIRTIO) Version 1.1 - OASIS Open",
+        "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.55
+      },
+      {
+        "title": "[PATCH] virtio_ring: Fix the stale index in available ring",
+        "url": "https://lkml.org/lkml/2024/3/14/386",
+        "snippet": "",
+        "published_date": "2024-03-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "drivers/virtio/virtio_ring.c · v6.15 - linux-dev",
+        "url": "https://source.mnt.re/reform/linux-dev/-/blob/v6.15/drivers/virtio/virtio_ring.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.36
+      },
+      {
+        "title": "virtio: towards a de-facto standard for virtual I/O devices",
+        "url": "https://dl.acm.org/doi/pdf/10.1145/1400097.1400108",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Understanding Cache Coherency - DEV Community",
+        "url": "https://dev.to/ripan030/understanding-cache-coherency-4lj8",
+        "snippet": "On non-coherent systems, the CPU cache and the DMA engine observe DDR through different paths. The Linux DMA API bridges this gap by either:.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Noncoherent DMA mappings - LWN.net",
+        "url": "https://lwn.net/Articles/855328/",
+        "snippet": "As with other noncoherent mappings, cache management must be done by hand. So, for example, a call to dma_sync_sgtable_for_device() must be done",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Hint: DMA and cache coherency - STMicroelectronics Community",
+        "url": "https://community.st.com/t5/stm32-mcus-products/hint-dma-and-cache-coherency/td-p/439559",
+        "snippet": "They can be 'out-of-sync' and we need cache maintenance operations in order to make DMA coherent with MCU (cache).Remark: if you use a lot of other data memory and DCache, it could look like it works (because cache is often updated if we have a lot of other data memory used, some cache lines are ripped out so that an updated memory done by a DMA is reloaded because it is not in cache anymore). I was using global buffer ( uint8\\_t txBuf[5] ; ) and I enabled (using STM32CubeMx) D-Cache inside main() then to perform DMA, I need to call **SCB\\_CleanDCache\\_by\\_Addr((uint32\\_t\\*)&txBuf[0], 5)** before **HAL\\_SPI\\_Transmit\\_DMA(&hspi4, txBuf, 5)** otherwise DMA doesn't work or need to configure **MPU\\_Config()** for the DMA to work.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "dma_sync_single_for_cpu takes a really long time",
+        "url": "https://linux-arm-kernel.infradead.narkive.com/0JjK0RFX/dma-sync-single-for-cpu-takes-a-really-long-time",
+        "snippet": "This is one of the penalties of having a non-coherent CPU cache with features such as speculative prefetching to give a performance boost for non-DMA cases",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Dynamic DMA mapping Guide - The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/core-api/dma-api-howto.html",
+        "snippet": "This is a guide to device driver writers on how to use the DMA API with example pseudo-code. For a concise description of the API, see Dynamic DMA mapping",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.61
+      },
+      {
+        "title": "DMA RX buffer cache invalidation - BEFORE or AFTER a transfer?",
+        "url": "https://community.st.com/t5/stm32-mcus-products/dma-rx-buffer-cache-invalidation-before-or-after-a-transfer/td-p/341082",
+        "snippet": "* DMA RX buffer cache invalidation - BEFORE or AFTER... # DMA RX buffer cache invalidation - BEFORE or AFTER a transfer? I learned about cache coherency stuff, and added cache management code (clean/flush & invalidate) to the DMA transfer code - cache clean for the DAC (TX) buffer before the transfer, and cache invalidate for the ADC (RX) buffer after the transfer. Now it works again, but the strange thing is: it seems I have to invalidate the DMA RX buffer BEFORE the actual transfer. I know that the recommended solution is to use non-cacheable regions for DMA, but there might still be legitimate reasons for explicit cache management - for example, when the data cannot be copied to a separate buffer for evaluation, and the calculations have to be done directly in the RX buffer. As long as the DMA-utilized buffers are aligned and sized for the cache lines and you flush before sending and invalidate before accessing received data you should be OK. For enabling cache again, I moved the SPI DMA buffers in linker file:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "How to invalidate small region of L1 cache after DMA? - Forum",
+        "url": "https://community.renesas.com/rz/f/rz-forum/6363/how-to-invalidate-small-region-of-l1-cache-after-dma",
+        "snippet": "I'm doing a DMA transfer from the SPI module to internal RAM. However, if L1 cache is enabled, I can never actually read the data afterwards.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "64839 - Zynq-7000 SoC Cache invalidate - Is it recommended to do ...",
+        "url": "https://adaptivesupport.amd.com/s/article/64839",
+        "snippet": "According to ARM references, an invalidate should be done before a memory range affected by an incoming DMA transfer is accessed.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "DMA transfers not working on the STM32F7 · Issue #1677 - GitHub",
+        "url": "https://github.com/micropython/micropython/issues/1677",
+        "snippet": "For Peripheral to Memory direction, you need to invalidate the caches for the destination memory addresses and wait for the invalidate to",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.72
+      },
+      {
+        "title": "Problem in DMA transfer after enabling the I-Cache & D-Cache",
+        "url": "https://e2e.ti.com/support/processors-group/processors/f/processors-forum/315307/problem-in-dma-transfer-after-enabling-the-i-cache-d-cache",
+        "snippet": "I'm having latest u-boot souce code. I have enabled the DMA in eMMC driver. without enabling the I-cache & D-cache this setup was working fine.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "virtio: towards a de-facto standard for virtual I/O devices",
+        "url": "https://dl.acm.org/doi/pdf/10.1145/1400097.1400108",
+        "snippet": "This is done by placing the index of the descriptor head into the “available” ring, issuing a memory barrier, then incrementing the available index. A. “kick”",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Virtual I/O Device (VIRTIO) Version 1.1 - Index of /",
+        "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+        "snippet": "1 Driver Requirements: Updating idx. The driver MUST perform a suitable memory barrier before the idx update, to ensure the device sees the most up-to-date copy",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Virtual I/O Device (VIRTIO) Version 1.0 - GitHub Pages",
+        "url": "https://stefanha.github.io/virtio/vhost-user-slave.html",
+        "snippet": "1 Driver Requirements: Updating idx. The driver MUST perform a suitable memory barrier before the idx update, to ensure the device sees the most up-to-date copy",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.48
+      },
+      {
+        "title": "drivers/virtio/virtio_ring.c · v6.15 - linux-dev - GitLab",
+        "url": "https://source.mnt.re/reform/linux-dev/-/blob/v6.15/drivers/virtio/virtio_ring.c",
+        "snippet": "vring.desc[idx].flags); avail = !!(flags & (1 << VRING_PACKED_DESC_F_AVAIL)); used = !!(flags & (1 << VRING_PACKED_DESC_F_USED)); return",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "linux/drivers/virtio/virtio_ring.c at master · torvalds/linux · GitHub",
+        "url": "https://github.com/torvalds/linux/blob/master/drivers/virtio/virtio_ring.c",
+        "snippet": "* for packed ring: * bits up to VRING_PACKED_EVENT_F_WRAP_CTR include the last used index. * bits from VRING_PACKED_EVENT_F_WRAP_CTR include the used",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      }
+    ],
+    "grok": []
+  }
+}
