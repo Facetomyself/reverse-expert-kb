@@ -1,0 +1,445 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering compare run first bad write watchpoint time travel debugging",
+    "rr reverse watchpoint first changed value compare runs debugging",
+    "WinDbg TTD memory write watchpoint first divergence reverse engineering"
+  ],
+  "count": 24,
+  "results": [
+    {
+      "title": "xusheng6/awesome-ttd: Rerousces related to time-travel debugging ...",
+      "url": "https://github.com/xusheng6/awesome-ttd",
+      "snippet": "IDA Pro - WinDbg TTD Debugging - Documentation for using WinDbg Time Travel Debugging with IDA Pro for reverse engineering and malware analysis. Tutorials",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7364
+    },
+    {
+      "title": "Time Travel Debugging Overview - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-overview",
+      "snippet": "Time Travel Debugging (TTD) is a tool that captures a trace of your process as it executes and replays it later both forwards and backwards. TTD is efficient and works to add as little overhead as possible as it captures code execution in trace files. In addition to recording traces in the WinDbg UI, there is a TTD.exe command line utility available to record a trace. For more information, see Time Travel Debugging - TTD.exe command line utility. A trace file (`.run`) stores the code execution during recording. For more information on working with trace files, see Time Travel Debugging - Working with trace files. For information about working with the TTD debugger object model, see Time Travel Debugging - Introduction to Time Travel Debugging objects. The TTD.exe command line utility to record traces is available. For more information, see Time Travel Debugging - TTD.exe command line utility.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7091
+    },
+    {
+      "title": "Reverse-singlestep doesn't trigger watchpoints on ARM · Issue #3936",
+      "url": "https://github.com/rr-debugger/rr/issues/3936",
+      "snippet": "# Search code, repositories, users, issues, pull requests... You signed in with another tab or window. You signed out in another tab or window. You switched accounts on another tab or window. # Reverse-singlestep doesn't trigger watchpoints on ARM #3936. Reverse-singlestep doesn't trigger watchpoints on ARM#3936. So when an instruction at address A triggers a watchpoint, the watchpoint is reported before that instruction has executed, with the PC pointing to A. GDB fixes things up so that the user-visible behavior is the same as x86, by singlestepping over the instruction and then reporting the breakpoint. During a reverse-continue, rr reports the watchpoint firing before the instruction reverse-executes, i.e. with the PC is at address A+4. GDB applies its fixup by reverse-singlestepping and everything works as expected. Therefore when the PC is at address A+4 and we reverse-singlestep, rr should report the watchpoint firing with the PC still at A+4. Unfortunately rr reverse-singlesteps and does not report the watchpoint firing at all. ## Issue actions.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "[PDF] EXPOSITOR: Scriptable Time-Travel Debugging with First-Class ...",
+      "url": "https://www.cs.umd.edu/~mwh/papers/expositor-tse-submitted.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6091
+    },
+    {
+      "title": "Has anyone compared Undo.io, rr, and other time-travel debuggers ...",
+      "url": "https://www.reddit.com/r/cpp/comments/1kqzcv9/has_anyone_compared_undoio_rr_and_other/",
+      "snippet": "Forward declaring a type in C++: The good, and the bad ... Discussions, articles and news about the C++ programming language or programming in C++",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6091
+    },
+    {
+      "title": "TTD Memory Objects - Windows drivers",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-memory-objects",
+      "snippet": "",
+      "published_date": "2023-10-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How We Can Use WinDBG Time Travel Debugging For Our Advantage",
+      "url": "https://medium.com/@asrafniv5/how-we-can-use-windbg-time-travel-debugging-for-our-advantage-5012c941e644",
+      "snippet": "",
+      "published_date": "2024-05-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4818
+    },
+    {
+      "title": "Time Travel Debugging for C/C++ - Nutrient",
+      "url": "https://www.nutrient.io/blog/time-travel-debugging-for-c/",
+      "snippet": "If the state of the process is known before a series of deterministic instructions are executed, then the reverse debugging system doesn’t need to record changes made to the process state during the execution of these instructions because it can always replay these instructions if needed. There’s a nice time travel debugging walkthrough(opens in a new tab) for WinDbg showing how to find a stack corruption error on Windows, so let’s use it to see how we can find such an error on Linux using GDB’s process record and replay feature first, and then using rr. GDB’s process record feature slows down program execution by several orders of magnitude, while rr on the other hand made it one of its design goals to have a very low run-time overhead and claims to add less than 20 percent to the execution time in usual scenarios.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4636
+    },
+    {
+      "title": "Why I use a debugger - The {pnk}f(eli)x Blog",
+      "url": "http://blog.pnkfx.org/blog/2022/01/10/why-i-use-a-debugger/",
+      "snippet": "Hardware watchpoint 2: -location r[2] Hardware watchpoint 2: - location r[2]  Old value = 97 Old value = 97New value = 20 New value = 20boom::merge (recv=&mut i32 = {...}, a=&i32 = {...}, b=&i32 = {...}) at boom.rs:29 boom:: merge(recv =& muti32 ={...}, a =&i32 ={...}, b =&i32 ={...}) at boom. Our initial interaction with `rr` will be much like how we interacted with `gdb` above: we’ll start the program, set a hardware watchpoint for the third array element, and let it run forward. Hardware watchpoint 2: -location r[2] Hardware watchpoint 2: - location r[2]  Old value = 97 Old value = 97New value = 20 New value = 20boom::merge (recv=&mut i32 = {...}, a=&i32 = {...}, b=&i32 = {...}) at boom.rs:29 boom:: merge(recv =& muti32 ={...}, a =&i32 ={...}, b =&i32 ={...}) at boom.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4545
+    },
+    {
+      "title": "Two Reverse-Execution Optimizations",
+      "url": "https://robert.ocallahan.org/2015/07/two-reverse-execution-optimizations.html",
+      "snippet": "* Debugging Gdb Using rr: Ptrace Emulation. * Update To rr Master To Debug Firefox Trunk. * Using rr To Debug Go Programs. * Using rr To Debug rr. * rr 4.0 Released With Reverse Execution. * Using rr To Debug Dropped Video Frames In Gecko. Following the above procedure, rr would reverse-continue to the most recent triggering of the breakpoint (or watchpoint), then stop and signal gdb; gdb would read program state via rr to evaluate the breakpoint, and then signal rr to continue with reverse execution. Thus, every time the breakpoint is hit, rr must perform at least two clonings of checkpoint state plus some amount of forward execution. So we add to rr a little interpreter for gdb's bytecode; then rr can implement reverse execution by executing forwards over some time interval, and every time a breakpoint is hit, evaluating its condition and ignoring the hit if the condition evaluates to false.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4364
+    },
+    {
+      "title": "How to use Time Travel Analysis to reverse engineer a malware",
+      "url": "https://eshard.com/posts/malware-analysis-with-time-travel-analysis-reverse-engineering",
+      "snippet": "With standard tools, to reverse the C2 communication protocol or the encryption algorithm for the malware config, you would need to repeat the debugging session from the beginning each time, moving up the call stack and seeing where the data came from in the network packet. Andrew needed a way to **capture and analyze malware execution without constantly restarting his work.** That’s when he discovered Time Travel Analysis. Time Travel Debugging (TTD), also known as Time Travel Analysis, enables reverse engineers to record a full execution trace of malware, then rewind and replay it without restarting the debugging session. * Take full advantage of **time travel analysis**, recording a malware’s execution once and navigating through it forward and backward, eliminating the need for repeated debugging sessions. For professionals working in cyber threat intelligence, malware research, exploit investigation, or vulnerability analysis, tools like esReverse make it possible to tackle even the most complex malware samples without losing time on unnecessary debugging steps.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "WinDbg Time Travelling Debugger is Amazing Magic",
+      "url": "https://www.forrestthewoods.com/blog/windbg-time-travelling-debugger-is-amazing-magic/",
+      "snippet": "# WinDbg Time Travelling Debugger is Amazing Magic. This week I learned that WinDbg has a Time Travelling Debugger. ## Time Travelling Debugger. What is a time travelling debugger (TTD)? A TTD debugger allows you to **step backwards**. A TTD debugger will allow you to work backwards to root cause the bad logic that caused the bad state. How does the WinDbg Time Travelling Debugger work under the hood? What I do know is that WinDbg's TTD works at the instruction level and requires zero instrumentation. ## Example - Memory Stomp. Here's a simple example that involves two threads. void reader_thread int** size_t int = 0// Accumulate forever! eventually = + 1 % void stomper_thread int** int// STOMP! This will cause the reader thread to explode with the exception: `Access violation reading location 0x000000000BADF00D`. Running with the WinDbg TTD is slow and it generates massive trace files. A week ago I didn't know that WinDbg Time Travelling Debugger existed.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "Intro to Time Travel Debugging - Undo.io",
+      "url": "https://undo.io/resources/technical-paper-time-travel-debugging/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Time travel debugging with rr debugger",
+      "url": "https://undo.io/resources/gdb-watchpoint/time-travel-debugging-rr-debugger",
+      "snippet": "",
+      "published_date": "2023-02-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Binary Ninja - Having Fun with Flare-on Using Time-Travel Debugging (TTD)",
+      "url": "https://binary.ninja/2024/12/16/flareon-ttd.html",
+      "snippet": "",
+      "published_date": "2024-12-16T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Windows Debugging & Exploiting Part 3: WinDBG Time Travel Debugging",
+      "url": "https://trustwave.com/en-us/resources/blogs/spiderlabs-blog/windows-debugging-exploiting-part-3-windbg-time-travel-debugging",
+      "snippet": "",
+      "published_date": "2023-08-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Debug & Modify Game Memory in Real-Time with WinDbg - YouTube",
+      "url": "https://www.youtube.com/watch?v=ogtHK5DUcB4",
+      "snippet": "... Memory in Real-Time with WinDbg | Reverse Engineering (Educational). 1.1K views · 9 months ago. #EthicalHacking #ReverseEngineering #GameHacking.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Using GDB to time travel",
+      "url": "https://developers.redhat.com/articles/2024/08/08/using-gdb-time-travel",
+      "snippet": "",
+      "published_date": "2024-08-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "Debugging with rr: Start at the End - YouTube",
+      "url": "https://www.youtube.com/watch?v=S6EQiSu_zNI",
+      "snippet": "... reverse instead. This technique is very useful for scenarios where you've encountered and error and want to backtrack to find the cause of",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "RR: The magic of record and replay debugging",
+      "url": "https://johnnysswlab.com/rr-the-magic-of-recording-and-replay-debugging/",
+      "snippet": "",
+      "published_date": "2020-08-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "rr 4.0 Released With Reverse Execution",
+      "url": "https://robert.ocallahan.org/2015/10/rr-40-released-with-reverse-execution.html",
+      "snippet": "",
+      "published_date": "2015-10-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "Tricks for debugging QEMU — rr | translatedcode - WordPress.com",
+      "url": "https://translatedcode.wordpress.com/2015/05/30/tricks-for-debugging-qemu-rr/",
+      "snippet": "",
+      "published_date": "2015-05-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "Tracking Down Heap Overflows with rr - Sean Heelan's Blog",
+      "url": "https://sean.heelan.io/2016/05/31/tracking-down-heap-overflows-with-rr/",
+      "snippet": "",
+      "published_date": "2016-05-31T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Next-Level Reversing: Binary Ninja+TTD · seeinglogic blog",
+      "url": "https://seeinglogic.com/posts/binary-ninja-ttd-intro/",
+      "snippet": "",
+      "published_date": "2024-08-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "[PDF] EXPOSITOR: Scriptable Time-Travel Debugging with First-Class ...",
+        "url": "https://www.cs.umd.edu/~mwh/papers/expositor-tse-submitted.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6091
+      },
+      {
+        "title": "Intro to Time Travel Debugging - Undo.io",
+        "url": "https://undo.io/resources/technical-paper-time-travel-debugging/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Time travel debugging with rr debugger",
+        "url": "https://undo.io/resources/gdb-watchpoint/time-travel-debugging-rr-debugger",
+        "snippet": "",
+        "published_date": "2023-02-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "Using GDB to time travel",
+        "url": "https://developers.redhat.com/articles/2024/08/08/using-gdb-time-travel",
+        "snippet": "",
+        "published_date": "2024-08-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "Binary Ninja - Having Fun with Flare-on Using Time-Travel Debugging (TTD)",
+        "url": "https://binary.ninja/2024/12/16/flareon-ttd.html",
+        "snippet": "",
+        "published_date": "2024-12-16T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "RR: The magic of record and replay debugging",
+        "url": "https://johnnysswlab.com/rr-the-magic-of-recording-and-replay-debugging/",
+        "snippet": "",
+        "published_date": "2020-08-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "Tracking Down Heap Overflows with rr - Sean Heelan's Blog",
+        "url": "https://sean.heelan.io/2016/05/31/tracking-down-heap-overflows-with-rr/",
+        "snippet": "",
+        "published_date": "2016-05-31T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Time travel debugging with rr debugger",
+        "url": "https://undo.io/resources/gdb-watchpoint/time-travel-debugging-rr-debugger",
+        "snippet": "",
+        "published_date": "2023-02-04T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "rr 4.0 Released With Reverse Execution",
+        "url": "https://robert.ocallahan.org/2015/10/rr-40-released-with-reverse-execution.html",
+        "snippet": "",
+        "published_date": "2015-10-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "Tricks for debugging QEMU — rr | translatedcode - WordPress.com",
+        "url": "https://translatedcode.wordpress.com/2015/05/30/tricks-for-debugging-qemu-rr/",
+        "snippet": "",
+        "published_date": "2015-05-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "How We Can Use WinDBG Time Travel Debugging For Our Advantage",
+        "url": "https://medium.com/@asrafniv5/how-we-can-use-windbg-time-travel-debugging-for-our-advantage-5012c941e644",
+        "snippet": "",
+        "published_date": "2024-05-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4818
+      },
+      {
+        "title": "Next-Level Reversing: Binary Ninja+TTD · seeinglogic blog",
+        "url": "https://seeinglogic.com/posts/binary-ninja-ttd-intro/",
+        "snippet": "",
+        "published_date": "2024-08-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Windows Debugging & Exploiting Part 3: WinDBG Time Travel Debugging",
+        "url": "https://trustwave.com/en-us/resources/blogs/spiderlabs-blog/windows-debugging-exploiting-part-3-windbg-time-travel-debugging",
+        "snippet": "",
+        "published_date": "2023-08-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "Having Fun with Flare-on Using Time-Travel Debugging (TTD)",
+        "url": "https://binary.ninja/2024/12/16/flareon-ttd.html",
+        "snippet": "",
+        "published_date": "2024-12-16T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "TTD Memory Objects - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-memory-objects",
+        "snippet": "",
+        "published_date": "2023-10-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      }
+    ],
+    "tavily": [
+      {
+        "title": "[PDF] EXPOSITOR: Scriptable Time-Travel Debugging with First-Class ...",
+        "url": "https://www.cs.umd.edu/~mwh/papers/expositor-tse-submitted.pdf",
+        "snippet": "These list combinators 3 1 class execution: 2 # get snapshots 3 get at(t): snapshot at time t 4 5 # derive traces 6 breakpoints(fn): snapshot trace of breakpoints at func fn 7 syscalls(fn): snapshot trace of breakpoints at syscall fn 8 watchpoints(x, rw): 9 snapshot trace of read/write watchpoints at var x 10 all calls(): snapshot trace of all function entries 11 all returns(): snapshot trace of all function exits 12 13 # interactive control 14 cont(): manually continue the execution 15 get time(): latest time of the execution 16 17 class trace: 18 # count/get items 19 len (): called by “ len(trace)” 20 iter (): called by “ for item in trace” 21 get at(t): item at exactly time t 22 get after(t): next item after time t 23 get before(t): previous item before time t 24 25 # create a new trace by ﬁltering/mapping a trace 26 ﬁlter(p): subtrace of items for which p returns true 27 map(f): new trace with f applied to all items 28 slice(t0, t1): subtrace from time t0 to time t1 29 30 # create a new trace by merging two traces 31 merge(f, tr): see Fig. 2a 32 trailing merge(f, tr): see Fig. 2b 33 rev trailing merge(f, tr): see Fig. 2c 34 35 # create a new trace by computing over preﬁxes/sufﬁxes 36 scan(f, acc): see Fig. 2d 37 rev scan(f, acc): see Fig. 2e 38 tscan(f, acc): see Fig. 3a 39 rev tscan(f, acc): see Fig. 3b 40 41 class item: 42 time: item’s execution time 43 value: item’s contents 44 45 class snapshot: 46 read var(x): 47 gdb value of variable x in current stack frame 48 read retaddrs(): 49 gdb values of return addresses on the stack 50 backtrace(): print the stack backtrace 51 .",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to use Time Travel Analysis to reverse engineer a malware",
+        "url": "https://eshard.com/posts/malware-analysis-with-time-travel-analysis-reverse-engineering",
+        "snippet": "With standard tools, to reverse the C2 communication protocol or the encryption algorithm for the malware config, you would need to repeat the debugging session from the beginning each time, moving up the call stack and seeing where the data came from in the network packet. Andrew needed a way to **capture and analyze malware execution without constantly restarting his work.** That’s when he discovered Time Travel Analysis. Time Travel Debugging (TTD), also known as Time Travel Analysis, enables reverse engineers to record a full execution trace of malware, then rewind and replay it without restarting the debugging session. * Take full advantage of **time travel analysis**, recording a malware’s execution once and navigating through it forward and backward, eliminating the need for repeated debugging sessions. For professionals working in cyber threat intelligence, malware research, exploit investigation, or vulnerability analysis, tools like esReverse make it possible to tackle even the most complex malware samples without losing time on unnecessary debugging steps.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "Time Travel Debugging for C/C++ - Nutrient",
+        "url": "https://www.nutrient.io/blog/time-travel-debugging-for-c/",
+        "snippet": "If the state of the process is known before a series of deterministic instructions are executed, then the reverse debugging system doesn’t need to record changes made to the process state during the execution of these instructions because it can always replay these instructions if needed. There’s a nice time travel debugging walkthrough(opens in a new tab) for WinDbg showing how to find a stack corruption error on Windows, so let’s use it to see how we can find such an error on Linux using GDB’s process record and replay feature first, and then using rr. GDB’s process record feature slows down program execution by several orders of magnitude, while rr on the other hand made it one of its design goals to have a very low run-time overhead and claims to add less than 20 percent to the execution time in usual scenarios.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4636
+      },
+      {
+        "title": "Intro to Time Travel Debugging - Undo.io",
+        "url": "https://undo.io/resources/technical-paper-time-travel-debugging/",
+        "snippet": "| **Logging** *Log of program execution* | Easy to use – every developer knows how to insert logging statements into their code (e.g. printf in C or log4j in Java)   Easy to navigate and understand program execution   Provides clues about what went wrong | Limited in use – not good for thread-related issues   Snapshot only – can’t tell you the value of variables over time   Difficult to determine exact root cause |. Time travel debugging (TTD) is the ability to wind back the clock to any point in an application’s execution and see exactly what the program was doing. Rather than having to continually rerun the program, time travel debugging allows developers to go back in time to before the list was corrupted and use a binary search to quickly find out exactly when the corruption occurred. By contrast, time travel debugging enables developers to zero in on the root cause of the bug in a systematic way without needing to guess and restart the program several times.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Has anyone compared Undo.io, rr, and other time-travel debuggers ...",
+        "url": "https://www.reddit.com/r/cpp/comments/1kqzcv9/has_anyone_compared_undoio_rr_and_other/",
+        "snippet": "Forward declaring a type in C++: The good, and the bad ... Discussions, articles and news about the C++ programming language or programming in C++",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6091
+      },
+      {
+        "title": "Tracking Down Heap Overflows with rr - Sean Heelan's Blog",
+        "url": "https://sean.heelan.io/2016/05/31/tracking-down-heap-overflows-with-rr/",
+        "snippet": "(rr) f 4 #4  0x00007f870c079483 in php_message_handler_for_zend (message=4, data=0x7ffd14c702c0) at php-7.0.5-debug/main/main.c:1444 1444                        snprintf(memory_leak_buf, 512, \"%s(%d) :  Freeing 0x%.8lX (%zu bytes), script=%s\\n\", t->filename, t->lineno, (zend_uintptr_t)t->addr, t->size, SAFE_FILENAME(SG(request_info).path_translated)); (rr) p &(t->filename) $1 = (const char **) 0x7ffd14c702d0 (rr) watch -l t->filename Hardware watchpoint 1: -location t->filename (rr) reverse-continue Continuing. Hardware watchpoint 2: -location dbg->filename Old value = 0xa8bc37  New value = 0x0 __mempcpy_sse2 () at ../sysdeps/x86_64/memcpy.S:219 219        movq     %r8,  8(%rdi) (rr) bt #0  __mempcpy_sse2 () at ../sysdeps/x86_64/memcpy.S:219 #1  0x00007f870ec8f55e in __GI__IO_file_xsgetn (fp=0x56128d40a9a0, data=, n=18446744073709551615) at fileops.c:1392 #2  0x00007f870ec848b6 in __GI__IO_fread (buf=, size=1, count=18446744073709551615, fp=0x56128d40a9a0) at iofread.c:42 #3  0x00007f870be6ed79 in fileGetbuf (ctx=0x7f86ffa5a0e0, buf=0x7f86ffa5e0a0, size=-1) at php-7.0.5-debug/ext/gd/libgd/gd_io_file.c:91 #4  0x00007f870be6e47e in php_gd_gdGetBuf (buf=0x7f86ffa5e0a0, size=-1, ctx=0x7f86ffa5a0e0) at php-7.0.5-debug/ext/gd/libgd/gd_io.c:131 #5  0x00007f870be6c79c in _gd2ReadChunk (offset=1176, compBuf=0x7f86ffa5e0a0 '\\220' , \"\\242\", , compSize=-1, chunkBuf=0x7f86ffa70000 'A' , chunkLen=0x7ffd14c6e898,     in=0x7f86ffa5a0e0) at php-7.0.5-debug/ext/gd/libgd/gd_gd2.c:213 #6  0x00007f870be6cad8 in php_gd_gdImageCreateFromGd2Ctx (in=0x7f86ffa5a0e0) at php-7.0.5-debug/ext/gd/libgd/gd_gd2.c:311 #7  0x00007f870be6c801 in php_gd_gdImageCreateFromGd2 (inFile=0x56128d40a9a0) at php-7.0.5-debug/ext/gd/libgd/gd_gd2.c:232 #8  0x00007f870be5d337 in _php_image_create_from (execute_data=0x7f86ffa130d0, return_value=0x7f86ffa130c0, image_type=9, tn=0x7f870c5b4e77 \"GD2\", func_p=0x7f870be6c7d9 ,     ioctx_func_p=0x7f870be6c86c ) at php-7.0.5-debug/ext/gd/gd.c:2385 #9  0x00007f870be5d572 in zif_imagecreatefromgd2 (execute_data=0x7f86ffa130d0, return_value=0x7f86ffa130c0) at php-7.0.5-debug/ext/gd/gd.c:2483 ...",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Why I use a debugger - The {pnk}f(eli)x Blog",
+        "url": "http://blog.pnkfx.org/blog/2022/01/10/why-i-use-a-debugger/",
+        "snippet": "Hardware watchpoint 2: -location r[2] Hardware watchpoint 2: - location r[2]  Old value = 97 Old value = 97New value = 20 New value = 20boom::merge (recv=&mut i32 = {...}, a=&i32 = {...}, b=&i32 = {...}) at boom.rs:29 boom:: merge(recv =& muti32 ={...}, a =&i32 ={...}, b =&i32 ={...}) at boom. Our initial interaction with `rr` will be much like how we interacted with `gdb` above: we’ll start the program, set a hardware watchpoint for the third array element, and let it run forward. Hardware watchpoint 2: -location r[2] Hardware watchpoint 2: - location r[2]  Old value = 97 Old value = 97New value = 20 New value = 20boom::merge (recv=&mut i32 = {...}, a=&i32 = {...}, b=&i32 = {...}) at boom.rs:29 boom:: merge(recv =& muti32 ={...}, a =&i32 ={...}, b =&i32 ={...}) at boom.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4545
+      },
+      {
+        "title": "Two Reverse-Execution Optimizations",
+        "url": "https://robert.ocallahan.org/2015/07/two-reverse-execution-optimizations.html",
+        "snippet": "* Debugging Gdb Using rr: Ptrace Emulation. * Update To rr Master To Debug Firefox Trunk. * Using rr To Debug Go Programs. * Using rr To Debug rr. * rr 4.0 Released With Reverse Execution. * Using rr To Debug Dropped Video Frames In Gecko. Following the above procedure, rr would reverse-continue to the most recent triggering of the breakpoint (or watchpoint), then stop and signal gdb; gdb would read program state via rr to evaluate the breakpoint, and then signal rr to continue with reverse execution. Thus, every time the breakpoint is hit, rr must perform at least two clonings of checkpoint state plus some amount of forward execution. So we add to rr a little interpreter for gdb's bytecode; then rr can implement reverse execution by executing forwards over some time interval, and every time a breakpoint is hit, evaluating its condition and ignoring the hit if the condition evaluates to false.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4364
+      },
+      {
+        "title": "Reverse-singlestep doesn't trigger watchpoints on ARM · Issue #3936",
+        "url": "https://github.com/rr-debugger/rr/issues/3936",
+        "snippet": "# Search code, repositories, users, issues, pull requests... You signed in with another tab or window. You signed out in another tab or window. You switched accounts on another tab or window. # Reverse-singlestep doesn't trigger watchpoints on ARM #3936. Reverse-singlestep doesn't trigger watchpoints on ARM#3936. So when an instruction at address A triggers a watchpoint, the watchpoint is reported before that instruction has executed, with the PC pointing to A. GDB fixes things up so that the user-visible behavior is the same as x86, by singlestepping over the instruction and then reporting the breakpoint. During a reverse-continue, rr reports the watchpoint firing before the instruction reverse-executes, i.e. with the PC is at address A+4. GDB applies its fixup by reverse-singlestepping and everything works as expected. Therefore when the PC is at address A+4 and we reverse-singlestep, rr should report the watchpoint firing with the PC still at A+4. Unfortunately rr reverse-singlesteps and does not report the watchpoint firing at all. ## Issue actions.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "Debugging with rr: Start at the End - YouTube",
+        "url": "https://www.youtube.com/watch?v=S6EQiSu_zNI",
+        "snippet": "... reverse instead. This technique is very useful for scenarios where you've encountered and error and want to backtrack to find the cause of",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "Having Fun with Flare-on Using Time-Travel Debugging (TTD)",
+        "url": "https://binary.ninja/2024/12/16/flareon-ttd.html",
+        "snippet": "Binary Ninja’s debugger integrates WinDbg TTD support so you can record a TTD trace and replay it using a familiar user interface. Once the installation is completed, relaunch Binary Ninja, and click `Debugger` -> `Record TTD Trace` in the menu. After being stuck here for a while, I realized that I could not only debug the trace, but I could run queries on it and see which instructions had been executed in the code buffer! For this particular challenge, I wanted to see which instructions are executed in the code buffer. Since the instruction we want is written to immediately before it gets executed, I figured I simply need to dump all the memory writes and instruction executions within the code buffer, and write a small script to harvest the ones I’m looking for. It executes the same query we mentioned above with the `CurrentSession.TTD.Memory` object, and for each object within the result, prints the start time, access type, instruction pointer, address, size, and the value.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "WinDbg Time Travelling Debugger is Amazing Magic",
+        "url": "https://www.forrestthewoods.com/blog/windbg-time-travelling-debugger-is-amazing-magic/",
+        "snippet": "# WinDbg Time Travelling Debugger is Amazing Magic. This week I learned that WinDbg has a Time Travelling Debugger. ## Time Travelling Debugger. What is a time travelling debugger (TTD)? A TTD debugger allows you to **step backwards**. A TTD debugger will allow you to work backwards to root cause the bad logic that caused the bad state. How does the WinDbg Time Travelling Debugger work under the hood? What I do know is that WinDbg's TTD works at the instruction level and requires zero instrumentation. ## Example - Memory Stomp. Here's a simple example that involves two threads. void reader_thread int** size_t int = 0// Accumulate forever! eventually = + 1 % void stomper_thread int** int// STOMP! This will cause the reader thread to explode with the exception: `Access violation reading location 0x000000000BADF00D`. Running with the WinDbg TTD is slow and it generates massive trace files. A week ago I didn't know that WinDbg Time Travelling Debugger existed.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "Time Travel Debugging Overview - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-overview",
+        "snippet": "Time Travel Debugging (TTD) is a tool that captures a trace of your process as it executes and replays it later both forwards and backwards. TTD is efficient and works to add as little overhead as possible as it captures code execution in trace files. In addition to recording traces in the WinDbg UI, there is a TTD.exe command line utility available to record a trace. For more information, see Time Travel Debugging - TTD.exe command line utility. A trace file (`.run`) stores the code execution during recording. For more information on working with trace files, see Time Travel Debugging - Working with trace files. For information about working with the TTD debugger object model, see Time Travel Debugging - Introduction to Time Travel Debugging objects. The TTD.exe command line utility to record traces is available. For more information, see Time Travel Debugging - TTD.exe command line utility.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7091
+      },
+      {
+        "title": "xusheng6/awesome-ttd: Rerousces related to time-travel debugging ...",
+        "url": "https://github.com/xusheng6/awesome-ttd",
+        "snippet": "IDA Pro - WinDbg TTD Debugging - Documentation for using WinDbg Time Travel Debugging with IDA Pro for reverse engineering and malware analysis. Tutorials",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7364
+      },
+      {
+        "title": "Debug & Modify Game Memory in Real-Time with WinDbg - YouTube",
+        "url": "https://www.youtube.com/watch?v=ogtHK5DUcB4",
+        "snippet": "... Memory in Real-Time with WinDbg | Reverse Engineering (Educational). 1.1K views · 9 months ago. #EthicalHacking #ReverseEngineering #GameHacking.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      }
+    ],
+    "grok": []
+  }
+}

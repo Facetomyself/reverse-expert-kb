@@ -256,6 +256,7 @@ Routing reminder:
 - if that divergence is still too aggregate for efficient reverse watchpoint, memory-query, or reducer-localization work, shrink it into one durable watched object before widening further
 - if early mismatches are dominated by scheduler/timing/randomness/bookkeeping churn, repair the compare boundary or compare level before treating those mismatches as explanatory
 - preserve an explicit **alignment truth** step inside compare-run work: separate tolerated early variation, pair-breaking misalignment, and the first behavior-bearing split before widening into reverse-causality
+- treat watched-object and query scope as part of truth selection, not just tooling convenience: if the object is too wide, the returned write/memory events may be real yet still point at the wrong causal boundary for the operator question
 
 ### F. Visible late effect or bounded divergence -> first causal boundary
 Typical question:
