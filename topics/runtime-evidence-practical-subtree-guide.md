@@ -292,6 +292,7 @@ Possible next handoff:
 Routing reminder:
 - this note is often the immediate handoff once compare-run work has already isolated a trustworthy divergence but the next move is turning that divergence into one watchable field / slot / slice / reducer output
 - leave broad watchpoint or first-bad-write work once one watched object, one useful write/reducer boundary, and one downstream dependency already make the next task obvious
+- if the write/reducer boundary is still too local to explain who operationalizes it, carry the case one more hop to the first downstream consumer/consequence edge and then hand off
 - at that point, prefer the narrowest downstream consumer/consequence proof question over more generic replay browsing
 
 ### H. Good runtime proof -> reusable evidence package
@@ -346,6 +347,7 @@ This branch is currently strongest at practical guidance for:
 - distinguishing live-observation questions from execution-history questions
 - turning one visible late effect into one causal-boundary question instead of a larger trace tour
 - turning one visible bad late object into one watched-object / first-bad-write / decisive-reducer question instead of generic reverse-debugger tourism
+- deciding whether a localized first-bad-write/reducer result is already enough, or whether the analyst should carry the case exactly one more hop to the first downstream consumer/consequence edge before handing off
 - bridging runtime evidence into smaller next tasks in native, protocol, malware, mobile, and protected-runtime branches
 
 That makes the branch good at cases where the main problem is not raw tooling availability, but choosing the most decision-relevant runtime-evidence move.
