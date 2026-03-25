@@ -182,6 +182,7 @@ A practical stop rule worth preserving: once the ring shape is already good enou
 Freeze, in writing, these five things first:
 - which side owns the representative slot before publication
 - what exact owner / valid / WR_IDX / tail / phase edge publishes it
+- whether that edge is only a notify / publish edge or also the full trust boundary
 - what ordering or freshness rule makes that publication trustworthy
 - whether non-coherent cache synchronization is required before the consumer may trust the bytes
 - what reclaim / reuse / wakeup fact proves durable consequence
@@ -189,10 +190,16 @@ Freeze, in writing, these five things first:
 Check explicitly for:
 - **publish order**
   - completion / descriptor contents written before the publish index, owner bit, or freshness marker moves
+- **notify-vs-trust split**
+  - tail / avail-idx / WR_IDX / doorbell / notify may only announce availability; do not collapse that into “the peer may already trust descriptor or completion contents” unless ordering, ownership, and freshness semantics actually justify it
 - **consume order**
   - consuming side reads the visibility or freshness marker before treating the record contents as valid
 - **memory class / trust model**
   - decide whether this slot behaves like coherent shared descriptor memory or like streaming / non-coherent DMA-backed memory where explicit CPU/device ownership transfer still matters
+- **CPU->device trust transfer**
+  - on streaming or non-coherent transmit-style paths, preserve whether a `dma_sync_*for_device()`-style boundary, write-buffer flush, or equivalent handoff is required before ringing the doorbell or advancing the producer-visible index
+- **device->CPU trust transfer**
+  - on streaming or non-coherent completion-style paths, preserve whether a `dma_sync_*for_cpu()`-style boundary, invalidate, or equivalent ownership return is required before CPU code may trust the completion bytes
 - **cache visibility**
   - non-coherent or streaming paths may require invalidation, `dma_sync_*`-style synchronization, or another explicit trust boundary before completion bytes become CPU-trustworthy
 - **shadow-vs-MMIO split**
@@ -226,6 +233,10 @@ A completion record present in RAM is not the same thing as a completion record 
 
 ### 2. Treating interrupt arrival as publication proof
 Interrupts often accompany visibility; they are not the same thing as the ownership-transfer boundary.
+
+### 2.25 Treating notify or doorbell as full trust proof
+A tail/doorbell/avail update may only announce candidate work.
+It does not automatically prove the device has seen the final descriptor contents, nor that later CPU reads are already trustworthy, unless the case's ordering and ownership rules support that claim.
 
 ### 2.5 Treating populated completion bytes as fresh completion proof
 A slot can look structurally correct while still being stale under an owner/phase/tag rule.
