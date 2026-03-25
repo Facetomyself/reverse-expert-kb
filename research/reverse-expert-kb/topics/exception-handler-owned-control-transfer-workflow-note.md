@@ -363,6 +363,19 @@ Use when:
 Why it helps:
 - it explains why static analysis stays close-but-wrong until runtime-installed ownership is considered
 - it keeps the analyst from overcommitting to broken static unwind assumptions when the real ownership is created at runtime
+- it preserves a more practical split inside the exception-owned branch:
+  - **landing truth** -> where exceptional ownership becomes re-findable
+  - **range ownership truth** -> which runtime-installed or callback-owned unwind range actually owns the current PC
+  - **resume truth** -> which later resumed target, unwind consequence, or handler-owned edge first predicts behavior
+
+Practical stop rule:
+- do not stop at `KiUserExceptionDispatcher` / `RtlDispatchException` alone
+- do not stop at `RtlInstallFunctionTableCallback` / `RtlAddFunctionTable` / growable-table registration alone either
+- leave this subcase once one runtime-installed range plus one later resume/consequence edge are both preserved well enough to predict the next ordinary behavior
+
+Practical caution:
+- when generated-code or hook stubs are involved, treat direct unwind-aware evidence (`RtlLookupFunctionEntry`, debugger/ETW-visible unwind success, callback-owned range correlation) as stronger than one convenience stack-capture surface that appears to ignore dynamic tables
+- a misleading backtrace alone is weaker than one proved runtime-installed range
 
 ### E. Linux signal handler converts trap/fault into hidden continuation
 Use when:
