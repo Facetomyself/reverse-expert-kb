@@ -66,6 +66,7 @@ It is:
 - one representative method fixture set
 - one smallest constructor / serializer path for that fixture
 - one short split between invariant request identity, likely-gated fields, and safely-ignored decoration
+- one explicit split between **message/body identity truth** and **call-context truth** when the family carries meaningful per-call semantics outside the payload
 - one minimal replay/edit harness that keeps later gate debugging honest
 
 This note exists to keep the branch practical:
@@ -144,16 +145,20 @@ Record:
 
 This matters because later replay failures are often not schema failures at all; they are provenance failures.
 
-### Step 3: Reduce the request into three buckets
-For the representative request, explicitly separate fields into:
+### Step 3: Reduce the request into four buckets
+For the representative request, explicitly separate the replay object into four buckets:
 
 1. **identity / routing core**
    - method name, opcode, path, service ID, opnum
    - stream shape if it is part of the callable contract
    - message body fields that select the code path or semantic family
-2. **likely gate-bearing fields**
+2. **call-context truth**
+   - per-call metadata or invocation context that may not live inside the serialized body, but still changes whether the same body is treated as the same practical call
+   - for gRPC-like families: deadline/timeout posture, metadata/header set, authority/host routing assumptions, and call-credential or auth-token placement when they are carried outside the body
+   - for Windows RPC-like families: binding-handle / endpoint assumptions, authentication level or service assumptions, and context-handle posture when the same argument bundle only makes sense under one live binding/context family
+3. **likely gate-bearing fields**
    - nonce, timestamp, session, auth token, sequence, pending-request ID, device/context binding, context handle assumptions
-3. **decoration / low-priority fields**
+4. **decoration / low-priority fields**
    - optional metadata, logging hints, cosmetic labels, duplicated mirrors, seemingly inert padding when not part of MAC/signature coverage
 
 For gRPC-like families, a compact first route core is often already available as:
@@ -162,11 +167,20 @@ For gRPC-like families, a compact first route core is often already available as
 - response message type
 - unary vs client-streaming vs server-streaming vs bidi shape
 
+But gRPC-like fixture work should now preserve one extra stop rule:
+- do not flatten **body truth** and **call-context truth** into the same bucket
+- the same protobuf body can still produce a practically different call when deadline posture, metadata, authority, or call-credential routing differ
+- if replay fails after the body already looks stable, first ask whether the fixture froze the same call-context contract before reopening broad payload semantics
+
 For Windows RPC-like families, a compact first route core is often:
 - interface UUID or interface binding target
 - endpoint or transport family if known
 - opnum
 - one representative argument family
+
+And Windows RPC-like fixture work should preserve the same extra stop rule:
+- do not treat opnum plus arguments as the whole replay object when one binding family, authn level, or context-handle posture still decides whether the call is even comparable
+- if one live call bundle only works under one narrower binding/context contract, freeze that separately instead of smearing it into vague “ambient runtime state”
 
 A practical lifecycle rule worth preserving here is:
 - if the representative call is async-, timeout-, or completion-shaped, fixture identity may also need one explicit statement of deadline/timeout posture and what counts as the expected completion artifact
@@ -174,6 +188,7 @@ A practical lifecycle rule worth preserving here is:
 
 The goal is not perfect semantics.
 The goal is to stop treating every field as equally mysterious.
+The related goal is to stop pretending that every meaningful replay obligation lives inside the message body.
 
 ### Step 4: Prefer one constructor path over many serializers
 If multiple ways to build the request are visible, choose the smallest trustworthy constructor path.
@@ -209,14 +224,16 @@ A good fixture package usually contains:
 - one serialized request sample
 - one response / ack / completion sample if available
 - one short note of the environment and gate assumptions
+- one explicit note of **call-context truth** when the family carries meaningful per-call semantics outside the body
 - one table or bullet list marking which fields are believed stable, variable, or unknown
 
 Also preserve the layer and provenance explicitly:
 - whether the fixture is a builder input, serialized protobuf body, gRPC message body, framed request, stream-slice, transport-visible unit, or stub-argument bundle
 - where it was captured or reconstructed from
 - whether reflection / descriptor metadata was available or whether the fixture was recovered under a weaker compare-driven model
+- for gRPC-like families, whether the package preserves deadline/timeout posture, metadata/header set, authority/host assumptions, and any call-credential placement that materially changes the call outside the body
 - for streaming methods, whether ordering and close semantics are preserved inside the fixture package
-- for Windows RPC, whether the package already includes binding/context assumptions or still depends on ambient runtime state
+- for Windows RPC, whether the package already includes binding/context assumptions, authn-level/auth-service assumptions, or still depends on ambient runtime state
 - for async / timeout-sensitive methods, whether the package preserves the original call lifecycle closely enough to explain expected `success`, `timeout`, `cancel`, `late reply`, or deferred-completion behavior
 
 Keep the package small enough that a later analyst can:
@@ -269,8 +286,9 @@ Useful anchors for this stage:
 - request enqueue sites that still preserve correlation IDs or method identity
 - fixture capture points just before framing/encryption and just after parse/materialization
 - response dispatch sites that can tie an observed reply/completion back to the representative request
+- for gRPC-like families, metadata/interceptor injection points, deadline-setting call sites, authority/host override boundaries, and credential attachment sites that still preserve per-call context outside the body
 - for streaming cases, open/send/half-close boundaries and first server-event dispatch
-- for Windows RPC, stub marshalling helpers, `NdrClientCall*`-adjacent invocation boundaries, or opnum-bearing call sites that still preserve argument shape
+- for Windows RPC, stub marshalling helpers, `NdrClientCall*`-adjacent invocation boundaries, binding-handle construction/configuration points, or opnum-bearing call sites that still preserve argument shape
 
 If noise is high:
 - prefer the single chosen method family
@@ -319,6 +337,10 @@ Best move:
 - mark likely gate-bearing metadata separately from body identity
 - build one stub-backed or schema-backed request constructor
 
+Extra stop rule worth preserving:
+- do not stop at “the protobuf body looks right” if the original live call also depended on one deadline posture, metadata/header set, authority assumption, or call-credential attachment outside the body
+- if two runs serialize the same message body but one returns `DEADLINE_EXCEEDED`, routing mismatch, auth failure, or a different server path, treat **call-context truth** as the missing replay object rather than widening back out into generic schema doubt
+
 If reflection is unavailable or stripped:
 - fall back to embedded descriptor blobs, generated-code evidence, path strings, registration code, or live compare pairs
 - narrow fixture scope instead of pretending the whole service roster is already known
@@ -354,6 +376,10 @@ Best move:
 - separate opnum identity from auth/context handles and per-call correlation fields
 - preserve binding or endpoint assumptions explicitly
 - build one minimal call surface before widening argument taxonomy
+
+Extra stop rule worth preserving:
+- do not treat a visible opnum plus plausible arguments as the whole replay object if the live call still depended on one binding-handle family, authn/authz posture, or stricter context-handle contract
+- if the same argument bundle behaves differently across binding families or interface/context assumptions, freeze that call-context difference as part of the representative fixture instead of calling it generic ambient state
 
 ### Scenario D: Async method looks right, but the client fixture lies about completion
 Pattern:

@@ -1,0 +1,445 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "gRPC deadline metadata authority replay fixture reverse engineering minimal replay",
+    "gRPC metadata call credentials deadline authority semantics replay debugging",
+    "Windows RPC binding handle authn level context handle replay reverse engineering"
+  ],
+  "count": 24,
+  "results": [
+    {
+      "title": "Add metadata for all calls to gRPC service - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/65220041/add-metadata-for-all-calls-to-grpc-service",
+      "snippet": "",
+      "published_date": "2020-12-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6667
+    },
+    {
+      "title": "Reliable gRPC services with deadlines and cancellation",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0",
+      "snippet": "# Reliable gRPC services with deadlines and cancellation. Deadlines and cancellation are features used by gRPC clients to abort in-progress calls. This article discusses why deadlines and cancellation are important, and how to use them in .NET gRPC apps. A deadline allows a gRPC client to specify how long it will wait for a call to complete. * The deadline is sent with the gRPC call to the service and is independently tracked by both the client and the service. It is possible that a gRPC call completes on one machine, but by the time the response has returned to the client the deadline has been exceeded. If the deadline is exceeded, a gRPC call immediately aborts the underlying HTTP request, skips any remaining retries, and throws a `DeadlineExceeded` error. The deadline specified by the client should be specified with the new gRPC call. * Automatically propagates the deadline and cancellation token to child calls.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "What is the proper use of deadline and retry for slow connections?",
+      "url": "https://github.com/grpc/grpc-java/discussions/12396",
+      "snippet": "",
+      "published_date": "2025-10-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "Binding and Handles - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/binding-and-handles",
+      "snippet": "",
+      "published_date": "2019-08-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "RpcBindingInqAuthClientEx function (rpcdce.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcbindinginqauthclientex",
+      "snippet": "",
+      "published_date": "2022-08-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Using Binding Handles and Making RPC Calls - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/using-binding-handles-and-making-rpc-calls",
+      "snippet": "Doing so will prevent server failures that occur when context handles are opened and passed between different interfaces that exist within the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "gRPC debugging help : r/golang",
+      "url": "https://www.reddit.com/r/golang/comments/1l9wkto/grpc_debugging_help/",
+      "snippet": "“Deadline exceeded” usually means the server isn't responding—could be due to a misconfigured port, network issue, or the server not running.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5667
+    },
+    {
+      "title": "gRPC-Secret: Mastering Deadlines, Timeouts, and Custom Contexts",
+      "url": "https://hackernoon.com/grpc-secret-mastering-deadlines-timeouts-and-custom-contexts",
+      "snippet": "One crucial aspect of gRPC is the management of deadlines, request timeouts, and the propagation of context, including custom structures.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4667
+    },
+    {
+      "title": "Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries - IOActive",
+      "url": "https://ioactive.com/breaking-protocol-buffers-reverse-engineering-grpc-binaries/",
+      "snippet": "",
+      "published_date": "2021-07-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Using NtObjectManager to Decompile an RPC Interface | by Lachunas Berme | Medium",
+      "url": "https://medium.com/%40lachunasberme/using-ntobjectmanager-to-decompile-an-rpc-interface-ca6356c22c9a",
+      "snippet": "",
+      "published_date": "2026-01-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "How to Handle Metadata in gRPC Calls - OneUptime",
+      "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-metadata/view",
+      "snippet": "",
+      "published_date": "2026-01-24T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Metadata - gRPC",
+      "url": "https://grpc.io/docs/guides/metadata/",
+      "snippet": "",
+      "published_date": "2024-11-12T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Metadata — grpclib documentation",
+      "url": "https://grpclib.readthedocs.io/en/latest/metadata.html",
+      "snippet": "Client can send request metadata and server can return initial and trailing metadata. Metadata sent as regular HTTP headers.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "How to Create gRPC Deadlines Best Practices",
+      "url": "https://oneuptime.com/blog/post/2026-01-30-grpc-deadlines-best-practices/view",
+      "snippet": "",
+      "published_date": "2026-01-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "Deadlines - gRPC",
+      "url": "https://grpc.io/docs/guides/deadlines/",
+      "snippet": "",
+      "published_date": "2025-07-07T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "gRPC and Deadlines",
+      "url": "https://grpc.io/blog/deadlines/",
+      "snippet": "Deadlines allow gRPC clients to specify how long they are willing to wait for an RPC to complete before the RPC is terminated with the error `DEADLINE_EXCEEDED`. To avoid this, services should specify the longest default deadline they technically support, and clients should wait until the response is no longer useful to them. For the client this involves setting useful deadlines. Engineers need to understand the service and then set a deliberate deadline for the RPCs between clients and servers. For example, the server can send the response, but the reply can arrive at the client after their deadline has expired. ## Setting a deadline. As a client you should always set a deadline for how long you are willing to. This sets the deadline to 100ms from when the client RPC is set to when the response is picked up by the client. Is it useful for a server to continue with the request, when you know your client has reached their deadline?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Deadlines lies and videotape: The tale of a gRPC bug",
+      "url": "https://www.hostedgraphite.com/blog/deadlines-lies-and-videotape-the-tale-of-a-grpc-bug",
+      "snippet": "If you use gRPC in your services, you'll want to make sure you set a reasonable deadline for your RPC calls, upgrading to gRPC 1.16 as soon",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Exploiting Windows RPC - CVE-2022-26809 Explained - YouTube",
+      "url": "https://www.youtube.com/watch?v=GGlwy3_jVYE",
+      "snippet": "Walking through my process of how I use patch analysis and reverse engineering to find vulnerabilities, then evaluate the risk and",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "ManageEngine ADAudit - Reverse engineering Windows RPC to ...",
+      "url": "https://shelltrail.com/research/manageengine-adaudit-reverse-engineering-windows-rpc-to-find-cve-2024-36036-and-cve-2024-36037-part1",
+      "snippet": "What we know up to this part is actually only that the ADAudit server is using RPC to interact with the Agents over a named pipe called `ADAPAgentRpcPipe` as seen in the wirehark screenshot. /* file: helloc.c */ #include  #include  #include  #include \"hello.h\" #include  void main() { RPC_STATUS status; unsigned char * pszUuid = NULL; unsigned char * pszProtocolSequence = \"ncacn_np\"; unsigned char * pszNetworkAddress = NULL; unsigned char * pszEndpoint = \"\\\\pipe\\\\hello\"; unsigned char * pszOptions = NULL; unsigned char * pszStringBinding = NULL; unsigned char * pszString = \"hello, world\"; unsigned long ulCode; status = RpcStringBindingCompose(pszUuid, pszProtocolSequence, pszNetworkAddress, pszEndpoint, pszOptions, &pszStringBinding); if (status) exit(status); status = RpcBindingFromStringBinding(pszStringBinding, &hello_ClientIfHandle); if (status) exit(status); RpcTryExcept { HelloProc(pszString); Shutdown(); } RpcExcept(1) { ulCode = RpcExceptionCode(); printf(\"Runtime reported exception 0x%lx = %ld\\n\", ulCode, ulCode); } RpcEndExcept status = RpcStringFree(&pszStringBinding); if (status) exit(status); status = RpcBindingFree(&hello_IfHandle); if (status) exit(status); exit(0); } /******************************************************/ /* MIDL allocate and free */ /******************************************************/ void __RPC_FAR * __RPC_USER midl_user_allocate(size_t len) { return(malloc(len)); } void __RPC_USER midl_user_free(void __RPC_FAR * ptr) { free(ptr); }. The `&DefaultIfName_v1_0_c_ifspec` parameter is defined in the header file from our IDL compilation as we named our RPC interface `DefaultIfName` (Line 5 in ADAPAgentRpcPipe.idl). In this part of the research we successfully created a working RPC client to interact with the ADAudit Agent.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Debugging - gRPC",
+      "url": "https://grpc.io/docs/guides/debugging/",
+      "snippet": "",
+      "published_date": "2024-07-04T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "Uncovering RPC Servers through Windows API Analysis - SpecterOps",
+      "url": "https://posts.specterops.io/uncovering-rpc-servers-through-windows-api-analysis-5d23c0459db6?source=rss----f05f8696e3cc---4",
+      "snippet": "Have you ever tried to reverse a simple Win32 API? If not, let's look at one together today! This article serves as a hand-holding walkthrough",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "Interceptors",
+      "url": "https://grpc.io/docs/guides/interceptors",
+      "snippet": "",
+      "published_date": "2024-02-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Windows Inter Process Communication A Deep Dive Beyond the ...",
+      "url": "https://sud0ru.ghost.io/windows-inter-process-communication-a-deep-dive-beyond-the-surface-part-9/",
+      "snippet": "",
+      "published_date": "2025-11-30T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Offensive Windows IPC Internals 2: RPC - csandker",
+      "url": "https://csandker.io/2021/02/21/Offensive-Windows-IPC-2-RPC.html",
+      "snippet": "",
+      "published_date": "2021-02-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "How to Handle Metadata in gRPC Calls - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-metadata/view",
+        "snippet": "",
+        "published_date": "2026-01-24T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Metadata - gRPC",
+        "url": "https://grpc.io/docs/guides/metadata/",
+        "snippet": "",
+        "published_date": "2024-11-12T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Interceptors",
+        "url": "https://grpc.io/docs/guides/interceptors",
+        "snippet": "",
+        "published_date": "2024-02-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Add metadata for all calls to gRPC service - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/65220041/add-metadata-for-all-calls-to-grpc-service",
+        "snippet": "",
+        "published_date": "2020-12-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6667
+      },
+      {
+        "title": "Debugging - gRPC",
+        "url": "https://grpc.io/docs/guides/debugging/",
+        "snippet": "",
+        "published_date": "2024-07-04T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "How to Create gRPC Deadlines Best Practices",
+        "url": "https://oneuptime.com/blog/post/2026-01-30-grpc-deadlines-best-practices/view",
+        "snippet": "",
+        "published_date": "2026-01-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries - IOActive",
+        "url": "https://ioactive.com/breaking-protocol-buffers-reverse-engineering-grpc-binaries/",
+        "snippet": "",
+        "published_date": "2021-07-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Deadlines - gRPC",
+        "url": "https://grpc.io/docs/guides/deadlines/",
+        "snippet": "",
+        "published_date": "2025-07-07T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "How to Handle Metadata in gRPC Calls",
+        "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-metadata/view",
+        "snippet": "",
+        "published_date": "2026-01-24T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "What is the proper use of deadline and retry for slow connections?",
+        "url": "https://github.com/grpc/grpc-java/discussions/12396",
+        "snippet": "",
+        "published_date": "2025-10-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6333
+      },
+      {
+        "title": "Windows Inter Process Communication A Deep Dive Beyond the ...",
+        "url": "https://sud0ru.ghost.io/windows-inter-process-communication-a-deep-dive-beyond-the-surface-part-9/",
+        "snippet": "",
+        "published_date": "2025-11-30T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Using NtObjectManager to Decompile an RPC Interface | by Lachunas Berme | Medium",
+        "url": "https://medium.com/%40lachunasberme/using-ntobjectmanager-to-decompile-an-rpc-interface-ca6356c22c9a",
+        "snippet": "",
+        "published_date": "2026-01-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Offensive Windows IPC Internals 2: RPC - csandker",
+        "url": "https://csandker.io/2021/02/21/Offensive-Windows-IPC-2-RPC.html",
+        "snippet": "",
+        "published_date": "2021-02-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Binding and Handles - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/binding-and-handles",
+        "snippet": "",
+        "published_date": "2019-08-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "RpcBindingInqAuthClientEx function (rpcdce.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcbindinginqauthclientex",
+        "snippet": "",
+        "published_date": "2022-08-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      }
+    ],
+    "tavily": [
+      {
+        "title": "How to Handle Metadata in gRPC Calls",
+        "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-metadata/view",
+        "snippet": "A comprehensive guide to working with metadata in gRPC, covering authentication tokens, request tracing, custom headers, and best practices",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "gRPC debugging help : r/golang",
+        "url": "https://www.reddit.com/r/golang/comments/1l9wkto/grpc_debugging_help/",
+        "snippet": "“Deadline exceeded” usually means the server isn't responding—could be due to a misconfigured port, network issue, or the server not running.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5667
+      },
+      {
+        "title": "Metadata",
+        "url": "https://grpc.io/docs/guides/metadata/",
+        "snippet": "# Metadata. # Metadata. Metadata is a side channel that allows clients and servers to provide. gRPC metadata is a key-value pair of data that is sent with initial or final. gRPC metadata is implemented using HTTP/2 headers. gRPC metadata can be sent and received by both the client and the server. Headers are sent from the client to the server before the initial request and. from the server to the client before the initial response of an RPC call. Trailers are sent by the server when it closes an RPC. `WARNING: Servers may limit the size of Request-Headers, with a default of 8 KiB suggested.`. #### Headers. Headers are sent before the initial request data message from the client to the. server and similarly before the initial response data from the server to the. Custom header handling is language dependent, generally through. Trailers are a special kind of header that is sent after the message data. Trailers are sent only by.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Metadata — grpclib documentation",
+        "url": "https://grpclib.readthedocs.io/en/latest/metadata.html",
+        "snippet": "Client can send request metadata and server can return initial and trailing metadata. Metadata sent as regular HTTP headers.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Debugging",
+        "url": "https://grpc.io/docs/guides/debugging/",
+        "snippet": "# Debugging. Explains the debugging process of gRPC applications using grpcdebug. # Debugging. Explains the debugging process of gRPC applications using grpcdebug. ### Overview. grpcdebug is a command line tool within the gRPC ecosystem designed to assist developers in debugging and troubleshooting gRPC services. grpcdebug fetches the internal states of the gRPC library from the application via gRPC protocol and provides a human-friendly UX to browse them. Currently, it supports Channelz/Health Checking/CSDS (aka. In other words, it can fetch statistics about how many RPCs have being sent or failed on a given gRPC channel, it can inspect address resolution results, it can dump the active xDS configuration that directs the routing of RPCs. ### Language examples. | Go | Go Example | Go test server implementing admin services from grpcdebug docs |. ### References. Last modified July 4, 2024: Add debugging section with grpcdebug (#1314) (2387f6a). View page source  Edit this page  Create child page  Create documentation issue  Create project issue.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "gRPC and Deadlines",
+        "url": "https://grpc.io/blog/deadlines/",
+        "snippet": "Deadlines allow gRPC clients to specify how long they are willing to wait for an RPC to complete before the RPC is terminated with the error `DEADLINE_EXCEEDED`. To avoid this, services should specify the longest default deadline they technically support, and clients should wait until the response is no longer useful to them. For the client this involves setting useful deadlines. Engineers need to understand the service and then set a deliberate deadline for the RPCs between clients and servers. For example, the server can send the response, but the reply can arrive at the client after their deadline has expired. ## Setting a deadline. As a client you should always set a deadline for how long you are willing to. This sets the deadline to 100ms from when the client RPC is set to when the response is picked up by the client. Is it useful for a server to continue with the request, when you know your client has reached their deadline?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Deadlines lies and videotape: The tale of a gRPC bug",
+        "url": "https://www.hostedgraphite.com/blog/deadlines-lies-and-videotape-the-tale-of-a-grpc-bug",
+        "snippet": "If you use gRPC in your services, you'll want to make sure you set a reasonable deadline for your RPC calls, upgrading to gRPC 1.16 as soon",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Deadlines - gRPC",
+        "url": "https://grpc.io/docs/guides/deadlines/",
+        "snippet": "### Deadlines on the Server. # Deadlines. A deadline is used to specify a point in time past which a client is unwilling to wait for a response from a server. ### Deadlines on the Client. If a server has gone past the deadline when processing a request, the client will give up and fail the RPC with the `DEADLINE_EXCEEDED` status. A server might receive RPCs from a client with an unrealistically short deadline that would not give the server enough time to ever respond in time. A gRPC server deals with this situation by automatically cancelling a call (`CANCELLED` status) once a deadline set by the client has passed. Since a deadline is set point in time, propagating it as-is to a server can be problematic as the clocks on the two servers might not be synchronized. DEADLINE_EXCEEDED deactivate c us ->> us: Stop waiting for server us -->> c: Cancel deactivate us bs -->> us: Cancel bs ->> bs: Clean up resources. # Deadlines.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Reliable gRPC services with deadlines and cancellation",
+        "url": "https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0",
+        "snippet": "# Reliable gRPC services with deadlines and cancellation. Deadlines and cancellation are features used by gRPC clients to abort in-progress calls. This article discusses why deadlines and cancellation are important, and how to use them in .NET gRPC apps. A deadline allows a gRPC client to specify how long it will wait for a call to complete. * The deadline is sent with the gRPC call to the service and is independently tracked by both the client and the service. It is possible that a gRPC call completes on one machine, but by the time the response has returned to the client the deadline has been exceeded. If the deadline is exceeded, a gRPC call immediately aborts the underlying HTTP request, skips any remaining retries, and throws a `DeadlineExceeded` error. The deadline specified by the client should be specified with the new gRPC call. * Automatically propagates the deadline and cancellation token to child calls.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "gRPC-Secret: Mastering Deadlines, Timeouts, and Custom Contexts",
+        "url": "https://hackernoon.com/grpc-secret-mastering-deadlines-timeouts-and-custom-contexts",
+        "snippet": "One crucial aspect of gRPC is the management of deadlines, request timeouts, and the propagation of context, including custom structures.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4667
+      },
+      {
+        "title": "Exploiting Windows RPC - CVE-2022-26809 Explained - YouTube",
+        "url": "https://www.youtube.com/watch?v=GGlwy3_jVYE",
+        "snippet": "Walking through my process of how I use patch analysis and reverse engineering to find vulnerabilities, then evaluate the risk and",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Using Binding Handles and Making RPC Calls - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/using-binding-handles-and-making-rpc-calls",
+        "snippet": "Doing so will prevent server failures that occur when context handles are opened and passed between different interfaces that exist within the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Windows Inter Process Communication A Deep Dive Beyond the ...",
+        "url": "https://sud0ru.ghost.io/windows-inter-process-communication-a-deep-dive-beyond-the-surface-part-9/",
+        "snippet": "In this post, we will look at the tools you can use to reverse-engineer an RPC server. After that, we will go deeper using IDA and look at how to reverse both RPC clients and servers. The UUID is located inside the **`RPC_SERVER_INTERFACE`** structure, which is passed as the **first argument** to `RpcServerRegisterIf2`. If we go to the `_RPC_SERVER_INTERFACE` struct in IDA, we can find the pointer to `_MIDL_SERVER_INFO`. * Inside it, the first member is a pointer to an `RPC_CLIENT_INTERFACE` structure which is very similar to `RPC_SERVER_INTERFACE`. Following the first pointer takes us directly to the struct `RPC_CLIENT_INTERFACE` that contains multiple members and the second is the interface UUID (The first member in `MIDL_SERVER_INFO` struct). I know the IDA part was a bit complicated and full of structures we haven’t fully explained yet, but I wanted to show it now because these structures are extremely useful when reversing any RPC server or client.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "ManageEngine ADAudit - Reverse engineering Windows RPC to ...",
+        "url": "https://shelltrail.com/research/manageengine-adaudit-reverse-engineering-windows-rpc-to-find-cve-2024-36036-and-cve-2024-36037-part1",
+        "snippet": "What we know up to this part is actually only that the ADAudit server is using RPC to interact with the Agents over a named pipe called `ADAPAgentRpcPipe` as seen in the wirehark screenshot. /* file: helloc.c */ #include  #include  #include  #include \"hello.h\" #include  void main() { RPC_STATUS status; unsigned char * pszUuid = NULL; unsigned char * pszProtocolSequence = \"ncacn_np\"; unsigned char * pszNetworkAddress = NULL; unsigned char * pszEndpoint = \"\\\\pipe\\\\hello\"; unsigned char * pszOptions = NULL; unsigned char * pszStringBinding = NULL; unsigned char * pszString = \"hello, world\"; unsigned long ulCode; status = RpcStringBindingCompose(pszUuid, pszProtocolSequence, pszNetworkAddress, pszEndpoint, pszOptions, &pszStringBinding); if (status) exit(status); status = RpcBindingFromStringBinding(pszStringBinding, &hello_ClientIfHandle); if (status) exit(status); RpcTryExcept { HelloProc(pszString); Shutdown(); } RpcExcept(1) { ulCode = RpcExceptionCode(); printf(\"Runtime reported exception 0x%lx = %ld\\n\", ulCode, ulCode); } RpcEndExcept status = RpcStringFree(&pszStringBinding); if (status) exit(status); status = RpcBindingFree(&hello_IfHandle); if (status) exit(status); exit(0); } /******************************************************/ /* MIDL allocate and free */ /******************************************************/ void __RPC_FAR * __RPC_USER midl_user_allocate(size_t len) { return(malloc(len)); } void __RPC_USER midl_user_free(void __RPC_FAR * ptr) { free(ptr); }. The `&DefaultIfName_v1_0_c_ifspec` parameter is defined in the header file from our IDL compilation as we named our RPC interface `DefaultIfName` (Line 5 in ADAPAgentRpcPipe.idl). In this part of the research we successfully created a working RPC client to interact with the ADAudit Agent.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Uncovering RPC Servers through Windows API Analysis - SpecterOps",
+        "url": "https://posts.specterops.io/uncovering-rpc-servers-through-windows-api-analysis-5d23c0459db6?source=rss----f05f8696e3cc---4",
+        "snippet": "Have you ever tried to reverse a simple Win32 API? If not, let's look at one together today! This article serves as a hand-holding walkthrough",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      }
+    ],
+    "grok": []
+  }
+}
