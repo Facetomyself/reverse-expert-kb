@@ -1,0 +1,463 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows RPC context handle replay reverse engineering strict_context_handle opnum binding handle",
+    "NdrClientCall context handle binding handle replay opnum reverse engineering",
+    "RpcBindingFromStringBinding context handle replay reverse engineering interface opnum"
+  ],
+  "count": 26,
+  "results": [
+    {
+      "title": "Microsoft RPC Binding-Handle Extensions - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/microsoft-rpc-binding-handle-extensions",
+      "snippet": "",
+      "published_date": "2021-08-19T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "RPC_BINDING_HANDLE (Rpcdce.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/nb-no/windows/win32/rpc/rpc-binding-handle",
+      "snippet": "The RPC_BINDING_HANDLE data type declares a binding handle containing information that the RPC run-time library uses to access binding",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.69
+    },
+    {
+      "title": "Strict and Type Strict Context Handles - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/strict-and-type-strict-context-handles",
+      "snippet": "Use the strict_context_handle attribute for all context handles. By default, a context handle is not associated with an interface.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.69
+    },
+    {
+      "title": "Strict and Type Strict Context Handles - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/ar-sa/windows/win32/rpc/strict-and-type-strict-context-handles",
+      "snippet": "The use of type_strict_context_handle allows applications to enforce context handle type consistency and prevent any mismatched context handle",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.69
+    },
+    {
+      "title": "Using Binding Handles and Making RPC Calls - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/using-binding-handles-and-making-rpc-calls",
+      "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. A common mistake among RPC programmers is handling all exceptions. Many programmers structure their exception handles like the following:. The problem with this handler is that it catches all errors, including errors in the client program. Catching errors in the client program makes debugging more difficult. RpcTryExcept { RemoteSample(); } // Return \"non-fatal\" errors to clients. Catching fatal errors // makes it harder to debug. EXCEPTION_EXECUTE_HANDLER : EXCEPTION_CONTINUE_SEARCH ) ) { log an error or do something else } RpcEndExcept. This exception handler has the advantage of letting a certain range of errors through. These errors will never be returned by the server, because they indicate a client side problem. Want to try using Ask Learn to clarify or guide you through this topic?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.69
+    },
+    {
+      "title": "RpcBindingFromStringBindingA function (rpcdce.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcbindingfromstringbindinga",
+      "snippet": "The RpcBindingFromStringBinding function creates a server binding handle from a string representation of a binding handle. The StringBinding",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.69
+    },
+    {
+      "title": "Client Development Using Context Handles - Win32 apps",
+      "url": "https://learn.microsoft.com/is-is/windows/win32/rpc/client-development-using-context-handles",
+      "snippet": "The only use a client program has for a context handle is to pass it to the server each time the client makes a remote procedure call.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "[MS-LREC]: RpcNetEventOpenSession (Opnum 0) - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-lrec/12bec606-698b-41c3-a5b4-5291354233fd",
+      "snippet": "",
+      "published_date": "2024-10-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "RpcBindingFromStringBinding function (rpcdce.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcbindingfromstringbinding",
+      "snippet": "",
+      "published_date": "2022-08-18T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.66
+    },
+    {
+      "title": "NdrClientCall function (rpcndr.h) - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcndr/nf-rpcndr-ndrclientcall",
+      "snippet": "The NdrClientCall function transmits all [in] data to the remote server, and upon receipt of the response packet, returns the [out] value to the client-side",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "NdrClientCall2 function (rpcndr.h) - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcndr/nf-rpcndr-ndrclientcall2",
+      "snippet": "The NdrClientCall2 function is used by all /Oicf mode client-side stubs. The NdrClientCall2 function transmits all [in] data to the remote server.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "[MS-SAMR]: SamrOpenGroup (Opnum 19)",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-samr/d396e6c9-d04a-4729-b0d8-f50f2748f3c8",
+      "snippet": "",
+      "published_date": "2021-05-28T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "3.1.4 Message Processing Events and Sequencing Rules",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-trp/902f6306-d6f0-469c-815a-86e626148da0",
+      "snippet": "",
+      "published_date": "2024-04-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "3.5.4 Message Processing Events and Sequencing Rules",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-nrpc/25667880-3d51-499b-b228-19c08eb16b81",
+      "snippet": "",
+      "published_date": "2022-04-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How can I enumerate and hook into a Windows 10 RPC interface?",
+      "url": "https://reverseengineering.stackexchange.com/questions/20965/how-can-i-enumerate-and-hook-into-a-windows-10-rpc-interface",
+      "snippet": "",
+      "published_date": "2019-03-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.56
+    },
+    {
+      "title": "at the rpcrt4!NdrClientCall2 function - how does it know which pipe to use in order to transfer data to another process?",
+      "url": "https://reverseengineering.stackexchange.com/questions/8116/at-the-rpcrt4ndrclientcall2-function-how-does-it-know-which-pipe-to-use-in-or",
+      "snippet": "",
+      "published_date": "2015-01-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.53
+    },
+    {
+      "title": "ManageEngine ADAudit - Reverse engineering Windows RPC to ...",
+      "url": "https://shelltrail.com/research/manageengine-adaudit-reverse-engineering-windows-rpc-to-find-cve-2024-36036-and-cve-2024-36037-part1",
+      "snippet": "What we know up to this part is actually only that the ADAudit server is using RPC to interact with the Agents over a named pipe called `ADAPAgentRpcPipe` as seen in the wirehark screenshot. /* file: helloc.c */ #include  #include  #include  #include \"hello.h\" #include  void main() { RPC_STATUS status; unsigned char * pszUuid = NULL; unsigned char * pszProtocolSequence = \"ncacn_np\"; unsigned char * pszNetworkAddress = NULL; unsigned char * pszEndpoint = \"\\\\pipe\\\\hello\"; unsigned char * pszOptions = NULL; unsigned char * pszStringBinding = NULL; unsigned char * pszString = \"hello, world\"; unsigned long ulCode; status = RpcStringBindingCompose(pszUuid, pszProtocolSequence, pszNetworkAddress, pszEndpoint, pszOptions, &pszStringBinding); if (status) exit(status); status = RpcBindingFromStringBinding(pszStringBinding, &hello_ClientIfHandle); if (status) exit(status); RpcTryExcept { HelloProc(pszString); Shutdown(); } RpcExcept(1) { ulCode = RpcExceptionCode(); printf(\"Runtime reported exception 0x%lx = %ld\\n\", ulCode, ulCode); } RpcEndExcept status = RpcStringFree(&pszStringBinding); if (status) exit(status); status = RpcBindingFree(&hello_IfHandle); if (status) exit(status); exit(0); } /******************************************************/ /* MIDL allocate and free */ /******************************************************/ void __RPC_FAR * __RPC_USER midl_user_allocate(size_t len) { return(malloc(len)); } void __RPC_USER midl_user_free(void __RPC_FAR * ptr) { free(ptr); }. The `&DefaultIfName_v1_0_c_ifspec` parameter is defined in the header file from our IDL compilation as we named our RPC interface `DefaultIfName` (Line 5 in ADAPAgentRpcPipe.idl). In this part of the research we successfully created a working RPC client to interact with the ADAudit Agent.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.48
+    },
+    {
+      "title": "WMI Internals Part 3. Beyond COM | by Jonathan Johnson - Medium",
+      "url": "https://jonny-johnson.medium.com/wmi-internals-part-3-38e5dad016be",
+      "snippet": "If you aren't familiar with the NdrClientCall APIs, they are commonly used to invoke RPC procedures. If we can track which RPC interface/Opnum",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.46
+    },
+    {
+      "title": "Using NtObjectManager to Decompile an RPC Interface | by Lachunas Berme | Medium",
+      "url": "https://medium.com/%40lachunasberme/using-ntobjectmanager-to-decompile-an-rpc-interface-ca6356c22c9a",
+      "snippet": "",
+      "published_date": "2026-01-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "Uncovering RPC Servers through Windows API Analysis - SpecterOps",
+      "url": "https://posts.specterops.io/uncovering-rpc-servers-through-windows-api-analysis-5d23c0459db6?source=rss----f05f8696e3cc---4",
+      "snippet": "Recall in the NdrClientCall3 function prototype, the second argument is opNum, which we can think of as the index for a function within a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "Down the Rabbit Hole - A Deep Dive into an attack on an RPC ...",
+      "url": "https://www.thezdi.com/blog/2018/6/7/down-the-rabbit-hole-a-deep-dive-into-an-attack-on-an-rpc-interface",
+      "snippet": "The vulnerabilities were all in C string handling functions (strcpy and sprintf, for the most part) and were reached through two RPC interfaces. The techniques in that presentation can be used to reverse engineer RPC interface definitions from the server binary file back into an IDL file. Additionally, IDL reversing will provide you with the address in the server code of the interface method stub, which you can then use with a static analysis package to trace data from the client on its way through the service. More generally, `hBinding` is the first parameter to all calls to the interface on the client side so that RPC knows how to access the server. You can use your favorite disassembler to look through the target code for uses of those functions (and in the codebase in question, there are many uses of those functions), and then walk the calltree back to stub functions of the RPC interface looking for the source of the parameters.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "Tyranid's Lair: Finding Windows RPC Client Implementations Through Brute Force",
+      "url": "https://www.tiraniddo.dev/2018/11/finding-windows-rpc-client.html",
+      "snippet": "",
+      "published_date": "2026-02-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "Uncovering RPC Servers through Windows API Analysis - SpecterOps",
+      "url": "https://posts.specterops.io/uncovering-rpc-servers-through-windows-api-analysis-5d23c0459db6",
+      "snippet": "",
+      "published_date": "2023-10-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "Deep Dive into an attack on an RPC interface | Trend Micro",
+      "url": "https://www.trendmicro.com/en/research/18/f/rpc-interface-attack.html",
+      "snippet": "The vulnerabilities were all in C string handling functions (strcpy and sprintf, for the most part) and were reached through two RPC interfaces. The techniques in that presentation can be used to reverse engineer RPC interface definitions from the server binary file back into an IDL file. Additionally, IDL reversing will provide you with the address in the server code of the interface method stub, which you can then use with a static analysis package to trace data from the client on its way through the service. You can use your favorite disassembler to look through the target code for uses of those functions (and in the codebase in question, there are many uses of those functions), and then walk the calltree back to stub functions of the RPC interface looking for the source of the parameters. Once you find a path from a vulnerable API using tainted data up to an RPC stub, you can construct an attack packet and use the RPC framework in this blog post to test the method.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Identifying RPC Telemetry for Detection Engineers - IPC Research",
+      "url": "https://ipc-research.readthedocs.io/en/latest/subpages/RPC.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.33
+    },
+    {
+      "title": "Tyranid's Lair: Generating NDR Type Serializers for C#",
+      "url": "https://www.tiraniddo.dev/2020/07/generating-ndr-type-serializers-for-c.html",
+      "snippet": "",
+      "published_date": "2026-02-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Identifying RPC Telemetry for Detection Engineers - IPC Research",
+        "url": "https://ipc-research.readthedocs.io/en/latest/subpages/RPC.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.33
+      },
+      {
+        "title": "Tyranid's Lair: Finding Windows RPC Client Implementations Through Brute Force",
+        "url": "https://www.tiraniddo.dev/2018/11/finding-windows-rpc-client.html",
+        "snippet": "",
+        "published_date": "2026-02-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "Uncovering RPC Servers through Windows API Analysis - SpecterOps",
+        "url": "https://posts.specterops.io/uncovering-rpc-servers-through-windows-api-analysis-5d23c0459db6",
+        "snippet": "",
+        "published_date": "2023-10-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "at the rpcrt4!NdrClientCall2 function - how does it know which pipe to use in order to transfer data to another process?",
+        "url": "https://reverseengineering.stackexchange.com/questions/8116/at-the-rpcrt4ndrclientcall2-function-how-does-it-know-which-pipe-to-use-in-or",
+        "snippet": "",
+        "published_date": "2015-01-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.53
+      },
+      {
+        "title": "Tyranid's Lair: Generating NDR Type Serializers for C#",
+        "url": "https://www.tiraniddo.dev/2020/07/generating-ndr-type-serializers-for-c.html",
+        "snippet": "",
+        "published_date": "2026-02-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Tyranid's Lair: Finding Windows RPC Client Implementations Through Brute Force",
+        "url": "https://www.tiraniddo.dev/2018/11/finding-windows-rpc-client.html",
+        "snippet": "",
+        "published_date": "2026-02-27T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "3.1.4 Message Processing Events and Sequencing Rules",
+        "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-trp/902f6306-d6f0-469c-815a-86e626148da0",
+        "snippet": "",
+        "published_date": "2024-04-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "[MS-SAMR]: SamrOpenGroup (Opnum 19)",
+        "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-samr/d396e6c9-d04a-4729-b0d8-f50f2748f3c8",
+        "snippet": "",
+        "published_date": "2021-05-28T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "3.5.4 Message Processing Events and Sequencing Rules",
+        "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-nrpc/25667880-3d51-499b-b228-19c08eb16b81",
+        "snippet": "",
+        "published_date": "2022-04-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Microsoft RPC Binding-Handle Extensions - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/microsoft-rpc-binding-handle-extensions",
+        "snippet": "",
+        "published_date": "2021-08-19T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.69
+      },
+      {
+        "title": "Tyranid's Lair: Finding Windows RPC Client Implementations Through Brute Force",
+        "url": "https://www.tiraniddo.dev/2018/11/finding-windows-rpc-client.html",
+        "snippet": "",
+        "published_date": "2026-02-27T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Using NtObjectManager to Decompile an RPC Interface | by Lachunas Berme | Medium",
+        "url": "https://medium.com/%40lachunasberme/using-ntobjectmanager-to-decompile-an-rpc-interface-ca6356c22c9a",
+        "snippet": "",
+        "published_date": "2026-01-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "[MS-LREC]: RpcNetEventOpenSession (Opnum 0) - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-lrec/12bec606-698b-41c3-a5b4-5291354233fd",
+        "snippet": "",
+        "published_date": "2024-10-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "RpcBindingFromStringBinding function (rpcdce.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcbindingfromstringbinding",
+        "snippet": "",
+        "published_date": "2022-08-18T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.66
+      },
+      {
+        "title": "How can I enumerate and hook into a Windows 10 RPC interface?",
+        "url": "https://reverseengineering.stackexchange.com/questions/20965/how-can-i-enumerate-and-hook-into-a-windows-10-rpc-interface",
+        "snippet": "",
+        "published_date": "2019-03-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.56
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Uncovering RPC Servers through Windows API Analysis - SpecterOps",
+        "url": "https://posts.specterops.io/uncovering-rpc-servers-through-windows-api-analysis-5d23c0459db6?source=rss----f05f8696e3cc---4",
+        "snippet": "Recall in the NdrClientCall3 function prototype, the second argument is opNum, which we can think of as the index for a function within a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      },
+      {
+        "title": "WMI Internals Part 3. Beyond COM | by Jonathan Johnson - Medium",
+        "url": "https://jonny-johnson.medium.com/wmi-internals-part-3-38e5dad016be",
+        "snippet": "If you aren't familiar with the NdrClientCall APIs, they are commonly used to invoke RPC procedures. If we can track which RPC interface/Opnum",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.46
+      },
+      {
+        "title": "NdrClientCall function (rpcndr.h) - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcndr/nf-rpcndr-ndrclientcall",
+        "snippet": "The NdrClientCall function transmits all [in] data to the remote server, and upon receipt of the response packet, returns the [out] value to the client-side",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "Identifying RPC Telemetry for Detection Engineers - IPC Research",
+        "url": "https://ipc-research.readthedocs.io/en/latest/subpages/RPC.html",
+        "snippet": "This will include hand crafting the client stub for serialization, code needed to fit the NDR format, RPC method code, RPC handle binding, etc. This gives",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NdrClientCall2 function (rpcndr.h) - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcndr/nf-rpcndr-ndrclientcall2",
+        "snippet": "The NdrClientCall2 function is used by all /Oicf mode client-side stubs. The NdrClientCall2 function transmits all [in] data to the remote server.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "RPC_BINDING_HANDLE (Rpcdce.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/nb-no/windows/win32/rpc/rpc-binding-handle",
+        "snippet": "The RPC_BINDING_HANDLE data type declares a binding handle containing information that the RPC run-time library uses to access binding",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.69
+      },
+      {
+        "title": "Strict and Type Strict Context Handles - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/strict-and-type-strict-context-handles",
+        "snippet": "Use the strict_context_handle attribute for all context handles. By default, a context handle is not associated with an interface.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.69
+      },
+      {
+        "title": "Strict and Type Strict Context Handles - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/ar-sa/windows/win32/rpc/strict-and-type-strict-context-handles",
+        "snippet": "The use of type_strict_context_handle allows applications to enforce context handle type consistency and prevent any mismatched context handle",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.69
+      },
+      {
+        "title": "Client Development Using Context Handles - Win32 apps",
+        "url": "https://learn.microsoft.com/is-is/windows/win32/rpc/client-development-using-context-handles",
+        "snippet": "The only use a client program has for a context handle is to pass it to the server each time the client makes a remote procedure call.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "Using Binding Handles and Making RPC Calls - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/using-binding-handles-and-making-rpc-calls",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. A common mistake among RPC programmers is handling all exceptions. Many programmers structure their exception handles like the following:. The problem with this handler is that it catches all errors, including errors in the client program. Catching errors in the client program makes debugging more difficult. RpcTryExcept { RemoteSample(); } // Return \"non-fatal\" errors to clients. Catching fatal errors // makes it harder to debug. EXCEPTION_EXECUTE_HANDLER : EXCEPTION_CONTINUE_SEARCH ) ) { log an error or do something else } RpcEndExcept. This exception handler has the advantage of letting a certain range of errors through. These errors will never be returned by the server, because they indicate a client side problem. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.69
+      },
+      {
+        "title": "RpcBindingFromStringBinding function (rpcdce.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcbindingfromstringbinding",
+        "snippet": "You can try signing in or changing directories. You can try changing directories. The **RpcBindingFromStringBinding** function returns a binding handle from a string representation of a binding handle. RPC_STATUS RpcBindingFromStringBinding( RPC_CSTR StringBinding, RPC_BINDING_HANDLE *Binding );. Pointer to a string representation of a binding handle. Returns a pointer to the server binding handle. | **RPC\\_S\\_INVALID\\_STRING\\_BINDING** | The string binding is not valid. | **RPC\\_S\\_PROTSEQ\\_NOT\\_SUPPORTED** | Protocol sequence not supported on this host. | **RPC\\_S\\_INVALID\\_RPC\\_PROTSEQ** | The protocol sequence is not valid. | **RPC\\_S\\_INVALID\\_NET\\_ADDR** | The network address is not valid. The **RpcBindingFromStringBinding** function creates a server binding handle from a string representation of a binding handle. If the provided *StringBinding* parameter does not contain an endpoint field, the returned *Binding* parameter is a partially-bound binding handle. If the provided *StringBinding* parameter does not contain a host address field, the returned *Binding* parameter references the local host. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RpcBindingFromStringBindingA function (rpcdce.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcbindingfromstringbindinga",
+        "snippet": "The RpcBindingFromStringBinding function creates a server binding handle from a string representation of a binding handle. The StringBinding",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.69
+      },
+      {
+        "title": "ManageEngine ADAudit - Reverse engineering Windows RPC to ...",
+        "url": "https://shelltrail.com/research/manageengine-adaudit-reverse-engineering-windows-rpc-to-find-cve-2024-36036-and-cve-2024-36037-part1",
+        "snippet": "What we know up to this part is actually only that the ADAudit server is using RPC to interact with the Agents over a named pipe called `ADAPAgentRpcPipe` as seen in the wirehark screenshot. /* file: helloc.c */ #include  #include  #include  #include \"hello.h\" #include  void main() { RPC_STATUS status; unsigned char * pszUuid = NULL; unsigned char * pszProtocolSequence = \"ncacn_np\"; unsigned char * pszNetworkAddress = NULL; unsigned char * pszEndpoint = \"\\\\pipe\\\\hello\"; unsigned char * pszOptions = NULL; unsigned char * pszStringBinding = NULL; unsigned char * pszString = \"hello, world\"; unsigned long ulCode; status = RpcStringBindingCompose(pszUuid, pszProtocolSequence, pszNetworkAddress, pszEndpoint, pszOptions, &pszStringBinding); if (status) exit(status); status = RpcBindingFromStringBinding(pszStringBinding, &hello_ClientIfHandle); if (status) exit(status); RpcTryExcept { HelloProc(pszString); Shutdown(); } RpcExcept(1) { ulCode = RpcExceptionCode(); printf(\"Runtime reported exception 0x%lx = %ld\\n\", ulCode, ulCode); } RpcEndExcept status = RpcStringFree(&pszStringBinding); if (status) exit(status); status = RpcBindingFree(&hello_IfHandle); if (status) exit(status); exit(0); } /******************************************************/ /* MIDL allocate and free */ /******************************************************/ void __RPC_FAR * __RPC_USER midl_user_allocate(size_t len) { return(malloc(len)); } void __RPC_USER midl_user_free(void __RPC_FAR * ptr) { free(ptr); }. The `&DefaultIfName_v1_0_c_ifspec` parameter is defined in the header file from our IDL compilation as we named our RPC interface `DefaultIfName` (Line 5 in ADAPAgentRpcPipe.idl). In this part of the research we successfully created a working RPC client to interact with the ADAudit Agent.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.48
+      },
+      {
+        "title": "Deep Dive into an attack on an RPC interface | Trend Micro",
+        "url": "https://www.trendmicro.com/en/research/18/f/rpc-interface-attack.html",
+        "snippet": "The vulnerabilities were all in C string handling functions (strcpy and sprintf, for the most part) and were reached through two RPC interfaces. The techniques in that presentation can be used to reverse engineer RPC interface definitions from the server binary file back into an IDL file. Additionally, IDL reversing will provide you with the address in the server code of the interface method stub, which you can then use with a static analysis package to trace data from the client on its way through the service. You can use your favorite disassembler to look through the target code for uses of those functions (and in the codebase in question, there are many uses of those functions), and then walk the calltree back to stub functions of the RPC interface looking for the source of the parameters. Once you find a path from a vulnerable API using tainted data up to an RPC stub, you can construct an attack packet and use the RPC framework in this blog post to test the method.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "Down the Rabbit Hole - A Deep Dive into an attack on an RPC ...",
+        "url": "https://www.thezdi.com/blog/2018/6/7/down-the-rabbit-hole-a-deep-dive-into-an-attack-on-an-rpc-interface",
+        "snippet": "The vulnerabilities were all in C string handling functions (strcpy and sprintf, for the most part) and were reached through two RPC interfaces. The techniques in that presentation can be used to reverse engineer RPC interface definitions from the server binary file back into an IDL file. Additionally, IDL reversing will provide you with the address in the server code of the interface method stub, which you can then use with a static analysis package to trace data from the client on its way through the service. More generally, `hBinding` is the first parameter to all calls to the interface on the client side so that RPC knows how to access the server. You can use your favorite disassembler to look through the target code for uses of those functions (and in the codebase in question, there are many uses of those functions), and then walk the calltree back to stub functions of the RPC interface looking for the source of the parameters.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      }
+    ],
+    "grok": []
+  }
+}
