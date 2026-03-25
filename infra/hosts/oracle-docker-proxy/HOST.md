@@ -22,8 +22,9 @@
 - Operational preference: 保持运行面精简，优先只保留确实在用的 registry backends，避免再把杂项 UI 或重型服务堆回这台机器
 
 ## 4. Access Notes
-- Main SSH alias: `oracle-docker_proxy`
+- Main SSH alias: `oracle-gateway`
 - Expected user: `root`
+- Tailnet IPv4: `100.116.171.76` (joined 2026-03-25)
 - Useful first checks:
   ```bash
   ssh oracle-docker_proxy

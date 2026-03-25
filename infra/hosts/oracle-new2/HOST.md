@@ -12,6 +12,7 @@
 - OpenClaw-side SSH key path: `~/.ssh/oracle-new1.pem`
 - Current SSH verification: success on 2026-03-25
 - Hostname observed: `instance-20260325-1818`
+- Tailnet IPv4: `100.79.183.3` (joined 2026-03-25)
 
 ## System baseline
 - OS: Ubuntu 24.04.4 LTS

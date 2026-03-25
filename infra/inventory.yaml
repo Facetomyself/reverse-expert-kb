@@ -76,8 +76,9 @@ hosts:
     ssh_alias: oracle-registry
     provider: oracle
     role:
-      - newly-created-oracle-instance
+      - registry-front-door-host
       - ubuntu-arm-host
+      - tailnet-member
     public_ip: 140.245.33.114
     domains: []
     docs:
@@ -87,8 +88,9 @@ hosts:
     ssh_alias: oracle-new2
     provider: oracle
     role:
-      - newly-created-oracle-instance
+      - utility-worker-host
       - ubuntu-arm-host
+      - tailnet-member
     public_ip: 140.245.61.236
     domains: []
     docs:

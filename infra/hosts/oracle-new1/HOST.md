@@ -4,14 +4,15 @@
 - Name: `oracle-new1`
 - Provider: Oracle Cloud Infrastructure
 - Public IP: `140.245.33.114`
-- SSH alias: `oracle-new1`
+- SSH alias: `oracle-registry` (legacy-compatible alias `oracle-new1` retained locally)
 - Default SSH user: `ubuntu`
 - Created: 2026-03-25
 
 ## Access
 - OpenClaw-side SSH key path: `~/.ssh/oracle-new1.pem`
 - Current SSH verification: success on 2026-03-25
-- Hostname observed: `instance-20260325-1808`
+- Hostname observed / set on 2026-03-25: `oracle-registry`
+- Tailnet IPv4: `100.96.23.110` (joined 2026-03-25)
 
 ## System baseline
 - OS: Ubuntu 24.04.4 LTS

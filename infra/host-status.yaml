@@ -29,12 +29,12 @@ hosts:
     roles:
       - gateway-host
       - hysteria-relay
-      - rollback-standby-for-old-registry-stack
+      - tailnet-member
     notes:
-      - host is reachable and stable but remains a small-footprint box with low free RAM and some swap use
-      - as of 2026-03-21 runtime is intentionally reduced to hub/ghcr/k8s/mcr only; `registry-ui`, `hubcmd-ui`, `gcr`, `k8sgcr`, `quay`, `elastic`, and `nvcr` backends are absent from Docker runtime
-      - on 2026-03-21 `/etc/caddy/Caddyfile` was cleaned to remove stale routes for those removed backends; active front-door routes now match the reduced runtime set
-      - Harbor files exist but Harbor runtime is inactive
+      - host is now the lightweight `oracle-gateway` and remains a small-footprint box with low free RAM and some swap use
+      - old mixed registry / Harbor runtime residue was removed on 2026-03-25 so the host can stay focused on gateway duties
+      - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.116.171.76`
+      - currently serves as the main connectivity reference point for tailnet validation against the other hosts
 
   - name: ali-cloud
     provider: alibaba
@@ -47,13 +47,14 @@ hosts:
       - 1panel
       - easyimage
       - camoufox-remote
+      - tailnet-member
     notes:
       - 1Panel controls host port 80
       - camoufox websocket endpoint on 39222
       - current camoufox exposure is plain ws://<host>:39222/camoufox with no documented TLS/auth proxy in front
-      - host has legacy /usr/bin/docker-compose, not docker compose v2 plugin
-      - 2026-03-21: host briefly became SSH-unreachable before manual reboot; current working cause is prior-boot low-memory collapse rather than disk exhaustion or SSH config drift
-      - 2026-03-21 mitigation: 2 GiB `/swapfile`, `vm.swappiness=10`, `camoufox-remote` limited to 768 MiB RAM / 1536 MiB memory+swap, leftover `camoufox-test` removed
+      - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.98.184.19`
+      - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
+      - Tailscale health check warns that configured DNS servers are not reachable; tailnet membership still works, but DNS should be cleaned up later
 
   - name: oracle-mail
     provider: oracle
@@ -66,11 +67,13 @@ hosts:
       - web-app-host
       - outlook-email-plus
       - archived-mail-stack-footprints
+      - tailnet-member
     notes:
       - `mail.zhangxuemin.work` is currently live as the Outlook Email Plus web app via Docker Compose + Caddy
-      - recurring checks on 2026-03-20 and 2026-03-21 confirmed `outlook-email-plus-app` and `outlook-email-plus-caddy` remained up with public `80/443` listeners present
       - active containers live under /opt/outlook-email-plus
-      - historical Mailu/moemail footprints remain archived under /root/retired-services/2026-03-15/
+      - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.116.13.44`
+      - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
+      - Tailscale health check warns that SELinux may interfere with Tailscale SSH on this host
 
   - name: self-server
     provider: unknown
@@ -94,11 +97,14 @@ hosts:
     importance: tier2
     roles:
       - ubuntu-arm-host
-      - newly-created-oracle-instance
+      - registry-front-door-host
+      - tailnet-member
     notes:
       - first SSH tests timed out until OCI networking was corrected
-      - 2026-03-25 follow-up confirmed public SSH reachable as user `ubuntu`
-      - hostname observed as `instance-20260325-1808`
+      - public SSH is reachable as user `ubuntu`
+      - system hostname was updated on 2026-03-25 to semantic name `oracle-registry`
+      - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.96.23.110`
+      - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
 
   - name: oracle-new2
     provider: oracle
@@ -109,11 +115,14 @@ hosts:
     importance: tier2
     roles:
       - ubuntu-arm-host
-      - newly-created-oracle-instance
+      - utility-worker-host
+      - tailnet-member
     notes:
       - first SSH tests timed out until OCI networking was corrected
-      - 2026-03-25 follow-up confirmed public SSH reachable as user `ubuntu`
-      - hostname observed as `instance-20260325-1818`
+      - public SSH is reachable as user `ubuntu`
+      - hostname currently remains `instance-20260325-1818`
+      - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.79.183.3`
+      - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
 
   - name: oracle-open_claw
     provider: oracle
@@ -124,6 +133,8 @@ hosts:
     importance: tier0
     roles:
       - current-openclaw-host
+      - tailnet-member
     notes:
       - this is the local machine, not a separate next remote audit target
-      - Cloudflare dev.zhangxuemin.work comment is stale
+      - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.78.194.18`
+      - tailnet connectivity from the local host to `oracle-gateway` was validated successfully on 2026-03-25
