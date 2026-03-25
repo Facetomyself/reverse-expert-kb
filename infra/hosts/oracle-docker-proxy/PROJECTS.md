@@ -5,7 +5,7 @@ This host has been SSH-audited and should no longer be treated as a DNS-only pla
 
 ## Active project groups
 ### 1. Registry / mirror / proxy endpoints
-Historical stack preserved on disk under `/data/registry-proxy`, but no longer serving live traffic after the 2026-03-25 migration.
+Historical stack no longer exists on disk after the 2026-03-25 cleanup; the old registry runtime was removed after migration.
 
 Former runtime components now stopped on this host:
 - `reg-docker-hub` -> host `51000`
@@ -21,7 +21,7 @@ Current live public names have been migrated to `oracle-new1`:
 
 ### 2. Front-door routing
 - old host `caddy` on this machine was stopped/disabled on 2026-03-25 after public validation succeeded on `oracle-new1`
-- `/data/registry-proxy/docker-compose.yaml` and shared cache data were intentionally left in place for rollback
+- no legacy registry compose/cache rollback surface is intentionally retained on this host anymore
 
 ### 3. Active gateway / relay surface
 - `backup.zhangxuemin.work`
@@ -57,14 +57,12 @@ Current post-cutover / post-cleanup status on 2026-03-25:
 - root disk still comfortable enough for lean gateway use
 - memory remains constrained enough that this host should stay focused on gateway duties rather than regaining heavy mixed roles
 
-## Cleanup / archive state
+## Cleanup state
 - stopped legacy registry containers were removed on 2026-03-25
-- previous registry stack files were archived to:
-  - `/root/retired-services/2026-03-25-oracle-gateway-cleanup/registry-proxy`
-- Harbor residual files, if present, should also live under the same cleanup archive path rather than the live runtime surface
+- previous registry stack files and Harbor residuals were permanently deleted on 2026-03-25 per user instruction
 - this means the live operational distinction is now simple:
   - active: `hysteria` + `caddy`
-  - archived: old registry / Harbor / UI residue
+  - removed: old registry / Harbor / UI residue
 
 ## Current project docs
 - `projects/caddy.md`

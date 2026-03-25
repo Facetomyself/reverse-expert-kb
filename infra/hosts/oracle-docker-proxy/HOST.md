@@ -6,7 +6,7 @@
 - Provider: Oracle Cloud
 - Primary role: former shared Docker/image proxy host (now rollback standby)
 - SSH alias: `oracle-gateway` (legacy-compatible aliases `oracle-registry-legacy` and `oracle-docker_proxy` retained locally)
-- Main purpose: 当前承担 Hysteria 网关/中转角色；历史上承载过 registry mirror/proxy 服务，并保留旧 registry 栈数据作为回滚待机
+- Main purpose: 当前承担 Hysteria 网关/中转角色；历史上承载过 registry mirror/proxy 服务，但旧 registry/Harbor 残留已按用户要求永久删除
 
 ## 2. System Baseline
 - OS: Ubuntu 20.04.6 LTS (Focal)
@@ -40,7 +40,7 @@ Current observed runtime:
 
 Historical / inactive footprints:
 - old registry proxy containers were removed on 2026-03-25 after migration to `oracle-registry`
-- old registry and Harbor residual files were archived under `/root/retired-services/2026-03-25-oracle-gateway-cleanup/`
+- old registry and Harbor residual files were permanently deleted on 2026-03-25 per user instruction
 
 ## 6. Machine-Level Infrastructure Notes
 - current listener set is intentionally narrow: public `80/443`, SSH, rpcbind, plus the four local registry backend ports

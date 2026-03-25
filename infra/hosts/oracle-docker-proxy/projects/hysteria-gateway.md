@@ -25,4 +25,4 @@ Verified on 2026-03-25 from `ali-cloud` with the official Hysteria client:
 ## Operational notes
 - Caddy on this host must stay limited to `h1 h2`; enabling HTTP/3 would compete for UDP `443` with Hysteria.
 - Keep this host lean; it is only ~1 GiB RAM and should avoid regaining old mixed workloads.
-- Legacy registry/Harbor residuals were archived under `/root/retired-services/2026-03-25-oracle-gateway-cleanup/`.
+- Legacy registry/Harbor residuals were permanently deleted on 2026-03-25 per user instruction.
