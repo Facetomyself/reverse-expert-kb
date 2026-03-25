@@ -195,7 +195,8 @@ A source-backed discipline worth preserving here:
   - first yield / delivery
   - first iterator-side consumption that actually changes later behavior
 - for `URLSession.AsyncBytes` or similar `AsyncSequence` cases, also separate header-time success from later body-consumption truth; do not treat `bytes(...)` return as equivalent to the parser / framer / classifier that actually turns stream material into policy-relevant meaning
-- for `AsyncStream`-shaped cases, preserve buffering policy, `yield(...)`, `finish()`, and cancellation/termination handling as separate proof objects when they affect whether the same consumer actually wakes
+- for `AsyncStream`-shaped cases, preserve stream construction / continuation storage, buffering policy, first `yield(...)` / delivery truth, `finish()` / throwing-finish / termination / cancellation truth, and the first iterator-side or resumed task-side consumer as separate proof objects when they affect whether the same behavior-bearing consumer actually wakes
+- do not overread continued producer-side `yield(...)` attempts or upstream callback traffic after cancellation as proof that the same behavior-bearing consumer still exists; detached or nested producer work can outlive the consumer you actually care about
 - when the flow is still not classifiable as single-shot continuation, multi-value stream, or iterator-consumption shaped, stop and classify that shape first before widening back into policy claims
 
 ### Step 5: separate normalization from policy mapping
