@@ -242,6 +242,16 @@ Instead:
 A compact operator rule is:
 - when the early diff is noisy, re-ask the comparison question at a better boundary before treating the first mismatch as explanatory
 
+A narrower async-heavy refinement worth preserving explicitly is:
+- if both runs already enter the same broad event loop, queue family, callback-registration region, or worker subsystem, do **not** treat broad async entry or raw mixed-thread event order as the compare boundary by default
+- early queue pops, callback timestamps, worker wakeups, or cross-thread TTD positions can be perfectly real while still too weak to answer the operator's actual question
+- in those cases, align instead on one **delivery class** or one **consumer-bearing boundary**, such as:
+  - first delivered callback family with downstream effect
+  - first dequeued work item carrying the target object/session/request identity
+  - first queue-owner handoff that makes one later consumer inevitable
+  - first reducer from many ready events into one specific handler/consumer family
+- once that first behavior-bearing delivery is bounded, shrink it into one callback slot, queue node, reducer output, or object field before widening into watched-object, reverse-causality, or branch-specific proof
+
 ### Step 6: decide whether the divergence is already the watched object
 Once the first meaningful divergence is bounded, ask one more question before widening into reverse-causality or branch-specific proof:
 - is this divergence already the smallest durable object that a watchpoint, memory query, or reducer-localization workflow can answer well?
@@ -298,7 +308,13 @@ The practical convergence is:
 - choose the pair on purpose
 - choose the compare level on purpose
 - classify noisy early differences before overexplaining them
+- in async queue/callback-heavy cases, prefer one delivery-class or consumer-bearing boundary over raw mixed-thread event order
 - use the earliest meaningful divergence, not the fullest possible diff and not the first raw mismatch, as the bridge to deeper analysis
+
+Additional source-backed refinement for async-heavy compare work:
+- Microsoft Learn and Binary Ninja TTD material reinforce that replay/query value comes from smaller bounded questions, not whole-trace narration or broad unscoped queries
+- Raymond Chen's TTD position-order discussion reinforces that cross-thread chronology is weaker than many analysts want at fine granularity, so raw mixed-thread step order should not be overread as behavioral proof by itself
+- rr divergence-debugging guidance reinforces that once one narrower delivery boundary is plausible, denser observation around that boundary is more useful than broad timeline storytelling
 
 ## 11. Topic summary
 This note turns compare-run work into a designed workflow step rather than an ad hoc diff.
