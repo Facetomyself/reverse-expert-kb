@@ -1,0 +1,427 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Linux DMA API coherent vs streaming dma_sync_single_for_device dma_sync_single_for_cpu ring descriptor ownership visibility doorbell driver",
+    "virtio split ring avail idx used idx memory barrier notification descriptor visibility driver",
+    "NVMe submission completion queue phase tag doorbell memory ordering ownership visibility reverse engineering"
+  ],
+  "count": 22,
+  "results": [
+    {
+      "title": "Streaming DMA vs consistent DMA - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/77116470/streaming-dma-vs-consistent-dma",
+      "snippet": "Sep 16, 2023 · The kernel developers recommend the use of streaming mappings over coherent mappings whenever possible. There are two reasons for this recommendation. Missing: dma_sync_single_for_device dma_sync_single_for_cpu descriptor ownership visibility doorbell 25/03/2026",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7877
+    },
+    {
+      "title": "c - Questions about dma_sync_single_for_cpu ...",
+      "url": "https://stackoverflow.com/questions/53246379/questions-about-dma-sync-single-for-cpu-dma-sync-single-for-device",
+      "snippet": "### your communities. ### more stack exchange communities. Stack Overflow for Teams is now called **Stack Internal**. ##### Collectives™ on Stack Overflow. # Questions about dma\\_sync\\_single\\_for\\_cpu() / dma\\_sync\\_single\\_for\\_device(). My code uses stream DMA APIs to map an allocated buffer to DMA region like below:. DMA_BIDIRECTIONAL); <- map buffer to physical address. ring_doorbell() -> notify device to read DMA content. The DMA direction is BIDIRECTIONAL and `buffer` is allocated, filled by caller before `perform_dma()` is called and freed after it is done. ## 1 Answer 1. In the example in the presentation it is said you (the driver) can alter the buffer content after `dma_sync_single_for_cpu()` and return ownership to the device by calling `dma_sync_single_for_device()`. `dma_sync_single_for_device()` grants ownership to the DMA controller where `dma_sync_single_for_cpu()` gains ownership back. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. # Subscribe to RSS. ##### Stack Overflow. ##### Stack Exchange Network.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7846
+    },
+    {
+      "title": "What's the difference between streaming mappings and coherent ...",
+      "url": "https://stackoverflow.com/questions/66113834/whats-the-difference-between-streaming-mappings-and-coherent-mapping-in-dma",
+      "snippet": "",
+      "published_date": "2021-02-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6462
+    },
+    {
+      "title": "NVMe driver: admin queue does not update shadow doorbells · Issue #2147 · spdk/spdk",
+      "url": "https://github.com/spdk/spdk/issues/2147",
+      "snippet": "",
+      "published_date": "2021-09-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6462
+    },
+    {
+      "title": "virtio-spec/split-ring.tex at master - GitHub",
+      "url": "https://github.com/oasis-tcs/virtio-spec/blob/master/split-ring.tex",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6231
+    },
+    {
+      "title": "Dynamic DMA mapping using the generic device",
+      "url": "https://docs.kernel.org/core-api/dma-api.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5731
+    },
+    {
+      "title": "dma_alloc_coherent versus streaming DMA, neither works satisfactory",
+      "url": "http://lists.infradead.org/pipermail/linux-arm-kernel/2015-April/338805.html",
+      "snippet": "Apr 23, 2015 · dma_alloc_coherent versus streaming DMA, neither works satisfactory · Previous message: [PATCH] arm64: dma-mapping: always clear allocated ... Missing: API ring descriptor visibility doorbell 25/03/2026",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5646
+    },
+    {
+      "title": "Virtual I/O Device (VIRTIO) Version 1.1 - Index of /",
+      "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.55
+    },
+    {
+      "title": "A rant/question about NVMe : r/osdev - Reddit",
+      "url": "https://www.reddit.com/r/osdev/comments/1crr2kh/a_rantquestion_about_nvme/",
+      "snippet": "",
+      "published_date": "2024-05-14T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.5
+    },
+    {
+      "title": "Notes about NVMe Shadow doorbell buffer - L",
+      "url": "http://liujunming.github.io/2024/03/30/Notes-about-NVMe-Shadow-doorbell-buffer/",
+      "snippet": "",
+      "published_date": "2024-03-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4731
+    },
+    {
+      "title": "dma_alloc_coherent versus streaming DMA, neither works satisfactory",
+      "url": "https://adaptivesupport.amd.com/s/question/0D52E00006hpa2sSAA/dmaalloccoherent-versus-streaming-dma-neither-works-satisfactory?language=en_US",
+      "snippet": "",
+      "published_date": "2015-04-21T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3692
+    },
+    {
+      "title": "The DMA API changes - LWN.net",
+      "url": "https://lwn.net/Articles/75780/",
+      "snippet": "",
+      "published_date": "2004-03-15T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3462
+    },
+    {
+      "title": "ARM Linux: Re: About dma_sync_single_for_{cpu,device}",
+      "url": "https://lkml.org/lkml/2012/7/31/167",
+      "snippet": "",
+      "published_date": "2012-07-31T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3462
+    },
+    {
+      "title": "Virtqueues and virtio ring: How the data travels - Red Hat",
+      "url": "https://www.redhat.com/en/blog/virtqueues-and-virtio-ring-how-data-travels",
+      "snippet": "",
+      "published_date": "2020-07-08T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3231
+    },
+    {
+      "title": "[dpdk-dev] [PATCH v2 2/2] virtio: one way barrier for split vring avail idx",
+      "url": "https://mails.dpdk.org/archives/dev/2020-April/161651.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3231
+    },
+    {
+      "title": "Doorbells - The OpenVMM Guide",
+      "url": "https://openvmm.dev/guide/reference/emulated/NVMe/doorbells.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3231
+    },
+    {
+      "title": "NVMe Command Submission and Completion Mechanism - My Blog",
+      "url": "https://jingliu.me/posts/2021-01-22-nvmemechanism.html",
+      "snippet": "* SQ (Submission Queue): A submission queue is a circular buffer with a fixed slot size that the host software used to submit commands for execution by the controller. + The CQ Head pointer is updated by host software after processing completion queue entries indicating the last free CQ slot. + A controller executes command submitted by a host on a submission queue and posts an completion on a Completion Queue. The central data structures used for this data transfer between the host and controller is the `qpair` (one submission queue and one completion queue), plus two doorbells. A small trick here is that, the controller uses SQ Head Pointer (SQHD) field in CQ entries to communicate the most recent value of SQ Header Pointer to the host, which indicates that SQ entries have been consumed by the controller, but does not indicate either execution or completion of any command.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3231
+    },
+    {
+      "title": "NVMe confusion - OSDev.org",
+      "url": "https://forum.osdev.org/viewtopic.php?t=38736",
+      "snippet": "The host writes the Completion Queue Head Doorbell register to indicate that the completion queue entry has been consumed. The host may consume",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3231
+    },
+    {
+      "title": "Doorbell registers | An In-Depth Overview of NVMe and NVMe-oF",
+      "url": "https://infohub.delltechnologies.com/nl-nl/l/an-in-depth-overview-of-nvme-and-nvme-of/doorbell-registers/",
+      "snippet": "NVMe uses doorbell registers as a notification mechanism that new commands are available to be processed. A doorbell register is used by the host (e.g.,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3231
+    },
+    {
+      "title": "Documentation/virtual/virtio-spec.txt - kernel/common - Git at Google",
+      "url": "https://android.googlesource.com/kernel/common/+/659c36fcda403013a01b85da07cf2d9711e6d6c7/Documentation/virtual/virtio-spec.txt",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Introduction to NVMe Technology - OSR",
+      "url": "https://www.osr.com/nt-insider/2014-issue4/introduction-nvme-technology/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "NVMe - OSDev Wiki",
+      "url": "https://wiki.osdev.org/NVMe",
+      "snippet": "NVMe controllers can be found as PCI devices with class code 1 and subclass code 8. · Its registers are accessible through BAR 0 (it should be 64-bit memory IO).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Virtual I/O Device (VIRTIO) Version 1.1 - Index of /",
+        "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.55
+      },
+      {
+        "title": "virtio-spec/split-ring.tex at master - GitHub",
+        "url": "https://github.com/oasis-tcs/virtio-spec/blob/master/split-ring.tex",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6231
+      },
+      {
+        "title": "Virtqueues and virtio ring: How the data travels - Red Hat",
+        "url": "https://www.redhat.com/en/blog/virtqueues-and-virtio-ring-how-data-travels",
+        "snippet": "",
+        "published_date": "2020-07-08T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3231
+      },
+      {
+        "title": "[dpdk-dev] [PATCH v2 2/2] virtio: one way barrier for split vring avail idx",
+        "url": "https://mails.dpdk.org/archives/dev/2020-April/161651.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3231
+      },
+      {
+        "title": "Documentation/virtual/virtio-spec.txt - kernel/common - Git at Google",
+        "url": "https://android.googlesource.com/kernel/common/+/659c36fcda403013a01b85da07cf2d9711e6d6c7/Documentation/virtual/virtio-spec.txt",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Dynamic DMA mapping using the generic device",
+        "url": "https://docs.kernel.org/core-api/dma-api.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5731
+      },
+      {
+        "title": "What's the difference between streaming mappings and coherent ...",
+        "url": "https://stackoverflow.com/questions/66113834/whats-the-difference-between-streaming-mappings-and-coherent-mapping-in-dma",
+        "snippet": "",
+        "published_date": "2021-02-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6462
+      },
+      {
+        "title": "The DMA API changes - LWN.net",
+        "url": "https://lwn.net/Articles/75780/",
+        "snippet": "",
+        "published_date": "2004-03-15T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3462
+      },
+      {
+        "title": "dma_alloc_coherent versus streaming DMA, neither works satisfactory",
+        "url": "https://adaptivesupport.amd.com/s/question/0D52E00006hpa2sSAA/dmaalloccoherent-versus-streaming-dma-neither-works-satisfactory?language=en_US",
+        "snippet": "",
+        "published_date": "2015-04-21T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3692
+      },
+      {
+        "title": "ARM Linux: Re: About dma_sync_single_for_{cpu,device}",
+        "url": "https://lkml.org/lkml/2012/7/31/167",
+        "snippet": "",
+        "published_date": "2012-07-31T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3462
+      },
+      {
+        "title": "A rant/question about NVMe : r/osdev - Reddit",
+        "url": "https://www.reddit.com/r/osdev/comments/1crr2kh/a_rantquestion_about_nvme/",
+        "snippet": "",
+        "published_date": "2024-05-14T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.5
+      },
+      {
+        "title": "Notes about NVMe Shadow doorbell buffer - L",
+        "url": "http://liujunming.github.io/2024/03/30/Notes-about-NVMe-Shadow-doorbell-buffer/",
+        "snippet": "",
+        "published_date": "2024-03-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4731
+      },
+      {
+        "title": "NVMe driver: admin queue does not update shadow doorbells · Issue #2147 · spdk/spdk",
+        "url": "https://github.com/spdk/spdk/issues/2147",
+        "snippet": "",
+        "published_date": "2021-09-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6462
+      },
+      {
+        "title": "Doorbells - The OpenVMM Guide",
+        "url": "https://openvmm.dev/guide/reference/emulated/NVMe/doorbells.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3231
+      },
+      {
+        "title": "Introduction to NVMe Technology - OSR",
+        "url": "https://www.osr.com/nt-insider/2014-issue4/introduction-nvme-technology/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Virtual I/O Device (VIRTIO) Version 1.1 - OASIS Open",
+        "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+        "snippet": "The driver MUST perform a suitable memory barrier before the idx ... Descriptor Table, Available and Used rings for the virtqueue in contiguous physical memory.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[dpdk-dev] [PATCH v2 2/2] virtio: one way barrier for split vring avail idx",
+        "url": "https://mails.dpdk.org/archives/dev/2020-April/161651.html",
+        "snippet": "Signed-off-by: Joyce Kong <joyce.kong at arm.com> Reviewed-by: Gavin Hu <gavin.hu at arm.com> --- drivers/net/virtio/virtqueue.h | 19 +++++++++++++++++-- lib/librte_vhost/virtio_net.c | 14 +++++--------- 2 files changed, 22 insertions(+), 11 deletions(-) diff --git a/drivers/net/virtio/virtqueue.h b/drivers/net/virtio/virtqueue.h index 13fdcb13a..bbe36c107 100644 --- a/drivers/net/virtio/virtqueue.h +++ b/drivers/net/virtio/virtqueue.h @@ -496,8 +496,23 @@ void vq_ring_free_inorder(struct virtqueue *vq, uint16_t desc_idx, static inline void vq_update_avail_idx(struct virtqueue *vq) { - virtio_wmb(vq->hw->weak_barriers); - vq->vq_split.ring.avail->idx = vq->vq_avail_idx; + if (vq->hw->weak_barriers) { +/* x86 prefers to using rte_smp_wmb over __atomic_store_n as it reports + * a slightly better perf, which comes from the saved branch by the compiler. + */ +#ifdef RTE_ARCH_X86_64 + rte_smp_wmb(); + vq->vq_split.ring.avail->idx = vq->vq_avail_idx; +#else + __atomic_store_n(&vq->vq_split.ring.avail->idx, + vq->vq_avail_idx, __ATOMIC_RELEASE); +#endif + } else { + rte_cio_wmb(); + vq->vq_split.ring.avail->idx = vq->vq_avail_idx; + } } static inline void diff --git a/lib/librte_vhost/virtio_net.c b/lib/librte_vhost/virtio_net.c index 7f6e7f2c1..4c5380bc1 100644 --- a/lib/librte_vhost/virtio_net.c +++ b/lib/librte_vhost/virtio_net.c @@ -991,13 +991,11 @@ virtio_dev_rx_split(struct virtio_net *dev, struct vhost_virtqueue *vq, struct buf_vector buf_vec[BUF_VECTOR_MAX]; uint16_t avail_head; - avail_head = *((volatile uint16_t *)&vq->avail->idx); - /* * The ordering between avail index and * desc reads needs to be enforced.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Virtqueues and virtio ring: How the data travels - Red Hat",
+        "url": "https://www.redhat.com/en/blog/virtqueues-and-virtio-ring-how-data-travels",
+        "snippet": "From now on, the driver should not modify the available descriptor or the exposed buffer at any moment: It is under the device's control. For example, if the driver has sent us two buffers in a chain with descriptor table indexes 0 and 1 as first operation, the device would see the scenario in Figure 3, and it would be the step 2 again. After that, the steps are the same as with regular descriptors: The driver adds the index of the descriptor marked with the  flag in the descriptor area to the avail ring (#0 in this case, step 4 in the diagram), and notify the device as usual (step 5). As a trusted adviser to the Fortune 500, Red Hat offers cloud, developer, Linux, automation, and application platform technologies, as well as award-winning services.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "virtio-spec/split-ring.tex at master - GitHub",
+        "url": "https://github.com/oasis-tcs/virtio-spec/blob/master/split-ring.tex",
+        "snippet": "A driver MUST NOT decrement the available \\field{idx} on a virtqueue (ie. there is no way to ``unexpose'' buffers).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Documentation/virtual/virtio-spec.txt - kernel/common - Git at Google",
+        "url": "https://android.googlesource.com/kernel/common/+/659c36fcda403013a01b85da07cf2d9711e6d6c7/Documentation/virtual/virtio-spec.txt",
+        "snippet": "entries added to the available ring. A memory barrier should be executed to ensure that we update. the idx field before checking for",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Streaming DMA vs consistent DMA - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/77116470/streaming-dma-vs-consistent-dma",
+        "snippet": "Sep 16, 2023 · The kernel developers recommend the use of streaming mappings over coherent mappings whenever possible. There are two reasons for this recommendation. Missing: dma_sync_single_for_device dma_sync_single_for_cpu descriptor ownership visibility doorbell 25/03/2026",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7877
+      },
+      {
+        "title": "dma_alloc_coherent versus streaming DMA, neither works satisfactory",
+        "url": "http://lists.infradead.org/pipermail/linux-arm-kernel/2015-April/338805.html",
+        "snippet": "Apr 23, 2015 · dma_alloc_coherent versus streaming DMA, neither works satisfactory · Previous message: [PATCH] arm64: dma-mapping: always clear allocated ... Missing: API ring descriptor visibility doorbell 25/03/2026",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5646
+      },
+      {
+        "title": "dma_alloc_coherent versus streaming DMA, neither works satisfactory",
+        "url": "https://adaptivesupport.amd.com/s/question/0D52E00006hpa2sSAA/dmaalloccoherent-versus-streaming-dma-neither-works-satisfactory?language=en_US",
+        "snippet": "Apr 21, 2015 · I'm using a Linux driver to transfer large blocks of data to/from logic at high speed. The self-written DMA controller is in logic, ... Missing: ring descriptor visibility doorbell 25/03/2026",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "c - Questions about dma_sync_single_for_cpu ...",
+        "url": "https://stackoverflow.com/questions/53246379/questions-about-dma-sync-single-for-cpu-dma-sync-single-for-device",
+        "snippet": "### your communities. ### more stack exchange communities. Stack Overflow for Teams is now called **Stack Internal**. ##### Collectives™ on Stack Overflow. # Questions about dma\\_sync\\_single\\_for\\_cpu() / dma\\_sync\\_single\\_for\\_device(). My code uses stream DMA APIs to map an allocated buffer to DMA region like below:. DMA_BIDIRECTIONAL); <- map buffer to physical address. ring_doorbell() -> notify device to read DMA content. The DMA direction is BIDIRECTIONAL and `buffer` is allocated, filled by caller before `perform_dma()` is called and freed after it is done. ## 1 Answer 1. In the example in the presentation it is said you (the driver) can alter the buffer content after `dma_sync_single_for_cpu()` and return ownership to the device by calling `dma_sync_single_for_device()`. `dma_sync_single_for_device()` grants ownership to the DMA controller where `dma_sync_single_for_cpu()` gains ownership back. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. # Subscribe to RSS. ##### Stack Overflow. ##### Stack Exchange Network.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7846
+      },
+      {
+        "title": "The DMA API changes - LWN.net",
+        "url": "https://lwn.net/Articles/75780/",
+        "snippet": "The change is in the \"synchronization\" calls that the DMA layer provides for streaming mappings. These mappings have strict rules about the \"ownership\" of the buffer; when a streaming mapping is created, it is owned by the device, and the processor cannot touch it. It is sometimes necessary, however, to allow the processor to access a mapped streaming DMA buffer. To that end, the DMA layer has long provided a set of functions (like dma\\_sync\\_single() and pci\\_sync\\_single()) which transfer ownership of the buffer to the CPU. To fill in that gap, the various synchronization functions have been split in two; instead of dma\\_sync\\_single() a driver must now call one or both of:. dma\\_sync\\_single\\_for\\_cpu() gives ownership of the DMA buffer back to the processor. A call to dma\\_sync\\_single\\_for\\_device() is required to allow the device to access the buffer again.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NVMe Command Submission and Completion Mechanism - My Blog",
+        "url": "https://jingliu.me/posts/2021-01-22-nvmemechanism.html",
+        "snippet": "* SQ (Submission Queue): A submission queue is a circular buffer with a fixed slot size that the host software used to submit commands for execution by the controller. + The CQ Head pointer is updated by host software after processing completion queue entries indicating the last free CQ slot. + A controller executes command submitted by a host on a submission queue and posts an completion on a Completion Queue. The central data structures used for this data transfer between the host and controller is the `qpair` (one submission queue and one completion queue), plus two doorbells. A small trick here is that, the controller uses SQ Head Pointer (SQHD) field in CQ entries to communicate the most recent value of SQ Header Pointer to the host, which indicates that SQ entries have been consumed by the controller, but does not indicate either execution or completion of any command.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3231
+      },
+      {
+        "title": "A rant/question about NVMe : r/osdev - Reddit",
+        "url": "https://www.reddit.com/r/osdev/comments/1crr2kh/a_rantquestion_about_nvme/",
+        "snippet": "Read the phase tag bit for the entry at the head of the queue. You'll initialize it to zero when you set up the completion queue, and the NVMe",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NVMe confusion - OSDev.org",
+        "url": "https://forum.osdev.org/viewtopic.php?t=38736",
+        "snippet": "The host writes the Completion Queue Head Doorbell register to indicate that the completion queue entry has been consumed. The host may consume",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3231
+      },
+      {
+        "title": "Doorbell registers | An In-Depth Overview of NVMe and NVMe-oF",
+        "url": "https://infohub.delltechnologies.com/nl-nl/l/an-in-depth-overview-of-nvme-and-nvme-of/doorbell-registers/",
+        "snippet": "NVMe uses doorbell registers as a notification mechanism that new commands are available to be processed. A doorbell register is used by the host (e.g.,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3231
+      },
+      {
+        "title": "NVMe - OSDev Wiki",
+        "url": "https://wiki.osdev.org/NVMe",
+        "snippet": "NVMe controllers can be found as PCI devices with class code 1 and subclass code 8. · Its registers are accessible through BAR 0 (it should be 64-bit memory IO).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      }
+    ],
+    "grok": []
+  }
+}
