@@ -1,0 +1,392 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows user-mode APC QueueUserAPC alertable wait first real consumer reverse engineering",
+    "NtQueueApcThread user APC KiUserApcDispatcher alertable wait callback ownership reverse engineering",
+    "CreateThreadpoolWait vs APC alertable wait QueueUserAPC reverse engineering workflow"
+  ],
+  "count": 18,
+  "results": [
+    {
+      "title": "QueueUserAPC function (processthreadsapi.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-queueuserapc",
+      "snippet": "A pointer to the application-supplied APC function to be called when the specified thread performs an alertable wait operation. See QueueUserAPC2 function for information on special user-mode APCs. The APC support provided in the operating system allows an application to queue an APC object to a thread. To ensure successful execution of functions used by the APC, APCs should be queued only to threads in the caller's process. The queuing of an APC is a request for the thread to call the APC function. The operating system issues a software interrupt to direct the thread to call the APC function. When a user-mode APC is queued, the thread is not directed to call the APC function unless it is in an alertable state. If an application queues an APC before the thread begins running, the thread begins by calling the APC function. After the thread calls an APC function, it calls the APC functions for all APCs in its APC queue.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7364
+    },
+    {
+      "title": "APC Series: User APC API - Low Level Pleasure",
+      "url": "https://repnz.github.io/posts/apc/user-apc/",
+      "snippet": "APC (Asynchronous Procedure Call) is a mechanism that can be used in Windows to queue a job to be done in the context of a specific thread.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5045
+    },
+    {
+      "title": "The Art of Stealth: Understanding APC Injection Through Rust ...",
+      "url": "https://medium.com/@MonlesYen/the-art-of-stealth-understanding-apc-injection-through-rust-unsafe-method-9afd50cd879d",
+      "snippet": "User-mode APCs only execute when a thread enters an “alertable state” — essentially when it's sleeping but has said “wake me up if something",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4818
+    },
+    {
+      "title": "APC Series: KiUserApcDispatcher and Wow64 - Low Level Pleasure",
+      "url": "https://repnz.github.io/posts/apc/wow64-user-apc/",
+      "snippet": "",
+      "published_date": "2020-06-28T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4773
+    },
+    {
+      "title": "APC Series: User APC Internals - Low Level Pleasure",
+      "url": "https://repnz.github.io/posts/apc/kernel-user-apc-api/",
+      "snippet": "",
+      "published_date": "2020-06-03T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4773
+    },
+    {
+      "title": "QueueUserAPC2 Process Injection. Welcome to this new Medium post! In… | by S12 - 0x12Dark Development | Jan, 2026 | Medium",
+      "url": "https://medium.com/@s12deff/queueuserapc2-process-injection-f57473dfe251",
+      "snippet": "",
+      "published_date": "2026-01-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4545
+    },
+    {
+      "title": "APC Process Injection using NtQueueApcThreadEx2",
+      "url": "https://medium.com/@s12deff/apc-process-injection-using-ntqueueapcthreadex2-149c00afa57e",
+      "snippet": "",
+      "published_date": "2025-12-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4273
+    },
+    {
+      "title": "Thread Selection Strategies for Injection via NtQueueApcThreadEx2 | by S12 - 0x12Dark Development | Feb, 2026 | Medium",
+      "url": "https://medium.com/%40s12deff/thread-selection-strategies-for-injection-via-ntqueueapcthreadex2-0f6082e55e10",
+      "snippet": "",
+      "published_date": "2026-02-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4273
+    },
+    {
+      "title": "Process Injection using QueueUserAPC Technique in Windows",
+      "url": "https://tbhaxor.com/windows-process-injection-using-asynchronous-threads-queueuserapc/",
+      "snippet": "",
+      "published_date": "2022-07-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "[PDF] Concurrent Programming on Windows",
+      "url": "http://bitsavers.informatik.uni-stuttgart.de/pdf/microsoft/visual_studio/Duffy_-_Concurrent_Programming_on_Windows_2008.pdf",
+      "snippet": "See I/O (Input/Output) Instant state, library, 868-869 Instruction level parallelism (ILP), 479 Instruction pointer (IP), 81-82 Instruction reordering, 479-480, 481-484 int value, WaitHandle, 206 Intel64 architecture, 509-511 Interlocked class, 494 Interlocked operations, 492-506 128-bit compare exchanges, 500-502 atomic loads and stores of 64-bit values, 499-500 bit-test-and-set/bit-test-and-reset, 502-503 compare and exchange, 496-499 controlling execution orders, 484 exchange,493-496 other kinds of, 504-506 overview of, 56, 492-493 Interlocked singly-linked lists (SLists), 538-540 Interlocked.CompareExchange examples of low-block code, 535-536 implementing 128-bit compare exchanges, 500-501 implementing compare and exchange, 497-498 lazy initialization in .NET, 526-527 Index 1111111 941 _InterlockedExchange,493 InterlockedExchange64,499 InterlockedExchangePointer,495 Internal data structures, threads, 145-151 checking available stack space, 148-151 overview of, 145-146 programmatically creating TEB, 146-148 Interprocess synchronization, 188 Interrupt instance method, 207 Interrupt Request Level (IRQL), DPCs, 84-85 Interrupts hardware, 84 quantum accounting, 163-164 software, 84-85 waiting or sleeping threads, 207-208 IntPtrs, 90 Intraprocess isolation, 32 Invalid states, 20-21 InvalidWaitHandle, CLR thread pool, 374, 377 Invariants invalid states and broken, 20-21 lock reliability and security, 876-877 overview of, 547-548 rules for recursion, 558 static state access for libraries, 868 Invoke method, Parallel class, 904-909 IOCompletionCallback,370 IP (instruction pointer), 81-82 IRQL (Interrupt Request Level), DPCs, 84-85 IsCompleted flag, APM, 404, 411, 416 ISO Common Language Infrastructure, 516-518 Isolation custom thread pools with, 387-391 data ownership with, 33-34 employing, 31-34 managing state with, 14 protecting library with, 869 ISupportsCancelation,915 ISynchronizeinvoke,838-839 Iterations continuous, 663-667 data parallelism and, 659-661 deciding to igo paralleli and, 756-757 dynamic (on demand) decomposition, 669-675 static decomposition and, 662-663 striped, 667-669 i tonly field modifier, 34-35 942 Index J Java exiting and entering CLR locks, 274--275 JSR133 memory model specification, 509-510 K KD.EXE (Kernel Debugger), 251 Kernel fibers and, 430 overview of, 183-184 reasons to use for synchronization, 186-189 support for true waiting in, 64-65 synchronization-specific, 184 Kernel Debugger (KD.EXE), 251 Kernel-mode APCs, 208-209 Kernel-mode stacks, 82 Kernel synchronization asynchronous procedure calls, 208-210 auto-reset and manual-reset events.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Mastering APC Injection with QueueUserAPC2",
+      "url": "https://core-jmp.org/?p=113",
+      "snippet": "",
+      "published_date": "2026-01-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "Shellcode Execution in a Local Process with QueueUserAPC and ...",
+      "url": "https://www.ired.team/offensive-security/code-injection-process-injection/shellcode-execution-in-a-local-process-with-queueuserapc-and-nttestalert",
+      "snippet": "This is a quick lab that shows how to execute shellcode within a local process by leveraging a Win32 API QueueUserAPC and an officially undocumented Native API",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "APC Queue Code Injection",
+      "url": "https://www.ired.team/offensive-security/code-injection-process-injection/apc-queue-code-injection",
+      "snippet": "",
+      "published_date": "2019-12-30T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "What Can You Do with APCs? - Pavel Yosifovich",
+      "url": "https://scorpiosoftware.net/2024/07/24/what-can-you-do-with-apcs/",
+      "snippet": "When a user mode APC is queued to a thread (more on that later), the APC just sits there in the queue, doing nothing. To actually run the APCs",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3273
+    },
+    {
+      "title": "NtQueueApcThread - NtDoc",
+      "url": "https://ntdoc.m417z.com/ntqueueapcthread",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "NtQueueApcThread - NTAPI Undocumented Functions",
+      "url": "http://undocumented.ntinternals.net/index.html?page=UserMode%2FUndocumented%20Functions%2FAPC%2FNtQueueApcThread.html",
+      "snippet": "Undocumented functions of NTDLL · ThreadHandle. Open handle to any Thread Object, including caller's thread. · ApcRoutine. Entry point to user APC routine.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "Shellcode Execution via CreateThreadpoolWait - Red Team Notes",
+      "url": "https://www.ired.team/offensive-security/code-injection-process-injection/shellcode-execution-via-createthreadpoolwait",
+      "snippet": "This is a quick lab to explore the sequence of APIs, that can execute shellcode by invoking a callback function passed to CreateThreadpoolWait.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "Windows 10 System Programming Part01 | PDF - Scribd",
+      "url": "https://www.scribd.com/document/502987020/Windows-10-System-Programming-Part01",
+      "snippet": "Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3073
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Mastering APC Injection with QueueUserAPC2",
+        "url": "https://core-jmp.org/?p=113",
+        "snippet": "",
+        "published_date": "2026-01-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "QueueUserAPC2 Process Injection. Welcome to this new Medium post! In… | by S12 - 0x12Dark Development | Jan, 2026 | Medium",
+        "url": "https://medium.com/@s12deff/queueuserapc2-process-injection-f57473dfe251",
+        "snippet": "",
+        "published_date": "2026-01-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4545
+      },
+      {
+        "title": "APC Queue Code Injection",
+        "url": "https://www.ired.team/offensive-security/code-injection-process-injection/apc-queue-code-injection",
+        "snippet": "",
+        "published_date": "2019-12-30T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3273
+      },
+      {
+        "title": "Process Injection using QueueUserAPC Technique in Windows",
+        "url": "https://tbhaxor.com/windows-process-injection-using-asynchronous-threads-queueuserapc/",
+        "snippet": "",
+        "published_date": "2022-07-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "APC Process Injection using NtQueueApcThreadEx2",
+        "url": "https://medium.com/@s12deff/apc-process-injection-using-ntqueueapcthreadex2-149c00afa57e",
+        "snippet": "",
+        "published_date": "2025-12-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4273
+      },
+      {
+        "title": "APC Process Injection using NtQueueApcThreadEx2",
+        "url": "https://medium.com/@s12deff/apc-process-injection-using-ntqueueapcthreadex2-149c00afa57e",
+        "snippet": "",
+        "published_date": "2025-12-09T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "APC Series: KiUserApcDispatcher and Wow64 - Low Level Pleasure",
+        "url": "https://repnz.github.io/posts/apc/wow64-user-apc/",
+        "snippet": "",
+        "published_date": "2020-06-28T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4773
+      },
+      {
+        "title": "APC Series: User APC Internals - Low Level Pleasure",
+        "url": "https://repnz.github.io/posts/apc/kernel-user-apc-api/",
+        "snippet": "",
+        "published_date": "2020-06-03T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4773
+      },
+      {
+        "title": "NtQueueApcThread - NtDoc",
+        "url": "https://ntdoc.m417z.com/ntqueueapcthread",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3273
+      },
+      {
+        "title": "Thread Selection Strategies for Injection via NtQueueApcThreadEx2 | by S12 - 0x12Dark Development | Feb, 2026 | Medium",
+        "url": "https://medium.com/%40s12deff/thread-selection-strategies-for-injection-via-ntqueueapcthreadex2-0f6082e55e10",
+        "snippet": "",
+        "published_date": "2026-02-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4273
+      },
+      {
+        "title": "QueueUserAPC2 Process Injection. Welcome to this new Medium post! In… | by S12 - 0x12Dark Development | Jan, 2026 | Medium",
+        "url": "https://medium.com/@s12deff/queueuserapc2-process-injection-f57473dfe251",
+        "snippet": "",
+        "published_date": "2026-01-29T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Mastering APC Injection with QueueUserAPC2",
+        "url": "https://core-jmp.org/?p=113",
+        "snippet": "",
+        "published_date": "2026-01-30T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "APC Process Injection using NtQueueApcThreadEx2",
+        "url": "https://medium.com/@s12deff/apc-process-injection-using-ntqueueapcthreadex2-149c00afa57e",
+        "snippet": "",
+        "published_date": "2025-12-09T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "What Can You Do with APCs? – Pavel Yosifovich",
+        "url": "https://scorpiosoftware.net/2024/07/24/what-can-you-do-with-apcs/",
+        "snippet": "",
+        "published_date": "2024-07-24T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "APC Queue Code Injection",
+        "url": "https://www.ired.team/offensive-security/code-injection-process-injection/apc-queue-code-injection",
+        "snippet": "",
+        "published_date": "2019-12-30T00:00:00.000Z",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "QueueUserAPC function (processthreadsapi.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-queueuserapc",
+        "snippet": "A pointer to the application-supplied APC function to be called when the specified thread performs an alertable wait operation. See QueueUserAPC2 function for information on special user-mode APCs. The APC support provided in the operating system allows an application to queue an APC object to a thread. To ensure successful execution of functions used by the APC, APCs should be queued only to threads in the caller's process. The queuing of an APC is a request for the thread to call the APC function. The operating system issues a software interrupt to direct the thread to call the APC function. When a user-mode APC is queued, the thread is not directed to call the APC function unless it is in an alertable state. If an application queues an APC before the thread begins running, the thread begins by calling the APC function. After the thread calls an APC function, it calls the APC functions for all APCs in its APC queue.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7364
+      },
+      {
+        "title": "APC Series: User APC API - Low Level Pleasure",
+        "url": "https://repnz.github.io/posts/apc/user-apc/",
+        "snippet": "APC (Asynchronous Procedure Call) is a mechanism that can be used in Windows to queue a job to be done in the context of a specific thread.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5045
+      },
+      {
+        "title": "The Art of Stealth: Understanding APC Injection Through Rust ...",
+        "url": "https://medium.com/@MonlesYen/the-art-of-stealth-understanding-apc-injection-through-rust-unsafe-method-9afd50cd879d",
+        "snippet": "User-mode APCs only execute when a thread enters an “alertable state” — essentially when it's sleeping but has said “wake me up if something",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4818
+      },
+      {
+        "title": "APC Queue Code Injection | Red Team Notes",
+        "url": "https://www.ired.team/offensive-security/code-injection-process-injection/apc-queue-code-injection",
+        "snippet": "* Disadvantage of this technique is that the malicious program cannot force the victim thread to execute the injected code - the thread to which an APC was queued to, needs to enter/be in an alertable state (i.e `SleepEx`.aspx)), but you may want to check out Shellcode Execution in a Local Process with QueueUserAPC and NtTestAlert. I will be injecting the shellcode into `explorer.exe` since there's usually a lot of thread activity going on, so there is a better chance to encounter a thread in an alertable state that will kick off the shellcode. If we compile and execute `apcqueue.exe`, we can indeed see the shellcode gets injected into the process successully:. Back to the code - we can now enumerate all threads of explorer.exe and queue an APC (points to the shellcode) to them:. As mentioned earlier, in order for the APC code injection to work, the thread to which an APC is queued, needs to be in an `alertable` state.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "What Can You Do with APCs? - Pavel Yosifovich",
+        "url": "https://scorpiosoftware.net/2024/07/24/what-can-you-do-with-apcs/",
+        "snippet": "When a user mode APC is queued to a thread (more on that later), the APC just sits there in the queue, doing nothing. To actually run the APCs",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3273
+      },
+      {
+        "title": "APC Series: User APC Internals - Low Level Pleasure",
+        "url": "https://repnz.github.io/posts/apc/kernel-user-apc-api/",
+        "snippet": "To explain the internals of User APCs I'm going to explain the complete flow: From NtQueueApcThread to the APC routine in user mode.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NtQueueApcThread - NtDoc",
+        "url": "https://ntdoc.m417z.com/ntqueueapcthread",
+        "snippet": "To execute the APC, the thread must first enter an alertable wait via NtDelayExecution (or a similar function) or call NtTestAlert . To queue a WoW64 APC",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "APC Queue Code Injection | Red Team Notes",
+        "url": "https://www.ired.team/offensive-security/code-injection-process-injection/apc-queue-code-injection",
+        "snippet": "* Disadvantage of this technique is that the malicious program cannot force the victim thread to execute the injected code - the thread to which an APC was queued to, needs to enter/be in an alertable state (i.e `SleepEx`.aspx)), but you may want to check out Shellcode Execution in a Local Process with QueueUserAPC and NtTestAlert. I will be injecting the shellcode into `explorer.exe` since there's usually a lot of thread activity going on, so there is a better chance to encounter a thread in an alertable state that will kick off the shellcode. If we compile and execute `apcqueue.exe`, we can indeed see the shellcode gets injected into the process successully:. Back to the code - we can now enumerate all threads of explorer.exe and queue an APC (points to the shellcode) to them:. As mentioned earlier, in order for the APC code injection to work, the thread to which an APC is queued, needs to be in an `alertable` state.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NtQueueApcThread - NTAPI Undocumented Functions",
+        "url": "http://undocumented.ntinternals.net/index.html?page=UserMode%2FUndocumented%20Functions%2FAPC%2FNtQueueApcThread.html",
+        "snippet": "Undocumented functions of NTDLL · ThreadHandle. Open handle to any Thread Object, including caller's thread. · ApcRoutine. Entry point to user APC routine.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3273
+      },
+      {
+        "title": "APC Series: KiUserApcDispatcher and Wow64 - Low Level Pleasure",
+        "url": "https://repnz.github.io/posts/apc/wow64-user-apc/",
+        "snippet": "Let's continue our discussion about APC internals in windows: This time we'll discuss APC dispatching in user mode and how APC works in Wow64 processes.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "APC Queue Code Injection | Red Team Notes",
+        "url": "https://www.ired.team/offensive-security/code-injection-process-injection/apc-queue-code-injection",
+        "snippet": "* Disadvantage of this technique is that the malicious program cannot force the victim thread to execute the injected code - the thread to which an APC was queued to, needs to enter/be in an alertable state (i.e `SleepEx`.aspx)), but you may want to check out Shellcode Execution in a Local Process with QueueUserAPC and NtTestAlert. I will be injecting the shellcode into `explorer.exe` since there's usually a lot of thread activity going on, so there is a better chance to encounter a thread in an alertable state that will kick off the shellcode. If we compile and execute `apcqueue.exe`, we can indeed see the shellcode gets injected into the process successully:. Back to the code - we can now enumerate all threads of explorer.exe and queue an APC (points to the shellcode) to them:. As mentioned earlier, in order for the APC code injection to work, the thread to which an APC is queued, needs to be in an `alertable` state.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Shellcode Execution via CreateThreadpoolWait - Red Team Notes",
+        "url": "https://www.ired.team/offensive-security/code-injection-process-injection/shellcode-execution-via-createthreadpoolwait",
+        "snippet": "This is a quick lab to explore the sequence of APIs, that can execute shellcode by invoking a callback function passed to CreateThreadpoolWait.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3273
+      },
+      {
+        "title": "Shellcode Execution in a Local Process with QueueUserAPC and ...",
+        "url": "https://www.ired.team/offensive-security/code-injection-process-injection/shellcode-execution-in-a-local-process-with-queueuserapc-and-nttestalert",
+        "snippet": "This is a quick lab that shows how to execute shellcode within a local process by leveraging a Win32 API QueueUserAPC and an officially undocumented Native API",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "[PDF] Concurrent Programming on Windows",
+        "url": "http://bitsavers.informatik.uni-stuttgart.de/pdf/microsoft/visual_studio/Duffy_-_Concurrent_Programming_on_Windows_2008.pdf",
+        "snippet": "See I/O (Input/Output) Instant state, library, 868-869 Instruction level parallelism (ILP), 479 Instruction pointer (IP), 81-82 Instruction reordering, 479-480, 481-484 int value, WaitHandle, 206 Intel64 architecture, 509-511 Interlocked class, 494 Interlocked operations, 492-506 128-bit compare exchanges, 500-502 atomic loads and stores of 64-bit values, 499-500 bit-test-and-set/bit-test-and-reset, 502-503 compare and exchange, 496-499 controlling execution orders, 484 exchange,493-496 other kinds of, 504-506 overview of, 56, 492-493 Interlocked singly-linked lists (SLists), 538-540 Interlocked.CompareExchange examples of low-block code, 535-536 implementing 128-bit compare exchanges, 500-501 implementing compare and exchange, 497-498 lazy initialization in .NET, 526-527 Index 1111111 941 _InterlockedExchange,493 InterlockedExchange64,499 InterlockedExchangePointer,495 Internal data structures, threads, 145-151 checking available stack space, 148-151 overview of, 145-146 programmatically creating TEB, 146-148 Interprocess synchronization, 188 Interrupt instance method, 207 Interrupt Request Level (IRQL), DPCs, 84-85 Interrupts hardware, 84 quantum accounting, 163-164 software, 84-85 waiting or sleeping threads, 207-208 IntPtrs, 90 Intraprocess isolation, 32 Invalid states, 20-21 InvalidWaitHandle, CLR thread pool, 374, 377 Invariants invalid states and broken, 20-21 lock reliability and security, 876-877 overview of, 547-548 rules for recursion, 558 static state access for libraries, 868 Invoke method, Parallel class, 904-909 IOCompletionCallback,370 IP (instruction pointer), 81-82 IRQL (Interrupt Request Level), DPCs, 84-85 IsCompleted flag, APM, 404, 411, 416 ISO Common Language Infrastructure, 516-518 Isolation custom thread pools with, 387-391 data ownership with, 33-34 employing, 31-34 managing state with, 14 protecting library with, 869 ISupportsCancelation,915 ISynchronizeinvoke,838-839 Iterations continuous, 663-667 data parallelism and, 659-661 deciding to igo paralleli and, 756-757 dynamic (on demand) decomposition, 669-675 static decomposition and, 662-663 striped, 667-669 i tonly field modifier, 34-35 942 Index J Java exiting and entering CLR locks, 274--275 JSR133 memory model specification, 509-510 K KD.EXE (Kernel Debugger), 251 Kernel fibers and, 430 overview of, 183-184 reasons to use for synchronization, 186-189 support for true waiting in, 64-65 synchronization-specific, 184 Kernel Debugger (KD.EXE), 251 Kernel-mode APCs, 208-209 Kernel-mode stacks, 82 Kernel synchronization asynchronous procedure calls, 208-210 auto-reset and manual-reset events.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Windows 10 System Programming Part01 | PDF - Scribd",
+        "url": "https://www.scribd.com/document/502987020/Windows-10-System-Programming-Part01",
+        "snippet": "Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download. Windows Native API Programming 21-06-2024 Edition Pavel Yosifovich ebook testbank solutions direct text download.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3073
+      }
+    ],
+    "grok": []
+  },
+  "freshness_filter": "py"
+}
