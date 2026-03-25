@@ -1,83 +1,80 @@
 # Reverse KB Autosync Run Report
 
-Date: 2026-03-25 11:16 Asia/Shanghai
+Date: 2026-03-25 23:16 Asia/Shanghai / 2026-03-25 15:16 UTC
 Mode: external-research-driven
 Scope: `research/reverse-expert-kb/`
-Primary branch worked: malware practical subtree
-Chosen seam: Windows service recovery-action slot selection — separating recovery presence, failure-count/reset-window state, and exact selected action
+Primary branch worked: protocol / firmware practical subtree
+Chosen seam: pending-owner lifetime realism after broad owner-match is already plausible — specifically the point where queue/callback-path success and visible slot/tag/correlation plausibility are still weaker than current waiter/owner liveness
 
 ## Summary
-This run intentionally avoided another KB-internal wording/count/index-only maintenance pass.
+This run intentionally avoided another KB-internal wording/index/count-only maintenance pass.
 
-Recent autosync history already fed several other branches. To stay anti-stagnation-safe and branch-balance-aware, this run performed a real external research pass on a thinner malware practical seam that already existed in the KB but still had one under-preserved analyst mistake:
-- proving that service recovery exists
-- or proving that a service failed
-- but still flattening the later effect into vague wording like “SCM restarted it” or “recovery ran a command”
-- without preserving which recovery slot actually fired under which reset-window semantics
+Recent protocol / firmware work had already improved:
+- method-contract -> minimal replay-fixture call-context truth
+- pending-request generation / slot-reuse continuation
+- descriptor ownership / visibility memory
 
-The practical gap was this:
-- failure-action cases were already treated as real persistence contracts
-- but the branch still risked under-preserving the narrower distinction between:
-  - recovery presence
-  - failure-count truth
-  - reset-window truth
-  - action-selection truth
-  - effect truth
+That made another generic sync pass the wrong move.
+The thinner, still-practical gap was narrower:
+- the broad owner-match can already look good enough
+- the broad reply/completion path can already look good enough
+- the visible slot/tag/correlation can still look good enough
+- but the runtime may still reject the arrival because the current trusted waiter/owner contract has already changed
 
-That gap matters because a durable malware effect can depend on:
-- only the first failure
-- only later failures
-- last-slot repetition after action-array overflow
-- or whether `dwResetPeriod` kept the case inside one failure series versus resetting it
-
-This run therefore did a real explicit `exa,tavily,grok` search pass and refined the malware service-failure continuation around a sharper stop rule:
-- do not stop at “failure actions exist”
-- do not stop at “the service failed”
-- do not stop at generic “SCM restarted it” wording
-- preserve recovery presence, failure-count/reset-window state, and exact recovery-slot selection separately before attributing later durable behavior to SCM-owned restart or run-command effects
+This run therefore did a real explicit `exa,tavily,grok` search attempt and then improved the KB itself rather than merely collecting notes:
+- added one new retained source note for pending-owner lifetime deepening
+- materially refined the canonical generation/epoch/slot-reuse workflow page with a stronger late-reply / unmatched-reply reminder anchored in Spring/RabbitMQ-style request/reply behavior
+- repaired that canonical page’s source-footprint section so it points to truthful retained source paths instead of stale `sources/firmware-protocol/...` references
+- synchronized the firmware/protocol parent page and the top-level index so this stop rule survives as branch memory rather than living only in the leaf note
 
 This is a KB improvement, not just source collection:
-- the canonical service-failure workflow note is materially sharper
-- the malware subtree guide now preserves the same stop rule at branch-memory level
-- the malware parent framing now preserves the same service-recovery caution so it does not live only in the leaf note
-- the top-level index now preserves this branch-memory distinction as part of the practical malware route
+- the canonical pending-owner lifetime page is sharper and more honest about explicit stale/late/unmatched-reply branches
+- the parent/index branch memory now preserves pending-owner lifetime as its own narrow proof layer
+- the canonical page’s provenance is cleaner and less likely to mislead later maintenance
 
 ## Direction review
 This run stayed aligned with the reverse KB’s intended direction:
 - maintain and improve the KB itself, not just collect notes
 - keep work practical and case-driven
-- improve a real operator stop rule
-- bias toward a thinner practical seam on an underfed branch rather than easy dense-branch polishing
+- prefer operator stop rules over abstract taxonomy
+- include branch-balance awareness instead of overfeeding already-dense leaves
 
-Why this branch was the right choice now:
-- malware remains one of the KB’s stronger operator-value branches, but service failure-action semantics are still thinner than more frequently touched mobile/protected-runtime/browser seams
-- the existing workflow note already had enough structure to support a source-backed refinement instead of spawning another detached note for the same family
-- this refinement changes how a real analyst handles restart loops and `SC_ACTION_RUN_COMMAND` cases, rather than only polishing wording
-- it also satisfies the anti-stagnation rule by being a real external-research-driven run inside the rolling window
+Why this seam was the right choice now:
+- it is thinner than the broader pending-request correlation page, but still practical and case-driven
+- it directly addresses a recurring analyst mistake: overreading broad path correctness as current-owner truth
+- it improves a canonical workflow page that already sits in a useful subtree route, instead of fragmenting the branch with another near-duplicate leaf
+- it satisfies the anti-stagnation rule by being a real external-research-driven run inside the rolling window
 
 ## Branch-balance awareness
 Current balance judgment after this run:
-- **Still easy to overfeed:** browser challenge/anti-bot continuations; already-dense protected-runtime seams
-- **Recently improved enough to keep coherent:** Scheduled Job conditions/history distinction; several non-malware continuity seams from prior runs
-- **Good target for this run:** malware service persistence, specifically recovery-action slot selection and reset-window semantics
+- **Still easy to overfeed:** browser anti-bot / challenge continuations, broad mobile protected-runtime seams, and generic branch-memory polishing without new operator value
+- **Recently improved enough to preserve canonically:** protocol method-fixture call-context truth, descriptor ownership / completion visibility, iOS continuation/MainActor memory, malware service-recovery slot selection, runtime-evidence watched-object truth selection
+- **Good target for this run:** protocol / firmware pending-owner lifetime realism, specifically the thin seam where broad path correctness is already plausible but one still-live waiter/owner contract decides consume vs stale-drop
 
 Why this seam mattered:
-- the service-failure branch already preserved recovery as a first-class contract
-- but it still risked flattening slot selection into generic restart/crash narration
-- a small source-backed refinement here changes real operator judgment in restart-loop and run-command persistence cases
-- that is better practical value than another internal canonical-sync-only pass
+- the branch already had broad pending-request correlation and a thinner generation/slot-reuse continuation
+- but the canonical page still under-preserved one practical stop rule around explicit late-reply / unmatched-reply handling
+- and its source-footprint block still had stale provenance pointers
+- fixing both is better operator value than another internal sync-only pass or another detached micro-topic
 
 ## External research performed
 Explicit multi-source search was attempted through `search-layer` with:
 - `--source exa,tavily,grok`
 
 Queries used:
-1. `Windows service failure actions SC_ACTION_RUN_COMMAND recovery options dwResetPeriod malware persistence analysis`
-2. `SERVICE_FAILURE_ACTIONS_FLAG non crash failures SERVICE_STOPPED dwWin32ExitCode service recovery`
-3. `Windows service recovery actions restart run command analysis persistence SCM failure count reset period`
+1. `gRPC completion queue tag stale call object late completion reverse engineering`
+2. `AMQP RPC direct reply-to correlation id pending request stale reply`
+3. `NVMe completion queue phase tag slot reuse stale completion reverse engineering`
 
 Saved raw search artifact:
-- `sources/malware/2026-03-25-service-recovery-action-selection-search-layer.txt`
+- `sources/protocol-and-network-recovery/2026-03-25-pending-owner-lifetime-search-layer.txt`
+
+Additional readable/source-adjacent follow-up fetched conservatively:
+- gRPC async C++ tutorial
+- gRPC completion-queue overview
+- RabbitMQ direct reply-to docs
+- Spring AMQP request/reply docs
+- one NVMe-oriented fetch attempt that degraded under fetch restrictions
 
 ## Search audit
 Requested sources:
@@ -99,107 +96,104 @@ Endpoints used on this host:
 
 Degraded-source note:
 - This run explicitly attempted all three requested sources.
-- Grok returned explicit `502 Bad Gateway` failures during invocation.
+- Grok returned repeated `502 Bad Gateway` failures during invocation.
 - Exa and Tavily returned enough usable material to continue conservatively.
 - This therefore counts as a real multi-source external-research attempt under a degraded source set, not as normal mode.
 
 ## Sources used conservatively
-Primary retained sources:
-- Microsoft Learn — `SERVICE_FAILURE_ACTIONSW`
-- Microsoft Learn — `SERVICE_FAILURE_ACTIONS_FLAG`
-- Microsoft Learn (archived) — `sc failure`
-- Stephen Cleary — `Win32 Service Gotcha: Recovery Actions` (supporting practitioner cue only)
+Primary retained anchors:
+- gRPC async C++ tutorial
+- gRPC completion-queue overview
+- RabbitMQ direct reply-to documentation
+- Spring AMQP request/reply documentation
+- partial NVMe/phase-tag queue evidence used only as conservative queue-ownership analogy
 
 Retained source-backed cues:
-- `SERVICE_FAILURE_ACTIONS` preserves a stored recovery contract with `dwResetPeriod`, `lpCommand`, `cActions`, and `lpsaActions`
-- failure-action presence is not yet action-selection truth
-- `dwResetPeriod` resets the failure count only after an error-free interval, so reset-window state is its own proof layer
-- if failure count exceeds `cActions`, SCM repeats the last configured action
-- `SERVICE_FAILURE_ACTIONS_FLAG` determines whether non-crash failures that report `SERVICE_STOPPED` with non-zero `dwWin32ExitCode` also queue recovery actions
-- `SC_ACTION_RUN_COMMAND` should be treated as one selected recovery slot with one attributable later effect, not as vague service-recovery capability narration
+- completion-queue/tag delivery is weaker than proving the current trusted per-call owner is still live
+- direct reply-path correctness is weaker than proving the current trusted waiter/pending marker still owns the reply
+- late replies and replies without usable correlation can be explicit reply-side branches, not merely accidental misses
+- stable slot/index visibility is weaker than phase/owner truth
+- replay fixtures that preserve bytes but not lifetime boundaries are often too weak
 
 ## KB changes made
 ### New source note
 Added:
-- `sources/malware/2026-03-25-service-recovery-action-selection-notes.md`
+- `sources/protocol-and-network-recovery/2026-03-25-pending-owner-lifetime-notes.md`
 
 Purpose:
-- preserve the narrower operator rule around recovery presence vs failure-count/reset-window/action-selection truth
+- preserve the narrower operator rule around broad path correctness vs current owner-liveness
 - explicitly record the degraded search-source set
+- keep the retained reasoning close to the protocol / firmware pending-owner branch
 
 ### Canonical workflow note materially refined
 Updated:
-- `topics/malware-service-failure-action-and-timeout-abuse-workflow-note.md`
+- `topics/protocol-pending-request-generation-epoch-and-slot-reuse-workflow-note.md`
 
 Material improvements:
-- strengthened the recovery-analysis stop rule so **reset-window truth** is preserved alongside failure existence, failure count, action selection, and effect truth
-- clarified that long restart loops may be **last-slot repetition** rather than repeated fresh action selection
-- tightened the default proof recipe so analysts verify whether `dwResetPeriod` keeps the case inside the same sequence or should have reset the count
-- strengthened source-backed practical cues so the branch remembers that slot selection is a real proof boundary, not just configuration trivia
+- added a stronger source-backed reminder that late replies / unmatched replies can surface as explicit branches rather than as vague non-consume behavior
+- tightened the practical reduction toward retained waiter map / future table, timeout/retire path, and later stale-drop or unmatched-reply branch
+- repaired the source-footprint block so it now points at the real retained `sources/protocol-and-network-recovery/...` notes and search artifacts from current branch work
+- preserved the earlier generation/phase/slot-reuse framing while sharpening how async reply-side error handling should be read by operators
 
-### Malware subtree guide updated
+### Firmware/protocol parent page updated
 Updated:
-- `topics/malware-practical-subtree-guide.md`
+- `topics/firmware-and-protocol-context-recovery.md`
 
 Change:
-- added subtree-memory that the service-failure / timeout-abuse leaf should preserve recovery presence, failure-count/reset-window state, exact selected recovery slot, and later effect separately
-- added a compact ladder memory line so this does not live only in the leaf workflow note
-
-### Malware parent framing updated
-Updated:
-- `topics/malware-analysis-overlaps-and-analyst-goals.md`
-
-Change:
-- added parent-page memory that service-recovery-shaped persistence cases should preserve recovery presence, failure-count/reset-window state, and exact selected recovery slot before attributing durable behavior to SCM-owned restart or run-command effects
+- the compact practical ladder now explicitly preserves **pending-owner lifetime contract** as a distinct proof layer once broad owner-match is already good enough
 
 ### Top-level branch memory updated
 Updated:
 - `index.md`
 
 Change:
-- the malware practical branch entry for service failure-action / timeout-abuse continuation now preserves the same action-selection distinction so it does not live only in one leaf note
+- the compact protocol/firmware branch reading now preserves pending-owner lifetime contract as its own narrower proof layer instead of flattening it into generic acceptance or ownership wording
 
 ## Practical operator value added
 This run improved a real analyst stop rule.
 
-Before this refinement, the branch could still permit a slightly too-flat reading:
-- “the service has recovery configured, it failed, so this later restart/run-command effect is probably just service recovery doing its thing.”
+Before this refinement, the branch already helped analysts separate:
+- replay acceptance/gating
+- broad pending-request correlation / owner-match
+- narrower generation / phase / slot-reuse realism
 
-After the refinement, the branch more honestly supports:
-- **recovery presence truth** -> what contract exists
-- **failure-count truth** -> which failure attempt this is
-- **reset-window truth** -> whether SCM is still in the same sequence
-- **action-selection truth** -> which configured slot should fire now
-- **effect truth** -> what later restart/command proves that exact slot mattered
+But one avoidable ambiguity remained:
+- if the reply/completion arrived on the right broad path and the visible identifier still looked right, was the runtime simply “not consuming it” for unspecified reasons?
+
+After this refinement, the branch more honestly supports a narrower split:
+- broad path correctness
+- visible identifier plausibility
+- current waiter/owner liveness truth
+- explicit stale/late/unmatched-reply branch truth
+- later consume or discard consequence
 
 That changes real case handling:
-- repeated restart loops are less likely to be narrated as generic “keeps restarting” noise
-- `SC_ACTION_RUN_COMMAND` paths are less likely to be described as generic service lore instead of one selected slot
-- analysts are less likely to overattribute a late effect to the wrong failure number or wrong recovery action
-- restart-loop timing can be judged against `dwResetPeriod` and last-slot repetition rather than vague crash folklore
+- analysts are less likely to misread stale replies as generic parser/correlation failures
+- callback-path or queue-path success is less likely to be overread as final proof
+- compare-pair design becomes sharper because retire/reuse/timeout branches become explicit targets
+- the canonical page’s provenance is now less likely to send later maintenance back to stale paths
 
-This is practical operator value:
-- narrow enough to apply in a real Windows persistence investigation
+This is practical operator value because it is:
+- narrow enough to apply in live async reply / completion reversing cases
 - source-backed enough to retain conservatively
-- materially improves a canonical workflow page instead of only adding detached notes
+- materially better than another internal sync-only pass
 
 ## Files changed
 Added:
-- `sources/malware/2026-03-25-service-recovery-action-selection-notes.md`
+- `sources/protocol-and-network-recovery/2026-03-25-pending-owner-lifetime-notes.md`
 - `runs/2026-03-25-1116-reverse-kb-autosync.md`
 
 Updated:
-- `topics/malware-service-failure-action-and-timeout-abuse-workflow-note.md`
-- `topics/malware-practical-subtree-guide.md`
-- `topics/malware-analysis-overlaps-and-analyst-goals.md`
+- `topics/protocol-pending-request-generation-epoch-and-slot-reuse-workflow-note.md`
+- `topics/firmware-and-protocol-context-recovery.md`
 - `index.md`
 
 Saved raw search artifact:
-- `sources/malware/2026-03-25-service-recovery-action-selection-search-layer.txt`
+- `sources/protocol-and-network-recovery/2026-03-25-pending-owner-lifetime-search-layer.txt`
 
 ## Best-effort errors logging note
 No `.learnings/ERRORS.md` entry was required for the main workflow.
-Search degradation was captured directly in this run report’s Search audit section and was not treated as a blocking workflow error.
+Search degradation was captured directly in this run report’s Search audit section and treated as non-blocking degraded mode.
 
 ## Commit / sync status
 Plan for this run:
@@ -208,9 +202,10 @@ Plan for this run:
 3. leave this run report as the archival record
 
 ## Bottom line
-This was a real external-research-driven maintenance run on a thinner but practical malware persistence seam.
+This was a real external-research-driven maintenance run on a thinner but practical protocol / firmware seam.
 
-The KB now preserves a sharper rule for Windows service recovery-action cases:
-- do not flatten recovery presence, current failure sequence, and exact selected recovery slot into one generic claim
-- classify **recovery presence truth**, **failure-count truth**, **reset-window truth**, **action-selection truth**, and **effect truth** separately
-- then choose the next proof boundary based on which of those layers is still actually missing
+The KB now preserves a sharper pending-owner lifetime rule:
+- do not stop at queue/callback-path success
+- do not stop at visible slot/tag/correlation plausibility
+- prove whether the current trusted waiter/owner is still live across retire/reuse/timeout/phase boundaries
+- then decide whether the target is failing syntax/correlation, or correctly discarding stale ownership
