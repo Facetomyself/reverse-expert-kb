@@ -14,6 +14,7 @@ Related pages:
 - topics/obfuscation-deobfuscation-and-packed-binaries.md
 - topics/native-practical-subtree-guide.md
 - topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md
+- topics/native-apc-alertable-wait-first-consumer-workflow-note.md
 
 ## 1. Topic identity
 
@@ -219,6 +220,7 @@ Read the branch in this order when helpful:
 - service-dispatcher / worker-owned-consumer reduction (`topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md`)
 - callback-registration / event-loop consumer proof (`topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`)
 - completion-port / thread-pool first-consumer continuation (`topics/native-completion-port-and-thread-pool-first-consumer-workflow-note.md`) when the async-ownership break narrows specifically into posted work, completion packets, helper-owned thread-pool callbacks, or queue-dequeue ownership rather than broad callback plumbing; preserve stop rules there around IOCP dequeue realism, Microsoft’s `PostQueuedCompletionStatus` reminder that posted packets are not validated and may carry non-`OVERLAPPED` pointers, `completion key` family identity versus `OVERLAPPED*` owner recovery, posted-control-packet versus I/O-owned-packet separation, `CreateThreadpoolIo` versus per-operation `StartThreadpoolIo` truth, `TP_IO` immediate-success notification gaps under `FILE_SKIP_COMPLETION_PORT_ON_SUCCESS`, and libuv worker-side versus loop-thread completion ownership
+- APC / alertable-wait first-consumer continuation (`topics/native-apc-alertable-wait-first-consumer-workflow-note.md`) when the async-ownership break narrows specifically into Windows user-mode APC delivery rather than broad callback plumbing or IOCP/thread-pool dequeue ownership; preserve stop rules there around queued-vs-delivered truth, proving one alertable wait or `NtTestAlert` boundary, cross-process queueing weakness, and not stopping at `KiUserApcDispatcher` when the real owner lives in the callback body or one immediate downstream consumer
 - GUI message-pump / signal-slot first-consumer continuation (`topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md`) when the async-ownership break narrows specifically into Win32 subclass, Qt signal-slot, or macOS Cocoa/XPC/dispatch delivery ownership rather than broad callback plumbing
 
 ## 7. Analyst workflow implications
