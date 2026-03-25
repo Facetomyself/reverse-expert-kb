@@ -1,0 +1,382 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "delay load helper hooks dliNotePreLoadLibrary dliNotePreGetProcAddress reverse engineering first consumer",
+    "GetProcAddress forwarded export API set first consumer reverse engineering",
+    "Delay-loaded DLL hook notification __pfnDliNotifyHook2 forwarded export documentation"
+  ],
+  "count": 20,
+  "results": [
+    {
+      "title": "Understand the delay load helper function | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/cpp/build/reference/understanding-the-helper-function?view=msvc-170",
+      "snippet": "To use your helper routine as a notification hook, your code must specify the appropriate function pointer to return. If you don't want to use your helper routine as a notification hook, store the return value of the helper function in `ppfnIATEntry`, the passed-in function pointer location. The default delay load helper routine uses several structures to communicate with the hook functions and during any exceptions. }; // // Delay load import hook notifications // enum { dliStartProcessing, // used to bypass or note helper only dliNoteStartProcessing = dliStartProcessing, dliNotePreLoadLibrary, // called just before LoadLibrary, can // override w/ new HMODULE return val dliNotePreGetProcAddress, // called just before GetProcAddress, can // override w/ new FARPROC return value dliFailLoadLib, // failed to load library, fix it by // returning a valid HMODULE dliFailGetProc, // failed to get proc address, fix it by // returning a valid FARPROC dliNoteEndProcessing, // called after all processing is done, no // bypass possible at this point except // by longjmp()/throw()/RaiseException.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Using delay load helper function hooks to specify alternate library directory",
+      "url": "https://stackoverflow.com/questions/71556949/using-delay-load-helper-function-hooks-to-specify-alternate-library-directory",
+      "snippet": "",
+      "published_date": "2022-03-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.72
+    },
+    {
+      "title": "Understand the delay load helper function",
+      "url": "https://learn.microsoft.com/en-gb/cpp/build/reference/understanding-the-helper-function?view=msvc-170",
+      "snippet": "",
+      "published_date": "2021-08-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "DelayLoadFailureHook function - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/delayloadfailurehook",
+      "snippet": "",
+      "published_date": "2022-08-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "delvewheel/delayload/delayhook.c at master - GitHub",
+      "url": "https://github.com/adang1345/delvewheel/blob/master/delayload/delayhook.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.66
+    },
+    {
+      "title": "GetProcAddress function (libloaderapi.h) - Win32 - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getprocaddress",
+      "snippet": "Retrieves the address of an exported function (also known as a procedure) or variable from the specified dynamic-link library (DLL). If the function succeeds, the return value is the address of the exported function or variable. The *lpProcName* parameter can identify the DLL function by specifying an ordinal value associated with the function in the **EXPORTS** statement. If the .def file does not number the functions consecutively from 1 to *N* (where *N* is the number of exported functions), an error can occur where **GetProcAddress** returns an invalid, non-NULL address, even though there is no function with the specified ordinal. If the function might not exist in the DLL module—for example, if the function is available only on Windows Vista but the application might be running on Windows XP—specify the function by name rather than by ordinal value and design your application to handle the case when the function is not available, as shown in the following code fragment.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "Exported function forwarded to itself? - c++ - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/14766019/exported-function-forwarded-to-itself",
+      "snippet": "",
+      "published_date": "2013-02-08T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Implementation of custom GetProcAddress using library exports.",
+      "url": "https://github.com/oxiKKK/GetProcAddress",
+      "snippet": "Implementation of custom GetProcAddress using library exports. How it works The code is pretty much easy and self explanatory.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Error handling and notification | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/cpp/build/reference/error-handling-and-notification?view=msvc-170",
+      "snippet": "",
+      "published_date": "2021-08-03T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "error C2373: '__pfnDliNotifyHook2': redefinition; different type ...",
+      "url": "https://github.com/nodejs/node-gyp/issues/1279",
+      "snippet": "",
+      "published_date": "2017-08-31T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "GetProcAddress with 0 as lpProcName",
+      "url": "https://reverseengineering.stackexchange.com/questions/21341/getprocaddress-with-0-as-lpprocname",
+      "snippet": "To get the function name first see the DLL file name in LoadLibrary() or LoadLibraryEx() . Open that DLL in IDA. Go to View Menu > Open subviews >",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.56
+    },
+    {
+      "title": "Malware - Windows API hashing 1 | TRIKKSS Blog",
+      "url": "https://trikkss.github.io/posts/hiding_windows_api_calls_part1/",
+      "snippet": "We will write our own GetProcAddress() function and instead of searching for a function name, we will search for a hash. For now this may be",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Custom DLL Loading Technique in Windows | by S12 - 0x12Dark Development | Jan, 2026 | Medium",
+      "url": "https://medium.com/%40s12deff/custom-dll-loading-technique-in-windows-c84ba0496a6f",
+      "snippet": "",
+      "published_date": "2026-01-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "Delay-Loading a DLL",
+      "url": "https://flylib.com/books/en/4.419.1.138/1/",
+      "snippet": "A delay-load DLL is a DLL that is implicitly linked but not actually loaded until your code attempts to reference a symbol contained within the DLL.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "LoadLibrary() and GetProcAddress() replacements for x86, x64, and ...",
+      "url": "https://zerosum0x0.blogspot.com/2016/02/loadlibrary-and-getprocaddress.html",
+      "snippet": "",
+      "published_date": "2016-02-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "File: CHANGES",
+      "url": "https://sources.debian.org/src/mumble/1.3.0~git20190125.440b173+dfsg-2+deb10u1/CHANGES/",
+      "snippet": "2a8551d os_win: supply new definition of __pfnDliNotifyHook2 instead of assigning to it. ... Delayed-insertion D3D9 hook, work around bug in SupCom. Bartek",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "Why does GetProcAddress() sometimes return an address outside of ...",
+      "url": "https://www.softwareverify.com/blog/why-does-getprocaddress-sometimes-return-an-address-outside-of-the-dll/",
+      "snippet": "",
+      "published_date": "2021-04-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "GetProcAddress alternative - Guided Hacking",
+      "url": "https://guidedhacking.com/threads/getprocaddress-alternative.9617/",
+      "snippet": "",
+      "published_date": "2017-10-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Exported functions that are really forwarders - The Old New Thing",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20060719-24/?p=30473",
+      "snippet": "",
+      "published_date": "2006-07-19T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "__pfnDliNotifyHook, __pfnDliFailureHook - RAD Studio",
+      "url": "https://docwiki.embarcadero.com/RADStudio/Alexandria/en/PfnDliNotifyHook,_pfnDliFailureHook",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Why does GetProcAddress() sometimes return an address outside of ...",
+        "url": "https://www.softwareverify.com/blog/why-does-getprocaddress-sometimes-return-an-address-outside-of-the-dll/",
+        "snippet": "",
+        "published_date": "2021-04-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "GetProcAddress alternative - Guided Hacking",
+        "url": "https://guidedhacking.com/threads/getprocaddress-alternative.9617/",
+        "snippet": "",
+        "published_date": "2017-10-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Exported functions that are really forwarders - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20060719-24/?p=30473",
+        "snippet": "",
+        "published_date": "2006-07-19T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Exported function forwarded to itself? - c++ - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/14766019/exported-function-forwarded-to-itself",
+        "snippet": "",
+        "published_date": "2013-02-08T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "LoadLibrary() and GetProcAddress() replacements for x86, x64, and ...",
+        "url": "https://zerosum0x0.blogspot.com/2016/02/loadlibrary-and-getprocaddress.html",
+        "snippet": "",
+        "published_date": "2016-02-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Custom DLL Loading Technique in Windows | by S12 - 0x12Dark Development | Jan, 2026 | Medium",
+        "url": "https://medium.com/%40s12deff/custom-dll-loading-technique-in-windows-c84ba0496a6f",
+        "snippet": "",
+        "published_date": "2026-01-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "Using delay load helper function hooks to specify alternate library directory",
+        "url": "https://stackoverflow.com/questions/71556949/using-delay-load-helper-function-hooks-to-specify-alternate-library-directory",
+        "snippet": "",
+        "published_date": "2022-03-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.72
+      },
+      {
+        "title": "__pfnDliNotifyHook, __pfnDliFailureHook - RAD Studio",
+        "url": "https://docwiki.embarcadero.com/RADStudio/Alexandria/en/PfnDliNotifyHook,_pfnDliFailureHook",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "DelayLoadFailureHook function - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/delayloadfailurehook",
+        "snippet": "",
+        "published_date": "2022-08-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "Error handling and notification | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/cpp/build/reference/error-handling-and-notification?view=msvc-170",
+        "snippet": "",
+        "published_date": "2021-08-03T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Error handling and notification | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/cpp/build/reference/error-handling-and-notification?view=msvc-170",
+        "snippet": "",
+        "published_date": "2021-08-03T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Understand the delay load helper function",
+        "url": "https://learn.microsoft.com/en-gb/cpp/build/reference/understanding-the-helper-function?view=msvc-170",
+        "snippet": "",
+        "published_date": "2021-08-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.69
+      },
+      {
+        "title": "DelayLoadFailureHook function - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/delayloadfailurehook",
+        "snippet": "",
+        "published_date": "2022-08-22T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "error C2373: '__pfnDliNotifyHook2': redefinition; different type ...",
+        "url": "https://github.com/nodejs/node-gyp/issues/1279",
+        "snippet": "",
+        "published_date": "2017-08-31T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "delvewheel/delayload/delayhook.c at master - GitHub",
+        "url": "https://github.com/adang1345/delvewheel/blob/master/delayload/delayhook.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.66
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Exported function forwarded to itself? - c++ - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/14766019/exported-function-forwarded-to-itself",
+        "snippet": "I've written my own version of GetProcAddress which does the parsing manually rather than calling the existing GetProcAddress method.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "GetProcAddress with 0 as lpProcName",
+        "url": "https://reverseengineering.stackexchange.com/questions/21341/getprocaddress-with-0-as-lpprocname",
+        "snippet": "To get the function name first see the DLL file name in LoadLibrary() or LoadLibraryEx() . Open that DLL in IDA. Go to View Menu > Open subviews >",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.56
+      },
+      {
+        "title": "GetProcAddress function (libloaderapi.h) - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getprocaddress",
+        "snippet": "Retrieves the address of an exported function (also known as a procedure) or variable from the specified dynamic-link library (DLL). If the function succeeds, the return value is the address of the exported function or variable. The *lpProcName* parameter can identify the DLL function by specifying an ordinal value associated with the function in the **EXPORTS** statement. If the .def file does not number the functions consecutively from 1 to *N* (where *N* is the number of exported functions), an error can occur where **GetProcAddress** returns an invalid, non-NULL address, even though there is no function with the specified ordinal. If the function might not exist in the DLL module—for example, if the function is available only on Windows Vista but the application might be running on Windows XP—specify the function by name rather than by ordinal value and design your application to handle the case when the function is not available, as shown in the following code fragment.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "Implementation of custom GetProcAddress using library exports.",
+        "url": "https://github.com/oxiKKK/GetProcAddress",
+        "snippet": "Implementation of custom GetProcAddress using library exports. How it works The code is pretty much easy and self explanatory.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Malware - Windows API hashing 1 | TRIKKSS Blog",
+        "url": "https://trikkss.github.io/posts/hiding_windows_api_calls_part1/",
+        "snippet": "We will write our own GetProcAddress() function and instead of searching for a function name, we will search for a hash. For now this may be",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Understand the delay load helper function | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/cpp/build/reference/understanding-the-helper-function?view=msvc-170",
+        "snippet": "To use your helper routine as a notification hook, your code must specify the appropriate function pointer to return. If you don't want to use your helper routine as a notification hook, store the return value of the helper function in `ppfnIATEntry`, the passed-in function pointer location. The default delay load helper routine uses several structures to communicate with the hook functions and during any exceptions. }; // // Delay load import hook notifications // enum { dliStartProcessing, // used to bypass or note helper only dliNoteStartProcessing = dliStartProcessing, dliNotePreLoadLibrary, // called just before LoadLibrary, can // override w/ new HMODULE return val dliNotePreGetProcAddress, // called just before GetProcAddress, can // override w/ new FARPROC return value dliFailLoadLib, // failed to load library, fix it by // returning a valid HMODULE dliFailGetProc, // failed to get proc address, fix it by // returning a valid FARPROC dliNoteEndProcessing, // called after all processing is done, no // bypass possible at this point except // by longjmp()/throw()/RaiseException.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "__pfnDliNotifyHook, __pfnDliFailureHook - RAD Studio",
+        "url": "https://docwiki.embarcadero.com/RADStudio/Alexandria/en/PfnDliNotifyHook,_pfnDliFailureHook",
+        "snippet": "The \"notify hook\" gets called for every call to the delay load helper. This allows a user to hook every call and skip the delay load helper entirely.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Error handling and notification",
+        "url": "https://learn.microsoft.com/en-us/cpp/build/reference/error-handling-and-notification?view=msvc-170",
+        "snippet": "By setting the pointer __pfnDliNotifyHook2 to your hook function before any calls to the DLL that the program is delay loading. If the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "File: CHANGES",
+        "url": "https://sources.debian.org/src/mumble/1.3.0~git20190125.440b173+dfsg-2+deb10u1/CHANGES/",
+        "snippet": "2a8551d os_win: supply new definition of __pfnDliNotifyHook2 instead of assigning to it. ... Delayed-insertion D3D9 hook, work around bug in SupCom. Bartek",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "delvewheel/delayload/delayhook.c at master",
+        "url": "https://github.com/adang1345/delvewheel/blob/master/delayload/delayhook.c",
+        "snippet": "/* When a delay-load DLL dependency is loaded, ensure that paths added with. * os.add_dll_directory() and the directory containing the delay-load. *",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Delay-Loading a DLL",
+        "url": "https://flylib.com/books/en/4.419.1.138/1/",
+        "snippet": "A delay-load DLL is a DLL that is implicitly linked but not actually loaded until your code attempts to reference a symbol contained within the DLL.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      }
+    ],
+    "grok": []
+  },
+  "freshness_filter": "py"
+}

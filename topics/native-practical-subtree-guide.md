@@ -54,6 +54,7 @@ Native practical work is easiest to navigate when the analyst first classifies t
 A thinner Windows-heavy reminder now worth preserving inside family 4 before jumping ahead to async work:
 - in loader/import-heavy cases, delay-load helpers, forwarded exports, API-set-style indirection, or repeated `GetProcAddress` calls can make resolution mechanics look like the answer
 - but the branch should separate **resolution truth** from **consumer truth** and keep reducing until one caller-side retained use, table slot, provider object, or later dispatch edge first makes the resolved target behaviorally relevant
+- even when helper hooks can override DLL/proc selection, or the first returned address lands outside the originally named image, that is still weaker than one proved caller-side retained consumer and should not be overread as behavior ownership yet
 
 A compact operator ladder for this branch is:
 

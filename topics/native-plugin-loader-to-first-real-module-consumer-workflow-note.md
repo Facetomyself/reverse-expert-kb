@@ -317,7 +317,20 @@ For reversing, this means:
 - that can improve implementation-family truth
 - but the practical proof still often lives one hop later at the first caller-side retained use or later dispatch through the resolved edge
 
-### D. Delay-import metadata can overstate real behavioral relevance
+A narrower operator caution worth keeping explicit:
+- the first returned address being outside the originally named DLL, or outside the image the analyst expected, is often still only **resolution-family truth** rather than consumer truth
+- in forwarder, API-set, or helper-hooked cases, address locality alone does not tell you which caller-side feature path became behaviorally real
+- reduce further until one retained pointer/table/provider object or one later call site shows that the resolved edge actually matters to the target question
+
+### D. Delay-load hook override truth is still weaker than caller-side consequence truth
+The delay-load helper hook surfaces (`dliNotePreLoadLibrary`, `dliNotePreGetProcAddress`, failure hooks) are practically useful because they can redirect which module or procedure is returned.
+
+For reversing, this means:
+- proving that a hook can override DLL or procedure selection is stronger than proving only that the default helper exists
+- but it is still not the same as proving which caller-side path, feature, or provider became behaviorally relevant after that override
+- preserve the split between **override/resolution truth** and **first retained caller-side consumer truth** so the case does not stop at the helper frame
+
+### E. Delay-import metadata can overstate real behavioral relevance
 Recent phantom-DLL discussion is a useful practical reminder that delayed imports may stay condition-gated or dormant on ordinary systems.
 
 For reversing, this means:
