@@ -69,6 +69,7 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - one smaller trustworthy contract already exists, but it has not yet been converted into one reusable schema, service-contract artifact, or representative replay/edit/fuzz harness surface
 6. **method-contract -> minimal replay-fixture uncertainty**
    - one representative method-bearing contract is already externalized, but the analyst still has not frozen one truthful request/response, request/completion, stream-slice, or opnum-level representative call bundle plus one smallest constructor path
+   - keep explicit branch memory that some families also require separate **call-context truth**: deadline/metadata/authority/credential posture for gRPC-like calls, or binding/authn/context-handle posture for Windows RPC-like calls, rather than pretending the serialized body or argument bundle alone is the whole replay object
 7. **content-pipeline continuation uncertainty**
    - the first authenticated API family is visible, but the real analyst object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder
 8. **ingress ownership uncertainty**
