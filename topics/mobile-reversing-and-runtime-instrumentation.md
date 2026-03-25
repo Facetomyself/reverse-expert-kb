@@ -200,6 +200,11 @@ High-signal findings:
 Why it matters:
 - this supports a KB view in which environment control is a central part of expert mobile RE, especially on iOS
 
+A newer Apple-platform practical reminder is also worth preserving canonically:
+- some iOS-shaped and private-framework-heavy cases narrow not into an ordinary in-process callback first, but into an `NSXPCConnection` / Mach-service / helper seam
+- in those cases, client-side proxy visibility, listener acceptance, or service lookup truth are still weaker than the service-side exported-object method or later durable effect the analyst actually needs
+- the practical stop rule is therefore not “XPC exists,” but “which service-side consumer first changes behavior?”
+
 ### E. Modern iOS reversing increasingly overlaps with mitigation-aware analysis
 
 #### Technical analysis of CVE-2025-31201
@@ -258,6 +263,7 @@ Includes:
 ### 2. iOS runtime and environment-controlled reversing
 Includes:
 - Objective-C/Swift/runtime-layer observation
+- Apple-platform service/daemon seams where `NSXPCConnection`, Mach-service routing, exported-object ownership, and launchd-managed lifecycle all affect what runtime evidence is actually behavior-bearing
 - an ordered practical ladder from environment-gate diagnosis to post-gate owner localization to callback/result-to-policy consequence localization
 - code-signing and entitlement constraints
 - jailbreak vs virtualized workflow differences

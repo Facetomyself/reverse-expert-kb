@@ -1,0 +1,415 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "NSXPCConnection remoteObjectProxy exportedObject exportedInterface service-side method behavior consumer reverse engineering",
+    "Apple NSXPCConnection remoteObjectProxyWithErrorHandler exported object listener endpoint documentation",
+    "launchd xpc service mach service listener delegate exported object apple developer xpc connection"
+  ],
+  "count": 23,
+  "results": [
+    {
+      "title": "Creating XPC Services - Apple Developer",
+      "url": "https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html",
+      "snippet": "The `NSXPCConnection` API is an Objective-C-based API that provides a remote procedure call mechanism, allowing the client application to call methods on proxy objects that transparently relay those calls to corresponding objects in the service helper and vice-versa. The Objective-C `NSXPCConnection` API provides a high-level remote procedure call interface that allows you to call methods on objects in one process from another process (usually an application calling a method in an XPC service). When the main application calls a method on a proxy object, the XPC service’s `NSXPCConnection` object calls that method on the object stored in its `exportedObject` property. However, because connections are bidirectional, the XPC service helper can also reply by calling methods in the interface provided by the main application, if desired. 2. The application calls some combination of `xpc_connection_set_event_handler(3) Mac OS X Developer Tools Manual Page` or `xpc_connection_set_target_queue(3) Mac OS X Developer Tools Manual Page` as needed to configure connection parameters prior to actually connecting to the service.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.69
+    },
+    {
+      "title": "remoteObjectProxy | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/remoteobjectproxy?changes=_3",
+      "snippet": "Returns a proxy for the remote object (that is, the exportedObject from the other side of this connection).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "exportedObject | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/exportedobject?language=objc",
+      "snippet": "Defines the NSXPCInterface object that describes the protocol for the object represented by the remoteObjectProxy . remoteObjectProxy. Returns a proxy for the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "NSXPCConnection.h - iOS-SDKs - GitHub",
+      "url": "https://github.com/xybp888/iOS-SDKs/blob/master/iPhoneOS13.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXPCConnection.h",
+      "snippet": "The error handler block and reply block will be invoked on the calling thread before the message to the proxy returns, instead of on the queue for the connection. // The interface that describes messages that are allowed to be received by the exported object on this connection. // The interface that describes messages that are allowed to be received by object that has been \"imported\" to this connection (exported from the other side). The error handler block and reply block will be invoked on the calling thread before the message to the proxy returns, instead of on the queue for the connection. Other processes may connect to this listener by passing this listener object's endpoint to NSXPCConnection's -initWithListenerEndpoint: method. This is a good time to set up properties on the new connection, like its exported object and interfaces. If a value of NO is returned, the connection object will be invalidated after this method returns. @property (nullable, readonly, strong) NSXPCConnection \\*connection API\\_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.66
+    },
+    {
+      "title": "exportedObject | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/exportedobject?changes=_7_7&language=objc",
+      "snippet": "Messages sent to the remoteObjectProxy object from the other side of the connection are dispatched to this object. Messages delivered to exported objects are",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "remoteObjectProxy | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/remoteobjectproxy?language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "endpoint | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/endpoint?changes=la___4_2&language=objc",
+      "snippet": "Returns a proxy for the remote object (that is, the exportedObject from the other side of this connection). Current page is endpoint.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "synchronousRemoteObjectProxy...",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/synchronousremoteobjectproxywitherrorhandler(_:)",
+      "snippet": "Returns a proxy for the remote object (that is, the object exported from the other side of this connection) with the specified error handler.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "NSXPCConnection | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/Foundation/NSXPCConnection",
+      "snippet": "An interface that may be sent to an exported object or remote object proxy. class NSXPCCoder. A coder that encodes and decodes objects that your app sends over",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "remoteObjectProxyWithErrorHan...",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/remoteobjectproxywitherrorhandler(_:)?language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "remoteObjectProxyWithErrorHan...",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/remoteobjectproxywitherrorhandler(_:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "Check whether XPC remote proxy res…",
+      "url": "https://developer.apple.com/forums/thread/772895",
+      "snippet": "",
+      "published_date": "2025-03-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "endpoint | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/endpoint?changes=_1_1&language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "xpc_connection_create_mach_s...",
+      "url": "https://developer.apple.com/documentation/xpc/xpc_connection_create_mach_service(_:_:_:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "XPC | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/xpc",
+      "snippet": "24 of 24 symbols inside <root>xpc_peer_requirement_t. 19 of 24 symbols inside <root>OS_xpc_session. 17 of 24 symbols inside <root> containing 51 symbolsXPC connections. 15 of 24 symbols inside <root> containing 146 symbolsXPC objects. 13 of 24 symbols inside <root> containing 3 symbolsXPC events. 11 of 24 symbols inside <root> containing 47 symbolsXPC activities. 9 of 24 symbols inside <root> containing 24 symbolsxpc_session_t. 8 of 24 symbols inside <root> containing 4 symbolsxpc_listener_t. 4 of 24 symbols inside <root>Creating XPC services. 2 of 24 symbols inside <root>XPC updates. Clients that make use of these services rely on peer-to-peer XPC connections to communicate across process boundaries. The other side, the client, initiates connections to an XPC service by creating a _session_ with a listener. The type of XPC service you build depends on the requirements of the work it performs. When a client process connects to the service, `launchd` starts a process for the XPC service. When the client process exits, so does the XPC service.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "XPC services on macOS app - Medium",
+      "url": "https://medium.com/dwarves-foundation/xpc-services-on-macos-app-using-swift-657922d425cd",
+      "snippet": "",
+      "published_date": "2020-09-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "XPC Programming on macOS | Medium - Karol Mazurek",
+      "url": "https://karol-mazurek.medium.com/xpc-programming-on-macos-7e1918573f6d",
+      "snippet": "",
+      "published_date": "2024-12-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Attacking macOS XPC Helpers: Protocol Reverse Engineering | Reverse Society",
+      "url": "https://tonygo.tech/blog/2025/how-to-attack-macos-application-xpc-helpers",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "macOS Daemonology: Communicate with Daemons, Agents, and ...",
+      "url": "https://dokumen.pub/macos-daemonology-communicate-with-daemons-agents-and-helpers-through-xpc-9781484272763-9781484272770-1484272765.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "XPC",
+      "url": "https://www.objc.io/issues/14-mac/xpc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Launch daemon running but XPC is down - Apple Developer Forums",
+      "url": "https://origin-devforums.apple.com/forums/thread/778924?answerId=832531022",
+      "snippet": "",
+      "published_date": "2025-04-04T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "XPC Programming on macOS | Medium",
+      "url": "https://building.theatlantic.com/xpc-programming-on-macos-7e1918573f6d",
+      "snippet": "",
+      "published_date": "2024-12-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Creating a Launch Agent that provides an XPC service on macOS ...",
+      "url": "https://rderik.com/blog/creating-a-launch-agent-that-provides-an-xpc-service-on-macos/",
+      "snippet": "",
+      "published_date": "2019-10-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Attacking macOS XPC Helpers: Protocol Reverse Engineering | Reverse Society",
+        "url": "https://tonygo.tech/blog/2025/how-to-attack-macos-application-xpc-helpers",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "Check whether XPC remote proxy res…",
+        "url": "https://developer.apple.com/forums/thread/772895",
+        "snippet": "",
+        "published_date": "2025-03-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "macOS Daemonology: Communicate with Daemons, Agents, and ...",
+        "url": "https://dokumen.pub/macos-daemonology-communicate-with-daemons-agents-and-helpers-through-xpc-9781484272763-9781484272770-1484272765.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "XPC services on macOS app - Medium",
+        "url": "https://medium.com/dwarves-foundation/xpc-services-on-macos-app-using-swift-657922d425cd",
+        "snippet": "",
+        "published_date": "2020-09-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "remoteObjectProxy | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/remoteobjectproxy?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "remoteObjectProxyWithErrorHan...",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/remoteobjectproxywitherrorhandler(_:)?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "remoteObjectProxyWithErrorHan...",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/remoteobjectproxywitherrorhandler(_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "XPC",
+        "url": "https://www.objc.io/issues/14-mac/xpc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "NSXPCConnection.h - iOS-SDKs",
+        "url": "https://github.com/xybp888/iOS-SDKs/blob/master/iPhoneOS13.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXPCConnection.h",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "endpoint | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/endpoint?changes=_1_1&language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "XPC Programming on macOS | Medium - Karol Mazurek",
+        "url": "https://karol-mazurek.medium.com/xpc-programming-on-macos-7e1918573f6d",
+        "snippet": "",
+        "published_date": "2024-12-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Launch daemon running but XPC is down - Apple Developer Forums",
+        "url": "https://origin-devforums.apple.com/forums/thread/778924?answerId=832531022",
+        "snippet": "",
+        "published_date": "2025-04-04T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "xpc_connection_create_mach_s...",
+        "url": "https://developer.apple.com/documentation/xpc/xpc_connection_create_mach_service(_:_:_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "XPC Programming on macOS | Medium",
+        "url": "https://building.theatlantic.com/xpc-programming-on-macos-7e1918573f6d",
+        "snippet": "",
+        "published_date": "2024-12-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Creating a Launch Agent that provides an XPC service on macOS ...",
+        "url": "https://rderik.com/blog/creating-a-launch-agent-that-provides-an-xpc-service-on-macos/",
+        "snippet": "",
+        "published_date": "2019-10-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "remoteObjectProxy | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/remoteobjectproxy?changes=_3",
+        "snippet": "Returns a proxy for the remote object (that is, the exportedObject from the other side of this connection).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "exportedObject | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/exportedobject?language=objc",
+        "snippet": "Defines the NSXPCInterface object that describes the protocol for the object represented by the remoteObjectProxy . remoteObjectProxy. Returns a proxy for the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "NSXPCConnection.h - iOS-SDKs - GitHub",
+        "url": "https://github.com/xybp888/iOS-SDKs/blob/master/iPhoneOS13.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXPCConnection.h",
+        "snippet": "The error handler block and reply block will be invoked on the calling thread before the message to the proxy returns, instead of on the queue for the connection. // The interface that describes messages that are allowed to be received by the exported object on this connection. // The interface that describes messages that are allowed to be received by object that has been \"imported\" to this connection (exported from the other side). The error handler block and reply block will be invoked on the calling thread before the message to the proxy returns, instead of on the queue for the connection. Other processes may connect to this listener by passing this listener object's endpoint to NSXPCConnection's -initWithListenerEndpoint: method. This is a good time to set up properties on the new connection, like its exported object and interfaces. If a value of NO is returned, the connection object will be invalidated after this method returns. @property (nullable, readonly, strong) NSXPCConnection \\*connection API\\_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.66
+      },
+      {
+        "title": "endpoint | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/endpoint?changes=la___4_2&language=objc",
+        "snippet": "Returns a proxy for the remote object (that is, the exportedObject from the other side of this connection). Current page is endpoint.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "synchronousRemoteObjectProxy...",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/synchronousremoteobjectproxywitherrorhandler(_:)",
+        "snippet": "Returns a proxy for the remote object (that is, the object exported from the other side of this connection) with the specified error handler.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "exportedObject | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/exportedobject?changes=_7_7&language=objc",
+        "snippet": "Messages sent to the remoteObjectProxy object from the other side of the connection are dispatched to this object. Messages delivered to exported objects are",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/Foundation/NSXPCConnection",
+        "snippet": "An interface that may be sent to an exported object or remote object proxy. class NSXPCCoder. A coder that encodes and decodes objects that your app sends over",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "Launch daemon running but XPC is down - Apple Developer Forums",
+        "url": "https://origin-devforums.apple.com/forums/thread/778924?answerId=832531022",
+        "snippet": "1. Can there be a situation when the daemon is up and running but the XPC listener is down(due to some error or crash)? 2. when the daemon is stopped or shut down, how do I stop the XPC listener? Can there be a situation when the daemon is up and running but the XPC listener is down … ? So, if your `launchd` daemon publishes a named XPC endpoint via `MachServices`, `launchd` sets up its own listener for that endpoint. Likewise, if your daemon checks in but then stops servicing the listener, it’ll be similarly non-functional. That is, it resumes listening for messages on your named XPC endpoints and, if one arrives, it starts your daemon process. when the daemon is stopped or shut down, how do I stop the XPC listener? If the daemon stops, the listener doesn’t go away. > Likewise, if your daemon checks in but then stops servicing the listener, it’ll be similarly non-functional.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Creating XPC Services - Apple Developer",
+        "url": "https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html",
+        "snippet": "The `NSXPCConnection` API is an Objective-C-based API that provides a remote procedure call mechanism, allowing the client application to call methods on proxy objects that transparently relay those calls to corresponding objects in the service helper and vice-versa. The Objective-C `NSXPCConnection` API provides a high-level remote procedure call interface that allows you to call methods on objects in one process from another process (usually an application calling a method in an XPC service). When the main application calls a method on a proxy object, the XPC service’s `NSXPCConnection` object calls that method on the object stored in its `exportedObject` property. However, because connections are bidirectional, the XPC service helper can also reply by calling methods in the interface provided by the main application, if desired. 2. The application calls some combination of `xpc_connection_set_event_handler(3) Mac OS X Developer Tools Manual Page` or `xpc_connection_set_target_queue(3) Mac OS X Developer Tools Manual Page` as needed to configure connection parameters prior to actually connecting to the service.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.69
+      },
+      {
+        "title": "xpc_connection_create_mach_s...",
+        "url": "https://developer.apple.com/documentation/xpc/xpc_connection_create_mach_service(_:_:_:)",
+        "snippet": "If the XPC_CONNECTION_MACH_SERVICE_LISTENER flag is given to this method, then the connection returned will be a listener connection. Otherwise, a peer",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "XPC | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/xpc",
+        "snippet": "24 of 24 symbols inside <root>xpc_peer_requirement_t. 19 of 24 symbols inside <root>OS_xpc_session. 17 of 24 symbols inside <root> containing 51 symbolsXPC connections. 15 of 24 symbols inside <root> containing 146 symbolsXPC objects. 13 of 24 symbols inside <root> containing 3 symbolsXPC events. 11 of 24 symbols inside <root> containing 47 symbolsXPC activities. 9 of 24 symbols inside <root> containing 24 symbolsxpc_session_t. 8 of 24 symbols inside <root> containing 4 symbolsxpc_listener_t. 4 of 24 symbols inside <root>Creating XPC services. 2 of 24 symbols inside <root>XPC updates. Clients that make use of these services rely on peer-to-peer XPC connections to communicate across process boundaries. The other side, the client, initiates connections to an XPC service by creating a _session_ with a listener. The type of XPC service you build depends on the requirements of the work it performs. When a client process connects to the service, `launchd` starts a process for the XPC service. When the client process exits, so does the XPC service.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "XPC - objc.io",
+        "url": "https://www.objc.io/issues/14-mac/xpc",
+        "snippet": "When the app sends data to the `io.objc.Superfamous-Images.ImageDownloader` service, XPC will automatically launch the XPC service. The connection from the app to the services is then created through an `NSXPCConnection` object, like so:. This listener will then create a connection on the service side that corresponds to each connection that the app makes to it. When an app creates a connection to an XPC service, XPC manages the lifecycle of that service. When the app first creates the XPC connection, the XPC service is in fact not launched until the app actually sends the first message to the remote proxy object. The app's connection will stay valid, and when the app uses the connection again, the XPC system will relaunch the XPC service. XPC will look up the `io.objc.myapp.myservice` service inside the app's own name space. We can create an XPC service for our app and use the C API, as long as we use the C API on both ends.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}
