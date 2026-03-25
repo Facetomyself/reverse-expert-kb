@@ -75,6 +75,8 @@ Inside families 2 and 3, a recurring practical reminder now deserves to stay exp
 
 A newer continuation reminder also deserves to stay explicit here: once callback/delegate truth and continuation resume truth are already good enough, some modern Swift-heavy cases still hide the first usable consequence one hop later at a MainActor-isolated view-model, coordinator, or UI-state boundary. In those cases, do not reopen broad callback hunting; freeze one MainActor-side state consumer and one later effect instead.
 
+A sharper Swift-concurrency reminder now also belongs in branch memory: non-actor-isolated `async` work and later MainActor-owned state are not the same proof object. Preserve callback truth, continuation creation/storage, actual resume or delivery, first resumed reducer truth, actor-hop / executor-handoff truth when relevant, and first MainActor-side consumer truth separately instead of flattening them into one generic “async callback happened” story.
+
 A second Swift-heavy reminder is now also worth preserving canonically: exact-once continuation discipline creates several operator-meaningful failure shapes that should not be collapsed into vague async drift. Callback visibility, continuation creation/storage, actual resume, missing-resume leak/suspend, double-resume misuse, resumed reducer truth, and MainActor-side consumer truth can each break a compare pair differently.
 
 A compact operator ladder for this branch is:

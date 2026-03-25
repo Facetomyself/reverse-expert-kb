@@ -1,0 +1,24 @@
+Query set:
+1. Swift MainActor after continuation resume UI state update isolate not immediate callback semantics
+2. Swift Concurrency MainActor executor hop after await UI update semantics
+3. SE-0338 actor isolation non actor async execution main actor resumption documentation
+
+Mode: deep
+Intent: exploratory
+Requested sources: exa,tavily,grok
+
+Search audit summary:
+- Exa: succeeded
+- Tavily: succeeded
+- Grok: failed with 502 Bad Gateway during invocation
+
+Endpoints used:
+- Exa: http://158.178.236.241:7860
+- Tavily: http://proxy.zhangxuemin.work:9874/api
+- Grok: http://proxy.zhangxuemin.work:8000/v1
+
+Primary retained URLs:
+- https://github.com/apple/swift-evolution/blob/main/proposals/0338-clarify-execution-non-actor-async.md
+- https://forums.swift.org/t/guarantee-of-resume-function-on-mainactor/58754
+- https://forums.swift.org/t/how-to-correctly-update-the-ui-from-an-asynchronous-context/71155
+- https://www.avanderlee.com/swift/mainactor-dispatch-main-thread/

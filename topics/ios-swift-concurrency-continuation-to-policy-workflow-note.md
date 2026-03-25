@@ -182,11 +182,14 @@ A source-backed discipline worth preserving here:
 - imported Objective-C completion-handler APIs may present as Swift `async` surfaces, so the visible `async` entry is not automatically a different semantic family from the underlying completion/delegate path
 - checked continuation semantics reinforce an exact-once proof mindset: treat missing-resume, leaked-suspend, double-resume, or cancellation-owned conclusion as distinct failure shapes rather than generic “async weirdness”
 - continuation setup runs immediately in the current async context, but task progress after `resume(...)` is still scheduler/executor mediated rather than “inline callback code just kept going”
-- in practical terms, separate three moments instead of collapsing them:
+- non-actor-isolated `async` work should not be overread as implicitly running on `MainActor`; preserve one explicit executor / actor-hop question whenever the first behavior-bearing consumer looks UI- or view-model-owned
+- in practical terms, separate four moments instead of collapsing them:
   - continuation creation/storage
   - resume or stream-delivery event
   - first resumed task-side reducer / consumer that actually predicts later behavior
+  - first MainActor-side state mutation / route selection / coordinator handoff when that is where behavior actually becomes durable
 - when the first clear consequence seems UI- or coordinator-owned, preserve one extra split between resumed task-side reducer truth and the first `@MainActor`-isolated state write / route selection / coordinator handoff; do not treat annotation visibility alone as enough
+- also preserve the practical possibility that the resumed task and the first MainActor-side consumer are separated by one explicit actor hop or executor handoff; do not flatten “resume happened” into “UI state changed here” without one later effect
 - for stream-shaped cases, also separate:
   - stream construction
   - first yield / delivery
