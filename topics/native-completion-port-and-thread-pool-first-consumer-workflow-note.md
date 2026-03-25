@@ -10,6 +10,7 @@ Related pages:
 - topics/native-callback-registration-to-event-loop-consumer-workflow-note.md
 - topics/causal-write-and-reverse-causality-localization-workflow-note.md
 - topics/runtime-behavior-recovery.md
+- sources/native/2026-03-25-native-completion-port-stop-rules-notes.md
 
 ## 1. What this workflow note is for
 This note covers a recurring native case where the analyst has already reduced a target into an async worker or completion-driven shape, but the remaining uncertainty is narrower than the broad callback/event-loop note.
@@ -231,7 +232,8 @@ Best move:
 
 Practical reminder from the source base:
 - completion packets may be queued FIFO but waiting threads are released in LIFO order and actual processing depends on port concurrency and scheduler state, so do not over-trust naive “submit order == consumer order” assumptions
-- not every dequeued packet is a true I/O completion: `PostQueuedCompletionStatus` can inject control packets that look similar at the worker loop level, so first separate control-plane packets from I/O-owned packets before claiming behavioral ownership
+- not every dequeued packet is a true I/O completion: `PostQueuedCompletionStatus` can inject control packets that look similar at the worker loop level, and Microsoft explicitly notes the system does not validate the returned values and that `lpOverlapped` need not even point to a real `OVERLAPPED`, so first separate control-plane packets from I/O-owned packets before claiming behavioral ownership
+- keep `completion key` family identity separate from `OVERLAPPED*` owner recovery: the key often narrows the queue/handle/control family, while the `OVERLAPPED*` often leads back to the concrete request/session owner embedded around it
 - a FALSE return from `GetQueuedCompletionStatus` does not always mean “nothing happened”; if `lpOverlapped` is non-NULL, a failed I/O completion was still dequeued and may own retry/backoff/degrade behavior
 
 ### Pattern 2: Windows thread-pool work / I/O helper path
