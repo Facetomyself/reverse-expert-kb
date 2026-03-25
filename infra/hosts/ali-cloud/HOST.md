@@ -25,6 +25,7 @@
 - Expected user: `root`
 - SSH auth: key-based login via local SSH config entry using `IdentityFile ~/.ssh/ali-cloud`
 - Tailnet IPv4: `100.98.184.19` (joined 2026-03-25)
+- Quick mental shortcut: machine-to-machine calls can now target `ali-cloud` directly over Tailnet instead of defaulting to public IP `106.15.239.221`
 
 ## 5. High-Level Service Map
 Current observed runtime:

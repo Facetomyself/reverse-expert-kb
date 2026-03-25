@@ -12,6 +12,22 @@
 
 ## 1. Global status snapshot
 
+### Tailnet / machine-interconnect layer (2026-03-25)
+
+当前已确认接入同一 Tailnet 的核心机器：
+- `oracle-gateway` — `100.116.171.76`
+- `oracle-open_claw` — `100.78.194.18`
+- `ali-cloud` — `100.98.184.19`
+- `oracle-registry` — `100.96.23.110`
+- `oracle-new2` — `100.79.183.3`
+- `oracle-mail` — `100.116.13.44`
+
+这意味着当前的“机器间互联层”已经从纯公网 SSH / 域名访问，升级成了一套可直接使用的 Tailnet 内网。
+运维上应优先记住：
+- `oracle-gateway` 是当前 Tailnet 连通验证的参考中心节点
+- `oracle-registry` 已完成语义化，不再只是 `oracle-new1`
+- 后续若做机器间调用、回程优化、内网服务暴露，优先基于 Tailnet 身份设计，而不是继续只靠公网 IP 心智模型
+
 ### A. 现役核心主机
 
 #### 1) `oracle-proxy`
@@ -40,14 +56,15 @@
 - 代表域名:
   - `hub.zhangxuemin.work`
   - `ghcr.zhangxuemin.work`
-  - `gcr.zhangxuemin.work`
-  - `quay.zhangxuemin.work`
-  - `ui.zhangxuemin.work`
+  - `k8s.zhangxuemin.work`
+  - `mcr.zhangxuemin.work`
+- 附加域名:
+  - `backup.zhangxuemin.work`（已确认指向该公网 IP；HTTP 命中 Caddy，但 HTTPS 当前仍未完成接入）
 - 当前状态: **现役 / 已深入建档**
 - 关键事实:
-  - Caddy -> 本地高端口 -> `dqzboy/*` registry stack
+  - Caddy -> 本地高端口 -> 精简后的 `dqzboy/*` registry stack
   - Harbor 文件/数据足迹存在，但 Harbor 容器当前不在跑
-  - `ui.zhangxuemin.work` 问题更像 UI 对 OCI index / manifest list 的兼容性问题
+  - 2026-03-21 已清理 stale Caddy routes，当前前门与运行态已重新对齐
 
 #### 3) `ali-cloud`
 - Provider: Alibaba Cloud

@@ -13,6 +13,7 @@
 - Current SSH verification: success on 2026-03-25
 - Hostname observed / set on 2026-03-25: `oracle-registry`
 - Tailnet IPv4: `100.96.23.110` (joined 2026-03-25)
+- Quick mental shortcut: future machine-to-machine access should prefer `oracle-registry` / `100.96.23.110` over the old generic host identity `oracle-new1`
 
 ## System baseline
 - OS: Ubuntu 24.04.4 LTS

@@ -27,8 +27,9 @@
 - Tailnet IPv4: `100.116.171.76` (joined 2026-03-25)
 - Useful first checks:
   ```bash
-  ssh oracle-docker_proxy
+  ssh oracle-gateway
   hostnamectl
+  tailscale ip -4
   docker ps
   ss -ltnp
   caddy validate --config /etc/caddy/Caddyfile
