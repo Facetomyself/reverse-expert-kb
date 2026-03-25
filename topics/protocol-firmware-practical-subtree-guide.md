@@ -111,7 +111,7 @@ The subtree is strongest when read as:
 - **stabilize** one pending-request lifetime contract when broad owner-match is already good enough but late replies or reuse still drift
 - **emit** one real output
 - **publish** one mailbox/doorbell command when that narrower seam is the true bottleneck
-- **stabilize** one descriptor ownership-transfer / completion-visibility contract when publication is visible but trust/reclaim semantics still drift, especially when the case still has to be classified as coherent shared descriptor memory versus streaming/non-coherent DMA-backed visibility and freshness bits, explicit CPU/device trust transfer, or reclaim proof still decide whether completion bytes are actually trustworthy
+- **stabilize** one descriptor ownership-transfer / completion-visibility contract when publication is visible but trust/reclaim semantics still drift, especially when the case still has to be classified as coherent shared descriptor memory versus streaming/non-coherent DMA-backed visibility and freshness bits, explicit CPU/device trust transfer, or reclaim proof still decide whether completion bytes are actually trustworthy, and when notify/doorbell edges still risk being overread as full trust proof
 - **prove** one peripheral or interrupt-side consequence
 
 ## 3. How to choose the right entry note
