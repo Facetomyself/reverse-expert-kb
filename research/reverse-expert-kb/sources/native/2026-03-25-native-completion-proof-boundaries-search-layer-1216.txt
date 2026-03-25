@@ -1,0 +1,427 @@
+{
+  "mode": "deep",
+  "intent": "tutorial",
+  "queries": [
+    "Windows IOCP PostQueuedCompletionStatus control packet vs real I/O completion GetQueuedCompletionStatus documentation",
+    "CreateThreadpoolIo FILE_SKIP_COMPLETION_PORT_ON_SUCCESS StartThreadpoolIo callback not called documentation",
+    "IO completion port completion key OVERLAPPED ownership analysis Windows docs"
+  ],
+  "count": 22,
+  "results": [
+    {
+      "title": "PostQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-postqueuedcompletionstatus",
+      "snippet": "The I/O completion packet will satisfy an outstanding call to the GetQueuedCompletionStatus function. This function returns with the three",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Why we need `CreateThreadpoolIo` and `StartThreadpoolIo` for ...",
+      "url": "https://stackoverflow.com/questions/73656655/why-we-need-createthreadpoolio-and-startthreadpoolio-for-iocp",
+      "snippet": "### more stack exchange communities. I'm trying to use IOCP relying on Windows API `CreateThreadpoolIo` and `StartThreadpoolIo`, but I found the thread pool is just to make the code behind the IO completed parallel. It is possible to do IOCP without using CreateThreadpool / StartThreadpoolIo, in that case you have to manage calling GetQueuedCompletionStatus yourself (whether in a self-managed thread pool or otherwise - it is even conceivable that it could be interleaved into the actions of the thread that started the I/O, but in that case why bother with IOCP?). `StartThreadpoolIO` increment reference count on `TP_IO` and `CancelThreadpoolIo` (and `CloseThreadpoolIo`) decrement this reference count. this need for manage life time of `TP_IO` - before we start any I/O operation - need increment reference count on `TP_IO`. after callback return - system decrement reference count to `TP_IO`. so need direct decrement reference count to `TP_IO` - for this need call `CancelThreadpoolIo`. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. ##### Stack Overflow.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Understanding the behavior of Pending I/O operations on a socket ...",
+      "url": "https://learn.microsoft.com/en-nz/answers/questions/5514617/understanding-the-behavior-of-pending-i-o-operatio",
+      "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. Our question is will we get the completion ACK for all the pending I/O operations on the socket that was closed, and then the key posted using PostQueuedCompletionStatus? There is no absolute guarantee that you will receive a completion ACK for every pending I/O operation on a socket when calling closesocket(). * If an I/O operation completes synchronously just before the socket is closed, you might not receive a completion. * If the socket or IOCP is improperly closed, or the process crashes, some I/O operations may never send a completion. * Close the socket (pending I/O operations will be canceled and post completions with errors). The completions for canceled I/O operations and the manually posted completion may arrive at the IOCP in any order. If the socket or IOCP is improperly closed, or the process crashes, some I/O operations may never send a completion.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.71
+    },
+    {
+      "title": "GetQueuedCompletionStatus function (ioapiset.h)",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-getqueuedcompletionstatus",
+      "snippet": "",
+      "published_date": "2024-08-22T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.63
+    },
+    {
+      "title": "PostQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-postqueuedcompletionstatus?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2021-12-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "I/O Completion Ports - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports",
+      "snippet": "",
+      "published_date": "2022-08-08T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.63
+    },
+    {
+      "title": "GetQueuedCompletionStatusEx function (ioapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-getqueuedcompletionstatusex",
+      "snippet": "",
+      "published_date": "2024-08-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "Windows RIO/UDP with IOCP: Issue in getting ...",
+      "url": "https://stackoverflow.com/questions/79650171/windows-rio-udp-with-iocp-issue-in-getting-getqueuedcompletionstatus-to-work",
+      "snippet": "",
+      "published_date": "2025-06-25T04:18:47.079Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "CreateThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/nl-nl/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+      "snippet": "Upgrade naar Microsoft Edge om te profiteren van de nieuwste functies, beveiligingsupdates en technische ondersteuning. U kunt proberen u aan te melden of de directory te wijzigen. U kunt proberen de mappen te wijzigen. The callback function to be called each time an overlapped I/O operation completes on the file. Optional application-defined data to pass to the callback function. If the function succeeds, it returns a pointer to a **TP\\_IO** structure that defines the I/O object. To begin receiving overlapped I/O completion callbacks, call the StartThreadpoolIo function. If the file handle bound to the I/O completion object has the notification mode FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SUCCESS and an asychronous I/O operation returns immediately with success, the I/O completion callback function is not called and threadpool I/O notifications must be canceled. For more information, see CancelThreadpoolIo. To compile an application that uses this function, define \\_WIN32\\_WINNT as 0x0600 or higher. Wilt u Ask Learn gebruiken om iets te verduidelijken of u door dit onderwerp te leiden?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "CreateIoCompletionPort function (IoAPI.h) - Win32 - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/createiocompletionport",
+      "snippet": "Creates an input/output (I/O) completion port and associates it with a specified file handle, or creates an I/O completion port that is not yet associated with",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "How to juggle FILE_SKIP_COMPLETION_PORT_ON_SUCCESS ...",
+      "url": "https://stackoverflow.com/questions/41029652/how-to-juggle-file-skip-completion-port-on-success-iocp-and-cleanup",
+      "snippet": "",
+      "published_date": "2016-12-08T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.59
+    },
+    {
+      "title": "IO completion port key confusion - python - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/1176477/io-completion-port-key-confusion",
+      "snippet": "",
+      "published_date": "2009-07-24T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.59
+    },
+    {
+      "title": "CreateThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.55
+    },
+    {
+      "title": "StartThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-startthreadpoolio?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2022-09-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.55
+    },
+    {
+      "title": "Visualizing I/O Completion Ports based Async I/O on Windows",
+      "url": "https://medium.com/@rahulsingh_88457/visualizing-i-o-completion-ports-based-async-i-o-on-windows-8773d51ac19f",
+      "snippet": "",
+      "published_date": "2023-12-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.47
+    },
+    {
+      "title": "When will be queued a packet to the I/O completion port ? - NTDEV",
+      "url": "https://community.osr.com/t/when-will-be-queued-a-packet-to-the-i-o-completion-port/56281",
+      "snippet": "sense here in next - notification to IOCP will be when and only when I/O manager write back status to user mode IO\\_STATUS\\_BLOCK (if no FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SYNCHRONOUS). really I/O request can synchronous return NT\\_ERROR status, but will be IOCP notification !! look - if diver implement FastIoUnlockSingle and it return TRUE (let be with STATUS\\_SUCCESS) - I/O manager just complete request, **without** IOCP. at some (LockFile) point I/O manager post completion to IOCP, even if error status returned. \\*\\*but \\*\\* - look for NtUnlockFile src code (again from wrk - still relevant and in latest win10 at this part) - if driver implement FastIoUnlockSingle and it return TRUE - I/O manager complete request **without** post IOCP entry (or set event, or APC). so I/O can returned STATUS\\_SUCCESS but without IOCP notification (let assume FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SUCCESS not set - for not confuse). but several days ago, when i play with asynchronous file locking, i random catch design bug - NtLockFile returned STATUS\\_LOCK\\_NOT\\_GRANTED but despite this error was notify the I/O completion port and the associated I/O callback function called.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.45
+    },
+    {
+      "title": "INFO: Design Issues When Using IOCP in a Winsock Server",
+      "url": "https://mskb.pkisolutions.com/kb/192800",
+      "snippet": "You have a pool of worker threads greater than or equal to the number of concurrent threads used by the IOCP so that a worker thread handling a dequeued completion packet can call one of the Win32 \"wait\" functions without delaying the handling of other queued I/O packets. Additionally, if a Winsock2 I/O call returns SUCCESS or IO\\_PENDING, it is guaranteed that a completion packet will be queued to the IOCP when the I/O completes, regardless of whether the socket handle is closed. In the first scenario, you can call PostQueueCompletionStatus (N times, where N is the number of worker threads) to post a special completion packet that informs the worker thread to exit immediately, close all socket handles and their associated overlapped structures, and then close the completion port. The performance penalty of having a global I/O counter protected with a critical section for an IOCP server is not as bad as might be expected because the active worker thread does not switch out if there are more completion packets waiting in the queue.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.41
+    },
+    {
+      "title": "IO Completion Ports - Matt Godbolt's blog",
+      "url": "https://xania.org/200807/iocp",
+      "snippet": "On Windows, a solution to this problem lies in the interesting concept of “IO Completion Ports.” These are queue objects (represented as a `HANDLE`) which can be associated with file or network `HANDLE`s, upon which many threads can wait. | zero | `NULL` | n/a | The call to GetQueuedCompletionStatus failed, and no data was dequeued from the IO port. | non-zero | `NULL` | n/a | This condition doesn't happen due to IO requests, but is useful to use in combination with PostQueuedCompletionStatus.aspx) as a way of indicating to threads that they should terminate. By creating an IO Completion Port unassociated with any sockets, files or so on, one can schedule “work” by calling PostQueuedCompletionStatus.aspx) on the port, passing in anything you like in the `OVERLAPPED` structure, number of bytes and completion key. Ironically, after all the work on IO Completion Ports, one of our major components *does* use a one thread per connection model, and has scaled beautifully.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.41
+    },
+    {
+      "title": "Windows I/O completion - One little trick - James Sturtevant",
+      "url": "https://www.jamessturtevant.com/posts/windows-io-completion/",
+      "snippet": "",
+      "published_date": "2023-01-29T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.37
+    },
+    {
+      "title": "IO Completion Ports IOCP - Codemia",
+      "url": "https://codemia.io/knowledge-hub/path/io_completion_ports_iocp",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Using ThreadPoolIO function with IO completion port - NTDEV",
+      "url": "https://community.osr.com/t/using-threadpoolio-function-with-io-completion-port/58534",
+      "snippet": "I am trying to do the following: From usermode , create a thread pool which waits for asynchronous operation(on a file) to complete.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.29
+    },
+    {
+      "title": "The mental model for StartThreadpoolIo - The Old New Thing",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20211117-00/?p=105933",
+      "snippet": "",
+      "published_date": "2021-11-17T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.25
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "GetQueuedCompletionStatus function (ioapiset.h)",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-getqueuedcompletionstatus",
+        "snippet": "",
+        "published_date": "2024-08-22T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.63
+      },
+      {
+        "title": "PostQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-postqueuedcompletionstatus?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2021-12-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "I/O Completion Ports - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports",
+        "snippet": "",
+        "published_date": "2022-08-08T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.63
+      },
+      {
+        "title": "GetQueuedCompletionStatusEx function (ioapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-getqueuedcompletionstatusex",
+        "snippet": "",
+        "published_date": "2024-08-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "Windows RIO/UDP with IOCP: Issue in getting ...",
+        "url": "https://stackoverflow.com/questions/79650171/windows-rio-udp-with-iocp-issue-in-getting-getqueuedcompletionstatus-to-work",
+        "snippet": "",
+        "published_date": "2025-06-25T04:18:47.079Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "CreateThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.55
+      },
+      {
+        "title": "When will be queued a packet to the I/O completion port ? - NTDEV",
+        "url": "https://community.osr.com/t/when-will-be-queued-a-packet-to-the-i-o-completion-port/56281",
+        "snippet": "",
+        "published_date": "2019-12-27T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "How to juggle FILE_SKIP_COMPLETION_PORT_ON_SUCCESS ...",
+        "url": "https://stackoverflow.com/questions/41029652/how-to-juggle-file-skip-completion-port-on-success-iocp-and-cleanup",
+        "snippet": "",
+        "published_date": "2016-12-08T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.59
+      },
+      {
+        "title": "The mental model for StartThreadpoolIo - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20211117-00/?p=105933",
+        "snippet": "",
+        "published_date": "2021-11-17T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.25
+      },
+      {
+        "title": "StartThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-startthreadpoolio?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2022-09-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.55
+      },
+      {
+        "title": "I/O Completion Ports - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports",
+        "snippet": "",
+        "published_date": "2022-08-08T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "IO completion port key confusion - python - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/1176477/io-completion-port-key-confusion",
+        "snippet": "",
+        "published_date": "2009-07-24T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.59
+      },
+      {
+        "title": "Windows I/O completion - One little trick - James Sturtevant",
+        "url": "https://www.jamessturtevant.com/posts/windows-io-completion/",
+        "snippet": "",
+        "published_date": "2023-01-29T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.37
+      },
+      {
+        "title": "Visualizing I/O Completion Ports based Async I/O on Windows",
+        "url": "https://medium.com/@rahulsingh_88457/visualizing-i-o-completion-ports-based-async-i-o-on-windows-8773d51ac19f",
+        "snippet": "",
+        "published_date": "2023-12-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.47
+      },
+      {
+        "title": "IO Completion Ports IOCP - Codemia",
+        "url": "https://codemia.io/knowledge-hub/path/io_completion_ports_iocp",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      }
+    ],
+    "tavily": [
+      {
+        "title": "PostQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-postqueuedcompletionstatus",
+        "snippet": "The I/O completion packet will satisfy an outstanding call to the GetQueuedCompletionStatus function. This function returns with the three",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "GetQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-getqueuedcompletionstatus",
+        "snippet": "Attempts to dequeue an I/O completion packet from the specified I/O completion port. If there is no completion packet queued, the function",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "When will be queued a packet to the I/O completion port ? - NTDEV",
+        "url": "https://community.osr.com/t/when-will-be-queued-a-packet-to-the-i-o-completion-port/56281",
+        "snippet": "sense here in next - notification to IOCP will be when and only when I/O manager write back status to user mode IO\\_STATUS\\_BLOCK (if no FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SYNCHRONOUS). really I/O request can synchronous return NT\\_ERROR status, but will be IOCP notification !! look - if diver implement FastIoUnlockSingle and it return TRUE (let be with STATUS\\_SUCCESS) - I/O manager just complete request, **without** IOCP. at some (LockFile) point I/O manager post completion to IOCP, even if error status returned. \\*\\*but \\*\\* - look for NtUnlockFile src code (again from wrk - still relevant and in latest win10 at this part) - if driver implement FastIoUnlockSingle and it return TRUE - I/O manager complete request **without** post IOCP entry (or set event, or APC). so I/O can returned STATUS\\_SUCCESS but without IOCP notification (let assume FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SUCCESS not set - for not confuse). but several days ago, when i play with asynchronous file locking, i random catch design bug - NtLockFile returned STATUS\\_LOCK\\_NOT\\_GRANTED but despite this error was notify the I/O completion port and the associated I/O callback function called.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.45
+      },
+      {
+        "title": "INFO: Design Issues When Using IOCP in a Winsock Server",
+        "url": "https://mskb.pkisolutions.com/kb/192800",
+        "snippet": "You have a pool of worker threads greater than or equal to the number of concurrent threads used by the IOCP so that a worker thread handling a dequeued completion packet can call one of the Win32 \"wait\" functions without delaying the handling of other queued I/O packets. Additionally, if a Winsock2 I/O call returns SUCCESS or IO\\_PENDING, it is guaranteed that a completion packet will be queued to the IOCP when the I/O completes, regardless of whether the socket handle is closed. In the first scenario, you can call PostQueueCompletionStatus (N times, where N is the number of worker threads) to post a special completion packet that informs the worker thread to exit immediately, close all socket handles and their associated overlapped structures, and then close the completion port. The performance penalty of having a global I/O counter protected with a critical section for an IOCP server is not as bad as might be expected because the active worker thread does not switch out if there are more completion packets waiting in the queue.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.41
+      },
+      {
+        "title": "Understanding the behavior of Pending I/O operations on a socket ...",
+        "url": "https://learn.microsoft.com/en-nz/answers/questions/5514617/understanding-the-behavior-of-pending-i-o-operatio",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. Our question is will we get the completion ACK for all the pending I/O operations on the socket that was closed, and then the key posted using PostQueuedCompletionStatus? There is no absolute guarantee that you will receive a completion ACK for every pending I/O operation on a socket when calling closesocket(). * If an I/O operation completes synchronously just before the socket is closed, you might not receive a completion. * If the socket or IOCP is improperly closed, or the process crashes, some I/O operations may never send a completion. * Close the socket (pending I/O operations will be canceled and post completions with errors). The completions for canceled I/O operations and the manually posted completion may arrive at the IOCP in any order. If the socket or IOCP is improperly closed, or the process crashes, some I/O operations may never send a completion.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.71
+      },
+      {
+        "title": "CreateThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/nl-nl/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+        "snippet": "Upgrade naar Microsoft Edge om te profiteren van de nieuwste functies, beveiligingsupdates en technische ondersteuning. U kunt proberen u aan te melden of de directory te wijzigen. U kunt proberen de mappen te wijzigen. The callback function to be called each time an overlapped I/O operation completes on the file. Optional application-defined data to pass to the callback function. If the function succeeds, it returns a pointer to a **TP\\_IO** structure that defines the I/O object. To begin receiving overlapped I/O completion callbacks, call the StartThreadpoolIo function. If the file handle bound to the I/O completion object has the notification mode FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SUCCESS and an asychronous I/O operation returns immediately with success, the I/O completion callback function is not called and threadpool I/O notifications must be canceled. For more information, see CancelThreadpoolIo. To compile an application that uses this function, define \\_WIN32\\_WINNT as 0x0600 or higher. Wilt u Ask Learn gebruiken om iets te verduidelijken of u door dit onderwerp te leiden?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "Why we need `CreateThreadpoolIo` and `StartThreadpoolIo` for ...",
+        "url": "https://stackoverflow.com/questions/73656655/why-we-need-createthreadpoolio-and-startthreadpoolio-for-iocp",
+        "snippet": "### more stack exchange communities. I'm trying to use IOCP relying on Windows API `CreateThreadpoolIo` and `StartThreadpoolIo`, but I found the thread pool is just to make the code behind the IO completed parallel. It is possible to do IOCP without using CreateThreadpool / StartThreadpoolIo, in that case you have to manage calling GetQueuedCompletionStatus yourself (whether in a self-managed thread pool or otherwise - it is even conceivable that it could be interleaved into the actions of the thread that started the I/O, but in that case why bother with IOCP?). `StartThreadpoolIO` increment reference count on `TP_IO` and `CancelThreadpoolIo` (and `CloseThreadpoolIo`) decrement this reference count. this need for manage life time of `TP_IO` - before we start any I/O operation - need increment reference count on `TP_IO`. after callback return - system decrement reference count to `TP_IO`. so need direct decrement reference count to `TP_IO` - for this need call `CancelThreadpoolIo`. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. ##### Stack Overflow.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "Using ThreadPoolIO function with IO completion port - NTDEV",
+        "url": "https://community.osr.com/t/using-threadpoolio-function-with-io-completion-port/58534",
+        "snippet": "I am trying to do the following: From usermode , create a thread pool which waits for asynchronous operation(on a file) to complete.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.29
+      },
+      {
+        "title": "How to juggle FILE_SKIP_COMPLETION_PORT_ON_SUCCESS ...",
+        "url": "https://stackoverflow.com/questions/41029652/how-to-juggle-file-skip-completion-port-on-success-iocp-and-cleanup",
+        "snippet": "If `FILE_SKIP_COMPLETION_PORT_ON_SUCCESS` is set on a file handle that is bound to an I/O completion port, then an `OVERLAPPED` structure needs to be deallocated when its I/O completes synchronously. Otherwise, does this basically imply you cannot correctly perform overlapped I/O on any file handle that you cannot guarantee the completion notification state of...? You could do this by having the caller allocate the OVERLAPPED structures, as RbMm suggests, but it might be simpler to ask them for a completion key to use.). The reason (in the general case) for not using the pointer is that you might receive a packet containing a completion key from one I/O request along with an OVERLAPPED structure from a different one, because the OVERLAPPED structure might be both released and reassigned before a duplicate notification is processed. Addendum^2: if you don't know anything about the handle, you'll also need to provide an event object for each OVERLAPPED structure, and wait on them in case notification of the I/O completion arrives that way.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "When will be queued a packet to the I/O completion port ? - NTDEV",
+        "url": "https://community.osr.com/t/when-will-be-queued-a-packet-to-the-i-o-completion-port/56281",
+        "snippet": "sense here in next - notification to IOCP will be when and only when I/O manager write back status to user mode IO\\_STATUS\\_BLOCK (if no FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SYNCHRONOUS). really I/O request can synchronous return NT\\_ERROR status, but will be IOCP notification !! look - if diver implement FastIoUnlockSingle and it return TRUE (let be with STATUS\\_SUCCESS) - I/O manager just complete request, **without** IOCP. at some (LockFile) point I/O manager post completion to IOCP, even if error status returned. \\*\\*but \\*\\* - look for NtUnlockFile src code (again from wrk - still relevant and in latest win10 at this part) - if driver implement FastIoUnlockSingle and it return TRUE - I/O manager complete request **without** post IOCP entry (or set event, or APC). so I/O can returned STATUS\\_SUCCESS but without IOCP notification (let assume FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SUCCESS not set - for not confuse). but several days ago, when i play with asynchronous file locking, i random catch design bug - NtLockFile returned STATUS\\_LOCK\\_NOT\\_GRANTED but despite this error was notify the I/O completion port and the associated I/O callback function called.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "IO Completion Ports - Matt Godbolt's blog",
+        "url": "https://xania.org/200807/iocp",
+        "snippet": "On Windows, a solution to this problem lies in the interesting concept of “IO Completion Ports.” These are queue objects (represented as a `HANDLE`) which can be associated with file or network `HANDLE`s, upon which many threads can wait. | zero | `NULL` | n/a | The call to GetQueuedCompletionStatus failed, and no data was dequeued from the IO port. | non-zero | `NULL` | n/a | This condition doesn't happen due to IO requests, but is useful to use in combination with PostQueuedCompletionStatus.aspx) as a way of indicating to threads that they should terminate. By creating an IO Completion Port unassociated with any sockets, files or so on, one can schedule “work” by calling PostQueuedCompletionStatus.aspx) on the port, passing in anything you like in the `OVERLAPPED` structure, number of bytes and completion key. Ironically, after all the work on IO Completion Ports, one of our major components *does* use a one thread per connection model, and has scaled beautifully.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.41
+      },
+      {
+        "title": "Windows I/O completion - One little trick - James Sturtevant",
+        "url": "https://www.jamessturtevant.com/posts/windows-io-completion/",
+        "snippet": "# Windows I/O completion - One little trick. When I was reading some of the code I found all had slightly different ways of accomplishing detection of a completed I/O call. Then we issue the `Read` passing the reference to the `ioOperation` and wait for it to complete in ;’asyncIO’. The key is a little trick that is used extensively when working with Windows I/O completion ports. type ioOperation struct { o syscall.Overlapped ch chan ioResult }. Since we set up the channel during `prepareio` then passed the pointer to the `Read` sys call **and** the OS only fills in the bits for the `Overlapped` struct when we get the notification that the thread is unsuspended we now have a pointer the the struct that we prepared: `ioOperation` with a go routine. Then we can pass the value through the channel (which is waiting in the `asyncIO` function) and the read completes!",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "IO completion port key confusion - python - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/1176477/io-completion-port-key-confusion",
+        "snippet": "The completion key represents per-device information, and the OVERLAPPED structure represents per-call information.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "CreateIoCompletionPort function (IoAPI.h) - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/createiocompletionport",
+        "snippet": "Creates an input/output (I/O) completion port and associates it with a specified file handle, or creates an I/O completion port that is not yet associated with",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "I/O Completion Ports - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports",
+        "snippet": "Processes that handle many concurrent asynchronous I/O requests can do so more quickly and efficiently by using I/O completion ports in conjunction with a pre-allocated thread pool than by creating threads at the time they receive an I/O request. A thread (either one created by the main thread or the main thread itself) uses the **GetQueuedCompletionStatus** function to wait for a completion packet to be queued to the I/O completion port, rather than waiting directly for the asynchronous I/O to complete. When a completion packet is queued to an I/O completion port, the system first checks how many threads associated with that port are running. Threads can use the PostQueuedCompletionStatus function to place completion packets in an I/O completion port's queue. The system also allows a thread waiting in GetQueuedCompletionStatus to process a completion packet if another running thread associated with the same I/O completion port enters a wait state for other reasons, for example the SuspendThread function.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}
