@@ -207,7 +207,7 @@ Start here when:
 - a stub, shell, decrypt/copy/fixup loop, import-repair stage, or staged loader is already visible
 - the real bottleneck is one trustworthy OEP-like boundary plus one first ordinary-code anchor downstream from it
 - the analyst needs one reusable post-unpack dump, image state, module/object cluster, or first real consumer target
-- the case may require explicitly separating **raw PE entry**, **raw post-unpack transfer**, and **payload-bearing post-startup handoff** rather than treating one dramatic jump as self-proving
+- the case may require explicitly separating **raw PE entry**, **raw post-unpack transfer**, optional **loader image-repair / remap truth** when early header/IAT tampering may be repaired before entry, and the eventual **payload-bearing post-startup handoff** rather than treating one dramatic jump or one tampered page as self-proving
 
 Do **not** start here when:
 - there is no real loader/stub handoff problem and the target is already post-unpack
