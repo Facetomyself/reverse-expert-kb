@@ -206,6 +206,7 @@
 ---
 
 ## 6. Cross-links
+- Tailnet quick reference: `infra/tailnet-quick-reference.md`
 - Host inventory: `infra/inventory.yaml`
 - Machine status table: `infra/host-status.yaml`
 - DNS reconciliation: `infra/dns-reconciliation.md`

@@ -30,6 +30,9 @@
 - 公网入口、域名、服务暴露再回各主机文档看
 - 当前 Tailnet 连通性验证都以 `oracle-gateway` 为基准参考点
 
+See also:
+- `tailnet-quick-reference.md` — copy/paste oriented Tailnet / SSH command cheatsheet
+
 ## Recommended read order
 
 1. `inventory.yaml`
