@@ -1,0 +1,408 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows IOCP GetQueuedCompletionStatus completion key OVERLAPPED thread pool callback FILE_SKIP_COMPLETION_PORT_ON_SUCCESS",
+    "CreateThreadpoolIo StartThreadpoolIo CancelThreadpoolIo FILE_SKIP_COMPLETION_PORT_ON_SUCCESS callback semantics",
+    "libuv queue_work after_work_cb uv_async_send event loop callback ownership reverse engineering"
+  ],
+  "count": 23,
+  "results": [
+    {
+      "title": "CreateThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/nl-nl/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+      "snippet": "Remarks. To begin receiving overlapped I/O completion callbacks, call the StartThreadpoolIo function. ... FILE_SKIP_COMPLETION_PORT_ON_SUCCESS",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.78
+    },
+    {
+      "title": "CreateThreadpoolIo function (threadpoolapiset.h) - Win32 - Microsoft",
+      "url": "https://learn.microsoft.com/pl-pl/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+      "snippet": "The callback function to be called each time an overlapped I/O operation completes on the file. For details, see IoCompletionCallback. [in, out,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Distinguishing completion callbacks (IoCompletionCallback)",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/610420/distinguishing-completion-callbacks-(iocompletionc",
+      "snippet": "Now my question is, when one of the sockets receives a completion callback (IoCompletionCallback), how can I know which operation triggered the completion callback? I have thought that I could use two different completion callbacks and two TP\\_IO per socket. In the method `socket::init()` I call `CreateThreadpoolIo()` passing as context the `this` pointer (line 62) and in the static method `socket::io_completion_callback()` I cast the `context` to a `socket` (line 84). If I start two asynchronous operations on the same `socket` object (for example, one `WSARecv()` and one `WSASend()`), I cannot distinguish in `socket::io_completion_callback()` which completion it is. }; /////////////////////// // socket.cpp // /////////////////////// bool socket::init(int domain, PTP_WIN32_IO_CALLBACK callback, PTP_CALLBACK_ENVIRON callbackenv) { // Create non-overlapped socket. memset(&_M_overlapped, 0, sizeof(OVERLAPPED)); return true; } } return false; } void CALLBACK socket::io_completion_callback(PTP_CALLBACK_INSTANCE instance, void* context, void* overlapped, ULONG result, ULONG_PTR transferred, PTP_IO io) { socket* const sock = static_cast(context); // Here I check `result` (error code) and `transferred`.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Threadpoolapiset.h header - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/",
+      "snippet": "Creates a cleanup group that applications can use to track one or more thread pool callbacks. CreateThreadpoolIo. Creates a new I/O completion",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.72
+    },
+    {
+      "title": "PostQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/el-gr/windows/win32/api/ioapiset/nf-ioapiset-postqueuedcompletionstatus",
+      "snippet": "Κάντε αναβάθμιση σε Microsoft Edge για να επωφεληθείτε από τις τελευταίες δυνατότητες, τις ενημερώσεις ασφαλείας και την τεχνική υποστήριξη. Μπορείτε να δοκιμάσετε να αλλάξετε καταλόγους. The value to be returned through the *lpNumberOfBytesTransferred* parameter of the GetQueuedCompletionStatus function. The value to be returned through the *lpCompletionKey* parameter of the GetQueuedCompletionStatus function. The value to be returned through the *lpOverlapped* parameter of the GetQueuedCompletionStatus function. ## Return value. If the function succeeds, the return value is nonzero. If the function fails, the return value is zero. The I/O completion packet will satisfy an outstanding call to the GetQueuedCompletionStatus function. This function returns with the three values passed as the second, third, and fourth parameters of the call to **PostQueuedCompletionStatus**. | SMB 3.0 with Scale-out File Shares (SO) | Yes |. | Cluster Shared Volume File System (CsvFS) | Yes |. Θέλετε να δοκιμάσετε να χρησιμοποιήσετε την επιλογή Ρωτήστε το Learn για να σας καθοδηγήσει σε αυτό το θέμα;.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.72
+    },
+    {
+      "title": "How to juggle FILE_SKIP_COMPLETION_PORT_ON_SUCCESS, IOCP, and cleanup",
+      "url": "https://stackoverflow.com/questions/41029652/how-to-juggle-file-skip-completion-port-on-success-iocp-and-cleanup",
+      "snippet": "",
+      "published_date": "2016-12-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "IOCP notification without completion key",
+      "url": "https://stackoverflow.com/questions/30701270/iocp-notification-without-completion-key",
+      "snippet": "",
+      "published_date": "2017-05-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "Do Windows IO Completion Ports work with classes as completion keys?",
+      "url": "https://stackoverflow.com/questions/52740938/do-windows-io-completion-ports-work-with-classes-as-completion-keys",
+      "snippet": "",
+      "published_date": "2018-10-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "CreateThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "StartThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-startthreadpoolio",
+      "snippet": "",
+      "published_date": "2022-09-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "CancelThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-cancelthreadpoolio",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "createThreadpoolIo 函数 (threadpoolapiset.h)  - Win32 apps",
+      "url": "https://learn.microsoft.com/zh-cn/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+      "snippet": "",
+      "published_date": "2024-03-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "CancelThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/nl-nl/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-cancelthreadpoolio",
+      "snippet": "Cancels the notification from the StartThreadpoolIo function ... The CreateThreadpoolIo function returns this pointer. Return value.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "Add APIs to allow adding callbacks to worker/event loop queue from any thread · Pull Request #3938 · libuv/libuv",
+      "url": "https://github.com/libuv/libuv/pull/3938",
+      "snippet": "",
+      "published_date": "2023-03-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "Loop/multithreading enter/exit feature request · Issue #454 - GitHub",
+      "url": "https://github.com/joyent/libuv/issues/454",
+      "snippet": "# Search code, repositories, users, issues, pull requests... You signed in with another tab or window. You signed out in another tab or window. You switched accounts on another tab or window. # Loop/multithreading enter/exit feature request #454. Loop/multithreading enter/exit feature request#454. Inside a non-loop thread:. uv_lock_enter loop// code to be executed within the UV thread context uv_lock_exit loop. * uv\\_lock\\_enter calls async\\_send and blocks until actually async callback is started. * async callback waits until the other thread executes uv\\_lock\\_exit. * uv\\_lock\\_enter and uv\\_lock\\_exit are working like critical sections - if they are called from within multiple threads - uv\\_lock\\_enter will block until a concurrent thread is finished with the loop. * if the loop is not running, then uv\\_lock\\_enter/uv\\_lock\\_exit work like a simple critical section. In this way the code between uv\\_lock\\_enter/uv\\_lock\\_exit can be said to execute asynchronously within the loop thread. In many typical cases such logic will make creating async requests unnecessary. ## Issue actions.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "Highest scored 'iocp' questions - Page 3",
+      "url": "https://stackoverflow.com/questions/tagged/iocp?page=3&tab=Votes",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "uv_write_cb not being called after write on async_send #4457",
+      "url": "https://github.com/libuv/libuv/discussions/4457",
+      "snippet": "## Navigation Menu. # Search code, repositories, users, issues, pull requests... You signed in with another tab or window. You signed out in another tab or window. I must admit that I am a bit ashamed of the source of the issue, but all seemed to came down for me not calling async events using uv\\_async\\_send() mechanism. I found the issue: I was reusing the uv\\_write\\_t struct for several uv\\_write operations, which caused a weird behavior with the callback. | I must admit that I am a bit ashamed of the source of the issue, but all seemed to came down for me not calling async events using uv\\_async\\_send() mechanism. Menu       reacted with thumbs up emoji  reacted with thumbs down emoji  reacted with laugh emoji  reacted with hooray emoji  reacted with confused emoji  reacted with heart emoji  reacted with rocket emoji  reacted with eyes emoji.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "Returning result from uv_queue_work #4765 - libuv libuv - GitHub",
+      "url": "https://github.com/libuv/libuv/discussions/4765",
+      "snippet": "",
+      "published_date": "2025-04-27T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Data race when using `uv_queue_work` · Issue #3118 · libuv/libuv",
+      "url": "https://github.com/libuv/libuv/issues/3118",
+      "snippet": "",
+      "published_date": "2021-02-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Threads - libuv documentation",
+      "url": "https://docs.libuv.org/en/v1.x/guide/threads.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.58
+    },
+    {
+      "title": "How libuv put callback function into event queue? · Issue #62 - GitHub",
+      "url": "https://github.com/libuv/help/issues/62",
+      "snippet": "## Navigation Menu. # Search code, repositories, users, issues, pull requests... You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. This repository was archived by the owner on Jun 22, 2021. It is now read-only. * Notifications  You must be signed in to change notification settings. This repository was archived by the owner on Jun 22, 2021. It is now read-only. # How libuv put callback function into event queue? How libuv put callback function into event queue?#62. ## Description. opened on Sep 20, 2018. How libuv put callback function into event queue with response value ??? ## Metadata. ## Metadata. No branches or pull requests. ## Issue actions. You can’t perform that action at this time.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.57
+    },
+    {
+      "title": "uv_async_t — Async handle - libuv documentation",
+      "url": "https://docs.libuv.org/en/v1.x/async.html",
+      "snippet": "",
+      "published_date": "2024-08-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.55
+    },
+    {
+      "title": "Windows via C/C++, Fifth Edition eBook",
+      "url": "https://ptgmedia.pearsoncmg.com/images/9780735663770/samplepages/9780735663770.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "CreateThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "StartThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-startthreadpoolio",
+        "snippet": "",
+        "published_date": "2022-09-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "CancelThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-cancelthreadpoolio",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "How to juggle FILE_SKIP_COMPLETION_PORT_ON_SUCCESS, IOCP, and cleanup",
+        "url": "https://stackoverflow.com/questions/41029652/how-to-juggle-file-skip-completion-port-on-success-iocp-and-cleanup",
+        "snippet": "",
+        "published_date": "2016-12-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.69
+      },
+      {
+        "title": "createThreadpoolIo 函数 (threadpoolapiset.h)  - Win32 apps",
+        "url": "https://learn.microsoft.com/zh-cn/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+        "snippet": "",
+        "published_date": "2024-03-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "Stack Overflow",
+        "url": "https://stackoverflow.com/questions/41029652/how-to-juggle-file-skip-completion-port-on-success-iocp-and-cleanup",
+        "snippet": "",
+        "published_date": "2017-03-25T01:17:56.303Z",
+        "source": "exa"
+      },
+      {
+        "title": "Windows via C/C++, Fifth Edition eBook",
+        "url": "https://ptgmedia.pearsoncmg.com/images/9780735663770/samplepages/9780735663770.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Highest scored 'iocp' questions - Page 3",
+        "url": "https://stackoverflow.com/questions/tagged/iocp?page=3&tab=Votes",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "IOCP notification without completion key",
+        "url": "https://stackoverflow.com/questions/30701270/iocp-notification-without-completion-key",
+        "snippet": "",
+        "published_date": "2017-05-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.69
+      },
+      {
+        "title": "Do Windows IO Completion Ports work with classes as completion keys?",
+        "url": "https://stackoverflow.com/questions/52740938/do-windows-io-completion-ports-work-with-classes-as-completion-keys",
+        "snippet": "",
+        "published_date": "2018-10-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.69
+      },
+      {
+        "title": "Returning result from uv_queue_work #4765 - libuv libuv - GitHub",
+        "url": "https://github.com/libuv/libuv/discussions/4765",
+        "snippet": "",
+        "published_date": "2025-04-27T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Add APIs to allow adding callbacks to worker/event loop queue from any thread · Pull Request #3938 · libuv/libuv",
+        "url": "https://github.com/libuv/libuv/pull/3938",
+        "snippet": "",
+        "published_date": "2023-03-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "Threads - libuv documentation",
+        "url": "https://docs.libuv.org/en/v1.x/guide/threads.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.58
+      },
+      {
+        "title": "uv_async_t — Async handle - libuv documentation",
+        "url": "https://docs.libuv.org/en/v1.x/async.html",
+        "snippet": "",
+        "published_date": "2024-08-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.55
+      },
+      {
+        "title": "Data race when using `uv_queue_work` · Issue #3118 · libuv/libuv",
+        "url": "https://github.com/libuv/libuv/issues/3118",
+        "snippet": "",
+        "published_date": "2021-02-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      }
+    ],
+    "tavily": [
+      {
+        "title": "CreateThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/nl-nl/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+        "snippet": "Remarks. To begin receiving overlapped I/O completion callbacks, call the StartThreadpoolIo function. ... FILE_SKIP_COMPLETION_PORT_ON_SUCCESS",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.78
+      },
+      {
+        "title": "CreateThreadpoolIo function (threadpoolapiset.h) - Win32 - Microsoft",
+        "url": "https://learn.microsoft.com/pl-pl/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolio",
+        "snippet": "The callback function to be called each time an overlapped I/O operation completes on the file. For details, see IoCompletionCallback. [in, out,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "Distinguishing completion callbacks (IoCompletionCallback)",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/610420/distinguishing-completion-callbacks-(iocompletionc",
+        "snippet": "Now my question is, when one of the sockets receives a completion callback (IoCompletionCallback), how can I know which operation triggered the completion callback? I have thought that I could use two different completion callbacks and two TP\\_IO per socket. In the method `socket::init()` I call `CreateThreadpoolIo()` passing as context the `this` pointer (line 62) and in the static method `socket::io_completion_callback()` I cast the `context` to a `socket` (line 84). If I start two asynchronous operations on the same `socket` object (for example, one `WSARecv()` and one `WSASend()`), I cannot distinguish in `socket::io_completion_callback()` which completion it is. }; /////////////////////// // socket.cpp // /////////////////////// bool socket::init(int domain, PTP_WIN32_IO_CALLBACK callback, PTP_CALLBACK_ENVIRON callbackenv) { // Create non-overlapped socket. memset(&_M_overlapped, 0, sizeof(OVERLAPPED)); return true; } } return false; } void CALLBACK socket::io_completion_callback(PTP_CALLBACK_INSTANCE instance, void* context, void* overlapped, ULONG result, ULONG_PTR transferred, PTP_IO io) { socket* const sock = static_cast(context); // Here I check `result` (error code) and `transferred`.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "CancelThreadpoolIo function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/nl-nl/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-cancelthreadpoolio",
+        "snippet": "Cancels the notification from the StartThreadpoolIo function ... The CreateThreadpoolIo function returns this pointer. Return value.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "Threadpoolapiset.h header - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/",
+        "snippet": "Creates a cleanup group that applications can use to track one or more thread pool callbacks. CreateThreadpoolIo. Creates a new I/O completion",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.72
+      },
+      {
+        "title": "PostQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/el-gr/windows/win32/api/ioapiset/nf-ioapiset-postqueuedcompletionstatus",
+        "snippet": "Κάντε αναβάθμιση σε Microsoft Edge για να επωφεληθείτε από τις τελευταίες δυνατότητες, τις ενημερώσεις ασφαλείας και την τεχνική υποστήριξη. Μπορείτε να δοκιμάσετε να αλλάξετε καταλόγους. The value to be returned through the *lpNumberOfBytesTransferred* parameter of the GetQueuedCompletionStatus function. The value to be returned through the *lpCompletionKey* parameter of the GetQueuedCompletionStatus function. The value to be returned through the *lpOverlapped* parameter of the GetQueuedCompletionStatus function. ## Return value. If the function succeeds, the return value is nonzero. If the function fails, the return value is zero. The I/O completion packet will satisfy an outstanding call to the GetQueuedCompletionStatus function. This function returns with the three values passed as the second, third, and fourth parameters of the call to **PostQueuedCompletionStatus**. | SMB 3.0 with Scale-out File Shares (SO) | Yes |. | Cluster Shared Volume File System (CsvFS) | Yes |. Θέλετε να δοκιμάσετε να χρησιμοποιήσετε την επιλογή Ρωτήστε το Learn για να σας καθοδηγήσει σε αυτό το θέμα;.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.72
+      },
+      {
+        "title": "Threads - libuv documentation",
+        "url": "https://docs.libuv.org/en/v1.x/guide/threads.html",
+        "snippet": "No other thread interacts with the event loop (except using `uv_async_send`). `uv_queue_work()` is a convenience function that allows an application to run a task in a separate thread, and have a callback that is triggered when the task is done. The thread function will be launched in a separate thread, passed the `uv_work_t` structure and once the function returns, the *after* function will be called on the thread the event loop is running in. For example you might be running some long duration task in a separate thread (perhaps using `uv_queue_work`) but want to notify progress to the main thread. data  =  (void*)  & size; 17 18  uv_async_init(loop,  & async,  print_progress); 19  uv_queue_work(loop,  & req,  fake_download,  after); 20  return  uv_run(loop,  UV_RUN_DEFAULT); 21}. After this example, which showed the abuse of the `data` field, bnoordhuis pointed out that using the `data` field is not thread safe, and `uv_async_send()` is actually only meant to wake up the event loop. One use case where `uv_async_send` is required is when interoperating with libraries that require thread affinity for their functionality.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Returning result from uv_queue_work #4765 - libuv libuv - GitHub",
+        "url": "https://github.com/libuv/libuv/discussions/4765",
+        "snippet": "## Navigation Menu. # Search code, repositories, users, issues, pull requests... You signed in with another tab or window. You signed out in another tab or window. You switched accounts on another tab or window. Since these 2 callbacks are run in different threads, do I need a barrier/mutex to sync this value between the 2 callbacks, or does libuv handle this for me? | Libuv takes care of synchronization for you (uses mutexes internally that issue the appropriate memory barriers.)  uv\\_async\\_send() is different. It doesn't issue memory barriers (think `atomic_thread_fence`), that's your responsibility. Libuv takes care of synchronization for you (uses mutexes internally that issue the appropriate memory barriers.). It doesn't issue memory barriers (think `atomic_thread_fence`), that's your responsibility. Menu       reacted with thumbs up emoji  reacted with thumbs down emoji  reacted with laugh emoji  reacted with hooray emoji  reacted with confused emoji  reacted with heart emoji  reacted with rocket emoji  reacted with eyes emoji.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "uv_write_cb not being called after write on async_send #4457",
+        "url": "https://github.com/libuv/libuv/discussions/4457",
+        "snippet": "## Navigation Menu. # Search code, repositories, users, issues, pull requests... You signed in with another tab or window. You signed out in another tab or window. I must admit that I am a bit ashamed of the source of the issue, but all seemed to came down for me not calling async events using uv\\_async\\_send() mechanism. I found the issue: I was reusing the uv\\_write\\_t struct for several uv\\_write operations, which caused a weird behavior with the callback. | I must admit that I am a bit ashamed of the source of the issue, but all seemed to came down for me not calling async events using uv\\_async\\_send() mechanism. Menu       reacted with thumbs up emoji  reacted with thumbs down emoji  reacted with laugh emoji  reacted with hooray emoji  reacted with confused emoji  reacted with heart emoji  reacted with rocket emoji  reacted with eyes emoji.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "How libuv put callback function into event queue? · Issue #62 - GitHub",
+        "url": "https://github.com/libuv/help/issues/62",
+        "snippet": "## Navigation Menu. # Search code, repositories, users, issues, pull requests... You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. This repository was archived by the owner on Jun 22, 2021. It is now read-only. * Notifications  You must be signed in to change notification settings. This repository was archived by the owner on Jun 22, 2021. It is now read-only. # How libuv put callback function into event queue? How libuv put callback function into event queue?#62. ## Description. opened on Sep 20, 2018. How libuv put callback function into event queue with response value ??? ## Metadata. ## Metadata. No branches or pull requests. ## Issue actions. You can’t perform that action at this time.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.57
+      },
+      {
+        "title": "Loop/multithreading enter/exit feature request · Issue #454 - GitHub",
+        "url": "https://github.com/joyent/libuv/issues/454",
+        "snippet": "# Search code, repositories, users, issues, pull requests... You signed in with another tab or window. You signed out in another tab or window. You switched accounts on another tab or window. # Loop/multithreading enter/exit feature request #454. Loop/multithreading enter/exit feature request#454. Inside a non-loop thread:. uv_lock_enter loop// code to be executed within the UV thread context uv_lock_exit loop. * uv\\_lock\\_enter calls async\\_send and blocks until actually async callback is started. * async callback waits until the other thread executes uv\\_lock\\_exit. * uv\\_lock\\_enter and uv\\_lock\\_exit are working like critical sections - if they are called from within multiple threads - uv\\_lock\\_enter will block until a concurrent thread is finished with the loop. * if the loop is not running, then uv\\_lock\\_enter/uv\\_lock\\_exit work like a simple critical section. In this way the code between uv\\_lock\\_enter/uv\\_lock\\_exit can be said to execute asynchronously within the loop thread. In many typical cases such logic will make creating async requests unnecessary. ## Issue actions.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      }
+    ],
+    "grok": []
+  }
+}
