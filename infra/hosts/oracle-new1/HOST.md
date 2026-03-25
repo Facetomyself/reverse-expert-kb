@@ -37,4 +37,5 @@
 ## Notes
 - This host was initially unreachable because OCI networking was incomplete (missing effective IPv4 ingress / internet path). SSH became reachable after the user added IPv4 ingress and internet gateway routing.
 - Uses the same provided private key material currently stored locally as `~/.ssh/oracle-new1.pem`.
-- Suitable as a lightweight ARM Docker worker / utility host; left otherwise mostly idle after base provisioning.
+- On 2026-03-25, this host was promoted from empty ARM utility host to the live registry-proxy front door for `hub.zhangxuemin.work`, `ghcr.zhangxuemin.work`, `k8s.zhangxuemin.work`, and `mcr.zhangxuemin.work`.
+- During cutover, OCI-side ingress was not sufficient by itself; local iptables initially allowed only SSH and had to be extended/persisted for `80/tcp` and `443/tcp` before Caddy ACME issuance succeeded.

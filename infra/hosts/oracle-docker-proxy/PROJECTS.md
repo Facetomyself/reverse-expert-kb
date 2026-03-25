@@ -1,80 +1,59 @@
 # oracle-docker-proxy / PROJECTS
 
 ## Summary
-This host has not yet been SSH-audited. The current page is a DNS-driven placeholder created from the 2026-03-15 Cloudflare export.
+This host has been SSH-audited and should no longer be treated as a DNS-only placeholder. The current live role is a reduced Caddy-fronted registry-proxy set on a small Oracle box.
 
-## Suspected project groups
+## Active project groups
 ### 1. Registry / mirror / proxy endpoints
-Likely represented by:
-- `gcr.zhangxuemin.work`
-- `ghcr.zhangxuemin.work`
-- `k8sgcr.zhangxuemin.work`
-- `mcr.zhangxuemin.work`
-- `nvcr.zhangxuemin.work`
-- `quay.zhangxuemin.work`
+Historical stack preserved on disk under `/data/registry-proxy`, but no longer serving live traffic after the 2026-03-25 migration.
+
+Former runtime components now stopped on this host:
+- `reg-docker-hub` -> host `51000`
+- `reg-ghcr` -> host `52000`
+- `reg-k8s` -> host `55000`
+- `reg-mcr` -> host `57000`
+
+Current live public names have been migrated to `oracle-new1`:
 - `hub.zhangxuemin.work`
-- `hubcmd.zhangxuemin.work`
+- `ghcr.zhangxuemin.work`
+- `k8s.zhangxuemin.work`
+- `mcr.zhangxuemin.work`
 
-### 2. UI / panel
-Likely represented by:
-- `ui.zhangxuemin.work`
+### 2. Front-door routing
+- old host `caddy` on this machine was stopped/disabled on 2026-03-25 after public validation succeeded on `oracle-new1`
+- `/data/registry-proxy/docker-compose.yaml` and shared cache data were intentionally left in place for rollback
 
-### 3. Backup / misc
-Likely represented by:
+### 3. Attached / not-yet-fully-realized DNS
 - `backup.zhangxuemin.work`
-- `elastic.zhangxuemin.work`
+  - intentionally resolves to this host's IP
+  - reaches Caddy over HTTP
+  - not yet documented as a completed active HTTPS app/backend route
 
-## Current status
-- Host identity: confirmed by SSH
-- Runtime topology: confirmed at front-door and container-port level
-- Front-door reverse proxy: Caddy (`/etc/caddy/Caddyfile`)
-- Project docs: not yet created
+## Historical / inactive groups
+These names/components should be treated as removed historical surface rather than current runtime:
+- `ui.zhangxuemin.work` / `registry-ui`
+- `hubcmd.zhangxuemin.work` / `hubcmd-ui`
+- `gcr.zhangxuemin.work` / `reg-gcr`
+- `k8sgcr.zhangxuemin.work` / `reg-k8s-gcr`
+- `quay.zhangxuemin.work` / `reg-quay`
+- `elastic.zhangxuemin.work` / `reg-elastic`
+- `nvcr.zhangxuemin.work` / `reg-nvcr`
 
-## Confirmed external behavior
-Observed on 2026-03-16:
-- `hub.zhangxuemin.work` returns `HTTP 200` behind Caddy
-- `ghcr.zhangxuemin.work` returns `HTTP 200` behind Caddy
-- `mcr.zhangxuemin.work` returns `HTTP 200` behind Caddy
-- `gcr.zhangxuemin.work` currently returns `HTTP 502` behind Caddy
-- `quay.zhangxuemin.work` currently returns `HTTP 502` behind Caddy
-- `ui.zhangxuemin.work` currently returns `HTTP 502` behind Caddy
-- `hubcmd.zhangxuemin.work` currently returns `HTTP 502` behind Caddy
-- `nvcr.zhangxuemin.work` currently returns `HTTP 502` behind Caddy
-- `elastic.zhangxuemin.work` currently returns `HTTP 502` behind Caddy
+The stale Caddy routes for those backends were removed on 2026-03-21 so the front door now matches the reduced runtime.
 
-## Confirmed runtime components
-Currently running on 2026-03-16:
-- `reg-docker-hub` -> host `51000` -> container `5000`
-- `reg-ghcr` -> host `52000` -> container `5000`
-- `reg-k8s` -> host `55000` -> container `5000`
-- `reg-mcr` -> host `57000` -> container `5000`
+## Current operational status
+Recurring checks through 2026-03-23 show:
+- host reachable and stable over SSH
+- four long-lived registry proxy containers only
+- root disk comfortable
+- load idle
+- memory still constrained enough that this should remain a lean utility host
 
-Currently absent from `docker ps` and with backend ports refusing local connections on 2026-03-16:
-- `registry-ui` -> expected host `50000`
-- `hubcmd-ui` -> expected host `30080`
-- `reg-gcr` -> expected host `53000`
-- `reg-k8s-gcr` -> expected host `54000`
-- `reg-quay` -> expected host `56000`
-- `reg-elastic` -> expected host `58000`
-- `reg-nvcr` -> expected host `59000`
-
-## Known issue
-- The current problem is broader than the earlier `registry-ui`-only diagnosis: several Caddy routes now point at inactive local backends, so today's `HTTP 502` responses line up with missing listeners rather than only OCI manifest/UI compatibility behavior.
-
-## Harbor stack / adjacent deployment clue
-On-host, a full Harbor deployment tree exists under `/root/harbor`, including:
-- `/root/harbor/docker-compose.yml`
-- `/root/harbor/harbor.yml`
-- `/root/harbor/common/...`
-
-Important current conclusion:
-- Harbor deployment files and data paths exist
-- but no Harbor containers are currently running
-- the currently exposed registry services are the custom Caddy-fronted `dqzboy/*` stack, not active Harbor runtime containers
-
-This suggests the machine has both:
-- a custom Caddy-fronted registry-proxy stack (`dqzboy/registry`, `registry-ui`, `hubcmd-ui`)
-- and a dormant or at least currently inactive Harbor deployment footprint using `/data/...`
+## Harbor adjacency
+Harbor files exist on-host under `/root/harbor`, but Harbor is not the live service surface.
+Operationally, distinguish:
+- active: custom Caddy + registry-proxy stack
+- inactive: Harbor deployment footprint and removed UI residue
 
 ## Current project docs
 - `projects/caddy.md`
@@ -82,8 +61,8 @@ This suggests the machine has both:
 - `projects/registry-ui.md`
 - `projects/hubcmd-ui.md`
 
-## Next operational step
-Deepen the relationship between the custom registry proxy stack and `/root/harbor` by checking:
-- whether Harbor containers are currently running or dormant
-- how `/data/registry-proxy/*` relates to `/data/registry`
-- whether the registry UI issue is app-version/media-type related rather than infrastructure-level
+## Next documentation follow-up
+Only deepen docs further if there is a meaningful future change, such as:
+- `backup.zhangxuemin.work` becoming a real routed service
+- the reduced four-backend runtime changing again
+- Harbor being intentionally reactivated
