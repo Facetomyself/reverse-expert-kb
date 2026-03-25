@@ -51,18 +51,20 @@ These names/components should be treated as removed historical surface rather th
 The stale Caddy routes for those backends were removed on 2026-03-21 so the front door now matches the reduced runtime.
 
 ## Current operational status
-Recurring checks through 2026-03-23 show:
+Current post-cutover / post-cleanup status on 2026-03-25:
 - host reachable and stable over SSH
-- four long-lived registry proxy containers only
-- root disk comfortable
-- load idle
-- memory still constrained enough that this should remain a lean utility host
+- live runtime intentionally reduced to `hysteria` + `caddy` only
+- root disk still comfortable enough for lean gateway use
+- memory remains constrained enough that this host should stay focused on gateway duties rather than regaining heavy mixed roles
 
-## Harbor adjacency
-Harbor files exist on-host under `/root/harbor`, but Harbor is not the live service surface.
-Operationally, distinguish:
-- active: custom Caddy + registry-proxy stack
-- inactive: Harbor deployment footprint and removed UI residue
+## Cleanup / archive state
+- stopped legacy registry containers were removed on 2026-03-25
+- previous registry stack files were archived to:
+  - `/root/retired-services/2026-03-25-oracle-gateway-cleanup/registry-proxy`
+- Harbor residual files, if present, should also live under the same cleanup archive path rather than the live runtime surface
+- this means the live operational distinction is now simple:
+  - active: `hysteria` + `caddy`
+  - archived: old registry / Harbor / UI residue
 
 ## Current project docs
 - `projects/caddy.md`

@@ -35,15 +35,12 @@
 
 ## 5. High-Level Service Map
 Current observed runtime:
-- `reg-docker-hub` — Docker Hub registry proxy on host port `51000`
-- `reg-ghcr` — GitHub Container Registry proxy on host port `52000`
-- `reg-k8s` — Kubernetes registry proxy on host port `55000`
-- `reg-mcr` — Microsoft Container Registry proxy on host port `57000`
-- `caddy` — public front door on `80/443`, with admin API on `127.0.0.1:2019`
+- `hysteria` — Hysteria 2 gateway service on UDP `443`
+- `caddy` — public HTTPS config-distribution front door on TCP `80/443`, with admin API on `127.0.0.1:2019`
 
-Historical / inactive footprints still present on disk:
-- removed/abandoned front-door targets for `registry-ui`, `hubcmd-ui`, `gcr`, `k8sgcr`, `quay`, `elastic`, and `nvcr`
-- Harbor deployment files under `/root/harbor`, but Harbor runtime is inactive
+Historical / inactive footprints:
+- old registry proxy containers were removed on 2026-03-25 after migration to `oracle-registry`
+- old registry and Harbor residual files were archived under `/root/retired-services/2026-03-25-oracle-gateway-cleanup/`
 
 ## 6. Machine-Level Infrastructure Notes
 - current listener set is intentionally narrow: public `80/443`, SSH, rpcbind, plus the four local registry backend ports
