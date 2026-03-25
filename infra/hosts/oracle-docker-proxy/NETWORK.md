@@ -14,13 +14,13 @@ The following names historically lived here but were migrated to `oracle-new1` (
 - `k8s.zhangxuemin.work`
 - `mcr.zhangxuemin.work`
 
-Additional DNS name currently pointed at this host's public IP, but not yet confirmed as an active application route:
+Additional active DNS name currently pointed at this host's public IP:
 
 - `backup.zhangxuemin.work`
   - DNS resolves to `129.150.61.78`
-  - plain HTTP reaches host Caddy and returns `308 Permanent Redirect` to HTTPS
-  - HTTPS currently fails with `tlsv1 alert internal error`
-  - no explicit `backup.zhangxuemin.work` site block is currently present in `/etc/caddy/Caddyfile`
+  - TCP 443 serves Caddy with a downloadable Clash Verge config at `/clash-verge.yaml`
+  - UDP 443 serves Hysteria 2 traffic
+  - current certificate is valid for `backup.zhangxuemin.work`
 
 Historical DNS/Caddy names formerly associated with this host but no longer served after the 2026-03-21 cleanup:
 

@@ -23,11 +23,20 @@ Current live public names have been migrated to `oracle-new1`:
 - old host `caddy` on this machine was stopped/disabled on 2026-03-25 after public validation succeeded on `oracle-new1`
 - `/data/registry-proxy/docker-compose.yaml` and shared cache data were intentionally left in place for rollback
 
-### 3. Attached / not-yet-fully-realized DNS
+### 3. Active gateway / relay surface
 - `backup.zhangxuemin.work`
   - intentionally resolves to this host's IP
-  - reaches Caddy over HTTP
-  - not yet documented as a completed active HTTPS app/backend route
+  - now serves as the Hysteria gateway domain on `:443`
+  - TCP 443 is used by Caddy to serve a downloadable Clash Verge YAML at `/clash-verge.yaml`
+  - UDP 443 is used by Hysteria 2 server traffic
+  - current masquerade upstream is `https://dreamhorse.eu.cc/`
+
+Authentication material is intentionally not stored in infra docs in full. Runtime currently uses:
+- auth mode: password
+- obfuscation: salamander
+- deployment dir: `/opt/hysteria`
+- config file: `/opt/hysteria/config.yaml`
+- compose file: `/opt/hysteria/docker-compose.yml`
 
 ## Historical / inactive groups
 These names/components should be treated as removed historical surface rather than current runtime:

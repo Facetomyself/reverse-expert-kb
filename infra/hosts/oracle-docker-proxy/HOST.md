@@ -5,8 +5,8 @@
 - Static hostname: `24-7-10-2055`
 - Provider: Oracle Cloud
 - Primary role: former shared Docker/image proxy host (now rollback standby)
-- SSH alias: `oracle-docker_proxy`
-- Main purpose: 历史上承载一组 registry mirror/proxy 服务；自 2026-03-25 起已从 live front-door 角色退为保留数据的回滚待机机
+- SSH alias: `oracle-gateway` (legacy-compatible aliases `oracle-registry-legacy` and `oracle-docker_proxy` retained locally)
+- Main purpose: 当前承担 Hysteria 网关/中转角色；历史上承载过 registry mirror/proxy 服务，并保留旧 registry 栈数据作为回滚待机
 
 ## 2. System Baseline
 - OS: Ubuntu 20.04.6 LTS (Focal)

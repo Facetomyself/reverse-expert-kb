@@ -21,16 +21,15 @@ hosts:
 
   - name: oracle-docker-proxy
     provider: oracle
-    ssh_alias: oracle-registry-legacy
+    ssh_alias: oracle-gateway
     ip: 129.150.61.78
     lifecycle: active
     reachability: reachable
     importance: tier1
     roles:
-      - registry-proxy
-      - registry-ui
-      - hubcmd-ui
-      - caddy-front-door
+      - gateway-host
+      - hysteria-relay
+      - rollback-standby-for-old-registry-stack
     notes:
       - host is reachable and stable but remains a small-footprint box with low free RAM and some swap use
       - as of 2026-03-21 runtime is intentionally reduced to hub/ghcr/k8s/mcr only; `registry-ui`, `hubcmd-ui`, `gcr`, `k8sgcr`, `quay`, `elastic`, and `nvcr` backends are absent from Docker runtime

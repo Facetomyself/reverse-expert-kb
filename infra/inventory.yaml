@@ -17,12 +17,12 @@ hosts:
       projects: infra/hosts/oracle-proxy/PROJECTS.md
 
   - name: oracle-docker-proxy
-    ssh_alias: oracle-registry-legacy
+    ssh_alias: oracle-gateway
     provider: oracle
     role:
-      - shared-docker-proxy-host
-      - registry-proxy-or-mirror
-      - ui-entrypoint
+      - gateway-host
+      - hysteria-relay
+      - fallback-legacy-registry-host
     public_ip: 129.150.61.78
     domains:
       - backup.zhangxuemin.work
