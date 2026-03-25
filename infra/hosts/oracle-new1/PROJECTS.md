@@ -45,3 +45,24 @@ Shared implementation notes:
 - Public HTTPS validation after cutover returned `HTTP/2 200` from `/v2/` for all four domains
 - ACME issuance initially failed because local host iptables allowed only SSH; adding and persisting `80/tcp` and `443/tcp` fixed issuance
 - This host should now be treated as the authoritative live front door for the four registry domains
+
+## Operator quick commands
+- backend + public health check:
+  - `/usr/local/bin/check-registry-proxies`
+- stack directory:
+  - `cd /opt/registry-proxy`
+- inspect containers:
+  - `docker ps`
+  - `docker logs reg-docker-hub --tail 100`
+  - `docker logs reg-ghcr --tail 100`
+  - `docker logs reg-k8s --tail 100`
+  - `docker logs reg-mcr --tail 100`
+- restart backend stack:
+  - `cd /opt/registry-proxy && docker compose restart`
+- check front door:
+  - `systemctl status caddy`
+  - `journalctl -u caddy -n 100 --no-pager`
+
+## Rollback note
+- Old host rollback data remains on `oracle-docker-proxy` under `/data/registry-proxy`
+- Rollback was intentionally kept as a stop-only state; old data/compose were not deleted during cutover

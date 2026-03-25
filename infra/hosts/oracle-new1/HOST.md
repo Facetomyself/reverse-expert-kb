@@ -39,3 +39,4 @@
 - Uses the same provided private key material currently stored locally as `~/.ssh/oracle-new1.pem`.
 - On 2026-03-25, this host was promoted from empty ARM utility host to the live registry-proxy front door for `hub.zhangxuemin.work`, `ghcr.zhangxuemin.work`, `k8s.zhangxuemin.work`, and `mcr.zhangxuemin.work`.
 - During cutover, OCI-side ingress was not sufficient by itself; local iptables initially allowed only SSH and had to be extended/persisted for `80/tcp` and `443/tcp` before Caddy ACME issuance succeeded.
+- Local operator health-check helper installed at `/usr/local/bin/check-registry-proxies`.
