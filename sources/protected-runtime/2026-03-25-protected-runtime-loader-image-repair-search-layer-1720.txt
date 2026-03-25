@@ -1,0 +1,462 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows module tampering protection NtQueryVirtualMemory ProcessImageSection NtMapViewOfSection reverse engineering",
+    "loader remaps main image IAT page tampering protection process hollowing reverse engineering",
+    "module tampering protection main image headers IAT remap loader before entry point"
+  ],
+  "count": 25,
+  "results": [
+    {
+      "title": "2019-04-28-process-hollowing-a-reverse-engineering-case.md",
+      "url": "https://github.com/iosonogio/iosonogio.github.io/blob/master/_posts/2019-04-28-process-hollowing-a-reverse-engineering-case.md",
+      "snippet": "The malware allocates new memory within the suspended process where to write its malicious code (API function used: VirtualAllocEx ). The",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "GitHub - DosX-dev/Astral-PE: Astral-PE is a low-level mutator (Headers/EP obfuscator) for native Windows PE files (x32/x64)",
+      "url": "https://github.com/DosX-dev/Astral-PE",
+      "snippet": "",
+      "published_date": "2025-03-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "GitHub - changeofpace/Self-Remapping-Code: This program remaps its image to prevent the page protection of pages contained in the image from being modified via NtProtectVirtualMemory.",
+      "url": "https://github.com/changeofpace/Self-Remapping-Code",
+      "snippet": "",
+      "published_date": "2017-02-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "Firmware Tampering Detection in Heavy-Duty Vehicles ...",
+      "url": "https://www.osti.gov/servlets/purl/3016980",
+      "snippet": "The controlled setup allowed us to isolate and capture only the diagnostic and firmware-update traffic of interest, including: • Diagnostic session control (UDS 0x10, 0x11) • SecurityAccess authentication (UDS 0x27 seed-key exchange) • RoutineControl commands to enter programming mode (UDS 0x31) • Memory transfer operations (UDS 0x34, 0x36) • Firmware block transport using J1939 TP.CM / TP.DT Independent control over module power and ignition states allowed us to trigger bootloader mode, repeat programming attempts, and capture full sequences from session initialization to final ECU reset. The flashing process follows a fixed sequence: the diagnostic tool requests access, the ECU re-sponds with a seed, the software generates an unlock key, and then the new firmware is transferred over the CAN/J1939 network in sequential data blocks. CONCLUSION This work examined firmware tampering risk in heavy-duty vehicles by combining (i) J1939/UDS CAN traffic captures from both a repeatable bench-top testbed and an operational Navistar truck and (ii) reverse-engineering of OEM diagnostic software used to authenticate and deliver firmware.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "sc2rtwp/doc/story.md at master",
+      "url": "https://github.com/awgil/sc2rtwp/blob/master/doc/story.md",
+      "snippet": "Firing up IDA and opening the exe, it quickly becomes apparent it's obfuscated - the import table is almost empty, the entry point is not looking good. Trying",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "How Kernel Anti-Cheats Work: A Deep Dive into Modern Game Protection | Adrian's Security Research",
+      "url": "https://s4dbrd.github.io/posts/how-kernel-anti-cheats-work/",
+      "snippet": "",
+      "published_date": "2026-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4833
+    },
+    {
+      "title": "ProcessInjectionTechniques | This comprehensive process injection series is crafted for cybersecurity enthusiasts, researchers, and professionals who aim to stay at the forefront of the field. It serves as a central repository of knowledge, offering in-depth exploration of various process injection techniques and methods used by adversaries.",
+      "url": "https://offensive-panda.github.io/ProcessInjectionTechniques/NtCreateSection_MapViewOfSection/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "The Art of Manual Mapping: Bypassing the Windows Loader for Stealthy Code Execution",
+      "url": "https://medium.com/@bassam.hossam69/the-art-of-manual-mapping-bypassing-the-windows-loader-for-stealthy-code-execution-a615c3572eaf",
+      "snippet": "",
+      "published_date": "2026-01-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4333
+    },
+    {
+      "title": "Deep Dive into Windows PE Internals | by trmz | Feb, 2026 | Medium",
+      "url": "https://medium.com/%40trmz/deep-dive-into-windows-pe-internals-c0d0ca6e1813",
+      "snippet": "",
+      "published_date": "2026-02-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4333
+    },
+    {
+      "title": "Understanding a New Mitigation: Module Tampering Protection",
+      "url": "https://windows-internals.com/understanding-a-new-mitigation-module-tampering-protection/",
+      "snippet": "",
+      "published_date": "2022-08-16T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Injecting Malicious Code by Hollowing Out a Process - Medium",
+      "url": "https://medium.com/cyberdnevnik/process-hollowing-9ebbdb788ff1",
+      "snippet": "Thanks. Sometimes, I spend my time developing malware just for fun and have become really interested in process hollowing.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Unhooking EDR by remapping ntdll.dll | by bob van der staak",
+      "url": "https://bobvanderstaak.medium.com/unhooking-edr-by-remapping-ntdll-dll-101a99887dfe",
+      "snippet": "In this blog, we will dive into another technique that can be used to unhook the ntdll.dll. In the moment that your DLL is hooked by an EDR.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Process Hollowing Malware | Reverse Engineering Tutorial - YouTube",
+      "url": "https://www.youtube.com/watch?v=Gj1K4jcjSJs",
+      "snippet": "In this video from our Reverse Engineering with Ghidra online course you will see how a behavioral analysis of a malware is performed.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "How Kernel Anti-Cheats Work: A Deep Dive into Modern Game Protection",
+      "url": "https://core-jmp.org/2026/03/how-kernel-anti-cheats-work-a-deep-dive-into-modern-game-protection/",
+      "snippet": "",
+      "published_date": "2026-03-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Map file to process memory utilizing NtCreateSection and NtMapViewOfSection | stmxcsr",
+      "url": "https://stmxcsr.com/micro/map-file-to-memory-section.html",
+      "snippet": "",
+      "published_date": "2026-02-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Library patching with NtMapViewOfSection",
+      "url": "https://aixxe.net/2024/09/dll-memory-patching",
+      "snippet": "",
+      "published_date": "2024-09-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Process Hollowing and Portable Executable Relocations",
+      "url": "https://www.ired.team/offensive-security/code-injection-process-injection/process-hollowing-and-pe-image-relocations",
+      "snippet": "// // #include \"pch.h\" #include \"pch.h\" #include #include #include #include #include #include using NtUnmapViewOfSection = NTSTATUS(WINAPI*)(HANDLE, PVOID); using NtUnmapViewOfSection = NTSTATUS(WINAPI*)(HANDLE, PVOID); typedef struct BASE_RELOCATION_BLOCK { typedef struct BASE_RELOCATION_BLOCK { DWORD PageAddress; DWORD PageAddress; DWORD BlockSize; DWORD BlockSize; } BASE_RELOCATION_BLOCK, *PBASE_RELOCATION_BLOCK; } BASE_RELOCATION_BLOCK, *PBASE_RELOCATION_BLOCK; typedef struct BASE_RELOCATION_ENTRY { typedef struct BASE_RELOCATION_ENTRY { USHORT Offset : 12; USHORT Offset : 12; USHORT Type : 4; USHORT Type : 4; } BASE_RELOCATION_ENTRY, *PBASE_RELOCATION_ENTRY; } BASE_RELOCATION_ENTRY, *PBASE_RELOCATION_ENTRY; int main() int main() { { // create destination process - this is the process to be hollowed out // create destination process - this is the process to be hollowed out LPSTARTUPINFOA si = new STARTUPINFOA(); LPSTARTUPINFOA si = new STARTUPINFOA(); LPPROCESS_INFORMATION pi = new PROCESS_INFORMATION(); LPPROCESS_INFORMATION pi = new PROCESS_INFORMATION(); PROCESS_BASIC_INFORMATION *pbi = new PROCESS_BASIC_INFORMATION(); PROCESS_BASIC_INFORMATION *pbi = new PROCESS_BASIC_INFORMATION(); DWORD returnLenght = 0; DWORD returnLenght = 0; CreateProcessA(NULL, (LPSTR)\"c:\\\\windows\\\\syswow64\\\\notepad.exe\", NULL, NULL, TRUE, CREATE_SUSPENDED, NULL, NULL, si, pi); CreateProcessA(NULL, (LPSTR)\"c:\\\\windows\\\\syswow64\\\\notepad.exe\", NULL, NULL, TRUE, CREATE_SUSPENDED, NULL, NULL, si, pi); HANDLE destProcess = pi->hProcess; HANDLE destProcess = pi->hProcess; // get destination imageBase offset address from the PEB // get destination imageBase offset address from the PEB NtQueryInformationProcess(destProcess, ProcessBasicInformation, pbi, sizeof(PROCESS_BASIC_INFORMATION), &returnLenght); NtQueryInformationProcess(destProcess, ProcessBasicInformation, pbi, sizeof(PROCESS_BASIC_INFORMATION), &returnLenght); DWORD pebImageBaseOffset = (DWORD)pbi->PebBaseAddress + 8; DWORD pebImageBaseOffset = (DWORD)pbi->PebBaseAddress + 8; // get destination imageBaseAddress // get destination imageBaseAddress LPVOID destImageBase = 0; LPVOID destImageBase = 0; SIZE_T bytesRead = NULL; SIZE_T bytesRead = NULL; ReadProcessMemory(destProcess, (LPCVOID)pebImageBaseOffset, &destImageBase, 4, &bytesRead); ReadProcessMemory(destProcess, (LPCVOID)pebImageBaseOffset, &destImageBase, 4, &bytesRead); // read source file - this is the file that will be executed inside the hollowed process // read source file - this is the file that will be executed inside the hollowed process HANDLE sourceFile = CreateFileA(\"C:\\\\temp\\\\regshot.exe\", GENERIC_READ, NULL, NULL, OPEN_ALWAYS, NULL, NULL); HANDLE sourceFile = CreateFileA(\"C:\\\\temp\\\\regshot.exe\", GENERIC_READ, NULL, NULL, OPEN_ALWAYS, NULL, NULL); DWORD sourceFileSize = GetFileSize(sourceFile, NULL); DWORD sourceFileSize = GetFileSize(sourceFile, NULL); LPDWORD fileBytesRead = 0; LPDWORD fileBytesRead = 0; LPVOID sourceFileBytesBuffer",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "Process Hollowing, Sub-technique T1055.012 - MITRE ATT&CK®",
+      "url": "https://attack.mitre.org/techniques/T1055/012/",
+      "snippet": "| S0128 | BADNEWS | BADNEWS has a command to download an .exe and use process hollowing to inject it into a new process. | S1138 | Gootloader | Gootloader can inject its Delphi executable into ImagingDevices.exe using a process hollowing technique. | G0078 | Gorgon Group | Gorgon Group malware can use process hollowing to inject one of its trojans into another process. | S1213 | Lumma Stealer | Lumma Stealer has used process hollowing leveraging a legitimate program such as \"BitLockerToGo.exe\" to inject a malicious payload. | S1086 | Snip3 | Snip3 can use RunPE to execute malicious payloads within a hollowed Windows process. | DET0382 | Detection Strategy for Process Hollowing on Windows | AN1076 | Detects adversary use of suspended process creation, using the CREATE\\_SUSPENDED flag via CreateProcess, followed by unmapping the memory of the child process (NtUnmapViewOfSection) and replacing it with malicious code via VirtualAllocEx/WriteProcessMemory, then SetThreadContext and ResumeThread to begin execution within the hollowed process.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "Dissecting the PE File (Part 2): What the Windows Loader Actually Cares About | CodedIntrusion",
+      "url": "https://codedintrusion.com/posts/pe-file-anatomy-part-2/",
+      "snippet": "",
+      "published_date": "2026-01-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Windows Internals, Sixth Edition, Part 2 eBook",
+      "url": "https://repo.zenk-security.com/Linux%20et%20systemes%20d.exploitations/Windows%20Internals%20Part%202_6th%20Edition.pdf",
+      "snippet": "New content included the image loader, user-mode debugging facility, and Hyper-V. Sixth Edition Changes. This latest edition has been updated to cover the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "When Process Hollowing Isn’t Process Hollowing » TrainSec",
+      "url": "https://trainsec.net/library/windows-internals/when-process-hollowing-isnt-process-hollowing/",
+      "snippet": "",
+      "published_date": "2026-01-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "[PDF] Evasive Hollow Process Injection - Black Hat",
+      "url": "https://blackhat.com/docs/asia-17/materials/asia-17-KA-What-Malware-Authors-Don't-Want-You-To-Know-Evasive-Hollow-Process-Injection-wp.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "The Nightmare of Proc Hollow's Exe - TrustedSec",
+      "url": "https://trustedsec.com/blog/the-nightmare-of-proc-hollows-exe",
+      "snippet": "",
+      "published_date": "2023-06-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Bypassing Image Load Kernel Callbacks – core-jmp",
+      "url": "https://core-jmp.org/?p=122",
+      "snippet": "",
+      "published_date": "2026-01-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Odometer Manipulation Investigation | Block Harbor Insights",
+      "url": "https://www.blockharbor.io/blog/odometer-manipulation-investigation",
+      "snippet": "This attack uses the remap mode to replace the real flash entry point with our stage two method in SRAM. Now we configure the chip to boot",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "How Kernel Anti-Cheats Work: A Deep Dive into Modern Game Protection | Adrian's Security Research",
+        "url": "https://s4dbrd.github.io/posts/how-kernel-anti-cheats-work/",
+        "snippet": "",
+        "published_date": "2026-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4833
+      },
+      {
+        "title": "How Kernel Anti-Cheats Work: A Deep Dive into Modern Game Protection",
+        "url": "https://core-jmp.org/2026/03/how-kernel-anti-cheats-work-a-deep-dive-into-modern-game-protection/",
+        "snippet": "",
+        "published_date": "2026-03-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Map file to process memory utilizing NtCreateSection and NtMapViewOfSection | stmxcsr",
+        "url": "https://stmxcsr.com/micro/map-file-to-memory-section.html",
+        "snippet": "",
+        "published_date": "2026-02-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Understanding a New Mitigation: Module Tampering Protection",
+        "url": "https://windows-internals.com/understanding-a-new-mitigation-module-tampering-protection/",
+        "snippet": "",
+        "published_date": "2022-08-16T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Library patching with NtMapViewOfSection",
+        "url": "https://aixxe.net/2024/09/dll-memory-patching",
+        "snippet": "",
+        "published_date": "2024-09-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "ProcessInjectionTechniques | This comprehensive process injection series is crafted for cybersecurity enthusiasts, researchers, and professionals who aim to stay at the forefront of the field. It serves as a central repository of knowledge, offering in-depth exploration of various process injection techniques and methods used by adversaries.",
+        "url": "https://offensive-panda.github.io/ProcessInjectionTechniques/NtCreateSection_MapViewOfSection/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "Understanding a New Mitigation: Module Tampering Protection",
+        "url": "https://windows-internals.com/understanding-a-new-mitigation-module-tampering-protection/",
+        "snippet": "",
+        "published_date": "2022-08-16T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "When Process Hollowing Isn’t Process Hollowing » TrainSec",
+        "url": "https://trainsec.net/library/windows-internals/when-process-hollowing-isnt-process-hollowing/",
+        "snippet": "",
+        "published_date": "2026-01-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "The Art of Manual Mapping: Bypassing the Windows Loader for Stealthy Code Execution",
+        "url": "https://medium.com/@bassam.hossam69/the-art-of-manual-mapping-bypassing-the-windows-loader-for-stealthy-code-execution-a615c3572eaf",
+        "snippet": "",
+        "published_date": "2026-01-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4333
+      },
+      {
+        "title": "Deep Dive into Windows PE Internals | by trmz | Feb, 2026 | Medium",
+        "url": "https://medium.com/%40trmz/deep-dive-into-windows-pe-internals-c0d0ca6e1813",
+        "snippet": "",
+        "published_date": "2026-02-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4333
+      },
+      {
+        "title": "[PDF] Evasive Hollow Process Injection - Black Hat",
+        "url": "https://blackhat.com/docs/asia-17/materials/asia-17-KA-What-Malware-Authors-Don't-Want-You-To-Know-Evasive-Hollow-Process-Injection-wp.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "The Nightmare of Proc Hollow's Exe - TrustedSec",
+        "url": "https://trustedsec.com/blog/the-nightmare-of-proc-hollows-exe",
+        "snippet": "",
+        "published_date": "2023-06-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Understanding a New Mitigation: Module Tampering Protection",
+        "url": "https://windows-internals.com/understanding-a-new-mitigation-module-tampering-protection/",
+        "snippet": "",
+        "published_date": "2022-08-16T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "The Art of Manual Mapping: Bypassing the Windows Loader for Stealthy Code Execution",
+        "url": "https://medium.com/@bassam.hossam69/the-art-of-manual-mapping-bypassing-the-windows-loader-for-stealthy-code-execution-a615c3572eaf",
+        "snippet": "",
+        "published_date": "2026-01-23T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "GitHub - DosX-dev/Astral-PE: Astral-PE is a low-level mutator (Headers/EP obfuscator) for native Windows PE files (x32/x64)",
+        "url": "https://github.com/DosX-dev/Astral-PE",
+        "snippet": "",
+        "published_date": "2025-03-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6333
+      },
+      {
+        "title": "Bypassing Image Load Kernel Callbacks – core-jmp",
+        "url": "https://core-jmp.org/?p=122",
+        "snippet": "",
+        "published_date": "2026-01-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Dissecting the PE File (Part 2): What the Windows Loader Actually Cares About | CodedIntrusion",
+        "url": "https://codedintrusion.com/posts/pe-file-anatomy-part-2/",
+        "snippet": "",
+        "published_date": "2026-01-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "GitHub - changeofpace/Self-Remapping-Code: This program remaps its image to prevent the page protection of pages contained in the image from being modified via NtProtectVirtualMemory.",
+        "url": "https://github.com/changeofpace/Self-Remapping-Code",
+        "snippet": "",
+        "published_date": "2017-02-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6333
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Understanding a New Mitigation: Module Tampering Protection",
+        "url": "https://windows-internals.com/understanding-a-new-mitigation-module-tampering-protection/",
+        "snippet": "Module tampering protection is a mitigation that protects against early modifications of the process main image, such as IAT hooking or process hollowing. But back to module tampering protection – a second location where process mitigations are sometimes implemented is `ntdll.dll`, the first user-mode image to be loaded in every process. On the bright side, this mitigation is extremely simple and useful, and very easily to mimic if you want to implement it for other use cases, such as detecting hooks placed on your process and mapping a fresh, unhooked copy of the page to use. I don’t know why this specific process uses this mitigation or why it’s the only one that does, but this is the only one I managed to find so far that enables module tampering protection.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Understanding a New Mitigation: Module Tampering Protection",
+        "url": "https://windows-internals.com/understanding-a-new-mitigation-module-tampering-protection/",
+        "snippet": "Module tampering protection is a mitigation that protects against early modifications of the process main image, such as IAT hooking or process hollowing. But back to module tampering protection – a second location where process mitigations are sometimes implemented is `ntdll.dll`, the first user-mode image to be loaded in every process. On the bright side, this mitigation is extremely simple and useful, and very easily to mimic if you want to implement it for other use cases, such as detecting hooks placed on your process and mapping a fresh, unhooked copy of the page to use. I don’t know why this specific process uses this mitigation or why it’s the only one that does, but this is the only one I managed to find so far that enables module tampering protection.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Process Hollowing and Portable Executable Relocations",
+        "url": "https://www.ired.team/offensive-security/code-injection-process-injection/process-hollowing-and-pe-image-relocations",
+        "snippet": "// // #include \"pch.h\" #include \"pch.h\" #include #include #include #include #include #include using NtUnmapViewOfSection = NTSTATUS(WINAPI*)(HANDLE, PVOID); using NtUnmapViewOfSection = NTSTATUS(WINAPI*)(HANDLE, PVOID); typedef struct BASE_RELOCATION_BLOCK { typedef struct BASE_RELOCATION_BLOCK { DWORD PageAddress; DWORD PageAddress; DWORD BlockSize; DWORD BlockSize; } BASE_RELOCATION_BLOCK, *PBASE_RELOCATION_BLOCK; } BASE_RELOCATION_BLOCK, *PBASE_RELOCATION_BLOCK; typedef struct BASE_RELOCATION_ENTRY { typedef struct BASE_RELOCATION_ENTRY { USHORT Offset : 12; USHORT Offset : 12; USHORT Type : 4; USHORT Type : 4; } BASE_RELOCATION_ENTRY, *PBASE_RELOCATION_ENTRY; } BASE_RELOCATION_ENTRY, *PBASE_RELOCATION_ENTRY; int main() int main() { { // create destination process - this is the process to be hollowed out // create destination process - this is the process to be hollowed out LPSTARTUPINFOA si = new STARTUPINFOA(); LPSTARTUPINFOA si = new STARTUPINFOA(); LPPROCESS_INFORMATION pi = new PROCESS_INFORMATION(); LPPROCESS_INFORMATION pi = new PROCESS_INFORMATION(); PROCESS_BASIC_INFORMATION *pbi = new PROCESS_BASIC_INFORMATION(); PROCESS_BASIC_INFORMATION *pbi = new PROCESS_BASIC_INFORMATION(); DWORD returnLenght = 0; DWORD returnLenght = 0; CreateProcessA(NULL, (LPSTR)\"c:\\\\windows\\\\syswow64\\\\notepad.exe\", NULL, NULL, TRUE, CREATE_SUSPENDED, NULL, NULL, si, pi); CreateProcessA(NULL, (LPSTR)\"c:\\\\windows\\\\syswow64\\\\notepad.exe\", NULL, NULL, TRUE, CREATE_SUSPENDED, NULL, NULL, si, pi); HANDLE destProcess = pi->hProcess; HANDLE destProcess = pi->hProcess; // get destination imageBase offset address from the PEB // get destination imageBase offset address from the PEB NtQueryInformationProcess(destProcess, ProcessBasicInformation, pbi, sizeof(PROCESS_BASIC_INFORMATION), &returnLenght); NtQueryInformationProcess(destProcess, ProcessBasicInformation, pbi, sizeof(PROCESS_BASIC_INFORMATION), &returnLenght); DWORD pebImageBaseOffset = (DWORD)pbi->PebBaseAddress + 8; DWORD pebImageBaseOffset = (DWORD)pbi->PebBaseAddress + 8; // get destination imageBaseAddress // get destination imageBaseAddress LPVOID destImageBase = 0; LPVOID destImageBase = 0; SIZE_T bytesRead = NULL; SIZE_T bytesRead = NULL; ReadProcessMemory(destProcess, (LPCVOID)pebImageBaseOffset, &destImageBase, 4, &bytesRead); ReadProcessMemory(destProcess, (LPCVOID)pebImageBaseOffset, &destImageBase, 4, &bytesRead); // read source file - this is the file that will be executed inside the hollowed process // read source file - this is the file that will be executed inside the hollowed process HANDLE sourceFile = CreateFileA(\"C:\\\\temp\\\\regshot.exe\", GENERIC_READ, NULL, NULL, OPEN_ALWAYS, NULL, NULL); HANDLE sourceFile = CreateFileA(\"C:\\\\temp\\\\regshot.exe\", GENERIC_READ, NULL, NULL, OPEN_ALWAYS, NULL, NULL); DWORD sourceFileSize = GetFileSize(sourceFile, NULL); DWORD sourceFileSize = GetFileSize(sourceFile, NULL); LPDWORD fileBytesRead = 0; LPDWORD fileBytesRead = 0; LPVOID sourceFileBytesBuffer",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "2019-04-28-process-hollowing-a-reverse-engineering-case.md",
+        "url": "https://github.com/iosonogio/iosonogio.github.io/blob/master/_posts/2019-04-28-process-hollowing-a-reverse-engineering-case.md",
+        "snippet": "The malware allocates new memory within the suspended process where to write its malicious code (API function used: VirtualAllocEx ). The",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "Process Hollowing Malware | Reverse Engineering Tutorial - YouTube",
+        "url": "https://www.youtube.com/watch?v=Gj1K4jcjSJs",
+        "snippet": "In this video from our Reverse Engineering with Ghidra online course you will see how a behavioral analysis of a malware is performed.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Process Hollowing, Sub-technique T1055.012 - MITRE ATT&CK®",
+        "url": "https://attack.mitre.org/techniques/T1055/012/",
+        "snippet": "| S0128 | BADNEWS | BADNEWS has a command to download an .exe and use process hollowing to inject it into a new process. | S1138 | Gootloader | Gootloader can inject its Delphi executable into ImagingDevices.exe using a process hollowing technique. | G0078 | Gorgon Group | Gorgon Group malware can use process hollowing to inject one of its trojans into another process. | S1213 | Lumma Stealer | Lumma Stealer has used process hollowing leveraging a legitimate program such as \"BitLockerToGo.exe\" to inject a malicious payload. | S1086 | Snip3 | Snip3 can use RunPE to execute malicious payloads within a hollowed Windows process. | DET0382 | Detection Strategy for Process Hollowing on Windows | AN1076 | Detects adversary use of suspended process creation, using the CREATE\\_SUSPENDED flag via CreateProcess, followed by unmapping the memory of the child process (NtUnmapViewOfSection) and replacing it with malicious code via VirtualAllocEx/WriteProcessMemory, then SetThreadContext and ResumeThread to begin execution within the hollowed process.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "Injecting Malicious Code by Hollowing Out a Process - Medium",
+        "url": "https://medium.com/cyberdnevnik/process-hollowing-9ebbdb788ff1",
+        "snippet": "Thanks. Sometimes, I spend my time developing malware just for fun and have become really interested in process hollowing.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Understanding a New Mitigation: Module Tampering ...",
+        "url": "https://windows-internals.com/understanding-a-new-mitigation-module-tampering-protection/",
+        "snippet": "Module tampering protection is a mitigation that protects against early modifications of the process main image, such as IAT hooking or process hollowing. But back to module tampering protection – a second location where process mitigations are sometimes implemented is `ntdll.dll`, the first user-mode image to be loaded in every process. On the bright side, this mitigation is extremely simple and useful, and very easily to mimic if you want to implement it for other use cases, such as detecting hooks placed on your process and mapping a fresh, unhooked copy of the page to use. I don’t know why this specific process uses this mitigation or why it’s the only one that does, but this is the only one I managed to find so far that enables module tampering protection.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Odometer Manipulation Investigation | Block Harbor Insights",
+        "url": "https://www.blockharbor.io/blog/odometer-manipulation-investigation",
+        "snippet": "This attack uses the remap mode to replace the real flash entry point with our stage two method in SRAM. Now we configure the chip to boot",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "sc2rtwp/doc/story.md at master",
+        "url": "https://github.com/awgil/sc2rtwp/blob/master/doc/story.md",
+        "snippet": "Firing up IDA and opening the exe, it quickly becomes apparent it's obfuscated - the import table is almost empty, the entry point is not looking good. Trying",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Unhooking EDR by remapping ntdll.dll | by bob van der staak",
+        "url": "https://bobvanderstaak.medium.com/unhooking-edr-by-remapping-ntdll-dll-101a99887dfe",
+        "snippet": "In this blog, we will dive into another technique that can be used to unhook the ntdll.dll. In the moment that your DLL is hooked by an EDR.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Windows Internals, Sixth Edition, Part 2 eBook",
+        "url": "https://repo.zenk-security.com/Linux%20et%20systemes%20d.exploitations/Windows%20Internals%20Part%202_6th%20Edition.pdf",
+        "snippet": "New content included the image loader, user-mode debugging facility, and Hyper-V. Sixth Edition Changes. This latest edition has been updated to cover the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "Firmware Tampering Detection in Heavy-Duty Vehicles ...",
+        "url": "https://www.osti.gov/servlets/purl/3016980",
+        "snippet": "The controlled setup allowed us to isolate and capture only the diagnostic and firmware-update traffic of interest, including: • Diagnostic session control (UDS 0x10, 0x11) • SecurityAccess authentication (UDS 0x27 seed-key exchange) • RoutineControl commands to enter programming mode (UDS 0x31) • Memory transfer operations (UDS 0x34, 0x36) • Firmware block transport using J1939 TP.CM / TP.DT Independent control over module power and ignition states allowed us to trigger bootloader mode, repeat programming attempts, and capture full sequences from session initialization to final ECU reset. The flashing process follows a fixed sequence: the diagnostic tool requests access, the ECU re-sponds with a seed, the software generates an unlock key, and then the new firmware is transferred over the CAN/J1939 network in sequential data blocks. CONCLUSION This work examined firmware tampering risk in heavy-duty vehicles by combining (i) J1939/UDS CAN traffic captures from both a repeatable bench-top testbed and an operational Navistar truck and (ii) reverse-engineering of OEM diagnostic software used to authenticate and deliver firmware.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      }
+    ],
+    "grok": []
+  },
+  "freshness_filter": "py"
+}
