@@ -1,0 +1,427 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows dynamic function table exception dispatch RtlInstallFunctionTableCallback RtlAddGrowableFunctionTable unwind reversing",
+    "RtlLookupFunctionEntry dynamic function table generated code unwind callback exception handler",
+    "KiUserExceptionDispatcher dynamic unwind function table generated code reverse engineering"
+  ],
+  "count": 22,
+  "results": [
+    {
+      "title": "RtlInstallFunctionTableCallback function (winnt.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtlinstallfunctiontablecallback",
+      "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. The identifier for the dynamic function table callback. The base address of the region of memory managed by the callback function. A pointer to the callback function that is called to retrieve the function table entries for the functions in the specified region of memory. For a definition of the **PGET\\_RUNTIME\\_FUNCTION\\_CALLBACK** type, see WinNT.h. A pointer to the user-defined data to be passed to the callback function. When a debugger unwinds to a function in the range of addresses managed by the callback function, it loads this DLL and calls the **OUT\\_OF\\_PROCESS\\_FUNCTION\\_TABLE\\_CALLBACK\\_EXPORT\\_NAME** function, whose type is **POUT\\_OF\\_PROCESS\\_FUNCTION\\_TABLE\\_CALLBACK**. Function tables are used on 64-bit Windows to determine how to unwind or walk the stack. However, applications must provide the function table for dynamically generated code. For more information about function tables, see the architecture guide for your system. The callback function must return the runtime function entry for the specified address.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.78
+    },
+    {
+      "title": "Describing dynamically generated code with RtlAddFunctionTable on Windows x64",
+      "url": "https://stackoverflow.com/questions/20998155/describing-dynamically-generated-code-with-rtladdfunctiontable-on-windows-x64",
+      "snippet": "",
+      "published_date": "2014-01-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.72
+    },
+    {
+      "title": "What is the difference between RtlAddFunctionTable and ...",
+      "url": "https://stackoverflow.com/questions/78565505/what-is-the-difference-between-rtladdfunctiontable-and-rtlinsertinvertedfunction",
+      "snippet": "The RtlAddFunctionTable is used to dynamically install a funciton table in order to handle SEH exceptions.I have used it on custom loader",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.72
+    },
+    {
+      "title": "RtlInstallFunctionTableCallback function (winnt.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtlinstallfunctiontablecallback?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2022-07-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "RtlAddGrowableFunctionTable function (winnt.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtladdgrowablefunctiontable",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "Unable to hook ntdll.dll!KiUserExceptionDispatcher function for ...",
+      "url": "https://github.com/frida/frida/issues/2888",
+      "snippet": "## Navigation Menu. # Search code, repositories, users, issues, pull requests... You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. * Notifications  You must be signed in to change notification settings. # Unable to hook ntdll.dll! KiUserExceptionDispatcher function for VMProtected software #2888. Unable to hook ntdll.dll! KiUserExceptionDispatcher function for VMProtected software#2888. ## Description. opened on Jun 22, 2024. latest version of VMProtect (3.8.8) has stronger than previous .Scyllahide , hyperhide, sharpOD doesnt hide debugger detection but fortunately Frida work perfectly means i can simply attach x64dbg without any problem . ## Metadata. ## Metadata. No branches or pull requests. ## Issue actions. You can’t perform that action at this time.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.67
+    },
+    {
+      "title": "How to fill EXCEPTION_RECORD properly for a RtlUnwindEx call?",
+      "url": "https://stackoverflow.com/questions/78600525/how-to-fill-exception-record-properly-for-a-rtlunwindex-call",
+      "snippet": "",
+      "published_date": "2024-06-10T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.66
+    },
+    {
+      "title": "RtlAddFunctionTable function (winnt.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtladdfunctiontable",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.66
+    },
+    {
+      "title": "RtlLookupFunctionEntry function (winnt.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtllookupfunctionentry",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "unable to create a full dump when more than 65532 ...",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/5679957/unable-to-create-a-full-dump-when-more-than-65532",
+      "snippet": "",
+      "published_date": "2025-12-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "KiUserExceptionDispatcher hook - Reverse Engineering Stack ...",
+      "url": "https://reverseengineering.stackexchange.com/questions/8809/kiuserexceptiondispatcher-hook",
+      "snippet": "",
+      "published_date": "2015-05-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.56
+    },
+    {
+      "title": "pmeerw's blog /programming/RtlAddFunctionTable.html",
+      "url": "https://pmeerw.net/blog/programming/RtlAddFunctionTable.html",
+      "snippet": "// sample code to demonstrate Windows RtlAddFunctionTable API // (c) 2019 Peter Meerwald-Stadler, pmeerw@pmeerw.net // 64-bit only, compile with: cl rtlft.c /link /fixed #include  #include  #include  #include \"windows.h\" typedef uint8_t UBYTE; typedef uint16_t USHORT; typedef union _UNWIND_CODE { struct { UBYTE CodeOffset; UBYTE UnwindOp : 4; UBYTE OpInfo : 4; }; USHORT FrameOffset; } UNWIND_CODE, *PUNWIND_CODE; typedef struct _UNWIND_INFO { UBYTE Version : 3; UBYTE Flags : 5; UBYTE SizeOfProlog; UBYTE CountOfCodes; UBYTE FrameRegister : 4; UBYTE FrameOffset : 4; UNWIND_CODE UnwindCode[1]; /* UNWIND_CODE MoreUnwindCode[((CountOfCodes + 1) & ~1) - 1]; * OPTIONAL ULONG ExceptionHandler; * OPTIONAL ULONG ExceptionData[]; */ } UNWIND_INFO, *PUNWIND_INFO; typedef struct { uint8_t code[0x1000]; RUNTIME_FUNCTION function_table[1]; UNWIND_INFO unwind_info[1]; } DYNSECTION; static EXCEPTION_DISPOSITION handler(PEXCEPTION_RECORD ExceptionRecord, ULONG64 EstablisherFrame, PCONTEXT ContextRecord, PDISPATCHER_CONTEXT DispatcherContext) { printf(\"handler!\\n\"); ContextRecord->Rip += 3; return ExceptionContinueExecution; } int main() { int ret; RUNTIME_FUNCTION *q; DYNSECTION *dynsection = VirtualAlloc(NULL, 0x2000, MEM_COMMIT, PAGE_EXECUTE_READWRITE); uint8_t *code = dynsection->code; size_t p = 0; code[p++] = 0xb8; // mov rax, 42 code[p++] = 0x2a; code[p++] = 0x00; code[p++] = 0x00; code[p++] = 0x00; code[p++] = 0xc6; // mov byte [rax], 0 -- raises exception!",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.48
+    },
+    {
+      "title": "Fantastic unwind information and where to find them | klezVirus",
+      "url": "https://klezvirus.github.io/posts/Byoud",
+      "snippet": "",
+      "published_date": "2026-03-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.48
+    },
+    {
+      "title": "Early Exception Handling - GitHub Pages",
+      "url": "https://kr0tt.github.io/posts/early-exception-handling/",
+      "snippet": "",
+      "published_date": "2025-08-17T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.48
+    },
+    {
+      "title": "A deep dive into modern Windows Structured Exception Handler ...",
+      "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+      "snippet": "",
+      "published_date": "2024-11-25T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.46
+    },
+    {
+      "title": "64-bit Microsoft Office Applications Do Not Like Stack Walking - Nektra",
+      "url": "https://www.nektra.com/main/2014/04/23/64-bit-microsoft-office-applications-do-not-like-stack-walking/",
+      "snippet": "# 64-bit Microsoft Office Applications Do Not Like Stack Walking. The operating system and the debugger use a series of RUNTIME\\_FUNCTION.aspx) structures to retrieve a variety of information about each function, like how much stack space is reserved for each function usage, which callbacks must be called in an unwind operation, and where assembly registers are stored. VOID StackTrace64(VOID) { CONTEXT Context; KNONVOLATILE_CONTEXT_POINTERS NvContext; UNWIND_HISTORY_TABLE UnwindHistoryTable; PRUNTIME_FUNCTION RuntimeFunction; PVOID HandlerData; ULONG64 EstablisherFrame, ImageBase; DbgPrint(\"StackTrace64: Executing stack trace...\\n\"); // First, we'll get the caller's context. Because the .pdata section is created when the application is compiled, if the program generates dynamic code, like the .NET JIT profiler does, it should also create the corresponding RUNTIME\\_FUNCTION metadata and inform the operating system of the new dynamic code. The RtlInstallFunctionTableCallback.aspx) API adds an entry in an internal processes table maintained by NtDll.dll that helps RtlLookupFunctionEntry and RtlVirtualUnwind find information on how to walk the stack when your dynamically generated code is in the middle of the function calls chain.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "RtlAddFunctionTable vs RtlAddGrowableFunctionTable? - NTDEV",
+      "url": "https://community.osr.com/t/rtladdfunctiontable-vs-rtladdgrowablefunctiontable/51512",
+      "snippet": "For dynamically generated code that requires stack unwinding using RtlVirtualUnwind, we need to call a function RtlAddFunctionTable.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "sdk/lib/rtl/amd64/unwind.c File Reference - ReactOS",
+      "url": "https://doxygen.reactos.org/d8/d2f/unwind_8c.html",
+      "snippet": "Locates the table of RUNTIME_FUNCTION entries for a code address. PRUNTIME_FUNCTION NTAPI · RtlpLookupDynamicFunctionEntry (_In_ DWORD64 ControlPc, _Out_",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "Stack-Walking and generated code - Sebastian Schöner",
+      "url": "https://blog.s-schoener.com/2025-01-24-stack-walking-generated-code/",
+      "snippet": "",
+      "published_date": "2025-01-24T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4
+    },
+    {
+      "title": "A journey through KiUserExceptionDispatcher - Maurice's Blog",
+      "url": "https://momo5502.com/posts/2024-09-07-a-journey-through-kiuserexceptiondispatcher/",
+      "snippet": "",
+      "published_date": "2024-09-07T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.36
+    },
+    {
+      "title": "C++ Unwind Exception Metadata - Möbius Strip Reverse Engineering",
+      "url": "https://www.msreverseengineering.com/blog/2024/8/20/c-unwind-metadata-1",
+      "snippet": "This blog entry describes an overlooked source of information in C++ programs that can make manual and automated type reconstruction more efficient.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Applied Reverse Engineering: Exceptions and Interrupts",
+      "url": "https://revers.engineering/applied-re-exceptions/",
+      "snippet": "",
+      "published_date": "2020-03-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Stack-Walking and generated code - Sebastian Schöner",
+        "url": "https://blog.s-schoener.com/2025-01-24-stack-walking-generated-code/",
+        "snippet": "",
+        "published_date": "2025-01-24T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4
+      },
+      {
+        "title": "RtlLookupFunctionEntry function (winnt.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtllookupfunctionentry",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "How to fill EXCEPTION_RECORD properly for a RtlUnwindEx call?",
+        "url": "https://stackoverflow.com/questions/78600525/how-to-fill-exception-record-properly-for-a-rtlunwindex-call",
+        "snippet": "",
+        "published_date": "2024-06-10T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.66
+      },
+      {
+        "title": "A deep dive into modern Windows Structured Exception Handler ...",
+        "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+        "snippet": "",
+        "published_date": "2024-11-25T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.46
+      },
+      {
+        "title": "Describing dynamically generated code with RtlAddFunctionTable on Windows x64",
+        "url": "https://stackoverflow.com/questions/20998155/describing-dynamically-generated-code-with-rtladdfunctiontable-on-windows-x64",
+        "snippet": "",
+        "published_date": "2014-01-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.72
+      },
+      {
+        "title": "unable to create a full dump when more than 65532 ...",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/5679957/unable-to-create-a-full-dump-when-more-than-65532",
+        "snippet": "",
+        "published_date": "2025-12-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "RtlInstallFunctionTableCallback function (winnt.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtlinstallfunctiontablecallback?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2022-07-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.69
+      },
+      {
+        "title": "Stack-Walking and generated code - Sebastian Schöner",
+        "url": "https://blog.s-schoener.com/2025-01-24-stack-walking-generated-code/",
+        "snippet": "",
+        "published_date": "2025-01-24T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "RtlAddGrowableFunctionTable function (winnt.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtladdgrowablefunctiontable",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.69
+      },
+      {
+        "title": "RtlAddFunctionTable function (winnt.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtladdfunctiontable",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.66
+      },
+      {
+        "title": "A journey through KiUserExceptionDispatcher - Maurice's Blog",
+        "url": "https://momo5502.com/posts/2024-09-07-a-journey-through-kiuserexceptiondispatcher/",
+        "snippet": "",
+        "published_date": "2024-09-07T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.36
+      },
+      {
+        "title": "Fantastic unwind information and where to find them | klezVirus",
+        "url": "https://klezvirus.github.io/posts/Byoud",
+        "snippet": "",
+        "published_date": "2026-03-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.48
+      },
+      {
+        "title": "Early Exception Handling - GitHub Pages",
+        "url": "https://kr0tt.github.io/posts/early-exception-handling/",
+        "snippet": "",
+        "published_date": "2025-08-17T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.48
+      },
+      {
+        "title": "Applied Reverse Engineering: Exceptions and Interrupts",
+        "url": "https://revers.engineering/applied-re-exceptions/",
+        "snippet": "",
+        "published_date": "2020-03-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "KiUserExceptionDispatcher hook - Reverse Engineering Stack ...",
+        "url": "https://reverseengineering.stackexchange.com/questions/8809/kiuserexceptiondispatcher-hook",
+        "snippet": "",
+        "published_date": "2015-05-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.56
+      }
+    ],
+    "tavily": [
+      {
+        "title": "64-bit Microsoft Office Applications Do Not Like Stack Walking - Nektra",
+        "url": "https://www.nektra.com/main/2014/04/23/64-bit-microsoft-office-applications-do-not-like-stack-walking/",
+        "snippet": "# 64-bit Microsoft Office Applications Do Not Like Stack Walking. The operating system and the debugger use a series of RUNTIME\\_FUNCTION.aspx) structures to retrieve a variety of information about each function, like how much stack space is reserved for each function usage, which callbacks must be called in an unwind operation, and where assembly registers are stored. VOID StackTrace64(VOID) { CONTEXT Context; KNONVOLATILE_CONTEXT_POINTERS NvContext; UNWIND_HISTORY_TABLE UnwindHistoryTable; PRUNTIME_FUNCTION RuntimeFunction; PVOID HandlerData; ULONG64 EstablisherFrame, ImageBase; DbgPrint(\"StackTrace64: Executing stack trace...\\n\"); // First, we'll get the caller's context. Because the .pdata section is created when the application is compiled, if the program generates dynamic code, like the .NET JIT profiler does, it should also create the corresponding RUNTIME\\_FUNCTION metadata and inform the operating system of the new dynamic code. The RtlInstallFunctionTableCallback.aspx) API adds an entry in an internal processes table maintained by NtDll.dll that helps RtlLookupFunctionEntry and RtlVirtualUnwind find information on how to walk the stack when your dynamically generated code is in the middle of the function calls chain.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "A deep dive into modern Windows Structured Exception Handler ...",
+        "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+        "snippet": "> Each `RUNTIME_FUNCTION` entry **defines a set of instructions** within the `UnwindData` field that tells it how to handle any exception that occurs between the `BeginAddress` and `EndAddress` address of the program. KiUserExceptionDispatcher` function which would find the appropriate exception handler to handle the exception. | ``` 1 2 3 4 5 6 7  ``` | ``` KiUserExceptionDispatcher// Windows Kernel Internal (KI) API -> RtlDispatchException// main logic for exception handling -> RtlpCallVectoredHandlers// call any VEH -> RtlLookupFunctionEntry// look for valid PRUNTIME_FUNCTION entry in ExceptionDirectory -> RtlpLookupDynamicFunctionEntry// if no valid PRUNTIME_FUNCTION, run any dynamic callbacks -> RtlVirtualUnwind/ RtlpxVirtualUnwind// perform stack frame unwinding -> RtlpExecuteHandlerForException// execute exception handler! This function iterates through the `RUNTIME_FUNCTION` data structures in the Exception Directory and look for an entry such that `BeginAddress` < `Context->Rip` < `EndAddress`. As you have seen, 64-bit SEH handlers are almost always *(by default)* stored in a read-only Exception Directory that is compiled into the program.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Stack-Walking and generated code - Sebastian Schöner",
+        "url": "https://blog.s-schoener.com/2025-01-24-stack-walking-generated-code/",
+        "snippet": "The debugger is going to be able to unwind your function if you registered the data and RtlLookupFunctionEntry found it. Similarly, ETW",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "sdk/lib/rtl/amd64/unwind.c File Reference - ReactOS",
+        "url": "https://doxygen.reactos.org/d8/d2f/unwind_8c.html",
+        "snippet": "Locates the table of RUNTIME_FUNCTION entries for a code address. PRUNTIME_FUNCTION NTAPI · RtlpLookupDynamicFunctionEntry (_In_ DWORD64 ControlPc, _Out_",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "How to fill EXCEPTION_RECORD properly for a RtlUnwindEx call?",
+        "url": "https://stackoverflow.com/questions/78600525/how-to-fill-exception-record-properly-for-a-rtlunwindex-call",
+        "snippet": "I am trying to manually handle a C++ exception ,caused by dynamically loaded code, through a VEH handler.At first I capture the exception with VEH then perform",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RtlInstallFunctionTableCallback function (winnt.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtlinstallfunctiontablecallback",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. The identifier for the dynamic function table callback. The base address of the region of memory managed by the callback function. A pointer to the callback function that is called to retrieve the function table entries for the functions in the specified region of memory. For a definition of the **PGET\\_RUNTIME\\_FUNCTION\\_CALLBACK** type, see WinNT.h. A pointer to the user-defined data to be passed to the callback function. When a debugger unwinds to a function in the range of addresses managed by the callback function, it loads this DLL and calls the **OUT\\_OF\\_PROCESS\\_FUNCTION\\_TABLE\\_CALLBACK\\_EXPORT\\_NAME** function, whose type is **POUT\\_OF\\_PROCESS\\_FUNCTION\\_TABLE\\_CALLBACK**. Function tables are used on 64-bit Windows to determine how to unwind or walk the stack. However, applications must provide the function table for dynamically generated code. For more information about function tables, see the architecture guide for your system. The callback function must return the runtime function entry for the specified address.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.78
+      },
+      {
+        "title": "pmeerw's blog /programming/RtlAddFunctionTable.html",
+        "url": "https://pmeerw.net/blog/programming/RtlAddFunctionTable.html",
+        "snippet": "// sample code to demonstrate Windows RtlAddFunctionTable API // (c) 2019 Peter Meerwald-Stadler, pmeerw@pmeerw.net // 64-bit only, compile with: cl rtlft.c /link /fixed #include  #include  #include  #include \"windows.h\" typedef uint8_t UBYTE; typedef uint16_t USHORT; typedef union _UNWIND_CODE { struct { UBYTE CodeOffset; UBYTE UnwindOp : 4; UBYTE OpInfo : 4; }; USHORT FrameOffset; } UNWIND_CODE, *PUNWIND_CODE; typedef struct _UNWIND_INFO { UBYTE Version : 3; UBYTE Flags : 5; UBYTE SizeOfProlog; UBYTE CountOfCodes; UBYTE FrameRegister : 4; UBYTE FrameOffset : 4; UNWIND_CODE UnwindCode[1]; /* UNWIND_CODE MoreUnwindCode[((CountOfCodes + 1) & ~1) - 1]; * OPTIONAL ULONG ExceptionHandler; * OPTIONAL ULONG ExceptionData[]; */ } UNWIND_INFO, *PUNWIND_INFO; typedef struct { uint8_t code[0x1000]; RUNTIME_FUNCTION function_table[1]; UNWIND_INFO unwind_info[1]; } DYNSECTION; static EXCEPTION_DISPOSITION handler(PEXCEPTION_RECORD ExceptionRecord, ULONG64 EstablisherFrame, PCONTEXT ContextRecord, PDISPATCHER_CONTEXT DispatcherContext) { printf(\"handler!\\n\"); ContextRecord->Rip += 3; return ExceptionContinueExecution; } int main() { int ret; RUNTIME_FUNCTION *q; DYNSECTION *dynsection = VirtualAlloc(NULL, 0x2000, MEM_COMMIT, PAGE_EXECUTE_READWRITE); uint8_t *code = dynsection->code; size_t p = 0; code[p++] = 0xb8; // mov rax, 42 code[p++] = 0x2a; code[p++] = 0x00; code[p++] = 0x00; code[p++] = 0x00; code[p++] = 0xc6; // mov byte [rax], 0 -- raises exception!",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.48
+      },
+      {
+        "title": "RtlAddFunctionTable vs RtlAddGrowableFunctionTable? - NTDEV",
+        "url": "https://community.osr.com/t/rtladdfunctiontable-vs-rtladdgrowablefunctiontable/51512",
+        "snippet": "For dynamically generated code that requires stack unwinding using RtlVirtualUnwind, we need to call a function RtlAddFunctionTable.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "RtlAddFunctionTable function (winnt.h) - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtladdfunctiontable",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. # RtlAddFunctionTable function (winnt.h). Adds a dynamic function table to the dynamic function table list. A pointer to an array of function entries. For a definition of the **PRUNTIME\\_FUNCTION** type, see WinNT.h. For more information on runtime function entries, see the calling convention documentation for the processor. The base address to use when computing full virtual addresses from relative virtual addresses of function table entries. If the function succeeds, the return value is **TRUE**. However, applications must provide the function table for dynamically generated code. For more information about function tables, see the architecture guide for your system. This function is useful for code that is generated from a template or generated only once during the life of the process. For more dynamically generated code, use the RtlInstallFunctionTableCallback function. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "What is the difference between RtlAddFunctionTable and ...",
+        "url": "https://stackoverflow.com/questions/78565505/what-is-the-difference-between-rtladdfunctiontable-and-rtlinsertinvertedfunction",
+        "snippet": "The RtlAddFunctionTable is used to dynamically install a funciton table in order to handle SEH exceptions.I have used it on custom loader",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.72
+      },
+      {
+        "title": "Early Exception Handling - GitHub Pages",
+        "url": "https://kr0tt.github.io/posts/early-exception-handling/",
+        "snippet": "KiUserExceptionDispatcher function. This function takes two parameters ... Applied Reverse Engineering: Exceptions and Interrupts · OSDev",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "A journey through KiUserExceptionDispatcher - Maurice's Blog",
+        "url": "https://momo5502.com/posts/2024-09-07-a-journey-through-kiuserexceptiondispatcher/",
+        "snippet": "Upon handling an exception in my emulator, I reserved some big space on the stack, created an `EXCEPTION_RECORD`, stored the CPU state inside a `CONTEXT` and passed both pointers in `rcx` and `rdx` to `KiUserExceptionDispatcher`. So I went back, adjusted my code and built that stack layout: The `CONTEXT`, with a size of `0x4F0` (\\*) first, followed by the `EXCEPTION_RECORD` with a size of `0x98`. The internal exception handling mechanism, within `RtlDispatchException`, is supposed to call all exception handlers and perform the unwinding using the provided `CONTEXT`, starting from the point where the exception happened, until it reaches a point where the exception is handled, namely the handler that prints `Executing handler`. The last 2 codes are especially important: `UWOP_ALLOC_LARGE` and `UWOP_PUSH_MACHFRAME`, as they describe how the stack was setup. That means, if `operation info` (the first value of the `UNWIND_CODE` tuple) is 0, then the next two bytes denote the allocated size devided by 8.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "A deep dive into modern Windows Structured Exception Handler ...",
+        "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+        "snippet": "> Each `RUNTIME_FUNCTION` entry **defines a set of instructions** within the `UnwindData` field that tells it how to handle any exception that occurs between the `BeginAddress` and `EndAddress` address of the program. KiUserExceptionDispatcher` function which would find the appropriate exception handler to handle the exception. | ``` 1 2 3 4 5 6 7  ``` | ``` KiUserExceptionDispatcher// Windows Kernel Internal (KI) API -> RtlDispatchException// main logic for exception handling -> RtlpCallVectoredHandlers// call any VEH -> RtlLookupFunctionEntry// look for valid PRUNTIME_FUNCTION entry in ExceptionDirectory -> RtlpLookupDynamicFunctionEntry// if no valid PRUNTIME_FUNCTION, run any dynamic callbacks -> RtlVirtualUnwind/ RtlpxVirtualUnwind// perform stack frame unwinding -> RtlpExecuteHandlerForException// execute exception handler! This function iterates through the `RUNTIME_FUNCTION` data structures in the Exception Directory and look for an entry such that `BeginAddress` < `Context->Rip` < `EndAddress`. As you have seen, 64-bit SEH handlers are almost always *(by default)* stored in a read-only Exception Directory that is compiled into the program.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Unable to hook ntdll.dll!KiUserExceptionDispatcher function for ...",
+        "url": "https://github.com/frida/frida/issues/2888",
+        "snippet": "## Navigation Menu. # Search code, repositories, users, issues, pull requests... You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. * Notifications  You must be signed in to change notification settings. # Unable to hook ntdll.dll! KiUserExceptionDispatcher function for VMProtected software #2888. Unable to hook ntdll.dll! KiUserExceptionDispatcher function for VMProtected software#2888. ## Description. opened on Jun 22, 2024. latest version of VMProtect (3.8.8) has stronger than previous .Scyllahide , hyperhide, sharpOD doesnt hide debugger detection but fortunately Frida work perfectly means i can simply attach x64dbg without any problem . ## Metadata. ## Metadata. No branches or pull requests. ## Issue actions. You can’t perform that action at this time.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.67
+      },
+      {
+        "title": "C++ Unwind Exception Metadata - Möbius Strip Reverse Engineering",
+        "url": "https://www.msreverseengineering.com/blog/2024/8/20/c-unwind-metadata-1",
+        "snippet": "This blog entry describes an overlooked source of information in C++ programs that can make manual and automated type reconstruction more efficient.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      }
+    ],
+    "grok": []
+  }
+}

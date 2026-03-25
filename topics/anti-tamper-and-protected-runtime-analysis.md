@@ -309,6 +309,7 @@ Includes:
 - reducing a recognizable flattened dispatcher or protected state machine into one durable state edge once one semantic anchor is already good enough
 - separating packed/bootstrap handoff problems from later artifact-consumer or integrity-consequence problems
 - recovering one smaller runtime artifact or initialization obligation when static views stay close-but-wrong
+- preserving a thinner middle object of **runtime-installed range ownership truth** in Windows exception-owned cases, so dispatcher landing and later resume truth are not forced to carry all of the explanation when dynamic function tables or callback-owned unwind regions are what actually make ownership coherent
 
 ### 4. Domain-specific protected environments
 Includes:
