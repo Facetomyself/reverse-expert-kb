@@ -176,7 +176,9 @@ For IOCP-shaped cases, preserve one narrower stop rule immediately:
 - treat **completion key** and **`OVERLAPPED*`** as different ownership carriers
 - the completion key often reduces the queue family or handle family
 - the `OVERLAPPED*` often leads back to the concrete embedded request/session owner
+- separate **posted control-packet truth** from **real I/O-owned packet truth** before claiming request/session ownership; Microsoft’s `PostQueuedCompletionStatus` contract explicitly says the system does not validate the returned values and that `lpOverlapped` need not point to a real `OVERLAPPED`
 - do not stop at “this worker dequeued the packet” until one of those carriers predicts one later state edge, retry/degrade branch, or emitted reply more truthfully than queue chronology alone
+- if `GetQueuedCompletionStatus` returns FALSE but `lpOverlapped` is non-NULL, do not flatten that into “no delivery happened”; a failed I/O completion was still dequeued and may still own retry/backoff/degrade behavior
 
 If you cannot identify this reduction, you are probably still reading queue setup rather than behavior.
 
@@ -249,7 +251,8 @@ Best move:
 
 Practical reminder:
 - thread-pool helper wrappers often execute shared cleanup/unpack code before the real callback, so avoid stopping the analysis at the wrapper name alone
-- for `TP_IO` specifically, do not flatten “I created a thread-pool I/O object” into “every overlapped success will produce the callback”: Microsoft’s `CreateThreadpoolIo` contract requires `StartThreadpoolIo`, and when the handle uses `FILE_SKIP_COMPLETION_PORT_ON_SUCCESS`, immediately successful overlapped I/O can skip the callback path and instead require `CancelThreadpoolIo`; if the callback never fires, verify this notification mode before claiming the consumer is dead or unrelated
+- for `TP_IO` specifically, do not flatten “I created a thread-pool I/O object” into callback truth: Microsoft’s `CreateThreadpoolIo` contract requires `StartThreadpoolIo`, and Raymond Chen’s practical model is sharper here — `StartThreadpoolIo` is conceptually **per I/O operation**, not merely once per bound handle
+- when the handle uses `FILE_SKIP_COMPLETION_PORT_ON_SUCCESS`, an immediately successful overlapped operation can skip the callback path and instead require `CancelThreadpoolIo`; if the callback never fires, verify both per-operation `StartThreadpoolIo` discipline and this notification mode before claiming the consumer is dead or unrelated
 
 ### Pattern 3: Service queue with retry/timer/control packets
 Symptoms:
