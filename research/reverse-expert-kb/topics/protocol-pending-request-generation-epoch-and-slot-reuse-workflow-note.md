@@ -194,7 +194,19 @@ For operator purposes, the stronger question is whether the waiter map, pending 
 
 That narrower liveness question is often the bridge from broad async-reply reasoning into one concrete stale-drop or matched-only wakeup branch.
 
-Use all of these source families conservatively as operator analogies, not as a claim that every target implements the same exact field, callback, or queue machinery.
+#### Reminder E: wrapped completion queues often hide a stale-entry stop rule rather than a parser problem
+NVMe-style queue discussions are useful here because they make one operator distinction unusually explicit:
+- a visible completion index can stay stable across wrap
+- the consumer still stops only when the phase-owned entry is no longer current
+- reclaim/doorbell advance then reflects what was actually consumed, not merely what looked index-aligned
+
+For analyst purposes, the practical reduction is:
+- do not stop at “same slot index reached again”
+- freeze one accepted entry before wrap and one later same-index entry after wrap
+- prove where the consumer treats the later same-index record as stale because phase/ownership changed
+- then decide whether the target is really suffering parser mismatch, or simply rejecting stale ownership at the queue-lifetime boundary
+
+Use all of these source families conservatively as operator analogies, not as a claim that every target implements the same exact field, callback, queue, or ring machinery.
 
 ### Step 4: Prove one retire/reuse path, not only one consume path
 Do not stop at the accepted case.

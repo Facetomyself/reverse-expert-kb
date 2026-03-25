@@ -525,6 +525,7 @@ Primary note:
 
 Routing reminder:
 - stay here while the missing proof is specifically the live-vs-stale ownership contract after timeout, cancel, reconnect, wrap, or reuse
+- keep explicit branch memory that queue arrival, callback-path success, and stable slot/index visibility are all weaker than current-owner proof
 - leave this thinner ownership-lifecycle work once one generation/phase/liveness contract is already good enough and the real bottleneck becomes truthful output emission, descriptor trust/reclaim semantics, or evidence packaging
 
 Possible next handoff:
