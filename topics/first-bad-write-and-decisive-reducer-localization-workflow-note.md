@@ -242,7 +242,9 @@ Good next targets:
 
 A practical stop-rule worth making explicit is:
 - once one watched object and one useful write/reducer boundary are already good enough, do **not** keep the case inside generic watchpoint or reverse-debugger exploration by default
-- the next move is usually to prove the first narrower downstream consumer/consequence that makes the boundary operationally meaningful
+- if that boundary already makes the next branch-specific task obvious, stop there and hand off immediately
+- if it still does **not** explain who operationalizes the state, carry the case exactly one more hop to the first narrower downstream consumer/consequence edge that makes the boundary operationally meaningful
+- after that one more hop, prefer the narrower branch-specific consumer/proof question over more generic replay browsing
 
 Representative follow-on questions:
 - which later callback consumer actually uses the reduced mode or state slot?
@@ -361,6 +363,7 @@ Grounding for this page comes from:
 - `sources/runtime-evidence/2026-03-16-causal-write-and-reverse-causality-workflow-notes.md`
 - `sources/runtime-evidence/2026-03-22-first-bad-write-watchpoint-and-time-travel-workflows-notes.md`
 - `sources/runtime-evidence/2026-03-24-first-bad-write-tool-patterns-notes.md`
+- `sources/runtime-evidence/2026-03-25-first-bad-write-vs-first-consumer-notes.md`
 - rr reverse-watchpoint material and rr project guidance
 - Microsoft TTD overview and walkthrough material
 - Binary Ninja debugger/TTD documentation

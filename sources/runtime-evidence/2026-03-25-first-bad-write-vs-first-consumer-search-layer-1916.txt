@@ -1,0 +1,577 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering first bad write stop rule downstream consumer consequence reverse debugging",
+    "rr watchpoint first bad write versus later consumer proof debugging",
+    "WinDbg TTD watchpoint root cause first write versus first use workflow"
+  ],
+  "count": 34,
+  "results": [
+    {
+      "title": "Hardware watchpoints - how do they work? - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/7805782/hardware-watchpoints-how-do-they-work",
+      "snippet": "... watchpoint, and then either resumes or drops to the gdb command prompt accordingly. ... bad write. Share. Share a link to this answer. Copy link",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "Time Travel Debugging - Sample App Walkthrough - Windows drivers",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-walkthrough",
+      "snippet": "0:000> dx @$curprocess.TTD.Events[17].Exception.Position.SeekTo() Setting position: 68:0 @$curprocess.TTD.Events[17].Exception.Position.SeekTo() (16c8.1f28): Break instruction exception - code 80000003 (first/second chance not available) Time Travel Position: 68:0 eax=00000000 ebx=00cf8000 ecx=99da9203 edx=69cf1a6c esi=00191046 edi=00191046 eip=00540020 esp=00effe4c ebp=00520055 iopl=0 nv up ei pl zr na pe nc cs=0023 ss=002b ds=002b es=002b fs=0053 gs=002b efl=00000246 00540020 ?? tt 0 Setting position to the beginning of the trace Setting position: 15:0 (1e5c.710): Break instruction exception - code 80000003 (first/second chance not available) Time Travel Position: 15:0 eax=68e28100 ebx=00000000 ecx=77a266ac edx=69e34afc esi=69e3137c edi=00fa2000 eip=77a266ac esp=00ddf3b8 ebp=00ddf608 iopl=0 nv up ei pl nz na pe nc cs=0023 ss=002b ds=002b es=002b fs=0053 gs=002b efl=00000206 ntdll! tt 0 Setting position to the beginning of the trace Setting position: 15:0 (1e5c.710): Break instruction exception - code 80000003 (first/second chance not available) Time Travel Position: 15:0 eax=68e28100 ebx=00000000 ecx=77a266ac edx=69e34afc esi=69e3137c edi=00fa2000 eip=77a266ac esp=00ddf3b8 ebp=00ddf608 iopl=0 nv up ei pl nz na pe nc cs=0023 ss=002b ds=002b es=002b fs=0053 gs=002b efl=00000206 ntdll!",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "Time Travel Debugging (Windows) - Binary Ninja User Documentation",
+      "url": "https://docs.binary.ninja/guide/debugger/dbgeng-ttd.html",
+      "snippet": "Binary Ninja's TTD integration includes powerful analysis widgets that leverage WinDbg's TTD.Calls and TTD.Memory queries to help you understand program behavior during the recorded trace. The TTD Memory widget allows you to query memory access events from your TTD trace. 1. Click the TTD Memory button in the sidebar (hover over the icons to see its name), type in the address and check the memory access type, and click the `Query Memory Events` button. 2. Select a range of code or data, right-click, then select `Debugger` -> `TTD Memory Access`, and choose the specific memory access type you are interested in (Read, Write, Execute, or combinations). function combinations instead of wildcards like `*!*` - For TTD Memory: Limit address ranges to the specific regions you need - For memory queries, be especially careful with large address ranges - querying an entire module can be very slow - Use execute access queries for code coverage analysis - Test with small ranges first, then expand as needed.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6318
+    },
+    {
+      "title": "Reverse-singlestep doesn't trigger watchpoints on ARM · Issue #3936 · rr-debugger/rr",
+      "url": "https://github.com/rr-debugger/rr/issues/3936",
+      "snippet": "",
+      "published_date": "2025-03-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "Time Travel Debugging - Sample App Walkthrough - GitHub",
+      "url": "https://github.com/MicrosoftDocs/windows-driver-docs/blob/staging/windows-driver-docs-pr/debuggercmds/time-travel-debugging-walkthrough.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "Assertion failure after deleting watchpoint and continuing #3986",
+      "url": "https://github.com/rr-debugger/rr/issues/3986",
+      "snippet": "",
+      "published_date": "2025-07-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "WinDbg-Samples/TTDQueries/tutorial-instructions.md at master · microsoft/WinDbg-Samples",
+      "url": "https://github.com/microsoft/WinDbg-Samples/blob/master/TTDQueries/tutorial-instructions.md",
+      "snippet": "",
+      "published_date": "2018-10-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Reverse Engineering as a Debugging Mindset - DEV Community",
+      "url": "https://dev.to/volt1480/reverse-engineering-as-a-debugging-mindset-1b88",
+      "snippet": "",
+      "published_date": "2026-01-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5818
+    },
+    {
+      "title": "Reverse Engineering Anti-Debugging Techniques (with Nathan ...",
+      "url": "https://www.reddit.com/r/ReverseEngineering/comments/1lsw27i/reverse_engineering_antidebugging_techniques_with/",
+      "snippet": "I felt like I was doing something wrong when I was RE a game or two, then he started off with looking for strings and debugging off of a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5818
+    },
+    {
+      "title": "Reverse debugging at scale",
+      "url": "https://engineering.fb.com/2021/04/27/developer-tools/reverse-debugging",
+      "snippet": "",
+      "published_date": "2021-04-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5545
+    },
+    {
+      "title": "rr: lightweight recording & deterministic debugging - Reddit",
+      "url": "https://www.reddit.com/r/programming/comments/219d1n/rr_lightweight_recording_deterministic_debugging/",
+      "snippet": "This rr debugger is to record those nondeterministic behavors of your program and then to debug it deterministically.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5273
+    },
+    {
+      "title": "Time Travel Debugging - Hacker News",
+      "url": "https://news.ycombinator.com/item?id=15423816",
+      "snippet": "My question is: if I want to start taking a TTD trace after hitting a particular breakpoint in WinDbg, can this be done with the current tooling",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5273
+    },
+    {
+      "title": "Debugging: The Power of Reverse Engineering | by Quest Henkart",
+      "url": "https://questhenkart.medium.com/debugging-the-power-of-reverse-engineering-d659214da3a",
+      "snippet": "We have to reverse engineer it to the point where we can actually think like the machine that is interpreting our data. Some developers will",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4818
+    },
+    {
+      "title": "REPT: reverse debugging of failures in deployed software",
+      "url": "https://blog.acolyer.org/2018/10/17/rept-reverse-debugging-of-failures-in-deployed-software/",
+      "snippet": "",
+      "published_date": "2018-10-17T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4545
+    },
+    {
+      "title": "J. McNellis, J. Mola, K. Sykes “Time Travel Debugging...” - YouTube",
+      "url": "https://www.youtube.com/watch?v=l1YJTg_A914",
+      "snippet": "CppCon 2017: J. McNellis, J. Mola, K. Sykes “Time Travel Debugging...”\nCppCon\n179000 subscribers\n237 likes\n20945 views\n6 Oct 2017\nTime Travel Debugging: Root Causing Bugs in Commercial Scale Software\n\nhttp://CppCon.org\n—\nPresentation Slides, PDFs, Source Code and other presenter materials are available at: https://github.com/CppCon/CppCon2017\n—\nWe’ve all heard horror stories about bugs that were near-impossible to root-cause, and many of us have at least a few stories of our own. Corrupted or uninitialized memory. Resource leaks. API misuse and race conditions. Occasional and inconsistent crashes where all you have to go on are a series of unhelpful crash dumps. These kinds of problems are often time-consuming and tedious to debug, and can be both draining and infuriating.\n\nTime Travel Debugging (TTD) is a reverse debugging toolkit for Windows that makes debugging these kinds of problems far easier, in both small programs and commercial-scale software like Windows and Office.  It's been an invaluable debugging tool for software developers and escalation engineers within Microsoft for many years.  We’ve spent the last couple of years improving performance, scalability, and usability, and are excited to finally be able to release a public preview of Time Travel Debugging.\n\nIn this interactive and hands-on session, we'll show you how to download and make use of our first public preview of Time Travel Debugging, demonstrate how to use TTD, and walk through the root cause analysis of some typically difficult-to-solve bugs like memory corruption, API misuse, and race conditions.\n— \nJames McNellis: Microsoft, Senior Software Engineer\n\nJames is a senior engineer on the Windows Debugger team at Microsoft, where he works on the Time Travel Debugging (TTD) reverse debugging toolkit. Prior to joining the Debuggers team in 2016, he was a member of the Visual C++ team, where he was responsible for the Microsoft C Runtime (CRT) and C Standard Library implementation. Passionate about all things related to C++, he is a frequent speaker at C++ conferences around the world and is a former top contributor on StackOverflow. He can be found on Twitter at @JamesMcNellis.\n\nJordi Mola: Mircosoft Corp., Principal Software Eng Lead\n\nJordi is a Principal Software Engineer Lead at Microsoft Corporation that has a passion for engineering productivity and efficiency. Except for a couple of years working on the Windows 8 copy UI, Jordi has spent his entire Microsoft career working on productivity tools, many of which are still internal to Microsoft. One of Jordi’s goals when he joined the debugger team a few years ago was to simplify the debugging of C / C++ and several of the tough problems that come with systems level programming. That simplifying goal has been a key driver for Jordi to lead and architect the Time Travel Debugging space within Microsoft over the last few years.\n\nKen Sykes: Microsoft, Principal Software Development Engineer\n\nKen is a Principal Software Developer at Microsoft Corporation and has worked on every consumer version of Windows since Windows 3.0. He recently joined the Windows Debugger team to help developers everywhere become more productive and maybe even make debugging a little bit fun! The C++11 standard finally convinced Ken that C++ was good for more than implementing COM classes and started a journey into TMP, compile-time polymorphism and CppCon conferences.\n—\nVideos Filmed & Edited by Bash Films: http://www.BashFilms.com \n\nWork at Hudson River Trading (HRT): https://tinyurl.com/safxfctf\n---\n\nVideos Filmed & Edited by Bash Films: http://www.BashFilms.com\n10 comments\n",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4364
+    },
+    {
+      "title": "Mastering Xcode Watchpoints: Advanced Debugging Technique",
+      "url": "https://medium.com/@iosdev.priyank/mastering-xcode-watchpoints-advanced-debugging-technique-fd935f7bfa39",
+      "snippet": "Watchpoints are a powerful tool in Xcode for tracking down bugs related to variable modifications. By setting watchpoints, you can pause the execution of your",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4273
+    },
+    {
+      "title": "How We Can Use WinDBG Time Travel Debugging For Our Advantage",
+      "url": "https://medium.com/@asrafniv5/how-we-can-use-windbg-time-travel-debugging-for-our-advantage-5012c941e644",
+      "snippet": "",
+      "published_date": "2024-05-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4273
+    },
+    {
+      "title": "Have you ever tried reverse engineering a complex problem in order ...",
+      "url": "https://www.quora.com/Have-you-ever-tried-reverse-engineering-a-complex-problem-in-order-to-understand-how-it-works",
+      "snippet": "Has anyone tried reverse engineering a web application, if so is this a good/bad way to learn? Profile photo for Quora User.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "IWM reverse engineering | Applefritter",
+      "url": "https://www.applefritter.com/content/iwm-reverse-engineering",
+      "snippet": "If I put in RDDATA pulses at FCLK = 45 and 57, then the expected two \"1\" bits will be seen in the IWM data output byte (which may not be the state of the read shift register at that same instant of time) at FCLK = 67 and 79. Some test modes may be entered by supervoltages, others by input patterns which never occur in the real application (i.e. asserting read and write signals at the same time - IWM does not have such signals, but the RDDATA patterns leading to the weird behavior are not normal Apple II GCR and should not occur in the application, as long as a real floppy disk drive is used.). The current state of the work is that I have RTL models which run in lockstep with the real IWM in all modes for many millions of FCLK cycles with no flaw, including the exact behaviour of the Rev B 'read window'.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Introduction to Reverse Engineering and Debugging - YouTube",
+      "url": "https://www.youtube.com/watch?v=pgkAmgwIU_4",
+      "snippet": "Introduction to Reverse Engineering and Debugging\nOff By One Security\n34900 subscribers\n433 likes\n10044 views\n19 Jan 2024\nIn this stream, we'll start at the beginning, covering topics such as:\r\n\r\n- Assembly syntax - ATT and Intel\r\n- Debuggers and Debugging\r\n- Disassembling \r\n- Decompilers\r\n- Symbols\r\n- Linking & Loading\n\nThe goal is to help those who do not have experience in reversing and debugging to get started with the basics. This isn't a course, but rather an interactive (as it was live streamed) session to look at how things flow.\n\nJoin the Off By One Security Discord server: https://discord.gg/offbyonesecurity\n28 comments\n",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3618
+    },
+    {
+      "title": "What is Reverse Debugging and Why Do We Need It? - Undo.io",
+      "url": "https://undo.io/resources/reverse-debugging-whitepaper/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "REPT: Reverse Debugging of Failures in Deployed Software | Random Notes",
+      "url": "https://xzhu0027.gitbook.io/blog/fault-tolerance/index/rept-reverse-debugging-of-failures-in-deployed-software",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "Support rr reverse-debugging : CPP-8356 - JetBrains YouTrack",
+      "url": "https://youtrack.jetbrains.com/projects/CPP/issues/CPP-8356/Support-rr-reverse-debugging",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "Time travel debugging with rr debugger - Undo.io",
+      "url": "https://undo.io/resources/gdb-watchpoint/time-travel-debugging-rr-debugger/",
+      "snippet": "What rr does is to record in memory and on the disk the various states of program execution (for example, everything before `main()` is called, or when the different variables are set) while the program is running. Now that we’ve recorded our program, we can look at the replay in rr (again here using `sudo`). If we press “Enter” repeatedly, rr runs our most recent command (`reverse-next`) and we can get all the way back to the start of our main function, at which point we can use `next` to resume the execution normally; we can see that the output is the same as last time we ran through the program. The real value in rr and time travel debugging in general is the ability to rerun the same exact execution of a program, inspect it forward and backward, and even share the replays with your colleagues so they can help debug the particular run of the program.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "The Chromium Chronicle #13: Time-Travel Debugging with RR | Blog",
+      "url": "https://developer.chrome.com/blog/chromium-chronicle-13",
+      "snippet": "Do you find yourself running the same test over and over in the debugger, trying to figure out how the code got in a bad state?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "[PDF] Behave or Be Watched: Debugging with Behavioral Watchpoints",
+      "url": "https://www.eecg.utoronto.ca/~ashvin/publications/debugging-with-behavioral-watchpoints.pdf",
+      "snippet": "However, unlike previous approaches that are limited by their view of memory as an opaque sequence of bytes, behavioral watchpoints embed context-speciﬁc infor-mation in each watchpoint, and this information is available when a watched address is accessed. We use Granary to wrap the kernel’s memory allocators (e.g., kmalloc) and add watchpoints to the addresses returned by those allocators, as shown in Figure 2. The leak detector beneﬁts from using watchpoints in three ways: i) watched addresses are easily disambiguated from normal memory addresses and integers that look like watched addresses; ii) descriptors provide meta-information that al-lows our system to limit the scope of scanning; and iii) scan-ning can stop if all watched objects are reached.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "How to Find and Fix Bugs in Commercial Software on Windows",
+      "url": "https://www.dashlane.com/blog/how-to-find-fix-bugs-in-commercial-software",
+      "snippet": "TTD is a reverse debugging solution. It consists of 3 steps: Record the app or process on the machine that can reproduce the bug. Use WinDbg",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "Accelerating Malware Analysis with WinDbg Time Travel Debugging ...",
+      "url": "https://infocon.org/cons/DEF%20CON/DEF%20CON%2033/DEF%20CON%2033%20workshops/DEF%20CON%2033%20-%20Workshops%20-%20Joshua%20_jstrosch_%20Stroschein%20-%20Accelerating%20Malware%20Analysis%20with%20WinDbg%20Time%20Travel%20Debugging%20-%20Slides.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "Microsoft WinDbg Time Travel Debugging versus Intel Processor Trace",
+      "url": "https://whiteknightlabs.com/2025/10/14/microsoft-windbg-ttd-versus-intel-pt/",
+      "snippet": "",
+      "published_date": "2025-10-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "The Retry Storm That Took Down Our Backend: A Forensic Analysis of Cascading Failures | Refactor | Code Quality, Best Practices & Software Career",
+      "url": "https://www.refactor.website/site-reliability-engineering/retry-storm-backend-failure-forensic-analysis",
+      "snippet": "",
+      "published_date": "2026-01-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "How To Track Down Divergence Bugs In rr",
+      "url": "https://robert.ocallahan.org/2016/06/how-to-track-down-divergence-bugs-in-rr.html",
+      "snippet": "",
+      "published_date": "2016-06-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Can't use a reversible debugger? Try these GDB commands.",
+      "url": "https://undo.io/resources/gdb-watchpoint/gdb-commands-reverse-debugging/",
+      "snippet": "",
+      "published_date": "2023-01-17T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "How to debug C and C++ programs with rr",
+      "url": "https://developers.redhat.com/blog/2021/05/03/instant-replay-debugging-c-and-c-programs-with-rr",
+      "snippet": "",
+      "published_date": "2021-05-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "WinDbg Time Travelling Debugger is Amazing Magic",
+      "url": "https://www.forrestthewoods.com/blog/windbg-time-travelling-debugger-is-amazing-magic/",
+      "snippet": "",
+      "published_date": "2024-05-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Reverse Engineering as a Debugging Mindset - DEV Community",
+        "url": "https://dev.to/volt1480/reverse-engineering-as-a-debugging-mindset-1b88",
+        "snippet": "",
+        "published_date": "2026-01-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5818
+      },
+      {
+        "title": "The Retry Storm That Took Down Our Backend: A Forensic Analysis of Cascading Failures | Refactor | Code Quality, Best Practices & Software Career",
+        "url": "https://www.refactor.website/site-reliability-engineering/retry-storm-backend-failure-forensic-analysis",
+        "snippet": "",
+        "published_date": "2026-01-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "What is Reverse Debugging and Why Do We Need It? - Undo.io",
+        "url": "https://undo.io/resources/reverse-debugging-whitepaper/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "REPT: Reverse Debugging of Failures in Deployed Software | Random Notes",
+        "url": "https://xzhu0027.gitbook.io/blog/fault-tolerance/index/rept-reverse-debugging-of-failures-in-deployed-software",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "REPT: reverse debugging of failures in deployed software",
+        "url": "https://blog.acolyer.org/2018/10/17/rept-reverse-debugging-of-failures-in-deployed-software/",
+        "snippet": "",
+        "published_date": "2018-10-17T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4545
+      },
+      {
+        "title": "Reverse debugging at scale",
+        "url": "https://engineering.fb.com/2021/04/27/developer-tools/reverse-debugging",
+        "snippet": "",
+        "published_date": "2021-04-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5545
+      },
+      {
+        "title": "Assertion failure after deleting watchpoint and continuing #3986",
+        "url": "https://github.com/rr-debugger/rr/issues/3986",
+        "snippet": "",
+        "published_date": "2025-07-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Reverse-singlestep doesn't trigger watchpoints on ARM · Issue #3936 · rr-debugger/rr",
+        "url": "https://github.com/rr-debugger/rr/issues/3936",
+        "snippet": "",
+        "published_date": "2025-03-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "How To Track Down Divergence Bugs In rr",
+        "url": "https://robert.ocallahan.org/2016/06/how-to-track-down-divergence-bugs-in-rr.html",
+        "snippet": "",
+        "published_date": "2016-06-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Support rr reverse-debugging : CPP-8356 - JetBrains YouTrack",
+        "url": "https://youtrack.jetbrains.com/projects/CPP/issues/CPP-8356/Support-rr-reverse-debugging",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "Can't use a reversible debugger? Try these GDB commands.",
+        "url": "https://undo.io/resources/gdb-watchpoint/gdb-commands-reverse-debugging/",
+        "snippet": "",
+        "published_date": "2023-01-17T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "How to debug C and C++ programs with rr",
+        "url": "https://developers.redhat.com/blog/2021/05/03/instant-replay-debugging-c-and-c-programs-with-rr",
+        "snippet": "",
+        "published_date": "2021-05-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Time Travel Debugging - Sample App Walkthrough - GitHub",
+        "url": "https://github.com/MicrosoftDocs/windows-driver-docs/blob/staging/windows-driver-docs-pr/debuggercmds/time-travel-debugging-walkthrough.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "How We Can Use WinDBG Time Travel Debugging For Our Advantage",
+        "url": "https://medium.com/@asrafniv5/how-we-can-use-windbg-time-travel-debugging-for-our-advantage-5012c941e644",
+        "snippet": "",
+        "published_date": "2024-05-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4273
+      },
+      {
+        "title": "WinDbg Time Travelling Debugger is Amazing Magic",
+        "url": "https://www.forrestthewoods.com/blog/windbg-time-travelling-debugger-is-amazing-magic/",
+        "snippet": "",
+        "published_date": "2024-05-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Accelerating Malware Analysis with WinDbg Time Travel Debugging ...",
+        "url": "https://infocon.org/cons/DEF%20CON/DEF%20CON%2033/DEF%20CON%2033%20workshops/DEF%20CON%2033%20-%20Workshops%20-%20Joshua%20_jstrosch_%20Stroschein%20-%20Accelerating%20Malware%20Analysis%20with%20WinDbg%20Time%20Travel%20Debugging%20-%20Slides.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3273
+      },
+      {
+        "title": "WinDbg-Samples/TTDQueries/tutorial-instructions.md at master · microsoft/WinDbg-Samples",
+        "url": "https://github.com/microsoft/WinDbg-Samples/blob/master/TTDQueries/tutorial-instructions.md",
+        "snippet": "",
+        "published_date": "2018-10-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Microsoft WinDbg Time Travel Debugging versus Intel Processor Trace",
+        "url": "https://whiteknightlabs.com/2025/10/14/microsoft-windbg-ttd-versus-intel-pt/",
+        "snippet": "",
+        "published_date": "2025-10-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      }
+    ],
+    "tavily": [
+      {
+        "title": "What is Reverse Debugging and Why Do We Need It? - Undo.io",
+        "url": "https://undo.io/resources/reverse-debugging-whitepaper/",
+        "snippet": "With a time travel debugger, a developer can simply put a watchpoint on the variable that contains bad data, and run backwards to go straight to the line of code that most recently modified it. Time travel debugging can also help developers become familiar with legacy code or code they did not write themselves, but which they now have to work with. By running a time travel debugger until the intermittent bug strikes, developers can then step backward from the point of failure line by line until the bug itself is found. Rather than having to continually re-run the program, reverse debugging allows developers to go back in time before the list was corrupted and use a binary search to quickly find out when the list got corrupted. It takes the guesswork out of debugging by allowing developers to step or run their program backward as well as forward in time. Reverse debugging (also called time travel debugging) provides a viable, cost-effective way of locating bugs as developers can now record, rewind and replay their code.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Reverse Engineering Anti-Debugging Techniques (with Nathan ...",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/1lsw27i/reverse_engineering_antidebugging_techniques_with/",
+        "snippet": "I felt like I was doing something wrong when I was RE a game or two, then he started off with looking for strings and debugging off of a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5818
+      },
+      {
+        "title": "Debugging: The Power of Reverse Engineering | by Quest Henkart",
+        "url": "https://questhenkart.medium.com/debugging-the-power-of-reverse-engineering-d659214da3a",
+        "snippet": "We have to reverse engineer it to the point where we can actually think like the machine that is interpreting our data. Some developers will",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4818
+      },
+      {
+        "title": "Introduction to Reverse Engineering and Debugging - YouTube",
+        "url": "https://www.youtube.com/watch?v=pgkAmgwIU_4",
+        "snippet": "Introduction to Reverse Engineering and Debugging\nOff By One Security\n34900 subscribers\n433 likes\n10044 views\n19 Jan 2024\nIn this stream, we'll start at the beginning, covering topics such as:\r\n\r\n- Assembly syntax - ATT and Intel\r\n- Debuggers and Debugging\r\n- Disassembling \r\n- Decompilers\r\n- Symbols\r\n- Linking & Loading\n\nThe goal is to help those who do not have experience in reversing and debugging to get started with the basics. This isn't a course, but rather an interactive (as it was live streamed) session to look at how things flow.\n\nJoin the Off By One Security Discord server: https://discord.gg/offbyonesecurity\n28 comments\n",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3618
+      },
+      {
+        "title": "Have you ever tried reverse engineering a complex problem in order ...",
+        "url": "https://www.quora.com/Have-you-ever-tried-reverse-engineering-a-complex-problem-in-order-to-understand-how-it-works",
+        "snippet": "Has anyone tried reverse engineering a web application, if so is this a good/bad way to learn? Profile photo for Quora User.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "IWM reverse engineering | Applefritter",
+        "url": "https://www.applefritter.com/content/iwm-reverse-engineering",
+        "snippet": "If I put in RDDATA pulses at FCLK = 45 and 57, then the expected two \"1\" bits will be seen in the IWM data output byte (which may not be the state of the read shift register at that same instant of time) at FCLK = 67 and 79. Some test modes may be entered by supervoltages, others by input patterns which never occur in the real application (i.e. asserting read and write signals at the same time - IWM does not have such signals, but the RDDATA patterns leading to the weird behavior are not normal Apple II GCR and should not occur in the application, as long as a real floppy disk drive is used.). The current state of the work is that I have RTL models which run in lockstep with the real IWM in all modes for many millions of FCLK cycles with no flaw, including the exact behaviour of the Rev B 'read window'.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Time travel debugging with rr debugger - Undo.io",
+        "url": "https://undo.io/resources/gdb-watchpoint/time-travel-debugging-rr-debugger/",
+        "snippet": "What rr does is to record in memory and on the disk the various states of program execution (for example, everything before `main()` is called, or when the different variables are set) while the program is running. Now that we’ve recorded our program, we can look at the replay in rr (again here using `sudo`). If we press “Enter” repeatedly, rr runs our most recent command (`reverse-next`) and we can get all the way back to the start of our main function, at which point we can use `next` to resume the execution normally; we can see that the output is the same as last time we ran through the program. The real value in rr and time travel debugging in general is the ability to rerun the same exact execution of a program, inspect it forward and backward, and even share the replays with your colleagues so they can help debug the particular run of the program.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "Hardware watchpoints - how do they work? - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/7805782/hardware-watchpoints-how-do-they-work",
+        "snippet": "... watchpoint, and then either resumes or drops to the gdb command prompt accordingly. ... bad write. Share. Share a link to this answer. Copy link",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "The Chromium Chronicle #13: Time-Travel Debugging with RR | Blog",
+        "url": "https://developer.chrome.com/blog/chromium-chronicle-13",
+        "snippet": "Do you find yourself running the same test over and over in the debugger, trying to figure out how the code got in a bad state?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "[PDF] Behave or Be Watched: Debugging with Behavioral Watchpoints",
+        "url": "https://www.eecg.utoronto.ca/~ashvin/publications/debugging-with-behavioral-watchpoints.pdf",
+        "snippet": "However, unlike previous approaches that are limited by their view of memory as an opaque sequence of bytes, behavioral watchpoints embed context-speciﬁc infor-mation in each watchpoint, and this information is available when a watched address is accessed. We use Granary to wrap the kernel’s memory allocators (e.g., kmalloc) and add watchpoints to the addresses returned by those allocators, as shown in Figure 2. The leak detector beneﬁts from using watchpoints in three ways: i) watched addresses are easily disambiguated from normal memory addresses and integers that look like watched addresses; ii) descriptors provide meta-information that al-lows our system to limit the scope of scanning; and iii) scan-ning can stop if all watched objects are reached.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "rr: lightweight recording & deterministic debugging - Reddit",
+        "url": "https://www.reddit.com/r/programming/comments/219d1n/rr_lightweight_recording_deterministic_debugging/",
+        "snippet": "This rr debugger is to record those nondeterministic behavors of your program and then to debug it deterministically.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5273
+      },
+      {
+        "title": "Mastering Xcode Watchpoints: Advanced Debugging Technique",
+        "url": "https://medium.com/@iosdev.priyank/mastering-xcode-watchpoints-advanced-debugging-technique-fd935f7bfa39",
+        "snippet": "Watchpoints are a powerful tool in Xcode for tracking down bugs related to variable modifications. By setting watchpoints, you can pause the execution of your",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4273
+      },
+      {
+        "title": "J. McNellis, J. Mola, K. Sykes “Time Travel Debugging...” - YouTube",
+        "url": "https://www.youtube.com/watch?v=l1YJTg_A914",
+        "snippet": "CppCon 2017: J. McNellis, J. Mola, K. Sykes “Time Travel Debugging...”\nCppCon\n179000 subscribers\n237 likes\n20945 views\n6 Oct 2017\nTime Travel Debugging: Root Causing Bugs in Commercial Scale Software\n\nhttp://CppCon.org\n—\nPresentation Slides, PDFs, Source Code and other presenter materials are available at: https://github.com/CppCon/CppCon2017\n—\nWe’ve all heard horror stories about bugs that were near-impossible to root-cause, and many of us have at least a few stories of our own. Corrupted or uninitialized memory. Resource leaks. API misuse and race conditions. Occasional and inconsistent crashes where all you have to go on are a series of unhelpful crash dumps. These kinds of problems are often time-consuming and tedious to debug, and can be both draining and infuriating.\n\nTime Travel Debugging (TTD) is a reverse debugging toolkit for Windows that makes debugging these kinds of problems far easier, in both small programs and commercial-scale software like Windows and Office.  It's been an invaluable debugging tool for software developers and escalation engineers within Microsoft for many years.  We’ve spent the last couple of years improving performance, scalability, and usability, and are excited to finally be able to release a public preview of Time Travel Debugging.\n\nIn this interactive and hands-on session, we'll show you how to download and make use of our first public preview of Time Travel Debugging, demonstrate how to use TTD, and walk through the root cause analysis of some typically difficult-to-solve bugs like memory corruption, API misuse, and race conditions.\n— \nJames McNellis: Microsoft, Senior Software Engineer\n\nJames is a senior engineer on the Windows Debugger team at Microsoft, where he works on the Time Travel Debugging (TTD) reverse debugging toolkit. Prior to joining the Debuggers team in 2016, he was a member of the Visual C++ team, where he was responsible for the Microsoft C Runtime (CRT) and C Standard Library implementation. Passionate about all things related to C++, he is a frequent speaker at C++ conferences around the world and is a former top contributor on StackOverflow. He can be found on Twitter at @JamesMcNellis.\n\nJordi Mola: Mircosoft Corp., Principal Software Eng Lead\n\nJordi is a Principal Software Engineer Lead at Microsoft Corporation that has a passion for engineering productivity and efficiency. Except for a couple of years working on the Windows 8 copy UI, Jordi has spent his entire Microsoft career working on productivity tools, many of which are still internal to Microsoft. One of Jordi’s goals when he joined the debugger team a few years ago was to simplify the debugging of C / C++ and several of the tough problems that come with systems level programming. That simplifying goal has been a key driver for Jordi to lead and architect the Time Travel Debugging space within Microsoft over the last few years.\n\nKen Sykes: Microsoft, Principal Software Development Engineer\n\nKen is a Principal Software Developer at Microsoft Corporation and has worked on every consumer version of Windows since Windows 3.0. He recently joined the Windows Debugger team to help developers everywhere become more productive and maybe even make debugging a little bit fun! The C++11 standard finally convinced Ken that C++ was good for more than implementing COM classes and started a journey into TMP, compile-time polymorphism and CppCon conferences.\n—\nVideos Filmed & Edited by Bash Films: http://www.BashFilms.com \n\nWork at Hudson River Trading (HRT): https://tinyurl.com/safxfctf\n---\n\nVideos Filmed & Edited by Bash Films: http://www.BashFilms.com\n10 comments\n",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4364
+      },
+      {
+        "title": "Time Travel Debugging - Sample App Walkthrough - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-walkthrough",
+        "snippet": "0:000> dx @$curprocess.TTD.Events[17].Exception.Position.SeekTo() Setting position: 68:0 @$curprocess.TTD.Events[17].Exception.Position.SeekTo() (16c8.1f28): Break instruction exception - code 80000003 (first/second chance not available) Time Travel Position: 68:0 eax=00000000 ebx=00cf8000 ecx=99da9203 edx=69cf1a6c esi=00191046 edi=00191046 eip=00540020 esp=00effe4c ebp=00520055 iopl=0 nv up ei pl zr na pe nc cs=0023 ss=002b ds=002b es=002b fs=0053 gs=002b efl=00000246 00540020 ?? tt 0 Setting position to the beginning of the trace Setting position: 15:0 (1e5c.710): Break instruction exception - code 80000003 (first/second chance not available) Time Travel Position: 15:0 eax=68e28100 ebx=00000000 ecx=77a266ac edx=69e34afc esi=69e3137c edi=00fa2000 eip=77a266ac esp=00ddf3b8 ebp=00ddf608 iopl=0 nv up ei pl nz na pe nc cs=0023 ss=002b ds=002b es=002b fs=0053 gs=002b efl=00000206 ntdll! tt 0 Setting position to the beginning of the trace Setting position: 15:0 (1e5c.710): Break instruction exception - code 80000003 (first/second chance not available) Time Travel Position: 15:0 eax=68e28100 ebx=00000000 ecx=77a266ac edx=69e34afc esi=69e3137c edi=00fa2000 eip=77a266ac esp=00ddf3b8 ebp=00ddf608 iopl=0 nv up ei pl nz na pe nc cs=0023 ss=002b ds=002b es=002b fs=0053 gs=002b efl=00000206 ntdll!",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "How to Find and Fix Bugs in Commercial Software on Windows",
+        "url": "https://www.dashlane.com/blog/how-to-find-fix-bugs-in-commercial-software",
+        "snippet": "TTD is a reverse debugging solution. It consists of 3 steps: Record the app or process on the machine that can reproduce the bug. Use WinDbg",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "Time Travel Debugging (Windows) - Binary Ninja User Documentation",
+        "url": "https://docs.binary.ninja/guide/debugger/dbgeng-ttd.html",
+        "snippet": "Binary Ninja's TTD integration includes powerful analysis widgets that leverage WinDbg's TTD.Calls and TTD.Memory queries to help you understand program behavior during the recorded trace. The TTD Memory widget allows you to query memory access events from your TTD trace. 1. Click the TTD Memory button in the sidebar (hover over the icons to see its name), type in the address and check the memory access type, and click the `Query Memory Events` button. 2. Select a range of code or data, right-click, then select `Debugger` -> `TTD Memory Access`, and choose the specific memory access type you are interested in (Read, Write, Execute, or combinations). function combinations instead of wildcards like `*!*` - For TTD Memory: Limit address ranges to the specific regions you need - For memory queries, be especially careful with large address ranges - querying an entire module can be very slow - Use execute access queries for code coverage analysis - Test with small ranges first, then expand as needed.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6318
+      },
+      {
+        "title": "Accelerating Malware Analysis with WinDbg Time Travel Debugging ...",
+        "url": "https://infocon.org/cons/DEF%20CON/DEF%20CON%2033/DEF%20CON%2033%20workshops/DEF%20CON%2033%20-%20Workshops%20-%20Joshua%20_jstrosch_%20Stroschein%20-%20Accelerating%20Malware%20Analysis%20with%20WinDbg%20Time%20Travel%20Debugging%20-%20Slides.pdf",
+        "snippet": "Navigate to File > Launch executable (advanced). ○ Fill in the executable path, arguments, and the start directory. ○ Select the Record with Time Travel",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Time Travel Debugging - Hacker News",
+        "url": "https://news.ycombinator.com/item?id=15423816",
+        "snippet": "My question is: if I want to start taking a TTD trace after hitting a particular breakpoint in WinDbg, can this be done with the current tooling",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5273
+      }
+    ],
+    "grok": []
+  }
+}
