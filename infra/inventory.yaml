@@ -5,6 +5,7 @@ hosts:
     role:
       - reverse-proxy-adjacent-utility-host
       - tavily-registration-and-proxy
+      - exafree-registration-service
       - grok-related-services
       - cli-proxy
     public_ip: 158.178.236.241
@@ -25,16 +26,10 @@ hosts:
     public_ip: 129.150.61.78
     domains:
       - backup.zhangxuemin.work
-      - elastic.zhangxuemin.work
-      - gcr.zhangxuemin.work
-      - ghcr.zhangxuemin.work
-      - hubcmd.zhangxuemin.work
       - hub.zhangxuemin.work
-      - k8sgcr.zhangxuemin.work
+      - ghcr.zhangxuemin.work
+      - k8s.zhangxuemin.work
       - mcr.zhangxuemin.work
-      - nvcr.zhangxuemin.work
-      - quay.zhangxuemin.work
-      - ui.zhangxuemin.work
     docs:
       host: infra/hosts/oracle-docker-proxy/HOST.md
       network: infra/hosts/oracle-docker-proxy/NETWORK.md
@@ -52,7 +47,49 @@ hosts:
       - mail.zhangxuemin.work
       - autoconfig.zhangxuemin.work
       - autodiscover.zhangxuemin.work
+      - dreamhorse.eu.cc
+      - www.dreamhorse.eu.cc
+      - zhangxuemin.eu.cc
+      - www.zhangxuemin.eu.cc
+      - mengma.eu.cc
+      - www.mengma.eu.cc
     docs:
       host: infra/hosts/oracle-mail/HOST.md
       network: infra/hosts/oracle-mail/NETWORK.md
       projects: infra/hosts/oracle-mail/PROJECTS.md
+
+  - name: ali-cloud
+    ssh_alias: ali-cloud
+    provider: alibaba
+    role:
+      - 1panel-managed-host
+      - image-hosting
+      - remote-browser-endpoint
+    public_ip: 106.15.239.221
+    domains: []
+    docs:
+      host: infra/hosts/ali-cloud/HOST.md
+      network: infra/hosts/ali-cloud/NETWORK.md
+      projects: infra/hosts/ali-cloud/PROJECTS.md
+
+  - name: oracle-new1
+    ssh_alias: oracle-new1
+    provider: oracle
+    role:
+      - newly-created-oracle-instance
+      - ubuntu-arm-host
+    public_ip: 140.245.33.114
+    domains: []
+    docs:
+      host: infra/hosts/oracle-new1/HOST.md
+
+  - name: oracle-new2
+    ssh_alias: oracle-new2
+    provider: oracle
+    role:
+      - newly-created-oracle-instance
+      - ubuntu-arm-host
+    public_ip: 140.245.61.236
+    domains: []
+    docs:
+      host: infra/hosts/oracle-new2/HOST.md

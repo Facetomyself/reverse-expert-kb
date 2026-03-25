@@ -17,6 +17,7 @@ hosts:
       - proxy.zhangxuemin.work is the primary documented domain
       - ExaFree is running on host port 7860 with host-side cron automation for approximate 3-hour / 5-account registration batches
       - Tavily proxy remains operational, but Tavily registration automation is intentionally paused as of 2026-03-19 to avoid repeated auto-attempts while upstream risk controls are active
+      - 2026-03-25 recurring check: host remained reachable and service posture looked stable, but root filesystem usage climbed to 87% (~6.1G free), making disk growth the main watch item
 
   - name: oracle-docker-proxy
     provider: oracle
@@ -32,7 +33,8 @@ hosts:
       - caddy-front-door
     notes:
       - host is reachable and stable but remains a small-footprint box with low free RAM and some swap use
-      - as of 2026-03-16 only hub/ghcr/k8s/mcr backends were confirmed up; several other Caddy-mapped routes currently terminate in 502 due to inactive local backends
+      - as of 2026-03-21 runtime is intentionally reduced to hub/ghcr/k8s/mcr only; `registry-ui`, `hubcmd-ui`, `gcr`, `k8sgcr`, `quay`, `elastic`, and `nvcr` backends are absent from Docker runtime
+      - on 2026-03-21 `/etc/caddy/Caddyfile` was cleaned to remove stale routes for those removed backends; active front-door routes now match the reduced runtime set
       - Harbor files exist but Harbor runtime is inactive
 
   - name: ali-cloud
@@ -51,6 +53,8 @@ hosts:
       - camoufox websocket endpoint on 39222
       - current camoufox exposure is plain ws://<host>:39222/camoufox with no documented TLS/auth proxy in front
       - host has legacy /usr/bin/docker-compose, not docker compose v2 plugin
+      - 2026-03-21: host briefly became SSH-unreachable before manual reboot; current working cause is prior-boot low-memory collapse rather than disk exhaustion or SSH config drift
+      - 2026-03-21 mitigation: 2 GiB `/swapfile`, `vm.swappiness=10`, `camoufox-remote` limited to 768 MiB RAM / 1536 MiB memory+swap, leftover `camoufox-test` removed
 
   - name: oracle-mail
     provider: oracle
@@ -64,7 +68,8 @@ hosts:
       - outlook-email-plus
       - archived-mail-stack-footprints
     notes:
-      - `mail.zhangxuemin.work` now serves the Outlook Email Plus web app via Docker Compose + Caddy
+      - `mail.zhangxuemin.work` is currently live as the Outlook Email Plus web app via Docker Compose + Caddy
+      - recurring checks on 2026-03-20 and 2026-03-21 confirmed `outlook-email-plus-app` and `outlook-email-plus-caddy` remained up with public `80/443` listeners present
       - active containers live under /opt/outlook-email-plus
       - historical Mailu/moemail footprints remain archived under /root/retired-services/2026-03-15/
 
@@ -80,6 +85,36 @@ hosts:
     notes:
       - TCP and SSH timeout observed on 2026-03-15
       - likely network path / target availability issue, not SSH key mismatch
+
+  - name: oracle-new1
+    provider: oracle
+    ssh_alias: oracle-new1
+    ip: 140.245.33.114
+    lifecycle: active
+    reachability: reachable
+    importance: tier2
+    roles:
+      - ubuntu-arm-host
+      - newly-created-oracle-instance
+    notes:
+      - first SSH tests timed out until OCI networking was corrected
+      - 2026-03-25 follow-up confirmed public SSH reachable as user `ubuntu`
+      - hostname observed as `instance-20260325-1808`
+
+  - name: oracle-new2
+    provider: oracle
+    ssh_alias: oracle-new2
+    ip: 140.245.61.236
+    lifecycle: active
+    reachability: reachable
+    importance: tier2
+    roles:
+      - ubuntu-arm-host
+      - newly-created-oracle-instance
+    notes:
+      - first SSH tests timed out until OCI networking was corrected
+      - 2026-03-25 follow-up confirmed public SSH reachable as user `ubuntu`
+      - hostname observed as `instance-20260325-1818`
 
   - name: oracle-open_claw
     provider: oracle
