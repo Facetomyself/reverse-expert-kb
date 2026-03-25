@@ -21,7 +21,7 @@ hosts:
 
   - name: oracle-docker-proxy
     provider: oracle
-    ssh_alias: oracle-docker_proxy
+    ssh_alias: oracle-registry-legacy
     ip: 129.150.61.78
     lifecycle: active
     reachability: reachable
@@ -88,7 +88,7 @@ hosts:
 
   - name: oracle-new1
     provider: oracle
-    ssh_alias: oracle-new1
+    ssh_alias: oracle-registry
     ip: 140.245.33.114
     lifecycle: active
     reachability: reachable

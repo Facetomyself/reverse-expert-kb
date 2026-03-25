@@ -17,7 +17,7 @@ hosts:
       projects: infra/hosts/oracle-proxy/PROJECTS.md
 
   - name: oracle-docker-proxy
-    ssh_alias: oracle-docker_proxy
+    ssh_alias: oracle-registry-legacy
     provider: oracle
     role:
       - shared-docker-proxy-host
@@ -73,7 +73,7 @@ hosts:
       projects: infra/hosts/ali-cloud/PROJECTS.md
 
   - name: oracle-new1
-    ssh_alias: oracle-new1
+    ssh_alias: oracle-registry
     provider: oracle
     role:
       - newly-created-oracle-instance
