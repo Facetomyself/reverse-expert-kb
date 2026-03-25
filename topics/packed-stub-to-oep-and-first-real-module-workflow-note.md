@@ -96,15 +96,16 @@ A stronger handoff is:
 - one OEP-like boundary
 - plus one ordinary-code anchor proving that the analysis has moved past loader churn into a real follow-on target
 
-A practical refinement worth keeping explicit for Windows/native packed targets is that several “entry” boundaries may all be real, but useful in different ways:
+A practical refinement worth keeping explicit for Windows/native packed targets is that several startup boundaries may all be real, but useful in different ways:
 - the **raw PE entry point** the loader initially calls
 - one **raw post-unpack transfer** out of the visible stub
-- one **first payload-bearing post-startup handoff** after TLS callbacks, CRT/runtime startup, constructor/init-table work, or another secondary loader stage stops dominating the trace
+- sometimes one **loader image-repair / remap boundary** when early tampered headers or IAT pages may be detected and replaced before ordinary code becomes the right anchor
+- one **first payload-bearing post-startup handoff** after TLS callbacks, CRT/runtime startup, constructor/init-table work, loader-side repair/remap, or another secondary loader stage stops dominating the trace
 
 In other words:
 - a dramatic post-unpack jump can be late enough to leave the stub
 - yet still too early to count as the best reusable payload handoff
-- because the next region may still be mostly TLS-owned work, CRT startup, callback replay, import-finalization, or another startup-management stage rather than the first ordinary target the analyst actually wants
+- because the next region may still be mostly TLS-owned work, CRT startup, callback replay, import-finalization, loader-side image repair/remap, or another startup-management stage rather than the first ordinary target the analyst actually wants
 
 ## 5. What counts as a trustworthy OEP candidate
 A trustworthy OEP candidate is the smallest boundary that predicts ordinary post-loader analysis better than raw stub churn does.
