@@ -1,0 +1,475 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering pending request generation epoch stale reply slot reuse completion queue tag practical",
+    "async rpc stale reply generation counter slot reuse pending request completion queue",
+    "NVMe completion queue phase tag wrap stale entry ownership practical explanation"
+  ],
+  "count": 27,
+  "results": [
+    {
+      "title": "How to use shared completion queue in gRPC asynchronous service",
+      "url": "https://stackoverflow.com/questions/63552291/how-to-use-shared-completion-queue-in-grpc-asynchronous-service",
+      "snippet": "### more stack exchange communities. # How to use shared completion queue in gRPC asynchronous service. Hello I'm trying to implement a DBMS multi-thread gRPC async service. I originally save the tags of RPC calls each thread initiated and would to check the tags against the rpc call return from cq.Next() to make sure I'm having the right thread to check the reply. I'm wondering what will be the best way to make multiple threads share the same cq then? Are there ways to traverse the queue and only removes the RPC with the matching tag? I think you can have two common ways for the `completion queue` and `thread`. For example, when you initialize the work, you record the `tag`in one `map`, and when call `cq.Next()`, you can check the `map` to find the target `thread`. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. ##### Stack Overflow. ##### Stack Exchange Network.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6857
+    },
+    {
+      "title": "Checking admin completion queue is going into infinite loop (NVMe over PCIe)",
+      "url": "https://stackoverflow.com/questions/78535490/checking-admin-completion-queue-is-going-into-infinite-loop-nvme-over-pcie",
+      "snippet": "",
+      "published_date": "2024-05-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "ct: Implement inactive epoch estimation · Pull Request #27548 · redpanda-data/redpanda",
+      "url": "https://github.com/redpanda-data/redpanda/pull/27548",
+      "snippet": "",
+      "published_date": "2025-09-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "blog/posts/2026-03-20-sqs-queue-opentofu-aws at master · OneUptime/blog",
+      "url": "https://github.com/oneuptime/blog/tree/master/posts/2026-03-20-sqs-queue-opentofu-aws",
+      "snippet": "Engineering Uptime Blog. Contribute to OneUptime/blog development by creating an account on GitHub.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6429
+    },
+    {
+      "title": "The Asynchronous Request-Reply Pattern: Your Guide to Not ...",
+      "url": "https://dev.to/igornosatov_15/the-asynchronous-request-reply-pattern-your-guide-to-not-waiting-around-like-a-chump-2k8h",
+      "snippet": "Cover image for The Asynchronous Request-Reply Pattern: Your Guide to Not Waiting Around Like a Chump. With async request-reply, you immediately return a job ID. Your server processes the request when it's ready, and the client can check in whenever convenient. It means *\"I got your request, I'll get to it when I get to it.\"* The server immediately returns a job identifier. You need somewhere to persist job status so clients can check on progress. Store the job ID, current status, any results, and maybe a timestamp so you can clean up abandoned jobs later. They pull jobs from the queue, process them, update the status store, and move on to the next task. Meanwhile, a background worker picks up the job, downloads the image, applies the filter, uploads the result, and updates the status. ## 🎬 Wrapping Up. The Asynchronous Request-Reply pattern is like hiring an assistant: you hand off tasks, get on with your life, and check back later for results.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5643
+    },
+    {
+      "title": "What does the slot field in `RpcResponseContext` represent when using websockets?",
+      "url": "https://solana.stackexchange.com/questions/19141/what-does-the-slot-field-in-rpcresponsecontext-represent-when-using-websockets",
+      "snippet": "",
+      "published_date": "2025-01-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5214
+    },
+    {
+      "title": "GRPC C++: grpc::CompletionQueue Class Reference",
+      "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_completion_queue.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.4929
+    },
+    {
+      "title": "GitHub Merge Queue Pending Checks: Unblock Rollback PRs Waiting Forever (2026 Guide) | DevToolbox Blog",
+      "url": "https://devtoolbox.dedyn.io/blog/github-merge-queue-pending-checks-rollback-guide",
+      "snippet": "February 16, 2026 - This guide is a practical runbook for pending-check rollback delays in GitHub merge queue.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4443
+    },
+    {
+      "title": "Building efficient workflows: Asynchronous Request-Reply pattern",
+      "url": "https://redpanda-data.medium.com/building-efficient-workflows-asynchronous-request-reply-pattern-f9d59050d2f5",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4429
+    },
+    {
+      "title": "Hardware Reverse Engineering Workshop (HARRIS 2026)",
+      "url": "https://harris2026.mpi-sp.org/",
+      "snippet": "The 4th Hardware Reverse Engineering Workshop will take place on March 24 & 25, 2026 in Bochum, Germany . For the first time, we will also host optional half-day tutorials on the afternoon of March 23, 2026 (separate registration and fee required).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4229
+    },
+    {
+      "title": "pcie的NVMe协议栈精讲（Command Queueing/CQEs）​",
+      "url": "https://blog.csdn.net/xiaoheshang_123/article/details/146126393",
+      "snippet": "",
+      "published_date": "2025-03-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4214
+    },
+    {
+      "title": "Enhancing Streaming and Request Handling Efficiency with gRPC ...",
+      "url": "https://sair.synerise.com/enhancing-streaming-and-request-handling-efficiency-with-grpc-and-coroutines-part-2/",
+      "snippet": "Next, we will define a class responsible for sending requests to the workers and managing the completion queue. Class RequestContext { public: RequestContext(std::shared_ptr>, /* other necessary data */ ); Awaitable& awaitable() { return awaitable; } const Response& response { return response; } void asyncHandle() { context = std::make_unique(); // Initialize a request    responder = client.AsyncHandle(&context, request, cq); // As a tag we send this because we want to reuse this // class when we receive a response        responder->Finish( &response, &status, reinterpret_cast(this)); } private: using Reader = grpc::ClientAsyncResponseReader; std::shared_ptr> awaitable; std::unique_ptr context; grpc::Status status; Response response; std::unique_ptr responder; };. while (cq->Next(&tag, &ok)) { RequestContext* requestContext = static_cast(tag); threadPool.pushtask([requestContext]() { auto& awaitble = requestContext->awaitable(); const grpc::Status& status = requestContext->status(); // get grpc::Status and check if we send // and receive a request properly    if (status.ok()) { awaitable.complete(requestContext->response()); delete requestContext; return; } const auto code = status.error_code(); // Request takes too long            if (code == grpc::StatusCode::DEADLINE_EXCEEDED) { // Notify a user about deadline exceeded    onDeadline(requestContext); } else if (code == grpc::StatusCode::CANCELED) { // Request was canceled (eg: Server shudown).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4071
+    },
+    {
+      "title": "NVMExpress 4 Data Structure",
+      "url": "https://blog.csdn.net/qq_45919531/article/details/140926012",
+      "snippet": "",
+      "published_date": "2024-08-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "How to fix Feature Request: Pre-send queue check — suppress stale replies when newer messages are pending | StepCodex",
+      "url": "https://www.stepcodex.com/en/issue/feature-request-pre-send-queue-check",
+      "snippet": "",
+      "published_date": "2026-03-17T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3857
+    },
+    {
+      "title": "Epoch Transitions: How Validators Threshold Key Generation Contributes to the DMD Diamond's Security - DMD Diamond",
+      "url": "https://bit.diamonds/2026/03/20/epoch-transitions-how-validators-threshold-key-generation-contributes-to-the-dmd-diamonds-security/",
+      "snippet": "Based on the DMD Diamond blockchain design, the network initiates an election approximately five minutes before the commencement of a new epoch. 25 Valid candidates are randomly moved into a Pending State, which is more or less a probationary phase where prospective validators showcase their technical readiness before they can be granted Active Status.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "Comprehensive Guide To Reverse Prompt Engineering - All You need to know - Springs",
+      "url": "https://springsapps.com/knowledge/comprehensive-guide-to-reverse-prompt-engineering---all-you-need-to-know",
+      "snippet": "February 10, 2025 - We have talked earlier about keyword-based options to work with reverse prompt engineering. Let's see now how it can be implemented in practice.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3629
+    },
+    {
+      "title": "How to Implement Request-Reply Pattern in RabbitMQ",
+      "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+      "snippet": "",
+      "published_date": "2026-01-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "Asynchronous request reply pattern without polling - Davide Lettieri",
+      "url": "https://davidelettieri.it/2025/04/02/asynchronous-request-reply-pattern",
+      "snippet": "",
+      "published_date": "2025-04-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "[PATCH] nvme: Acknowledge completion queue on each iteration",
+      "url": "https://lists.infradead.org/pipermail/linux-nvme/2017-July/012097.html",
+      "snippet": "Move the completion queue doorbell on each loop instead and allow new > jobs to be queued by the HW. > > Signed-off-by: Sinan Kaya <okaya at",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "Types of NVMe queues - Dell Technologies Info Hub",
+      "url": "https://infohub.delltechnologies.com/en-nz/l/an-in-depth-overview-of-nvme-and-nvme-of/types-of-nvme-queues/",
+      "snippet": "Completion Queues (CQ): Store status notifications after the controller processes commands. Queues are placed into pairs that consist of one or more submission",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "NVMe queue command processing - Dell Technologies Info Hub",
+      "url": "https://infohub.delltechnologies.com/en-sg/l/an-in-depth-overview-of-nvme-and-nvme-of/nvme-queue-command-processing/",
+      "snippet": "This universal workflow is comprised of seven common steps: Command Preparation - The host stages I/O operations in memory-based Submission Queues (SQs).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "Snapchat Argos Attestation System: Complete Reverse Engineering Analysis of Mobile Security Architecture - Reversesio",
+      "url": "https://reversesio.com/2025/07/snapchat-argos-attestation-system-complete-reverse-engineering-analysis-of-mobile-security-architecture/",
+      "snippet": "",
+      "published_date": "2025-07-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "Queues in Nvme - Semiconductor Nerds",
+      "url": "https://semiconductor-nerds.com/queues-in-nvme/",
+      "snippet": "",
+      "published_date": "2024-02-28T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "NVMe confusion - OSDev.org",
+      "url": "https://forum.osdev.org/viewtopic.php?t=38736",
+      "snippet": "",
+      "published_date": "2020-12-17T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "[PDF] NVM Express Base Specification 2.0d",
+      "url": "https://nvmexpress.org/wp-content/uploads/NVM-Express-Base-Specification-2.0d-2024.01.11-Ratified.pdf",
+      "snippet": "The mapping of extensions defined in this document to a specific NVMe Transport are defined in an NVMe Transport binding specification. The.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "[PDF] Administrator Manual - NVIDIA Base Command Manager Support",
+      "url": "https://support.brightcomputing.com/manuals/9.2/admin-manual.pdf",
+      "snippet": "",
+      "published_date": "2026-01-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "BIG-IP 15.1.10.6 Fixes and Known Issues - My F5",
+      "url": "https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/releasenotes/related/relnote-supplement-bigip-15-1-10-6.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "What does the slot field in `RpcResponseContext` represent when using websockets?",
+        "url": "https://solana.stackexchange.com/questions/19141/what-does-the-slot-field-in-rpcresponsecontext-represent-when-using-websockets",
+        "snippet": "",
+        "published_date": "2025-01-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5214
+      },
+      {
+        "title": "GRPC C++: grpc::CompletionQueue Class Reference",
+        "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_completion_queue.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.4929
+      },
+      {
+        "title": "How to Implement Request-Reply Pattern in RabbitMQ",
+        "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+        "snippet": "",
+        "published_date": "2026-01-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "Building efficient workflows: Asynchronous Request-Reply pattern",
+        "url": "https://redpanda-data.medium.com/building-efficient-workflows-asynchronous-request-reply-pattern-f9d59050d2f5",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4429
+      },
+      {
+        "title": "Asynchronous request reply pattern without polling - Davide Lettieri",
+        "url": "https://davidelettieri.it/2025/04/02/asynchronous-request-reply-pattern",
+        "snippet": "",
+        "published_date": "2025-04-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "NVMe confusion - OSDev.org",
+        "url": "https://forum.osdev.org/viewtopic.php?t=38736",
+        "snippet": "",
+        "published_date": "2020-12-17T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Queues in Nvme - Semiconductor Nerds",
+        "url": "https://semiconductor-nerds.com/queues-in-nvme/",
+        "snippet": "",
+        "published_date": "2024-02-28T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "Checking admin completion queue is going into infinite loop (NVMe over PCIe)",
+        "url": "https://stackoverflow.com/questions/78535490/checking-admin-completion-queue-is-going-into-infinite-loop-nvme-over-pcie",
+        "snippet": "",
+        "published_date": "2024-05-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "NVMExpress 4 Data Structure",
+        "url": "https://blog.csdn.net/qq_45919531/article/details/140926012",
+        "snippet": "",
+        "published_date": "2024-08-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "pcie的NVMe协议栈精讲（Command Queueing/CQEs）​",
+        "url": "https://blog.csdn.net/xiaoheshang_123/article/details/146126393",
+        "snippet": "",
+        "published_date": "2025-03-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4214
+      },
+      {
+        "title": "How to fix Feature Request: Pre-send queue check — suppress stale replies when newer messages are pending | StepCodex",
+        "url": "https://www.stepcodex.com/en/issue/feature-request-pre-send-queue-check",
+        "snippet": "",
+        "published_date": "2026-03-17T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3857
+      },
+      {
+        "title": "[PDF] Administrator Manual - NVIDIA Base Command Manager Support",
+        "url": "https://support.brightcomputing.com/manuals/9.2/admin-manual.pdf",
+        "snippet": "",
+        "published_date": "2026-01-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Snapchat Argos Attestation System: Complete Reverse Engineering Analysis of Mobile Security Architecture - Reversesio",
+        "url": "https://reversesio.com/2025/07/snapchat-argos-attestation-system-complete-reverse-engineering-analysis-of-mobile-security-architecture/",
+        "snippet": "",
+        "published_date": "2025-07-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "ct: Implement inactive epoch estimation · Pull Request #27548 · redpanda-data/redpanda",
+        "url": "https://github.com/redpanda-data/redpanda/pull/27548",
+        "snippet": "",
+        "published_date": "2025-09-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "BIG-IP 15.1.10.6 Fixes and Known Issues - My F5",
+        "url": "https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/releasenotes/related/relnote-supplement-bigip-15-1-10-6.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Enhancing Streaming and Request Handling Efficiency with gRPC ...",
+        "url": "https://sair.synerise.com/enhancing-streaming-and-request-handling-efficiency-with-grpc-and-coroutines-part-2/",
+        "snippet": "Next, we will define a class responsible for sending requests to the workers and managing the completion queue. Class RequestContext { public: RequestContext(std::shared_ptr>, /* other necessary data */ ); Awaitable& awaitable() { return awaitable; } const Response& response { return response; } void asyncHandle() { context = std::make_unique(); // Initialize a request    responder = client.AsyncHandle(&context, request, cq); // As a tag we send this because we want to reuse this // class when we receive a response        responder->Finish( &response, &status, reinterpret_cast(this)); } private: using Reader = grpc::ClientAsyncResponseReader; std::shared_ptr> awaitable; std::unique_ptr context; grpc::Status status; Response response; std::unique_ptr responder; };. while (cq->Next(&tag, &ok)) { RequestContext* requestContext = static_cast(tag); threadPool.pushtask([requestContext]() { auto& awaitble = requestContext->awaitable(); const grpc::Status& status = requestContext->status(); // get grpc::Status and check if we send // and receive a request properly    if (status.ok()) { awaitable.complete(requestContext->response()); delete requestContext; return; } const auto code = status.error_code(); // Request takes too long            if (code == grpc::StatusCode::DEADLINE_EXCEEDED) { // Notify a user about deadline exceeded    onDeadline(requestContext); } else if (code == grpc::StatusCode::CANCELED) { // Request was canceled (eg: Server shudown).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4071
+      },
+      {
+        "title": "How to use shared completion queue in gRPC asynchronous service",
+        "url": "https://stackoverflow.com/questions/63552291/how-to-use-shared-completion-queue-in-grpc-asynchronous-service",
+        "snippet": "### more stack exchange communities. # How to use shared completion queue in gRPC asynchronous service. Hello I'm trying to implement a DBMS multi-thread gRPC async service. I originally save the tags of RPC calls each thread initiated and would to check the tags against the rpc call return from cq.Next() to make sure I'm having the right thread to check the reply. I'm wondering what will be the best way to make multiple threads share the same cq then? Are there ways to traverse the queue and only removes the RPC with the matching tag? I think you can have two common ways for the `completion queue` and `thread`. For example, when you initialize the work, you record the `tag`in one `map`, and when call `cq.Next()`, you can check the `map` to find the target `thread`. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. ##### Stack Overflow. ##### Stack Exchange Network.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6857
+      },
+      {
+        "title": "GRPC C++: grpc::CompletionQueue Class Reference",
+        "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_completion_queue.html",
+        "snippet": "|  | CompletionQueue (grpc\\_completion\\_queue \\*take) |. | |  |  |  |  | | --- | --- | --- | --- | | NextStatus grpc::CompletionQueue::AsyncNext | ( | void \\*\\* | *tag*, | | bool \\* | *ok*, | | const T & | *deadline* | | ) | | inline |. | |  |  |  |  | | --- | --- | --- | --- | | NextStatus grpc::CompletionQueue::DoThenAsyncNext | ( | F && | *f*, | | void \\*\\* | *tag*, | | bool \\* | *ok*, | | const T & | *deadline* | | ) | | inline |. | |  | | --- | | friend class grpc::internal::BlockingUnaryCallImpl | | friend |. | |  | | --- | | friend class grpc::internal::CallOpSet | | friend |. | |  | | --- | | friend class grpc::internal::ServerReaderWriterBody | | friend |. | |  | | --- | | friend class grpc::internal::TemplatedBidiStreamingHandler | | friend |.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Building efficient workflows: Asynchronous Request-Reply pattern",
+        "url": "https://redpanda-data.medium.com/building-efficient-workflows-asynchronous-request-reply-pattern-f9d59050d2f5",
+        "snippet": "The asynchronous request-reply pattern enables a client to send a request to a server or service and continue with other processing without waiting for the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "The Asynchronous Request-Reply Pattern: Your Guide to Not ...",
+        "url": "https://dev.to/igornosatov_15/the-asynchronous-request-reply-pattern-your-guide-to-not-waiting-around-like-a-chump-2k8h",
+        "snippet": "Cover image for The Asynchronous Request-Reply Pattern: Your Guide to Not Waiting Around Like a Chump. With async request-reply, you immediately return a job ID. Your server processes the request when it's ready, and the client can check in whenever convenient. It means *\"I got your request, I'll get to it when I get to it.\"* The server immediately returns a job identifier. You need somewhere to persist job status so clients can check on progress. Store the job ID, current status, any results, and maybe a timestamp so you can clean up abandoned jobs later. They pull jobs from the queue, process them, update the status store, and move on to the next task. Meanwhile, a background worker picks up the job, downloads the image, applies the filter, uploads the result, and updates the status. ## 🎬 Wrapping Up. The Asynchronous Request-Reply pattern is like hiring an assistant: you hand off tasks, get on with your life, and check back later for results.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5643
+      },
+      {
+        "title": "NVMe confusion - OSDev.org",
+        "url": "https://forum.osdev.org/viewtopic.php?t=38736",
+        "snippet": "Each new completion queue entry has a Phase Tag inverted from the previous entry ... entry is stale when its phase bit hasn't been inverted.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PATCH] nvme: Acknowledge completion queue on each iteration",
+        "url": "https://lists.infradead.org/pipermail/linux-nvme/2017-July/012097.html",
+        "snippet": "Move the completion queue doorbell on each loop instead and allow new > jobs to be queued by the HW. > > Signed-off-by: Sinan Kaya <okaya at",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "Types of NVMe queues - Dell Technologies Info Hub",
+        "url": "https://infohub.delltechnologies.com/en-nz/l/an-in-depth-overview-of-nvme-and-nvme-of/types-of-nvme-queues/",
+        "snippet": "Completion Queues (CQ): Store status notifications after the controller processes commands. Queues are placed into pairs that consist of one or more submission",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "NVMe queue command processing - Dell Technologies Info Hub",
+        "url": "https://infohub.delltechnologies.com/en-sg/l/an-in-depth-overview-of-nvme-and-nvme-of/nvme-queue-command-processing/",
+        "snippet": "This universal workflow is comprised of seven common steps: Command Preparation - The host stages I/O operations in memory-based Submission Queues (SQs).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "[PDF] NVM Express Base Specification 2.0d",
+        "url": "https://nvmexpress.org/wp-content/uploads/NVM-Express-Base-Specification-2.0d-2024.01.11-Ratified.pdf",
+        "snippet": "The mapping of extensions defined in this document to a specific NVMe Transport are defined in an NVMe Transport binding specification. The.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Hardware Reverse Engineering Workshop (HARRIS 2026)",
+        "url": "https://harris2026.mpi-sp.org/",
+        "snippet": "The 4th Hardware Reverse Engineering Workshop will take place on March 24 & 25, 2026 in Bochum, Germany . For the first time, we will also host optional half-day tutorials on the afternoon of March 23, 2026 (separate registration and fee required).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4229
+      },
+      {
+        "title": "Comprehensive Guide To Reverse Prompt Engineering - All You need to know - Springs",
+        "url": "https://springsapps.com/knowledge/comprehensive-guide-to-reverse-prompt-engineering---all-you-need-to-know",
+        "snippet": "February 10, 2025 - We have talked earlier about keyword-based options to work with reverse prompt engineering. Let's see now how it can be implemented in practice.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3629
+      },
+      {
+        "title": "Epoch Transitions: How Validators Threshold Key Generation Contributes to the DMD Diamond's Security - DMD Diamond",
+        "url": "https://bit.diamonds/2026/03/20/epoch-transitions-how-validators-threshold-key-generation-contributes-to-the-dmd-diamonds-security/",
+        "snippet": "Based on the DMD Diamond blockchain design, the network initiates an election approximately five minutes before the commencement of a new epoch. 25 Valid candidates are randomly moved into a Pending State, which is more or less a probationary phase where prospective validators showcase their technical readiness before they can be granted Active Status.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "blog/posts/2026-03-20-sqs-queue-opentofu-aws at master · OneUptime/blog",
+        "url": "https://github.com/oneuptime/blog/tree/master/posts/2026-03-20-sqs-queue-opentofu-aws",
+        "snippet": "Engineering Uptime Blog. Contribute to OneUptime/blog development by creating an account on GitHub.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6429
+      },
+      {
+        "title": "GitHub Merge Queue Pending Checks: Unblock Rollback PRs Waiting Forever (2026 Guide) | DevToolbox Blog",
+        "url": "https://devtoolbox.dedyn.io/blog/github-merge-queue-pending-checks-rollback-guide",
+        "snippet": "February 16, 2026 - This guide is a practical runbook for pending-check rollback delays in GitHub merge queue.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4443
+      }
+    ],
+    "grok": []
+  }
+}
