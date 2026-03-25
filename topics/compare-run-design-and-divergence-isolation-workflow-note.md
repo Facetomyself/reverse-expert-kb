@@ -256,6 +256,7 @@ The first meaningful divergence can still be:
 A practical bridge rule worth preserving is:
 - **first meaningful divergence** and **best watched object** are often adjacent, but they are not automatically the same proof object
 - if the divergence is still semantically rich, aggregate, or awkward to query directly, shrink it into the narrowest truthful watched object before continuing
+- treat **query scope as part of correctness**, not just speed: oversized watched objects and broad memory/event searches mix unrelated semantic roles and can return upstream edges that are real but not explanatory for the consequence you care about
 
 A compact operator ladder is:
 
