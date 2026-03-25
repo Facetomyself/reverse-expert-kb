@@ -1,0 +1,445 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Swift AsyncStream onTermination yield finish cancellation delegate reverse engineering iOS",
+    "AsyncThrowingStream continuation yield finish onTermination buffering policy Swift iOS",
+    "Swift AsyncSequence cancellation termination consumer wakeup MainActor AsyncStream debugging"
+  ],
+  "count": 24,
+  "results": [
+    {
+      "title": "How do you completely cancel an AsyncStream? - Swift Forums",
+      "url": "https://forums.swift.org/t/how-do-you-completely-cancel-an-asyncstream/53733",
+      "snippet": "# How do you completely cancel an AsyncStream? When `.cancel()` is called on the outermost `Task t`, the continuation's handler is correctly called, as expected. However, the nested, `detached` task will continue to call `yield` until its loop finishes. The end result is that the \"work\" that the nested, detached task is performing will continue to be performed even though the parent task was cancelled. Related discussion over here: AsyncStream and Cancellation. Fundamentally, you need some way to cancel your async work when the `AsyncStream` completes or when iteration is stopped. public typealias BufferingPolicy = AsyncStream<Element>.Continuation.BufferingPolicy. fileprivate typealias Continuation = AsyncStream<Element>.Continuation. var continuation: AsyncStream<Element>.Continuation? let stream = AsyncStream<Element> { innerContinuation in. private var iterator: AsyncStream<Element>.AsyncIterator. init(iterator: AsyncStream<Element>.AsyncIterator, onCancellation: @escaping () -> Void) {. I can easily use that here since the continuation and nested task can both capture it. For my use cases, being able to quickly and reliably cancel tasks is critical to maintaining performance. There is detached task that no-ones cancels.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Help with AsyncStream termination task termination #1906 - GitHub",
+      "url": "https://github.com/pointfreeco/swift-composable-architecture/discussions/1906",
+      "snippet": "```  obdResponseStream: { .init { continuation in continuation.onTermination = { @Sendable status in print(\"Stream terminated with status \\(status)\") } let task = Task { while true { let item = try await ObdManager.client.getObdResponse() let result = parseObdResponse(obdLinkCommand: item.command, obdResponse: item.response) switch result { case .success(let obdLinkParse): print(\"obdResponseStream.yield(\\(obdLinkParse.command))\") continuation.yield(.response(obdLinkParse)) case .failure(let obdError): continuation.yield(.error(obdError)) } try? Task.checkCancellation()` with the following:  ``` if Task.isCancelled { break }  ```  You can reproduce this with the following playground:  ``` import PlaygroundSupport let task = Task { while true { print(\"task is running\") // Try commenting out the next line and uncommenting the 3 after to see the output is only printed ~1 time try? taskCompleted { let result = try await ObdManager.client.getObdResponse() switch result { case .success(let obdLinkParse): continuation.yield(.response(obdLinkParse)) if obdLinkParse.command == .lastCommand { continuation.finish() taskCompleted = true } case .failure(let obdError): continuation.yield(.error(obdError)) } } } } }  ```  Thanks for your help, moving on to the next struggle.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "[Pitch] AsyncStream and AsyncThrowingStream - Swift Forums",
+      "url": "https://forums.swift.org/t/pitch-asyncstream-and-asyncthrowingstream/47820",
+      "snippet": "",
+      "published_date": "2021-04-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "Can&#39;t set AsyncStream `onTermination` handler",
+      "url": "https://stackoverflow.com/questions/69047723/cant-set-asyncstream-ontermination-handler",
+      "snippet": "",
+      "published_date": "2021-09-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "[stdlib]: Propagate AsyncStream termination to all consumers · Pull Request #75878 · swiftlang/swift",
+      "url": "https://github.com/swiftlang/swift/pull/75878",
+      "snippet": "",
+      "published_date": "2024-08-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "What to expect from `AsyncSequence` cancellation? - Swift Forums",
+      "url": "https://forums.swift.org/t/what-to-expect-from-asyncsequence-cancellation/62541",
+      "snippet": "The asynchronous sequence may emit an element before emitting its 'nil' termination element (on cancellation of the task), and then the branch",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "AsyncStream.Continuation.Termination - Apple Developer",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/termination",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "onTermination | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation/ontermination",
+      "snippet": "## Explore Support. 30 of 39 symbols inside -1359829928 func makeAsyncIterator() -> AsyncThrowingStream<Element, Failure>.Iterator). 23 of 39 symbols inside -1359829928 func map<Transformed>((Self.Element) async throws -> Transformed) -> AsyncThrowingMapSequence<Self, Transformed>-58nrj). 16 of 39 symbols inside -1359829928 func prefix(while: (Self.Element) async -> Bool) rethrows -> AsyncPrefixWhileSequence<Self>). 12 of 39 symbols inside -1359829928 func max() async rethrows -> Self.Element?). 10 of 39 symbols inside -1359829928 func min() async rethrows -> Self.Element?). 9 of 39 symbols inside -1359829928 func first(where: (Self.Element) async throws -> Bool) async rethrows -> Self.Element?). 8 of 39 symbols inside -1359829928 func allSatisfy((Self.Element) async throws -> Bool) async rethrows -> Bool). 7 of 39 symbols inside -1359829928 func contains(where: (Self.Element) async throws -> Bool) async rethrows -> Bool). 6 of 39 symbols inside -1359829928 func contains(Self.Element) async rethrows -> Bool). 10 of 15 symbols inside 1200196286 containing 3 symbolsAsyncThrowingStream.Continuation.Termination. 9 of 15 symbols inside 1200196286 var onTermination: ((AsyncThrowingStream<Element, Failure>.Continuation.Termination) -> Void)?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "AsyncThrowingStream.Continuation.BufferingPolicy - Apple Developer",
+      "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation/bufferingpolicy",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "AsyncThrowingStream.Continuation | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Advanced Swift Concurrency: AsyncStream - Jacob's Tech Tavern",
+      "url": "https://blog.jacobstechtavern.com/p/async-stream",
+      "snippet": "# Advanced Swift Concurrency: AsyncStream. > *Subscribe to Jacob’s Tech Tavern for free to get ludicrously in-depth articles on iOS, Swift, tech, & indie projects in your inbox every week.*. Essentially, AsyncStream helps you easily push out new data as it becomes available, and consume it through for-await-in loops. The continuation inside the closure allows you to pass values through the stream using `continuation.yield()`. This passes values to consumers in the for-await-in loops. This is nice for our sample project, but in the real world, we would send the true values from URLSessionDownloadDelegate delegate methods, setting the continuation as a local property. We can use an AsyncStream to pass the display link for each frame tick. Here, we use onTermination to clean up the CADisplayLink when the AsyncStream’s task is cancelled. Whether you’re wrapping a closure to propagate location updates, streaming long-running data from a backend, or tracking the performance of your app in real-time, AsyncStream is a powerful and versatile tool.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.58
+    },
+    {
+      "title": "Understanding AsyncStream and AsyncThrowingStream in Swift",
+      "url": "https://dev.to/arshtechpro/understanding-asyncstream-and-asyncthrowingstream-in-swift-lgm",
+      "snippet": "",
+      "published_date": "2025-08-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.56
+    },
+    {
+      "title": "🛂 Modern Swift Concurrency in the Wild: AsyncStream, AsyncSequence & Cancellation Headaches",
+      "url": "https://medium.com/@wesleymatlock/modern-swift-concurrency-in-the-wild-asyncstream-asyncsequence-cancelation-headaches-60722d779ccf",
+      "snippet": "",
+      "published_date": "2025-05-28T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.49
+    },
+    {
+      "title": "Swift 6: Asynchronous Data Flows with AsyncStream and ... - Medium",
+      "url": "https://medium.com/@mrhotfix/swift-6-concurrency-mastering-asyncstream-and-asyncsequence-for-data-flows-7fb65ad69ced",
+      "snippet": "Swift 6: Asynchronous Data Flows with AsyncStream and AsyncSequence How to work with cancelable, safe, and scalable streams using actors and",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.46
+    },
+    {
+      "title": "Swift Concurrency[PART-7](Cancellation in Production: Writing Swift Async Code That Actually Stops) | by Debdut Saha | Jan, 2026 | Medium",
+      "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-7-cancellation-in-production-writing-swift-async-code-that-actually-stops-883d33824dd3",
+      "snippet": "",
+      "published_date": "2026-01-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.46
+    },
+    {
+      "title": "Swift Concurrency: Task, Task.detached, Memory Management, Cancellation, and Edge Cases | by Akanksha Singh | Mar, 2026 | Medium",
+      "url": "https://medium.com/@aksingh20feb/swift-concurrency-deep-dive-task-task-detached-memory-management-cancellation-and-edge-cases-baec260c0171",
+      "snippet": "",
+      "published_date": "2026-03-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.46
+    },
+    {
+      "title": "Swift Concurrency[PART-8]AsyncSequence & Streams in Swift Concurrency | by Debdut Saha | Jan, 2026 | Medium",
+      "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-8-asyncsequence-streams-in-swift-concurrency-dc813cc02269",
+      "snippet": "",
+      "published_date": "2026-01-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "Mastering Modern Concurrency in Swift — Part 6: Async Sequences ...",
+      "url": "https://blog.stackademic.com/mastering-modern-concurrency-in-swift-part-6-async-sequences-and-streams-c402a4251308",
+      "snippet": "",
+      "published_date": "2025-08-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "Concurrency in iOS — Part 7(B): Advanced Testing & Debugging for async/await",
+      "url": "https://anubhavgiri01.medium.com/concurrency-in-ios-part-7-b-advanced-testing-debugging-for-async-await-3224202e20ba",
+      "snippet": "",
+      "published_date": "2025-11-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "AsyncThrowingStream and AsyncStream explained with code ...",
+      "url": "https://www.avanderlee.com/swift/asyncthrowingstream-asyncstream/",
+      "snippet": "SwiftLee > Swift > AsyncThrowingStream and AsyncStream explained with code examples. # AsyncThrowingStream and AsyncStream explained with code examples. extension FileDownloader { func download(_ url: URL) -> AsyncThrowingStream { return AsyncThrowingStream { continuation in do { try self.download(url, progressHandler: { progress in continuation.yield(.downloading(progress)) }, completion: { result in switch result { case .success(let data): continuation.yield(.finished(data)) continuation.finish() case .failure(let error): continuation.finish(throwing: error) } }) } catch { continuation.finish(throwing: error) } } } }. do { for try await status in download(url) { switch status { case .downloading(let progress): print(\"Downloading progress: \\(progress)\") case .finished(let data): print(\"Downloading completed with data: \\(data)\") } } print(\"Download finished and stream closed\") } catch { print(\"Download failed with \\(error)\") }. * Async await in Swift explained with code examples. * Global actor in Swift Concurrency explained with code examples. * Detached Tasks in Swift explained with code examples. * AsyncThrowingStream and AsyncStream explained with code examples. * Tasks in Swift explained with code examples.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "How to create and use AsyncStreams to return buffered data",
+      "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-create-and-use-asyncstreams-to-return-buffered-data",
+      "snippet": "`let stream = AsyncStream { continuation in. We could then read and print the values from that stream using a `for await` loop, like this:. `let stream = AsyncStream { continuation in. Because `AsyncStream` lets us send back multiple values, the only way for Swift to know the stream has ended is by us calling `finish()` on the continuation. `let stream = AsyncStream { continuation in. **Warning:** Calling `prefix()` on an `AsyncStream` returns a dedicated type called `AsyncPrefixSequence`, which will read *N* values from the stream each time you loop over it rather than acting as a slice. **Important:** Accessing an `AsyncStream` concurrently means each task will receive only some of the values from the stream. They'll also then get all future values for as long as they continue to read from the stream. **To be clear: if nothing is actively reading from the stream, any values added with a zero buffer will be discarded.**. for try await values in stream {.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "AsyncSequence & AsyncStream Tutorial for iOS - Kodeco",
+      "url": "https://www.kodeco.com/34044359-asyncsequence-asyncstream-tutorial-for-ios",
+      "snippet": "Learn how to use Swift concurrency's AsyncSequence and AsyncStream protocols to process asynchronous sequences.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "How to test AsyncSequence and AsyncStream - Hacking with Swift",
+      "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-test-asyncsequence-and-asyncstream",
+      "snippet": "It's important to be able to write tests to check an AsyncStream, AsyncSequence, or similar sends back a certain number of values.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Swift AsyncThrowingStream init(_:bufferingPolicy:_:)用法及代码示例 - 纯净天空",
+      "url": "https://vimsky.com/examples/usage/swift-asyncthrowingstream-init-939f3d0e3b0d29b2-ap.html",
+      "snippet": "",
+      "published_date": "2025-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "AsyncThrowingStream.Continuation.BufferingPolicy - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation/bufferingpolicy",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "AsyncThrowingStream.Continuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "[Pitch] AsyncStream and AsyncThrowingStream - Swift Forums",
+        "url": "https://forums.swift.org/t/pitch-asyncstream-and-asyncthrowingstream/47820",
+        "snippet": "",
+        "published_date": "2021-04-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "Understanding AsyncStream and AsyncThrowingStream in Swift",
+        "url": "https://dev.to/arshtechpro/understanding-asyncstream-and-asyncthrowingstream-in-swift-lgm",
+        "snippet": "",
+        "published_date": "2025-08-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.56
+      },
+      {
+        "title": "Swift AsyncThrowingStream init(_:bufferingPolicy:_:)用法及代码示例 - 纯净天空",
+        "url": "https://vimsky.com/examples/usage/swift-asyncthrowingstream-init-939f3d0e3b0d29b2-ap.html",
+        "snippet": "",
+        "published_date": "2025-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "AsyncStream.Continuation.Termination - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/termination",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "Swift Concurrency[PART-8]AsyncSequence & Streams in Swift Concurrency | by Debdut Saha | Jan, 2026 | Medium",
+        "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-8-asyncsequence-streams-in-swift-concurrency-dc813cc02269",
+        "snippet": "",
+        "published_date": "2026-01-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "Can&#39;t set AsyncStream `onTermination` handler",
+        "url": "https://stackoverflow.com/questions/69047723/cant-set-asyncstream-ontermination-handler",
+        "snippet": "",
+        "published_date": "2021-09-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "[stdlib]: Propagate AsyncStream termination to all consumers · Pull Request #75878 · swiftlang/swift",
+        "url": "https://github.com/swiftlang/swift/pull/75878",
+        "snippet": "",
+        "published_date": "2024-08-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "Mastering Modern Concurrency in Swift — Part 6: Async Sequences ...",
+        "url": "https://blog.stackademic.com/mastering-modern-concurrency-in-swift-part-6-async-sequences-and-streams-c402a4251308",
+        "snippet": "",
+        "published_date": "2025-08-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "Swift Concurrency[PART-7](Cancellation in Production: Writing Swift Async Code That Actually Stops) | by Debdut Saha | Jan, 2026 | Medium",
+        "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-7-cancellation-in-production-writing-swift-async-code-that-actually-stops-883d33824dd3",
+        "snippet": "",
+        "published_date": "2026-01-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.46
+      },
+      {
+        "title": "🛂 Modern Swift Concurrency in the Wild: AsyncStream, AsyncSequence & Cancellation Headaches",
+        "url": "https://medium.com/@wesleymatlock/modern-swift-concurrency-in-the-wild-asyncstream-asyncsequence-cancelation-headaches-60722d779ccf",
+        "snippet": "",
+        "published_date": "2025-05-28T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.49
+      },
+      {
+        "title": "Swift Concurrency: Task, Task.detached, Memory Management, Cancellation, and Edge Cases | by Akanksha Singh | Mar, 2026 | Medium",
+        "url": "https://medium.com/@aksingh20feb/swift-concurrency-deep-dive-task-task-detached-memory-management-cancellation-and-edge-cases-baec260c0171",
+        "snippet": "",
+        "published_date": "2026-03-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.46
+      },
+      {
+        "title": "Mastering Modern Concurrency in Swift — Part 6: Async Sequences and Streams",
+        "url": "https://blog.stackademic.com/mastering-modern-concurrency-in-swift-part-6-async-sequences-and-streams-c402a4251308",
+        "snippet": "",
+        "published_date": "2025-08-23T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Concurrency in iOS — Part 7(B): Advanced Testing & Debugging for async/await",
+        "url": "https://anubhavgiri01.medium.com/concurrency-in-ios-part-7-b-advanced-testing-debugging-for-async-await-3224202e20ba",
+        "snippet": "",
+        "published_date": "2025-11-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      }
+    ],
+    "tavily": [
+      {
+        "title": "AsyncThrowingStream.Continuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation",
+        "snippet": "Use this continuation to provide elements to the stream by calling one of the yield methods, then terminate the stream normally by calling the finish() method.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to create and use AsyncStreams to return buffered data",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-create-and-use-asyncstreams-to-return-buffered-data",
+        "snippet": "`let stream = AsyncStream { continuation in. We could then read and print the values from that stream using a `for await` loop, like this:. `let stream = AsyncStream { continuation in. Because `AsyncStream` lets us send back multiple values, the only way for Swift to know the stream has ended is by us calling `finish()` on the continuation. `let stream = AsyncStream { continuation in. **Warning:** Calling `prefix()` on an `AsyncStream` returns a dedicated type called `AsyncPrefixSequence`, which will read *N* values from the stream each time you loop over it rather than acting as a slice. **Important:** Accessing an `AsyncStream` concurrently means each task will receive only some of the values from the stream. They'll also then get all future values for as long as they continue to read from the stream. **To be clear: if nothing is actively reading from the stream, any values added with a zero buffer will be discarded.**. for try await values in stream {.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      },
+      {
+        "title": "AsyncThrowingStream.Continuation.BufferingPolicy - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation/bufferingpolicy",
+        "snippet": "Constructs an asynchronous stream for an element type, using the specified buffering policy and element-producing closure. struct Continuation. A mechanism to",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "AsyncThrowingStream and AsyncStream explained with code ...",
+        "url": "https://www.avanderlee.com/swift/asyncthrowingstream-asyncstream/",
+        "snippet": "SwiftLee > Swift > AsyncThrowingStream and AsyncStream explained with code examples. # AsyncThrowingStream and AsyncStream explained with code examples. extension FileDownloader { func download(_ url: URL) -> AsyncThrowingStream { return AsyncThrowingStream { continuation in do { try self.download(url, progressHandler: { progress in continuation.yield(.downloading(progress)) }, completion: { result in switch result { case .success(let data): continuation.yield(.finished(data)) continuation.finish() case .failure(let error): continuation.finish(throwing: error) } }) } catch { continuation.finish(throwing: error) } } } }. do { for try await status in download(url) { switch status { case .downloading(let progress): print(\"Downloading progress: \\(progress)\") case .finished(let data): print(\"Downloading completed with data: \\(data)\") } } print(\"Download finished and stream closed\") } catch { print(\"Download failed with \\(error)\") }. * Async await in Swift explained with code examples. * Global actor in Swift Concurrency explained with code examples. * Detached Tasks in Swift explained with code examples. * AsyncThrowingStream and AsyncStream explained with code examples. * Tasks in Swift explained with code examples.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "Advanced Swift Concurrency: AsyncStream - Jacob's Tech Tavern",
+        "url": "https://blog.jacobstechtavern.com/p/async-stream",
+        "snippet": "# Advanced Swift Concurrency: AsyncStream. > *Subscribe to Jacob’s Tech Tavern for free to get ludicrously in-depth articles on iOS, Swift, tech, & indie projects in your inbox every week.*. Essentially, AsyncStream helps you easily push out new data as it becomes available, and consume it through for-await-in loops. The continuation inside the closure allows you to pass values through the stream using `continuation.yield()`. This passes values to consumers in the for-await-in loops. This is nice for our sample project, but in the real world, we would send the true values from URLSessionDownloadDelegate delegate methods, setting the continuation as a local property. We can use an AsyncStream to pass the display link for each frame tick. Here, we use onTermination to clean up the CADisplayLink when the AsyncStream’s task is cancelled. Whether you’re wrapping a closure to propagate location updates, streaming long-running data from a backend, or tracking the performance of your app in real-time, AsyncStream is a powerful and versatile tool.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.58
+      },
+      {
+        "title": "How do you completely cancel an AsyncStream? - Swift Forums",
+        "url": "https://forums.swift.org/t/how-do-you-completely-cancel-an-asyncstream/53733",
+        "snippet": "# How do you completely cancel an AsyncStream? When `.cancel()` is called on the outermost `Task t`, the continuation's handler is correctly called, as expected. However, the nested, `detached` task will continue to call `yield` until its loop finishes. The end result is that the \"work\" that the nested, detached task is performing will continue to be performed even though the parent task was cancelled. Related discussion over here: AsyncStream and Cancellation. Fundamentally, you need some way to cancel your async work when the `AsyncStream` completes or when iteration is stopped. public typealias BufferingPolicy = AsyncStream<Element>.Continuation.BufferingPolicy. fileprivate typealias Continuation = AsyncStream<Element>.Continuation. var continuation: AsyncStream<Element>.Continuation? let stream = AsyncStream<Element> { innerContinuation in. private var iterator: AsyncStream<Element>.AsyncIterator. init(iterator: AsyncStream<Element>.AsyncIterator, onCancellation: @escaping () -> Void) {. I can easily use that here since the continuation and nested task can both capture it. For my use cases, being able to quickly and reliably cancel tasks is critical to maintaining performance. There is detached task that no-ones cancels.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "Advanced Swift Concurrency: AsyncStream - Jacob's Tech Tavern",
+        "url": "https://blog.jacobstechtavern.com/p/async-stream",
+        "snippet": "# Advanced Swift Concurrency: AsyncStream. > *Subscribe to Jacob’s Tech Tavern for free to get ludicrously in-depth articles on iOS, Swift, tech, & indie projects in your inbox every week.*. Essentially, AsyncStream helps you easily push out new data as it becomes available, and consume it through for-await-in loops. The continuation inside the closure allows you to pass values through the stream using `continuation.yield()`. This passes values to consumers in the for-await-in loops. This is nice for our sample project, but in the real world, we would send the true values from URLSessionDownloadDelegate delegate methods, setting the continuation as a local property. We can use an AsyncStream to pass the display link for each frame tick. Here, we use onTermination to clean up the CADisplayLink when the AsyncStream’s task is cancelled. Whether you’re wrapping a closure to propagate location updates, streaming long-running data from a backend, or tracking the performance of your app in real-time, AsyncStream is a powerful and versatile tool.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Help with AsyncStream termination task termination #1906 - GitHub",
+        "url": "https://github.com/pointfreeco/swift-composable-architecture/discussions/1906",
+        "snippet": "```  obdResponseStream: { .init { continuation in continuation.onTermination = { @Sendable status in print(\"Stream terminated with status \\(status)\") } let task = Task { while true { let item = try await ObdManager.client.getObdResponse() let result = parseObdResponse(obdLinkCommand: item.command, obdResponse: item.response) switch result { case .success(let obdLinkParse): print(\"obdResponseStream.yield(\\(obdLinkParse.command))\") continuation.yield(.response(obdLinkParse)) case .failure(let obdError): continuation.yield(.error(obdError)) } try? Task.checkCancellation()` with the following:  ``` if Task.isCancelled { break }  ```  You can reproduce this with the following playground:  ``` import PlaygroundSupport let task = Task { while true { print(\"task is running\") // Try commenting out the next line and uncommenting the 3 after to see the output is only printed ~1 time try? taskCompleted { let result = try await ObdManager.client.getObdResponse() switch result { case .success(let obdLinkParse): continuation.yield(.response(obdLinkParse)) if obdLinkParse.command == .lastCommand { continuation.finish() taskCompleted = true } case .failure(let obdError): continuation.yield(.error(obdError)) } } } } }  ```  Thanks for your help, moving on to the next struggle.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "onTermination | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation/ontermination",
+        "snippet": "## Explore Support. 30 of 39 symbols inside -1359829928 func makeAsyncIterator() -> AsyncThrowingStream<Element, Failure>.Iterator). 23 of 39 symbols inside -1359829928 func map<Transformed>((Self.Element) async throws -> Transformed) -> AsyncThrowingMapSequence<Self, Transformed>-58nrj). 16 of 39 symbols inside -1359829928 func prefix(while: (Self.Element) async -> Bool) rethrows -> AsyncPrefixWhileSequence<Self>). 12 of 39 symbols inside -1359829928 func max() async rethrows -> Self.Element?). 10 of 39 symbols inside -1359829928 func min() async rethrows -> Self.Element?). 9 of 39 symbols inside -1359829928 func first(where: (Self.Element) async throws -> Bool) async rethrows -> Self.Element?). 8 of 39 symbols inside -1359829928 func allSatisfy((Self.Element) async throws -> Bool) async rethrows -> Bool). 7 of 39 symbols inside -1359829928 func contains(where: (Self.Element) async throws -> Bool) async rethrows -> Bool). 6 of 39 symbols inside -1359829928 func contains(Self.Element) async rethrows -> Bool). 10 of 15 symbols inside 1200196286 containing 3 symbolsAsyncThrowingStream.Continuation.Termination. 9 of 15 symbols inside 1200196286 var onTermination: ((AsyncThrowingStream<Element, Failure>.Continuation.Termination) -> Void)?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "AsyncThrowingStream and AsyncStream explained with code ...",
+        "url": "https://www.avanderlee.com/swift/asyncthrowingstream-asyncstream/",
+        "snippet": "SwiftLee > Swift > AsyncThrowingStream and AsyncStream explained with code examples. # AsyncThrowingStream and AsyncStream explained with code examples. extension FileDownloader { func download(_ url: URL) -> AsyncThrowingStream { return AsyncThrowingStream { continuation in do { try self.download(url, progressHandler: { progress in continuation.yield(.downloading(progress)) }, completion: { result in switch result { case .success(let data): continuation.yield(.finished(data)) continuation.finish() case .failure(let error): continuation.finish(throwing: error) } }) } catch { continuation.finish(throwing: error) } } } }. do { for try await status in download(url) { switch status { case .downloading(let progress): print(\"Downloading progress: \\(progress)\") case .finished(let data): print(\"Downloading completed with data: \\(data)\") } } print(\"Download finished and stream closed\") } catch { print(\"Download failed with \\(error)\") }. * Async await in Swift explained with code examples. * Global actor in Swift Concurrency explained with code examples. * Detached Tasks in Swift explained with code examples. * AsyncThrowingStream and AsyncStream explained with code examples. * Tasks in Swift explained with code examples.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "What to expect from `AsyncSequence` cancellation? - Swift Forums",
+        "url": "https://forums.swift.org/t/what-to-expect-from-asyncsequence-cancellation/62541",
+        "snippet": "The asynchronous sequence may emit an element before emitting its 'nil' termination element (on cancellation of the task), and then the branch",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "Advanced Swift Concurrency: AsyncStream - Jacob's Tech Tavern",
+        "url": "https://blog.jacobstechtavern.com/p/async-stream",
+        "snippet": "# Advanced Swift Concurrency: AsyncStream. > *Subscribe to Jacob’s Tech Tavern for free to get ludicrously in-depth articles on iOS, Swift, tech, & indie projects in your inbox every week.*. Essentially, AsyncStream helps you easily push out new data as it becomes available, and consume it through for-await-in loops. The continuation inside the closure allows you to pass values through the stream using `continuation.yield()`. This passes values to consumers in the for-await-in loops. This is nice for our sample project, but in the real world, we would send the true values from URLSessionDownloadDelegate delegate methods, setting the continuation as a local property. We can use an AsyncStream to pass the display link for each frame tick. Here, we use onTermination to clean up the CADisplayLink when the AsyncStream’s task is cancelled. Whether you’re wrapping a closure to propagate location updates, streaming long-running data from a backend, or tracking the performance of your app in real-time, AsyncStream is a powerful and versatile tool.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to test AsyncSequence and AsyncStream - Hacking with Swift",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-test-asyncsequence-and-asyncstream",
+        "snippet": "It's important to be able to write tests to check an AsyncStream, AsyncSequence, or similar sends back a certain number of values.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "AsyncSequence & AsyncStream Tutorial for iOS - Kodeco",
+        "url": "https://www.kodeco.com/34044359-asyncsequence-asyncstream-tutorial-for-ios",
+        "snippet": "Learn how to use Swift concurrency's AsyncSequence and AsyncStream protocols to process asynchronous sequences.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      },
+      {
+        "title": "Swift 6: Asynchronous Data Flows with AsyncStream and ... - Medium",
+        "url": "https://medium.com/@mrhotfix/swift-6-concurrency-mastering-asyncstream-and-asyncsequence-for-data-flows-7fb65ad69ced",
+        "snippet": "Swift 6: Asynchronous Data Flows with AsyncStream and AsyncSequence How to work with cancelable, safe, and scalable streams using actors and",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.46
+      }
+    ],
+    "grok": []
+  }
+}
