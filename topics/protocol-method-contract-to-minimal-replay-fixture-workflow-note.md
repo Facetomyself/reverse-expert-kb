@@ -376,10 +376,12 @@ Best move:
 - separate opnum identity from auth/context handles and per-call correlation fields
 - preserve binding or endpoint assumptions explicitly
 - build one minimal call surface before widening argument taxonomy
+- if a context handle is involved, freeze where that handle was created, under which interface/binding family it remained valid, and whether replay is reusing truthful lineage versus inventing a stand-in token
 
 Extra stop rule worth preserving:
-- do not treat a visible opnum plus plausible arguments as the whole replay object if the live call still depended on one binding-handle family, authn/authz posture, or stricter context-handle contract
+- do not treat a visible opnum plus plausible arguments as the whole replay object if the live call still depended on one binding-handle family, authn/authz posture, object-UUID target, or stricter context-handle contract
 - if the same argument bundle behaves differently across binding families or interface/context assumptions, freeze that call-context difference as part of the representative fixture instead of calling it generic ambient state
+- if the case already has one visible context handle, ask whether replay failure is better explained by invalid handle lineage/interface ownership than by wrong scalar/string arguments before widening argument taxonomy again
 
 ### Scenario D: Async method looks right, but the client fixture lies about completion
 Pattern:
@@ -463,6 +465,8 @@ Primary retained source influences for this page:
   - `sources/firmware-protocol/2026-03-23-streaming-first-minimal-replay-fixture-notes.md`
 - streaming / half-close and Windows RPC representative call-bundle material summarized in:
   - `sources/firmware-protocol/2026-03-23-streaming-and-opnum-minimal-replay-fixture-notes.md`
+- Windows RPC binding/context comparability continuation summarized in:
+  - `sources/firmware-protocol/2026-03-26-rpc-binding-context-fixture-notes.md`
 - existing schema-externalization source note:
   - `sources/firmware-protocol/2026-03-21-schema-externalization-and-replay-harness-notes.md`
 
