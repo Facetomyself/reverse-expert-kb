@@ -1,0 +1,559 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "gRPC completion queue tag stale call object late completion reverse engineering",
+    "AMQP RPC direct reply-to correlation id pending request stale reply",
+    "NVMe completion queue phase tag slot reuse stale completion reverse engineering"
+  ],
+  "count": 32,
+  "results": [
+    {
+      "title": "AsyncNotifyWhenDone is called before the CQ returns the tag · Issue #36065 · grpc/grpc · GitHub",
+      "url": "https://github.com/grpc/grpc/issues/36065",
+      "snippet": "",
+      "published_date": "2024-03-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "GRPC(1.46.6) C++ Async Server CompletionQueue Delivery Delay",
+      "url": "https://github.com/grpc/grpc/issues/41415",
+      "snippet": "",
+      "published_date": "2026-01-15T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.69
+    },
+    {
+      "title": "GRPC-cpp : Completion Queue does not return events leading to hang",
+      "url": "https://stackoverflow.com/questions/78828846/grpc-cpp-completion-queue-does-not-return-events-leading-to-hang",
+      "snippet": "",
+      "published_date": "2024-08-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "[Aio] Perform graceful shutdown for poller completion queue · Issue #22365 · grpc/grpc",
+      "url": "https://github.com/grpc/grpc/issues/22365",
+      "snippet": "",
+      "published_date": "2020-03-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "Not receiving async done tag for failed incoming call requests #10136",
+      "url": "https://github.com/grpc/grpc/issues/10136",
+      "snippet": "",
+      "published_date": "2017-03-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "AsyncNext return TIMEOUT but ok is true and tag is not null Then cause memory leak · Issue #22962 · grpc/grpc",
+      "url": "https://github.com/grpc/grpc/issues/22962",
+      "snippet": "",
+      "published_date": "2020-05-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "Using direct reply-to for RPC calls · Issue #259 · amqp-node/amqplib",
+      "url": "https://github.com/amqp-node/amqplib/issues/259",
+      "snippet": "I've been trying to implement RPC in a project without having to create a new connection, channel and reply queue per RPC request (since",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "Checking admin completion queue is going into infinite loop (NVMe over PCIe)",
+      "url": "https://stackoverflow.com/questions/78535490/checking-admin-completion-queue-is-going-into-infinite-loop-nvme-over-pcie",
+      "snippet": "",
+      "published_date": "2024-05-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "gRPC c++ async server : r/cpp",
+      "url": "https://www.reddit.com/r/cpp/comments/beh9dh/grpc_c_async_server/",
+      "snippet": "The way you tell the CompletionQueue to resume later depends on what you're doing in the meantime: The easiest is to send an async request as a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.62
+    },
+    {
+      "title": "GRPC Core: gRPC Completion Queue",
+      "url": "https://grpc.github.io/grpc/core/md_doc_core_grpc-cq.html",
+      "snippet": "# Completion queue attributes. Completion queue has two attributes. + GRPC\\_CQ\\_NEXT: grpc\\_completion\\_queue\\_next() can be called (but not grpc\\_completion\\_queue\\_pluck()). + GRPC\\_CQ\\_PLUCK: grpc\\_completion\\_queue\\_pluck() can be called (but not grpc\\_completion\\_queue\\_next()). + GRPC\\_CQ\\_CALLBACK: The tags in the queue are function pointers to callbacks. + GRPC\\_CQ\\_NON\\_POLLING: Threads calling completion\\_queue\\_next/pluck do not do any polling. + GRPC\\_CQ\\_DEFAULT\\_POLLING: Threads calling completion\\_queue\\_next/pluck do polling. This is used by the grpc-server code to not associate any listening sockets with this completion-queue’s pollset. ## **grpc\\_completion\\_queue\\_next()** & **grpc\\_completion\\_queue\\_pluck()** APIS. grpc\\_completion\\_queue\\_next(cq, deadline)/pluck(cq, deadline, tag) {. If an event is queued in the completion queue, dequeue and return. If completion queue shutdown return. Call grpc\\_pollset\\_work(cq’s-pollset, deadline) to do polling. \\\\ it would have scheduled those closures (which may queue completion events. \\\\ on SOME completion queue - not necessarily this one). grpc\\_cq\\_end\\_op(cq, tag) {. Find the pollset corresponding to the completion queue. \\\\ (ii) If the cq is of type GRPC\\_CQ\\_PLUCK, then search the tag<->worker. \\\\ map on the completion queue to find the worker.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Direct reply-to still needs correlation ID to work!? #1312",
+      "url": "https://github.com/spring-projects/spring-amqp/issues/1312",
+      "snippet": "",
+      "published_date": "2021-03-19T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "RabbitMQ Direct reply-to and Correlation Id - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/32432354/rabbitmq-direct-reply-to-and-correlation-id",
+      "snippet": "Using correlation-id is not mandatory, but you MAY keep using if you plan to switch back from Direct reply-to for some reason.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Request/Reply Messaging :: Spring AMQP",
+      "url": "https://docs.spring.io/spring-amqp/reference/amqp/request-reply.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.55
+    },
+    {
+      "title": "Finding out why grpc async service got a longer latency in ...",
+      "url": "https://groups.google.com/g/grpc-io/c/qjNNMy6TJ78",
+      "snippet": "# Finding out why grpc async service got a longer latency in client side than server. But on a quite high pressure, the clients side got a longer latency than the time our business transaction taken (about 5-6 seconds, it couldn’t be network lagging) I think the requests were queued a long time in the completion-queue, but as I said, adding more threads and completion-queue seemed not helping. I got a reason that maybe related to the problem, we spawn a new CallData after current process done, everything is almost ok:. // the tag uniquely identifying the request (so that different CallData. // the memory address of this CallData instance. // add a new CallData to the completion queue after handled the current request. // otherwise grpc will use the completion queue again. // Spawn a new CallData instance to serve new clients while we process. responder\\_.Finish(reply\\_, grpc::Status::OK, this);. // Once in the FINISH state, deallocate ourselves (CallData).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.48
+    },
+    {
+      "title": "Asynchronous-API tutorial | C++",
+      "url": "https://grpc.io/docs/languages/cpp/async/",
+      "snippet": "The server implementation requests an RPC call with a tag and then waits for the completion queue to return the tag. To deal with this, our complete async server example uses a `CallData` object to maintain the state of each RPC, and uses the address of this object as the unique tag for the call. class CallData { class CallData { public: public: public // Take in the \"service\" instance (in this case representing an asynchronous  // Take in the \"service\" instance (in this case representing an asynchronous // Take in the \"service\" instance (in this case representing an asynchronous  // server) and the completion queue \"cq\" used for asynchronous communication  // server) and the completion queue \"cq\" used for asynchronous communication // server) and the completion queue \"cq\" used for asynchronous communication  // with the gRPC runtime. new CallData(&service_, cq_.get());  new CallData(&service_, cq_.get());  & void* tag; // uniquely identifies a request. You can see our complete server example in [greeter\\_async\\_server.cc](https://github.com/grpc/grpc/blob/v1.78.1/examples/cpp/helloworld/greeter_async_server.cc).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.48
+    },
+    {
+      "title": "What is the mechanism of Completion Queue?",
+      "url": "https://groups.google.com/g/grpc-io/c/JpGURpAANss",
+      "snippet": "This means we are asking for grpc server to give back a new SayHello rpc call on cq, and when the call comes, that tag will be returned. That is",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "pcie的NVMe协议栈精讲（Command Queueing/CQEs）​",
+      "url": "https://blog.csdn.net/xiaoheshang_123/article/details/146126393",
+      "snippet": "",
+      "published_date": "2025-03-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "Building an RPC System with RabbitMQ and Direct Reply-to",
+      "url": "https://medium.com/@andhikaprbw/building-an-rpc-system-with-rabbitmq-and-direct-reply-to-f55ad49b6685",
+      "snippet": "",
+      "published_date": "2025-03-25T15:18:04.720Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "NVMe系统内存结构 - 命令格式",
+      "url": "https://blog.csdn.net/zyhse/article/details/135366426",
+      "snippet": "",
+      "published_date": "2024-01-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "nvme: batch completions and do them outside of the queue lock",
+      "url": "http://merlin.infradead.org/pipermail/linux-nvme/2018-May/017578.html",
+      "snippet": "I tried adding on > to this proposal by batching *all* completions without using the stack, > exploiting the fact we never wrap the queue so it",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "NVMe confusion - OSDev.org",
+      "url": "https://forum.osdev.org/viewtopic.php?t=38736",
+      "snippet": "The host may consume many entries before updating the associated Completion Queue Head Doorbell register. I'm confused though on the doorbells.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "RPC with RabbitMQ Direct Reply-to - CloudAMQP",
+      "url": "https://www.cloudamqp.com/blog/rpc-with-rabbitmq-direct-reply-to.html",
+      "snippet": "This article examines the ability of RabbitMQ to serve as a middle-man for a remote procedure call, using direct reply-to.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "Queues in Nvme - Semiconductor Nerds",
+      "url": "https://semiconductor-nerds.com/queues-in-nvme/",
+      "snippet": "",
+      "published_date": "2024-02-28T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "NVMe queue command processing | An In-Depth Overview ...",
+      "url": "https://infohub.delltechnologies.com/en-sg/l/an-in-depth-overview-of-nvme-and-nvme-of/nvme-queue-command-processing/",
+      "snippet": "This guide provides a deeper understanding of the core technologies that form the basis of NVMe and NVMe over Fabrics (NVMe-oF), delivering comprehensive",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "PCI Express® Protocol Analysis Summit M64 Exerciser/ ...",
+      "url": "https://cdn.teledynelecroy.com/files/manuals/pciesummitm64_exerciser_analyzer_usermanual.pdf",
+      "snippet": "Binary tabs 428 Hide 395 Hide buttons 405 hiding 362 Idles 405 Hiding tab 362 Hierarchy Lines 358 High Performance Mode 510 I Icon Label 114 idle 499 Include files 514 Include statements 638 information priority 415 Intellisense 635 interface 9 Intersection option 321 K Key License 641 keyboard shortcuts 27 keystrokes 27, 30, 31, 40, 51 L L0p 391, 507 L0p Request 505 L0p Width Change 119 label 79 Latency 451 Latency Time 441 Launching the CrossSync Control Panel 56 Layout 633 layout 2 LEDs Analyzer Summit M5x 5 Legend option 414 Level Hiding tab 362 levels 175 license files 641 License Information window 641 License Key 641 licensing information 641 Linear 395 Link 81 Link Connect toolbar button 10 Link Settings 81 Link State Dialog 116 Link Tracker buttons 405 toolbar 402 Link Tracker window 402 docking 404 markers 404 reformat 402 link training 38 Link Transaction metrics 443 Link Transaction Level graphs 446 Link Transaction Performance 443 Link Utilization 450 Link Width pane 413 Linkup.peg file 622 List values 635 Load button 80, 366 Load command 80, 366 loading 80, 366 log 638 Logarithmic 395 long format 149 Low Power Tab 558 LTSSM Arc Tests 506 LTSSM Control Icon 503 LTSSM Flow Graph 417 LTSSM Flow Graph command 417 Teledyne LeCroy Index 660 Summit M64 PCI Express, CXL, and NVMe Protocol Exerciser/Analyzer LTSSM Log 506 M Main Display Area 402 Main display area 101 Manual Trigger recording",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "How to Implement Request-Reply Pattern in RabbitMQ",
+      "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+      "snippet": "",
+      "published_date": "2026-01-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Direct Reply-to",
+      "url": "https://www.rabbitmq.com/docs/3.13/direct-reply-to",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Direct Reply-to — RabbitMQ",
+      "url": "https://next.rabbitmq.com/direct-reply-to.html",
+      "snippet": "",
+      "published_date": "2023-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "NVM Express Management Interface Specification, Revision 2.0",
+      "url": "https://nvmexpress.org/wp-content/uploads/NVM-Express-Management-Interface-Specification-Revision-2.0-2024.08.05-Ratified.pdf",
+      "snippet": "",
+      "published_date": "2024-08-05T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "NVM Express PCI Express Transport Specification, Revision 1.1",
+      "url": "https://anfang.consserra.com/docs/NVM-Express-PCI-Express-Transport-Specification-Revision-1.1-2024.08.05-Ratified.pdf",
+      "snippet": "",
+      "published_date": "2024-08-05T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "NVM Express Base Specification 2.0",
+      "url": "https://nvmexpress.org/wp-content/uploads/NVMe-NVM-Express-2.0a-2021.07.26-Ratified.pdf",
+      "snippet": "The mapping of extensions defined in this document to a specific NVMe Transport are defined in an NVMe Transport binding specification. The. NVMe Transport",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "nvme no longer detected on boot after upgrade to 6.8.0-60",
+      "url": "https://bugs.launchpad.net/bugs/2111521",
+      "snippet": "[Impact] An Intel nvme stops working after upgrade to noble 6.8.0-60, that is because a upstream stable commit d591f6804e7e (\"PCI: Wait for",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "AsyncNotifyWhenDone is called before the CQ returns the tag · Issue #36065 · grpc/grpc · GitHub",
+        "url": "https://github.com/grpc/grpc/issues/36065",
+        "snippet": "",
+        "published_date": "2024-03-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.69
+      },
+      {
+        "title": "GRPC(1.46.6) C++ Async Server CompletionQueue Delivery Delay",
+        "url": "https://github.com/grpc/grpc/issues/41415",
+        "snippet": "",
+        "published_date": "2026-01-15T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.69
+      },
+      {
+        "title": "GRPC-cpp : Completion Queue does not return events leading to hang",
+        "url": "https://stackoverflow.com/questions/78828846/grpc-cpp-completion-queue-does-not-return-events-leading-to-hang",
+        "snippet": "",
+        "published_date": "2024-08-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.69
+      },
+      {
+        "title": "Not receiving async done tag for failed incoming call requests #10136",
+        "url": "https://github.com/grpc/grpc/issues/10136",
+        "snippet": "",
+        "published_date": "2017-03-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "[Aio] Perform graceful shutdown for poller completion queue · Issue #22365 · grpc/grpc",
+        "url": "https://github.com/grpc/grpc/issues/22365",
+        "snippet": "",
+        "published_date": "2020-03-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.69
+      },
+      {
+        "title": "AsyncNext return TIMEOUT but ok is true and tag is not null Then cause memory leak · Issue #22962 · grpc/grpc",
+        "url": "https://github.com/grpc/grpc/issues/22962",
+        "snippet": "",
+        "published_date": "2020-05-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "How to Implement Request-Reply Pattern in RabbitMQ",
+        "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+        "snippet": "",
+        "published_date": "2026-01-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Building an RPC System with RabbitMQ and Direct Reply-to",
+        "url": "https://medium.com/@andhikaprbw/building-an-rpc-system-with-rabbitmq-and-direct-reply-to-f55ad49b6685",
+        "snippet": "",
+        "published_date": "2025-03-25T15:18:04.720Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Direct Reply-to",
+        "url": "https://www.rabbitmq.com/docs/3.13/direct-reply-to",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Request/Reply Messaging :: Spring AMQP",
+        "url": "https://docs.spring.io/spring-amqp/reference/amqp/request-reply.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.55
+      },
+      {
+        "title": "Direct reply-to still needs correlation ID to work!? #1312",
+        "url": "https://github.com/spring-projects/spring-amqp/issues/1312",
+        "snippet": "",
+        "published_date": "2021-03-19T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Direct Reply-to — RabbitMQ",
+        "url": "https://next.rabbitmq.com/direct-reply-to.html",
+        "snippet": "",
+        "published_date": "2023-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Checking admin completion queue is going into infinite loop (NVMe over PCIe)",
+        "url": "https://stackoverflow.com/questions/78535490/checking-admin-completion-queue-is-going-into-infinite-loop-nvme-over-pcie",
+        "snippet": "",
+        "published_date": "2024-05-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "NVM Express Management Interface Specification, Revision 2.0",
+        "url": "https://nvmexpress.org/wp-content/uploads/NVM-Express-Management-Interface-Specification-Revision-2.0-2024.08.05-Ratified.pdf",
+        "snippet": "",
+        "published_date": "2024-08-05T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "NVM Express PCI Express Transport Specification, Revision 1.1",
+        "url": "https://anfang.consserra.com/docs/NVM-Express-PCI-Express-Transport-Specification-Revision-1.1-2024.08.05-Ratified.pdf",
+        "snippet": "",
+        "published_date": "2024-08-05T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Queues in Nvme - Semiconductor Nerds",
+        "url": "https://semiconductor-nerds.com/queues-in-nvme/",
+        "snippet": "",
+        "published_date": "2024-02-28T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "NVMe系统内存结构 - 命令格式",
+        "url": "https://blog.csdn.net/zyhse/article/details/135366426",
+        "snippet": "",
+        "published_date": "2024-01-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "pcie的NVMe协议栈精讲（Command Queueing/CQEs）​",
+        "url": "https://blog.csdn.net/xiaoheshang_123/article/details/146126393",
+        "snippet": "",
+        "published_date": "2025-03-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      }
+    ],
+    "tavily": [
+      {
+        "title": "What is the mechanism of Completion Queue?",
+        "url": "https://groups.google.com/g/grpc-io/c/JpGURpAANss",
+        "snippet": "This means we are asking for grpc server to give back a new SayHello rpc call on cq, and when the call comes, that tag will be returned. That is",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "GRPC Core: gRPC Completion Queue",
+        "url": "https://grpc.github.io/grpc/core/md_doc_core_grpc-cq.html",
+        "snippet": "# Completion queue attributes. Completion queue has two attributes. + GRPC\\_CQ\\_NEXT: grpc\\_completion\\_queue\\_next() can be called (but not grpc\\_completion\\_queue\\_pluck()). + GRPC\\_CQ\\_PLUCK: grpc\\_completion\\_queue\\_pluck() can be called (but not grpc\\_completion\\_queue\\_next()). + GRPC\\_CQ\\_CALLBACK: The tags in the queue are function pointers to callbacks. + GRPC\\_CQ\\_NON\\_POLLING: Threads calling completion\\_queue\\_next/pluck do not do any polling. + GRPC\\_CQ\\_DEFAULT\\_POLLING: Threads calling completion\\_queue\\_next/pluck do polling. This is used by the grpc-server code to not associate any listening sockets with this completion-queue’s pollset. ## **grpc\\_completion\\_queue\\_next()** & **grpc\\_completion\\_queue\\_pluck()** APIS. grpc\\_completion\\_queue\\_next(cq, deadline)/pluck(cq, deadline, tag) {. If an event is queued in the completion queue, dequeue and return. If completion queue shutdown return. Call grpc\\_pollset\\_work(cq’s-pollset, deadline) to do polling. \\\\ it would have scheduled those closures (which may queue completion events. \\\\ on SOME completion queue - not necessarily this one). grpc\\_cq\\_end\\_op(cq, tag) {. Find the pollset corresponding to the completion queue. \\\\ (ii) If the cq is of type GRPC\\_CQ\\_PLUCK, then search the tag<->worker. \\\\ map on the completion queue to find the worker.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "GRPC(1.46.6) C++ Async Server CompletionQueue ...",
+        "url": "https://github.com/grpc/grpc/issues/41415",
+        "snippet": "GrpcServer::GrpcServer(std::string name, const uint32_t port, int num_threads) : name_(std::move(name)), port_(port), is_closed_(true), num_threads_(num_threads) { cqs_.resize(num_threads_); grpc::EnableDefaultHealthCheckService(true); } void GrpcServer::Run() { uint32_t specified_port = port_; std::string server_address(\"0.0.0.0:\" + std::to_string(port_)); grpc::ServerBuilder builder; builder.AddChannelArgument(GRPC_ARG_ALLOW_REUSEPORT, 0); builder.AddChannelArgument(GRPC_ARG_MAX_SEND_MESSAGE_LENGTH, RayConfig::instance().max_grpc_message_size()); builder.AddChannelArgument(GRPC_ARG_MAX_RECEIVE_MESSAGE_LENGTH, RayConfig::instance().max_grpc_message_size()); builder.AddListeningPort(server_address, grpc::InsecureServerCredentials(), &port_); for (auto &entry : services_) { builder.RegisterService(&entry.get()); } // Get hold of the completion queue used for the asynchronous communication // with the gRPC runtime. for (auto &entry : server_call_factories_) { for (int i = 0; i < num_threads_; i++) { int buffer_size = 100; for (int j = 0; j < buffer_size; j++) { entry->CreateCall(); } } } // Start threads that polls incoming requests. is_closed_ = false; } void GrpcServer::RegisterService(GrpcService &service) { services_.emplace_back(service.GetGrpcService()); for (int i = 0; i < num_threads_; i++) { service.InitServerCallFactories(cqs_[i], &server_call_factories_); } } void GrpcServer::PollEventsFromCompletionQueue(int index) { SetThreadName(\"server.poll\" + std::to_string(index)); void *tag; bool ok; // Keep reading events from the `CompletionQueue` until it's shutdown.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Finding out why grpc async service got a longer latency in ...",
+        "url": "https://groups.google.com/g/grpc-io/c/qjNNMy6TJ78",
+        "snippet": "# Finding out why grpc async service got a longer latency in client side than server. But on a quite high pressure, the clients side got a longer latency than the time our business transaction taken (about 5-6 seconds, it couldn’t be network lagging) I think the requests were queued a long time in the completion-queue, but as I said, adding more threads and completion-queue seemed not helping. I got a reason that maybe related to the problem, we spawn a new CallData after current process done, everything is almost ok:. // the tag uniquely identifying the request (so that different CallData. // the memory address of this CallData instance. // add a new CallData to the completion queue after handled the current request. // otherwise grpc will use the completion queue again. // Spawn a new CallData instance to serve new clients while we process. responder\\_.Finish(reply\\_, grpc::Status::OK, this);. // Once in the FINISH state, deallocate ourselves (CallData).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.48
+      },
+      {
+        "title": "Asynchronous-API tutorial | C++",
+        "url": "https://grpc.io/docs/languages/cpp/async/",
+        "snippet": "The server implementation requests an RPC call with a tag and then waits for the completion queue to return the tag. To deal with this, our complete async server example uses a `CallData` object to maintain the state of each RPC, and uses the address of this object as the unique tag for the call. class CallData { class CallData { public: public: public // Take in the \"service\" instance (in this case representing an asynchronous  // Take in the \"service\" instance (in this case representing an asynchronous // Take in the \"service\" instance (in this case representing an asynchronous  // server) and the completion queue \"cq\" used for asynchronous communication  // server) and the completion queue \"cq\" used for asynchronous communication // server) and the completion queue \"cq\" used for asynchronous communication  // with the gRPC runtime. new CallData(&service_, cq_.get());  new CallData(&service_, cq_.get());  & void* tag; // uniquely identifies a request. You can see our complete server example in [greeter\\_async\\_server.cc](https://github.com/grpc/grpc/blob/v1.78.1/examples/cpp/helloworld/greeter_async_server.cc).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.48
+      },
+      {
+        "title": "gRPC c++ async server : r/cpp",
+        "url": "https://www.reddit.com/r/cpp/comments/beh9dh/grpc_c_async_server/",
+        "snippet": "The way you tell the CompletionQueue to resume later depends on what you're doing in the meantime: The easiest is to send an async request as a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.62
+      },
+      {
+        "title": "Direct reply-to still needs correlation ID to work!? #1312 - GitHub",
+        "url": "https://github.com/spring-projects/spring-amqp/issues/1312",
+        "snippet": "When using a fixed reply queue (other than amq.rabbitmq.reply-to), you must provide correlation data so that replies can be correlated to",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Request/Reply Messaging :: Spring AMQP",
+        "url": "https://docs.spring.io/spring-amqp/reference/amqp/request-reply.html",
+        "snippet": "When using a fixed reply queue (other than amq.rabbitmq.reply-to ), you must provide correlation data so that replies can be correlated to requests. See",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RabbitMQ Direct reply-to and Correlation Id - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/32432354/rabbitmq-direct-reply-to-and-correlation-id",
+        "snippet": "Using correlation-id is not mandatory, but you MAY keep using if you plan to switch back from Direct reply-to for some reason.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Using direct reply-to for RPC calls · Issue #259 · amqp-node/amqplib",
+        "url": "https://github.com/amqp-node/amqplib/issues/259",
+        "snippet": "I've been trying to implement RPC in a project without having to create a new connection, channel and reply queue per RPC request (since",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "Direct Reply-to | RabbitMQ",
+        "url": "https://www.rabbitmq.com/docs/3.13/direct-reply-to",
+        "snippet": "The direct reply-to feature allows RPC clients to receive replies directly from their RPC server, without going through a reply queue.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RPC with RabbitMQ Direct Reply-to - CloudAMQP",
+        "url": "https://www.cloudamqp.com/blog/rpc-with-rabbitmq-direct-reply-to.html",
+        "snippet": "This article examines the ability of RabbitMQ to serve as a middle-man for a remote procedure call, using direct reply-to.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "nvme: batch completions and do them outside of the queue lock",
+        "url": "http://merlin.infradead.org/pipermail/linux-nvme/2018-May/017578.html",
+        "snippet": "I tried adding on > to this proposal by batching *all* completions without using the stack, > exploiting the fact we never wrap the queue so it",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "NVMe confusion - OSDev.org",
+        "url": "https://forum.osdev.org/viewtopic.php?t=38736",
+        "snippet": "The host may consume many entries before updating the associated Completion Queue Head Doorbell register. I'm confused though on the doorbells.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "NVMe queue command processing | An In-Depth Overview ...",
+        "url": "https://infohub.delltechnologies.com/en-sg/l/an-in-depth-overview-of-nvme-and-nvme-of/nvme-queue-command-processing/",
+        "snippet": "This guide provides a deeper understanding of the core technologies that form the basis of NVMe and NVMe over Fabrics (NVMe-oF), delivering comprehensive",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "NVM Express Base Specification 2.0",
+        "url": "https://nvmexpress.org/wp-content/uploads/NVMe-NVM-Express-2.0a-2021.07.26-Ratified.pdf",
+        "snippet": "The mapping of extensions defined in this document to a specific NVMe Transport are defined in an NVMe Transport binding specification. The. NVMe Transport",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "PCI Express® Protocol Analysis Summit M64 Exerciser/ ...",
+        "url": "https://cdn.teledynelecroy.com/files/manuals/pciesummitm64_exerciser_analyzer_usermanual.pdf",
+        "snippet": "Binary tabs 428 Hide 395 Hide buttons 405 hiding 362 Idles 405 Hiding tab 362 Hierarchy Lines 358 High Performance Mode 510 I Icon Label 114 idle 499 Include files 514 Include statements 638 information priority 415 Intellisense 635 interface 9 Intersection option 321 K Key License 641 keyboard shortcuts 27 keystrokes 27, 30, 31, 40, 51 L L0p 391, 507 L0p Request 505 L0p Width Change 119 label 79 Latency 451 Latency Time 441 Launching the CrossSync Control Panel 56 Layout 633 layout 2 LEDs Analyzer Summit M5x 5 Legend option 414 Level Hiding tab 362 levels 175 license files 641 License Information window 641 License Key 641 licensing information 641 Linear 395 Link 81 Link Connect toolbar button 10 Link Settings 81 Link State Dialog 116 Link Tracker buttons 405 toolbar 402 Link Tracker window 402 docking 404 markers 404 reformat 402 link training 38 Link Transaction metrics 443 Link Transaction Level graphs 446 Link Transaction Performance 443 Link Utilization 450 Link Width pane 413 Linkup.peg file 622 List values 635 Load button 80, 366 Load command 80, 366 loading 80, 366 log 638 Logarithmic 395 long format 149 Low Power Tab 558 LTSSM Arc Tests 506 LTSSM Control Icon 503 LTSSM Flow Graph 417 LTSSM Flow Graph command 417 Teledyne LeCroy Index 660 Summit M64 PCI Express, CXL, and NVMe Protocol Exerciser/Analyzer LTSSM Log 506 M Main Display Area 402 Main display area 101 Manual Trigger recording",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "nvme no longer detected on boot after upgrade to 6.8.0-60",
+        "url": "https://bugs.launchpad.net/bugs/2111521",
+        "snippet": "[Impact] An Intel nvme stops working after upgrade to noble 6.8.0-60, that is because a upstream stable commit d591f6804e7e (\"PCI: Wait for",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      }
+    ],
+    "grok": []
+  }
+}

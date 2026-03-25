@@ -194,7 +194,20 @@ For operator purposes, the stronger question is whether the waiter map, pending 
 
 That narrower liveness question is often the bridge from broad async-reply reasoning into one concrete stale-drop or matched-only wakeup branch.
 
-#### Reminder E: wrapped completion queues often hide a stale-entry stop rule rather than a parser problem
+#### Reminder E: late-reply handling is often an explicit branch, not just an accidental miss
+Spring AMQP request/reply guidance is useful here because it makes one operator distinction unusually concrete:
+- late replies are treated as a reply-side error class worth surfacing
+- replies without a usable correlation header are also separated as their own failure class
+- the practical consequence is that a broadly plausible reply path can still end in an explicit stale/late/no-current-waiter branch rather than in silent successful consume
+
+For analyst purposes, this is a strong reminder to look for:
+- one retained waiter map or future table
+- one timeout or retire path
+- one later reply-error, stale-drop, or unmatched-reply branch
+
+This keeps “the reply came back correctly” from being overread once the real question has narrowed to whether any still-live owner was willing to claim it.
+
+#### Reminder F: wrapped completion queues often hide a stale-entry stop rule rather than a parser problem
 NVMe-style queue discussions are useful here because they make one operator distinction unusually explicit:
 - a visible completion index can stay stable across wrap
 - the consumer still stops only when the phase-owned entry is no longer current
@@ -359,13 +372,14 @@ If you cannot answer those, the case likely needs the broader pending-request ow
 This note is intentionally workflow-first.
 
 Primary retained support:
-- `sources/firmware-protocol/2026-03-24-pending-owner-generation-epoch-and-slot-reuse-notes.md`
-- `sources/firmware-protocol/2026-03-23-pending-request-timeout-and-late-reply-lifecycle-notes.md`
-- `sources/firmware-protocol/2026-03-24-pending-owner-generation-reuse-search-layer.txt`
+- `sources/protocol-and-network-recovery/2026-03-25-pending-request-generation-slot-reuse-notes.md`
+- `sources/protocol-and-network-recovery/2026-03-25-pending-request-generation-slot-reuse-1016-notes.md`
+- `sources/protocol-and-network-recovery/2026-03-25-pending-owner-lifetime-notes.md`
 - `sources/protocol-and-network-recovery/2026-03-25-pending-request-generation-slot-reuse-search-layer.txt`
+- `sources/protocol-and-network-recovery/2026-03-25-pending-owner-lifetime-search-layer.txt`
 - `topics/protocol-pending-request-correlation-and-async-reply-workflow-note.md`
 - gRPC C++ completion-queue documentation and async tutorial material on per-call tag/state and final completion behavior
-- RabbitMQ RPC and direct-reply tutorial/doc material on callback-queue delivery plus correlation-based pending-request completion
+- RabbitMQ direct-reply and Spring AMQP request/reply material on callback-path success, correlation handling, and late-reply / unmatched-reply branches
 - NVMe queue/completion explanations used conservatively as a ring phase/owner analogy rather than as a direct protocol claim
 
 Confidence note:

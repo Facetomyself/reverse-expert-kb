@@ -233,7 +233,7 @@ A compact protocol/firmware reading worth preserving at the top level is:
 - peel one visible object into one smaller trustworthy contract
 - externalize that contract into one reusable schema or representative harness target when analyst-private understanding is now the real blocker
 - if one method-bearing contract is already externalized, freeze one truthful representative replay fixture plus one smallest constructor path before broad replay-gate guesses
-- then prove one ownership, consequence, acceptance, output, or hardware-side edge instead of widening protocol narration forever
+- then prove one ownership, consequence, acceptance, pending-owner lifetime contract when broad owner-match is already good enough, output, or hardware-side edge instead of widening protocol narration forever
 
 ### Runtime-evidence practical branch
 - `topics/runtime-evidence-practical-subtree-guide.md`

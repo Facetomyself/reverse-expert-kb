@@ -101,7 +101,7 @@ A compact reading worth preserving is:
 - peel one visible layered object into one smaller trustworthy contract
 - externalize that contract into one reusable schema, service-contract artifact, or representative harness target when the branch would otherwise stall in analyst-private notes
 - when one representative method/call already exists, freeze not only body/argument truth but also **call-context truth** when the family carries meaningful per-call semantics outside the body (for example gRPC deadline/metadata/authority posture or Windows RPC binding/authn/context-handle posture)
-- prove one receive owner, parser/state edge, acceptance gate, reply/output handoff, or hardware-side consequence
+- prove one receive owner, parser/state edge, acceptance gate, pending-owner lifetime contract when broad owner-match is already good enough, reply/output handoff, or hardware-side consequence
 - preserve the result as a reusable evidence unit once the technical proof is already good enough
 
 This ladder is narrower than the whole domain and does not imply every case traverses every stage.
