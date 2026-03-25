@@ -299,6 +299,7 @@ A practical routing rule worth preserving here is:
 - leave representative-execution / trace-anchor selection work once one bounded execution and one stable first anchor are already good enough and the real bottleneck has become compare-run design, causal-boundary proof, branch-specific follow-up, or evidence packaging
 - leave compare-run alignment work once one trustworthy pair and one first behavior-bearing divergence are already good enough and the real bottleneck has become causal-boundary proof, branch-specific follow-up, or evidence packaging
 - if the first raw mismatches are dominated by timing, scheduler, checksum, handle, or bookkeeping churn, repair the compare boundary or compare level before widening into explanation
+- in async queue/callback-heavy cases, do not stop at broad event-loop/queue-family entry or raw mixed-thread delivery order; first align on one delivered callback family, dequeued work item, reducer output, or other consumer-bearing boundary that still preserves semantic continuity across the pair
 - leave broad reverse-causality work once one causal boundary is already good enough and the real bottleneck has become narrower native, protocol, malware, mobile, protected-runtime, or provenance work
 
 Practitioner-community casework adds several concrete patterns here:
