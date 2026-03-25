@@ -6,12 +6,19 @@
 - Related DNS:
   - `autoconfig.zhangxuemin.work` -> CNAME to `mail.zhangxuemin.work`
   - `autodiscover.zhangxuemin.work` -> CNAME to `mail.zhangxuemin.work`
+  - `dreamhorse.eu.cc` -> A `140.83.52.216`
+  - `www.dreamhorse.eu.cc` -> A `140.83.52.216`
+  - `zhangxuemin.eu.cc` -> A `140.83.52.216`
+  - `www.zhangxuemin.eu.cc` -> A `140.83.52.216`
+  - `mengma.eu.cc` -> A `140.83.52.216`
+  - `www.mengma.eu.cc` -> A `140.83.52.216`
 
 ## 2. Current Reachability
-Observed externally on 2026-03-15:
-- `https://mail.zhangxuemin.work` -> connection refused on `443`
-- `https://autoconfig.zhangxuemin.work` -> `HTTP 521` from Cloudflare
-- `https://autodiscover.zhangxuemin.work` -> `HTTP 521` from Cloudflare
+Current documented state after the 2026-03-20 repurpose:
+- `mail.zhangxuemin.work` is live on this host as the `Outlook Email Plus` web app
+- public `80/443` are owned by the `outlook-email-plus-caddy` container
+- `dreamhorse.eu.cc` is now also live on this host as the public browser entrypoint for the `rbot` / `Radiance OCI Bot` web UI, fronted by the same Caddy instance and reverse-proxied to local `https://140.83.52.216:9527`
+- `autoconfig.zhangxuemin.work` and `autodiscover.zhangxuemin.work` still resolve here via CNAME, but no classic mail protocol stack has been reactivated behind them
 
 ## 3. On-Host Listener Reality
 Currently listening services include:
@@ -21,19 +28,15 @@ Currently listening services include:
 - `111/tcp` (rpcbind)
 - local PCP monitoring ports
 
-Still not observed / not reactivated as of 2026-03-20:
+Still not observed / not reactivated as of 2026-03-24:
 - `25/465/587`
 - `110/995`
 - `143/993`
 - `4190`
 
 ## 4. Interpretation
-DNS says this should be a mail host, but runtime says the intended mail/web stack is currently not active.
+This host is no longer a dormant mail-stack candidate: runtime now clearly matches an active web application host for `mail.zhangxuemin.work`, while traditional mail protocols remain intentionally inactive.
 
 ## 5. To Be Confirmed
-- whether Mailu was intentionally shut down
-- whether this host is waiting for manual bring-up
-- whether some external dependency (certs, DNS, storage migration) blocked activation
-wn
-- whether this host is waiting for manual bring-up
-- whether some external dependency (certs, DNS, storage migration) blocked activation
+- whether `autoconfig` / `autodiscover` should later receive explicit app-aware handling or redirects
+- whether this host will remain a web-app-only mail-adjacent host or later regain classic mail services under a separate plan
