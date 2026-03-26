@@ -1,0 +1,303 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Qt AutoConnection receiver thread affinity queued direct connection first consumer reverse engineering",
+    "QObject moveToThread AutoConnection direct vs queued slot execution thread documentation",
+    "Qt eventFilter same thread requirement installEventFilter thread affinity documentation"
+  ],
+  "count": 16,
+  "results": [
+    {
+      "title": "Qt signals (QueuedConnection and DirectConnection)",
+      "url": "https://stackoverflow.com/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+      "snippet": "",
+      "published_date": "2013-02-24T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "How to know in which thread Qt executes slots?",
+      "url": "https://stackoverflow.com/questions/37057042/how-to-know-in-which-thread-qt-executes-slots",
+      "snippet": "",
+      "published_date": "2016-05-05T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "QObject::installEventFilter(): Cannot filter events for objects in a ...",
+      "url": "https://stackoverflow.com/questions/18208484/qobjectinstalleventfilter-cannot-filter-events-for-objects-in-a-different-t",
+      "snippet": "I'm getting this error QObject::installEventFilter(): Cannot filter events for objects in a different thread . I have read that this error may",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6273
+    },
+    {
+      "title": "Qt 4.7: Threads and QObjects",
+      "url": "https://ftp.nmr.mgh.harvard.edu/pub/dist/freesurfer/tutorial_packages_centos6/centos6/freesurfer-fsl-matlab-Linux-centos6_x86_64-dev/freesurfer/lib/qt/qt_doc/html/threads-qobject.html",
+      "snippet": "Auto Connection (default) If the signal is emitted in the thread which the receiving object has affinity then the behavior is the same as the Direct Connection.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6091
+    },
+    {
+      "title": "QObject Class Reference - Huihoo",
+      "url": "https://docs.huihoo.com/pyqt/PyQt4/qobject.html",
+      "snippet": "An object's thread affinity can be queried using thread() and changed using moveToThread(). All QObjects must live in the same thread as their parent.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6045
+    },
+    {
+      "title": "QObject Class | Qt Core 5.7",
+      "url": "https://stuff.mit.edu/afs/athena/software/texmaker_v5.0.2/qt57/doc/qtcore/qobject.html",
+      "snippet": "An object's thread affinity can be queried using thread() and changed using moveToThread(). All QObjects must live in the same thread as their parent.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5545
+    },
+    {
+      "title": "Signals and Slots in Qt - Medium",
+      "url": "https://medium.com/@arsenmargaryan38/signals-and-slots-in-qt-4496792d409b",
+      "snippet": "This emits the clicked() signal, and since it is connected to the onButtonClicked() slot, the slot function is executed. By default, when the signal and slot are in different threads, Qt uses a queued connection. When you use queued connections, the signal is placed in the event queue of the receiver’s thread, ensuring that the slot is executed in the right thread without interfering with other threads. class Worker : public QObject {    Q_OBJECTpublic slots:    void doWork() {        qDebug() << \"Work done in thread:\" << QThread::currentThread();    }};int main(int argc, char *argv[]) {    QApplication app(argc, argv);    QThread workerThread;    Worker worker;    QObject::connect(&someObject, &SomeClass::workSignal, &worker, &Worker::doWork, Qt::QueuedConnection);    worker.moveToThread(&workerThread);    workerThread.start();    emit someObject.workSignal();  // Signal will be queued and handled in workerThread    workerThread.quit();    workerThread.wait();    return app.exec();} class Worker public publicvoid doWork() void doWork() qDebug\"Work done in thread:\" currentThreadint main(int argc, char *argv[]) int main(int argc, char *argv[]) int charQApplication app(argc, argv) app(argc, argv) connect moveToThread start workSignal. When dealing with signals and slots between threads, always use Qt::QueuedConnection.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.5091
+    },
+    {
+      "title": "Qt, direct connection and queued connection difference",
+      "url": "https://club.mindpx.net/d/72-qt-direct-connection-and-queued-connection-difference",
+      "snippet": "- If the connection is queued and the slot is running inside the same thread, it acts exactly like a direct connection. If the slot is running",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "Threads and QObjects | Qt 6.10 - Qt Documentation",
+      "url": "https://doc.qt.io/qt-6/threads-qobject.html",
+      "snippet": "More interesting is that QObjects can be used in multiple threads, emit signals that invoke slots in other threads, and post events to objects that \"live\" in other threads. Threads, objects, and event loops. Threads, objects, and event loops. It is important to keep in mind that the event loop may be delivering events to your QObject subclass while you are accessing the object from another thread. If you are calling a function on an QObject subclass that doesn't live in the current thread and the object might receive events, you must protect all access to your QObject subclass's internal data with a mutex; otherwise, you may experience crashes or other undesired behavior. Be aware that using direct connections when the sender and receiver live in different threads is unsafe if an event loop is running in the receiver's thread, for the same reason that calling any function on an object living in another thread is unsafe.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4091
+    },
+    {
+      "title": "Qt signals (QueuedConnection and DirectConnection)",
+      "url": "https://wiki.hoelee.com/content/stackoverflow.com_en_all_2023-11/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+      "snippet": "See http://stackoverflow.com/questions/11230080/qobject-based-class-has-a-queued-connection-to-itself and http://qt-project.org/doc/qt-4.8/threads-qobject.html – Mihai8 Feb 24 '13 at 12:13. connect( A, SIGNAL(somethingChanged()), B, SLOT(handleChange()), Qt::DirectConnection );. However, if you don't specify a connection method, the direct method is automatically used for connections between objects on the same thread (at least it is in Qt 4.8). Or when thread `A` pass some data through arguments of a signal that is connected to a slot in thread `B`? Using `QueuedConnection` allows users from many threads to invoke slots on a QObject without having to worry about whether or not that object's methods are re-entrant (because the event loop serializes the invocations). emitting a signal to a direct connection within the same thread will execute the slot immediately, just like a simple function call. emitting a signal to a queued connection within the same thread will enqueue the call into the threads event loop, thus the execution will *always* happen delayed. 1 What is the functional difference between these two qt signal-slot connections?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "signal and slots in movetothread - Qt Forum",
+      "url": "https://forum.qt.io/topic/90695/signal-and-slots-in-movetothread",
+      "snippet": "SLOT can get executed in main thread only if 'this' object is in main thread or you have directConnection. It should be either of this case only",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "[Qt-interest] AutoConnection and Threads - Mailing Lists",
+      "url": "https://lists.qt-project.org/pipermail/qt-interest-old/2011-October/036576.html",
+      "snippet": "Previous message: [Qt-interest] AutoConnection and Threads · Next message: [Qt-interest] AutoConnection and Threads · Messages sorted by: [ date ]",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Thread affinity and signal emission - Qt Forum",
+      "url": "https://forum.qt.io/topic/156630/thread-affinity-and-signal-emission",
+      "snippet": "I'm confused on the topic of QObject's thread affinity and signal emission. I understand that when you connect to signal using QObject receiver,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Event filter: very confused about how they work - Qt Centre",
+      "url": "https://www.qtcentre.org/threads/45957-Event-filter-very-confused-about-how-they-work",
+      "snippet": "* Event filter: very confused about how they work. # Thread: Event filter: very confused about how they work. :   Thanked 27 Times in 22 Posts. > You can simply install the same class as event filter for any other widget:. :   Thanked 27 Times in 22 Posts. :   Thanked 872 Times in 859 Posts. >  Event filters are installed on an instance by instance basis. >  You can have multiple event filters per object instance. >  You can use the same event filter for multiple object instances. If multiple filters are installed on the same object instance, then each one of them gets a whack at it (unless an event filter earlier in the chain killed it). 8. ## The following user says thank you to d\\_stranz for this useful post:. :   Thanked 872 Times in 859 Posts. ## The following user says thank you to d\\_stranz for this useful post:. :   Thanked 872 Times in 859 Posts. By d\\_stranz in forum Qt Programming.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "Threads and QObjects | Qt | Qt Documentation (Pro) - Felgo",
+      "url": "https://felgo.com/doc/qt/threads-qobject/",
+      "snippet": "QThread inherits QObject. It emits signals to indicate that the thread started or finished executing, and provides a few slots as well.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "QObject Class | Qt Core | Qt 6.11.0",
+      "url": "https://doc.qt.io/qt-6/qobject.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Qt, direct connection and queued connection difference",
+        "url": "https://club.mindpx.net/d/72-qt-direct-connection-and-queued-connection-difference",
+        "snippet": "- If the connection is queued and the slot is running inside the same thread, it acts exactly like a direct connection. If the slot is running",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "signal and slots in movetothread - Qt Forum",
+        "url": "https://forum.qt.io/topic/90695/signal-and-slots-in-movetothread",
+        "snippet": "SLOT can get executed in main thread only if 'this' object is in main thread or you have directConnection. It should be either of this case only",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Signals and Slots in Qt - Medium",
+        "url": "https://medium.com/@arsenmargaryan38/signals-and-slots-in-qt-4496792d409b",
+        "snippet": "This emits the clicked() signal, and since it is connected to the onButtonClicked() slot, the slot function is executed. By default, when the signal and slot are in different threads, Qt uses a queued connection. When you use queued connections, the signal is placed in the event queue of the receiver’s thread, ensuring that the slot is executed in the right thread without interfering with other threads. class Worker : public QObject {    Q_OBJECTpublic slots:    void doWork() {        qDebug() << \"Work done in thread:\" << QThread::currentThread();    }};int main(int argc, char *argv[]) {    QApplication app(argc, argv);    QThread workerThread;    Worker worker;    QObject::connect(&someObject, &SomeClass::workSignal, &worker, &Worker::doWork, Qt::QueuedConnection);    worker.moveToThread(&workerThread);    workerThread.start();    emit someObject.workSignal();  // Signal will be queued and handled in workerThread    workerThread.quit();    workerThread.wait();    return app.exec();} class Worker public publicvoid doWork() void doWork() qDebug\"Work done in thread:\" currentThreadint main(int argc, char *argv[]) int main(int argc, char *argv[]) int charQApplication app(argc, argv) app(argc, argv) connect moveToThread start workSignal. When dealing with signals and slots between threads, always use Qt::QueuedConnection.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.5091
+      },
+      {
+        "title": "Threads and QObjects | Qt 6.10 - Qt Documentation",
+        "url": "https://doc.qt.io/qt-6/threads-qobject.html",
+        "snippet": "More interesting is that QObjects can be used in multiple threads, emit signals that invoke slots in other threads, and post events to objects that \"live\" in other threads. Threads, objects, and event loops. Threads, objects, and event loops. It is important to keep in mind that the event loop may be delivering events to your QObject subclass while you are accessing the object from another thread. If you are calling a function on an QObject subclass that doesn't live in the current thread and the object might receive events, you must protect all access to your QObject subclass's internal data with a mutex; otherwise, you may experience crashes or other undesired behavior. Be aware that using direct connections when the sender and receiver live in different threads is unsafe if an event loop is running in the receiver's thread, for the same reason that calling any function on an object living in another thread is unsafe.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4091
+      },
+      {
+        "title": "Qt 4.7: Threads and QObjects",
+        "url": "https://ftp.nmr.mgh.harvard.edu/pub/dist/freesurfer/tutorial_packages_centos6/centos6/freesurfer-fsl-matlab-Linux-centos6_x86_64-dev/freesurfer/lib/qt/qt_doc/html/threads-qobject.html",
+        "snippet": "Auto Connection (default) If the signal is emitted in the thread which the receiving object has affinity then the behavior is the same as the Direct Connection.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6091
+      },
+      {
+        "title": "Qt signals (QueuedConnection and DirectConnection)",
+        "url": "https://wiki.hoelee.com/content/stackoverflow.com_en_all_2023-11/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+        "snippet": "See http://stackoverflow.com/questions/11230080/qobject-based-class-has-a-queued-connection-to-itself and http://qt-project.org/doc/qt-4.8/threads-qobject.html – Mihai8 Feb 24 '13 at 12:13. connect( A, SIGNAL(somethingChanged()), B, SLOT(handleChange()), Qt::DirectConnection );. However, if you don't specify a connection method, the direct method is automatically used for connections between objects on the same thread (at least it is in Qt 4.8). Or when thread `A` pass some data through arguments of a signal that is connected to a slot in thread `B`? Using `QueuedConnection` allows users from many threads to invoke slots on a QObject without having to worry about whether or not that object's methods are re-entrant (because the event loop serializes the invocations). emitting a signal to a direct connection within the same thread will execute the slot immediately, just like a simple function call. emitting a signal to a queued connection within the same thread will enqueue the call into the threads event loop, thus the execution will *always* happen delayed. 1 What is the functional difference between these two qt signal-slot connections?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "Qt signals (QueuedConnection and DirectConnection)",
+        "url": "https://stackoverflow.com/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+        "snippet": "### more stack exchange communities. `connect( A, SIGNAL(somethingChanged()), B, SLOT(handleChange()), Qt::DirectConnection );`. Assuming `B`'s thread is running an event loop, emitting the signal will post an event to `B`'s event loop. This makes it pretty easy to deal with communication between/among threads in Qt (again, assuming your threads are running their own local event loops). It does make a difference if you *specify* a queued connection - even for two objects on the same thread. However, if you don't specify a connection method, the direct method is automatically used for connections between objects on the same thread (at least it is in Qt 4.8). emitting a signal to a direct connection within the same thread will execute the slot immediately, just like a simple function call. emitting a signal to a queued connection within the same thread will enqueue the call into the threads event loop, thus the execution will *always* happen delayed. Start asking to get answers. Find the answer to your question by asking.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[Qt-interest] AutoConnection and Threads - Mailing Lists",
+        "url": "https://lists.qt-project.org/pipermail/qt-interest-old/2011-October/036576.html",
+        "snippet": "Previous message: [Qt-interest] AutoConnection and Threads · Next message: [Qt-interest] AutoConnection and Threads · Messages sorted by: [ date ]",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Thread affinity and signal emission - Qt Forum",
+        "url": "https://forum.qt.io/topic/156630/thread-affinity-and-signal-emission",
+        "snippet": "I'm confused on the topic of QObject's thread affinity and signal emission. I understand that when you connect to signal using QObject receiver,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Threads and QObjects | Qt 6.10 - Qt Documentation",
+        "url": "https://doc.qt.io/qt-6/threads-qobject.html",
+        "snippet": "More interesting is that QObjects can be used in multiple threads, emit signals that invoke slots in other threads, and post events to objects that \"live\" in other threads. Threads, objects, and event loops. Threads, objects, and event loops. It is important to keep in mind that the event loop may be delivering events to your QObject subclass while you are accessing the object from another thread. If you are calling a function on an QObject subclass that doesn't live in the current thread and the object might receive events, you must protect all access to your QObject subclass's internal data with a mutex; otherwise, you may experience crashes or other undesired behavior. Be aware that using direct connections when the sender and receiver live in different threads is unsafe if an event loop is running in the receiver's thread, for the same reason that calling any function on an object living in another thread is unsafe.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Event filter: very confused about how they work - Qt Centre",
+        "url": "https://www.qtcentre.org/threads/45957-Event-filter-very-confused-about-how-they-work",
+        "snippet": "* Event filter: very confused about how they work. # Thread: Event filter: very confused about how they work. :   Thanked 27 Times in 22 Posts. > You can simply install the same class as event filter for any other widget:. :   Thanked 27 Times in 22 Posts. :   Thanked 872 Times in 859 Posts. >  Event filters are installed on an instance by instance basis. >  You can have multiple event filters per object instance. >  You can use the same event filter for multiple object instances. If multiple filters are installed on the same object instance, then each one of them gets a whack at it (unless an event filter earlier in the chain killed it). 8. ## The following user says thank you to d\\_stranz for this useful post:. :   Thanked 872 Times in 859 Posts. ## The following user says thank you to d\\_stranz for this useful post:. :   Thanked 872 Times in 859 Posts. By d\\_stranz in forum Qt Programming.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3273
+      },
+      {
+        "title": "QObject::installEventFilter(): Cannot filter events for objects in a ...",
+        "url": "https://stackoverflow.com/questions/18208484/qobjectinstalleventfilter-cannot-filter-events-for-objects-in-a-different-t",
+        "snippet": "I'm getting this error QObject::installEventFilter(): Cannot filter events for objects in a different thread . I have read that this error may",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6273
+      },
+      {
+        "title": "QObject Class | Qt Core 5.7",
+        "url": "https://stuff.mit.edu/afs/athena/software/texmaker_v5.0.2/qt57/doc/qtcore/qobject.html",
+        "snippet": "An object's thread affinity can be queried using thread() and changed using moveToThread(). All QObjects must live in the same thread as their parent.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5545
+      },
+      {
+        "title": "QObject Class Reference - Huihoo",
+        "url": "https://docs.huihoo.com/pyqt/PyQt4/qobject.html",
+        "snippet": "An object's thread affinity can be queried using thread() and changed using moveToThread(). All QObjects must live in the same thread as their parent.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6045
+      },
+      {
+        "title": "Threads and QObjects | Qt | Qt Documentation (Pro) - Felgo",
+        "url": "https://felgo.com/doc/qt/threads-qobject/",
+        "snippet": "QThread inherits QObject. It emits signals to indicate that the thread started or finished executing, and provides a few slots as well.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3273
+      }
+    ],
+    "exa": [
+      {
+        "title": "Threads and QObjects | Qt 6.10 - Qt Documentation",
+        "url": "https://doc.qt.io/qt-6/threads-qobject.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Signals and Slots in Qt - Medium",
+        "url": "https://medium.com/@arsenmargaryan38/signals-and-slots-in-qt-4496792d409b",
+        "snippet": "",
+        "published_date": "2024-09-13T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Qt signals (QueuedConnection and DirectConnection)",
+        "url": "https://stackoverflow.com/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+        "snippet": "",
+        "published_date": "2013-02-24T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "QObject Class | Qt Core | Qt 6.11.0",
+        "url": "https://doc.qt.io/qt-6/qobject.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "How to know in which thread Qt executes slots?",
+        "url": "https://stackoverflow.com/questions/37057042/how-to-know-in-which-thread-qt-executes-slots",
+        "snippet": "",
+        "published_date": "2016-05-05T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6273
+      }
+    ],
+    "grok": []
+  }
+}
