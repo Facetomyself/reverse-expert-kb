@@ -351,6 +351,7 @@ Start here when:
 - trigger visibility and even some peripheral-effect visibility already exist
 - the main uncertainty is now the first interrupt/completion/deferred-worker handoff that turns earlier hardware-facing activity into durable state, reply, scheduler, or policy behavior
 - rehosting or consequence proof is drifting because completion/deferred logic is still under-modeled
+- the analyst specifically needs to separate `observed_irq` or `scheduled_deferred` truth from the first truthful downstream consumer
 
 Do **not** start here when:
 - the first peripheral-effect edge is still unproved

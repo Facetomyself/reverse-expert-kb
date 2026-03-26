@@ -1,0 +1,377 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Linux interrupt top half bottom half tasklet workqueue NAPI reverse engineering first consumer",
+    "firmware ISR deferred worker completion queue workqueue bottom half first consequence reverse engineering",
+    "interrupt handler tasklet workqueue completion ownership deferred consequence driver documentation"
+  ],
+  "count": 18,
+  "results": [
+    {
+      "title": "Life-long-Learner/linux-kernel-development/chapter-8.md at master",
+      "url": "https://github.com/firmianay/Life-long-Learner/blob/master/linux-kernel-development/chapter-8.md",
+      "snippet": "In the current three methods that exist for deferring work, tasklets are built on softirqs and work queues are their own subsystem. When the kernel runs a softirq handler, it executes this `action` function with a pointer to the corresponding `softirq_action` structure as its argument. The softirq handlers run with interrupts enabled and cannot sleep.While a handler runs, softirqs on the current processor are disabled.Another processor, however, can execute other softirqs. Because most tasklets and softirqs are marked pending in interrupt handlers, `do_softirq()` most likely runs when the last interrupt returns. Unlike softirqs, however, two of the same tasklets never run concurrently. Work queues defer work into a kernel thread which always runs in process context. To queue a given work's handler function with the default events worker threads, call:. Because softirqs and tasklets can occur asynchronously, kernel code may need to disable them.With work queues, on the other hand, protecting shared data is the same as in any process context.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "Linux Interrupt Handling: Top-Half and Bottom-Half Explained",
+      "url": "https://www.linkedin.com/posts/tushar-vyavahare-251015b2_linuxkernel-interrupts-networking-activity-7394029630938214400-E_KJ",
+      "snippet": "🧵 Tasklets — Light and Fast Used for quick and simple deferred work Run in interrupt context (⚠️ can’t sleep or block) Built on top of SoftIRQs ✅ Great when you just need speed without complexity ⚡ SoftIRQs — High-Performance, Low-Level Used internally by the kernel (e.g., networking, disk I/O) Can run on multiple CPUs at once Faster than tasklets, but more complex ❌ Still can’t sleep or block ✅ Designed for speed and scalability 🧰 Workqueues — Flexible and Powerful Run in process context (not interrupt context) ✅ Can sleep, use mutexes, and perform file I/O Ideal for complex, blocking, or long-running tasks 💡 Example: Logging to a file, waiting for hardware, or processing large data 📦 Recap Linux handles interrupts smartly by splitting the work: 🔼 Top Half → Fast response to the interrupt 🔽 Bottom Half → Actual processing done safely using: Tasklets → simple SoftIRQs → fast & advanced Workqueues → flexible & safe 💡 Why This Matters This design ensures your system stays: ✅ Fast ✅ Stable ✅ Responsive — even when many devices demand attention at the same time #Linux #Kernel #Interrupts #EmbeddedSystems #LinuxProgramming #DeviceDrivers #OperatingSystems #SoftIRQ #Workqueue.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.475
+    },
+    {
+      "title": "Deferred work — The Linux Kernel documentation",
+      "url": "https://linux-kernel-labs.github.io/refs/heads/master/labs/deferred_work.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.475
+    },
+    {
+      "title": "Bottom Halves in Linux Device Drivers - embitude.in",
+      "url": "https://embitude.in/bottom-halves-in-linux-device-drivers/",
+      "snippet": "A Tasklet or Workqueue can process sensor data asynchronously after an interrupt signals a new reading. Choosing the Right Bottom Half",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.45
+    },
+    {
+      "title": "[PDF] A Journey into Linux Interrupt Handling Bottom Halves - Sched",
+      "url": "https://static.sched.com/hosted_files/ossna2024/b4/A%20Journey%20into%20Linux%20Interrupt%20Handling%20-%20Bottom%20Halves.pdf",
+      "snippet": "Tasklets are a type of bottom half that runs with interrupts disabled. •They provide a medium- weight mechanism for handling deferred work. •Tasklets are",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.425
+    },
+    {
+      "title": "Linux Bottom Half",
+      "url": "https://thinkty.net/general/2024/04/29/bottom_half.html",
+      "snippet": "In Linux, there are several mechanisms to implement the bottom half (or deferred work): threaded interrupt handlers (threadedirq), workqueues, softirqs, and",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "Tasklets and Bottom-Half Processing - Linux Device Drivers, Second ...",
+      "url": "https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch09s05.html",
+      "snippet": "Tasklets and Bottom-Half Processing One of the main problems with interrupt handling is how to perform longish tasks within a handler.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "Deferrable functions, kernel tasklets, and work queues",
+      "url": "https://developer.ibm.com/tutorials/l-tasklets/",
+      "snippet": "# Deferrable functions, kernel tasklets, and work queues. This discussion of tasklets and work queues uses the 2.6.27.14 version of the Linux kernel. In this way, the scheduler becomes a processor of work queues (feeding work to handler functions) or bit masks (which indicate the ability of a tasklet to do its work). Rather than providing a one-shot deferral scheme as is the case with tasklets, work queues are a generic deferral mechanism in which the handler function for the work queue can sleep (not possible in the tasklet model). The `events/X` kernel threads (one per CPU) extract work from the work queue and activates one of the bottom-half handlers (as indicated by the handler function in the struct `work_struct`). Kernel-global work queue functions. ## Differences between tasklets and work queues. Each defers work from the interrupt context, but only tasklets run atomically in a run-to-complete fashion, where work queues permit handlers to sleep, if necessary.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "CVE-2026-27603: Chartbrew Auth Bypass Vulnerability - SentinelOne",
+      "url": "https://www.sentinelone.com/vulnerability-database/cve-2026-27603/",
+      "snippet": "CVE-2026-27603 is an authentication bypass vulnerability in Depomo Chartbrew that allows unauthenticated users to access chart data from any team or project. CVE-2026-27603 is an authentication bypass vulnerability in Chartbrew, an open-source web application designed to connect directly to databases and APIs to create data visualizations. The vulnerability exists in versions prior to 4.8.4 where the chart filter endpoint POST /project/:project\\_id/chart/:chart\\_id/filter lacks both verifyToken and checkPermissions middleware, allowing unauthenticated users to access chart data from any team or project. Unauthenticated attackers can remotely access sensitive chart data across all teams and projects without any authentication, potentially exposing confidential business intelligence and analytics data. The vulnerable endpoint POST /project/:project\\_id/chart/:chart\\_id/filter processes requests to filter and retrieve chart data. However, the absence of verifyToken and checkPermissions middleware allows any network-accessible request to retrieve chart data regardless of authentication status. The patch adds the missing verifyToken and checkPermissions middleware to the chart filter endpoint, ensuring that only authenticated users with appropriate permissions can access chart data.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.38
+    },
+    {
+      "title": "Softirq, Tasklets and Workqueues | linux-insides",
+      "url": "https://0xax.gitbook.io/linux-insides/summary/interrupts/linux-interrupts-9",
+      "snippet": "",
+      "published_date": "2024-05-05T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "Softirq, Tasklets and Workqueues · Linux Inside - 0xax",
+      "url": "https://0xax.gitbooks.io/linux-insides/content/Interrupts/linux-interrupts-9.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "Understanding Interrupts and Tasklets in Linux Kernel Multitasking",
+      "url": "https://hub.paper-checker.com/blog/interrupts-and-tasklets-in-the-linux-kernel-a-comprehensive-guide-to-multitasking/",
+      "snippet": "",
+      "published_date": "2025-01-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "Using Workqueues & Tasklets – Deferred Work Handling in Kernel ...",
+      "url": "https://www.linkedin.com/pulse/day-10-using-workqueues-tasklets-deferred-work-kernel-r-k-williams-31szc",
+      "snippet": "Tasklets are used for quick deferred execution after an interrupt. Tasklets do not run in process context (cannot sleep/block).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "In-Depth Analysis of Linux Interrupt Handling Mechanism",
+      "url": "https://www.oreateai.com/blog/indepth-analysis-of-linux-interrupt-handling-mechanism/d59932f8ebb4abae021d499b1f29d1d9",
+      "snippet": "",
+      "published_date": "2026-01-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "log - The Linux Kernel Archives",
+      "url": "https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.1.167",
+      "snippet": "WARNING: net/mptcp/pm\\_kernel.c:1074 at \\_\\_mark\\_subflow\\_endp\\_available net/mptcp/pm\\_kernel.c:1074 [inline], CPU#1: syz.7.48/2535. WARNING: net/mptcp/pm\\_kernel.c:1074 at mptcp\\_pm\\_nl\\_set\\_flags\\_all net/mptcp/pm\\_kernel.c:1474 [inline], CPU#1: syz.7.48/2535. WARNING: net/mptcp/pm\\_kernel.c:1074 at mptcp\\_pm\\_nl\\_set\\_flags+0x5de/0x640 net/mptcp/pm\\_kernel.c:1538, CPU#1: syz.7.48/2535. RIP: 0010:\\_\\_mark\\_subflow\\_endp\\_available net/mptcp/pm\\_kernel.c:1074 [inline]. RIP: 0010:mptcp\\_pm\\_nl\\_set\\_flags\\_all net/mptcp/pm\\_kernel.c:1474 [inline]. RIP: 0010:mptcp\\_pm\\_nl\\_set\\_flags+0x5de/0x640 net/mptcp/pm\\_kernel.c:1538. mptcp\\_pm\\_nl\\_set\\_flags\\_doit+0x1d7/0x210 net/mptcp/pm\\_netlink.c:282. netlink\\_rcv\\_skb+0x16d/0x240 net/netlink/af\\_netlink.c:2550. genl\\_rcv+0x28/0x40 net/netlink/genetlink.c:1219. \\_\\_\\_\\_sys\\_sendmsg+0x272/0x3b0 net/socket.c:2608. \\_\\_\\_sys\\_sendmsg+0x2de/0x320 net/socket.c:2662. \\_\\_x64\\_sys\\_sendmsg+0x110/0x1a0 net/socket.c:2697. Link: https://patch.msgid.link/20260205-net-mptcp-misc-fixes-6-19-rc8-v2-1-c2720ce75c34@kernel.org. BUG: KASAN: slab-use-after-free in skb\\_queue\\_purge\\_reason+0x99/0x360 net/core/skbuff.c:3937. skb\\_queue\\_purge\\_reason+0x99/0x360 net/core/skbuff.c:3937. hci\\_dev\\_reset+0x420/0x5c0 net/bluetooth/hci\\_core.c:592. sock\\_do\\_ioctl+0xd9/0x300 net/socket.c:1190. sock\\_ioctl+0x576/0x790 net/socket.c:1311. \\_\\_se\\_sys\\_ioctl+0xf9/0x170 fs/ioctl.c:893. \\_\\_kasan\\_kmalloc+0x93/0xb0 mm/kasan/common.c:394. vfs\\_open+0x3b/0x340 fs/open.c:1094. do\\_sys\\_openat2+0x121/0x1c0 fs/open.c:1437. kasan\\_save\\_free\\_info+0x46/0x50 mm/kasan/generic.c:576. \\_\\_kasan\\_slab\\_free+0x62/0x70 mm/kasan/common.c:264. task\\_work\\_run+0x1d1/0x260 kernel/task\\_work.c:227. \\_\\_x64\\_sys\\_exit\\_group+0x3f/0x40 kernel/exit.c:1113. [ 739.713079] WARNING: drivers/gpu/drm/drm\\_mode\\_config.c:584 at drm\\_mode\\_config\\_cleanup+0x30b/0x320 [drm], CPU#12: xe\\_module\\_load/13145. [ 739.714464] WARNING: drivers/gpu/drm/drm\\_framebuffer.c:833 at drm\\_framebuffer\\_free+0x6c/0x90 [drm], CPU#12: xe\\_module\\_load/13145. [ 743.186893] Modules linked in: rfcomm snd\\_hrtimer xt\\_CHECKSUM xt\\_MASQUERADE xt\\_conntrack ipt\\_REJECT nf\\_reject\\_ipv4 xt\\_tcpudp xt\\_addrtype nft\\_compat x\\_tables nft\\_chain\\_nat nf\\_nat nf\\_conntrack nf\\_defrag\\_ipv6 nf\\_defrag\\_ipv4 nf\\_tables overlay cfg80211 bnep mtd\\_intel\\_dg snd\\_hda\\_codec\\_intelhdmi mtd snd\\_hda\\_codec\\_hdmi nls\\_utf8 mxm\\_wmi intel\\_wmi\\_thunderbolt gigabyte\\_wmi wmi\\_bmof xe drm\\_gpuvm drm\\_gpusvm\\_helper i2c\\_algo\\_bit drm\\_buddy drm\\_ttm\\_helper ttm video drm\\_suballoc\\_helper gpu\\_sched drm\\_client\\_lib drm\\_exec drm\\_display\\_helper cec drm\\_kunit\\_helpers drm\\_kms\\_helper kunit x86\\_pkg\\_temp\\_thermal intel\\_powerclamp coretemp snd\\_hda\\_codec\\_alc882 snd\\_hda\\_codec\\_realtek\\_lib snd\\_hda\\_codec\\_generic snd\\_hda\\_intel snd\\_soc\\_avs snd\\_soc\\_hda\\_codec snd\\_hda\\_ext\\_core snd\\_hda\\_codec snd\\_hwdep snd\\_hda\\_core snd\\_intel\\_dspcfg snd\\_soc\\_core snd\\_compress ac97\\_bus snd\\_pcm snd\\_seq snd\\_seq\\_device snd\\_timer i2c\\_i801 i2c\\_mux snd i2c\\_smbus btusb btrtl btbcm btmtk btintel bluetooth ecdh\\_generic rfkill ecc mei\\_me mei ioatdma dca wmi nfsd drm i2c\\_dev fuse nfnetlink.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.325
+    },
+    {
+      "title": "log - The Linux Kernel Archives",
+      "url": "https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.6.130",
+      "snippet": "[ 7.349607] BUG: KASAN: slab-use-after-free in \\_raw\\_spin\\_lock+0x75/0xe0. [ 739.713079] WARNING: drivers/gpu/drm/drm\\_mode\\_config.c:584 at drm\\_mode\\_config\\_cleanup+0x30b/0x320 [drm], CPU#12: xe\\_module\\_load/13145. [ 739.714464] WARNING: drivers/gpu/drm/drm\\_framebuffer.c:833 at drm\\_framebuffer\\_free+0x6c/0x90 [drm], CPU#12: xe\\_module\\_load/13145. [ 743.186893] Modules linked in: rfcomm snd\\_hrtimer xt\\_CHECKSUM xt\\_MASQUERADE xt\\_conntrack ipt\\_REJECT nf\\_reject\\_ipv4 xt\\_tcpudp xt\\_addrtype nft\\_compat x\\_tables nft\\_chain\\_nat nf\\_nat nf\\_conntrack nf\\_defrag\\_ipv6 nf\\_defrag\\_ipv4 nf\\_tables overlay cfg80211 bnep mtd\\_intel\\_dg snd\\_hda\\_codec\\_intelhdmi mtd snd\\_hda\\_codec\\_hdmi nls\\_utf8 mxm\\_wmi intel\\_wmi\\_thunderbolt gigabyte\\_wmi wmi\\_bmof xe drm\\_gpuvm drm\\_gpusvm\\_helper i2c\\_algo\\_bit drm\\_buddy drm\\_ttm\\_helper ttm video drm\\_suballoc\\_helper gpu\\_sched drm\\_client\\_lib drm\\_exec drm\\_display\\_helper cec drm\\_kunit\\_helpers drm\\_kms\\_helper kunit x86\\_pkg\\_temp\\_thermal intel\\_powerclamp coretemp snd\\_hda\\_codec\\_alc882 snd\\_hda\\_codec\\_realtek\\_lib snd\\_hda\\_codec\\_generic snd\\_hda\\_intel snd\\_soc\\_avs snd\\_soc\\_hda\\_codec snd\\_hda\\_ext\\_core snd\\_hda\\_codec snd\\_hwdep snd\\_hda\\_core snd\\_intel\\_dspcfg snd\\_soc\\_core snd\\_compress ac97\\_bus snd\\_pcm snd\\_seq snd\\_seq\\_device snd\\_timer i2c\\_i801 i2c\\_mux snd i2c\\_smbus btusb btrtl btbcm btmtk btintel bluetooth ecdh\\_generic rfkill ecc mei\\_me mei ioatdma dca wmi nfsd drm i2c\\_dev fuse nfnetlink. lock\\_acquire+0x190/0x4b0 kernel/locking/lockdep.c:5627. \\_raw\\_spin\\_lock\\_irqsave+0x33/0x50 kernel/locking/spinlock.c:162. gem\\_set\\_rxnfc+0x533/0xac0 drivers/net/ethernet/cadence/macb\\_main.c:3667. ethtool\\_set\\_rxnfc+0x18c/0x280 net/ethtool/ioctl.c:961. dev\\_ethtool+0x229c/0x6290 net/ethtool/ioctl.c:3095. dev\\_ioctl+0x637/0x1070 net/core/dev\\_ioctl.c:510. sock\\_ioctl+0x577/0x6d0 net/socket.c:1320. [ 238.028993][ T318] BUG: KASAN: double-free in skb\\_release\\_data (net/core/skbuff.c:1139).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.325
+    },
+    {
+      "title": "[PDF] Time, Delays, and Deferred Work - LWN.net",
+      "url": "https://lwn.net/images/pdf/LDD3/ch07.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Work deferring mechanisms - Packt Subscription",
+      "url": "https://subscription.packtpub.com/book/iot-and-hardware/9781789342048/2/ch02lvl1sec05/work-deferring-mechanisms",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Linux Interrupt Handling: Top-Half and Bottom-Half Explained",
+        "url": "https://www.linkedin.com/posts/tushar-vyavahare-251015b2_linuxkernel-interrupts-networking-activity-7394029630938214400-E_KJ",
+        "snippet": "🧵 Tasklets — Light and Fast Used for quick and simple deferred work Run in interrupt context (⚠️ can’t sleep or block) Built on top of SoftIRQs ✅ Great when you just need speed without complexity ⚡ SoftIRQs — High-Performance, Low-Level Used internally by the kernel (e.g., networking, disk I/O) Can run on multiple CPUs at once Faster than tasklets, but more complex ❌ Still can’t sleep or block ✅ Designed for speed and scalability 🧰 Workqueues — Flexible and Powerful Run in process context (not interrupt context) ✅ Can sleep, use mutexes, and perform file I/O Ideal for complex, blocking, or long-running tasks 💡 Example: Logging to a file, waiting for hardware, or processing large data 📦 Recap Linux handles interrupts smartly by splitting the work: 🔼 Top Half → Fast response to the interrupt 🔽 Bottom Half → Actual processing done safely using: Tasklets → simple SoftIRQs → fast & advanced Workqueues → flexible & safe 💡 Why This Matters This design ensures your system stays: ✅ Fast ✅ Stable ✅ Responsive — even when many devices demand attention at the same time #Linux #Kernel #Interrupts #EmbeddedSystems #LinuxProgramming #DeviceDrivers #OperatingSystems #SoftIRQ #Workqueue.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.475
+      },
+      {
+        "title": "[PDF] A Journey into Linux Interrupt Handling Bottom Halves - Sched",
+        "url": "https://static.sched.com/hosted_files/ossna2024/b4/A%20Journey%20into%20Linux%20Interrupt%20Handling%20-%20Bottom%20Halves.pdf",
+        "snippet": "Tasklets are a type of bottom half that runs with interrupts disabled. •They provide a medium- weight mechanism for handling deferred work. •Tasklets are",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.425
+      },
+      {
+        "title": "Bottom Halves in Linux Device Drivers - embitude.in",
+        "url": "https://embitude.in/bottom-halves-in-linux-device-drivers/",
+        "snippet": "A Tasklet or Workqueue can process sensor data asynchronously after an interrupt signals a new reading. Choosing the Right Bottom Half",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.45
+      },
+      {
+        "title": "Linux Bottom Half",
+        "url": "https://thinkty.net/general/2024/04/29/bottom_half.html",
+        "snippet": "In Linux, there are several mechanisms to implement the bottom half (or deferred work): threaded interrupt handlers (threadedirq), workqueues, softirqs, and",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "Tasklets and Bottom-Half Processing - Linux Device Drivers, Second ...",
+        "url": "https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch09s05.html",
+        "snippet": "Tasklets and Bottom-Half Processing One of the main problems with interrupt handling is how to perform longish tasks within a handler.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "CVE-2026-27603: Chartbrew Auth Bypass Vulnerability - SentinelOne",
+        "url": "https://www.sentinelone.com/vulnerability-database/cve-2026-27603/",
+        "snippet": "CVE-2026-27603 is an authentication bypass vulnerability in Depomo Chartbrew that allows unauthenticated users to access chart data from any team or project. CVE-2026-27603 is an authentication bypass vulnerability in Chartbrew, an open-source web application designed to connect directly to databases and APIs to create data visualizations. The vulnerability exists in versions prior to 4.8.4 where the chart filter endpoint POST /project/:project\\_id/chart/:chart\\_id/filter lacks both verifyToken and checkPermissions middleware, allowing unauthenticated users to access chart data from any team or project. Unauthenticated attackers can remotely access sensitive chart data across all teams and projects without any authentication, potentially exposing confidential business intelligence and analytics data. The vulnerable endpoint POST /project/:project\\_id/chart/:chart\\_id/filter processes requests to filter and retrieve chart data. However, the absence of verifyToken and checkPermissions middleware allows any network-accessible request to retrieve chart data regardless of authentication status. The patch adds the missing verifyToken and checkPermissions middleware to the chart filter endpoint, ensuring that only authenticated users with appropriate permissions can access chart data.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.38
+      },
+      {
+        "title": "log - The Linux Kernel Archives",
+        "url": "https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.1.167",
+        "snippet": "WARNING: net/mptcp/pm\\_kernel.c:1074 at \\_\\_mark\\_subflow\\_endp\\_available net/mptcp/pm\\_kernel.c:1074 [inline], CPU#1: syz.7.48/2535. WARNING: net/mptcp/pm\\_kernel.c:1074 at mptcp\\_pm\\_nl\\_set\\_flags\\_all net/mptcp/pm\\_kernel.c:1474 [inline], CPU#1: syz.7.48/2535. WARNING: net/mptcp/pm\\_kernel.c:1074 at mptcp\\_pm\\_nl\\_set\\_flags+0x5de/0x640 net/mptcp/pm\\_kernel.c:1538, CPU#1: syz.7.48/2535. RIP: 0010:\\_\\_mark\\_subflow\\_endp\\_available net/mptcp/pm\\_kernel.c:1074 [inline]. RIP: 0010:mptcp\\_pm\\_nl\\_set\\_flags\\_all net/mptcp/pm\\_kernel.c:1474 [inline]. RIP: 0010:mptcp\\_pm\\_nl\\_set\\_flags+0x5de/0x640 net/mptcp/pm\\_kernel.c:1538. mptcp\\_pm\\_nl\\_set\\_flags\\_doit+0x1d7/0x210 net/mptcp/pm\\_netlink.c:282. netlink\\_rcv\\_skb+0x16d/0x240 net/netlink/af\\_netlink.c:2550. genl\\_rcv+0x28/0x40 net/netlink/genetlink.c:1219. \\_\\_\\_\\_sys\\_sendmsg+0x272/0x3b0 net/socket.c:2608. \\_\\_\\_sys\\_sendmsg+0x2de/0x320 net/socket.c:2662. \\_\\_x64\\_sys\\_sendmsg+0x110/0x1a0 net/socket.c:2697. Link: https://patch.msgid.link/20260205-net-mptcp-misc-fixes-6-19-rc8-v2-1-c2720ce75c34@kernel.org. BUG: KASAN: slab-use-after-free in skb\\_queue\\_purge\\_reason+0x99/0x360 net/core/skbuff.c:3937. skb\\_queue\\_purge\\_reason+0x99/0x360 net/core/skbuff.c:3937. hci\\_dev\\_reset+0x420/0x5c0 net/bluetooth/hci\\_core.c:592. sock\\_do\\_ioctl+0xd9/0x300 net/socket.c:1190. sock\\_ioctl+0x576/0x790 net/socket.c:1311. \\_\\_se\\_sys\\_ioctl+0xf9/0x170 fs/ioctl.c:893. \\_\\_kasan\\_kmalloc+0x93/0xb0 mm/kasan/common.c:394. vfs\\_open+0x3b/0x340 fs/open.c:1094. do\\_sys\\_openat2+0x121/0x1c0 fs/open.c:1437. kasan\\_save\\_free\\_info+0x46/0x50 mm/kasan/generic.c:576. \\_\\_kasan\\_slab\\_free+0x62/0x70 mm/kasan/common.c:264. task\\_work\\_run+0x1d1/0x260 kernel/task\\_work.c:227. \\_\\_x64\\_sys\\_exit\\_group+0x3f/0x40 kernel/exit.c:1113. [ 739.713079] WARNING: drivers/gpu/drm/drm\\_mode\\_config.c:584 at drm\\_mode\\_config\\_cleanup+0x30b/0x320 [drm], CPU#12: xe\\_module\\_load/13145. [ 739.714464] WARNING: drivers/gpu/drm/drm\\_framebuffer.c:833 at drm\\_framebuffer\\_free+0x6c/0x90 [drm], CPU#12: xe\\_module\\_load/13145. [ 743.186893] Modules linked in: rfcomm snd\\_hrtimer xt\\_CHECKSUM xt\\_MASQUERADE xt\\_conntrack ipt\\_REJECT nf\\_reject\\_ipv4 xt\\_tcpudp xt\\_addrtype nft\\_compat x\\_tables nft\\_chain\\_nat nf\\_nat nf\\_conntrack nf\\_defrag\\_ipv6 nf\\_defrag\\_ipv4 nf\\_tables overlay cfg80211 bnep mtd\\_intel\\_dg snd\\_hda\\_codec\\_intelhdmi mtd snd\\_hda\\_codec\\_hdmi nls\\_utf8 mxm\\_wmi intel\\_wmi\\_thunderbolt gigabyte\\_wmi wmi\\_bmof xe drm\\_gpuvm drm\\_gpusvm\\_helper i2c\\_algo\\_bit drm\\_buddy drm\\_ttm\\_helper ttm video drm\\_suballoc\\_helper gpu\\_sched drm\\_client\\_lib drm\\_exec drm\\_display\\_helper cec drm\\_kunit\\_helpers drm\\_kms\\_helper kunit x86\\_pkg\\_temp\\_thermal intel\\_powerclamp coretemp snd\\_hda\\_codec\\_alc882 snd\\_hda\\_codec\\_realtek\\_lib snd\\_hda\\_codec\\_generic snd\\_hda\\_intel snd\\_soc\\_avs snd\\_soc\\_hda\\_codec snd\\_hda\\_ext\\_core snd\\_hda\\_codec snd\\_hwdep snd\\_hda\\_core snd\\_intel\\_dspcfg snd\\_soc\\_core snd\\_compress ac97\\_bus snd\\_pcm snd\\_seq snd\\_seq\\_device snd\\_timer i2c\\_i801 i2c\\_mux snd i2c\\_smbus btusb btrtl btbcm btmtk btintel bluetooth ecdh\\_generic rfkill ecc mei\\_me mei ioatdma dca wmi nfsd drm i2c\\_dev fuse nfnetlink.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.325
+      },
+      {
+        "title": "log - The Linux Kernel Archives",
+        "url": "https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.6.130",
+        "snippet": "[ 7.349607] BUG: KASAN: slab-use-after-free in \\_raw\\_spin\\_lock+0x75/0xe0. [ 739.713079] WARNING: drivers/gpu/drm/drm\\_mode\\_config.c:584 at drm\\_mode\\_config\\_cleanup+0x30b/0x320 [drm], CPU#12: xe\\_module\\_load/13145. [ 739.714464] WARNING: drivers/gpu/drm/drm\\_framebuffer.c:833 at drm\\_framebuffer\\_free+0x6c/0x90 [drm], CPU#12: xe\\_module\\_load/13145. [ 743.186893] Modules linked in: rfcomm snd\\_hrtimer xt\\_CHECKSUM xt\\_MASQUERADE xt\\_conntrack ipt\\_REJECT nf\\_reject\\_ipv4 xt\\_tcpudp xt\\_addrtype nft\\_compat x\\_tables nft\\_chain\\_nat nf\\_nat nf\\_conntrack nf\\_defrag\\_ipv6 nf\\_defrag\\_ipv4 nf\\_tables overlay cfg80211 bnep mtd\\_intel\\_dg snd\\_hda\\_codec\\_intelhdmi mtd snd\\_hda\\_codec\\_hdmi nls\\_utf8 mxm\\_wmi intel\\_wmi\\_thunderbolt gigabyte\\_wmi wmi\\_bmof xe drm\\_gpuvm drm\\_gpusvm\\_helper i2c\\_algo\\_bit drm\\_buddy drm\\_ttm\\_helper ttm video drm\\_suballoc\\_helper gpu\\_sched drm\\_client\\_lib drm\\_exec drm\\_display\\_helper cec drm\\_kunit\\_helpers drm\\_kms\\_helper kunit x86\\_pkg\\_temp\\_thermal intel\\_powerclamp coretemp snd\\_hda\\_codec\\_alc882 snd\\_hda\\_codec\\_realtek\\_lib snd\\_hda\\_codec\\_generic snd\\_hda\\_intel snd\\_soc\\_avs snd\\_soc\\_hda\\_codec snd\\_hda\\_ext\\_core snd\\_hda\\_codec snd\\_hwdep snd\\_hda\\_core snd\\_intel\\_dspcfg snd\\_soc\\_core snd\\_compress ac97\\_bus snd\\_pcm snd\\_seq snd\\_seq\\_device snd\\_timer i2c\\_i801 i2c\\_mux snd i2c\\_smbus btusb btrtl btbcm btmtk btintel bluetooth ecdh\\_generic rfkill ecc mei\\_me mei ioatdma dca wmi nfsd drm i2c\\_dev fuse nfnetlink. lock\\_acquire+0x190/0x4b0 kernel/locking/lockdep.c:5627. \\_raw\\_spin\\_lock\\_irqsave+0x33/0x50 kernel/locking/spinlock.c:162. gem\\_set\\_rxnfc+0x533/0xac0 drivers/net/ethernet/cadence/macb\\_main.c:3667. ethtool\\_set\\_rxnfc+0x18c/0x280 net/ethtool/ioctl.c:961. dev\\_ethtool+0x229c/0x6290 net/ethtool/ioctl.c:3095. dev\\_ioctl+0x637/0x1070 net/core/dev\\_ioctl.c:510. sock\\_ioctl+0x577/0x6d0 net/socket.c:1320. [ 238.028993][ T318] BUG: KASAN: double-free in skb\\_release\\_data (net/core/skbuff.c:1139).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.325
+      },
+      {
+        "title": "Deferrable functions, kernel tasklets, and work queues",
+        "url": "https://developer.ibm.com/tutorials/l-tasklets/",
+        "snippet": "# Deferrable functions, kernel tasklets, and work queues. This discussion of tasklets and work queues uses the 2.6.27.14 version of the Linux kernel. In this way, the scheduler becomes a processor of work queues (feeding work to handler functions) or bit masks (which indicate the ability of a tasklet to do its work). Rather than providing a one-shot deferral scheme as is the case with tasklets, work queues are a generic deferral mechanism in which the handler function for the work queue can sleep (not possible in the tasklet model). The `events/X` kernel threads (one per CPU) extract work from the work queue and activates one of the bottom-half handlers (as indicated by the handler function in the struct `work_struct`). Kernel-global work queue functions. ## Differences between tasklets and work queues. Each defers work from the interrupt context, but only tasklets run atomically in a run-to-complete fashion, where work queues permit handlers to sleep, if necessary.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "Life-long-Learner/linux-kernel-development/chapter-8.md at master",
+        "url": "https://github.com/firmianay/Life-long-Learner/blob/master/linux-kernel-development/chapter-8.md",
+        "snippet": "In the current three methods that exist for deferring work, tasklets are built on softirqs and work queues are their own subsystem. When the kernel runs a softirq handler, it executes this `action` function with a pointer to the corresponding `softirq_action` structure as its argument. The softirq handlers run with interrupts enabled and cannot sleep.While a handler runs, softirqs on the current processor are disabled.Another processor, however, can execute other softirqs. Because most tasklets and softirqs are marked pending in interrupt handlers, `do_softirq()` most likely runs when the last interrupt returns. Unlike softirqs, however, two of the same tasklets never run concurrently. Work queues defer work into a kernel thread which always runs in process context. To queue a given work's handler function with the default events worker threads, call:. Because softirqs and tasklets can occur asynchronously, kernel code may need to disable them.With work queues, on the other hand, protecting shared data is the same as in any process context.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "Using Workqueues & Tasklets – Deferred Work Handling in Kernel ...",
+        "url": "https://www.linkedin.com/pulse/day-10-using-workqueues-tasklets-deferred-work-kernel-r-k-williams-31szc",
+        "snippet": "Tasklets are used for quick deferred execution after an interrupt. Tasklets do not run in process context (cannot sleep/block).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Work deferring mechanisms - Packt Subscription",
+        "url": "https://subscription.packtpub.com/book/iot-and-hardware/9781789342048/2/ch02lvl1sec05/work-deferring-mechanisms",
+        "snippet": "Now that we have finished looking at our first work deferring mechanism in the Linux kernel, we’ll discuss tasklets, which are an alternative (from an atomic context point of view) to softIRQs, though the former are built using the latter. A workqueue is an asynchronous work deferring mechanism that is widely used across kernels, allowing them to run a dedicated function asynchronously in a process execution context. Workqueues let your driver create a kernel thread, called a worker thread, to handle deferred work. On an 8-core system, this will result in 8 kernel threads being created to run work that’s been submitted to your workqueue. In this situation, you may want to use the kernel shared queue, which has its own set of kernel threads preallocated (early during boot, via the `workqueue_init_early()` function) for running works.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Deferred work — The Linux Kernel documentation",
+        "url": "https://linux-kernel-labs.github.io/refs/heads/master/labs/deferred_work.html",
+        "snippet": "Keywords: softirq, tasklet, struct tasklet\\_struct, bottom-half handlers, jiffies, HZ, timer, struct timer\\_list, spin\\_lock\\_bh, spin\\_unlock\\_bh, workqueue, struct work\\_struct, kernel thread, events/x. Work queues are implemented on top of kernel threads and tasklets and timers on top of softirqs. We can use the `local_bh_disable()` and `local_bh_enable()` to disable and enable softirqs handlers (and since they run on top of softirqs also timers and tasklets):. * `struct delayed_work` - it schedules a task to run after at least a given time interval. A delayed work uses a timer to run after the specified time interval. Scheduling work items with the functions above will run the handler in the context of a kernel thread called *events/x*, where x is the processor number. The work items planned with these functions will run in the context of a new kernel thread called *my\\_workqueue*, the name passed to `create_singlethread_workqueue()`. Schedule a work item from the timer handler In the work handler (running in process context) call the `alloc_io()`.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "exa": [
+      {
+        "title": "Linux Interrupt Handling: Top-Half and Bottom-Half Explained",
+        "url": "https://www.linkedin.com/posts/tushar-vyavahare-251015b2_linuxkernel-interrupts-networking-activity-7394029630938214400-E_KJ",
+        "snippet": "",
+        "published_date": "2025-11-26T07:18:31.605Z",
+        "source": "exa"
+      },
+      {
+        "title": "A Journey into Linux Interrupt Handling Bottom Halves",
+        "url": "https://static.sched.com/hosted_files/ossna2024/b4/A%20Journey%20into%20Linux%20Interrupt%20Handling%20-%20Bottom%20Halves.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "In-Depth Analysis of Linux Interrupt Handling Mechanism",
+        "url": "https://www.oreateai.com/blog/indepth-analysis-of-linux-interrupt-handling-mechanism/d59932f8ebb4abae021d499b1f29d1d9",
+        "snippet": "",
+        "published_date": "2026-01-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "Softirq, Tasklets and Workqueues | linux-insides",
+        "url": "https://0xax.gitbook.io/linux-insides/summary/interrupts/linux-interrupts-9",
+        "snippet": "",
+        "published_date": "2024-05-05T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "Bottom Halves in Linux Device Drivers",
+        "url": "https://embitude.in/bottom-halves-in-linux-device-drivers/",
+        "snippet": "",
+        "published_date": "2025-10-07T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "In-Depth Analysis of Linux Interrupt Handling Mechanism",
+        "url": "https://www.oreateai.com/blog/indepth-analysis-of-linux-interrupt-handling-mechanism/d59932f8ebb4abae021d499b1f29d1d9",
+        "snippet": "",
+        "published_date": "2026-01-07T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "[PDF] A Journey into Linux Interrupt Handling Bottom Halves - Sched",
+        "url": "https://static.sched.com/hosted_files/ossna2024/b4/A%20Journey%20into%20Linux%20Interrupt%20Handling%20-%20Bottom%20Halves.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Softirq, Tasklets and Workqueues | linux-insides",
+        "url": "https://0xax.gitbook.io/linux-insides/summary/interrupts/linux-interrupts-9",
+        "snippet": "",
+        "published_date": "2024-05-05T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Deferred work — The Linux Kernel documentation",
+        "url": "https://linux-kernel-labs.github.io/refs/heads/master/labs/deferred_work.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.475
+      },
+      {
+        "title": "Softirq, Tasklets and Workqueues · Linux Inside - 0xax",
+        "url": "https://0xax.gitbooks.io/linux-insides/content/Interrupts/linux-interrupts-9.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "Deferred work — The Linux Kernel documentation",
+        "url": "https://linux-kernel-labs.github.io/refs/heads/master/labs/deferred_work.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Understanding Interrupts and Tasklets in Linux Kernel Multitasking",
+        "url": "https://hub.paper-checker.com/blog/interrupts-and-tasklets-in-the-linux-kernel-a-comprehensive-guide-to-multitasking/",
+        "snippet": "",
+        "published_date": "2025-01-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "Softirq, Tasklets and Workqueues | linux-insides",
+        "url": "https://0xax.gitbook.io/linux-insides/summary/interrupts/linux-interrupts-9",
+        "snippet": "",
+        "published_date": "2024-05-05T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "[PDF] Time, Delays, and Deferred Work - LWN.net",
+        "url": "https://lwn.net/images/pdf/LDD3/ch07.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Work deferring mechanisms - Packt Subscription",
+        "url": "https://subscription.packtpub.com/book/iot-and-hardware/9781789342048/2/ch02lvl1sec05/work-deferring-mechanisms",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      }
+    ],
+    "grok": []
+  }
+}
