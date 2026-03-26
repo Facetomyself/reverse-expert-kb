@@ -77,6 +77,7 @@ Treat these as high-value targets:
 - first state write that directly gates whether a later peripheral action can occur
 - first status-latch or completion marker that explains a later reply or scheduler decision
 - first peripheral/MMIO write attributable to one incoming command family rather than generic initialization
+- first explicit read-back / safe-register read / flush step that turns `write issued` into `device-observation is now trustworthy` when posted-MMIO behavior matters
 - first error/degrade path caused by a register or peripheral-state condition rather than only parser failure
 
 Treat these as useful but often one layer too early:
@@ -220,6 +221,7 @@ The stronger target is often the first reduction from parser/state material into
 - one enable/disable path
 - one queue or DMA arm
 - one status-latch or completion edge
+- or one flush/read-back step that upgrades a posted MMIO write from issued to safely observed when the platform requires that distinction
 
 ### 4. Confusing generic initialization with the interesting peripheral consequence
 The meaningful write is often later and more conditional than boot-time register setup.
@@ -297,6 +299,7 @@ This note is intentionally workflow-first.
 
 It is grounded by:
 - `topics/firmware-and-protocol-context-recovery.md`
+- `sources/firmware-protocol/2026-03-27-posted-mmio-doorbell-observation-notes.md`
 - `topics/protocol-state-and-message-recovery.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `sources/datasets-benchmarks/2026-03-14-firmware-protocol-context-notes.md`

@@ -237,6 +237,7 @@ Interrupts often accompany visibility; they are not the same thing as the owners
 ### 2.25 Treating notify or doorbell as full trust proof
 A tail/doorbell/avail update may only announce candidate work.
 It does not automatically prove the device has seen the final descriptor contents, nor that later CPU reads are already trustworthy, unless the case's ordering and ownership rules support that claim.
+When posted-MMIO behavior or explicit read-back/flush patterns matter, preserve the thinner split `published != doorbelled != observed-by-device != trusted completion visibility` rather than collapsing publication and observation into one edge.
 
 ### 2.5 Treating populated completion bytes as fresh completion proof
 A slot can look structurally correct while still being stale under an owner/phase/tag rule.
@@ -338,6 +339,7 @@ It is grounded by:
 - `sources/protocol-and-network-recovery/2026-03-24-descriptor-ownership-transfer-and-completion-visibility-notes.md`
 - `sources/protocol-and-network-recovery/2026-03-25-descriptor-cache-visibility-ownership-notes.md`
 - `sources/firmware-protocol/2026-03-26-descriptor-publish-vs-trust-and-dma-sync-notes.md`
+- `sources/firmware-protocol/2026-03-27-posted-mmio-doorbell-observation-notes.md`
 
 The external evidence used for this run repeatedly emphasized:
 - ordered publication of completion entries before publishing progress indices
