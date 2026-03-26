@@ -118,6 +118,11 @@ Microsoft guidance and Raymond Chen’s discussion both reinforce a practical re
 
 This is highly relevant in reversing because subclass wrappers often look symmetrical in pseudocode while actually preserving different downstream ownership chains.
 
+A narrower helper-based refinement worth preserving now:
+- official `SetWindowSubclass(...)` / `DefSubclassProc(...)` semantics make the live proof object smaller than “this helper callback exists”
+- the useful recovered identity is usually **`HWND` + callback + subclass ID + instance-local reference data**
+- and `DefSubclassProc(...)` forwarding is chain-presence evidence, not automatic proof that the current helper owns the first behavior-changing consumer
+
 ### C. Qt event filters are interception boundaries unless they actually change fate
 Qt’s event-system documentation supports a narrower practical rule:
 - object-specific event filters run before the target object
@@ -132,6 +137,11 @@ For reversing, this means:
 
 This matters because Qt-heavy binaries often make event-filter plumbing easy to recover, while the first durable state/policy/task change still happens one hop later.
 
+A narrower fate rule worth preserving now:
+- **filter visibility != filter-owned fate**
+- a filter becomes the truthful first consumer only when it actually suppresses, rewrites, or retargets the event in a way that predicts later behavior
+- if it returns `false`, continue into the later object handler, direct slot, or queued slot rather than freezing the map at the filter layer
+
 ### D. Qt signals do not automatically imply deferred event-loop delivery
 Qt documentation makes an important distinction:
 - many slots run immediately on signal emission
@@ -141,6 +151,7 @@ For reversing, this means:
 - do not assume every visible signal implies a later queue boundary
 - first classify whether the target signal/slot edge is immediate or queued
 - only then decide whether the proof boundary is emission-time or later event-loop delivery
+- preserve the smaller split **signal found != queued truth != first behavior-changing consumer** so a visible emit site or connection edge does not silently become consumer proof
 
 ### E. Qt binary work benefits from callback recovery, but callback recovery is still not enough
 QtRE’s reported value is exactly that it recovers large amounts of callback and semantic information from Qt binaries.

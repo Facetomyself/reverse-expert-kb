@@ -1,0 +1,66 @@
+{
+  "query": null,
+  "queries": [
+    "SetWindowLongPtr subclass procedure CallWindowProc first consumer reverse engineering",
+    "Qt installEventFilter eventFilter first real handler slot reverse engineering",
+    "NSApplication sendEvent target action first responder reverse engineering"
+  ],
+  "mode": "deep",
+  "intent": "exploratory",
+  "requestedSources": [
+    "exa",
+    "tavily",
+    "grok"
+  ],
+  "succeededSources": [
+    "tavily"
+  ],
+  "failedSources": [
+    "exa",
+    "grok"
+  ],
+  "perSource": {
+    "exa": {
+      "resultCount": 12,
+      "status": "failed",
+      "notes": [
+        "stderr-reported-error"
+      ]
+    },
+    "tavily": {
+      "resultCount": 18,
+      "status": "ok"
+    },
+    "grok": {
+      "resultCount": 0,
+      "status": "failed",
+      "notes": [
+        "stderr-reported-error"
+      ]
+    }
+  },
+  "endpoints": {
+    "exa": "http://158.178.236.241:7860",
+    "tavily": "http://proxy.zhangxuemin.work:9874/api",
+    "grok": "http://proxy.zhangxuemin.work:8000/v1"
+  },
+  "searchScript": "/root/.openclaw/workspace/skills/search-layer/scripts/search.py",
+  "command": [
+    "/usr/bin/python3",
+    "/root/.openclaw/workspace/skills/search-layer/scripts/search.py",
+    "--queries",
+    "SetWindowLongPtr subclass procedure CallWindowProc first consumer reverse engineering",
+    "Qt installEventFilter eventFilter first real handler slot reverse engineering",
+    "NSApplication sendEvent target action first responder reverse engineering",
+    "--mode",
+    "deep",
+    "--num",
+    "6",
+    "--intent",
+    "exploratory",
+    "--source",
+    "exa,tavily,grok"
+  ],
+  "returncode": 0,
+  "stderr": "[exa] error: 402 Client Error: Payment Required for url: http://158.178.236.241:7860/search\n[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions\n[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions\n[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions"
+}
