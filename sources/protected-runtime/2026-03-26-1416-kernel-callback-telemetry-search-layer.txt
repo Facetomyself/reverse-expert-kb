@@ -1,0 +1,20 @@
+[exa] error: 402 Client Error: Payment Required for url: http://158.178.236.241:7860/search
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+
+queries:
+- ObRegisterCallbacks handle access mask downgrade first consumer anti cheat reverse engineering
+- PsSetCreateProcessNotifyRoutine later service consumer telemetry anti cheat driver reverse engineering
+- kernel callback telemetry queue IOCTL policy consumer anti cheat protected runtime
+
+requested sources: exa,tavily,grok
+
+high-signal retained results:
+- https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/nf-wdm-obregistercallbacks
+- https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nf-ntddk-pssetcreateprocessnotifyroutineex
+- https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nf-ntddk-pssetcreateprocessnotifyroutine
+- https://s4dbrd.github.io/posts/how-kernel-anti-cheats-work/
+- https://s4dbrd.github.io/posts/reversing-bedaisy/
+- https://research.meekolab.com/understanding-kernel-level-anticheats-in-online-games
+- https://link.springer.com/content/pdf/10.1007/978-3-030-52683-2_4.pdf?error=cookies_not_supported&code=02ee00bb-343c-4f92-a20f-71fc76378543

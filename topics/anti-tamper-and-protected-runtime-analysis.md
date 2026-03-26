@@ -215,6 +215,7 @@ Kernel-level anti-cheat systems are analyzed in terms of:
 - privacy and system-integrity risk
 - rootkit-like properties vs ordinary defensive monitoring
 - callback-heavy telemetry surfaces and the later reducers or consumers that turn them into policy or protection behavior
+- the practical distinction between callback registration, callback firing, emitted telemetry carriers, and the first enforcement-relevant consumer
 
 For the KB, this is useful as a case where analysts must reason about:
 - deep execution privilege
