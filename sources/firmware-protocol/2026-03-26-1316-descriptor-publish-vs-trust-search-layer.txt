@@ -1,0 +1,280 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "virtio split ring avail idx memory barrier dma sync non-coherent descriptor visibility reverse engineering",
+    "Linux DMA-API dma_sync_single_for_device dma_sync_single_for_cpu non-coherent descriptor completion visibility",
+    "virtqueue kick notify used ring event idx ownership transfer completion visibility"
+  ],
+  "count": 15,
+  "results": [
+    {
+      "title": "virtio-spec/split-ring.tex at master - GitHub",
+      "url": "https://github.com/oasis-tcs/virtio-spec/blob/master/split-ring.tex",
+      "snippet": "\\subsubsection{Updating The Available Ring}\\label{sec:Basic Facilities of a Virtio Device / Virtqueues / Supplying Buffers to The Device / Updating The Available Ring}. \\item The device MAY use \\field{avail\\_event} to advise the driver that notifications are unnecessary until the driver writes entry with an index specified by \\field{avail\\_event} into the available ring (equivalently, until \\field{idx} in the. \\item\\label{itm:Basic Facilities of a Virtio Device / Virtqueues / Supplying Buffers to The Device / Place Buffers} The driver places the buffer into free descriptor(s) in the. \\item\\label{itm:Basic Facilities of a Virtio Device / Virtqueues / Supplying Buffers to The Device / Place Index} The driver places the index of the head of the descriptor chain. \\subsubsection{Placing Buffers Into The Descriptor Table}\\label{sec:Basic Facilities of a Virtio Device / Virtqueues / Supplying Buffers to The Device / Placing Buffers Into The Descriptor Table}. \\subsubsection{Updating \\field{idx}}\\label{sec:Basic Facilities of a Virtio Device / Virtqueues / Supplying Buffers to The Device / Updating idx}.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7286
+    },
+    {
+      "title": "Questions about dma_sync_single_for_cpu ... - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/53246379/questions-about-dma-sync-single-for-cpu-dma-sync-single-for-device",
+      "snippet": "### your communities. ### more stack exchange communities. Stack Overflow for Teams is now called **Stack Internal**. ##### Collectives™ on Stack Overflow. # Questions about dma\\_sync\\_single\\_for\\_cpu() / dma\\_sync\\_single\\_for\\_device(). My code uses stream DMA APIs to map an allocated buffer to DMA region like below:. DMA_BIDIRECTIONAL); <- map buffer to physical address. ring_doorbell() -> notify device to read DMA content. The DMA direction is BIDIRECTIONAL and `buffer` is allocated, filled by caller before `perform_dma()` is called and freed after it is done. ## 1 Answer 1. In the example in the presentation it is said you (the driver) can alter the buffer content after `dma_sync_single_for_cpu()` and return ownership to the device by calling `dma_sync_single_for_device()`. `dma_sync_single_for_device()` grants ownership to the DMA controller where `dma_sync_single_for_cpu()` gains ownership back. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. # Subscribe to RSS. ##### Stack Overflow. ##### Stack Exchange Network.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6643
+    },
+    {
+      "title": "vm-virtio/virtio-queue/README.md at main",
+      "url": "https://github.com/rust-vmm/vm-virtio/blob/main/virtio-queue/README.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6214
+    },
+    {
+      "title": "Virtual I/O Device (VIRTIO) Version 1.1 - OASIS Open",
+      "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+      "snippet": "When the device has finished a buffer, it writes the descriptor index into the used ring, and sends an interrupt a used buffer notification. 2.6.1 Driver",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6143
+    },
+    {
+      "title": "[dpdk-dev] [PATCH v2 2/2] virtio: one way barrier for split vring avail idx",
+      "url": "https://mails.dpdk.org/archives/dev/2020-April/161651.html",
+      "snippet": "Signed-off-by: Joyce Kong <joyce.kong at arm.com> Reviewed-by: Gavin Hu <gavin.hu at arm.com> --- drivers/net/virtio/virtqueue.h | 19 +++++++++++++++++-- lib/librte_vhost/virtio_net.c | 14 +++++--------- 2 files changed, 22 insertions(+), 11 deletions(-) diff --git a/drivers/net/virtio/virtqueue.h b/drivers/net/virtio/virtqueue.h index 13fdcb13a..bbe36c107 100644 --- a/drivers/net/virtio/virtqueue.h +++ b/drivers/net/virtio/virtqueue.h @@ -496,8 +496,23 @@ void vq_ring_free_inorder(struct virtqueue *vq, uint16_t desc_idx, static inline void vq_update_avail_idx(struct virtqueue *vq) { - virtio_wmb(vq->hw->weak_barriers); - vq->vq_split.ring.avail->idx = vq->vq_avail_idx; + if (vq->hw->weak_barriers) { +/* x86 prefers to using rte_smp_wmb over __atomic_store_n as it reports + * a slightly better perf, which comes from the saved branch by the compiler. + */ +#ifdef RTE_ARCH_X86_64 + rte_smp_wmb(); + vq->vq_split.ring.avail->idx = vq->vq_avail_idx; +#else + __atomic_store_n(&vq->vq_split.ring.avail->idx, + vq->vq_avail_idx, __ATOMIC_RELEASE); +#endif + } else { + rte_cio_wmb(); + vq->vq_split.ring.avail->idx = vq->vq_avail_idx; + } } static inline void diff --git a/lib/librte_vhost/virtio_net.c b/lib/librte_vhost/virtio_net.c index 7f6e7f2c1..4c5380bc1 100644 --- a/lib/librte_vhost/virtio_net.c +++ b/lib/librte_vhost/virtio_net.c @@ -991,13 +991,11 @@ virtio_dev_rx_split(struct virtio_net *dev, struct vhost_virtqueue *vq, struct buf_vector buf_vec[BUF_VECTOR_MAX]; uint16_t avail_head; - avail_head = *((volatile uint16_t *)&vq->avail->idx); - /* * The ordering between avail index and * desc reads needs to be enforced.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4286
+    },
+    {
+      "title": "Stefan Hajnoczi: Building a virtio-serial FPGA device (Part 4): Virtqueue processing",
+      "url": "https://blog.vmsplice.net/2026/01/building-virtio-serial-fpga-device-part_01060935865.html",
+      "snippet": "",
+      "published_date": "2026-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4214
+    },
+    {
+      "title": "Virtqueues and virtio ring: How the data travels",
+      "url": "https://www.redhat.com/en/blog/virtqueues-and-virtio-ring-how-data-travels",
+      "snippet": "From now on, the driver should not modify the available descriptor or the exposed buffer at any moment: It is under the device's control. For example, if the driver has sent us two buffers in a chain with descriptor table indexes 0 and 1 as first operation, the device would see the scenario in Figure 3, and it would be the step 2 again. After that, the steps are the same as with regular descriptors: The driver adds the index of the descriptor marked with the  flag in the descriptor area to the avail ring (#0 in this case, step 4 in the diagram), and notify the device as usual (step 5). As a trusted adviser to the Fortune 500, Red Hat offers cloud, developer, Linux, automation, and application platform technologies, as well as award-winning services.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3857
+    },
+    {
+      "title": "DMA-API.txt - The Linux Kernel Archives",
+      "url": "https://www.kernel.org/doc/Documentation/DMA-API.txt",
+      "snippet": "dma\\_alloc\\_coherent(struct device \\*dev, size\\_t size,. dma\\_free\\_coherent(struct device \\*dev, size\\_t size, void \\*cpu\\_addr,. dma\\_get\\_required\\_mask(struct device \\*dev). dma\\_max\\_mapping\\_size(struct device \\*dev);. dma\\_map\\_single(struct device \\*dev, void \\*cpu\\_addr, size\\_t size,. device and returns the DMA address of the memory. address, then the device can perform DMA to the memory). dma\\_map\\_page(struct device \\*dev, struct page \\*page,. dma\\_unmap\\_page(struct device \\*dev, dma\\_addr\\_t dma\\_address, size\\_t size,. dma\\_map\\_resource(struct device \\*dev, phys\\_addr\\_t phys\\_addr, size\\_t size,. debug\\_dma\\_mapping\\_error(struct device \\*dev, dma\\_addr\\_t dma\\_addr);. dma\\_map\\_sg(struct device \\*dev, struct scatterlist \\*sg,. dma\\_mapping\\_error(struct device \\*dev, dma\\_addr\\_t dma\\_addr). dma\\_map\\_single\\_attrs(struct device \\*dev, void \\*cpu\\_addr, size\\_t size,. dma\\_map\\_sg\\_attrs(struct device \\*dev, struct scatterlist \\*sgl,. you could pass an attribute DMA\\_ATTR\\_FOO when mapping memory. n = dma\\_map\\_sg\\_attrs(dev, sg, nents, DMA\\_TO\\_DEVICE, attr);. void whizco\\_dma\\_map\\_sg\\_attrs(struct device \\*dev, dma\\_addr\\_t dma\\_addr,. dma\\_alloc\\_attrs(struct device \\*dev, size\\_t size, dma\\_addr\\_t \\*dma\\_handle,. dma\\_free\\_attrs(struct device \\*dev, size\\_t size, void \\*cpu\\_addr,. dma\\_cache\\_sync(struct device \\*dev, void \\*vaddr, size\\_t size,. dma\\_declare\\_coherent\\_memory(struct device \\*dev, phys\\_addr\\_t phys\\_addr,. about what DMA memory was allocated for which device. forcedeth 0000:00:08.0: DMA-API: device driver frees DMA memory with wrong.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "The DMA API changes - LWN.net",
+      "url": "https://lwn.net/Articles/75780/",
+      "snippet": "The change is in the \"synchronization\" calls that the DMA layer provides for streaming mappings. These mappings have strict rules about the \"ownership\" of the buffer; when a streaming mapping is created, it is owned by the device, and the processor cannot touch it. It is sometimes necessary, however, to allow the processor to access a mapped streaming DMA buffer. To that end, the DMA layer has long provided a set of functions (like dma\\_sync\\_single() and pci\\_sync\\_single()) which transfer ownership of the buffer to the CPU. To fill in that gap, the various synchronization functions have been split in two; instead of dma\\_sync\\_single() a driver must now call one or both of:. dma\\_sync\\_single\\_for\\_cpu() gives ownership of the DMA buffer back to the processor. A call to dma\\_sync\\_single\\_for\\_device() is required to allow the device to access the buffer again.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "[Qemu-devel] Does the event idx mechanism in virtio work ...",
+      "url": "https://lists.nongnu.org/archive/html/qemu-devel/2014-10/msg01478.html",
+      "snippet": "",
+      "published_date": "2014-10-15T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "log - The Linux Kernel Archives",
+      "url": "https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.1.167",
+      "snippet": "WARNING: net/mptcp/pm\\_kernel.c:1074 at \\_\\_mark\\_subflow\\_endp\\_available net/mptcp/pm\\_kernel.c:1074 [inline], CPU#1: syz.7.48/2535. WARNING: net/mptcp/pm\\_kernel.c:1074 at mptcp\\_pm\\_nl\\_set\\_flags\\_all net/mptcp/pm\\_kernel.c:1474 [inline], CPU#1: syz.7.48/2535. WARNING: net/mptcp/pm\\_kernel.c:1074 at mptcp\\_pm\\_nl\\_set\\_flags+0x5de/0x640 net/mptcp/pm\\_kernel.c:1538, CPU#1: syz.7.48/2535. RIP: 0010:\\_\\_mark\\_subflow\\_endp\\_available net/mptcp/pm\\_kernel.c:1074 [inline]. RIP: 0010:mptcp\\_pm\\_nl\\_set\\_flags\\_all net/mptcp/pm\\_kernel.c:1474 [inline]. RIP: 0010:mptcp\\_pm\\_nl\\_set\\_flags+0x5de/0x640 net/mptcp/pm\\_kernel.c:1538. mptcp\\_pm\\_nl\\_set\\_flags\\_doit+0x1d7/0x210 net/mptcp/pm\\_netlink.c:282. netlink\\_rcv\\_skb+0x16d/0x240 net/netlink/af\\_netlink.c:2550. genl\\_rcv+0x28/0x40 net/netlink/genetlink.c:1219. \\_\\_\\_\\_sys\\_sendmsg+0x272/0x3b0 net/socket.c:2608. \\_\\_\\_sys\\_sendmsg+0x2de/0x320 net/socket.c:2662. \\_\\_x64\\_sys\\_sendmsg+0x110/0x1a0 net/socket.c:2697. Link: https://patch.msgid.link/20260205-net-mptcp-misc-fixes-6-19-rc8-v2-1-c2720ce75c34@kernel.org. BUG: KASAN: slab-use-after-free in skb\\_queue\\_purge\\_reason+0x99/0x360 net/core/skbuff.c:3937. skb\\_queue\\_purge\\_reason+0x99/0x360 net/core/skbuff.c:3937. hci\\_dev\\_reset+0x420/0x5c0 net/bluetooth/hci\\_core.c:592. sock\\_do\\_ioctl+0xd9/0x300 net/socket.c:1190. sock\\_ioctl+0x576/0x790 net/socket.c:1311. \\_\\_se\\_sys\\_ioctl+0xf9/0x170 fs/ioctl.c:893. \\_\\_kasan\\_kmalloc+0x93/0xb0 mm/kasan/common.c:394. vfs\\_open+0x3b/0x340 fs/open.c:1094. do\\_sys\\_openat2+0x121/0x1c0 fs/open.c:1437. kasan\\_save\\_free\\_info+0x46/0x50 mm/kasan/generic.c:576. \\_\\_kasan\\_slab\\_free+0x62/0x70 mm/kasan/common.c:264. task\\_work\\_run+0x1d1/0x260 kernel/task\\_work.c:227. \\_\\_x64\\_sys\\_exit\\_group+0x3f/0x40 kernel/exit.c:1113. [ 739.713079] WARNING: drivers/gpu/drm/drm\\_mode\\_config.c:584 at drm\\_mode\\_config\\_cleanup+0x30b/0x320 [drm], CPU#12: xe\\_module\\_load/13145. [ 739.714464] WARNING: drivers/gpu/drm/drm\\_framebuffer.c:833 at drm\\_framebuffer\\_free+0x6c/0x90 [drm], CPU#12: xe\\_module\\_load/13145. [ 743.186893] Modules linked in: rfcomm snd\\_hrtimer xt\\_CHECKSUM xt\\_MASQUERADE xt\\_conntrack ipt\\_REJECT nf\\_reject\\_ipv4 xt\\_tcpudp xt\\_addrtype nft\\_compat x\\_tables nft\\_chain\\_nat nf\\_nat nf\\_conntrack nf\\_defrag\\_ipv6 nf\\_defrag\\_ipv4 nf\\_tables overlay cfg80211 bnep mtd\\_intel\\_dg snd\\_hda\\_codec\\_intelhdmi mtd snd\\_hda\\_codec\\_hdmi nls\\_utf8 mxm\\_wmi intel\\_wmi\\_thunderbolt gigabyte\\_wmi wmi\\_bmof xe drm\\_gpuvm drm\\_gpusvm\\_helper i2c\\_algo\\_bit drm\\_buddy drm\\_ttm\\_helper ttm video drm\\_suballoc\\_helper gpu\\_sched drm\\_client\\_lib drm\\_exec drm\\_display\\_helper cec drm\\_kunit\\_helpers drm\\_kms\\_helper kunit x86\\_pkg\\_temp\\_thermal intel\\_powerclamp coretemp snd\\_hda\\_codec\\_alc882 snd\\_hda\\_codec\\_realtek\\_lib snd\\_hda\\_codec\\_generic snd\\_hda\\_intel snd\\_soc\\_avs snd\\_soc\\_hda\\_codec snd\\_hda\\_ext\\_core snd\\_hda\\_codec snd\\_hwdep snd\\_hda\\_core snd\\_intel\\_dspcfg snd\\_soc\\_core snd\\_compress ac97\\_bus snd\\_pcm snd\\_seq snd\\_seq\\_device snd\\_timer i2c\\_i801 i2c\\_mux snd i2c\\_smbus btusb btrtl btbcm btmtk btintel bluetooth ecdh\\_generic rfkill ecc mei\\_me mei ioatdma dca wmi nfsd drm i2c\\_dev fuse nfnetlink.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "Kernel development - LWN.net",
+      "url": "https://lwn.net/Articles/75289/",
+      "snippet": "dma_sync_single_for_cpu() gives ownership of the DMA buffer back to the processor. ... David Miller DMA: Fill gaping hole in DMA API interfaces. ? Greg KH Driver",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "Introduction to Virtio Protocol",
+      "url": "https://www.openeuler.org/en/blog/yorifang/virtio-spec-overview.html",
+      "snippet": "",
+      "published_date": "2020-11-03T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3214
+    },
+    {
+      "title": "Packed virtqueue: How to reduce overhead with virtio",
+      "url": "https://www.redhat.com/en/blog/packed-virtqueue-how-reduce-overhead-virtio",
+      "snippet": "",
+      "published_date": "2020-07-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "DMA-API-HOWTO.txt - Linux Kernel",
+      "url": "https://www.kernel.org/doc/Documentation/DMA-API-HOWTO.txt",
+      "snippet": "From a device's point of view, DMA uses the bus address space, but it may. so devices only need to use 32-bit DMA addresses. If the device supports DMA, the driver sets up a buffer using kmalloc() or. mapping and returns the DMA address Z. do DMA to Z, and the IOMMU maps it to the buffer at address Y in system. everywhere you hold a DMA address returned from the DMA mapping functions. call and DMA to/from that. for you to DMA from/to. By default, the kernel assumes that your device can address 32-bits of DMA. your devices DMA addressing capabilities. The consistent DMA mapping interfaces, will by default return a DMA address. packets, map/unmap them with the DMA\\_TO\\_DEVICE direction. dma\\_handle = dma\\_map\\_single(dev, addr, size, direction);. dma\\_map\\_page() as well. mapping = dma\\_map\\_single(cp->dev, buffer, len, DMA\\_FROM\\_DEVICE);. \\* DMA\\_FROM\\_DEVICE-mapped area,. dma\\_handle = dma\\_map\\_single(dev, addr, size, direction);. dma\\_handle1 = dma\\_map\\_single(dev, addr, size, direction);. dma\\_handle2 = dma\\_map\\_single(dev, addr, size, direction);.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3214
+    }
+  ],
+  "resultsBySource": {
+    "grok": [],
+    "exa": [
+      {
+        "title": "Stefan Hajnoczi: Building a virtio-serial FPGA device (Part 4): Virtqueue processing",
+        "url": "https://blog.vmsplice.net/2026/01/building-virtio-serial-fpga-device-part_01060935865.html",
+        "snippet": "",
+        "published_date": "2026-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4214
+      },
+      {
+        "title": "vm-virtio/virtio-queue/README.md at main",
+        "url": "https://github.com/rust-vmm/vm-virtio/blob/main/virtio-queue/README.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6214
+      },
+      {
+        "title": "[Qemu-devel] Does the event idx mechanism in virtio work ...",
+        "url": "https://lists.nongnu.org/archive/html/qemu-devel/2014-10/msg01478.html",
+        "snippet": "",
+        "published_date": "2014-10-15T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "Introduction to Virtio Protocol",
+        "url": "https://www.openeuler.org/en/blog/yorifang/virtio-spec-overview.html",
+        "snippet": "",
+        "published_date": "2020-11-03T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3214
+      },
+      {
+        "title": "Packed virtqueue: How to reduce overhead with virtio",
+        "url": "https://www.redhat.com/en/blog/packed-virtqueue-how-reduce-overhead-virtio",
+        "snippet": "",
+        "published_date": "2020-07-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3214
+      }
+    ],
+    "tavily": [
+      {
+        "title": "vm-virtio/virtio-queue/README.md at main",
+        "url": "https://github.com/rust-vmm/vm-virtio/blob/main/virtio-queue/README.md",
+        "snippet": "The `virtio-queue` crate provides a virtio device implementation for a virtio queue, a virtio descriptor and a chain of such descriptors. 1. the device first disables the notifications to make the driver aware it is processing the available ring and does not want interruptions, by using `Queue::disable_notification`. Notifications are disabled by the device either if VIRTIO\\_F\\_EVENT\\_IDX is not negotiated, and VIRTQ\\_USED\\_F\\_NO\\_NOTIFY is set in the `flags` field of the used ring, or if VIRTIO\\_F\\_EVENT\\_IDX is negotiated, and `avail_event` value is not updated, i.e. it remains set to the latest `idx` value of the available ring that was already notified by the driver. Notifications are enabled by the device either if VIRTIO\\_F\\_EVENT\\_IDX is not negotiated, and 0 is set in the `flags` field of the used ring, or if VIRTIO\\_F\\_EVENT\\_IDX is negotiated, and `avail_event` value is set to the smallest `idx` value of the available ring that was not already notified by the driver. On the driver side, the `Queue` provides the `needs_notification` method which should be used each time the device adds a new entry to the used ring.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Virtual I/O Device (VIRTIO) Version 1.1 - OASIS Open",
+        "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+        "snippet": "When the device has finished a buffer, it writes the descriptor index into the used ring, and sends an interrupt a used buffer notification. 2.6.1 Driver",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6143
+      },
+      {
+        "title": "Introduction to Virtio Protocol",
+        "url": "https://www.openeuler.org/en/blog/yorifang/virtio-spec-overview.html",
+        "snippet": "A PCI device needs to report the features supported to the OS by using the PCI configuration space, so that the OS knows the type of the virtio device and calls the right front-end driver to shake hands with the device and further drive the device. According to the preceding process, QEMU/KVM uses the irqfd mechanism to simulate MSIx interrupts, that is, when requesting the MSIx interrupt, the device allocates a GSI to the MSIx (in this case, the IRQ routing table is updated), binds an irqfd to the GSI, and polls the irqfd in the kernel. After the DMA is complete, QEMU calls `virtio_notify_irqfd` to inject an MSIx interrupt to notify the front-end that the I/O request is complete. The calling process is: `virtio_queue_host_notifier_read` -> `virtio_net_handle_tx_bh` -> `virtio_net_flush_tx` -> `virtqueue_pop` -> `qemu_sendv_packet_async`. After the packets are filled in the vring, `virtio_notify` is called to inject an interrupt to notify the front-end driver of obtaining the result.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Virtqueues and virtio ring: How the data travels",
+        "url": "https://www.redhat.com/en/blog/virtqueues-and-virtio-ring-how-data-travels",
+        "snippet": "From now on, the driver should not modify the available descriptor or the exposed buffer at any moment: It is under the device's control. For example, if the driver has sent us two buffers in a chain with descriptor table indexes 0 and 1 as first operation, the device would see the scenario in Figure 3, and it would be the step 2 again. After that, the steps are the same as with regular descriptors: The driver adds the index of the descriptor marked with the  flag in the descriptor area to the avail ring (#0 in this case, step 4 in the diagram), and notify the device as usual (step 5). As a trusted adviser to the Fortune 500, Red Hat offers cloud, developer, Linux, automation, and application platform technologies, as well as award-winning services.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3857
+      },
+      {
+        "title": "[Qemu-devel] Does the event idx mechanism in virtio work ...",
+        "url": "https://lists.nongnu.org/archive/html/qemu-devel/2014-10/msg01478.html",
+        "snippet": "## [Qemu-devel] Does the event idx mechanism in virtio work in the correct. | **Subject**: | [Qemu-devel] Does the event idx mechanism in virtio work in the correct way? The event idx in virtio is an effective way to reduce the number of interrupts and exits of the guest. For example, assume that the guest already puts five requests in the ring and the backend gets two of these requests, then the \"avail\" event idx should be two. It checks the \"avail\" event idx and finds the event idx (equals to 2) is less than the number of available requests (equals to 6), so it will not notify the backend to work. * **[Qemu-devel] Does the event idx mechanism in virtio work in the correct way?**, *Bin Wu* **<=**. + **[[Qemu-devel] Does the event idx mechanism in virtio work in the correct way?](msg01670.html)**, *Bin Wu*, 2014/10/15. * Next by thread: **[[Qemu-devel] Does the event idx mechanism in virtio work in the correct way?](msg01670.html)**.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[dpdk-dev] [PATCH v2 2/2] virtio: one way barrier for split vring avail idx",
+        "url": "https://mails.dpdk.org/archives/dev/2020-April/161651.html",
+        "snippet": "Signed-off-by: Joyce Kong <joyce.kong at arm.com> Reviewed-by: Gavin Hu <gavin.hu at arm.com> --- drivers/net/virtio/virtqueue.h | 19 +++++++++++++++++-- lib/librte_vhost/virtio_net.c | 14 +++++--------- 2 files changed, 22 insertions(+), 11 deletions(-) diff --git a/drivers/net/virtio/virtqueue.h b/drivers/net/virtio/virtqueue.h index 13fdcb13a..bbe36c107 100644 --- a/drivers/net/virtio/virtqueue.h +++ b/drivers/net/virtio/virtqueue.h @@ -496,8 +496,23 @@ void vq_ring_free_inorder(struct virtqueue *vq, uint16_t desc_idx, static inline void vq_update_avail_idx(struct virtqueue *vq) { - virtio_wmb(vq->hw->weak_barriers); - vq->vq_split.ring.avail->idx = vq->vq_avail_idx; + if (vq->hw->weak_barriers) { +/* x86 prefers to using rte_smp_wmb over __atomic_store_n as it reports + * a slightly better perf, which comes from the saved branch by the compiler. + */ +#ifdef RTE_ARCH_X86_64 + rte_smp_wmb(); + vq->vq_split.ring.avail->idx = vq->vq_avail_idx; +#else + __atomic_store_n(&vq->vq_split.ring.avail->idx, + vq->vq_avail_idx, __ATOMIC_RELEASE); +#endif + } else { + rte_cio_wmb(); + vq->vq_split.ring.avail->idx = vq->vq_avail_idx; + } } static inline void diff --git a/lib/librte_vhost/virtio_net.c b/lib/librte_vhost/virtio_net.c index 7f6e7f2c1..4c5380bc1 100644 --- a/lib/librte_vhost/virtio_net.c +++ b/lib/librte_vhost/virtio_net.c @@ -991,13 +991,11 @@ virtio_dev_rx_split(struct virtio_net *dev, struct vhost_virtqueue *vq, struct buf_vector buf_vec[BUF_VECTOR_MAX]; uint16_t avail_head; - avail_head = *((volatile uint16_t *)&vq->avail->idx); - /* * The ordering between avail index and * desc reads needs to be enforced.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4286
+      },
+      {
+        "title": "virtio-spec/split-ring.tex at master - GitHub",
+        "url": "https://github.com/oasis-tcs/virtio-spec/blob/master/split-ring.tex",
+        "snippet": "\\subsubsection{Updating The Available Ring}\\label{sec:Basic Facilities of a Virtio Device / Virtqueues / Supplying Buffers to The Device / Updating The Available Ring}. \\item The device MAY use \\field{avail\\_event} to advise the driver that notifications are unnecessary until the driver writes entry with an index specified by \\field{avail\\_event} into the available ring (equivalently, until \\field{idx} in the. \\item\\label{itm:Basic Facilities of a Virtio Device / Virtqueues / Supplying Buffers to The Device / Place Buffers} The driver places the buffer into free descriptor(s) in the. \\item\\label{itm:Basic Facilities of a Virtio Device / Virtqueues / Supplying Buffers to The Device / Place Index} The driver places the index of the head of the descriptor chain. \\subsubsection{Placing Buffers Into The Descriptor Table}\\label{sec:Basic Facilities of a Virtio Device / Virtqueues / Supplying Buffers to The Device / Placing Buffers Into The Descriptor Table}. \\subsubsection{Updating \\field{idx}}\\label{sec:Basic Facilities of a Virtio Device / Virtqueues / Supplying Buffers to The Device / Updating idx}.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7286
+      },
+      {
+        "title": "log - The Linux Kernel Archives",
+        "url": "https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.1.167",
+        "snippet": "WARNING: net/mptcp/pm\\_kernel.c:1074 at \\_\\_mark\\_subflow\\_endp\\_available net/mptcp/pm\\_kernel.c:1074 [inline], CPU#1: syz.7.48/2535. WARNING: net/mptcp/pm\\_kernel.c:1074 at mptcp\\_pm\\_nl\\_set\\_flags\\_all net/mptcp/pm\\_kernel.c:1474 [inline], CPU#1: syz.7.48/2535. WARNING: net/mptcp/pm\\_kernel.c:1074 at mptcp\\_pm\\_nl\\_set\\_flags+0x5de/0x640 net/mptcp/pm\\_kernel.c:1538, CPU#1: syz.7.48/2535. RIP: 0010:\\_\\_mark\\_subflow\\_endp\\_available net/mptcp/pm\\_kernel.c:1074 [inline]. RIP: 0010:mptcp\\_pm\\_nl\\_set\\_flags\\_all net/mptcp/pm\\_kernel.c:1474 [inline]. RIP: 0010:mptcp\\_pm\\_nl\\_set\\_flags+0x5de/0x640 net/mptcp/pm\\_kernel.c:1538. mptcp\\_pm\\_nl\\_set\\_flags\\_doit+0x1d7/0x210 net/mptcp/pm\\_netlink.c:282. netlink\\_rcv\\_skb+0x16d/0x240 net/netlink/af\\_netlink.c:2550. genl\\_rcv+0x28/0x40 net/netlink/genetlink.c:1219. \\_\\_\\_\\_sys\\_sendmsg+0x272/0x3b0 net/socket.c:2608. \\_\\_\\_sys\\_sendmsg+0x2de/0x320 net/socket.c:2662. \\_\\_x64\\_sys\\_sendmsg+0x110/0x1a0 net/socket.c:2697. Link: https://patch.msgid.link/20260205-net-mptcp-misc-fixes-6-19-rc8-v2-1-c2720ce75c34@kernel.org. BUG: KASAN: slab-use-after-free in skb\\_queue\\_purge\\_reason+0x99/0x360 net/core/skbuff.c:3937. skb\\_queue\\_purge\\_reason+0x99/0x360 net/core/skbuff.c:3937. hci\\_dev\\_reset+0x420/0x5c0 net/bluetooth/hci\\_core.c:592. sock\\_do\\_ioctl+0xd9/0x300 net/socket.c:1190. sock\\_ioctl+0x576/0x790 net/socket.c:1311. \\_\\_se\\_sys\\_ioctl+0xf9/0x170 fs/ioctl.c:893. \\_\\_kasan\\_kmalloc+0x93/0xb0 mm/kasan/common.c:394. vfs\\_open+0x3b/0x340 fs/open.c:1094. do\\_sys\\_openat2+0x121/0x1c0 fs/open.c:1437. kasan\\_save\\_free\\_info+0x46/0x50 mm/kasan/generic.c:576. \\_\\_kasan\\_slab\\_free+0x62/0x70 mm/kasan/common.c:264. task\\_work\\_run+0x1d1/0x260 kernel/task\\_work.c:227. \\_\\_x64\\_sys\\_exit\\_group+0x3f/0x40 kernel/exit.c:1113. [ 739.713079] WARNING: drivers/gpu/drm/drm\\_mode\\_config.c:584 at drm\\_mode\\_config\\_cleanup+0x30b/0x320 [drm], CPU#12: xe\\_module\\_load/13145. [ 739.714464] WARNING: drivers/gpu/drm/drm\\_framebuffer.c:833 at drm\\_framebuffer\\_free+0x6c/0x90 [drm], CPU#12: xe\\_module\\_load/13145. [ 743.186893] Modules linked in: rfcomm snd\\_hrtimer xt\\_CHECKSUM xt\\_MASQUERADE xt\\_conntrack ipt\\_REJECT nf\\_reject\\_ipv4 xt\\_tcpudp xt\\_addrtype nft\\_compat x\\_tables nft\\_chain\\_nat nf\\_nat nf\\_conntrack nf\\_defrag\\_ipv6 nf\\_defrag\\_ipv4 nf\\_tables overlay cfg80211 bnep mtd\\_intel\\_dg snd\\_hda\\_codec\\_intelhdmi mtd snd\\_hda\\_codec\\_hdmi nls\\_utf8 mxm\\_wmi intel\\_wmi\\_thunderbolt gigabyte\\_wmi wmi\\_bmof xe drm\\_gpuvm drm\\_gpusvm\\_helper i2c\\_algo\\_bit drm\\_buddy drm\\_ttm\\_helper ttm video drm\\_suballoc\\_helper gpu\\_sched drm\\_client\\_lib drm\\_exec drm\\_display\\_helper cec drm\\_kunit\\_helpers drm\\_kms\\_helper kunit x86\\_pkg\\_temp\\_thermal intel\\_powerclamp coretemp snd\\_hda\\_codec\\_alc882 snd\\_hda\\_codec\\_realtek\\_lib snd\\_hda\\_codec\\_generic snd\\_hda\\_intel snd\\_soc\\_avs snd\\_soc\\_hda\\_codec snd\\_hda\\_ext\\_core snd\\_hda\\_codec snd\\_hwdep snd\\_hda\\_core snd\\_intel\\_dspcfg snd\\_soc\\_core snd\\_compress ac97\\_bus snd\\_pcm snd\\_seq snd\\_seq\\_device snd\\_timer i2c\\_i801 i2c\\_mux snd i2c\\_smbus btusb btrtl btbcm btmtk btintel bluetooth ecdh\\_generic rfkill ecc mei\\_me mei ioatdma dca wmi nfsd drm i2c\\_dev fuse nfnetlink.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "DMA-API.txt - The Linux Kernel Archives",
+        "url": "https://www.kernel.org/doc/Documentation/DMA-API.txt",
+        "snippet": "dma\\_alloc\\_coherent(struct device \\*dev, size\\_t size,. dma\\_free\\_coherent(struct device \\*dev, size\\_t size, void \\*cpu\\_addr,. dma\\_get\\_required\\_mask(struct device \\*dev). dma\\_max\\_mapping\\_size(struct device \\*dev);. dma\\_map\\_single(struct device \\*dev, void \\*cpu\\_addr, size\\_t size,. device and returns the DMA address of the memory. address, then the device can perform DMA to the memory). dma\\_map\\_page(struct device \\*dev, struct page \\*page,. dma\\_unmap\\_page(struct device \\*dev, dma\\_addr\\_t dma\\_address, size\\_t size,. dma\\_map\\_resource(struct device \\*dev, phys\\_addr\\_t phys\\_addr, size\\_t size,. debug\\_dma\\_mapping\\_error(struct device \\*dev, dma\\_addr\\_t dma\\_addr);. dma\\_map\\_sg(struct device \\*dev, struct scatterlist \\*sg,. dma\\_mapping\\_error(struct device \\*dev, dma\\_addr\\_t dma\\_addr). dma\\_map\\_single\\_attrs(struct device \\*dev, void \\*cpu\\_addr, size\\_t size,. dma\\_map\\_sg\\_attrs(struct device \\*dev, struct scatterlist \\*sgl,. you could pass an attribute DMA\\_ATTR\\_FOO when mapping memory. n = dma\\_map\\_sg\\_attrs(dev, sg, nents, DMA\\_TO\\_DEVICE, attr);. void whizco\\_dma\\_map\\_sg\\_attrs(struct device \\*dev, dma\\_addr\\_t dma\\_addr,. dma\\_alloc\\_attrs(struct device \\*dev, size\\_t size, dma\\_addr\\_t \\*dma\\_handle,. dma\\_free\\_attrs(struct device \\*dev, size\\_t size, void \\*cpu\\_addr,. dma\\_cache\\_sync(struct device \\*dev, void \\*vaddr, size\\_t size,. dma\\_declare\\_coherent\\_memory(struct device \\*dev, phys\\_addr\\_t phys\\_addr,. about what DMA memory was allocated for which device. forcedeth 0000:00:08.0: DMA-API: device driver frees DMA memory with wrong.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "The DMA API changes - LWN.net",
+        "url": "https://lwn.net/Articles/75780/",
+        "snippet": "The change is in the \"synchronization\" calls that the DMA layer provides for streaming mappings. These mappings have strict rules about the \"ownership\" of the buffer; when a streaming mapping is created, it is owned by the device, and the processor cannot touch it. It is sometimes necessary, however, to allow the processor to access a mapped streaming DMA buffer. To that end, the DMA layer has long provided a set of functions (like dma\\_sync\\_single() and pci\\_sync\\_single()) which transfer ownership of the buffer to the CPU. To fill in that gap, the various synchronization functions have been split in two; instead of dma\\_sync\\_single() a driver must now call one or both of:. dma\\_sync\\_single\\_for\\_cpu() gives ownership of the DMA buffer back to the processor. A call to dma\\_sync\\_single\\_for\\_device() is required to allow the device to access the buffer again.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "Kernel development - LWN.net",
+        "url": "https://lwn.net/Articles/75289/",
+        "snippet": "dma_sync_single_for_cpu() gives ownership of the DMA buffer back to the processor. ... David Miller DMA: Fill gaping hole in DMA API interfaces. ? Greg KH Driver",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "DMA-API-HOWTO.txt - Linux Kernel",
+        "url": "https://www.kernel.org/doc/Documentation/DMA-API-HOWTO.txt",
+        "snippet": "From a device's point of view, DMA uses the bus address space, but it may. so devices only need to use 32-bit DMA addresses. If the device supports DMA, the driver sets up a buffer using kmalloc() or. mapping and returns the DMA address Z. do DMA to Z, and the IOMMU maps it to the buffer at address Y in system. everywhere you hold a DMA address returned from the DMA mapping functions. call and DMA to/from that. for you to DMA from/to. By default, the kernel assumes that your device can address 32-bits of DMA. your devices DMA addressing capabilities. The consistent DMA mapping interfaces, will by default return a DMA address. packets, map/unmap them with the DMA\\_TO\\_DEVICE direction. dma\\_handle = dma\\_map\\_single(dev, addr, size, direction);. dma\\_map\\_page() as well. mapping = dma\\_map\\_single(cp->dev, buffer, len, DMA\\_FROM\\_DEVICE);. \\* DMA\\_FROM\\_DEVICE-mapped area,. dma\\_handle = dma\\_map\\_single(dev, addr, size, direction);. dma\\_handle1 = dma\\_map\\_single(dev, addr, size, direction);. dma\\_handle2 = dma\\_map\\_single(dev, addr, size, direction);.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3214
+      },
+      {
+        "title": "Questions about dma_sync_single_for_cpu ... - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/53246379/questions-about-dma-sync-single-for-cpu-dma-sync-single-for-device",
+        "snippet": "### your communities. ### more stack exchange communities. Stack Overflow for Teams is now called **Stack Internal**. ##### Collectives™ on Stack Overflow. # Questions about dma\\_sync\\_single\\_for\\_cpu() / dma\\_sync\\_single\\_for\\_device(). My code uses stream DMA APIs to map an allocated buffer to DMA region like below:. DMA_BIDIRECTIONAL); <- map buffer to physical address. ring_doorbell() -> notify device to read DMA content. The DMA direction is BIDIRECTIONAL and `buffer` is allocated, filled by caller before `perform_dma()` is called and freed after it is done. ## 1 Answer 1. In the example in the presentation it is said you (the driver) can alter the buffer content after `dma_sync_single_for_cpu()` and return ownership to the device by calling `dma_sync_single_for_device()`. `dma_sync_single_for_device()` grants ownership to the DMA controller where `dma_sync_single_for_cpu()` gains ownership back. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. # Subscribe to RSS. ##### Stack Overflow. ##### Stack Exchange Network.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6643
+      }
+    ]
+  }
+}

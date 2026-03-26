@@ -130,6 +130,7 @@ Current practical branch picture:
 A top-level maintenance rule worth keeping visible here is:
 - when a branch already has a coherent parent page, subtree guide, and several practical leaves, prefer **canonical synchronization**, **branch-balance repair**, or **cross-branch comparison cleanup** before adding another leaf by default
 - when choosing new work, bias toward thinner-but-valuable practical continuations rather than the easiest dense micro-branch
+- inside the protocol/firmware branch, preserve a sharper ownership language around descriptor-driven cases: published work, notified peer, trustworthy consumer visibility, and reclaimed/reusable slots are often four different proof objects rather than one vague queue event
 
 ## Open structural questions
 - Which mature pages or branch summaries are now strong enough to be promoted from `mature` / `structured` to `canonical`?
