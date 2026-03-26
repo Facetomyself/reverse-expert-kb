@@ -67,7 +67,19 @@ trigger / parser / MMIO path visible
 
 The key discipline is:
 - separate **peripheral-effect visibility** from **interrupt/deferred consequence visibility**
+- separate **IRQ arrival truth** from **deferred scheduling truth** from **first consumer/reduction truth**
 - localize the first handoff that predicts later durable behavior
+
+A useful operator shorthand for this branch is:
+- `armed != observed_irq != scheduled_deferred != consumed`
+
+That shorthand helps prevent a recurring overclaim:
+- seeing an interrupt line fire or a worker get scheduled is often only arrival truth, not yet the first truthful behavior owner
+- the stronger target is the first completion/status reduction, poll owner, worker-side state write, reply selector, or wakeup edge that actually predicts later durable behavior
+
+It also guards the opposite mistake:
+- sometimes the top-half or IRQ-side path really does perform the decisive reduction already
+- in those cases, do not invent a later worker story just because deferred machinery exists nearby
 
 ## 4. What counts as a consequence-bearing handoff
 Treat these as high-value targets:
@@ -127,6 +139,11 @@ When many ISR/deferred paths are visible, prioritize the earliest stable reducti
 - wakeup/queue edge -> one later visible consequence
 
 This is usually a better anchor than enumerating every interrupt source first.
+
+A practical refinement from current Linux-facing source material is:
+- IRQ/top-half visibility may only prove arrival and scheduling
+- NAPI poll ownership, softirq/tasklet execution, threaded IRQ follow-up, or workqueue/process-context handling may own the first durable behavior change instead
+- therefore, prefer the first object that **survives** IRQ scope and predicts later behavior: one poll owner, worker argument package, reduced completion bucket, reply selector, or wakeup/state-write edge
 
 ### Step 4: Localize the first handoff that predicts behavior
 After the peripheral-effect boundary, ask:
