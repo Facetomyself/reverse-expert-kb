@@ -1,0 +1,460 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "unpacking original entry point TLS callbacks CRT startup first real code reverse engineering",
+    "PE TLS callback unpacking OEP loader startup handoff first payload consumer",
+    "Windows unpacking import reconstruction TLS callbacks CRT initialization real entry point"
+  ],
+  "count": 21,
+  "results": [
+    {
+      "title": "Parsing fails when a PE file has a TLS callback list which ... - GitHub",
+      "url": "https://github.com/m4b/goblin/issues/412",
+      "snippet": "The code here checks whether an entry in the TLS callback list is the terminator only after having tried to load it.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6692
+    },
+    {
+      "title": "TLS callbacks implement not functioning - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/77550953/tls-callbacks-implement-not-functioning",
+      "snippet": "How can I set up Thread-Local Storage (TLS) callbacks on Windows without CRT? 403. How to implement the factory method pattern in C++",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6692
+    },
+    {
+      "title": "Exe protection by TLS callback, trying to understand the behaviour",
+      "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour?rq=1",
+      "snippet": "When i tried to unpack it, the first thign that i had is, when i start the process with the debugger/or attach debugger later, i immediatly receive ACCESS VIOLATION exception, because Tls callback gets executed, with the following content:. I attach the full stack trace, this is the stack trace from which this callback is called, when i run the application under ida pro+windbg, tls callback is hit prior to entry point. The code in the TLS gets executed before the executables entry point and the debugger gains control. Possibly putting an INT 3 (0xCC) at the start of the TLS (and replacing the original byte) would break and allow you to step through to find the offending code, but I dont remember if this actually works or not, youll have to test it. TLS callbacks may be executed on attach because the OS creates a new thread pointing to `DbgUiBreakin` with a software breakpoint to stop the execution of the program, and the new thread causes the TLS callback to be executed.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6615
+    },
+    {
+      "title": "[PDF] Malware Reverse Engineering",
+      "url": "https://www.cise.ufl.edu/~jnw/Malware/Resources/2024MalwareOmnibus.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5462
+    },
+    {
+      "title": "A Windows executable (PE) loader (x86 and x64) with full TLS ...",
+      "url": "https://www.reddit.com/r/ReverseEngineering/comments/1llnrjx/a_windows_executable_pe_loader_x86_and_x64_with/",
+      "snippet": "",
+      "published_date": "2025-06-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5231
+    },
+    {
+      "title": "How Malware Defends Itself Using TLS Callback Functions",
+      "url": "https://isc.sans.edu/diary/6655",
+      "snippet": "",
+      "published_date": "2009-06-26T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.5231
+    },
+    {
+      "title": "What is import reconstruction and why is it necessary?",
+      "url": "https://reverseengineering.stackexchange.com/questions/2142/what-is-import-reconstruction-and-why-is-it-necessary",
+      "snippet": "",
+      "published_date": "2013-05-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "From log.dll To A Decrypted Chrysalis Main Module | Reverse Engineer",
+      "url": "https://taogoldi.github.io/reverse-engineer/blog/chrysalis-offline-unpacking/",
+      "snippet": "",
+      "published_date": "2026-02-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4731
+    },
+    {
+      "title": "Reverse Engineering — CTF : CrackMe1 | by Youssef Fathelbab",
+      "url": "https://medium.com/@youssef_31875/reverse-engineering-ctf-crackme1-390fc20c6399",
+      "snippet": "",
+      "published_date": "2025-12-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4462
+    },
+    {
+      "title": "Developing PE file packer step-by-step. Step 6. TLS - Misc",
+      "url": "https://kaimi.io/en/2012/09/developing-pe-file-packer-step-by-step-step-6-tls/",
+      "snippet": "tls->get\\_tls\\_callbacks().empty())  {  //It is necessary to reserve memory  //for original TLS callback addresses  //Plus 1 cell for null DWORD  DWORD first\\_callback\\_offset = data.size();  data.resize(data.size() + sizeof(DWORD) \\* (tls->get\\_tls\\_callbacks().size() + 1));    //First callback will be our empty one (ret 0xC),  //Write its address  \\*reinterpret\\_cast<DWORD\\*>(&data[first\\_callback\\_offset]) =  image.rva\\_to\\_va\\_32(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, empty\\_tls\\_callback\\_offset));    //Write relative virtual address  //of new TLS callbacks table  tls->set\\_callbacks\\_rva(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, first\\_callback\\_offset));    //Now write new callbacks table relative address  //to packed\\_file\\_info structure, which is placed at  //the beginning of first section  reinterpret\\_cast<packed\\_file\\_info\\*>(&image.get\\_image\\_sections().at(0).get\\_raw\\_data()[0])->new\\_rva\\_of\\_tls\\_callbacks = tls->get\\_callbacks\\_rva();  }  else  {  //If no callbacks exist, let's set address to null just in case  tls->set\\_callbacks\\_rva(0);  }    //Clean up callback array, we don't need them anymore  //We created them manually  tls->clear\\_tls\\_callbacks();    //Set new relative address  //of data used to initialize thread local memory  tls->set\\_raw\\_data\\_start\\_rva(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, data.size()));  //Recalculate the address of these data end  tls->recalc\\_raw\\_data\\_end\\_rva();    //Rebuild TLS  //Notify the rebuilder, that it is not needed to write data and callbacks  //We do this manually (callbacks are already written to the right places)  //Also we indicate that we don't need to strip null bytes at the end of the section  image.rebuild\\_tls(\\*tls, unpacker\\_added\\_section, directory\\_pos, false, false, pe\\_base::tls\\_data\\_expand\\_raw, true, false);    //Add data used to initialize local thread memory to the section  unpacker\\_added\\_section.get\\_raw\\_data() += tls->get\\_raw\\_data();  //Now set \"coderpub\" section virtual size  //taking into account SizeOfZeroFill of TLS field  image.set\\_section\\_virtual\\_size(unpacker\\_added\\_section, data.size() + tls->get\\_size\\_of\\_zero\\_fill());  //At last, strip unnecessary null bytes at the end of the section  pe\\_base::strip\\_nullbytes(unpacker\\_added\\_section.get\\_raw\\_data());  //and recalculate its sizes (raw and virtual)  image.prepare\\_section(unpacker\\_added\\_section);  } |.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4154
+    },
+    {
+      "title": "Malwares Development Series | Part 4 : Process Injection | TLS ...",
+      "url": "https://snakeeyes1.netlify.app/posts/tls-injection/",
+      "snippet": "TLS callbacks are special functions that are automatically called by the operating system at specific points in the lifetime of a thread. Next structure in the .tls section is the TLS callbacks, which is an array of function pointers that the operating system automatically invokes at specific times in the lifecycle of a thread. This executable has a .tls section that initializes thread-local variables and contains a TLS callback to perform some setup whenever a new thread is created. The loader reads the PE header to determine the layout of the executable, including the location of different sections like .text (code), .data (initialized data), .rdata (read-only data), and .tls (Thread Local Storage). Invoking TLS Callbacks If the .tls section includes a TLS Callbacks Array, the loader invokes each callback function in the array with the `DLL_PROCESS_ATTACH` reason. First we should identify the .tls Section that i explained before, which is designed to hold thread-specific data and TLS callbacks.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4154
+    },
+    {
+      "title": "Part 4: Entry Points and TLS Callbacks - YouTube",
+      "url": "https://www.youtube.com/watch?v=9K8WaZ53oOs",
+      "snippet": "Understanding the PE+ File Format - Part 4: Entry Points and TLS Callbacks\nAll things IDA\n5100 subscribers\n63 likes\n1482 views\n28 Mar 2024\nIn Part 4, we focus on the PE+ file format's entry points, specifically the AddressOfEntryPoint and TLS callbacks. The video covers how to find the AddressOfEntryPoint, its role, and entry points' precedence. It also explains locating the IMAGE_TLS_DIRECTORY, enumerating TLS callbacks, and the tools used, including Hiew and an IDAPython script, due to IDA's limitations in viewing these details directly. The session wraps up with a demonstration on dumping TLS entry points for all loaded modules, providing insights into analyzing these crucial elements without unnecessary complexity.\n\nTable of Contents:\n\n00:04 - Introduction\n00:24 - PE entrypoints are detected by IDA but only for the input file\n01:15 - Inspecting entry points of running processes\n01:44 - Starting from the image base / IMAGE_DOS_HEADER\n02:16 - Importing the needed standard types (from the Windows SDK headers / TIL)\n02:51 - Applying the needed structures\n03:11 - Locating the \"AddressOfEntryPoint\"\n03:42 - Understanding entry points precedence\n04:36 - Locating the TLS data directory\n06:49 - Interpreting the IMAGE_TLS_DIRECTORY\n07:56 - IMAGE_TLS_DIRECTORY.AddressOfCallbacks are already relocated\n08:33 - Enumerating the TLS callbacks entry points\n09:16 - TLS callback prototype is the same as DllMain prototype\n09:43 - No built-in in way in IDA to see entry points and TLS callbacks\n10:06 - Using Hiew to inspect the TLS callbacks\n10:55 - IDAPython script to discover entry points\n14:02 - Dumping all TLS entry points for all loaded modules\n14:22 - Testing the script\n15:11 - NTDLL has no entry point\n16:07 - Recap\n\nResources:\n- Understanding the PE+ file format - Part 1: The Headers [https://youtu.be/EG5M_j1JUBU]\n- AllThingsIDA GitHub Repo [https://github.com/0xeb/allthingsida]\n\nIf you found this video useful, please feel free to buy me a coffee here: https://www.buymeacoffee.com/0xeb\n6 comments\n",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3723
+    },
+    {
+      "title": "Analyzing TLS Callbacks - Ring Zero Labs",
+      "url": "https://www.ringzerolabs.com/2019/08/analyzing-tls-callbacks.html",
+      "snippet": "TLS callback functions can be manually programmed into a binary where the original intent is to initialize and clear TLS data objects.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3692
+    },
+    {
+      "title": "What are TLS Callbacks and How to Find Them! - YouTube",
+      "url": "https://www.youtube.com/watch?v=zO3KSel22Mc",
+      "snippet": "We continue to explore the PE file format in this video by investigating TLS (thread local storage) callbacks. Join this channel to get",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3462
+    },
+    {
+      "title": "Debugging TLS callbacks | Infosec",
+      "url": "https://www.infosecinstitute.com/resources/reverse-engineering/debugging-tls-callbacks/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3462
+    },
+    {
+      "title": "TLS Callback Entry in Assembly (win32)",
+      "url": "https://comp.lang.asm.x86.narkive.com/bDTKYElB/tls-callback-entry-in-assembly-win32",
+      "snippet": "I'm working on the second file for a contest, and I'm struggling with the anti-debugging techniques used. In the second file for the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3462
+    },
+    {
+      "title": "Unpacking StrelaStealer - Kyle Cucci's Cyber Ramblings",
+      "url": "https://securityliterate.com/unpacking-strela-stealer/",
+      "snippet": "",
+      "published_date": "2024-03-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3231
+    },
+    {
+      "title": "Detection Strategy for TLS Callback Injection via PE Memory ...",
+      "url": "https://attack.mitre.org/detectionstrategies/DET0467/",
+      "snippet": "",
+      "published_date": "2025-10-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3231
+    },
+    {
+      "title": "Researcher’s Notebook: Unpacking ‘pkr_mtsi’ | ReversingLabs",
+      "url": "https://www.reversinglabs.com/blog/unpacking-pkr_mtsi?OutbrainClickId=%7B%7Bob_click_id%7D%7D&obOrigUrl=true",
+      "snippet": "",
+      "published_date": "2026-01-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3231
+    },
+    {
+      "title": "TLS Callback - Unprotect Project",
+      "url": "https://unprotect.it/technique/tls-callback/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3231
+    },
+    {
+      "title": "Reconstructing PE Import Table – Cyber Security Architect | Red/Blue Teaming  | Exploit/Malware Analysis",
+      "url": "https://rioasmara.com/2020/07/18/reconstructing-pe-import-table/",
+      "snippet": "",
+      "published_date": "2020-07-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Parsing fails when a PE file has a TLS callback list which ... - GitHub",
+        "url": "https://github.com/m4b/goblin/issues/412",
+        "snippet": "The code here checks whether an entry in the TLS callback list is the terminator only after having tried to load it.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6692
+      },
+      {
+        "title": "What are TLS Callbacks and How to Find Them! - YouTube",
+        "url": "https://www.youtube.com/watch?v=zO3KSel22Mc",
+        "snippet": "We continue to explore the PE file format in this video by investigating TLS (thread local storage) callbacks. Join this channel to get",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3462
+      },
+      {
+        "title": "Analyzing TLS Callbacks - Ring Zero Labs",
+        "url": "https://www.ringzerolabs.com/2019/08/analyzing-tls-callbacks.html",
+        "snippet": "TLS callback functions can be manually programmed into a binary where the original intent is to initialize and clear TLS data objects.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3692
+      },
+      {
+        "title": "Exe protection by TLS callback, trying to understand the behaviour",
+        "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour?rq=1",
+        "snippet": "When i tried to unpack it, the first thign that i had is, when i start the process with the debugger/or attach debugger later, i immediatly receive ACCESS VIOLATION exception, because Tls callback gets executed, with the following content:. I attach the full stack trace, this is the stack trace from which this callback is called, when i run the application under ida pro+windbg, tls callback is hit prior to entry point. The code in the TLS gets executed before the executables entry point and the debugger gains control. Possibly putting an INT 3 (0xCC) at the start of the TLS (and replacing the original byte) would break and allow you to step through to find the offending code, but I dont remember if this actually works or not, youll have to test it. TLS callbacks may be executed on attach because the OS creates a new thread pointing to `DbgUiBreakin` with a software breakpoint to stop the execution of the program, and the new thread causes the TLS callback to be executed.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6615
+      },
+      {
+        "title": "Developing PE file packer step-by-step. Step 6. TLS - Misc",
+        "url": "https://kaimi.io/en/2012/09/developing-pe-file-packer-step-by-step-step-6-tls/",
+        "snippet": "tls->get\\_tls\\_callbacks().empty())  {  //It is necessary to reserve memory  //for original TLS callback addresses  //Plus 1 cell for null DWORD  DWORD first\\_callback\\_offset = data.size();  data.resize(data.size() + sizeof(DWORD) \\* (tls->get\\_tls\\_callbacks().size() + 1));    //First callback will be our empty one (ret 0xC),  //Write its address  \\*reinterpret\\_cast<DWORD\\*>(&data[first\\_callback\\_offset]) =  image.rva\\_to\\_va\\_32(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, empty\\_tls\\_callback\\_offset));    //Write relative virtual address  //of new TLS callbacks table  tls->set\\_callbacks\\_rva(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, first\\_callback\\_offset));    //Now write new callbacks table relative address  //to packed\\_file\\_info structure, which is placed at  //the beginning of first section  reinterpret\\_cast<packed\\_file\\_info\\*>(&image.get\\_image\\_sections().at(0).get\\_raw\\_data()[0])->new\\_rva\\_of\\_tls\\_callbacks = tls->get\\_callbacks\\_rva();  }  else  {  //If no callbacks exist, let's set address to null just in case  tls->set\\_callbacks\\_rva(0);  }    //Clean up callback array, we don't need them anymore  //We created them manually  tls->clear\\_tls\\_callbacks();    //Set new relative address  //of data used to initialize thread local memory  tls->set\\_raw\\_data\\_start\\_rva(pe\\_base::rva\\_from\\_section\\_offset(unpacker\\_added\\_section, data.size()));  //Recalculate the address of these data end  tls->recalc\\_raw\\_data\\_end\\_rva();    //Rebuild TLS  //Notify the rebuilder, that it is not needed to write data and callbacks  //We do this manually (callbacks are already written to the right places)  //Also we indicate that we don't need to strip null bytes at the end of the section  image.rebuild\\_tls(\\*tls, unpacker\\_added\\_section, directory\\_pos, false, false, pe\\_base::tls\\_data\\_expand\\_raw, true, false);    //Add data used to initialize local thread memory to the section  unpacker\\_added\\_section.get\\_raw\\_data() += tls->get\\_raw\\_data();  //Now set \"coderpub\" section virtual size  //taking into account SizeOfZeroFill of TLS field  image.set\\_section\\_virtual\\_size(unpacker\\_added\\_section, data.size() + tls->get\\_size\\_of\\_zero\\_fill());  //At last, strip unnecessary null bytes at the end of the section  pe\\_base::strip\\_nullbytes(unpacker\\_added\\_section.get\\_raw\\_data());  //and recalculate its sizes (raw and virtual)  image.prepare\\_section(unpacker\\_added\\_section);  } |.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4154
+      },
+      {
+        "title": "Part 4: Entry Points and TLS Callbacks - YouTube",
+        "url": "https://www.youtube.com/watch?v=9K8WaZ53oOs",
+        "snippet": "Understanding the PE+ File Format - Part 4: Entry Points and TLS Callbacks\nAll things IDA\n5100 subscribers\n63 likes\n1482 views\n28 Mar 2024\nIn Part 4, we focus on the PE+ file format's entry points, specifically the AddressOfEntryPoint and TLS callbacks. The video covers how to find the AddressOfEntryPoint, its role, and entry points' precedence. It also explains locating the IMAGE_TLS_DIRECTORY, enumerating TLS callbacks, and the tools used, including Hiew and an IDAPython script, due to IDA's limitations in viewing these details directly. The session wraps up with a demonstration on dumping TLS entry points for all loaded modules, providing insights into analyzing these crucial elements without unnecessary complexity.\n\nTable of Contents:\n\n00:04 - Introduction\n00:24 - PE entrypoints are detected by IDA but only for the input file\n01:15 - Inspecting entry points of running processes\n01:44 - Starting from the image base / IMAGE_DOS_HEADER\n02:16 - Importing the needed standard types (from the Windows SDK headers / TIL)\n02:51 - Applying the needed structures\n03:11 - Locating the \"AddressOfEntryPoint\"\n03:42 - Understanding entry points precedence\n04:36 - Locating the TLS data directory\n06:49 - Interpreting the IMAGE_TLS_DIRECTORY\n07:56 - IMAGE_TLS_DIRECTORY.AddressOfCallbacks are already relocated\n08:33 - Enumerating the TLS callbacks entry points\n09:16 - TLS callback prototype is the same as DllMain prototype\n09:43 - No built-in in way in IDA to see entry points and TLS callbacks\n10:06 - Using Hiew to inspect the TLS callbacks\n10:55 - IDAPython script to discover entry points\n14:02 - Dumping all TLS entry points for all loaded modules\n14:22 - Testing the script\n15:11 - NTDLL has no entry point\n16:07 - Recap\n\nResources:\n- Understanding the PE+ file format - Part 1: The Headers [https://youtu.be/EG5M_j1JUBU]\n- AllThingsIDA GitHub Repo [https://github.com/0xeb/allthingsida]\n\nIf you found this video useful, please feel free to buy me a coffee here: https://www.buymeacoffee.com/0xeb\n6 comments\n",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3723
+      },
+      {
+        "title": "Exe protection by TLS callback, trying to understand the behaviour",
+        "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour?rq=1",
+        "snippet": "When i tried to unpack it, the first thign that i had is, when i start the process with the debugger/or attach debugger later, i immediatly receive ACCESS VIOLATION exception, because Tls callback gets executed, with the following content:. I attach the full stack trace, this is the stack trace from which this callback is called, when i run the application under ida pro+windbg, tls callback is hit prior to entry point. The code in the TLS gets executed before the executables entry point and the debugger gains control. Possibly putting an INT 3 (0xCC) at the start of the TLS (and replacing the original byte) would break and allow you to step through to find the offending code, but I dont remember if this actually works or not, youll have to test it. TLS callbacks may be executed on attach because the OS creates a new thread pointing to `DbgUiBreakin` with a software breakpoint to stop the execution of the program, and the new thread causes the TLS callback to be executed.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "TLS Callback - Unprotect Project",
+        "url": "https://unprotect.it/technique/tls-callback/",
+        "snippet": "As an anti-debugging technique, a program can use a TLS callback to execute code before the main entry point of the program, which is defined in the PE (",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Debugging TLS callbacks | Infosec",
+        "url": "https://www.infosecinstitute.com/resources/reverse-engineering/debugging-tls-callbacks/",
+        "snippet": "0 [ 0] RVA [size] of Certificates Directory. 000001A4 18000000 DD 00000018 ; TLS Table size = 18 (24.). * [SecurityX (CASP+) certification: Overview and career path [2025 update]](https://www.infosecinstitute.com/resources/securityx/securityx-certification-overview-career-path/). * [Network+ certification: Overview and career path [2025 update]](https://www.infosecinstitute.com/resources/network/network-certification-overview-and-career-path/). * [CRISC certification: Overview & career path [updated 2021]](https://www.infosecinstitute.com/resources/crisc/crisc-certification-overview-career-path/). * [PMP certification: Overview and career path [updated 2021]](https://www.infosecinstitute.com/resources/pmp/pmp-certification-overview-and-career-path/). * [CGEIT certification: Overview and career path [updated 2021]](https://www.infosecinstitute.com/resources/cgeit/cgeit-certification-overview-career-path/). * [How To Become CGEIT Certified – Certification Requirements [updated 2021]](https://www.infosecinstitute.com/resources/cgeit/cgeit-certification-requirements/). * [Average CRISC Salary [2023 update]](https://www.infosecinstitute.com/resources/crisc/value-certification-average-crisc-salary/). * [An Introduction to the PMP: Exam Details and Process [updated 2021]](https://www.infosecinstitute.com/resources/pmp/an-introduction-to-the-pmp-exam-details-and-process/). * [CGEIT certification exam: overview of domains [Updated 2021]](https://www.infosecinstitute.com/resources/cgeit/cgeit-overview-domains/). * [Network+: Exam details and process [2025 update]](https://www.infosecinstitute.com/resources/network/network-exam-details-and-process/). * [SecurityX (CASP+): Exam details and process [2025 update]](https://www.infosecinstitute.com/resources/securityx/securityx-exam-details-process/). * [10 Tips for PMP Certification Exam Success [updated 2021]](https://www.infosecinstitute.com/resources/pmp/10-tips-for-pmp-certification-exam-success/). * [CGEIT certification exam details and process [updated 2021]](https://www.infosecinstitute.com/resources/cgeit/cgeit-exam-details-process/). * [How to get the CompTIA Network+ certification: Requirements and step-by-step instructions [2025 update]](https://www.infosecinstitute.com/resources/network/how-to-become-network-plus-certified-certification-requirements/). [SecurityX (CASP+) certification: Overview and career path [2025 update]](https://www.infosecinstitute.com/resources/securityx/securityx-certification-overview-career-path/).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Part 4: Entry Points and TLS Callbacks - YouTube",
+        "url": "https://www.youtube.com/watch?v=9K8WaZ53oOs",
+        "snippet": "Understanding the PE+ File Format - Part 4: Entry Points and TLS Callbacks\nAll things IDA\n5100 subscribers\n63 likes\n1482 views\n28 Mar 2024\nIn Part 4, we focus on the PE+ file format's entry points, specifically the AddressOfEntryPoint and TLS callbacks. The video covers how to find the AddressOfEntryPoint, its role, and entry points' precedence. It also explains locating the IMAGE_TLS_DIRECTORY, enumerating TLS callbacks, and the tools used, including Hiew and an IDAPython script, due to IDA's limitations in viewing these details directly. The session wraps up with a demonstration on dumping TLS entry points for all loaded modules, providing insights into analyzing these crucial elements without unnecessary complexity.\n\nTable of Contents:\n\n00:04 - Introduction\n00:24 - PE entrypoints are detected by IDA but only for the input file\n01:15 - Inspecting entry points of running processes\n01:44 - Starting from the image base / IMAGE_DOS_HEADER\n02:16 - Importing the needed standard types (from the Windows SDK headers / TIL)\n02:51 - Applying the needed structures\n03:11 - Locating the \"AddressOfEntryPoint\"\n03:42 - Understanding entry points precedence\n04:36 - Locating the TLS data directory\n06:49 - Interpreting the IMAGE_TLS_DIRECTORY\n07:56 - IMAGE_TLS_DIRECTORY.AddressOfCallbacks are already relocated\n08:33 - Enumerating the TLS callbacks entry points\n09:16 - TLS callback prototype is the same as DllMain prototype\n09:43 - No built-in in way in IDA to see entry points and TLS callbacks\n10:06 - Using Hiew to inspect the TLS callbacks\n10:55 - IDAPython script to discover entry points\n14:02 - Dumping all TLS entry points for all loaded modules\n14:22 - Testing the script\n15:11 - NTDLL has no entry point\n16:07 - Recap\n\nResources:\n- Understanding the PE+ file format - Part 1: The Headers [https://youtu.be/EG5M_j1JUBU]\n- AllThingsIDA GitHub Repo [https://github.com/0xeb/allthingsida]\n\nIf you found this video useful, please feel free to buy me a coffee here: https://www.buymeacoffee.com/0xeb\n6 comments\n",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Malwares Development Series | Part 4 : Process Injection | TLS ...",
+        "url": "https://snakeeyes1.netlify.app/posts/tls-injection/",
+        "snippet": "TLS callbacks are special functions that are automatically called by the operating system at specific points in the lifetime of a thread. Next structure in the .tls section is the TLS callbacks, which is an array of function pointers that the operating system automatically invokes at specific times in the lifecycle of a thread. This executable has a .tls section that initializes thread-local variables and contains a TLS callback to perform some setup whenever a new thread is created. The loader reads the PE header to determine the layout of the executable, including the location of different sections like .text (code), .data (initialized data), .rdata (read-only data), and .tls (Thread Local Storage). Invoking TLS Callbacks If the .tls section includes a TLS Callbacks Array, the loader invokes each callback function in the array with the `DLL_PROCESS_ATTACH` reason. First we should identify the .tls Section that i explained before, which is designed to hold thread-specific data and TLS callbacks.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4154
+      },
+      {
+        "title": "How Malware Defends Itself Using TLS Callback Functions",
+        "url": "https://isc.sans.edu/diary/6655",
+        "snippet": "TLS callback functions allow malware authors to execute malicious code before the debugger has a chance to pause at the traditional Entry Point.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "TLS Callback - Unprotect Project",
+        "url": "https://unprotect.it/technique/tls-callback/",
+        "snippet": "TLS (Thread Local Storage) callbacks are a mechanism in Windows that allows a program to define a function that will be called when a thread is created.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Part 4: Entry Points and TLS Callbacks - YouTube",
+        "url": "https://www.youtube.com/watch?v=9K8WaZ53oOs",
+        "snippet": "Understanding the PE+ File Format - Part 4: Entry Points and TLS Callbacks\nAll things IDA\n5100 subscribers\n63 likes\n1482 views\n28 Mar 2024\nIn Part 4, we focus on the PE+ file format's entry points, specifically the AddressOfEntryPoint and TLS callbacks. The video covers how to find the AddressOfEntryPoint, its role, and entry points' precedence. It also explains locating the IMAGE_TLS_DIRECTORY, enumerating TLS callbacks, and the tools used, including Hiew and an IDAPython script, due to IDA's limitations in viewing these details directly. The session wraps up with a demonstration on dumping TLS entry points for all loaded modules, providing insights into analyzing these crucial elements without unnecessary complexity.\n\nTable of Contents:\n\n00:04 - Introduction\n00:24 - PE entrypoints are detected by IDA but only for the input file\n01:15 - Inspecting entry points of running processes\n01:44 - Starting from the image base / IMAGE_DOS_HEADER\n02:16 - Importing the needed standard types (from the Windows SDK headers / TIL)\n02:51 - Applying the needed structures\n03:11 - Locating the \"AddressOfEntryPoint\"\n03:42 - Understanding entry points precedence\n04:36 - Locating the TLS data directory\n06:49 - Interpreting the IMAGE_TLS_DIRECTORY\n07:56 - IMAGE_TLS_DIRECTORY.AddressOfCallbacks are already relocated\n08:33 - Enumerating the TLS callbacks entry points\n09:16 - TLS callback prototype is the same as DllMain prototype\n09:43 - No built-in in way in IDA to see entry points and TLS callbacks\n10:06 - Using Hiew to inspect the TLS callbacks\n10:55 - IDAPython script to discover entry points\n14:02 - Dumping all TLS entry points for all loaded modules\n14:22 - Testing the script\n15:11 - NTDLL has no entry point\n16:07 - Recap\n\nResources:\n- Understanding the PE+ file format - Part 1: The Headers [https://youtu.be/EG5M_j1JUBU]\n- AllThingsIDA GitHub Repo [https://github.com/0xeb/allthingsida]\n\nIf you found this video useful, please feel free to buy me a coffee here: https://www.buymeacoffee.com/0xeb\n6 comments\n",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Analyzing TLS Callbacks - Ring Zero Labs",
+        "url": "https://www.ringzerolabs.com/2019/08/analyzing-tls-callbacks.html",
+        "snippet": "TLS callback functions can be manually programmed into a binary where the original intent is to initialize and clear TLS data objects.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "TLS Callback Entry in Assembly (win32)",
+        "url": "https://comp.lang.asm.x86.narkive.com/bDTKYElB/tls-callback-entry-in-assembly-win32",
+        "snippet": "I'm working on the second file for a contest, and I'm struggling with the anti-debugging techniques used. In the second file for the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3462
+      },
+      {
+        "title": "Exe protection by TLS callback, trying to understand the behaviour",
+        "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour?rq=1",
+        "snippet": "When i tried to unpack it, the first thign that i had is, when i start the process with the debugger/or attach debugger later, i immediatly receive ACCESS VIOLATION exception, because Tls callback gets executed, with the following content:. I attach the full stack trace, this is the stack trace from which this callback is called, when i run the application under ida pro+windbg, tls callback is hit prior to entry point. The code in the TLS gets executed before the executables entry point and the debugger gains control. Possibly putting an INT 3 (0xCC) at the start of the TLS (and replacing the original byte) would break and allow you to step through to find the offending code, but I dont remember if this actually works or not, youll have to test it. TLS callbacks may be executed on attach because the OS creates a new thread pointing to `DbgUiBreakin` with a software breakpoint to stop the execution of the program, and the new thread causes the TLS callback to be executed.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "TLS callbacks implement not functioning - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/77550953/tls-callbacks-implement-not-functioning",
+        "snippet": "How can I set up Thread-Local Storage (TLS) callbacks on Windows without CRT? 403. How to implement the factory method pattern in C++",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6692
+      }
+    ],
+    "exa": [
+      {
+        "title": "From log.dll To A Decrypted Chrysalis Main Module | Reverse Engineer",
+        "url": "https://taogoldi.github.io/reverse-engineer/blog/chrysalis-offline-unpacking/",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4731
+      },
+      {
+        "title": "Unpacking StrelaStealer - Kyle Cucci's Cyber Ramblings",
+        "url": "https://securityliterate.com/unpacking-strela-stealer/",
+        "snippet": "",
+        "published_date": "2024-03-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3231
+      },
+      {
+        "title": "Detection Strategy for TLS Callback Injection via PE Memory ...",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0467/",
+        "snippet": "",
+        "published_date": "2025-10-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3231
+      },
+      {
+        "title": "A Windows executable (PE) loader (x86 and x64) with full TLS ...",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/1llnrjx/a_windows_executable_pe_loader_x86_and_x64_with/",
+        "snippet": "",
+        "published_date": "2025-06-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5231
+      },
+      {
+        "title": "Researcher’s Notebook: Unpacking ‘pkr_mtsi’ | ReversingLabs",
+        "url": "https://www.reversinglabs.com/blog/unpacking-pkr_mtsi?OutbrainClickId=%7B%7Bob_click_id%7D%7D&obOrigUrl=true",
+        "snippet": "",
+        "published_date": "2026-01-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3231
+      },
+      {
+        "title": "Debugging TLS callbacks | Infosec",
+        "url": "https://www.infosecinstitute.com/resources/reverse-engineering/debugging-tls-callbacks/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3462
+      },
+      {
+        "title": "Exe protection by TLS callback, trying to understand the behaviour",
+        "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour?rq=1",
+        "snippet": "",
+        "published_date": "2017-11-25T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "[PDF] Malware Reverse Engineering",
+        "url": "https://www.cise.ufl.edu/~jnw/Malware/Resources/2024MalwareOmnibus.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5462
+      },
+      {
+        "title": "How Malware Defends Itself Using TLS Callback Functions",
+        "url": "https://isc.sans.edu/diary/6655",
+        "snippet": "",
+        "published_date": "2009-06-26T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.5231
+      },
+      {
+        "title": "What are TLS Callbacks and How to Find Them! - YouTube",
+        "url": "https://www.youtube.com/watch?v=zO3KSel22Mc",
+        "snippet": "",
+        "published_date": "2024-08-20T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Debugging TLS callbacks | Infosec",
+        "url": "https://www.infosecinstitute.com/resources/reverse-engineering/debugging-tls-callbacks/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "TLS Callback - Unprotect Project",
+        "url": "https://unprotect.it/technique/tls-callback/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3231
+      },
+      {
+        "title": "Reverse Engineering — CTF : CrackMe1 | by Youssef Fathelbab",
+        "url": "https://medium.com/@youssef_31875/reverse-engineering-ctf-crackme1-390fc20c6399",
+        "snippet": "",
+        "published_date": "2025-12-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4462
+      },
+      {
+        "title": "Part 4: Entry Points and TLS Callbacks - YouTube",
+        "url": "https://www.youtube.com/watch?v=9K8WaZ53oOs",
+        "snippet": "",
+        "published_date": "2024-03-27T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Reconstructing PE Import Table – Cyber Security Architect | Red/Blue Teaming  | Exploit/Malware Analysis",
+        "url": "https://rioasmara.com/2020/07/18/reconstructing-pe-import-table/",
+        "snippet": "",
+        "published_date": "2020-07-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "What is import reconstruction and why is it necessary?",
+        "url": "https://reverseengineering.stackexchange.com/questions/2142/what-is-import-reconstruction-and-why-is-it-necessary",
+        "snippet": "",
+        "published_date": "2013-05-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5
+      },
+      {
+        "title": "TLS Callback - Unprotect Project",
+        "url": "https://unprotect.it/technique/tls-callback/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Exe protection by TLS callback, trying to understand the behaviour",
+        "url": "https://reverseengineering.stackexchange.com/questions/16835/exe-protection-by-tls-callback-trying-to-understand-the-behaviour?rq=1",
+        "snippet": "",
+        "published_date": "2017-11-25T00:00:00.000Z",
+        "source": "exa"
+      }
+    ],
+    "grok": []
+  }
+}
