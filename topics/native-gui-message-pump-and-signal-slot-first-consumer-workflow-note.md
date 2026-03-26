@@ -267,7 +267,7 @@ Prefer the handler/slot that:
 
 Preserve three narrower stop rules before generalizing:
 - **Win32:** do not flatten shared subclass wrappers into one owner; recover the exact `HWND` plus live subclass hop, and when helper-based subclassing is in play preserve the callback + subclass-ID pair and instance-local reference data rather than stopping at “this window class is subclassed”
-- **Qt:** do not flatten `AutoConnection` into generic “queued” proof; first determine receiver thread affinity and whether the slot is delivered directly at emit time or later through queued delivery
+- **Qt:** do not flatten `AutoConnection` into generic “queued” proof; first determine receiver thread affinity and whether the slot is delivered directly at emit time or later through queued delivery. Also do not stop at `installEventFilter(...)` or `eventFilter(...)` visibility by itself: an event filter is only the truthful first consumer when it actually suppresses, rewrites, or retargets the event; if it returns `false`, continue into the later object handler, direct slot, or queued slot that first changes behavior
 - **Cocoa:** do not stop at `NSApplication sendEvent:` unless that method itself suppresses, rewrites, retargets, or policy-gates the path; otherwise continue into one `NSWindow`, responder-chain receiver, target/action consumer, or later exported-object method that actually changes behavior
 
 ### Step 5: use one narrow runtime proof
