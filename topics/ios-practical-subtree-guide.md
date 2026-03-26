@@ -272,6 +272,11 @@ Start here when:
 - one client-side proxy call, listener family, or service lookup path is already visible enough to freeze
 - the real bottleneck is no longer “does this route exist?” but “which service-side exported-object method or later durable consumer actually changes behavior?”
 - compare pairs keep overreading client-side proxy visibility, listener acceptance, or Mach-service truth as if they already proved service-side consequence
+- interruption / invalidation / launchd-restart noise keeps making accepted or reconnected connections look stronger than the actual later service-owned consumer
+
+A narrower stop rule now worth preserving at subtree-guide level is:
+- `accepted != replied != reconnected != consumed`
+- in Apple XPC cases, accepted connection truth, reply/error truth, reconnection-after-restart truth, and durable service-owned consequence often need to stay separate
 
 Do **not** start here when:
 - broad iOS setup/gate drift still dominates
