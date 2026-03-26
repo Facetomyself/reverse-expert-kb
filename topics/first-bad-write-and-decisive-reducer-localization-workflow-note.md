@@ -205,6 +205,13 @@ Practical rule:
 - prefer the smallest watched object that still predicts the consequence
 - prefer the narrowest query or reverse-run window that still plausibly contains the cause
 - if the first boundary you find is still semantically too rich, too downstream, or only points at another variable behind it, repeat once on that earlier smaller variable instead of widening the search back out
+- treat **object identity / incarnation truth** as part of watched-object choice, not as an afterthought: an address-stable query can still be asking about the wrong object if the meaningful state moved, was reallocated, got copied into a new owner, or the same slot/address was later reused by a different incarnation
+- when replay/query tooling is address-range oriented (for example TTD memory queries or watchpoint-style workflows), explicitly ask whether you still trust the address as the same semantic object across the whole backward-search window
+- if the answer is no, freeze one stronger identity anchor first (allocation/lifetime event, owner pointer, container slot, generation counter, or compare-aligned rebinding point) before overreading the returned writes as the first bad write for the operator’s real question
+- preserve the smaller shorthand that often matters in this failure mode: `same address != same object != same consequence-bearing incarnation`
+- for realloc/move/copy-heavy cases, prefer the first write to the late object's **current meaningful incarnation** over the earliest write to any historically related storage
+- if the object changes owner or storage class mid-path, it is often better to stop at the first rebinding / copy / ownership-transfer boundary and then walk one more hop on the new incarnation than to narrate a single continuous watchpoint story across both objects
+- use trace features that preserve lifetime better than raw thread ID or raw address alone when available; for example, TTD's `UniqueThreadId` is more trustworthy than plain OS thread ID across reuse, and `PinObjectPosition(...)` exists specifically because object/time identity can otherwise drift inside trace queries
 
 The output should be phrased as:
 

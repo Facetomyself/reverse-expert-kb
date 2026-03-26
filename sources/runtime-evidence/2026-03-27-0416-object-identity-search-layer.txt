@@ -1,0 +1,448 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "reverse engineering watchpoint object relocation realloc moved buffer false first bad write",
+    "WinDbg TTD memory query realloc object identity watchpoint reverse engineering",
+    "rr watchpoint realloc moved memory reverse debugging object identity"
+  ],
+  "count": 24,
+  "results": [
+    {
+      "title": "Force relocation with realloc - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/49692405/force-relocation-with-realloc",
+      "snippet": "There is no way to force relocation, but you can define realloc as a custom function that allocates a new area then copy data.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.65
+    },
+    {
+      "title": "Reverse-singlestep doesn't trigger watchpoints on ARM · Issue #3936",
+      "url": "https://github.com/rr-debugger/rr/issues/3936",
+      "snippet": "",
+      "published_date": "2025-03-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "TTD Memory Objects - Windows drivers - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-memory-objects",
+      "snippet": "",
+      "published_date": "2024-11-14T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.625
+    },
+    {
+      "title": "Time Travel Debugging - Introduction to Time Travel Debugging objects - Windows drivers",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-object-model",
+      "snippet": "",
+      "published_date": "2024-11-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "xusheng6/awesome-ttd: Rerousces related to time-travel debugging ...",
+      "url": "https://github.com/xusheng6/awesome-ttd",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "WinDbg-Samples/TTDQueries/tutorial-instructions.md at master · microsoft/WinDbg-Samples",
+      "url": "https://github.com/microsoft/WinDbg-Samples/blob/master/TTDQueries/tutorial-instructions.md",
+      "snippet": "",
+      "published_date": "2018-10-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Reverse engineering and buffer overflows: zero to hero [closed]",
+      "url": "https://security.stackexchange.com/questions/222407/reverse-engineering-and-buffer-overflows-zero-to-hero",
+      "snippet": "I understand there's a \"stack\" and \"memory\" and \"assembly language\" and then after that... nothing. Specifically - I would like to get to a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.575
+    },
+    {
+      "title": "Alternative to realloc that doesn't move things around - Reddit",
+      "url": "https://www.reddit.com/r/C_Programming/comments/1dry3hz/alternative_to_realloc_that_doesnt_move_things/",
+      "snippet": "This means realloc can't be used to extend an object if there are multiple copies of the pointer; if realloc moves stuff then boom! All those",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.55
+    },
+    {
+      "title": "question about freeing dynamically allocated memory ...",
+      "url": "https://www.reddit.com/r/C_Programming/comments/1bc0ycg/question_about_freeing_dynamically_allocated/",
+      "snippet": "realloc will, if it moves data to a newly allocated block of memory, free the old memory for you. Having multiple pointers point to the same memory for longer",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.525
+    },
+    {
+      "title": "rr – record and replay debugger for C/C++ - Hacker News",
+      "url": "https://news.ycombinator.com/item?id=41023547",
+      "snippet": "",
+      "published_date": "2024-07-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "#AltDevBlogADay » Implementing a True realloc() in C++",
+      "url": "https://jahej.com/alt/2011_05_28_implementing-a-true-realloc-in-cpp.html",
+      "snippet": "When realloc() cannot expand the memory block and performs a relocation, operator = is not called on the objects when they are moved. If this is a problem",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4
+    },
+    {
+      "title": "[PDF] Buffer Overflow Attacks: Detect, Exploit, Prevent - Zenk - Security",
+      "url": "https://repo.zenk-security.com/Techniques%20d.attaques%20%20.%20%20Failles/Buffer%20Overflow%20Attacks%20-%20Detect%20Exploit%20Prevent.pdf",
+      "snippet": "See buffer overflows heap, 318 off-by-one, off-by-five, 251–252 overwriting arbitrary memory contents, 299 stack-based pointers, 209–210 stored EIP register, 183–184 variables on heap, 234 P passing arguments to functions, 173–180 payloads and buffer injection techniques, 193–194 described, 192 designing, 198–203 methods to execute, 194–198 PDF files, Xpdf vulnerability, 83 Perl downloading, 363 exploiting with, 203–204 platform independence defined, 16–17 platforms and stack overflows, 358 PLT (procedure linkable tables), 302 pointers, overwriting stack-based, 209–210 polymorphic shellcode, 96, 114 POP stack operations, 162–163 popping, 194–196 port-binding shellcode, 38–40, 72–83, 115 preventing software vulnerabilities, 23 Prexis Ounce Labs security tool, 432–440, 453–454 printf() function, 17, 177–178, 180, 274, 278–282, 292, 308–309 printing to stout, 62 privileges Screen utility vulnerability, 293–294 setuid, 89 procedural languages described, 17 procedure calls, and stacks, 165–167 procedure linkable tables, ELF file format, 302 process memory layout, 181–183 processor architectures, 164–165 programming languages assembly, 27–31 functional languages, 15 programs described, 17 push method and shellcode development, 66 push return, 196–197 PUSH stack operation, 162–163 pushing bytes, 35 Python scripting language, 412, 457 R random numbers and encoded shellcode, 96 Rational’s Purify tool, 263 RATS (Rough Auditing T ool for Security), 408–412 read() function, 214 read system calls, 90, 93–94, 486 readelf program described, 27 reading memory with format strings, 288–289 realfree() function, 257–260 realloc() function, 231–232 Red Hat 9, 198 registers defined, 13 Intel x86’s, 164–165 Windows implementation of assembly language, 124–125 remote code execution vulnerabilities, 6–8 Index 495 Remote Data Services (RDS) vulnerability, 382 remote files, shellcode to fetch, 101 shellcode, 38–41, 50 systems, backdoor on, 72 reporting CodeAssure, 428–429 vulnerabilities, 23 RET instructions, 33, 167, 173 return values systems call, 38 reusing connections, 87 file descriptors, 89–96 functions from ELF binary, 115 program variables, 101–106, 112–113 reverse connection shellcode, 83–86 reverse-engineering shellcode, 107–111 for static source code analysis, 216 S sandboxes described, 17 Sasser worm, 8 Screen Unix utility, 293–294 scripting language for writing shellcode, 52 Secure",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "8. Watchpoints Written by Derek Selander",
+      "url": "https://www.kodeco.com/books/advanced-apple-debugging-reverse-engineering/v3.0/chapters/8-watchpoints",
+      "snippet": "#### Section I: Beginning LLDB Commands. #### Section IV: Custom LLDB Commands. + 21.3 Creating your first LLDB Python script. A watchpoint is a special type of breakpoint that can monitor reads or writes to a particular value in memory and is not limited to executable code as are breakpoints. * Tracking an allocated Swift/Objective-C object when you don’t know how a property is getting set, i.e. via direct ivar access, Objective-C property setter method, Swift property setter method, hardcoded offset access, or other methods. (lldb) watchpoint set expression -s 1 -w write -- 0x00006000024d0f60. (1 watchpoints) (lldb) c Process 68247 resuming. You can `delete`, `disable`, `enable`, `list`, `command`, or `modify` them just as you would using LLDB’s breakpoint syntax. (lldb) watchpoint list -b Number of supported hardware watchpoints: 4 Current watchpoints: Watchpoint 2: addr = 0x60000274ee20 size = 1 state = enabled type = w. (lldb) watchpoint modify 2 -c '*(BOOL*)0x60000274ee20 == 0'. (lldb) watchpoint command add 2 Enter your debugger command(s). (lldb) watchpoint command delete 2.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Having Fun with Flare-on Using Time-Travel Debugging (TTD)",
+      "url": "https://binary.ninja/2024/12/16/flareon-ttd.html",
+      "snippet": "Binary Ninja’s debugger integrates WinDbg TTD support so you can record a TTD trace and replay it using a familiar user interface. Once the installation is completed, relaunch Binary Ninja, and click `Debugger` -> `Record TTD Trace` in the menu. After being stuck here for a while, I realized that I could not only debug the trace, but I could run queries on it and see which instructions had been executed in the code buffer! For this particular challenge, I wanted to see which instructions are executed in the code buffer. Since the instruction we want is written to immediately before it gets executed, I figured I simply need to dump all the memory writes and instruction executions within the code buffer, and write a small script to harvest the ones I’m looking for. It executes the same query we mentioned above with the `CurrentSession.TTD.Memory` object, and for each object within the result, prints the start time, access type, instruction pointer, address, size, and the value.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Debug & Modify Game Memory in Real-Time with WinDbg - YouTube",
+      "url": "https://www.youtube.com/watch?v=ogtHK5DUcB4",
+      "snippet": "... Memory in Real-Time with WinDbg | Reverse Engineering (Educational). 1.1K views · 9 months ago. #EthicalHacking #ReverseEngineering #GameHacking.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "P1144R1: Object relocation in terms of move plus destroy - open-std",
+      "url": "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1144r1.html",
+      "snippet": "",
+      "published_date": "2018-11-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "Reverse Debugging Using rr",
+      "url": "https://www.youtube.com/watch?v=0uYsZEAQiLM",
+      "snippet": "rr is a debugger that allows me to go back in execution and investigate what did that call to parent look like.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.325
+    },
+    {
+      "title": "Next-Level Reversing: Binary Ninja+TTD · seeinglogic blog",
+      "url": "https://seeinglogic.com/posts/binary-ninja-ttd-intro/",
+      "snippet": "",
+      "published_date": "2024-08-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "WinDbg and the Time Travel Debugger - Mark Downie",
+      "url": "https://www.poppastring.com/blog/windbg-and-the-time-travel-debugger",
+      "snippet": "The Time Travel Debugger (TTD) is a killer feature it allows you to record the execution of your running process, then replay it forwards and backwards.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Valgrind Documentation",
+      "url": "https://snapshots.sourceware.org/valgrind/trunk/2024-07-01_12-21_1719836461/downloads/valgrind_manual.pdf",
+      "snippet": "",
+      "published_date": "2024-07-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "rr: lightweight recording & deterministic debugging",
+      "url": "https://rr-project.org/",
+      "snippet": "",
+      "published_date": "2024-10-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "RR: The magic of record and replay debugging",
+      "url": "https://johnnysswlab.com/rr-the-magic-of-recording-and-replay-debugging/",
+      "snippet": "",
+      "published_date": "2020-08-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Tracking Down Heap Overflows with rr – Sean Heelan's Blog",
+      "url": "https://sean.heelan.io/2016/05/31/tracking-down-heap-overflows-with-rr/",
+      "snippet": "",
+      "published_date": "2016-05-31T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Time travel debugging with rr debugger - Undo.io",
+      "url": "https://undo.io/resources/gdb-watchpoint/time-travel-debugging-rr-debugger/",
+      "snippet": "In this tutorial, Mike Shah demonstrates how to use the rr debugger to record and replay program execution and fix bugs faster.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "TTD Memory Objects - Windows drivers - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-memory-objects",
+        "snippet": "",
+        "published_date": "2024-11-14T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.625
+      },
+      {
+        "title": "Time Travel Debugging - Introduction to Time Travel Debugging objects - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-object-model",
+        "snippet": "",
+        "published_date": "2024-11-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "xusheng6/awesome-ttd: Rerousces related to time-travel debugging ...",
+        "url": "https://github.com/xusheng6/awesome-ttd",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "WinDbg-Samples/TTDQueries/tutorial-instructions.md at master · microsoft/WinDbg-Samples",
+        "url": "https://github.com/microsoft/WinDbg-Samples/blob/master/TTDQueries/tutorial-instructions.md",
+        "snippet": "",
+        "published_date": "2018-10-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Next-Level Reversing: Binary Ninja+TTD · seeinglogic blog",
+        "url": "https://seeinglogic.com/posts/binary-ninja-ttd-intro/",
+        "snippet": "",
+        "published_date": "2024-08-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Alternative to realloc that doesn't move things around - Reddit",
+        "url": "https://www.reddit.com/r/C_Programming/comments/1dry3hz/alternative_to_realloc_that_doesnt_move_things/",
+        "snippet": "",
+        "published_date": "2024-06-30T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Force relocation with realloc - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/49692405/force-relocation-with-realloc",
+        "snippet": "",
+        "published_date": "2018-04-06T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "P1144R1: Object relocation in terms of move plus destroy - open-std",
+        "url": "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1144r1.html",
+        "snippet": "",
+        "published_date": "2018-11-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "#AltDevBlogADay » Implementing a True realloc() in C++",
+        "url": "https://jahej.com/alt/2011_05_28_implementing-a-true-realloc-in-cpp.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Valgrind Documentation",
+        "url": "https://snapshots.sourceware.org/valgrind/trunk/2024-07-01_12-21_1719836461/downloads/valgrind_manual.pdf",
+        "snippet": "",
+        "published_date": "2024-07-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Reverse-singlestep doesn't trigger watchpoints on ARM · Issue #3936",
+        "url": "https://github.com/rr-debugger/rr/issues/3936",
+        "snippet": "",
+        "published_date": "2025-03-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "rr: lightweight recording & deterministic debugging",
+        "url": "https://rr-project.org/",
+        "snippet": "",
+        "published_date": "2024-10-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "RR: The magic of record and replay debugging",
+        "url": "https://johnnysswlab.com/rr-the-magic-of-recording-and-replay-debugging/",
+        "snippet": "",
+        "published_date": "2020-08-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Tracking Down Heap Overflows with rr – Sean Heelan's Blog",
+        "url": "https://sean.heelan.io/2016/05/31/tracking-down-heap-overflows-with-rr/",
+        "snippet": "",
+        "published_date": "2016-05-31T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "rr – record and replay debugger for C/C++ - Hacker News",
+        "url": "https://news.ycombinator.com/item?id=41023547",
+        "snippet": "",
+        "published_date": "2024-07-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Having Fun with Flare-on Using Time-Travel Debugging (TTD)",
+        "url": "https://binary.ninja/2024/12/16/flareon-ttd.html",
+        "snippet": "Binary Ninja’s debugger integrates WinDbg TTD support so you can record a TTD trace and replay it using a familiar user interface. Once the installation is completed, relaunch Binary Ninja, and click `Debugger` -> `Record TTD Trace` in the menu. After being stuck here for a while, I realized that I could not only debug the trace, but I could run queries on it and see which instructions had been executed in the code buffer! For this particular challenge, I wanted to see which instructions are executed in the code buffer. Since the instruction we want is written to immediately before it gets executed, I figured I simply need to dump all the memory writes and instruction executions within the code buffer, and write a small script to harvest the ones I’m looking for. It executes the same query we mentioned above with the `CurrentSession.TTD.Memory` object, and for each object within the result, prints the start time, access type, instruction pointer, address, size, and the value.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "xusheng6/awesome-ttd: Rerousces related to time-travel debugging ...",
+        "url": "https://github.com/xusheng6/awesome-ttd",
+        "snippet": "IDA Pro - WinDbg TTD Debugging - Documentation for using WinDbg Time Travel Debugging with IDA Pro for reverse engineering and malware analysis. Tutorials",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "TTD Memory Objects - Windows drivers - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-memory-objects",
+        "snippet": "TTD Memory is a method that takes beginAddress, endAddress and dataAccessMask parameters and returns a collection of memory objects that contain memory access",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "WinDbg and the Time Travel Debugger - Mark Downie",
+        "url": "https://www.poppastring.com/blog/windbg-and-the-time-travel-debugger",
+        "snippet": "The Time Travel Debugger (TTD) is a killer feature it allows you to record the execution of your running process, then replay it forwards and backwards.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Debug & Modify Game Memory in Real-Time with WinDbg - YouTube",
+        "url": "https://www.youtube.com/watch?v=ogtHK5DUcB4",
+        "snippet": "... Memory in Real-Time with WinDbg | Reverse Engineering (Educational). 1.1K views · 9 months ago. #EthicalHacking #ReverseEngineering #GameHacking.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "Force relocation with realloc - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/49692405/force-relocation-with-realloc",
+        "snippet": "There is no way to force relocation, but you can define realloc as a custom function that allocates a new area then copy data.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.65
+      },
+      {
+        "title": "#AltDevBlogADay » Implementing a True realloc() in C++",
+        "url": "https://jahej.com/alt/2011_05_28_implementing-a-true-realloc-in-cpp.html",
+        "snippet": "When realloc() cannot expand the memory block and performs a relocation, operator = is not called on the objects when they are moved. If this is a problem",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4
+      },
+      {
+        "title": "Alternative to realloc that doesn't move things around - Reddit",
+        "url": "https://www.reddit.com/r/C_Programming/comments/1dry3hz/alternative_to_realloc_that_doesnt_move_things/",
+        "snippet": "This means realloc can't be used to extend an object if there are multiple copies of the pointer; if realloc moves stuff then boom! All those",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.55
+      },
+      {
+        "title": "Reverse engineering and buffer overflows: zero to hero [closed]",
+        "url": "https://security.stackexchange.com/questions/222407/reverse-engineering-and-buffer-overflows-zero-to-hero",
+        "snippet": "I understand there's a \"stack\" and \"memory\" and \"assembly language\" and then after that... nothing. Specifically - I would like to get to a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.575
+      },
+      {
+        "title": "[PDF] Buffer Overflow Attacks: Detect, Exploit, Prevent - Zenk - Security",
+        "url": "https://repo.zenk-security.com/Techniques%20d.attaques%20%20.%20%20Failles/Buffer%20Overflow%20Attacks%20-%20Detect%20Exploit%20Prevent.pdf",
+        "snippet": "See buffer overflows heap, 318 off-by-one, off-by-five, 251–252 overwriting arbitrary memory contents, 299 stack-based pointers, 209–210 stored EIP register, 183–184 variables on heap, 234 P passing arguments to functions, 173–180 payloads and buffer injection techniques, 193–194 described, 192 designing, 198–203 methods to execute, 194–198 PDF files, Xpdf vulnerability, 83 Perl downloading, 363 exploiting with, 203–204 platform independence defined, 16–17 platforms and stack overflows, 358 PLT (procedure linkable tables), 302 pointers, overwriting stack-based, 209–210 polymorphic shellcode, 96, 114 POP stack operations, 162–163 popping, 194–196 port-binding shellcode, 38–40, 72–83, 115 preventing software vulnerabilities, 23 Prexis Ounce Labs security tool, 432–440, 453–454 printf() function, 17, 177–178, 180, 274, 278–282, 292, 308–309 printing to stout, 62 privileges Screen utility vulnerability, 293–294 setuid, 89 procedural languages described, 17 procedure calls, and stacks, 165–167 procedure linkable tables, ELF file format, 302 process memory layout, 181–183 processor architectures, 164–165 programming languages assembly, 27–31 functional languages, 15 programs described, 17 push method and shellcode development, 66 push return, 196–197 PUSH stack operation, 162–163 pushing bytes, 35 Python scripting language, 412, 457 R random numbers and encoded shellcode, 96 Rational’s Purify tool, 263 RATS (Rough Auditing T ool for Security), 408–412 read() function, 214 read system calls, 90, 93–94, 486 readelf program described, 27 reading memory with format strings, 288–289 realfree() function, 257–260 realloc() function, 231–232 Red Hat 9, 198 registers defined, 13 Intel x86’s, 164–165 Windows implementation of assembly language, 124–125 remote code execution vulnerabilities, 6–8 Index 495 Remote Data Services (RDS) vulnerability, 382 remote files, shellcode to fetch, 101 shellcode, 38–41, 50 systems, backdoor on, 72 reporting CodeAssure, 428–429 vulnerabilities, 23 RET instructions, 33, 167, 173 return values systems call, 38 reusing connections, 87 file descriptors, 89–96 functions from ELF binary, 115 program variables, 101–106, 112–113 reverse connection shellcode, 83–86 reverse-engineering shellcode, 107–111 for static source code analysis, 216 S sandboxes described, 17 Sasser worm, 8 Screen Unix utility, 293–294 scripting language for writing shellcode, 52 Secure",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "question about freeing dynamically allocated memory ...",
+        "url": "https://www.reddit.com/r/C_Programming/comments/1bc0ycg/question_about_freeing_dynamically_allocated/",
+        "snippet": "realloc will, if it moves data to a newly allocated block of memory, free the old memory for you. Having multiple pointers point to the same memory for longer",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.525
+      },
+      {
+        "title": "8. Watchpoints Written by Derek Selander",
+        "url": "https://www.kodeco.com/books/advanced-apple-debugging-reverse-engineering/v3.0/chapters/8-watchpoints",
+        "snippet": "#### Section I: Beginning LLDB Commands. #### Section IV: Custom LLDB Commands. + 21.3 Creating your first LLDB Python script. A watchpoint is a special type of breakpoint that can monitor reads or writes to a particular value in memory and is not limited to executable code as are breakpoints. * Tracking an allocated Swift/Objective-C object when you don’t know how a property is getting set, i.e. via direct ivar access, Objective-C property setter method, Swift property setter method, hardcoded offset access, or other methods. (lldb) watchpoint set expression -s 1 -w write -- 0x00006000024d0f60. (1 watchpoints) (lldb) c Process 68247 resuming. You can `delete`, `disable`, `enable`, `list`, `command`, or `modify` them just as you would using LLDB’s breakpoint syntax. (lldb) watchpoint list -b Number of supported hardware watchpoints: 4 Current watchpoints: Watchpoint 2: addr = 0x60000274ee20 size = 1 state = enabled type = w. (lldb) watchpoint modify 2 -c '*(BOOL*)0x60000274ee20 == 0'. (lldb) watchpoint command add 2 Enter your debugger command(s). (lldb) watchpoint command delete 2.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Reverse Debugging Using rr",
+        "url": "https://www.youtube.com/watch?v=0uYsZEAQiLM",
+        "snippet": "rr is a debugger that allows me to go back in execution and investigate what did that call to parent look like.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.325
+      },
+      {
+        "title": "Time travel debugging with rr debugger - Undo.io",
+        "url": "https://undo.io/resources/gdb-watchpoint/time-travel-debugging-rr-debugger/",
+        "snippet": "In this tutorial, Mike Shah demonstrates how to use the rr debugger to record and replay program execution and fix bugs faster.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "c - Force relocation with realloc",
+        "url": "https://stackoverflow.com/questions/49692405/force-relocation-with-realloc",
+        "snippet": "There is no way to force relocation, but you can define realloc as a custom function that allocates a new area then copy data.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}

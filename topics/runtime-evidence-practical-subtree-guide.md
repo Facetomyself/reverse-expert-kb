@@ -258,6 +258,7 @@ Routing reminder:
 - preserve an explicit **alignment truth** step inside compare-run work: separate tolerated early variation, pair-breaking misalignment, and the first behavior-bearing split before widening into reverse-causality
 - in async queue/callback-heavy cases, preserve an extra **delivery-class alignment** step: broad event-loop or queue-family entry is weaker than the first delivered callback / dequeued work item / consumer-bearing boundary, and raw mixed-thread event order should not be overread by default
 - treat watched-object and query scope as part of truth selection, not just tooling convenience: if the object is too wide, the returned write/memory events may be real yet still point at the wrong causal boundary for the operator question
+- preserve one thinner continuation rule for watchpoint/query-heavy cases: **object identity / incarnation truth** is separate from mere address stability, so a trace query over the same bytes can still mix different semantic objects when allocation, copy, rebinding, reuse, or ownership transfer happens mid-window; keep `same address != same object != same consequence-bearing incarnation` visible before narrating a first-bad-write story
 
 ### F. Visible late effect or bounded divergence -> first causal boundary
 Typical question:
