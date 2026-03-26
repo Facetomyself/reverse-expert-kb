@@ -146,12 +146,17 @@ A narrower fate rule worth preserving now:
 Qt documentation makes an important distinction:
 - many slots run immediately on signal emission
 - queued connections defer delivery until later
+- under `Qt::AutoConnection`, the deciding fact is the receiver object's thread affinity at emission time, not the analyst's broad guess that the path is “cross-thread shaped”
+- even when the effective mode is queued, actual delivery still depends on the receiver thread having a live event loop
+- explicit `Qt::QueuedConnection` in the same thread is still delayed, so same-thread visibility and immediate execution are not interchangeable proof objects
 
 For reversing, this means:
 - do not assume every visible signal implies a later queue boundary
-- first classify whether the target signal/slot edge is immediate or queued
-- only then decide whether the proof boundary is emission-time or later event-loop delivery
-- preserve the smaller split **signal found != queued truth != first behavior-changing consumer** so a visible emit site or connection edge does not silently become consumer proof
+- do not flatten recovered `AutoConnection` edges into generic “queued” proof without first freezing receiver thread affinity
+- first classify whether the target signal/slot edge is immediate-direct, effectively queued under `AutoConnection`, or explicitly queued by connection type
+- only then decide whether the proof boundary is emission-time, receiver-loop delivery, or one later consumer behind the slot
+- preserve the smaller split **connected != direct != queued != delivered != consumed** so a visible emit site or connection edge does not silently become consumer proof
+- keep the earlier shorthand **signal found != queued truth != first behavior-changing consumer** as the compact memory for the same mistake family
 
 ### E. Qt binary work benefits from callback recovery, but callback recovery is still not enough
 QtRE’s reported value is exactly that it recovers large amounts of callback and semantic information from Qt binaries.
@@ -293,7 +298,7 @@ Prefer the handler/slot that:
 
 Preserve three narrower stop rules before generalizing:
 - **Win32:** do not flatten shared subclass wrappers into one owner; recover the exact `HWND` plus live subclass hop, and when helper-based subclassing is in play preserve the callback + subclass-ID pair and instance-local reference data rather than stopping at “this window class is subclassed”
-- **Qt:** do not flatten `AutoConnection` into generic “queued” proof; first determine receiver thread affinity and whether the slot is delivered directly at emit time or later through queued delivery. Also do not stop at `installEventFilter(...)` or `eventFilter(...)` visibility by itself: an event filter is only the truthful first consumer when it actually suppresses, rewrites, or retargets the event; if it returns `false`, continue into the later object handler, direct slot, or queued slot that first changes behavior
+- **Qt:** do not flatten `AutoConnection` into generic “queued” proof; first determine receiver thread affinity and whether the slot is delivered directly at emit time or later through queued delivery, and if the path is queued preserve delivery truth separately from mere connection truth because receiver-loop liveness still matters. Also do not stop at `installEventFilter(...)` or `eventFilter(...)` visibility by itself: an event filter is only the truthful first consumer when it actually suppresses, rewrites, or retargets the event; if it returns `false`, continue into the later object handler, direct slot, or queued slot that first changes behavior
 - **Cocoa:** do not stop at `NSApplication sendEvent:` unless that method itself suppresses, rewrites, retargets, or policy-gates the path; otherwise continue into one `NSWindow`, responder-chain receiver, target/action consumer, or later exported-object method that actually changes behavior
 
 ### Step 5: use one narrow runtime proof
@@ -408,8 +413,8 @@ Common next steps:
 - Pick one message or signal family only.
 - Separate framework entry from per-instance or per-connection ownership.
 - In Win32 subclass cases, preserve the exact per-window original-proc chain before generalizing from shared wrappers.
-- Distinguish direct slot delivery from queued delivery.
-- In Qt `AutoConnection` cases, decide whether the truthful consumer boundary is slot-immediate or receiver-loop-delivered.
+- Distinguish connection truth from delivery truth: a recovered edge is not yet the same thing as direct execution, queued eligibility, actual queued delivery, or the later consumer.
+- In Qt `AutoConnection` cases, decide whether the truthful consumer boundary is slot-immediate or receiver-loop-delivered by freezing receiver thread affinity first; if queued delivery is the right model, also ask whether the receiver thread's event loop was live enough for delivery to occur.
 - In Cocoa cases, treat `sendEvent:` as framework reduction unless it actually suppresses, rewrites, retargets, or policy-gates behavior.
 - In XPC/dispatch-source cases, separate connection or registration visibility from the first exported-object method or post-callback state reducer that really changes behavior.
 - Prefer the first behavior-changing consumer over framework landmarks.
