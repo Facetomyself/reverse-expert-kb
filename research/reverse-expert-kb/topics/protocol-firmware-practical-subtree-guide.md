@@ -71,6 +71,7 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - one representative method-bearing contract is already externalized, but the analyst still has not frozen one truthful request/response, request/completion, stream-slice, or opnum-level representative call bundle plus one smallest constructor path
    - keep explicit branch memory that some families also require separate **call-context truth**: deadline/metadata/authority/credential posture for gRPC-like calls, or binding/authn/context-handle posture for Windows RPC-like calls, rather than pretending the serialized body or argument bundle alone is the whole replay object
    - preserve the narrower practical compare label **body-identical but call-context-different** when official transport/runtime docs already show that behavior can diverge outside the serialized body itself
+   - also preserve the earlier service-contract stop rule **described != registered != reachable**, so descriptor/reflection-visible service rosters are not silently overread as already-proven live callable surfaces
 7. **content-pipeline continuation uncertainty**
    - the first authenticated API family is visible, but the real analyst object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder
 8. **ingress ownership uncertainty**

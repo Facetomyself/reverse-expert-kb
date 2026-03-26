@@ -116,6 +116,10 @@ Good early anchors include:
 Strong rule:
 - if the target explicitly registers the callable surface, extract that first
 - do not start by individually chasing deep handlers if the service shell is still implicit
+- do not stop at descriptor-bearing or reflection-visible service/method metadata alone when the live registration or bound dispatch surface is still unproved
+
+Useful shorthand for this stage:
+- described != registered != reachable
 
 ### Step 3: Externalize one service shell conservatively
 Useful service-shell outputs include:
@@ -315,6 +319,7 @@ This note is grounded in:
 - Windows RPC interface / dispatch extraction practice from XPN and RpcView-style traversal
 - API-wrapper-to-structure recovery discipline reinforced by the SpecterOps walkthrough
 - schema-to-endpoint / replay bridge practice from `pbtk`
+- the additional registration-vs-reachability stop rule captured in `sources/protocol/2026-03-27-service-contract-registration-vs-reachability-notes.md`
 
 Confidence note:
 - strong for the workflow shape and stop rules
