@@ -1,0 +1,342 @@
+[exa] error: 402 Client Error: Payment Required for url: http://158.178.236.241:7860/search
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "gRPC metadata deadline authority replay request body reverse engineering",
+    "Windows RPC binding authn context handle replay same body different call context reverse engineering",
+    "grpc metadata deadline authority request body same payload different context"
+  ],
+  "count": 16,
+  "results": [
+    {
+      "title": "Is any method to access the raw request body in metadata? #1908",
+      "url": "https://github.com/grpc-ecosystem/grpc-gateway/issues/1908",
+      "snippet": "Hi, everyone,. I am using the grpc-gateway in my production environment. And I encountered some issues when I try to access the raw request body",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7333
+    },
+    {
+      "title": "how to read metadata in grpc on the server side? (golang example)",
+      "url": "https://stackoverflow.com/questions/42116642/how-to-read-metadata-in-grpc-on-the-server-side-golang-example",
+      "snippet": "",
+      "published_date": "2017-02-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6667
+    },
+    {
+      "title": "Is it possible to reverse engineer to know the format without .proto",
+      "url": "https://stackoverflow.com/questions/75807483/is-it-possible-to-reverse-engineer-to-know-the-format-without-proto",
+      "snippet": "",
+      "published_date": "2023-03-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "Using Binding Handles and Making RPC Calls - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/using-binding-handles-and-making-rpc-calls",
+      "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. A common mistake among RPC programmers is handling all exceptions. Many programmers structure their exception handles like the following:. The problem with this handler is that it catches all errors, including errors in the client program. Catching errors in the client program makes debugging more difficult. RpcTryExcept { RemoteSample(); } // Return \"non-fatal\" errors to clients. Catching fatal errors // makes it harder to debug. EXCEPTION_EXECUTE_HANDLER : EXCEPTION_CONTINUE_SEARCH ) ) { log an error or do something else } RpcEndExcept. This exception handler has the advantage of letting a certain range of errors through. These errors will never be returned by the server, because they indicate a client side problem. Want to try using Ask Learn to clarify or guide you through this topic?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Understanding gRPC message",
+      "url": "https://reverseengineering.stackexchange.com/questions/30982/understanding-grpc-message",
+      "snippet": "",
+      "published_date": "2022-10-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5333
+    },
+    {
+      "title": "Metadata - gRPC",
+      "url": "https://grpc.io/docs/guides/metadata/",
+      "snippet": "# Metadata. # Metadata. Metadata is a side channel that allows clients and servers to provide. gRPC metadata is a key-value pair of data that is sent with initial or final. gRPC metadata is implemented using HTTP/2 headers. gRPC metadata can be sent and received by both the client and the server. Headers are sent from the client to the server before the initial request and. from the server to the client before the initial response of an RPC call. Trailers are sent by the server when it closes an RPC. `WARNING: Servers may limit the size of Request-Headers, with a default of 8 KiB suggested.`. #### Headers. Headers are sent before the initial request data message from the client to the. server and similarly before the initial response data from the server to the. Custom header handling is language dependent, generally through. Trailers are a special kind of header that is sent after the message data. Trailers are sent only by.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4
+    },
+    {
+      "title": "How to Handle Metadata in gRPC Calls - OneUptime",
+      "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-metadata/view",
+      "snippet": "A comprehensive guide to working with metadata in gRPC, covering authentication tokens, request tracing, custom headers, and best practices",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4
+    },
+    {
+      "title": "Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries",
+      "url": "https://www.ioactive.com/breaking-protocol-buffers-reverse-engineering-grpc-binaries/",
+      "snippet": "gRPC is an RPC implementation designed to use protobufs to take care of all boilerplating necessary for implementation, as well as provided functions to manage the connection between the RPC server and its clients. Tracking sections of the code which write to this argument may be helpful in understanding authorization logic which may be baked into the function, for example if a function is called, and depending on its return value, arg1 is set to either grpc::Status::OK or grpc::Status::CANCELLED, that function may have something to do with access controls. The actual implementation for these functions is fairly uncomplicated, even for allocated types, and basically boils down to accessing the value of a pointer at some offset into the object whose member is being retrieved or set. Because the manner in which the .proto files are integrated into the final binary is uniform, and because the binary must include this information in some form to correctly deserialize incoming messages, it is possible in most cases to extract a complete reconstruction of the original .proto file from any software which uses gRPC for communication, whether that be a client or server.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4
+    },
+    {
+      "title": "Deadlines - gRPC",
+      "url": "https://grpc.io/docs/guides/deadlines/",
+      "snippet": "### Deadlines on the Server. # Deadlines. A deadline is used to specify a point in time past which a client is unwilling to wait for a response from a server. ### Deadlines on the Client. If a server has gone past the deadline when processing a request, the client will give up and fail the RPC with the `DEADLINE_EXCEEDED` status. A server might receive RPCs from a client with an unrealistically short deadline that would not give the server enough time to ever respond in time. A gRPC server deals with this situation by automatically cancelling a call (`CANCELLED` status) once a deadline set by the client has passed. Since a deadline is set point in time, propagating it as-is to a server can be problematic as the clocks on the two servers might not be synchronized. DEADLINE_EXCEEDED deactivate c us ->> us: Stop waiting for server us -->> c: Cancel deactivate us bs -->> us: Cancel bs ->> bs: Clean up resources. # Deadlines.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4
+    },
+    {
+      "title": "gRPC Metadata Limits: The Good, the Bad, and the Ugly - YouTube",
+      "url": "https://www.youtube.com/watch?v=psYQFbPgIOI",
+      "snippet": "gRPC metadata is a useful mechanism for implementing authentication, tracing, and application-specific features ... This content isn't available.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "[gRPC-Java] Pass context or header information to parseRequest on ...",
+      "url": "https://groups.google.com/g/grpc-io/c/LT8g77-FrRU",
+      "snippet": "I would need context information related to the microservice call (specifically microservice method name being invoked).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "ManageEngine ADAudit - Reverse engineering Windows RPC to ...",
+      "url": "https://shelltrail.com/research/manageengine-adaudit-reverse-engineering-windows-rpc-to-find-cve-2024-36036-and-cve-2024-36037-part2",
+      "snippet": "// Agent.RPC.RPCHandler // Token: 0x06000129 RID: 297 RVA: 0x00008D04 File Offset: 0x00006F04 private static int NotifyAgentStr(int notifyId, string msgStr) { int errStatus = 1; try { Hashtable msgMap = JsonAPI.JsonToHashtable(msgStr); if (msgMap.ContainsKey(\"AgentUID\") && DataStore.Get(\"AgentUID\").ToString().Equals(msgMap[\"AgentUID\"].ToString())) { errStatus = 0; JObject json = JObject.Parse(msgStr); json.Remove(\"AgentUID\"); json.Remove(\"ADAP_SERVER_DNS_NAME\"); string jsonMsgStr = JsonAPI.ObjectToJsonString(json); switch (notifyId) { case 0: DataStore.Update(jsonMsgStr); goto IL_24F; case 1: if (! > Get-Content 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\MessengerLog_2023_12_01.txt' -Tail 10 [2023-12-01 19:41:03,834] [11][INFO ][Messenger] : NATV.FA_NotifyAgentStr :: notification from ADAP server, notifyId : 0 [2023-12-01 19:41:03,849] [11][ERROR][Messenger] : EXCEPTION :: RPCHandler.NotifyAgentStr : Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: s. > Get-Content 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\MessengerLog_2023_12_01.txt' -Tail 1 [10][INFO ][Messenger] : NATV.FA_NotifyAgentStr :: notification from ADAP server, notifyId : 0 ... > Get-ChildItem 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\*' | Select-String snus AgentLog_2023_12_01.txt:103:[2023-12-01 20:14:55,884] [10][INFO ][Default] : Set Registry Key: HKEY_LOCAL_MACHINE\\SOFTWARE\\ManageEngine\\ADAP\\snus = true ... > Get-Content 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\AgentLog_2023_12_02.txt' | Select-String SMSTatus [2023-12-02 10:28:29,988] [9][INFO ][Default] : Set Registry Key: HKEY_LOCAL_MACHINE\\SOFTWARE\\ManageEngine\\ADAP\\SessionMonitoring\\SMStatus = True ...",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3467
+    },
+    {
+      "title": "Windows Inter Process Communication A Deep Dive Beyond the ...",
+      "url": "https://sud0ru.ghost.io/windows-inter-process-communication-a-deep-dive-beyond-the-surface-part-4/",
+      "snippet": "Today, we’re going to dig into **binding authentication** — how your server can register an authentication service to allow clients to authenticate, how the client performs that authentication, and how the client can specify the **authentication level**. The Remote Procedure Call (RPC) runtime provides a standardized interface for authentication — available to both clients and servers. status = RpcServerRegisterAuthInfo( NULL, // Server principal name (NULL for NTLM) RPC_C_AUTHN_WINNT, // NTLM as authentication service NULL, // Default key function (ignored for NTLM) NULL // No argument for key function );. After seeing how the **server registers its authentication service**, let’s move to the **client side** and see how the client actually uses that authentication — this process is known as **binding authentication**. Now let’s break down what **authentication levels** actually mean in RPC — and how they appear in network traffic. If you look inside the **NTLM header** in the bind packet, you’ll see that the client has requested both sealing and signing — which was not the case with the lower authentication levels we explored earlier.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "You Snooze You Lose–Windows RPC Research | SafeBreach",
+      "url": "https://www.safebreach.com/blog/you-snooze-you-lose-winning-rpc-endpoints/",
+      "snippet": "*See how a SafeBreach Labs researcher discovered a vulnerability within the Windows RPC protocol he exploited to masquerade as a legitimate, built-in service to force a protected process to authenticate against a server of his choosing.*. Then, I’ll show how I was able to manipulate a core component of RPC and masquerade as a legitimate, built-in service to force a protected process to authenticate against an arbitrary server and disclose the NTLM hash of the machine account. However, to have clients connect to me, I needed to register with the EPM first before the original services of the RPC interfaces did. After my initial surprise that I could register to the EPM with any interface I wanted, regardless of whether it was critical to the system functionality or belonged to a core component, I developed a generic RPC server that would register known interfaces and gather information on the clients connected to it. I then executed RPC-Racer as a low privileged user on the DC and showed how the Delivery Optimization service requested a path from me and my SMB server received the authentication.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "Uncovering RPC Servers through Windows API Analysis - SpecterOps",
+      "url": "https://posts.specterops.io/uncovering-rpc-servers-through-windows-api-analysis-5d23c0459db6?source=rss----f05f8696e3cc---4",
+      "snippet": "Have you ever tried to reverse a simple Win32 API? If not, let's look at one together today! This article serves as a hand-holding walkthrough",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "Context Usage | GoFrame - A powerful framework for faster, easier, and more efficient project development",
+      "url": "https://goframe.org/en/examples/grpc/ctx",
+      "snippet": "",
+      "published_date": "2026-02-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Metadata - gRPC",
+        "url": "https://grpc.io/docs/guides/metadata/",
+        "snippet": "# Metadata. # Metadata. Metadata is a side channel that allows clients and servers to provide. gRPC metadata is a key-value pair of data that is sent with initial or final. gRPC metadata is implemented using HTTP/2 headers. gRPC metadata can be sent and received by both the client and the server. Headers are sent from the client to the server before the initial request and. from the server to the client before the initial response of an RPC call. Trailers are sent by the server when it closes an RPC. `WARNING: Servers may limit the size of Request-Headers, with a default of 8 KiB suggested.`. #### Headers. Headers are sent before the initial request data message from the client to the. server and similarly before the initial response data from the server to the. Custom header handling is language dependent, generally through. Trailers are a special kind of header that is sent after the message data. Trailers are sent only by.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4
+      },
+      {
+        "title": "How to Handle Metadata in gRPC Calls - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-metadata/view",
+        "snippet": "A comprehensive guide to working with metadata in gRPC, covering authentication tokens, request tracing, custom headers, and best practices",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4
+      },
+      {
+        "title": "Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries",
+        "url": "https://www.ioactive.com/breaking-protocol-buffers-reverse-engineering-grpc-binaries/",
+        "snippet": "gRPC is an RPC implementation designed to use protobufs to take care of all boilerplating necessary for implementation, as well as provided functions to manage the connection between the RPC server and its clients. Tracking sections of the code which write to this argument may be helpful in understanding authorization logic which may be baked into the function, for example if a function is called, and depending on its return value, arg1 is set to either grpc::Status::OK or grpc::Status::CANCELLED, that function may have something to do with access controls. The actual implementation for these functions is fairly uncomplicated, even for allocated types, and basically boils down to accessing the value of a pointer at some offset into the object whose member is being retrieved or set. Because the manner in which the .proto files are integrated into the final binary is uniform, and because the binary must include this information in some form to correctly deserialize incoming messages, it is possible in most cases to extract a complete reconstruction of the original .proto file from any software which uses gRPC for communication, whether that be a client or server.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4
+      },
+      {
+        "title": "Deadlines - gRPC",
+        "url": "https://grpc.io/docs/guides/deadlines/",
+        "snippet": "### Deadlines on the Server. # Deadlines. A deadline is used to specify a point in time past which a client is unwilling to wait for a response from a server. ### Deadlines on the Client. If a server has gone past the deadline when processing a request, the client will give up and fail the RPC with the `DEADLINE_EXCEEDED` status. A server might receive RPCs from a client with an unrealistically short deadline that would not give the server enough time to ever respond in time. A gRPC server deals with this situation by automatically cancelling a call (`CANCELLED` status) once a deadline set by the client has passed. Since a deadline is set point in time, propagating it as-is to a server can be problematic as the clocks on the two servers might not be synchronized. DEADLINE_EXCEEDED deactivate c us ->> us: Stop waiting for server us -->> c: Cancel deactivate us bs -->> us: Cancel bs ->> bs: Clean up resources. # Deadlines.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4
+      },
+      {
+        "title": "Is any method to access the raw request body in metadata? #1908",
+        "url": "https://github.com/grpc-ecosystem/grpc-gateway/issues/1908",
+        "snippet": "Hi, everyone,. I am using the grpc-gateway in my production environment. And I encountered some issues when I try to access the raw request body",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7333
+      },
+      {
+        "title": "Windows Inter Process Communication A Deep Dive Beyond the ...",
+        "url": "https://sud0ru.ghost.io/windows-inter-process-communication-a-deep-dive-beyond-the-surface-part-4/",
+        "snippet": "Today, we’re going to dig into **binding authentication** — how your server can register an authentication service to allow clients to authenticate, how the client performs that authentication, and how the client can specify the **authentication level**. The Remote Procedure Call (RPC) runtime provides a standardized interface for authentication — available to both clients and servers. status = RpcServerRegisterAuthInfo( NULL, // Server principal name (NULL for NTLM) RPC_C_AUTHN_WINNT, // NTLM as authentication service NULL, // Default key function (ignored for NTLM) NULL // No argument for key function );. After seeing how the **server registers its authentication service**, let’s move to the **client side** and see how the client actually uses that authentication — this process is known as **binding authentication**. Now let’s break down what **authentication levels** actually mean in RPC — and how they appear in network traffic. If you look inside the **NTLM header** in the bind packet, you’ll see that the client has requested both sealing and signing — which was not the case with the lower authentication levels we explored earlier.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "ManageEngine ADAudit - Reverse engineering Windows RPC to ...",
+        "url": "https://shelltrail.com/research/manageengine-adaudit-reverse-engineering-windows-rpc-to-find-cve-2024-36036-and-cve-2024-36037-part2",
+        "snippet": "// Agent.RPC.RPCHandler // Token: 0x06000129 RID: 297 RVA: 0x00008D04 File Offset: 0x00006F04 private static int NotifyAgentStr(int notifyId, string msgStr) { int errStatus = 1; try { Hashtable msgMap = JsonAPI.JsonToHashtable(msgStr); if (msgMap.ContainsKey(\"AgentUID\") && DataStore.Get(\"AgentUID\").ToString().Equals(msgMap[\"AgentUID\"].ToString())) { errStatus = 0; JObject json = JObject.Parse(msgStr); json.Remove(\"AgentUID\"); json.Remove(\"ADAP_SERVER_DNS_NAME\"); string jsonMsgStr = JsonAPI.ObjectToJsonString(json); switch (notifyId) { case 0: DataStore.Update(jsonMsgStr); goto IL_24F; case 1: if (! > Get-Content 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\MessengerLog_2023_12_01.txt' -Tail 10 [2023-12-01 19:41:03,834] [11][INFO ][Messenger] : NATV.FA_NotifyAgentStr :: notification from ADAP server, notifyId : 0 [2023-12-01 19:41:03,849] [11][ERROR][Messenger] : EXCEPTION :: RPCHandler.NotifyAgentStr : Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: s. > Get-Content 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\MessengerLog_2023_12_01.txt' -Tail 1 [10][INFO ][Messenger] : NATV.FA_NotifyAgentStr :: notification from ADAP server, notifyId : 0 ... > Get-ChildItem 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\*' | Select-String snus AgentLog_2023_12_01.txt:103:[2023-12-01 20:14:55,884] [10][INFO ][Default] : Set Registry Key: HKEY_LOCAL_MACHINE\\SOFTWARE\\ManageEngine\\ADAP\\snus = true ... > Get-Content 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\AgentLog_2023_12_02.txt' | Select-String SMSTatus [2023-12-02 10:28:29,988] [9][INFO ][Default] : Set Registry Key: HKEY_LOCAL_MACHINE\\SOFTWARE\\ManageEngine\\ADAP\\SessionMonitoring\\SMStatus = True ...",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3467
+      },
+      {
+        "title": "You Snooze You Lose–Windows RPC Research | SafeBreach",
+        "url": "https://www.safebreach.com/blog/you-snooze-you-lose-winning-rpc-endpoints/",
+        "snippet": "*See how a SafeBreach Labs researcher discovered a vulnerability within the Windows RPC protocol he exploited to masquerade as a legitimate, built-in service to force a protected process to authenticate against a server of his choosing.*. Then, I’ll show how I was able to manipulate a core component of RPC and masquerade as a legitimate, built-in service to force a protected process to authenticate against an arbitrary server and disclose the NTLM hash of the machine account. However, to have clients connect to me, I needed to register with the EPM first before the original services of the RPC interfaces did. After my initial surprise that I could register to the EPM with any interface I wanted, regardless of whether it was critical to the system functionality or belonged to a core component, I developed a generic RPC server that would register known interfaces and gather information on the clients connected to it. I then executed RPC-Racer as a low privileged user on the DC and showed how the Delivery Optimization service requested a path from me and my SMB server received the authentication.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "Uncovering RPC Servers through Windows API Analysis - SpecterOps",
+        "url": "https://posts.specterops.io/uncovering-rpc-servers-through-windows-api-analysis-5d23c0459db6?source=rss----f05f8696e3cc---4",
+        "snippet": "Have you ever tried to reverse a simple Win32 API? If not, let's look at one together today! This article serves as a hand-holding walkthrough",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "Using Binding Handles and Making RPC Calls - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/using-binding-handles-and-making-rpc-calls",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. A common mistake among RPC programmers is handling all exceptions. Many programmers structure their exception handles like the following:. The problem with this handler is that it catches all errors, including errors in the client program. Catching errors in the client program makes debugging more difficult. RpcTryExcept { RemoteSample(); } // Return \"non-fatal\" errors to clients. Catching fatal errors // makes it harder to debug. EXCEPTION_EXECUTE_HANDLER : EXCEPTION_CONTINUE_SEARCH ) ) { log an error or do something else } RpcEndExcept. This exception handler has the advantage of letting a certain range of errors through. These errors will never be returned by the server, because they indicate a client side problem. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Metadata - gRPC",
+        "url": "https://grpc.io/docs/guides/metadata/",
+        "snippet": "# Metadata. # Metadata. Metadata is a side channel that allows clients and servers to provide. gRPC metadata is a key-value pair of data that is sent with initial or final. gRPC metadata is implemented using HTTP/2 headers. gRPC metadata can be sent and received by both the client and the server. Headers are sent from the client to the server before the initial request and. from the server to the client before the initial response of an RPC call. Trailers are sent by the server when it closes an RPC. `WARNING: Servers may limit the size of Request-Headers, with a default of 8 KiB suggested.`. #### Headers. Headers are sent before the initial request data message from the client to the. server and similarly before the initial response data from the server to the. Custom header handling is language dependent, generally through. Trailers are a special kind of header that is sent after the message data. Trailers are sent only by.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Deadlines - gRPC",
+        "url": "https://grpc.io/docs/guides/deadlines/",
+        "snippet": "### Deadlines on the Server. # Deadlines. A deadline is used to specify a point in time past which a client is unwilling to wait for a response from a server. ### Deadlines on the Client. If a server has gone past the deadline when processing a request, the client will give up and fail the RPC with the `DEADLINE_EXCEEDED` status. A server might receive RPCs from a client with an unrealistically short deadline that would not give the server enough time to ever respond in time. A gRPC server deals with this situation by automatically cancelling a call (`CANCELLED` status) once a deadline set by the client has passed. Since a deadline is set point in time, propagating it as-is to a server can be problematic as the clocks on the two servers might not be synchronized. DEADLINE_EXCEEDED deactivate c us ->> us: Stop waiting for server us -->> c: Cancel deactivate us bs -->> us: Cancel bs ->> bs: Clean up resources. # Deadlines.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to Handle Metadata in gRPC Calls - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-metadata/view",
+        "snippet": "A comprehensive guide to working with metadata in gRPC, covering authentication tokens, request tracing, custom headers, and best practices",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "gRPC Metadata Limits: The Good, the Bad, and the Ugly - YouTube",
+        "url": "https://www.youtube.com/watch?v=psYQFbPgIOI",
+        "snippet": "gRPC metadata is a useful mechanism for implementing authentication, tracing, and application-specific features ... This content isn't available.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "[gRPC-Java] Pass context or header information to parseRequest on ...",
+        "url": "https://groups.google.com/g/grpc-io/c/LT8g77-FrRU",
+        "snippet": "I would need context information related to the microservice call (specifically microservice method name being invoked).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      }
+    ],
+    "exa": [
+      {
+        "title": "Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries",
+        "url": "https://www.ioactive.com/breaking-protocol-buffers-reverse-engineering-grpc-binaries/",
+        "snippet": "",
+        "published_date": "2021-07-30T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Is it possible to reverse engineer to know the format without .proto",
+        "url": "https://stackoverflow.com/questions/75807483/is-it-possible-to-reverse-engineer-to-know-the-format-without-proto",
+        "snippet": "",
+        "published_date": "2023-03-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6333
+      },
+      {
+        "title": "How to Handle Metadata in gRPC Calls - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-metadata/view",
+        "snippet": "",
+        "published_date": "2026-01-24T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Metadata - gRPC",
+        "url": "https://grpc.io/docs/guides/metadata/",
+        "snippet": "",
+        "published_date": "2024-11-12T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Understanding gRPC message",
+        "url": "https://reverseengineering.stackexchange.com/questions/30982/understanding-grpc-message",
+        "snippet": "",
+        "published_date": "2022-10-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5333
+      },
+      {
+        "title": "How to Handle Metadata in gRPC Calls",
+        "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-metadata/view",
+        "snippet": "",
+        "published_date": "2026-01-24T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Metadata",
+        "url": "https://grpc.io/docs/guides/metadata/",
+        "snippet": "",
+        "published_date": "2024-11-12T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Deadlines",
+        "url": "https://grpc.io/docs/guides/deadlines/",
+        "snippet": "",
+        "published_date": "2025-07-07T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Context Usage | GoFrame - A powerful framework for faster, easier, and more efficient project development",
+        "url": "https://goframe.org/en/examples/grpc/ctx",
+        "snippet": "",
+        "published_date": "2026-02-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "how to read metadata in grpc on the server side? (golang example)",
+        "url": "https://stackoverflow.com/questions/42116642/how-to-read-metadata-in-grpc-on-the-server-side-golang-example",
+        "snippet": "",
+        "published_date": "2017-02-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6667
+      }
+    ],
+    "grok": []
+  }
+}
