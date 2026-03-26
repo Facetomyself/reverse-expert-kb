@@ -10,6 +10,10 @@ Related pages:
 - topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
 - topics/runtime-behavior-recovery.md
+Related source notes:
+- sources/ios/2026-03-26-ios-xpc-proxy-vs-service-consumer-notes.md
+- sources/ios/2026-03-26-ios-xpc-lifecycle-consumer-notes.md
+- sources/ios/2026-03-26-ios-xpc-lifecycle-reconnection-notes.md
 
 ## 1. When to use this note
 Use this note when an iOS-shaped or Apple-platform case already narrowed far enough that one XPC / `NSXPCConnection` / Mach-service / helper seam looks relevant, but the first **service-side behavior-changing consumer** is still unclear.
@@ -131,6 +135,9 @@ What to capture:
 Useful reminder:
 - reply or error visibility is stronger than bare proxy visibility, but it is still not automatically the durable consequence you care about
 - launchd-managed lifecycle can create misleading compare pairs unless reply/error truth is kept separate from later effect truth
+- Apple framework-visible interruption and invalidation surfaces are already different enough that they should not be flattened into one generic transport-failure bucket
+- invalidation is especially strong stop-rule evidence because Apple explicitly warns that you may not send messages over the connection from within an invalidation handler block
+- a later healthy-looking connection should therefore be treated as reconnection truth, not automatic proof that the same request family progressed to the same consumer
 
 ### E. Durable consequence truth
 This is the first boundary where the service-side work clearly predicts later behavior.
