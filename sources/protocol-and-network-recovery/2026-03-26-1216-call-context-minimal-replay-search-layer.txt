@@ -1,0 +1,374 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "gRPC metadata deadline authority minimal replay fixture reverse engineering",
+    "Windows RPC context handle binding authn minimal replay fixture",
+    "protocol replay fixture call context outside message body metadata deadline binding context handle"
+  ],
+  "count": 20,
+  "results": [
+    {
+      "title": "Using Binding Handles and Making RPC Calls - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/using-binding-handles-and-making-rpc-calls",
+      "snippet": "",
+      "published_date": "2022-12-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "[MS-RPCE]: Using a Security Context",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rpce/6b733b95-3fd9-4ad5-ba4f-28e548db1c24?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2021-01-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "RPC_BINDING_HANDLE (Rpcdce.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/rpc-binding-handle",
+      "snippet": "",
+      "published_date": "2022-10-05T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "RPC_BINDING_HANDLE_SECURITY_V1_A (rpcdce.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/ns-rpcdce-rpc_binding_handle_security_v1_a",
+      "snippet": "",
+      "published_date": "2022-07-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "RpcBindingSetAuthInfo function (rpcdce.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcbindingsetauthinfo",
+      "snippet": "",
+      "published_date": "2022-08-19T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Interface Development Using Context Handles - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/interface-development-using-context-handles",
+      "snippet": "An interface that uses a context handle must have a binding handle for the initial binding, which has to take place before the server can return a context",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Primitive and Custom Binding Handles",
+      "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Rpc/primitive-and-custom-binding-handles.md",
+      "snippet": "If you do create your own binding handle type, you must also supply bind and unbind routines that the client stub uses to map a custom handle to a primitive",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Warn on `subscribe` being used outside of a reactive context · Issue ...",
+      "url": "https://github.com/day8/re-frame/issues/740",
+      "snippet": "Subscriptions are cached and the cached is pruned from an unused subscription only when the last watcher of that subscription is removed.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "How can I handle the context deadline / cancellation signal in my ...",
+      "url": "https://www.reddit.com/r/golang/comments/1aga8y4/how_can_i_handle_the_context_deadline/",
+      "snippet": "I have tried going through the library code and figuring out how they terminate their logic if context is cancelled, but I am not able to clearly understand.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5333
+    },
+    {
+      "title": "Deadline (grpc-all 1.80.0 API)",
+      "url": "https://grpc.github.io/grpc-java/javadoc/io/grpc/Deadline.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.5167
+    },
+    {
+      "title": "Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries",
+      "url": "https://labs.ioactive.com/2021/07/breaking-protocol-buffers-reverse.html",
+      "snippet": "",
+      "published_date": "2021-07-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries",
+      "url": "https://www.ioactive.com/breaking-protocol-buffers-reverse-engineering-grpc-binaries/",
+      "snippet": "",
+      "published_date": "2021-07-30T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Deadlines - gRPC",
+      "url": "https://grpc.io/docs/guides/deadlines/",
+      "snippet": "",
+      "published_date": "2025-07-07T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "gRPC Metadata Limits: The Good, the Bad, and the Ugly - YouTube",
+      "url": "https://www.youtube.com/watch?v=psYQFbPgIOI",
+      "snippet": "",
+      "published_date": "2024-10-14T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Metadata - gRPC",
+      "url": "https://grpc.io/docs/guides/metadata/",
+      "snippet": "# Metadata. # Metadata. Metadata is a side channel that allows clients and servers to provide. gRPC metadata is a key-value pair of data that is sent with initial or final. gRPC metadata is implemented using HTTP/2 headers. gRPC metadata can be sent and received by both the client and the server. Headers are sent from the client to the server before the initial request and. from the server to the client before the initial response of an RPC call. Trailers are sent by the server when it closes an RPC. `WARNING: Servers may limit the size of Request-Headers, with a default of 8 KiB suggested.`. #### Headers. Headers are sent before the initial request data message from the client to the. server and similarly before the initial response data from the server to the. Custom header handling is language dependent, generally through. Trailers are a special kind of header that is sent after the message data. Trailers are sent only by.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Reference Guide",
+      "url": "https://legacy-docs.axoniq.io/reference-guide/v/2.3/single.html",
+      "snippet": "The first will execute the replay in the calling thread, meaning that the call will return when the replay is finished. The latter will execute the replay",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "Diff - master^! - external/trace-viewer - Git at Google",
+      "url": "https://chromium.googlesource.com/external/trace-viewer/+/master%5E!/",
+      "snippet": "... the fetch. - deadline: the deadline in which to make the call. - callback: the call to make once completed. - - Yields: - The async fetch of the url",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "Offensive Windows IPC Internals 2: RPC",
+      "url": "https://csandker.io/2021/02/21/Offensive-Windows-IPC-2-RPC.html",
+      "snippet": "RPC_STATUS rpcStatus;// Create Binding Information rpcStatus = RpcServerUseProtseqEp((RPC_WSTR) L\"ncacn_np\",// using Named Pipes here RPC_C_PROTSEQ_MAX_REQS_DEFAULT,// Ignored for Named Pipes (only used for ncacn_ip_tcp, but set this anyway)(RPC_WSTR) L\" \\\\ pipe \\\\FRPC-NP\",// example Named Pipe name NULL// No Secuirty Descriptor);// Register Interface rpcStatus = RpcServerRegisterIf2(...)// As shown in the examples above// OPTIONAL: Register Authentication Information rpcStatus = RpcServerRegisterAuthInfo(...)// As shown in the example above// Listen for incoming client connections rpcStatus = RpcServerListen(1,// Recommended minimum number of threads. RPC_STATUS rpcStatus; RPC_BINDING_VECTOR* pbindingVector = 0;// Create Binding Information rpcStatus = RpcServerUseProtseq((RPC_WSTR) L\"ncacn_ip_tcp\",// using Named Pipes here RPC_C_PROTSEQ_MAX_REQS_DEFAULT,// Backlog queue length for the ncacn_ip_tcp protocol sequenc NULL// No Secuirty Descriptor);// Register Interface rpcStatus = RpcServerRegisterIf2(...)// As shown in the examples above// OPTIONAL: Register Authentication Information rpcStatus = RpcServerRegisterAuthInfo(...)// As shown in the example above// Get Binding vectors (dynamically assigend) rpcStatus = RpcServerInqBindings(& pbindingVector);// Register with RPC Endpoint Mapper rpcStatus = RpcEpRegister(Example1_v1_0_s_ifspec,// your interface as defined via IDL pbindingVector,// your dynamic binding vectors 0,// We don't want to register the vectors with UUIDs(RPC_WSTR) L\"MyDyamicEndpointServer\"// Annotation used for information purposes only, max 64 characters );// Listen for incoming client connections rpcStatus = RpcServerListen(1,// Recommended minimum number of threads.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Authenticated RPC Routines",
+      "url": "http://odl.sysworks.biz/disk$axpdocsep022/network/dcev30/develop/appdev/Appde311.htm",
+      "snippet": "A client can identify the desired server by supplying a server binding handle and the authentication service associated with the registered principal name.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Lifecycle - Model Context Protocol",
+      "url": "https://modelcontextprotocol.io/specification/2025-03-26/basic/lifecycle",
+      "snippet": "##### Base Protocol. ##### Client Features. ##### Server Features. # Lifecycle. ## ​ Lifecycle Phases. ### ​ Initialization. \"instructions\": \"Optional instructions for the client\". #### ​ Version Negotiation. #### ​ Capability Negotiation. | Client | `roots` | Ability to provide filesystem roots |. | Client | `sampling` | Support for LLM sampling requests |. | Client | `experimental` | Describes support for non-standard experimental features |. | Server | `prompts` | Offers prompt templates |. | Server | `resources` | Provides readable resources |. | Server | `tools` | Exposes callable tools |. | Server | `logging` | Emits structured log messages |. | Server | `completions` | Supports argument autocompletion |. | Server | `experimental` | Describes support for non-standard experimental features |. ### ​ Operation. ### ​ Shutdown. #### ​ stdio. #### ​ HTTP. ## ​ Timeouts. ## ​ Error Handling.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "grok": [],
+    "exa": [
+      {
+        "title": "Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries",
+        "url": "https://labs.ioactive.com/2021/07/breaking-protocol-buffers-reverse.html",
+        "snippet": "",
+        "published_date": "2021-07-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries",
+        "url": "https://www.ioactive.com/breaking-protocol-buffers-reverse-engineering-grpc-binaries/",
+        "snippet": "",
+        "published_date": "2021-07-30T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Deadlines - gRPC",
+        "url": "https://grpc.io/docs/guides/deadlines/",
+        "snippet": "",
+        "published_date": "2025-07-07T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "gRPC Metadata Limits: The Good, the Bad, and the Ugly - YouTube",
+        "url": "https://www.youtube.com/watch?v=psYQFbPgIOI",
+        "snippet": "",
+        "published_date": "2024-10-14T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Deadline (grpc-all 1.80.0 API)",
+        "url": "https://grpc.github.io/grpc-java/javadoc/io/grpc/Deadline.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.5167
+      },
+      {
+        "title": "Using Binding Handles and Making RPC Calls - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/using-binding-handles-and-making-rpc-calls",
+        "snippet": "",
+        "published_date": "2022-12-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "[MS-RPCE]: Using a Security Context",
+        "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rpce/6b733b95-3fd9-4ad5-ba4f-28e548db1c24?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2021-01-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "RPC_BINDING_HANDLE (Rpcdce.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/rpc-binding-handle",
+        "snippet": "",
+        "published_date": "2022-10-05T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "RPC_BINDING_HANDLE_SECURITY_V1_A (rpcdce.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/ns-rpcdce-rpc_binding_handle_security_v1_a",
+        "snippet": "",
+        "published_date": "2022-07-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "RpcBindingSetAuthInfo function (rpcdce.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcbindingsetauthinfo",
+        "snippet": "",
+        "published_date": "2022-08-19T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries",
+        "url": "https://www.ioactive.com/breaking-protocol-buffers-reverse-engineering-grpc-binaries/",
+        "snippet": "gRPC is an RPC implementation designed to use protobufs to take care of all boilerplating necessary for implementation, as well as provided functions to manage the connection between the RPC server and its clients. Tracking sections of the code which write to this argument may be helpful in understanding authorization logic which may be baked into the function, for example if a function is called, and depending on its return value, arg1 is set to either grpc::Status::OK or grpc::Status::CANCELLED, that function may have something to do with access controls. The actual implementation for these functions is fairly uncomplicated, even for allocated types, and basically boils down to accessing the value of a pointer at some offset into the object whose member is being retrieved or set. Because the manner in which the .proto files are integrated into the final binary is uniform, and because the binary must include this information in some form to correctly deserialize incoming messages, it is possible in most cases to extract a complete reconstruction of the original .proto file from any software which uses gRPC for communication, whether that be a client or server.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Deadlines - gRPC",
+        "url": "https://grpc.io/docs/guides/deadlines/",
+        "snippet": "### Deadlines on the Server. # Deadlines. A deadline is used to specify a point in time past which a client is unwilling to wait for a response from a server. ### Deadlines on the Client. If a server has gone past the deadline when processing a request, the client will give up and fail the RPC with the `DEADLINE_EXCEEDED` status. A server might receive RPCs from a client with an unrealistically short deadline that would not give the server enough time to ever respond in time. A gRPC server deals with this situation by automatically cancelling a call (`CANCELLED` status) once a deadline set by the client has passed. Since a deadline is set point in time, propagating it as-is to a server can be problematic as the clocks on the two servers might not be synchronized. DEADLINE_EXCEEDED deactivate c us ->> us: Stop waiting for server us -->> c: Cancel deactivate us bs -->> us: Cancel bs ->> bs: Clean up resources. # Deadlines.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Metadata - gRPC",
+        "url": "https://grpc.io/docs/guides/metadata/",
+        "snippet": "# Metadata. # Metadata. Metadata is a side channel that allows clients and servers to provide. gRPC metadata is a key-value pair of data that is sent with initial or final. gRPC metadata is implemented using HTTP/2 headers. gRPC metadata can be sent and received by both the client and the server. Headers are sent from the client to the server before the initial request and. from the server to the client before the initial response of an RPC call. Trailers are sent by the server when it closes an RPC. `WARNING: Servers may limit the size of Request-Headers, with a default of 8 KiB suggested.`. #### Headers. Headers are sent before the initial request data message from the client to the. server and similarly before the initial response data from the server to the. Custom header handling is language dependent, generally through. Trailers are a special kind of header that is sent after the message data. Trailers are sent only by.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "gRPC Metadata Limits: The Good, the Bad, and the Ugly - YouTube",
+        "url": "https://www.youtube.com/watch?v=psYQFbPgIOI",
+        "snippet": "gRPC metadata is a useful mechanism for implementing authentication, tracing, and application-specific features.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Deadline (grpc-all 1.80.0 API)",
+        "url": "https://grpc.github.io/grpc-java/javadoc/io/grpc/Deadline.html",
+        "snippet": "An absolute point in time, generally for tracking when a task should be completed. A deadline is immutable except for the passage of time causing it to expire.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RPC_BINDING_HANDLE (Rpcdce.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/rpc-binding-handle",
+        "snippet": "The RPC_BINDING_HANDLE data type declares a binding handle containing information that the RPC run-time library uses to access binding information.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Interface Development Using Context Handles - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/interface-development-using-context-handles",
+        "snippet": "An interface that uses a context handle must have a binding handle for the initial binding, which has to take place before the server can return a context",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Offensive Windows IPC Internals 2: RPC",
+        "url": "https://csandker.io/2021/02/21/Offensive-Windows-IPC-2-RPC.html",
+        "snippet": "RPC_STATUS rpcStatus;// Create Binding Information rpcStatus = RpcServerUseProtseqEp((RPC_WSTR) L\"ncacn_np\",// using Named Pipes here RPC_C_PROTSEQ_MAX_REQS_DEFAULT,// Ignored for Named Pipes (only used for ncacn_ip_tcp, but set this anyway)(RPC_WSTR) L\" \\\\ pipe \\\\FRPC-NP\",// example Named Pipe name NULL// No Secuirty Descriptor);// Register Interface rpcStatus = RpcServerRegisterIf2(...)// As shown in the examples above// OPTIONAL: Register Authentication Information rpcStatus = RpcServerRegisterAuthInfo(...)// As shown in the example above// Listen for incoming client connections rpcStatus = RpcServerListen(1,// Recommended minimum number of threads. RPC_STATUS rpcStatus; RPC_BINDING_VECTOR* pbindingVector = 0;// Create Binding Information rpcStatus = RpcServerUseProtseq((RPC_WSTR) L\"ncacn_ip_tcp\",// using Named Pipes here RPC_C_PROTSEQ_MAX_REQS_DEFAULT,// Backlog queue length for the ncacn_ip_tcp protocol sequenc NULL// No Secuirty Descriptor);// Register Interface rpcStatus = RpcServerRegisterIf2(...)// As shown in the examples above// OPTIONAL: Register Authentication Information rpcStatus = RpcServerRegisterAuthInfo(...)// As shown in the example above// Get Binding vectors (dynamically assigend) rpcStatus = RpcServerInqBindings(& pbindingVector);// Register with RPC Endpoint Mapper rpcStatus = RpcEpRegister(Example1_v1_0_s_ifspec,// your interface as defined via IDL pbindingVector,// your dynamic binding vectors 0,// We don't want to register the vectors with UUIDs(RPC_WSTR) L\"MyDyamicEndpointServer\"// Annotation used for information purposes only, max 64 characters );// Listen for incoming client connections rpcStatus = RpcServerListen(1,// Recommended minimum number of threads.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Primitive and Custom Binding Handles",
+        "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Rpc/primitive-and-custom-binding-handles.md",
+        "snippet": "If you do create your own binding handle type, you must also supply bind and unbind routines that the client stub uses to map a custom handle to a primitive",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Authenticated RPC Routines",
+        "url": "http://odl.sysworks.biz/disk$axpdocsep022/network/dcev30/develop/appdev/Appde311.htm",
+        "snippet": "A client can identify the desired server by supplying a server binding handle and the authentication service associated with the registered principal name.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Reference Guide",
+        "url": "https://legacy-docs.axoniq.io/reference-guide/v/2.3/single.html",
+        "snippet": "The first will execute the replay in the calling thread, meaning that the call will return when the replay is finished. The latter will execute the replay",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "How can I handle the context deadline / cancellation signal in my ...",
+        "url": "https://www.reddit.com/r/golang/comments/1aga8y4/how_can_i_handle_the_context_deadline/",
+        "snippet": "I have tried going through the library code and figuring out how they terminate their logic if context is cancelled, but I am not able to clearly understand.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5333
+      },
+      {
+        "title": "Lifecycle - Model Context Protocol",
+        "url": "https://modelcontextprotocol.io/specification/2025-03-26/basic/lifecycle",
+        "snippet": "##### Base Protocol. ##### Client Features. ##### Server Features. # Lifecycle. ## ​ Lifecycle Phases. ### ​ Initialization. \"instructions\": \"Optional instructions for the client\". #### ​ Version Negotiation. #### ​ Capability Negotiation. | Client | `roots` | Ability to provide filesystem roots |. | Client | `sampling` | Support for LLM sampling requests |. | Client | `experimental` | Describes support for non-standard experimental features |. | Server | `prompts` | Offers prompt templates |. | Server | `resources` | Provides readable resources |. | Server | `tools` | Exposes callable tools |. | Server | `logging` | Emits structured log messages |. | Server | `completions` | Supports argument autocompletion |. | Server | `experimental` | Describes support for non-standard experimental features |. ### ​ Operation. ### ​ Shutdown. #### ​ stdio. #### ​ HTTP. ## ​ Timeouts. ## ​ Error Handling.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Warn on `subscribe` being used outside of a reactive context · Issue ...",
+        "url": "https://github.com/day8/re-frame/issues/740",
+        "snippet": "Subscriptions are cached and the cached is pruned from an unused subscription only when the last watcher of that subscription is removed.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Diff - master^! - external/trace-viewer - Git at Google",
+        "url": "https://chromium.googlesource.com/external/trace-viewer/+/master%5E!/",
+        "snippet": "... the fetch. - deadline: the deadline in which to make the call. - callback: the call to make once completed. - - Yields: - The async fetch of the url",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      }
+    ]
+  }
+}
