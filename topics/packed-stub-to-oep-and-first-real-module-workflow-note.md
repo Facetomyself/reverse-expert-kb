@@ -98,14 +98,24 @@ A stronger handoff is:
 
 A practical refinement worth keeping explicit for Windows/native packed targets is that several startup boundaries may all be real, but useful in different ways:
 - the **raw PE entry point** the loader initially calls
+- one **startup-owned pre-entry boundary** when TLS callbacks or adjacent startup-managed work run before the analyst's nominal entry-path expectation
 - one **raw post-unpack transfer** out of the visible stub
 - sometimes one **loader image-repair / remap boundary** when early tampered headers or IAT pages may be detected and replaced before ordinary code becomes the right anchor
 - one **first payload-bearing post-startup handoff** after TLS callbacks, CRT/runtime startup, constructor/init-table work, loader-side repair/remap, or another secondary loader stage stops dominating the trace
+
+A smaller stop rule worth preserving explicitly is:
+
+```text
+raw_entry != pre_entry_startup != unpack_transfer != payload_handoff != consumed
+```
 
 In other words:
 - a dramatic post-unpack jump can be late enough to leave the stub
 - yet still too early to count as the best reusable payload handoff
 - because the next region may still be mostly TLS-owned work, CRT startup, callback replay, import-finalization, loader-side image repair/remap, or another startup-management stage rather than the first ordinary target the analyst actually wants
+- and pre-entry startup activity is not just anti-debug color; it may be the real boundary explaining why raw entry naming alone is still weaker than a later payload-bearing handoff
+
+A conservative source-backed anchor for this reminder is that PE images expose `.tls` / TLS-related startup surfaces and TLS callbacks can execute before the program's nominal main-entry path, so startup-owned pre-entry truth must stay separate from both raw entry naming and later payload proof.
 
 ## 5. What counts as a trustworthy OEP candidate
 A trustworthy OEP candidate is the smallest boundary that predicts ordinary post-loader analysis better than raw stub churn does.
@@ -293,6 +303,7 @@ Keep these three boundaries separate:
 
 Fast practical check:
 - if the region is still dominated by TLS callback replay, CRT/language startup, security-cookie/runtime normalization, constructor/init-table dispatch, or callback-array repair, treat it as **startup proof**, not yet **payload proof**
+- if the clearest current evidence is that startup-owned work runs before the analyst's nominal entry-path expectation, keep that as **pre-entry startup truth** rather than flattening it into vague anti-debug color or raw-entry naming
 - if a dump becomes readable but later imports/object use still look startup-shaped, rename the current result as only a **raw post-unpack transfer candidate**
 - only stop when one downstream import/module/object/consumer anchor remains useful after those startup obligations stop dominating
 
@@ -466,6 +477,7 @@ The page intentionally stays conservative:
 - it does not claim one jump always identifies the real OEP
 - it does not assume every packed target should be solved by dumping alone
 - it treats stub -> OEP -> downstream-anchor reduction as an analyst workflow for finding the next trustworthy object
+- it now also preserves a narrower startup-normalization reminder from `sources/protected-runtime/2026-03-26-packed-startup-boundary-and-startup-normalization-notes.md`: PE/TLS startup surfaces and TLS callbacks are enough to keep raw entry, startup-owned pre-entry truth, raw post-unpack transfer, and later payload-bearing handoff separate rather than collapsing them into one vague “real entry” claim
 
 ## 13. Topic summary
 Packed stub to OEP and first-real-module reduction is a practical workflow for targets where packing or staged bootstrap is already visible but the first reusable post-unpack handoff is still unclear.
