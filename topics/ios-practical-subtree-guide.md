@@ -277,6 +277,7 @@ Start here when:
 A narrower stop rule now worth preserving at subtree-guide level is:
 - `accepted != replied != reconnected != consumed`
 - in Apple XPC cases, accepted connection truth, reply/error truth, reconnection-after-restart truth, and durable service-owned consequence often need to stay separate
+- interruption truth and invalidation truth should also be kept distinguishable when possible, because a later healthy-looking connection is weaker than proving the same exported-object method or later reducer actually ran again
 
 Do **not** start here when:
 - broad iOS setup/gate drift still dominates
