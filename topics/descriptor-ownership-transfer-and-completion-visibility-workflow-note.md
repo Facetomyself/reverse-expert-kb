@@ -337,6 +337,7 @@ It is grounded by:
 - `sources/protocol-and-network-recovery/2026-03-22-descriptor-ownership-transfer-and-completion-visibility-notes.md`
 - `sources/protocol-and-network-recovery/2026-03-24-descriptor-ownership-transfer-and-completion-visibility-notes.md`
 - `sources/protocol-and-network-recovery/2026-03-25-descriptor-cache-visibility-ownership-notes.md`
+- `sources/firmware-protocol/2026-03-26-descriptor-publish-vs-trust-and-dma-sync-notes.md`
 
 The external evidence used for this run repeatedly emphasized:
 - ordered publication of completion entries before publishing progress indices
@@ -344,7 +345,8 @@ The external evidence used for this run repeatedly emphasized:
 - cache-coherency and stale-read pitfalls on non-coherent systems
 - explicit return-of-ownership through reclaim indices or slot reuse
 - the practical split between coherent shared descriptor memory and streaming / non-coherent DMA-backed visibility where explicit CPU/device trust transfer can still be the decisive boundary
-- the practical value of treating ownership transfer as a trust contract shaped by ordering, freshness, and sometimes explicit CPU/device synchronization rather than by descriptor bytes alone
+- the practical danger of overreading kick / notify / doorbell edges as full trust transfer when publication, trust, and reclaim are still separate boundaries
+- the practical value of treating ownership transfer as a trust contract shaped by ordering, freshness, notification scope, and sometimes explicit CPU/device synchronization rather than by descriptor bytes alone
 
 That is enough for a conservative practical continuation note because the point is not to claim one universal ring architecture.
 The point is to preserve a recurring analyst move that repeatedly appears once queue structure is already visible.
