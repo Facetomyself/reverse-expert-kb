@@ -51,6 +51,7 @@ Protected-runtime practical work is easiest to navigate when the analyst first c
    - repeated monitoring is already visible, but the first reducer, queue handoff, or enforcement consumer that turns it into kill / stall / degrade behavior is still unclear
 3. **kernel-callback telemetry to enforcement-consumer reduction**
    - callback-heavy kernel telemetry is already visible, but the first rights filter, reducer, queue handoff, service path, or other enforcement-relevant consumer is still unclear
+   - keep the narrower stop rule explicit: registered, fired, emitted, and enforced are often different proof objects; in handle-filter cases the downgraded rights-bearing object may already be the first truthful consumer
 4. **observation-topology failure**
    - direct attach, spawn, or app-local observation is detected, too visible, too late, or semantically misleading
 5. **trace-to-semantic-anchor churn**

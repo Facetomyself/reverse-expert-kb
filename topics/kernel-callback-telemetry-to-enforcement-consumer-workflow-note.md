@@ -12,6 +12,8 @@ Related pages:
 - topics/protected-runtime-observation-topology-selection-workflow-note.md
 - topics/runtime-behavior-recovery.md
 - topics/environment-differential-diagnosis-workflow-note.md
+Source-backed continuation note:
+- sources/protected-runtime/2026-03-26-kernel-callback-registration-vs-enforcement-consumer-notes.md
 
 ## 1. Why this page exists
 This page exists for a recurring protected-runtime stall pattern in anti-cheat-adjacent or privilege-heavy monitoring cases:
@@ -102,6 +104,18 @@ The useful milestone is not:
 
 The useful milestone is:
 - one proved callback-telemetry-to-enforcement-consumer path
+
+A stricter stop rule worth preserving for callback-heavy protected-runtime cases is:
+
+```text
+registered != fired != emitted != enforced
+```
+
+In practice this means:
+- registration metadata is a setup fact, not automatic behavioral ownership
+- callback execution is still weaker than a rights-bearing consequence object or a later emitted telemetry carrier
+- if a pre-operation callback already rewrites granted or desired access, that rights-bearing object may itself be the first enforcement-relevant consumer
+- otherwise the analyst should prefer the first queue/shared-record/IOCTL/service handoff that survives callback scope over more callback inventory
 
 ## 5. Common callback-to-enforcement shapes
 ### A. Callback -> local rights modification
@@ -241,6 +255,7 @@ Use this shape when:
 
 Practical rule:
 - once the callback has been reduced to one emitted record or reducer write, stop overreading callback-local helpers and move to the first consumer of that emitted object
+- and keep the smaller ladder explicit: registration, firing, emitted telemetry, and enforcement are often different proof objects
 
 ### Step 5: prove one enforcement-relevant consumer
 Use one narrow proof move:
@@ -253,6 +268,8 @@ In rights-filter cases, the smallest useful proof often is:
 - requested access vs resulting granted access
 - callback firing vs callback suppressed
 - early-window handle acquisition vs settled-state handle acquisition
+
+When the downgraded rights object already predicts why attach/open/read/write behavior fails, prefer stopping at that rights-bearing object before inventing a later service-side policy story.
 
 In handoff cases, the smallest useful proof often is:
 - callback record emitted vs not emitted
