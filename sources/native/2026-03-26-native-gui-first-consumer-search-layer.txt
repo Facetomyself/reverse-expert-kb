@@ -1,0 +1,305 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Qt event filter installEventFilter eventFilter first consumer receiver thread affinity AutoConnection reverse engineering",
+    "Win32 SetWindowSubclass DefSubclassProc per-window subclass callback id reference data reverse engineering",
+    "NSApplication sendEvent responder chain target action NSXPCConnection exported object first consumer reverse engineering"
+  ],
+  "count": 17,
+  "results": [
+    {
+      "title": "QT event filter precedence problems",
+      "url": "https://stackoverflow.com/questions/74345192/qt-event-filter-precedence-problems",
+      "snippet": "The first installed eventfilter is not installed on A directly. A is a QGraphicsView and the filter is installed on the viewport instead. My",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "installing event filters in QT - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/22785271/installing-event-filters-in-qt",
+      "snippet": "",
+      "published_date": "2014-04-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "How can I handle and filter events that are accepted and discarded deep inside some hierarchy without having to subclass every component on the way?",
+      "url": "https://stackoverflow.com/questions/69043814/how-can-i-handle-and-filter-events-that-are-accepted-and-discarded-deep-inside-s",
+      "snippet": "",
+      "published_date": "2021-09-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "DefSubclassProc function (commctrl.h) - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-defsubclassproc",
+      "snippet": "",
+      "published_date": "2021-10-12T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "SetWindowSubclass function (commctrl.h) - Win32 apps - Microsoft",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-setwindowsubclass",
+      "snippet": "",
+      "published_date": "2023-03-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "C++ Winapi - wrapping up a callback of subclass in a class",
+      "url": "https://stackoverflow.com/questions/66784011/c-winapi-wrapping-up-a-callback-of-subclass-in-a-class",
+      "snippet": "",
+      "published_date": "2021-03-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "win32/desktop-src/Controls/subclassing-overview.md at docs - GitHub",
+      "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Controls/subclassing-overview.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "DefSubclassProc function (commctrl.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/nl-nl/windows/win32/api/commctrl/nf-commctrl-defsubclassproc",
+      "snippet": "Calls the next handler in a window's subclass chain. The last handler in the subclass chain calls the original window procedure for the window.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "SetWindowSubclass function (commctrl.h) - Win32 - Microsoft Learn",
+      "url": "https://learn.microsoft.com/he-il/windows/win32/api/commctrl/nf-commctrl-setwindowsubclass",
+      "snippet": "Subclass callbacks are identified by the combination of the callback address and the caller-defined subclass ID. If the callback address and ID",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "DefSubclassProc function (commctrl.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/nl-be/windows/win32/api/commctrl/nf-commctrl-defsubclassproc",
+      "snippet": "Calls the next handler in a window's subclass chain. The last handler in the subclass chain calls the original window procedure for the window.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "SUBCLASSPROC (commctrl.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/nl-nl/windows/win32/api/commctrl/nc-commctrl-subclassproc",
+      "snippet": "Defines the prototype for the callback function used by RemoveWindowSubclass and SetWindowSubclass.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Could not connect the action: to target of class NSApplication",
+      "url": "https://stackoverflow.com/questions/6741564/could-not-connect-the-action-to-target-of-class-nsapplication",
+      "snippet": "I keep getting Could not connect the action startServer: to target of class NSApplication error on compile. I understand what the error is but",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "How installEventFilter and eventFilter works ? why when return true ...",
+      "url": "https://forum.qt.io/topic/154945/how-installeventfilter-and-eventfilter-works-why-when-return-true-in-event-filter-not-load-qml",
+      "snippet": "",
+      "published_date": "2024-02-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "EventFilter - Qt for Python",
+      "url": "https://doc.qt.io/qtforpython-6.5/PySide6/QtOpcUa/EventFilter.html",
+      "snippet": "An event filter is required for monitoring events on the server. It consists of select clauses and a where clause. The select clauses are used to specify",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Working With Qt Events: A Comprehensive Guide - LearnQt",
+      "url": "https://www.learnqt.guide/working-with-events",
+      "snippet": "",
+      "published_date": "2019-04-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "The Event System | Qt Core | Qt 6.10.2",
+      "url": "https://doc.qt.io/qt-6/eventsandfilters.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.325
+    },
+    {
+      "title": "How unique must the  uIdSubclass  parameter be when I call  Set­Window­Subclass ?",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20230323-00/?p=107962",
+      "snippet": "",
+      "published_date": "2023-03-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "DefSubclassProc function (commctrl.h) - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-defsubclassproc",
+        "snippet": "",
+        "published_date": "2021-10-12T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "SetWindowSubclass function (commctrl.h) - Win32 apps - Microsoft",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-setwindowsubclass",
+        "snippet": "",
+        "published_date": "2023-03-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "C++ Winapi - wrapping up a callback of subclass in a class",
+        "url": "https://stackoverflow.com/questions/66784011/c-winapi-wrapping-up-a-callback-of-subclass-in-a-class",
+        "snippet": "",
+        "published_date": "2021-03-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "win32/desktop-src/Controls/subclassing-overview.md at docs - GitHub",
+        "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Controls/subclassing-overview.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "How unique must the  uIdSubclass  parameter be when I call  Set­Window­Subclass ?",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20230323-00/?p=107962",
+        "snippet": "",
+        "published_date": "2023-03-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "How installEventFilter and eventFilter works ? why when return true ...",
+        "url": "https://forum.qt.io/topic/154945/how-installeventfilter-and-eventfilter-works-why-when-return-true-in-event-filter-not-load-qml",
+        "snippet": "",
+        "published_date": "2024-02-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Working With Qt Events: A Comprehensive Guide - LearnQt",
+        "url": "https://www.learnqt.guide/working-with-events",
+        "snippet": "",
+        "published_date": "2019-04-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "installing event filters in QT - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/22785271/installing-event-filters-in-qt",
+        "snippet": "",
+        "published_date": "2014-04-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "How can I handle and filter events that are accepted and discarded deep inside some hierarchy without having to subclass every component on the way?",
+        "url": "https://stackoverflow.com/questions/69043814/how-can-i-handle-and-filter-events-that-are-accepted-and-discarded-deep-inside-s",
+        "snippet": "",
+        "published_date": "2021-09-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "The Event System | Qt Core | Qt 6.10.2",
+        "url": "https://doc.qt.io/qt-6/eventsandfilters.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.325
+      }
+    ],
+    "tavily": [
+      {
+        "title": "DefSubclassProc function (commctrl.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/nl-nl/windows/win32/api/commctrl/nf-commctrl-defsubclassproc",
+        "snippet": "Calls the next handler in a window's subclass chain. The last handler in the subclass chain calls the original window procedure for the window.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "SetWindowSubclass function (commctrl.h) - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/he-il/windows/win32/api/commctrl/nf-commctrl-setwindowsubclass",
+        "snippet": "Subclass callbacks are identified by the combination of the callback address and the caller-defined subclass ID. If the callback address and ID",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "DefSubclassProc function (commctrl.h) - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-defsubclassproc",
+        "snippet": "Calls the next handler in a window's subclass chain. The last handler in the subclass chain calls the original window procedure for the window.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "DefSubclassProc function (commctrl.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/nl-be/windows/win32/api/commctrl/nf-commctrl-defsubclassproc",
+        "snippet": "Calls the next handler in a window's subclass chain. The last handler in the subclass chain calls the original window procedure for the window.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "SUBCLASSPROC (commctrl.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/nl-nl/windows/win32/api/commctrl/nc-commctrl-subclassproc",
+        "snippet": "Defines the prototype for the callback function used by RemoveWindowSubclass and SetWindowSubclass.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "QT event filter precedence problems",
+        "url": "https://stackoverflow.com/questions/74345192/qt-event-filter-precedence-problems",
+        "snippet": "The first installed eventfilter is not installed on A directly. A is a QGraphicsView and the filter is installed on the viewport instead. My",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "EventFilter - Qt for Python",
+        "url": "https://doc.qt.io/qtforpython-6.5/PySide6/QtOpcUa/EventFilter.html",
+        "snippet": "An event filter is required for monitoring events on the server. It consists of select clauses and a where clause. The select clauses are used to specify",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "The Event System | Qt Core | Qt 6.11.0",
+        "url": "https://doc.qt.io/qt-6/eventsandfilters.html",
+        "snippet": "The QObject::installEventFilter() function enables this by setting up an event filter, causing a nominated filter object to receive the events for a target",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Could not connect the action: to target of class NSApplication",
+        "url": "https://stackoverflow.com/questions/6741564/could-not-connect-the-action-to-target-of-class-nsapplication",
+        "snippet": "I keep getting Could not connect the action startServer: to target of class NSApplication error on compile. I understand what the error is but",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      }
+    ],
+    "grok": []
+  }
+}
