@@ -1,0 +1,356 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows overlapped IO event low bit SetFileCompletionNotificationModes skip completion port on success reverse engineering",
+    "GetQueuedCompletionStatus hEvent low order bit suppress completion packet OVERLAPPED reverse engineering",
+    "FILE_SKIP_COMPLETION_PORT_ON_SUCCESS overlapped event signaled != IOCP packet docs"
+  ],
+  "count": 18,
+  "results": [
+    {
+      "title": "Stack Overflow",
+      "url": "https://stackoverflow.com/questions/41029652/how-to-juggle-file-skip-completion-port-on-success-iocp-and-cleanup",
+      "snippet": "If `FILE_SKIP_COMPLETION_PORT_ON_SUCCESS` is set on a file handle that is bound to an I/O completion port, then an `OVERLAPPED` structure needs to be deallocated when its I/O completes synchronously. Otherwise, does this basically imply you cannot correctly perform overlapped I/O on any file handle that you cannot guarantee the completion notification state of...? You could do this by having the caller allocate the OVERLAPPED structures, as RbMm suggests, but it might be simpler to ask them for a completion key to use.). The reason (in the general case) for not using the pointer is that you might receive a packet containing a completion key from one I/O request along with an OVERLAPPED structure from a different one, because the OVERLAPPED structure might be both released and reassigned before a duplicate notification is processed. Addendum^2: if you don't know anything about the handle, you'll also need to provide an event object for each OVERLAPPED structure, and wait on them in case notification of the I/O completion arrives that way.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.775
+    },
+    {
+      "title": "Question about Using SetFileCompletionNotificationModes ...",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/2131843/question-about-using-setfilecompletionnotification",
+      "snippet": "Is it always true that using FILE_SKIP_COMPLETION_PORT_ON_SUCCESS with SetFileCompletionNotificationModes will prevent callbacks from the IOCP",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Overlapped I/O and Event Objects - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/winsock/overlapped-i-o-and-event-objects-2",
+      "snippet": "# Overlapped I/O and Event Objects - Win32 apps | Microsoft Learn. Windows Sockets 2 supports overlapped I/O and all transport providers support this capability. Since overlapped I/O operations do not block, the blocking mode of a socket is irrelevant for these operations. For receiving, applications use the **WSARecv** or **WSARecvFrom** functions to supply buffers into which data is to be received. If data arrives when no receive buffers have been posted by the application, the network resorts to the familiar synchronous style of operation. A return value of SOCKET_ERROR coupled with an error code of WSA_IO_PENDING indicates that the overlapped operation has been successfully initiated and that a subsequent indication will be provided when send buffers have been consumed or when a receive operation has been completed. Both send and receive operations can be overlapped. While the application can rely upon a series of overlapped send buffers being sent in the order supplied, the corresponding completion indications might occur in a different order.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Is it necessary to set hEvent on the OVERLAPPED structure when doing I/O completion ports?",
+      "url": "https://stackoverflow.com/questions/6216393/is-it-necessary-to-set-hevent-on-the-overlapped-structure-when-doing-i-o-complet",
+      "snippet": "",
+      "published_date": "2011-06-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.7
+    },
+    {
+      "title": "Summary of Overlapped Completion Indication Mechanisms in the SPI",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/winsock/summary-of-overlapped-completion-indication-mechanisms-in-the-spi-2",
+      "snippet": "The following table summarizes the completion semantics for an overlapped socket, showing the various combination of lpOverlapped, hEvent, and",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "Resume completion port notification after they were stopped",
+      "url": "https://stackoverflow.com/questions/54388878/resume-completion-port-notification-after-they-were-stopped",
+      "snippet": "",
+      "published_date": "2019-01-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "GetQueuedCompletionStatus() - what is a \"completion packet\"",
+      "url": "https://stackoverflow.com/questions/68772145/getqueuedcompletionstatus-what-is-a-completion-packet",
+      "snippet": "The completion packet is the LPOVERLAPPED that you pass to an IOCP-capable function. If you are using IOCP so long as the original function",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "Error handling in GetQueuedCompletionStatusEx - Microsoft Q&A",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/2198488/error-handling-in-getqueuedcompletionstatusex",
+      "snippet": "A naive implementation would have to use GetOverlappedResult to check for errors after every IOCP dequeue operation, which involves non-negligible overhead.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "GetQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-getqueuedcompletionstatus",
+      "snippet": "",
+      "published_date": "2024-08-22T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.625
+    },
+    {
+      "title": "PostQueuedCompletionStatus function (IoAPI.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/sl-si/windows/win32/fileio/postqueuedcompletionstatus",
+      "snippet": "The I/O completion packet will satisfy an outstanding call to the GetQueuedCompletionStatus function. This function returns with the three values passed as",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.625
+    },
+    {
+      "title": "PostQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/el-gr/windows/win32/api/ioapiset/nf-ioapiset-postqueuedcompletionstatus",
+      "snippet": "The I/O completion packet will satisfy an outstanding call to the GetQueuedCompletionStatus function. This function returns with the three",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.625
+    },
+    {
+      "title": "SetFileCompletionNotificationMo...",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setfilecompletionnotificationmodes",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.625
+    },
+    {
+      "title": "modules/rostests/winetests/ws2_32/sock.c File Reference",
+      "url": "https://doxygen.reactos.org/d4/d1a/sock_8c.html",
+      "snippet": "5879 if (events & event && index != -1). 5880 {. 5881 if (netEvents ... Flags & FILE_SKIP_COMPLETION_PORT_ON_SUCCESS) != 0, \"got %08x\\n\", io_info.Flags",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.425
+    },
+    {
+      "title": "When will be queued a packet to the I/O completion port",
+      "url": "https://community.osr.com/t/when-will-be-queued-a-packet-to-the-i-o-completion-port/56281",
+      "snippet": "sense here in next - notification to IOCP will be when and only when I/O manager write back status to user mode IO\\_STATUS\\_BLOCK (if no FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SYNCHRONOUS). really I/O request can synchronous return NT\\_ERROR status, but will be IOCP notification !! look - if diver implement FastIoUnlockSingle and it return TRUE (let be with STATUS\\_SUCCESS) - I/O manager just complete request, **without** IOCP. at some (LockFile) point I/O manager post completion to IOCP, even if error status returned. \\*\\*but \\*\\* - look for NtUnlockFile src code (again from wrk - still relevant and in latest win10 at this part) - if driver implement FastIoUnlockSingle and it return TRUE - I/O manager complete request **without** post IOCP entry (or set event, or APC). so I/O can returned STATUS\\_SUCCESS but without IOCP notification (let assume FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SUCCESS not set - for not confuse). but several days ago, when i play with asynchronous file locking, i random catch design bug - NtLockFile returned STATUS\\_LOCK\\_NOT\\_GRANTED but despite this error was notify the I/O completion port and the associated I/O callback function called.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "Len Holgate's blog",
+      "url": "https://lenholgate.com/blog/2010/04/the-design-implications-of-file-skip-completion-port-on-success-and-the-vista-overlapped-io-change.html",
+      "snippet": "The latest release of The Server Framework gives you the option of building with FILE_SKIP_COMPLETION_PORT_ON_SUCCESS enabled for various",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4
+    },
+    {
+      "title": "Windows I/O completion - One little trick - James Sturtevant",
+      "url": "https://www.jamessturtevant.com/posts/windows-io-completion/",
+      "snippet": "",
+      "published_date": "2023-01-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "libgo/go/internal/poll/fd_windows.go - gcc - Git at Google",
+      "url": "https://gnu.googlesource.com/gcc/+/refs/tags/release-12.2.mpacbti-bet1/libgo/go/internal/poll/fd_windows.go?autodive=0%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "Providing a small amount of additional control over what happens when an asynchronous I/O completes synchronously",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20190719-00/?p=102722",
+      "snippet": "",
+      "published_date": "2019-07-19T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Resume completion port notification after they were stopped",
+        "url": "https://stackoverflow.com/questions/54388878/resume-completion-port-notification-after-they-were-stopped",
+        "snippet": "",
+        "published_date": "2019-01-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "GetQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-getqueuedcompletionstatus",
+        "snippet": "",
+        "published_date": "2024-08-22T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.625
+      },
+      {
+        "title": "Is it necessary to set hEvent on the OVERLAPPED structure when doing I/O completion ports?",
+        "url": "https://stackoverflow.com/questions/6216393/is-it-necessary-to-set-hevent-on-the-overlapped-structure-when-doing-i-o-complet",
+        "snippet": "",
+        "published_date": "2011-06-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.7
+      },
+      {
+        "title": "Windows I/O completion - One little trick - James Sturtevant",
+        "url": "https://www.jamessturtevant.com/posts/windows-io-completion/",
+        "snippet": "",
+        "published_date": "2023-01-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "Providing a small amount of additional control over what happens when an asynchronous I/O completes synchronously",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20190719-00/?p=102722",
+        "snippet": "",
+        "published_date": "2019-07-19T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "How to juggle FILE_SKIP_COMPLETION_PORT_ON_SUCCESS ...",
+        "url": "https://stackoverflow.com/questions/41029652/how-to-juggle-file-skip-completion-port-on-success-iocp-and-cleanup",
+        "snippet": "",
+        "published_date": "2016-12-08T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "SetFileCompletionNotificationMo...",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setfilecompletionnotificationmodes",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.625
+      },
+      {
+        "title": "modules/rostests/winetests/ws2_32/sock.c File Reference - ReactOS",
+        "url": "https://doxygen.reactos.org/d4/d1a/sock_8c.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "libgo/go/internal/poll/fd_windows.go - gcc - Git at Google",
+        "url": "https://gnu.googlesource.com/gcc/+/refs/tags/release-12.2.mpacbti-bet1/libgo/go/internal/poll/fd_windows.go?autodive=0%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "The design implications of FILE_SKIP_COMPLETION_PORT_ON_SUCCESS and the Vista overlapped I/O change - Rambling Comments - Len Holgate's blog",
+        "url": "https://lenholgate.com/blog/2010/04/the-design-implications-of-file-skip-completion-port-on-success-and-the-vista-overlapped-io-change.html",
+        "snippet": "",
+        "published_date": "2010-04-01T00:00:00.000Z",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "GetQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-getqueuedcompletionstatus",
+        "snippet": "A valid event handle whose low-order bit is set prevents the completion of the overlapped I/O from enqueing a completion packet to the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "GetQueuedCompletionStatus() - what is a \"completion packet\"",
+        "url": "https://stackoverflow.com/questions/68772145/getqueuedcompletionstatus-what-is-a-completion-packet",
+        "snippet": "The completion packet is the LPOVERLAPPED that you pass to an IOCP-capable function. If you are using IOCP so long as the original function",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "PostQueuedCompletionStatus function (IoAPI.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/sl-si/windows/win32/fileio/postqueuedcompletionstatus",
+        "snippet": "The I/O completion packet will satisfy an outstanding call to the GetQueuedCompletionStatus function. This function returns with the three values passed as",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.625
+      },
+      {
+        "title": "PostQueuedCompletionStatus function (ioapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/el-gr/windows/win32/api/ioapiset/nf-ioapiset-postqueuedcompletionstatus",
+        "snippet": "The I/O completion packet will satisfy an outstanding call to the GetQueuedCompletionStatus function. This function returns with the three",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.625
+      },
+      {
+        "title": "Error handling in GetQueuedCompletionStatusEx - Microsoft Q&A",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/2198488/error-handling-in-getqueuedcompletionstatusex",
+        "snippet": "A naive implementation would have to use GetOverlappedResult to check for errors after every IOCP dequeue operation, which involves non-negligible overhead.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "Stack Overflow",
+        "url": "https://stackoverflow.com/questions/41029652/how-to-juggle-file-skip-completion-port-on-success-iocp-and-cleanup",
+        "snippet": "If `FILE_SKIP_COMPLETION_PORT_ON_SUCCESS` is set on a file handle that is bound to an I/O completion port, then an `OVERLAPPED` structure needs to be deallocated when its I/O completes synchronously. Otherwise, does this basically imply you cannot correctly perform overlapped I/O on any file handle that you cannot guarantee the completion notification state of...? You could do this by having the caller allocate the OVERLAPPED structures, as RbMm suggests, but it might be simpler to ask them for a completion key to use.). The reason (in the general case) for not using the pointer is that you might receive a packet containing a completion key from one I/O request along with an OVERLAPPED structure from a different one, because the OVERLAPPED structure might be both released and reassigned before a duplicate notification is processed. Addendum^2: if you don't know anything about the handle, you'll also need to provide an event object for each OVERLAPPED structure, and wait on them in case notification of the I/O completion arrives that way.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.775
+      },
+      {
+        "title": "modules/rostests/winetests/ws2_32/sock.c File Reference",
+        "url": "https://doxygen.reactos.org/d4/d1a/sock_8c.html",
+        "snippet": "5879 if (events & event && index != -1). 5880 {. 5881 if (netEvents ... Flags & FILE_SKIP_COMPLETION_PORT_ON_SUCCESS) != 0, \"got %08x\\n\", io_info.Flags",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.425
+      },
+      {
+        "title": "When will be queued a packet to the I/O completion port",
+        "url": "https://community.osr.com/t/when-will-be-queued-a-packet-to-the-i-o-completion-port/56281",
+        "snippet": "sense here in next - notification to IOCP will be when and only when I/O manager write back status to user mode IO\\_STATUS\\_BLOCK (if no FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SYNCHRONOUS). really I/O request can synchronous return NT\\_ERROR status, but will be IOCP notification !! look - if diver implement FastIoUnlockSingle and it return TRUE (let be with STATUS\\_SUCCESS) - I/O manager just complete request, **without** IOCP. at some (LockFile) point I/O manager post completion to IOCP, even if error status returned. \\*\\*but \\*\\* - look for NtUnlockFile src code (again from wrk - still relevant and in latest win10 at this part) - if driver implement FastIoUnlockSingle and it return TRUE - I/O manager complete request **without** post IOCP entry (or set event, or APC). so I/O can returned STATUS\\_SUCCESS but without IOCP notification (let assume FILE\\_SKIP\\_COMPLETION\\_PORT\\_ON\\_SUCCESS not set - for not confuse). but several days ago, when i play with asynchronous file locking, i random catch design bug - NtLockFile returned STATUS\\_LOCK\\_NOT\\_GRANTED but despite this error was notify the I/O completion port and the associated I/O callback function called.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "Question about Using SetFileCompletionNotificationModes ...",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/2131843/question-about-using-setfilecompletionnotification",
+        "snippet": "Is it always true that using FILE_SKIP_COMPLETION_PORT_ON_SUCCESS with SetFileCompletionNotificationModes will prevent callbacks from the IOCP",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "Len Holgate's blog",
+        "url": "https://lenholgate.com/blog/2010/04/the-design-implications-of-file-skip-completion-port-on-success-and-the-vista-overlapped-io-change.html",
+        "snippet": "The latest release of The Server Framework gives you the option of building with FILE_SKIP_COMPLETION_PORT_ON_SUCCESS enabled for various",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4
+      },
+      {
+        "title": "Question about Using SetFileCompletionNotificationModes with ...",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/2131843/question-about-using-setfilecompletionnotification",
+        "snippet": "The FILE_SKIP_COMPLETION_PORT_ON_SUCCESS flag specifies that a completion is not queued to the associated I/O completion port in the case the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to juggle FILE_SKIP_COMPLETION_PORT_ON_SUCCESS ...",
+        "url": "https://stackoverflow.com/questions/41029652/how-to-juggle-file-skip-completion-port-on-success-iocp-and-cleanup",
+        "snippet": "If `FILE_SKIP_COMPLETION_PORT_ON_SUCCESS` is set on a file handle that is bound to an I/O completion port, then an `OVERLAPPED` structure needs to be deallocated when its I/O completes synchronously. Otherwise, does this basically imply you cannot correctly perform overlapped I/O on any file handle that you cannot guarantee the completion notification state of...? You could do this by having the caller allocate the OVERLAPPED structures, as RbMm suggests, but it might be simpler to ask them for a completion key to use.). The reason (in the general case) for not using the pointer is that you might receive a packet containing a completion key from one I/O request along with an OVERLAPPED structure from a different one, because the OVERLAPPED structure might be both released and reassigned before a duplicate notification is processed. Addendum^2: if you don't know anything about the handle, you'll also need to provide an event object for each OVERLAPPED structure, and wait on them in case notification of the I/O completion arrives that way.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "SetFileCompletionNotificationMo...",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setfilecompletionnotificationmodes",
+        "snippet": "Sets the notification modes for a file handle, allowing you to specify how completion notifications work for the specified file.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Summary of Overlapped Completion Indication Mechanisms in the SPI",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/winsock/summary-of-overlapped-completion-indication-mechanisms-in-the-spi-2",
+        "snippet": "The following table summarizes the completion semantics for an overlapped socket, showing the various combination of lpOverlapped, hEvent, and",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "Overlapped I/O and Event Objects - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/winsock/overlapped-i-o-and-event-objects-2",
+        "snippet": "# Overlapped I/O and Event Objects - Win32 apps | Microsoft Learn. Windows Sockets 2 supports overlapped I/O and all transport providers support this capability. Since overlapped I/O operations do not block, the blocking mode of a socket is irrelevant for these operations. For receiving, applications use the **WSARecv** or **WSARecvFrom** functions to supply buffers into which data is to be received. If data arrives when no receive buffers have been posted by the application, the network resorts to the familiar synchronous style of operation. A return value of SOCKET_ERROR coupled with an error code of WSA_IO_PENDING indicates that the overlapped operation has been successfully initiated and that a subsequent indication will be provided when send buffers have been consumed or when a receive operation has been completed. Both send and receive operations can be overlapped. While the application can rely upon a series of overlapped send buffers being sent in the order supplied, the corresponding completion indications might occur in a different order.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      }
+    ],
+    "grok": []
+  }
+}

@@ -11,6 +11,7 @@ Related pages:
 - topics/causal-write-and-reverse-causality-localization-workflow-note.md
 - topics/runtime-behavior-recovery.md
 - sources/native/2026-03-25-native-completion-port-stop-rules-notes.md
+- sources/native-and-desktop/2026-03-27-overlapped-event-vs-iocp-vs-threadpool-io-notes.md
 
 ## 1. What this workflow note is for
 This note covers a recurring native case where the analyst has already reduced a target into an async worker or completion-driven shape, but the remaining uncertainty is narrower than the broad callback/event-loop note.
@@ -252,6 +253,7 @@ Best move:
 Practical reminder:
 - thread-pool helper wrappers often execute shared cleanup/unpack code before the real callback, so avoid stopping the analysis at the wrapper name alone
 - for `TP_IO` specifically, do not flatten “I created a thread-pool I/O object” into callback truth: Microsoft’s `CreateThreadpoolIo` contract requires `StartThreadpoolIo`, and Raymond Chen’s practical model is sharper here — `StartThreadpoolIo` is conceptually **per I/O operation**, not merely once per bound handle
+- preserve the smaller split **explicit event signaled != IOCP packet dequeued != TP_IO callback delivered**; in mixed overlapped-I/O cases, event visibility alone is weaker than queue-dequeue proof, and queue-dequeue proof is still weaker than callback-delivery proof for one `TP_IO`-bound operation
 - when the handle uses `FILE_SKIP_COMPLETION_PORT_ON_SUCCESS`, an immediately successful overlapped operation can skip the callback path and instead require `CancelThreadpoolIo`; if the callback never fires, verify both per-operation `StartThreadpoolIo` discipline and this notification mode before claiming the consumer is dead or unrelated
 
 ### Pattern 3: Service queue with retry/timer/control packets
