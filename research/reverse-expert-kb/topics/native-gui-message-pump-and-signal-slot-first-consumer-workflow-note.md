@@ -114,10 +114,25 @@ Microsoft guidance and Raymond Chen’s discussion both reinforce a practical re
 - when subclassing is present, the saved original procedure is window-instance specific
 - treating some globally remembered “old WndProc” as the consumer truth is unsafe
 - a real proof often depends on identifying **which exact window instance** and **which exact subclass hop** owns the decisive message family
+- in helper-based `SetWindowSubclass(...)` cases, the active subclass identity is not just “this callback exists,” but the combination of **callback address + subclass ID + instance-local reference data**, so pseudocode that reuses one helper callback across many windows is still weaker than one recovered per-window live chain
 
 This is highly relevant in reversing because subclass wrappers often look symmetrical in pseudocode while actually preserving different downstream ownership chains.
 
-### C. Qt signals do not automatically imply deferred event-loop delivery
+### C. Qt event filters are interception boundaries unless they actually change fate
+Qt’s event-system documentation supports a narrower practical rule:
+- object-specific event filters run before the target object
+- application-wide filters run even earlier
+- returning `true` stops later processing, while returning `false` leaves later object handling or later signal/slot delivery in play
+
+For reversing, this means:
+- `installEventFilter(...)` visibility is weaker than filter-owned consequence truth
+- `eventFilter(...)` hit-count visibility is weaker than proving the filter actually **suppresses, rewrites, or retargets** the event
+- if the filter returns `false`, the truthful first consumer may still live later in `QObject::event(...)`, a type-specific handler, a direct slot, or a queued slot
+- application-global filters are therefore usually strong reduction boundaries, but not automatic behavioral ownership
+
+This matters because Qt-heavy binaries often make event-filter plumbing easy to recover, while the first durable state/policy/task change still happens one hop later.
+
+### D. Qt signals do not automatically imply deferred event-loop delivery
 Qt documentation makes an important distinction:
 - many slots run immediately on signal emission
 - queued connections defer delivery until later
@@ -127,14 +142,14 @@ For reversing, this means:
 - first classify whether the target signal/slot edge is immediate or queued
 - only then decide whether the proof boundary is emission-time or later event-loop delivery
 
-### D. Qt binary work benefits from callback recovery, but callback recovery is still not enough
+### E. Qt binary work benefits from callback recovery, but callback recovery is still not enough
 QtRE’s reported value is exactly that it recovers large amounts of callback and semantic information from Qt binaries.
 That is useful, but it still leaves the analyst with the narrower practical question:
 - among the recovered callbacks/slots, which one first changes behavior in a way that matters for the case?
 
 So callback recovery is a map improver, not the endpoint.
 
-### E. Cocoa event-loop and responder-chain visibility are still only framework reduction unless they change ownership
+### F. Cocoa event-loop and responder-chain visibility are still only framework reduction unless they change ownership
 Apple’s Cocoa architecture documentation makes a practical reversing distinction worth keeping explicit:
 - `NSApplication` sets up the main event loop and receives events from the window server
 - `sendEvent:` dispatches events onward, often into `NSWindow`, controls, target/action logic, and the responder chain
@@ -145,7 +160,7 @@ For reversing, this means:
 - only treat it as the first real consumer if it suppresses, rewrites, retargets, or policy-gates later behavior
 - otherwise continue until one responder, target/action receiver, exported-object method, or stateful reducer actually predicts the downstream effect
 
-### F. XPC and dispatch-source setup are ownership reducers, not always the decisive consumer
+### G. XPC and dispatch-source setup are ownership reducers, not always the decisive consumer
 Apple’s XPC and dispatch-source material also support a narrower stop rule:
 - `NSXPCConnection`, proxy acquisition, listener setup, and dispatch-source registration reduce the search space
 - but they often remain delivery scaffolding rather than the first consequence-bearing consumer
