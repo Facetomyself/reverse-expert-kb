@@ -316,6 +316,14 @@ service launches on demand
 What usually helps:
 - freeze request send attempt, reply/error path, and later durable effect separately
 - keep launch/restart/interruption truth as lifecycle evidence, not direct consequence evidence
+- preserve the narrower stop rule `accepted != replied != reconnected != consumed`
+- treat "connection became valid again" or "service relaunched" as weaker than proving the same exported-object method or later service-owned reducer actually ran again
+- when compare pairs diverge around invalidation/restart, ask whether the first stable proof object is the reply/error class, the exported-object method re-entry, or one later durable effect rather than more client-side proxy inventory
+
+A narrower Apple-platform lifecycle reminder now worth keeping explicit is:
+- launchd-managed restart, interruption, and invalidation frequently create compare-pair noise that looks like progress
+- acceptance truth, reply/error truth, reconnection truth, and durable service-owned consequence are often four different proof objects
+- the analyst should therefore stop at the smallest one that actually predicts later behavior instead of overreading any generic "XPC recovered" event
 
 ### Scenario E: service reply is visible, but the real policy consequence lives one hop later
 Pattern:
