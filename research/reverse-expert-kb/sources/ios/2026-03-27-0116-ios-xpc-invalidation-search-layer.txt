@@ -1,0 +1,321 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "NSXPCConnection interruption invalidation handler same request replay durable effect",
+    "NSXPCListener shouldAcceptNewConnection exportedObject exportedInterface first consumer",
+    "NSXPCConnection exported object interruption invalidation Apple documentation"
+  ],
+  "count": 18,
+  "results": [
+    {
+      "title": "NSXPCConnection debugging interruption/invalidation",
+      "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+      "snippet": "### your communities. ### more stack exchange communities. ##### Collectives™ on Stack Overflow. I have an XPC Service to talk to other applications. XPC Services are completely new to me. self.bridgeagent.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(bridgeagentProtocol)];. self.bridgeagent.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(bridgeagentProxyProtocol)];. The Service is called like this:. NSLog(@\"bridgeagent.openFile errorHandler: %@\",error);. The call works and the service does its job. However - now that the service works i want to dig into making it more stable (even if i don't face any issues right now). ## 1 Answer 1. Backend (service) may have crashed. invalidation: don't start backend (service) at all. This can be useful when your service is a launch agent which gets restarted by launchd in case it crashed. Thanks for contributing an answer to Stack Overflow! By clicking “Post Your Answer”, you agree to our terms of service and acknowledge you have read our privacy policy. Find the answer to your question by asking. ##### Stack Overflow. ##### Stack Exchange Network.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7333
+    },
+    {
+      "title": "invalidationHandler | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler",
+      "snippet": "## Explore Platforms. ## Explore Technologies. ## Explore Documentation. ## Explore Support. 33 of 38 symbols inside 1368171724 var NSXPCConnectionInterrupted: Int. To navigate the symbols, press Up Arrow, Down Arrow, Left Arrow or Right Arrow. 36 of 38 symbols inside 1368171724 var NSXPCConnectionErrorMinimum: Int. To navigate the symbols, press Up Arrow, Down Arrow, Left Arrow or Right Arrow. 38 of 38 symbols inside 1368171724 var NSXPCConnectionCodeSigningRequirementFailure: Int. To navigate the symbols, press Up Arrow, Down Arrow, Left Arrow or Right Arrow. 6 of 38 symbols inside 1368171724. 9 of 38 symbols inside 1368171724 func invalidate()). 12 of 38 symbols inside 1368171724 var invalidationHandler: (() -> Void)? 15 of 38 symbols inside 1368171724. 22 of 38 symbols inside 1368171724. 27 of 38 symbols inside 1368171724. 30 of 38 symbols inside 1368171724. 32 of 38 symbols inside 1368171724. 6 of 9 symbols inside 1940286794. You may not send messages over the connection from within an invalidation handler block.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "Is an XPC interruption handler called when launchd kills the process?",
+      "url": "https://stackoverflow.com/questions/17263490/is-an-xpc-interruption-handler-called-when-launchd-kills-the-process",
+      "snippet": "### more stack exchange communities. XPC services are managed by launchd, which launches them on demand, restarts them if they crash, and terminates them (by sending SIGKILL) when they are idle. In that case, the application can see that its XPC connection has become invalid until the service is restarted by launchd. Yes the interruption handler will be called if launchd stops the service for being idle. This can be simulated by leveraging the natural reaction launchd has to memory pressure: stopping all launchd launched services that are idle to help relieve the issue. However it is recommended XPC services are designed to be stateless, so in most cases it should not matter if your service is stopped and can be restarted by launchd the next time you send a message. Launchd will not stop an XPC service with the above conditions if there is an ongoing XPC transaction (read: a message is being handled and/or the reply block has not been invoked).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "invalidationHandler | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler?language=objc",
+      "snippet": "An invalidation handler that is called if the connection can not be formed or the connection has terminated and may not be re-established.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "NSXPCConnection.h - iOS-SDKs - GitHub",
+      "url": "https://github.com/xybp888/iOS-SDKs/blob/master/iPhoneOS13.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXPCConnection.h",
+      "snippet": "The error handler block and reply block will be invoked on the calling thread before the message to the proxy returns, instead of on the queue for the connection. // The interface that describes messages that are allowed to be received by the exported object on this connection. // The interface that describes messages that are allowed to be received by object that has been \"imported\" to this connection (exported from the other side). The error handler block and reply block will be invoked on the calling thread before the message to the proxy returns, instead of on the queue for the connection. Other processes may connect to this listener by passing this listener object's endpoint to NSXPCConnection's -initWithListenerEndpoint: method. This is a good time to set up properties on the new connection, like its exported object and interfaces. If a value of NO is returned, the connection object will be invalidated after this method returns. @property (nullable, readonly, strong) NSXPCConnection \\*connection API\\_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "NSXPCConnection | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection?language=objc",
+      "snippet": "## Explore Platforms. ## Explore Support. Initializes an `NSXPCConnection` object to connect to an `NSXPCListener` object in another process, identified by an `NSXPCListenerEndpoint` object. Initializes an `NSXPCConnection` object to connect to an `NSXPCListener` object in an XPC service, identified by a service name. Returns the current connection, in the context of a call to a method on your exported object. If the connection was created with an `NSXPCListenerEndpoint` object, returns the endpoint object used. An exported object for the connection. Returns a proxy for the remote object (that is, the `exportedObject` from the other side of this connection). Returns a proxy for the remote object (that is, the object exported from the other side of this connection) with the specified error handler. The XPC connection was interrupted. The XPC connection was invalid. The lower bounds of XPC connection error code values. The upper bounds of XPC connection error code values. A coder that encodes and decodes objects that your app sends over an XPC connection.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "NSXPCConnection | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "NSXPCConnection.h - GitHub",
+      "url": "https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSXPCConnection.h",
+      "snippet": "Messages sent to the proxy object will be sent over the wire to the other side of the connection. // The interface that describes messages that are allowed to be received by the exported object on this connection. // The interface that describes messages that are allowed to be received by object that has been \"imported\" to this connection (exported from the other side). // If your listener is an XPCService (that is, in the XPCServices folder of an application or framework), then use this method to get the shared, singleton NSXPCListener object that will await new connections. Other processes may connect to this listener by passing this listener object's endpoint to NSXPCConnection's -initWithListenerEndpoint: method. This is a good time to set up properties on the new connection, like its exported object and interfaces. If a value of NO is returned, the connection object will be invalidated after this method returns.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "listener(_:shouldAcceptNewConnection:) - Apple Developer",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpclistenerdelegate/listener(_:shouldacceptnewconnection:)",
+      "snippet": "To accept the connection, first configure the connection if desired, then call resume() on the new connection, then return true.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "XPCService not getting launched from app - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/26292656/xpcservice-not-getting-launched-from-app",
+      "snippet": "When I launch the app, neither the log added in listener:shouldAcceptNewConnection: is displayed nor the helper process appears in Activity",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "exportedObject | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/exportedobject",
+      "snippet": "## Explore Platforms. 27 of 35 symbols inside <root> containing 9 symbolsXPC. 25 of 35 symbols inside <root> containing 8 symbolsBonjour. 21 of 35 symbols inside <root> containing 18 symbolsiCloud. 20 of 35 symbols inside <root> containing 5 symbolsSpotlight. 19 of 35 symbols inside <root> containing 8 symbolsSettings. 17 of 35 symbols inside <root> containing 17 symbolsFile System. 15 of 35 symbols inside <root> containing 45 symbolsScripting Support. 13 of 35 symbols inside <root> containing 12 symbolsApp Extension Support. 12 of 35 symbols inside <root> containing 8 symbolsNotifications. 11 of 35 symbols inside <root> containing 5 symbolsResources. 10 of 35 symbols inside <root> containing 28 symbolsTask Management. 29 of 35 symbols inside <root> containing 23 symbolsProcesses and Threads. 4 of 35 symbols inside <root> containing 29 symbolsCollections. 35 of 35 symbols inside <root> containing 5 symbolsNSPredicateValidating. An exported object for the connection. The `NSXPCInterface` object that describes the protocol for the exported object on this connection.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "(PDF) Mobile security testing guide - Academia.edu",
+      "url": "https://www.academia.edu/39745684/Mobile_security_testing_guide",
+      "snippet": "Record the requests in your proxy. Then, replay the crawled requests while manipulating the session IDs as follows: Invalidate the session ID (for example",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5667
+    },
+    {
+      "title": "XPC server initializes but client fails connecting to it : r/SwiftUI - Reddit",
+      "url": "https://www.reddit.com/r/SwiftUI/comments/1bmp455/xpc_server_initializes_but_client_fails/",
+      "snippet": "",
+      "published_date": "2024-03-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "Xpc services on macOS app using Swift - Dwarves Memo",
+      "url": "https://memo.d.foundation/topics/mobile/xpc-services-on-macos-app-using-swift",
+      "snippet": "Using the Objective-C NSXPCConnection API The Objective-C NSXPCConnection API provides a high-level remote procedure call interface that allows you to call methods on objects in one process from another process (usually an application calling a method in an XPC service). When the main application calls a method on a proxy object, the XPC service’s NSXPCConnection object calls that method on the object stored in its exportedObject property. Similarly, if the XPC service obtains a proxy object and calls a method on that object, the main app’s NSXPCConnection object calls that method on the object stored in its exportedObject property. However, because connections are bidirectional, the XPC service helper can also reply by calling methods in the interface provided by the main application, if desired. When your application calls a method on the proxy object, the corresponding method is called on the exported object inside the XPC service. That method, in turn, could use the XPC helper’s connection object similarly to call a method on the object exported by the main application.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "Interprocess Communication with macOS: Apple IPC Methods [1&nbsp",
+      "url": "https://dokumen.pub/interprocess-communication-with-macos-apple-ipc-methods-1nbsped-1484270444-9781484270448.html",
+      "snippet": "Build highly modular software in macOS that interacts deeply and intuitively with other programs. This book explores all",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "XPC Services on macOS apps using Swift | RDerik",
+      "url": "https://rderik.com/blog/xpc-services-on-macos-apps-using-swift/",
+      "snippet": "",
+      "published_date": "2019-10-17T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Integrating XPC services in macOS application (part 2)",
+      "url": "https://tonygo.tech/blog/2024/integrating-xpc-service-in-macos-app",
+      "snippet": "",
+      "published_date": "2024-01-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "How and when to use XPC services - Multi.app",
+      "url": "https://multi.app/blog/how-and-when-to-use-xpc-services",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "XPC server initializes but client fails connecting to it : r/SwiftUI - Reddit",
+        "url": "https://www.reddit.com/r/SwiftUI/comments/1bmp455/xpc_server_initializes_but_client_fails/",
+        "snippet": "",
+        "published_date": "2024-03-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5
+      },
+      {
+        "title": "XPC Services on macOS apps using Swift | RDerik",
+        "url": "https://rderik.com/blog/xpc-services-on-macos-apps-using-swift/",
+        "snippet": "",
+        "published_date": "2019-10-17T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Integrating XPC services in macOS application (part 2)",
+        "url": "https://tonygo.tech/blog/2024/integrating-xpc-service-in-macos-app",
+        "snippet": "",
+        "published_date": "2024-01-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "How and when to use XPC services - Multi.app",
+        "url": "https://multi.app/blog/how-and-when-to-use-xpc-services",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6333
+      }
+    ],
+    "tavily": [
+      {
+        "title": "NSXPCConnection debugging interruption/invalidation",
+        "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+        "snippet": "### your communities. ### more stack exchange communities. ##### Collectives™ on Stack Overflow. I have an XPC Service to talk to other applications. XPC Services are completely new to me. self.bridgeagent.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(bridgeagentProtocol)];. self.bridgeagent.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(bridgeagentProxyProtocol)];. The Service is called like this:. NSLog(@\"bridgeagent.openFile errorHandler: %@\",error);. The call works and the service does its job. However - now that the service works i want to dig into making it more stable (even if i don't face any issues right now). ## 1 Answer 1. Backend (service) may have crashed. invalidation: don't start backend (service) at all. This can be useful when your service is a launch agent which gets restarted by launchd in case it crashed. Thanks for contributing an answer to Stack Overflow! By clicking “Post Your Answer”, you agree to our terms of service and acknowledge you have read our privacy policy. Find the answer to your question by asking. ##### Stack Overflow. ##### Stack Exchange Network.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7333
+      },
+      {
+        "title": "Is an XPC interruption handler called when launchd kills the process?",
+        "url": "https://stackoverflow.com/questions/17263490/is-an-xpc-interruption-handler-called-when-launchd-kills-the-process",
+        "snippet": "### more stack exchange communities. XPC services are managed by launchd, which launches them on demand, restarts them if they crash, and terminates them (by sending SIGKILL) when they are idle. In that case, the application can see that its XPC connection has become invalid until the service is restarted by launchd. Yes the interruption handler will be called if launchd stops the service for being idle. This can be simulated by leveraging the natural reaction launchd has to memory pressure: stopping all launchd launched services that are idle to help relieve the issue. However it is recommended XPC services are designed to be stateless, so in most cases it should not matter if your service is stopped and can be restarted by launchd the next time you send a message. Launchd will not stop an XPC service with the above conditions if there is an ongoing XPC transaction (read: a message is being handled and/or the reply block has not been invoked).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "invalidationHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler",
+        "snippet": "## Explore Platforms. ## Explore Technologies. ## Explore Documentation. ## Explore Support. 33 of 38 symbols inside 1368171724 var NSXPCConnectionInterrupted: Int. To navigate the symbols, press Up Arrow, Down Arrow, Left Arrow or Right Arrow. 36 of 38 symbols inside 1368171724 var NSXPCConnectionErrorMinimum: Int. To navigate the symbols, press Up Arrow, Down Arrow, Left Arrow or Right Arrow. 38 of 38 symbols inside 1368171724 var NSXPCConnectionCodeSigningRequirementFailure: Int. To navigate the symbols, press Up Arrow, Down Arrow, Left Arrow or Right Arrow. 6 of 38 symbols inside 1368171724. 9 of 38 symbols inside 1368171724 func invalidate()). 12 of 38 symbols inside 1368171724 var invalidationHandler: (() -> Void)? 15 of 38 symbols inside 1368171724. 22 of 38 symbols inside 1368171724. 27 of 38 symbols inside 1368171724. 30 of 38 symbols inside 1368171724. 32 of 38 symbols inside 1368171724. 6 of 9 symbols inside 1940286794. You may not send messages over the connection from within an invalidation handler block.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "(PDF) Mobile security testing guide - Academia.edu",
+        "url": "https://www.academia.edu/39745684/Mobile_security_testing_guide",
+        "snippet": "Record the requests in your proxy. Then, replay the crawled requests while manipulating the session IDs as follows: Invalidate the session ID (for example",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5667
+      },
+      {
+        "title": "Interprocess Communication with macOS: Apple IPC Methods [1&nbsp",
+        "url": "https://dokumen.pub/interprocess-communication-with-macos-apple-ipc-methods-1nbsped-1484270444-9781484270448.html",
+        "snippet": "Build highly modular software in macOS that interacts deeply and intuitively with other programs. This book explores all",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "NSXPCConnection.h - GitHub",
+        "url": "https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSXPCConnection.h",
+        "snippet": "Messages sent to the proxy object will be sent over the wire to the other side of the connection. // The interface that describes messages that are allowed to be received by the exported object on this connection. // The interface that describes messages that are allowed to be received by object that has been \"imported\" to this connection (exported from the other side). // If your listener is an XPCService (that is, in the XPCServices folder of an application or framework), then use this method to get the shared, singleton NSXPCListener object that will await new connections. Other processes may connect to this listener by passing this listener object's endpoint to NSXPCConnection's -initWithListenerEndpoint: method. This is a good time to set up properties on the new connection, like its exported object and interfaces. If a value of NO is returned, the connection object will be invalidated after this method returns.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "listener(_:shouldAcceptNewConnection:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpclistenerdelegate/listener(_:shouldacceptnewconnection:)",
+        "snippet": "To accept the connection, first configure the connection if desired, then call resume() on the new connection, then return true.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "XPC Services on macOS apps using Swift | RDerik",
+        "url": "https://rderik.com/blog/xpc-services-on-macos-apps-using-swift/",
+        "snippet": "First, we set up the exported interface to be represented by the ServiceProviderXPCProtocol (we'll be creating that protocol next). This",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "XPCService not getting launched from app - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/26292656/xpcservice-not-getting-launched-from-app",
+        "snippet": "When I launch the app, neither the log added in listener:shouldAcceptNewConnection: is displayed nor the helper process appears in Activity",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Xpc services on macOS app using Swift - Dwarves Memo",
+        "url": "https://memo.d.foundation/topics/mobile/xpc-services-on-macos-app-using-swift",
+        "snippet": "Using the Objective-C NSXPCConnection API The Objective-C NSXPCConnection API provides a high-level remote procedure call interface that allows you to call methods on objects in one process from another process (usually an application calling a method in an XPC service). When the main application calls a method on a proxy object, the XPC service’s NSXPCConnection object calls that method on the object stored in its exportedObject property. Similarly, if the XPC service obtains a proxy object and calls a method on that object, the main app’s NSXPCConnection object calls that method on the object stored in its exportedObject property. However, because connections are bidirectional, the XPC service helper can also reply by calling methods in the interface provided by the main application, if desired. When your application calls a method on the proxy object, the corresponding method is called on the exported object inside the XPC service. That method, in turn, could use the XPC helper’s connection object similarly to call a method on the object exported by the main application.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "invalidationHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler?language=objc",
+        "snippet": "An invalidation handler that is called if the connection can not be formed or the connection has terminated and may not be re-established.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "NSXPCConnection.h - GitHub",
+        "url": "https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSXPCConnection.h",
+        "snippet": "Messages sent to the proxy object will be sent over the wire to the other side of the connection. // The interface that describes messages that are allowed to be received by the exported object on this connection. // The interface that describes messages that are allowed to be received by object that has been \"imported\" to this connection (exported from the other side). // If your listener is an XPCService (that is, in the XPCServices folder of an application or framework), then use this method to get the shared, singleton NSXPCListener object that will await new connections. Other processes may connect to this listener by passing this listener object's endpoint to NSXPCConnection's -initWithListenerEndpoint: method. This is a good time to set up properties on the new connection, like its exported object and interfaces. If a value of NO is returned, the connection object will be invalidated after this method returns.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSXPCConnection.h - iOS-SDKs - GitHub",
+        "url": "https://github.com/xybp888/iOS-SDKs/blob/master/iPhoneOS13.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXPCConnection.h",
+        "snippet": "The error handler block and reply block will be invoked on the calling thread before the message to the proxy returns, instead of on the queue for the connection. // The interface that describes messages that are allowed to be received by the exported object on this connection. // The interface that describes messages that are allowed to be received by object that has been \"imported\" to this connection (exported from the other side). The error handler block and reply block will be invoked on the calling thread before the message to the proxy returns, instead of on the queue for the connection. Other processes may connect to this listener by passing this listener object's endpoint to NSXPCConnection's -initWithListenerEndpoint: method. This is a good time to set up properties on the new connection, like its exported object and interfaces. If a value of NO is returned, the connection object will be invalidated after this method returns. @property (nullable, readonly, strong) NSXPCConnection \\*connection API\\_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection?language=objc",
+        "snippet": "## Explore Platforms. ## Explore Support. Initializes an `NSXPCConnection` object to connect to an `NSXPCListener` object in another process, identified by an `NSXPCListenerEndpoint` object. Initializes an `NSXPCConnection` object to connect to an `NSXPCListener` object in an XPC service, identified by a service name. Returns the current connection, in the context of a call to a method on your exported object. If the connection was created with an `NSXPCListenerEndpoint` object, returns the endpoint object used. An exported object for the connection. Returns a proxy for the remote object (that is, the `exportedObject` from the other side of this connection). Returns a proxy for the remote object (that is, the object exported from the other side of this connection) with the specified error handler. The XPC connection was interrupted. The XPC connection was invalid. The lower bounds of XPC connection error code values. The upper bounds of XPC connection error code values. A coder that encodes and decodes objects that your app sends over an XPC connection.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "exportedObject | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/exportedobject",
+        "snippet": "## Explore Platforms. 27 of 35 symbols inside <root> containing 9 symbolsXPC. 25 of 35 symbols inside <root> containing 8 symbolsBonjour. 21 of 35 symbols inside <root> containing 18 symbolsiCloud. 20 of 35 symbols inside <root> containing 5 symbolsSpotlight. 19 of 35 symbols inside <root> containing 8 symbolsSettings. 17 of 35 symbols inside <root> containing 17 symbolsFile System. 15 of 35 symbols inside <root> containing 45 symbolsScripting Support. 13 of 35 symbols inside <root> containing 12 symbolsApp Extension Support. 12 of 35 symbols inside <root> containing 8 symbolsNotifications. 11 of 35 symbols inside <root> containing 5 symbolsResources. 10 of 35 symbols inside <root> containing 28 symbolsTask Management. 29 of 35 symbols inside <root> containing 23 symbolsProcesses and Threads. 4 of 35 symbols inside <root> containing 29 symbolsCollections. 35 of 35 symbols inside <root> containing 5 symbolsNSPredicateValidating. An exported object for the connection. The `NSXPCInterface` object that describes the protocol for the exported object on this connection.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      }
+    ],
+    "grok": []
+  }
+}
