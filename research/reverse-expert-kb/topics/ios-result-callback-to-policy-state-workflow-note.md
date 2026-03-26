@@ -42,6 +42,7 @@ In practical iOS reversing, once callback or result visibility exists, the next 
 It is to localize the first reduction that turns visible result material into a durable policy state.
 
 A practical continuation rule is worth keeping explicit: this page becomes the right receiver once controlled replay, black-box invocation, or narrower init-obligation repair is already good enough to expose truthful result material, and the remaining bottleneck is no longer owner callability but the first app-local policy consequence.
+A second routing rule is now worth keeping explicit too: if a Swift-heavy case still depends on proving one `@MainActor`-isolated view-model, coordinator, or UI-state handoff after resume/delivery, keep the continuation page open first; only hand off to this page after that MainActor-side durable consumer is frozen strongly enough.
 
 The central question is usually:
 

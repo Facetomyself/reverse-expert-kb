@@ -1,0 +1,454 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Swift MainActor async callback continuation first consumer view model coordinator reversing",
+    "Swift concurrency MainActor continuation resume view model state update debugging",
+    "Swift AsyncStream MainActor consumer state update coordinator async sequence"
+  ],
+  "count": 25,
+  "results": [
+    {
+      "title": "Swift concurrency: Update a sample app - WWDC21 - Videos",
+      "url": "https://developer.apple.com/la/videos/play/wwdc2021/10194/",
+      "snippet": "To get the most out of this code-along, we recommend first watching “Meet async/await in Swift” and “Protect mutable state with Swift actors” from WWDC21. Note:",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "MainActor + AsyncSequence - Github-Gist",
+      "url": "https://gist.github.com/mattmassicotte/e8d5b4f73d2545222decd61ccdc348bd",
+      "snippet": "@MainActor. final class UsesAsyncSequence {. func original() {. let stream = AsyncStream { 42 }. Task {. // Passing argument of non-sendable type.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "AsyncStream and Actors - Using Swift",
+      "url": "https://forums.swift.org/t/asyncstream-and-actors/70545",
+      "snippet": "That seems to be covered with this proposal - swift-evolution/proposals/0420-inheritance-of-actor-isolation.md at main · apple/swift-evolution · GitHub. Yet it is not going to be available until Swift 6, so right now I suppose the only way to handle this is to make function `nonisolated`. I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? // WARNING: Passing argument of non-sendable type 'inout AsyncStream<Data>.Iterator' outside of main actor-isolated context may introduce data races.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "@MainActor view model with async let functions : r/SwiftUI - Reddit",
+      "url": "https://www.reddit.com/r/SwiftUI/comments/1btn9uj/mainactor_view_model_with_async_let_functions/",
+      "snippet": "I want to have async functions run on different threads for the sake of concurrency, and these functions are defined in a viewModel class that uses @ Main",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6364
+    },
+    {
+      "title": "AsyncStream, AsyncSequence & Cancellation Headaches - Medium",
+      "url": "https://medium.com/@wesleymatlock/modern-swift-concurrency-in-the-wild-asyncstream-asyncsequence-cancelation-headaches-60722d779ccf",
+      "snippet": "You sprinkle in `Task {}` and `async let`, maybe wrap a legacy API with `AsyncStream`, and everything feels clean… until your app leaks memory, animations stutter, and you can’t tell if your task was even canceled. func start() {        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in            let seats = Seat.generateRandomSeats()            self.delegate?.seatFeedService(self, didUpdate: seats)        }    }    func stop() {        timer?.invalidate()        timer = nil    }}protocol SeatFeedDelegate: AnyObject {    func seatFeedService(_ service: SeatFeedService, didUpdate seats: [Seat])} final class SeatFeedService weak var SeatFeedDelegate private var Timer func start = Timer0.5 true _ in let = Seat self? func startStreaming(service: SeatFeedService) {        streamTask?.cancel()        streamTask = Task {            do {                let stream = AsyncThrottleSequence(                    base: makeSeatStream(service: service),                    delay: .milliseconds(800)                )                for try await update in stream {                    await MainActor.run {                        withAnimation(.easeInOut(duration: 0.3)) {                            self.seats = update                        }                    }                }            } catch {                // timeout or cancelation error            }        }    }    func cancel() {        streamTask?.cancel()    }} @Observable final class SeatViewModel @MainActor @Publishedprivate(set) var Seat = private var Task Void Never func startStreaming service SeatFeedService?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5091
+    },
+    {
+      "title": "Taking SwiftData Further: @ModelActor, Swift Concurrency, and Avoiding @MainActor Pitfalls",
+      "url": "https://killlilwinters.medium.com/taking-swiftdata-further-modelactor-swift-concurrency-and-avoiding-mainactor-pitfalls-3692f61f2fa1",
+      "snippet": "",
+      "published_date": "2025-07-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4818
+    },
+    {
+      "title": "Swift Concurrency [PART-5](@MainActor) | by Debdut Saha | Jan, 2026 | Medium",
+      "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-5-mainactor-3c3431cc0700",
+      "snippet": "",
+      "published_date": "2026-01-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4545
+    },
+    {
+      "title": "Practical Swift Concurrency: Continuations, TaskGroup & More",
+      "url": "https://medium.com/@anubhavgiri01/concurrency-in-ios-part-5-b-practical-swift-concurrency-patterns-6a853aaed156",
+      "snippet": "A hands-on guide to Swift Concurrency in iOS: bridge legacy APIs with continuations, pass context via TaskLocal, ensure safety with Sendable",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4545
+    },
+    {
+      "title": "Why async/await Changes SwiftUI Architecture More Than You Expect | by Eugenio Barquin | Jan, 2026 | Medium",
+      "url": "https://medium.com/@eu.barquin/why-async-await-changes-swiftui-architecture-more-than-you-expect-9fbe086e6d6e",
+      "snippet": "",
+      "published_date": "2026-01-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4545
+    },
+    {
+      "title": "The Complete Guide to Swift Concurrency: From Threading to Actors ...",
+      "url": "https://medium.com/@thakurneeshu280/the-complete-guide-to-swift-concurrency-from-threading-to-actors-in-swift-6-a9cf006a19ac",
+      "snippet": "// Sendable: Safe to send across concurrency boundariesstruct User: Sendable {  // All properties must be thread-safe    let id: UUID    let name: String}// Non-Sendableclass UserSession {  // Classes aren't Sendable by default    var token: String = \"\"}// Actor reentrancy exampleactor Counter {    var value = 0        func increment() async {        let oldValue = value        await Task.sleep(1_000_000)  // Suspension point! // Actor reentrancy example actor Counter var = 0 func increment async let = await Task 1_000_000. actor NetworkManager {    static let shared = NetworkManager()        private var cache: [URL: CachedResponse] = [:]        private struct CachedResponse {        let data: Data        let timestamp: Date    }        func fetch<T: Codable>(url: URL, cachePolicy: CachePolicy = .useCache) async throws -> T {        // Check cache        if cachePolicy == .useCache,           let cached = cache[url],           Date().timeIntervalSince(cached.timestamp) < 300 {            return try JSONDecoder().decode(T.self, from: cached.data)        }                // Fetch from network        let (data, response) = try await URLSession.shared.data(from: url)                guard let httpResponse = response as?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4545
+    },
+    {
+      "title": "Swift Concurrency[PART-8]AsyncSequence & Streams in ... - Medium",
+      "url": "https://medium.com/@debdut.saha.1/swift-concurrency-part-8-asyncsequence-streams-in-swift-concurrency-dc813cc02269",
+      "snippet": "",
+      "published_date": "2026-01-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4545
+    },
+    {
+      "title": "Mastering Modern Concurrency in Swift — Part 6: Async Sequences and Streams",
+      "url": "https://blog.stackademic.com/mastering-modern-concurrency-in-swift-part-6-async-sequences-and-streams-c402a4251308",
+      "snippet": "",
+      "published_date": "2025-08-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4545
+    },
+    {
+      "title": "Swift 6: Asynchronous Data Flows with AsyncStream and AsyncSequence",
+      "url": "https://medium.com/@mrhotfix/swift-6-concurrency-mastering-asyncstream-and-asyncsequence-for-data-flows-7fb65ad69ced",
+      "snippet": "",
+      "published_date": "2025-09-17T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4545
+    },
+    {
+      "title": "Swift Concurrency Guide. Modern Concurrency in Swift… | by Anuj Rai | Mar, 2026 | Medium",
+      "url": "https://medium.com/%40anuj.rai2489/swift-concurrency-guide-0f7c482f3efb",
+      "snippet": "",
+      "published_date": "2026-03-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4273
+    },
+    {
+      "title": "Migrating callback based code to Swift Concurrency with continuations",
+      "url": "https://www.donnywals.com/migrating-callback-based-code-to-swift-concurrency-with-continuations/",
+      "snippet": "",
+      "published_date": "2022-04-24T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "AsyncStream and AsyncSequence for Swift Concurrency",
+      "url": "https://matteomanferdini.com/swift-asyncstream/",
+      "snippet": "We will implement a simple chat app that delivers messages as an asynchronous stream as an example. For simplicity, we will use the `Message` structure to deliver messages, status updates, and errors through a single stream of type AsyncStream. @Observable class Postman: NSObject { let messages: AsyncStream private(set) var isConnected = false private let continuation: AsyncStream.Continuation private let webSocketTask: URLSessionWebSocketTask = URLSession.shared.webSocketTask( with: URL(string: \"wss://ws.postman-echo.com/raw\")! The `Postman` class exposes the `messages` asynchronous stream, which other code can access using a `for await in` loop. @Observable class Postman: NSObject { let messages: AsyncStream private(set) var isConnected = false private let continuation: AsyncStream.Continuation private let webSocketTask: URLSessionWebSocketTask = URLSession.shared.webSocketTask( with: URL(string: \"wss://ws.postman-echo.com/raw\")! @Observable class Postman: NSObject { let messages: AsyncStream private(set) var isConnected = false private let continuation: AsyncStream.Continuation private let webSocketTask: URLSessionWebSocketTask = URLSession.shared.webSocketTask( with: URL(string: \"wss://ws.postman-echo.com/raw\")! In the `completionHandler` closure, I called the `yield(_:)` method on the continuation to deliver sent messages and eventual errors through the stream.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "How to use Tasks and MainActor in Swift Concurrency - LinkedIn",
+      "url": "https://www.linkedin.com/posts/jacobmartinbartlett_advanced-swift-concurrency-jumping-to-the-activity-7376964175908007937-qrZr",
+      "snippet": "",
+      "published_date": "2025-09-25T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "Swift concurrency: Update a sample app - WWDC Notes",
+      "url": "https://wwdcnotes.com/documentation/wwdcnotes/wwdc21-10194-swift-concurrency-update-a-sample-app/",
+      "snippet": "Use @MainActor to coordinate operations on the main thread, two ways: call await MainActor.run { ... } - this takes a block of code to run on the main actor.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "MainActor usage in Swift explained to dispatch to the main thread",
+      "url": "https://www.avanderlee.com/swift/mainactor-dispatch-main-thread/",
+      "snippet": "SwiftLee > Swift > MainActor usage in Swift explained to dispatch to the main thread. # MainActor usage in Swift explained to dispatch to the main thread. MainActor is a new attribute introduced in Swift 5.5 as a global actor providing an executor that performs its tasks on the main thread. A MainActor is a globally unique actor who performs his tasks on the main thread. Without the global actor attribute, anyone could forget to use `MainActor.run`, potentially leading to UI updates taking place on a background thread. Before Swift 5.5, you might have defined many dispatch statements to ensure tasks are running on the main thread. In those cases, isolating properties, methods, instances, or closures to the main actor ensures tasks perform on the main thread. Therefore, see if you can get your code on Swift 6; otherwise, be sharp when using the main actor attribute. * Global actor in Swift Concurrency explained with code examples. * MainActor usage in Swift explained to dispatch to the main thread.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "Creating and Introducing AsyncSharedStream | by Michael Long | The Swift Cooperative | Jan, 2026 | Medium",
+      "url": "https://office.qz.com/creating-and-introducing-asyncsharedstream-3e9185317a5a",
+      "snippet": "",
+      "published_date": "2026-01-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "Swift Observations AsyncSequence for State Changes",
+      "url": "https://useyourloaf.com/blog/swift-observations-asyncsequence-for-state-changes",
+      "snippet": "",
+      "published_date": "2025-08-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "Debugging Swift Concurrency: \"Am I on the Main Actor?\" (Not the Main Thread) - swiftyplace",
+      "url": "https://www.swiftyplace.com/blog/debugging-swift-concurrency",
+      "snippet": "",
+      "published_date": "2025-09-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "3 Swift Concurrency Challenges from the Last 2 Weeks",
+      "url": "https://twocentstudios.com/2025/08/12/3-swift-concurrency-challenges-from-the-last-2-weeks/",
+      "snippet": "",
+      "published_date": "2025-08-12T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "Swift Task Coalescing: From Duplicate Callers to a Single Request | Kamil Buczel",
+      "url": "https://buczel.com/blog/swift-task-coalescing/",
+      "snippet": "",
+      "published_date": "2026-01-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "Custom Asynchronous Sequences With AsyncStream - Kodeco",
+      "url": "https://www.kodeco.com/books/modern-concurrency-in-swift/v1.0/chapters/4-custom-asynchronous-sequences-with-asyncstream",
+      "snippet": "Bi iti npe duclah szukos pou tahzgav, mee kyiunu o sus rdfvig zexyasa xluh toqs **J escanu ikozz** ujs emb ak fi pmo pazvoxux agyew. Vapa Kqekwim e wmf gm ajjesikf o adey tagi epc foltayh hpi eknoc feznez op yzo yabms-valz jeci ez dbo kuzof mdfiew:. Hadun up ic osefpqe uq i yylihdoduq — ul oxkgfcjeyeol witeiqko hguf “dljic” o yjgoku iscubv a kdimabqup uruqg mukubg. To streamline creating asynchronous sequences, Apple has added a type called `AsyncStream`, which aims to make creating async sequences as simple and quick as possible. var phrase = \"Hello, world!\" var index = phrase.startIndex let stream = AsyncStream { guard index < phrase.endIndex else { return nil } do { try await Task.sleep(nanoseconds: 1_000_000_000) } catch { return nil } let result = String(phrase[phrase.startIndex...index]) index = phrase.index(after: index) return result } for try await item in stream { print(item) }. Ygehuraqepqr, dia’jp oxv u gefmet ci `PijopatuxiyNetpap` yyof yudf puu ulaqaxe uquf rulozojaqiutp od o `zis oviec` buap:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3273
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Swift Concurrency Guide. Modern Concurrency in Swift… | by Anuj Rai | Mar, 2026 | Medium",
+        "url": "https://medium.com/%40anuj.rai2489/swift-concurrency-guide-0f7c482f3efb",
+        "snippet": "",
+        "published_date": "2026-03-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4273
+      },
+      {
+        "title": "Debugging Swift Concurrency: \"Am I on the Main Actor?\" (Not the Main Thread) - swiftyplace",
+        "url": "https://www.swiftyplace.com/blog/debugging-swift-concurrency",
+        "snippet": "",
+        "published_date": "2025-09-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "3 Swift Concurrency Challenges from the Last 2 Weeks",
+        "url": "https://twocentstudios.com/2025/08/12/3-swift-concurrency-challenges-from-the-last-2-weeks/",
+        "snippet": "",
+        "published_date": "2025-08-12T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3273
+      },
+      {
+        "title": "How to use Tasks and MainActor in Swift Concurrency - LinkedIn",
+        "url": "https://www.linkedin.com/posts/jacobmartinbartlett_advanced-swift-concurrency-jumping-to-the-activity-7376964175908007937-qrZr",
+        "snippet": "",
+        "published_date": "2025-09-25T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "Swift Concurrency [PART-5](@MainActor) | by Debdut Saha | Jan, 2026 | Medium",
+        "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-5-mainactor-3c3431cc0700",
+        "snippet": "",
+        "published_date": "2026-01-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4545
+      },
+      {
+        "title": "Swift Concurrency [PART-5](@MainActor) | by Debdut Saha | Jan, 2026 | Medium",
+        "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-5-mainactor-3c3431cc0700",
+        "snippet": "",
+        "published_date": "2026-01-21T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Taking SwiftData Further: @ModelActor, Swift Concurrency, and Avoiding @MainActor Pitfalls",
+        "url": "https://killlilwinters.medium.com/taking-swiftdata-further-modelactor-swift-concurrency-and-avoiding-mainactor-pitfalls-3692f61f2fa1",
+        "snippet": "",
+        "published_date": "2025-07-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4818
+      },
+      {
+        "title": "Why async/await Changes SwiftUI Architecture More Than You Expect | by Eugenio Barquin | Jan, 2026 | Medium",
+        "url": "https://medium.com/@eu.barquin/why-async-await-changes-swiftui-architecture-more-than-you-expect-9fbe086e6d6e",
+        "snippet": "",
+        "published_date": "2026-01-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4545
+      },
+      {
+        "title": "Swift Task Coalescing: From Duplicate Callers to a Single Request | Kamil Buczel",
+        "url": "https://buczel.com/blog/swift-task-coalescing/",
+        "snippet": "",
+        "published_date": "2026-01-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "Migrating callback based code to Swift Concurrency with continuations",
+        "url": "https://www.donnywals.com/migrating-callback-based-code-to-swift-concurrency-with-continuations/",
+        "snippet": "",
+        "published_date": "2022-04-24T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Creating and Introducing AsyncSharedStream | by Michael Long | The Swift Cooperative | Jan, 2026 | Medium",
+        "url": "https://office.qz.com/creating-and-introducing-asyncsharedstream-3e9185317a5a",
+        "snippet": "",
+        "published_date": "2026-01-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "Swift Concurrency[PART-8]AsyncSequence & Streams in ... - Medium",
+        "url": "https://medium.com/@debdut.saha.1/swift-concurrency-part-8-asyncsequence-streams-in-swift-concurrency-dc813cc02269",
+        "snippet": "",
+        "published_date": "2026-01-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4545
+      },
+      {
+        "title": "Swift Observations AsyncSequence for State Changes",
+        "url": "https://useyourloaf.com/blog/swift-observations-asyncsequence-for-state-changes",
+        "snippet": "",
+        "published_date": "2025-08-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "Mastering Modern Concurrency in Swift — Part 6: Async Sequences and Streams",
+        "url": "https://blog.stackademic.com/mastering-modern-concurrency-in-swift-part-6-async-sequences-and-streams-c402a4251308",
+        "snippet": "",
+        "published_date": "2025-08-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4545
+      },
+      {
+        "title": "Swift 6: Asynchronous Data Flows with AsyncStream and AsyncSequence",
+        "url": "https://medium.com/@mrhotfix/swift-6-concurrency-mastering-asyncstream-and-asyncsequence-for-data-flows-7fb65ad69ced",
+        "snippet": "",
+        "published_date": "2025-09-17T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4545
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Swift concurrency: Update a sample app - WWDC Notes",
+        "url": "https://wwdcnotes.com/documentation/wwdcnotes/wwdc21-10194-swift-concurrency-update-a-sample-app/",
+        "snippet": "Use @MainActor to coordinate operations on the main thread, two ways: call await MainActor.run { ... } - this takes a block of code to run on the main actor.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "3 Swift Concurrency Challenges from the Last 2 Weeks",
+        "url": "https://twocentstudios.com/2025/08/12/3-swift-concurrency-challenges-from-the-last-2-weeks/",
+        "snippet": "func setNotificationTapHandler(_ handler: @escaping @MainActor(PushNotificationPayload) -> Void){notificationTapHandler = handler} @MainActor func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) as ync{let userInfo = response. From this whole weeks-long process, I’ve learned essentially nothing about the proper usage of Swift Concurrency, my mental model is less well-formed than it used to be, and I still have a lingering problem that I cannot practically devote enough time to comprehensively solve right now. // Version 1: queryActivityStarting Task{@MainActor[weak self] in guard let self else{return}// Check motion history for timeout let timeout = await withCheckedContinuation{continuation in activityManager. However, is it correct to await with a `MainActor`-isolated `Task` while also having the `queryActivityStarting` function return on `OperationQueue.main`? final class SerialProcessor< Input: Sendable, Output: Sendable>{typealias Process = @Sendable(Input) as ync -> Output// Inbound (sync) and outbound (single-consumer) pipes private let inPair:(stream: AsyncStream< Input>, continuation: AsyncStream< Input>. stream{let output = await process(input) outPair. @MainActor @Observable final class ContentViewModel{@ObservationIgnored let serialProcessor: SerialProcessor< CLLocation, RailwayTrackerResult>private(set) var latestResult: RailwayTrackerResult ?",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to use Tasks and MainActor in Swift Concurrency - LinkedIn",
+        "url": "https://www.linkedin.com/posts/jacobmartinbartlett_advanced-swift-concurrency-jumping-to-the-activity-7376964175908007937-qrZr",
+        "snippet": "Advanced Swift Concurrency: Jumping to the Main Thread vs Main Actor It’s critical to move work between background threads and the main thread, in order to update any UI. It’s really important to understand that this is different from executing immediately—the Swift Concurrency runtime global concurrent executor schedules jobs on the cooperative thread pool. 🔗 New Article Published: “Understanding Swift Concurrency – From Callbacks to Actors” I just published a deep dive into how async/await, Task, and actor transform the way we write concurrency in Swift — and how we can avoid the pitfalls of the old GCD world. Check it out on Medium: “Understanding Swift Concurrency: From Callbacks to Actors — A Real iOS Use Case” 🧠 What You’ll Learn Why callbacks and DispatchQueue approaches were fragile How async/await simplifies asynchronous code How actor protects shared mutable state https://lnkd.in/dSwZWxeS. Understanding Swift Concurrency: From Callbacks to Actors — A Real iOS Use Case   medium.com.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Practical Swift Concurrency: Continuations, TaskGroup & More",
+        "url": "https://medium.com/@anubhavgiri01/concurrency-in-ios-part-5-b-practical-swift-concurrency-patterns-6a853aaed156",
+        "snippet": "A hands-on guide to Swift Concurrency in iOS: bridge legacy APIs with continuations, pass context via TaskLocal, ensure safety with Sendable",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4545
+      },
+      {
+        "title": "Swift concurrency: Update a sample app - WWDC21 - Videos",
+        "url": "https://developer.apple.com/la/videos/play/wwdc2021/10194/",
+        "snippet": "To get the most out of this code-along, we recommend first watching “Meet async/await in Swift” and “Protect mutable state with Swift actors” from WWDC21. Note:",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "@MainActor view model with async let functions : r/SwiftUI - Reddit",
+        "url": "https://www.reddit.com/r/SwiftUI/comments/1btn9uj/mainactor_view_model_with_async_let_functions/",
+        "snippet": "I want to have async functions run on different threads for the sake of concurrency, and these functions are defined in a viewModel class that uses @ Main",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6364
+      },
+      {
+        "title": "Migrating callback based code to Swift Concurrency with continuations",
+        "url": "https://www.donnywals.com/migrating-callback-based-code-to-swift-concurrency-with-continuations/",
+        "snippet": "# Migrating callback based code to Swift Concurrency with continuations. Swift's async/await feature significantly enhances the readability of asynchronous code for iOS 13 and later versions. In this post, I'll demonstrate how to convert callback-based asynchronous code into functions compatible with async/await, using Swift's `async` keyword. ## Converting a Callback-Based Function to Async/Await. To adapt our `validToken` function for async/await, we create an `async throws` version returning a `Token`. The challenge lies in integrating the existing callback-based `validToken` with our new async version. This function uses `withCheckedThrowingContinuation` to bridge our callback-based `validToken` with the async version. This post illustrated how to transform a callback-based function into an async function using continuations. Continuations are an excellent tool for gradually integrating async/await into your existing codebase without a complete overhaul. In conclusion, continuations offer a straightforward and elegant solution for converting existing callback-based functions into async/await compatible ones. The difference between checked and unsafe continuations in Swift.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to use Tasks and MainActor in Swift Concurrency - LinkedIn",
+        "url": "https://www.linkedin.com/posts/jacobmartinbartlett_advanced-swift-concurrency-jumping-to-the-activity-7376964175908007937-qrZr",
+        "snippet": "Advanced Swift Concurrency: Jumping to the Main Thread vs Main Actor It’s critical to move work between background threads and the main thread, in order to update any UI. It’s really important to understand that this is different from executing immediately—the Swift Concurrency runtime global concurrent executor schedules jobs on the cooperative thread pool. 🔗 New Article Published: “Understanding Swift Concurrency – From Callbacks to Actors” I just published a deep dive into how async/await, Task, and actor transform the way we write concurrency in Swift — and how we can avoid the pitfalls of the old GCD world. Check it out on Medium: “Understanding Swift Concurrency: From Callbacks to Actors — A Real iOS Use Case” 🧠 What You’ll Learn Why callbacks and DispatchQueue approaches were fragile How async/await simplifies asynchronous code How actor protects shared mutable state https://lnkd.in/dSwZWxeS. Understanding Swift Concurrency: From Callbacks to Actors — A Real iOS Use Case   medium.com.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "MainActor usage in Swift explained to dispatch to the main thread",
+        "url": "https://www.avanderlee.com/swift/mainactor-dispatch-main-thread/",
+        "snippet": "SwiftLee > Swift > MainActor usage in Swift explained to dispatch to the main thread. # MainActor usage in Swift explained to dispatch to the main thread. MainActor is a new attribute introduced in Swift 5.5 as a global actor providing an executor that performs its tasks on the main thread. A MainActor is a globally unique actor who performs his tasks on the main thread. Without the global actor attribute, anyone could forget to use `MainActor.run`, potentially leading to UI updates taking place on a background thread. Before Swift 5.5, you might have defined many dispatch statements to ensure tasks are running on the main thread. In those cases, isolating properties, methods, instances, or closures to the main actor ensures tasks perform on the main thread. Therefore, see if you can get your code on Swift 6; otherwise, be sharp when using the main actor attribute. * Global actor in Swift Concurrency explained with code examples. * MainActor usage in Swift explained to dispatch to the main thread.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "The Complete Guide to Swift Concurrency: From Threading to Actors ...",
+        "url": "https://medium.com/@thakurneeshu280/the-complete-guide-to-swift-concurrency-from-threading-to-actors-in-swift-6-a9cf006a19ac",
+        "snippet": "// Sendable: Safe to send across concurrency boundariesstruct User: Sendable {  // All properties must be thread-safe    let id: UUID    let name: String}// Non-Sendableclass UserSession {  // Classes aren't Sendable by default    var token: String = \"\"}// Actor reentrancy exampleactor Counter {    var value = 0        func increment() async {        let oldValue = value        await Task.sleep(1_000_000)  // Suspension point! // Actor reentrancy example actor Counter var = 0 func increment async let = await Task 1_000_000. actor NetworkManager {    static let shared = NetworkManager()        private var cache: [URL: CachedResponse] = [:]        private struct CachedResponse {        let data: Data        let timestamp: Date    }        func fetch<T: Codable>(url: URL, cachePolicy: CachePolicy = .useCache) async throws -> T {        // Check cache        if cachePolicy == .useCache,           let cached = cache[url],           Date().timeIntervalSince(cached.timestamp) < 300 {            return try JSONDecoder().decode(T.self, from: cached.data)        }                // Fetch from network        let (data, response) = try await URLSession.shared.data(from: url)                guard let httpResponse = response as?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4545
+      },
+      {
+        "title": "MainActor + AsyncSequence - Github-Gist",
+        "url": "https://gist.github.com/mattmassicotte/e8d5b4f73d2545222decd61ccdc348bd",
+        "snippet": "@MainActor. final class UsesAsyncSequence {. func original() {. let stream = AsyncStream { 42 }. Task {. // Passing argument of non-sendable type.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "AsyncStream, AsyncSequence & Cancellation Headaches - Medium",
+        "url": "https://medium.com/@wesleymatlock/modern-swift-concurrency-in-the-wild-asyncstream-asyncsequence-cancelation-headaches-60722d779ccf",
+        "snippet": "You sprinkle in `Task {}` and `async let`, maybe wrap a legacy API with `AsyncStream`, and everything feels clean… until your app leaks memory, animations stutter, and you can’t tell if your task was even canceled. func start() {        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in            let seats = Seat.generateRandomSeats()            self.delegate?.seatFeedService(self, didUpdate: seats)        }    }    func stop() {        timer?.invalidate()        timer = nil    }}protocol SeatFeedDelegate: AnyObject {    func seatFeedService(_ service: SeatFeedService, didUpdate seats: [Seat])} final class SeatFeedService weak var SeatFeedDelegate private var Timer func start = Timer0.5 true _ in let = Seat self? func startStreaming(service: SeatFeedService) {        streamTask?.cancel()        streamTask = Task {            do {                let stream = AsyncThrottleSequence(                    base: makeSeatStream(service: service),                    delay: .milliseconds(800)                )                for try await update in stream {                    await MainActor.run {                        withAnimation(.easeInOut(duration: 0.3)) {                            self.seats = update                        }                    }                }            } catch {                // timeout or cancelation error            }        }    }    func cancel() {        streamTask?.cancel()    }} @Observable final class SeatViewModel @MainActor @Publishedprivate(set) var Seat = private var Task Void Never func startStreaming service SeatFeedService?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5091
+      },
+      {
+        "title": "AsyncStream and AsyncSequence for Swift Concurrency",
+        "url": "https://matteomanferdini.com/swift-asyncstream/",
+        "snippet": "We will implement a simple chat app that delivers messages as an asynchronous stream as an example. For simplicity, we will use the `Message` structure to deliver messages, status updates, and errors through a single stream of type AsyncStream. @Observable class Postman: NSObject { let messages: AsyncStream private(set) var isConnected = false private let continuation: AsyncStream.Continuation private let webSocketTask: URLSessionWebSocketTask = URLSession.shared.webSocketTask( with: URL(string: \"wss://ws.postman-echo.com/raw\")! The `Postman` class exposes the `messages` asynchronous stream, which other code can access using a `for await in` loop. @Observable class Postman: NSObject { let messages: AsyncStream private(set) var isConnected = false private let continuation: AsyncStream.Continuation private let webSocketTask: URLSessionWebSocketTask = URLSession.shared.webSocketTask( with: URL(string: \"wss://ws.postman-echo.com/raw\")! @Observable class Postman: NSObject { let messages: AsyncStream private(set) var isConnected = false private let continuation: AsyncStream.Continuation private let webSocketTask: URLSessionWebSocketTask = URLSession.shared.webSocketTask( with: URL(string: \"wss://ws.postman-echo.com/raw\")! In the `completionHandler` closure, I called the `yield(_:)` method on the continuation to deliver sent messages and eventual errors through the stream.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "AsyncStream and Actors - Using Swift",
+        "url": "https://forums.swift.org/t/asyncstream-and-actors/70545",
+        "snippet": "That seems to be covered with this proposal - swift-evolution/proposals/0420-inheritance-of-actor-isolation.md at main · apple/swift-evolution · GitHub. Yet it is not going to be available until Swift 6, so right now I suppose the only way to handle this is to make function `nonisolated`. I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? // WARNING: Passing argument of non-sendable type 'inout AsyncStream<Data>.Iterator' outside of main actor-isolated context may introduce data races.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "Custom Asynchronous Sequences With AsyncStream - Kodeco",
+        "url": "https://www.kodeco.com/books/modern-concurrency-in-swift/v1.0/chapters/4-custom-asynchronous-sequences-with-asyncstream",
+        "snippet": "Bi iti npe duclah szukos pou tahzgav, mee kyiunu o sus rdfvig zexyasa xluh toqs **J escanu ikozz** ujs emb ak fi pmo pazvoxux agyew. Vapa Kqekwim e wmf gm ajjesikf o adey tagi epc foltayh hpi eknoc feznez op yzo yabms-valz jeci ez dbo kuzof mdfiew:. Hadun up ic osefpqe uq i yylihdoduq — ul oxkgfcjeyeol witeiqko hguf “dljic” o yjgoku iscubv a kdimabqup uruqg mukubg. To streamline creating asynchronous sequences, Apple has added a type called `AsyncStream`, which aims to make creating async sequences as simple and quick as possible. var phrase = \"Hello, world!\" var index = phrase.startIndex let stream = AsyncStream { guard index < phrase.endIndex else { return nil } do { try await Task.sleep(nanoseconds: 1_000_000_000) } catch { return nil } let result = String(phrase[phrase.startIndex...index]) index = phrase.index(after: index) return result } for try await item in stream { print(item) }. Ygehuraqepqr, dia’jp oxv u gefmet ci `PijopatuxiyNetpap` yyof yudf puu ulaqaxe uquf rulozojaqiutp od o `zis oviec` buap:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3273
+      }
+    ],
+    "grok": []
+  }
+}
