@@ -1,0 +1,726 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "RPC service contract method dispatch minimal replay fixture reverse engineering",
+    "opnum method contract minimal reproducible replay fixture protocol reverse engineering",
+    "async RPC request completion replay fixture correlation timeout stale reply"
+  ],
+  "count": 38,
+  "results": [
+    {
+      "title": "Protocol reverse engineering / Reproduce HTTP dialogue",
+      "url": "https://stackoverflow.com/questions/2143663/protocol-reverse-engineering-reproduce-http-dialogue",
+      "snippet": "### your communities. ### more stack exchange communities. ##### Collectives™ on Stack Overflow. I have already done the first step, which is analysing some HTTP exchanges (done using POST request and XML replies) with Wireshark. Basically I don't need much \"programming\" power, just the ability to parse some variables in the server responses and re-use them in the successive request. ## 2 Answers 2. If you don't need a scalable solution, and your app needs to deal with particular requests/response only, you can precreate several requests as XML blobs and just update any variables in them, send them and do basic XML parsing to get the values of the XML elements with the response. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. ##### Stack Overflow. ##### Stack Exchange Network. Site design / logo © 2026 Stack Exchange Inc;.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.74
+    },
+    {
+      "title": "GitHub - xpn/RpcEnum: An command-line RPC method enumerator, born out of RPCView's awesomeness",
+      "url": "https://github.com/xpn/RpcEnum",
+      "snippet": "",
+      "published_date": "2019-07-31T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "Handle request replays by Jetty due to timeout of long-running ...",
+      "url": "https://github.com/tipsy/javalin/issues/448",
+      "snippet": "If a back-end service takes longer than 30 seconds to process an asynchronous request, Jetty will replay the request, while setting response",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.66
+    },
+    {
+      "title": "GitHub - klezVirus/RpcProxyInvoke: Simple POC library to execute arbitrary calls proxying them via NdrServerCall2 or similar",
+      "url": "https://github.com/klezVirus/RpcProxyInvoke",
+      "snippet": "",
+      "published_date": "2024-06-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "how can I set timeout for each request in asynchronous client? #14602",
+      "url": "https://github.com/grpc/grpc/issues/14602",
+      "snippet": "Hi, I used asynchronous client for gRPC，but I can't set timeout for each request，when I used synchronous client, I can set the timeout",
+      "published_date": "",
+      "source": "tavily, exa, grok",
+      "score": 0.63
+    },
+    {
+      "title": "grpc async request without waiting for result - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/66069764/grpc-async-request-without-waiting-for-result",
+      "snippet": "I have two netty java grpc servers: ServerA and ServerB . one of my request flows looks like this: client makes rpc to ServerA . ServerA makes",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "[PDF] Efficient Remote Procedure Calls for Datacenters",
+      "url": "http://reports-archive.adm.cs.cmu.edu/anon/2019/CMU-CS-19-126.pdf",
+      "snippet": "Simple experiments allow reverse-engineering the NIC's locking mechanism. ... This avoids blocking dispatch-mode RPCs behind a long-running worker-mode RPC.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.62
+    },
+    {
+      "title": "Remote Procedure Call (RPC)",
+      "url": "https://cs.wellesley.edu/~cs249/Lectures/RPC/rpc.html",
+      "snippet": "A service, also called a program, is assigned a number. A service then assigns each procedure it exports a procedure number. A service then registers a dispatch",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.59
+    },
+    {
+      "title": "RS485 Protocol Reverse Engineering & Replay Challenges",
+      "url": "https://electronics.stackexchange.com/questions/588769/rs485-protocol-reverse-engineering-replay-challenges",
+      "snippet": "I'm trying to reverse engineer the RS485 protocol used by my home heater/AC. This protocol handles communications between the wired remote control (WRC)/",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.59
+    },
+    {
+      "title": "Fetching the Code of a Contract | OP_NET Docs",
+      "url": "https://docs.opnet.org/developers/interacting-with-an-opnet-node/using-a-provider/fetching-the-code-of-a-contract",
+      "snippet": "",
+      "published_date": "2025-06-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.58
+    },
+    {
+      "title": "Instantiating a Contract | OP_NET Docs",
+      "url": "https://docs.opnet.org/developers/interacting-with-a-contract/instantiating-a-contract",
+      "snippet": "",
+      "published_date": "2025-06-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.58
+    },
+    {
+      "title": "Interacting with Smart Contracts Using Call | OP_NET Docs",
+      "url": "https://docs.opnet.org/developers/interacting-with-an-opnet-node/using-a-provider/interacting-with-smart-contracts-using-call",
+      "snippet": "",
+      "published_date": "2025-06-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.58
+    },
+    {
+      "title": "How can I enumerate and hook into a Windows 10 RPC interface?",
+      "url": "https://reverseengineering.stackexchange.com/questions/20965/how-can-i-enumerate-and-hook-into-a-windows-10-rpc-interface",
+      "snippet": "",
+      "published_date": "2019-03-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.53
+    },
+    {
+      "title": "Appropriate way of timing out an asynchronous chat completions ...",
+      "url": "https://community.openai.com/t/appropriate-way-of-timing-out-an-asynchronous-chat-completions-stream/468299",
+      "snippet": "I have been having issues with both the completions and chat completion acreate methods hanging for long periods of time so am trying to implement a timeout.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.53
+    },
+    {
+      "title": "Impacket Developer Guide. Part 2. Finding RPC on the system ...",
+      "url": "https://cicada-8.medium.com/impacket-developer-guide-part-2-finding-rpc-on-the-system-and-some-words-about-in-security-7df65acbd621",
+      "snippet": "Explains RPC/DCOM servers, OpNum (Operation Number) for methods, tools like RPCView, rpv, and RpcEnum for enumeration and reverse engineering, including calling methods by OpNum.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.52
+    },
+    {
+      "title": "Using NtObjectManager to Decompile an RPC Interface | by Lachunas Berme | Medium",
+      "url": "https://medium.com/%40lachunasberme/using-ntobjectmanager-to-decompile-an-rpc-interface-ca6356c22c9a",
+      "snippet": "",
+      "published_date": "2026-01-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "Introducing RPC Investigator",
+      "url": "https://blog.trailofbits.com/2023/01/17/rpc-investigator-microsoft-windows-remote-procedure-call/",
+      "snippet": "",
+      "published_date": "2023-01-17T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "Reverse Engineering a Contract | ethereum.org",
+      "url": "https://ethereum.org/bn/developers/tutorials/reverse-engineering-a-contract",
+      "snippet": "",
+      "published_date": "2025-08-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "trace_replayBlockTransactions RPC Method | Optimism Docs",
+      "url": "https://www.quicknode.com/docs/optimism/trace_replayBlockTransactions",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "Automating MS-RPC vulnerability research",
+      "url": "https://incendium.rocks/posts/Automating-MS-RPC-Vulnerability-Research",
+      "snippet": "Covers MS-RPC procedures identified by opnum, MIDL interface definitions, reverse engineering approaches with Ghidra/IDA, and creating minimal reproducible examples for vulnerabilities like PetitPotam (opnum 0).",
+      "published_date": "2025-05-20",
+      "source": "grok",
+      "score": 0.38
+    },
+    {
+      "title": "ManageEngine ADAudit - Reverse engineering Windows RPC to ...",
+      "url": "https://shelltrail.com/research/manageengine-adaudit-reverse-engineering-windows-rpc-to-find-cve-2024-36036-and-cve-2024-36037-part2",
+      "snippet": "// Agent.RPC.RPCHandler // Token: 0x06000129 RID: 297 RVA: 0x00008D04 File Offset: 0x00006F04 private static int NotifyAgentStr(int notifyId, string msgStr) { int errStatus = 1; try { Hashtable msgMap = JsonAPI.JsonToHashtable(msgStr); if (msgMap.ContainsKey(\"AgentUID\") && DataStore.Get(\"AgentUID\").ToString().Equals(msgMap[\"AgentUID\"].ToString())) { errStatus = 0; JObject json = JObject.Parse(msgStr); json.Remove(\"AgentUID\"); json.Remove(\"ADAP_SERVER_DNS_NAME\"); string jsonMsgStr = JsonAPI.ObjectToJsonString(json); switch (notifyId) { case 0: DataStore.Update(jsonMsgStr); goto IL_24F; case 1: if (! > Get-Content 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\MessengerLog_2023_12_01.txt' -Tail 10 [2023-12-01 19:41:03,834] [11][INFO ][Messenger] : NATV.FA_NotifyAgentStr :: notification from ADAP server, notifyId : 0 [2023-12-01 19:41:03,849] [11][ERROR][Messenger] : EXCEPTION :: RPCHandler.NotifyAgentStr : Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: s. > Get-Content 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\MessengerLog_2023_12_01.txt' -Tail 1 [10][INFO ][Messenger] : NATV.FA_NotifyAgentStr :: notification from ADAP server, notifyId : 0 ... > Get-ChildItem 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\*' | Select-String snus AgentLog_2023_12_01.txt:103:[2023-12-01 20:14:55,884] [10][INFO ][Default] : Set Registry Key: HKEY_LOCAL_MACHINE\\SOFTWARE\\ManageEngine\\ADAP\\snus = true ... > Get-Content 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\AgentLog_2023_12_02.txt' | Select-String SMSTatus [2023-12-02 10:28:29,988] [9][INFO ][Default] : Set Registry Key: HKEY_LOCAL_MACHINE\\SOFTWARE\\ManageEngine\\ADAP\\SessionMonitoring\\SMStatus = True ...",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.37
+    },
+    {
+      "title": "RPC Bug Hunting Case Studies – Part 1 - Fortinet",
+      "url": "https://www.fortinet.com/blog/threat-research/the-case-studies-of-microsoft-windows-remote-procedure-call-serv",
+      "snippet": "It turns out that Windows Task Scheduler had flaws in one of its Remote Procedure Calls (RPC) Application Programming Interfaces (API) exposed via an RPC server. As a result, researchers have open-sourced a tool named RpcView, which is a very handy tool for identifying RPC services running on the Windows Operating System. The resulting text files consisted of all the RPC APIs that were callable from the RPC Servers. It is also worth noting that it calls the *RevertToSelf* function to terminate the impersonation before the *RecursiveDelete* function is called, which means the target directory and its contents can be deleted under local system privilege, that would allow us to achieve arbitrary files deletion if we managed to use a symbolic link to redirect the **diagtracktempdir** to an arbitrary folder. In this first part of the blog series, we have shown you our approach to finding a potential security risk in a Windows RPC Server using different available tools and online resources.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.36
+    },
+    {
+      "title": "Remote Procedure Call - IBM",
+      "url": "https://www.ibm.com/docs/en/aix/7.2.0?topic=concepts-remote-procedure-call",
+      "snippet": "In the RPC model, the client makes a procedure call to send a data packet to the server. When the packet arrives, the server calls a dispatch routine",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Identifying RPC Telemetry for Detection Engineers",
+      "url": "https://ipc-research.readthedocs.io/en/latest/subpages/RPC.html",
+      "snippet": "Each RPC method is identified by an OpNum. OpNum’s are given to a method based on where they are defined within the Server code ... RPC stands for remote procedure call and is a technology used for distributed client/server communications between programs.",
+      "published_date": "",
+      "source": "grok",
+      "score": 0.36
+    },
+    {
+      "title": "How to Fix 'Canceled' Request Errors in gRPC - OneUptime",
+      "url": "https://oneuptime.com/blog/post/2026-01-24-fix-canceled-request-errors-grpc/view",
+      "snippet": "// client_timeout.go package main import ( \"context\" \"log\" \"time\" \"google.golang.org/grpc\" \"google.golang.org/grpc/codes\" \"google.golang.org/grpc/credentials/insecure\" \"google.golang.org/grpc/status\" pb \"myapp/proto\" ) func main() { conn, err := grpc.Dial( \"localhost:50051\", grpc.WithTransportCredentials(insecure.NewCredentials()), ) if err != nil { log.Fatalf(\"Failed to connect: %v\", err) } defer conn.Close() client := pb.NewUserServiceClient(conn) // Problem: Timeout too short for the operation ctx, cancel := context.WithTimeout(context.Background(), 100*time.Millisecond) defer cancel() // This will fail with CANCELLED if the server takes > 100ms resp, err := client.GetUser(ctx, &pb.GetUserRequest{UserId: \"123\"}) if err != nil { st, ok := status.FromError(err) if ok { switch st.Code() { case codes.Canceled: log.Printf(\"Request was canceled: %v\", st.Message()) // This could be client timeout or manual cancellation case codes.DeadlineExceeded: log.Printf(\"Request deadline exceeded: %v\", st.Message()) // The deadline was reached before cancellation default: log.Printf(\"RPC failed: %v\", st.Message()) } } return } log.Printf(\"User: %v\", resp) }.",
+      "published_date": "",
+      "source": "tavily, exa, grok",
+      "score": 0.36
+    },
+    {
+      "title": "Booting into Trust: Reverse Engineering macOS Secure Boot Internals",
+      "url": "https://core-jmp.org/2026/03/booting-into-trust-reverse-engineering-macos-secure-boot-internals/",
+      "snippet": "",
+      "published_date": "2026-03-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "Reverse engineering tricks: identifying opaque network protocols",
+      "url": "https://www.skullsecurity.org/2023/reverse-engineering-tricks-identifying-opaque-network-protocols",
+      "snippet": "Lately, I’ve been reverse engineering a reasonably complex network protocol, and I ran into a mystery - while the protocol is generally an unencrypted binary protocol, one of the messages was large and random. In the request/response above, the 0x2c value seems like a great candidate for a message id, and it is! While working on this project, I noticed one packet that stands out: immediately after authenticating, the client sends an 8-byte request with id 0x0c, and the server responds with an enormous response (0x17ba bytes!) with the message type 0xff7f:. $ hexdump -C /tmp/test | head -n3 00000000 78 9c ed 9c 07 78 14 d5 da c7 4f 68 4a a4 08 2a |x....x....OhJ..*| 00000010 8a 08 ac 41 ba 09 09 04 08 a1 98 0e 01 52 c8 86 |...A.........R..| 00000020 be 10 36 9b dd 64 c9 6e 36 6c 09 04 01 47 34 08 |..6..d.n6l...G4.| $ file /tmp/test /tmp/test: zlib compressed data.",
+      "published_date": "",
+      "source": "tavily, grok",
+      "score": 0.36
+    },
+    {
+      "title": "Accessing the MS-NRPC interface as the RPC client ...",
+      "url": "https://securelist.com/ms-rpc-security-mechanism-step-by-step/116036",
+      "snippet": "Analyzes MS-NRPC security via reverse engineering, opnum checks in callbacks (e.g., opnum < 59), tools like RPC-Firewall for auditing RPC calls, UUIDs, and protocol behavior.",
+      "published_date": "2025-04-04",
+      "source": "grok",
+      "score": 0.35
+    },
+    {
+      "title": "Uncovering RPC Servers through Windows API Analysis",
+      "url": "https://posts.specterops.io/uncovering-rpc-servers-through-windows-api-analysis-5d23c0459db6",
+      "snippet": "This blog post covers reverse engineering RPC servers, explaining opnum as the index for functions in the RPC server function table, with examples using NdrClientCall3 and tools like IDA for locating interfaces and methods.",
+      "published_date": "2023-10-18",
+      "source": "grok",
+      "score": 0.34
+    },
+    {
+      "title": "Down the Rabbit Hole - A Deep Dive into an attack on an RPC ...",
+      "url": "https://www.thezdi.com/blog/2018/6/7/down-the-rabbit-hole-a-deep-dive-into-an-attack-on-an-rpc-interface",
+      "snippet": "",
+      "published_date": "2018-06-07T00:00:00.000Z",
+      "source": "exa, tavily, grok",
+      "score": 0.33
+    },
+    {
+      "title": "Enhancing Streaming and Request Handling Efficiency with gRPC ...",
+      "url": "https://sair.synerise.com/enhancing-streaming-and-request-handling-efficiency-with-grpc-and-coroutines-part-2/",
+      "snippet": "Explore how to handle thousands of workers (2160 and growing) using gRPC, coroutines, and asynchronous communication.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.33
+    },
+    {
+      "title": "How RPC Actually Works",
+      "url": "https://newsletter.systemdesign.one/p/how-rpc-works",
+      "snippet": "High performance: RPC uses compact, binary formats ... Strong typing: Because both sides share a strict contract ... Requires specialized tooling: You need special tools to generate the code for the client and server.",
+      "published_date": "2025-10-29",
+      "source": "grok",
+      "score": 0.32
+    },
+    {
+      "title": "Fantastic RPC Interfaces and How to Find Them",
+      "url": "https://www.akamai.com/blog/security-research/rpc-toolkit-fantastic-interfaces-how-to-find",
+      "snippet": "Discusses RPC operation numbers (opnum) as indexes into the server's function table, security checks on opnum, caller origin, and related RPC internals useful for reverse engineering and protocol analysis.",
+      "published_date": "2023-02-22",
+      "source": "grok",
+      "score": 0.31
+    },
+    {
+      "title": "How to Implement Request-Reply Pattern in RabbitMQ",
+      "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+      "snippet": "",
+      "published_date": "2026-01-27T00:00:00.000Z",
+      "source": "exa, grok",
+      "score": 0.3
+    },
+    {
+      "title": "[QUESTION] Async replication hashbeat fails with context deadline ...",
+      "url": "https://forum.weaviate.io/t/question-async-replication-hashbeat-fails-with-context-deadline-timeout/10527",
+      "snippet": "",
+      "published_date": "2025-02-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "suse-sle-hpc-15-sp4-byos-v20231214-hvm-ssd-x86_64 Package ...",
+      "url": "https://publiccloudimagechangeinfo.suse.com/amazon/suse-sle-hpc-15-sp4-byos-v20231214-hvm-ssd-x86_64/package_changelogs.html",
+      "snippet": "Remove redundant .changes files. - Add _multibuild to define 2nd spec file as additional flavor. Eliminates the need for source package links in OBS. - Add gcc7",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "gRPC and Deadlines",
+      "url": "https://grpc.io/blog/deadlines",
+      "snippet": "Deadlines allow gRPC clients to specify how long they are willing to wait for an RPC to complete before the RPC is terminated with the error DEADLINE_EXCEEDED.",
+      "published_date": "2018-02-26",
+      "source": "grok",
+      "score": 0.25
+    },
+    {
+      "title": "Real-world RPC with RabbitMQ and Node.JS",
+      "url": "https://facundoolano.wordpress.com/2016/06/26/real-world-rpc-with-rabbitmq-and-node-js",
+      "snippet": "That's when the correlation_id property is used. We were already checking the correlationId, and just needed to create the reply-to queue in order to receive responses.",
+      "published_date": "2016-06-26",
+      "source": "grok",
+      "score": 0.25
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Using NtObjectManager to Decompile an RPC Interface | by Lachunas Berme | Medium",
+        "url": "https://medium.com/%40lachunasberme/using-ntobjectmanager-to-decompile-an-rpc-interface-ca6356c22c9a",
+        "snippet": "",
+        "published_date": "2026-01-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "Introducing RPC Investigator",
+        "url": "https://blog.trailofbits.com/2023/01/17/rpc-investigator-microsoft-windows-remote-procedure-call/",
+        "snippet": "",
+        "published_date": "2023-01-17T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "How can I enumerate and hook into a Windows 10 RPC interface?",
+        "url": "https://reverseengineering.stackexchange.com/questions/20965/how-can-i-enumerate-and-hook-into-a-windows-10-rpc-interface",
+        "snippet": "",
+        "published_date": "2019-03-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.53
+      },
+      {
+        "title": "Down the Rabbit Hole - A Deep Dive into an attack on an RPC ...",
+        "url": "https://www.thezdi.com/blog/2018/6/7/down-the-rabbit-hole-a-deep-dive-into-an-attack-on-an-rpc-interface",
+        "snippet": "",
+        "published_date": "2018-06-07T00:00:00.000Z",
+        "source": "exa, tavily, grok",
+        "score": 0.33
+      },
+      {
+        "title": "GitHub - klezVirus/RpcProxyInvoke: Simple POC library to execute arbitrary calls proxying them via NdrServerCall2 or similar",
+        "url": "https://github.com/klezVirus/RpcProxyInvoke",
+        "snippet": "",
+        "published_date": "2024-06-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "GitHub - xpn/RpcEnum: An command-line RPC method enumerator, born out of RPCView's awesomeness",
+        "url": "https://github.com/xpn/RpcEnum",
+        "snippet": "",
+        "published_date": "2019-07-31T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "How to Implement Request-Reply Pattern in RabbitMQ",
+        "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+        "snippet": "",
+        "published_date": "2026-01-27T00:00:00.000Z",
+        "source": "exa, grok",
+        "score": 0.3
+      },
+      {
+        "title": "How to Fix 'Canceled' Request Errors in gRPC - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-01-24-fix-canceled-request-errors-grpc/view",
+        "snippet": "",
+        "published_date": "2026-01-24T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "how can I set timeout for each request in asynchronous client? #14602",
+        "url": "https://github.com/grpc/grpc/issues/14602",
+        "snippet": "",
+        "published_date": "2018-03-06T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "[QUESTION] Async replication hashbeat fails with context deadline ...",
+        "url": "https://forum.weaviate.io/t/question-async-replication-hashbeat-fails-with-context-deadline-timeout/10527",
+        "snippet": "",
+        "published_date": "2025-02-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Appropriate way of timing out an asynchronous chat completions ...",
+        "url": "https://community.openai.com/t/appropriate-way-of-timing-out-an-asynchronous-chat-completions-stream/468299",
+        "snippet": "",
+        "published_date": "2023-11-03T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Enhancing Streaming and Request Handling Efficiency with gRPC ...",
+        "url": "https://sair.synerise.com/enhancing-streaming-and-request-handling-efficiency-with-grpc-and-coroutines-part-2/",
+        "snippet": "",
+        "published_date": "2025-01-15T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Booting into Trust: Reverse Engineering macOS Secure Boot Internals",
+        "url": "https://core-jmp.org/2026/03/booting-into-trust-reverse-engineering-macos-secure-boot-internals/",
+        "snippet": "",
+        "published_date": "2026-03-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "Reverse Engineering a Contract | ethereum.org",
+        "url": "https://ethereum.org/bn/developers/tutorials/reverse-engineering-a-contract",
+        "snippet": "",
+        "published_date": "2025-08-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "trace_replayBlockTransactions RPC Method | Optimism Docs",
+        "url": "https://www.quicknode.com/docs/optimism/trace_replayBlockTransactions",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "Fetching the Code of a Contract | OP_NET Docs",
+        "url": "https://docs.opnet.org/developers/interacting-with-an-opnet-node/using-a-provider/fetching-the-code-of-a-contract",
+        "snippet": "",
+        "published_date": "2025-06-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.58
+      },
+      {
+        "title": "Instantiating a Contract | OP_NET Docs",
+        "url": "https://docs.opnet.org/developers/interacting-with-a-contract/instantiating-a-contract",
+        "snippet": "",
+        "published_date": "2025-06-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.58
+      },
+      {
+        "title": "Interacting with Smart Contracts Using Call | OP_NET Docs",
+        "url": "https://docs.opnet.org/developers/interacting-with-an-opnet-node/using-a-provider/interacting-with-smart-contracts-using-call",
+        "snippet": "",
+        "published_date": "2025-06-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.58
+      }
+    ],
+    "tavily": [
+      {
+        "title": "[PDF] Efficient Remote Procedure Calls for Datacenters",
+        "url": "http://reports-archive.adm.cs.cmu.edu/anon/2019/CMU-CS-19-126.pdf",
+        "snippet": "Simple experiments allow reverse-engineering the NIC's locking mechanism. ... This avoids blocking dispatch-mode RPCs behind a long-running worker-mode RPC.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.62
+      },
+      {
+        "title": "Down the Rabbit Hole - A Deep Dive into an attack on an RPC ...",
+        "url": "https://www.thezdi.com/blog/2018/6/7/down-the-rabbit-hole-a-deep-dive-into-an-attack-on-an-rpc-interface",
+        "snippet": "The vulnerabilities were all in C string handling functions (strcpy and sprintf, for the most part) and were reached through two RPC interfaces. The techniques in that presentation can be used to reverse engineer RPC interface definitions from the server binary file back into an IDL file. Additionally, IDL reversing will provide you with the address in the server code of the interface method stub, which you can then use with a static analysis package to trace data from the client on its way through the service. More generally, `hBinding` is the first parameter to all calls to the interface on the client side so that RPC knows how to access the server. You can use your favorite disassembler to look through the target code for uses of those functions (and in the codebase in question, there are many uses of those functions), and then walk the calltree back to stub functions of the RPC interface looking for the source of the parameters.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "ManageEngine ADAudit - Reverse engineering Windows RPC to ...",
+        "url": "https://shelltrail.com/research/manageengine-adaudit-reverse-engineering-windows-rpc-to-find-cve-2024-36036-and-cve-2024-36037-part2",
+        "snippet": "// Agent.RPC.RPCHandler // Token: 0x06000129 RID: 297 RVA: 0x00008D04 File Offset: 0x00006F04 private static int NotifyAgentStr(int notifyId, string msgStr) { int errStatus = 1; try { Hashtable msgMap = JsonAPI.JsonToHashtable(msgStr); if (msgMap.ContainsKey(\"AgentUID\") && DataStore.Get(\"AgentUID\").ToString().Equals(msgMap[\"AgentUID\"].ToString())) { errStatus = 0; JObject json = JObject.Parse(msgStr); json.Remove(\"AgentUID\"); json.Remove(\"ADAP_SERVER_DNS_NAME\"); string jsonMsgStr = JsonAPI.ObjectToJsonString(json); switch (notifyId) { case 0: DataStore.Update(jsonMsgStr); goto IL_24F; case 1: if (! > Get-Content 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\MessengerLog_2023_12_01.txt' -Tail 10 [2023-12-01 19:41:03,834] [11][INFO ][Messenger] : NATV.FA_NotifyAgentStr :: notification from ADAP server, notifyId : 0 [2023-12-01 19:41:03,849] [11][ERROR][Messenger] : EXCEPTION :: RPCHandler.NotifyAgentStr : Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: s. > Get-Content 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\MessengerLog_2023_12_01.txt' -Tail 1 [10][INFO ][Messenger] : NATV.FA_NotifyAgentStr :: notification from ADAP server, notifyId : 0 ... > Get-ChildItem 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\*' | Select-String snus AgentLog_2023_12_01.txt:103:[2023-12-01 20:14:55,884] [10][INFO ][Default] : Set Registry Key: HKEY_LOCAL_MACHINE\\SOFTWARE\\ManageEngine\\ADAP\\snus = true ... > Get-Content 'C:\\Program Files\\ManageEngine\\ADAuditPlusAgent\\Logs\\AgentLog_2023_12_02.txt' | Select-String SMSTatus [2023-12-02 10:28:29,988] [9][INFO ][Default] : Set Registry Key: HKEY_LOCAL_MACHINE\\SOFTWARE\\ManageEngine\\ADAP\\SessionMonitoring\\SMStatus = True ...",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.37
+      },
+      {
+        "title": "RPC Bug Hunting Case Studies – Part 1 - Fortinet",
+        "url": "https://www.fortinet.com/blog/threat-research/the-case-studies-of-microsoft-windows-remote-procedure-call-serv",
+        "snippet": "It turns out that Windows Task Scheduler had flaws in one of its Remote Procedure Calls (RPC) Application Programming Interfaces (API) exposed via an RPC server. As a result, researchers have open-sourced a tool named RpcView, which is a very handy tool for identifying RPC services running on the Windows Operating System. The resulting text files consisted of all the RPC APIs that were callable from the RPC Servers. It is also worth noting that it calls the *RevertToSelf* function to terminate the impersonation before the *RecursiveDelete* function is called, which means the target directory and its contents can be deleted under local system privilege, that would allow us to achieve arbitrary files deletion if we managed to use a symbolic link to redirect the **diagtracktempdir** to an arbitrary folder. In this first part of the blog series, we have shown you our approach to finding a potential security risk in a Windows RPC Server using different available tools and online resources.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.36
+      },
+      {
+        "title": "Remote Procedure Call (RPC)",
+        "url": "https://cs.wellesley.edu/~cs249/Lectures/RPC/rpc.html",
+        "snippet": "A service, also called a program, is assigned a number. A service then assigns each procedure it exports a procedure number. A service then registers a dispatch",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.59
+      },
+      {
+        "title": "Remote Procedure Call - IBM",
+        "url": "https://www.ibm.com/docs/en/aix/7.2.0?topic=concepts-remote-procedure-call",
+        "snippet": "In the RPC model, the client makes a procedure call to send a data packet to the server. When the packet arrives, the server calls a dispatch routine",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "Handle request replays by Jetty due to timeout of long-running ...",
+        "url": "https://github.com/tipsy/javalin/issues/448",
+        "snippet": "If a back-end service takes longer than 30 seconds to process an asynchronous request, Jetty will replay the request, while setting response",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.66
+      },
+      {
+        "title": "how can I set timeout for each request in asynchronous client? #14602",
+        "url": "https://github.com/grpc/grpc/issues/14602",
+        "snippet": "Hi, I used asynchronous client for gRPC，but I can't set timeout for each request，when I used synchronous client, I can set the timeout",
+        "published_date": "",
+        "source": "tavily, exa, grok",
+        "score": 0.63
+      },
+      {
+        "title": "How to Fix 'Canceled' Request Errors in gRPC - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-01-24-fix-canceled-request-errors-grpc/view",
+        "snippet": "// client_timeout.go package main import ( \"context\" \"log\" \"time\" \"google.golang.org/grpc\" \"google.golang.org/grpc/codes\" \"google.golang.org/grpc/credentials/insecure\" \"google.golang.org/grpc/status\" pb \"myapp/proto\" ) func main() { conn, err := grpc.Dial( \"localhost:50051\", grpc.WithTransportCredentials(insecure.NewCredentials()), ) if err != nil { log.Fatalf(\"Failed to connect: %v\", err) } defer conn.Close() client := pb.NewUserServiceClient(conn) // Problem: Timeout too short for the operation ctx, cancel := context.WithTimeout(context.Background(), 100*time.Millisecond) defer cancel() // This will fail with CANCELLED if the server takes > 100ms resp, err := client.GetUser(ctx, &pb.GetUserRequest{UserId: \"123\"}) if err != nil { st, ok := status.FromError(err) if ok { switch st.Code() { case codes.Canceled: log.Printf(\"Request was canceled: %v\", st.Message()) // This could be client timeout or manual cancellation case codes.DeadlineExceeded: log.Printf(\"Request deadline exceeded: %v\", st.Message()) // The deadline was reached before cancellation default: log.Printf(\"RPC failed: %v\", st.Message()) } } return } log.Printf(\"User: %v\", resp) }.",
+        "published_date": "",
+        "source": "tavily, exa, grok",
+        "score": 0.36
+      },
+      {
+        "title": "Appropriate way of timing out an asynchronous chat completions ...",
+        "url": "https://community.openai.com/t/appropriate-way-of-timing-out-an-asynchronous-chat-completions-stream/468299",
+        "snippet": "I have been having issues with both the completions and chat completion acreate methods hanging for long periods of time so am trying to implement a timeout.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.53
+      },
+      {
+        "title": "grpc async request without waiting for result - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/66069764/grpc-async-request-without-waiting-for-result",
+        "snippet": "I have two netty java grpc servers: ServerA and ServerB . one of my request flows looks like this: client makes rpc to ServerA . ServerA makes",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "Enhancing Streaming and Request Handling Efficiency with gRPC ...",
+        "url": "https://sair.synerise.com/enhancing-streaming-and-request-handling-efficiency-with-grpc-and-coroutines-part-2/",
+        "snippet": "Explore how to handle thousands of workers (2160 and growing) using gRPC, coroutines, and asynchronous communication.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.33
+      },
+      {
+        "title": "Protocol reverse engineering / Reproduce HTTP dialogue",
+        "url": "https://stackoverflow.com/questions/2143663/protocol-reverse-engineering-reproduce-http-dialogue",
+        "snippet": "### your communities. ### more stack exchange communities. ##### Collectives™ on Stack Overflow. I have already done the first step, which is analysing some HTTP exchanges (done using POST request and XML replies) with Wireshark. Basically I don't need much \"programming\" power, just the ability to parse some variables in the server responses and re-use them in the successive request. ## 2 Answers 2. If you don't need a scalable solution, and your app needs to deal with particular requests/response only, you can precreate several requests as XML blobs and just update any variables in them, send them and do basic XML parsing to get the values of the XML elements with the response. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. ##### Stack Overflow. ##### Stack Exchange Network. Site design / logo © 2026 Stack Exchange Inc;.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.74
+      },
+      {
+        "title": "RS485 Protocol Reverse Engineering & Replay Challenges",
+        "url": "https://electronics.stackexchange.com/questions/588769/rs485-protocol-reverse-engineering-replay-challenges",
+        "snippet": "I'm trying to reverse engineer the RS485 protocol used by my home heater/AC. This protocol handles communications between the wired remote control (WRC)/",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.59
+      },
+      {
+        "title": "Reverse engineering tricks: identifying opaque network protocols",
+        "url": "https://www.skullsecurity.org/2023/reverse-engineering-tricks-identifying-opaque-network-protocols",
+        "snippet": "Lately, I’ve been reverse engineering a reasonably complex network protocol, and I ran into a mystery - while the protocol is generally an unencrypted binary protocol, one of the messages was large and random. In the request/response above, the 0x2c value seems like a great candidate for a message id, and it is! While working on this project, I noticed one packet that stands out: immediately after authenticating, the client sends an 8-byte request with id 0x0c, and the server responds with an enormous response (0x17ba bytes!) with the message type 0xff7f:. $ hexdump -C /tmp/test | head -n3 00000000 78 9c ed 9c 07 78 14 d5 da c7 4f 68 4a a4 08 2a |x....x....OhJ..*| 00000010 8a 08 ac 41 ba 09 09 04 08 a1 98 0e 01 52 c8 86 |...A.........R..| 00000020 be 10 36 9b dd 64 c9 6e 36 6c 09 04 01 47 34 08 |..6..d.n6l...G4.| $ file /tmp/test /tmp/test: zlib compressed data.",
+        "published_date": "",
+        "source": "tavily, grok",
+        "score": 0.36
+      },
+      {
+        "title": "suse-sle-hpc-15-sp4-byos-v20231214-hvm-ssd-x86_64 Package ...",
+        "url": "https://publiccloudimagechangeinfo.suse.com/amazon/suse-sle-hpc-15-sp4-byos-v20231214-hvm-ssd-x86_64/package_changelogs.html",
+        "snippet": "Remove redundant .changes files. - Add _multibuild to define 2nd spec file as additional flavor. Eliminates the need for source package links in OBS. - Add gcc7",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      }
+    ],
+    "grok": [
+      {
+        "title": "Down the Rabbit Hole - A Deep Dive into an attack on an RPC Interface",
+        "url": "https://www.thezdi.com/blog/2018/6/7/down-the-rabbit-hole-a-deep-dive-into-an-attack-on-an-rpc-interface",
+        "snippet": "The techniques in that presentation can be used to reverse engineer RPC interface definitions from the server binary file back into an IDL file. ... IDL reversing will provide you with the address in the server code of the interface method stub, which you can then use with a static analysis package to trace data from the client on its way through the service.",
+        "published_date": "2018-06-07",
+        "source": "grok"
+      },
+      {
+        "title": "ManageEngine ADAudit - Reverse engineering Windows RPC to find CVE-2024-36036 and CVE-2024-36037 - Part 2",
+        "url": "https://shelltrail.com/research/manageengine-adaudit-reverse-engineering-windows-rpc-to-find-cve-2024-36036-and-cve-2024-36037-part2",
+        "snippet": "Part 2 of the ManageEngine ADAudit research focuses on reverse engineering the ADAudit Agent to provide proper input data for the previously built custom RPC client ... Create a valid IDL structure ... Build a RPC client ... Create input data that will be marshalled into a valid stub that server will act on.",
+        "published_date": "2024-05-27",
+        "source": "grok"
+      },
+      {
+        "title": "RPC Bug Hunting Case Studies – Part 1",
+        "url": "https://www.fortinet.com/blog/threat-research/the-case-studies-of-microsoft-windows-remote-procedure-call-serv",
+        "snippet": "Fortunately, Microsoft RPC is a well-known protocol and has been well reverse-engineered ... RpcView ... is a very handy tool for identifying RPC services ... The InterpreterInfo ... is a pointer to the MIDL_SERVER_INFO data structure, which consists of a DispatchTable pointer that keeps the information of the interface APIs supported by the specific RPC interface.",
+        "published_date": "2018-12-05",
+        "source": "grok"
+      },
+      {
+        "title": "Efficient Remote Procedure Calls for Datacenters",
+        "url": "http://reports-archive.adm.cs.cmu.edu/anon/2019/CMU-CS-19-126.pdf",
+        "snippet": "We show that the ubiquitous Remote Procedure Call (RPC) communication mechanism, when rearchitectured specially for the capabilities of modern commodity datacenter hardware ... This avoids blocking dispatch-mode RPCs behind a long-running worker-mode RPC.",
+        "published_date": "2019-01-01",
+        "source": "grok"
+      },
+      {
+        "title": "How RPC Actually Works",
+        "url": "https://newsletter.systemdesign.one/p/how-rpc-works",
+        "snippet": "High performance: RPC uses compact, binary formats ... Strong typing: Because both sides share a strict contract ... Requires specialized tooling: You need special tools to generate the code for the client and server.",
+        "published_date": "2025-10-29",
+        "source": "grok",
+        "score": 0.32
+      },
+      {
+        "title": "Identifying RPC Telemetry for Detection Engineers",
+        "url": "https://ipc-research.readthedocs.io/en/latest/subpages/RPC.html",
+        "snippet": "Each RPC method is identified by an OpNum. OpNum’s are given to a method based on where they are defined within the Server code ... RPC stands for remote procedure call and is a technology used for distributed client/server communications between programs.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.36
+      },
+      {
+        "title": "Handle request replays by Jetty due to timeout of long-running async request",
+        "url": "https://github.com/tipsy/javalin/issues/448",
+        "snippet": "If a back-end service takes longer than 30 seconds to process an asynchronous request, Jetty will replay the request, while setting response code to 500. Javalin will also replay the request as it would a normal request, except that body is this time empty.",
+        "published_date": "2018-12-04",
+        "source": "grok"
+      },
+      {
+        "title": "How to Fix 'Canceled' Request Errors in gRPC",
+        "url": "https://oneuptime.com/blog/post/2026-01-24-fix-canceled-request-errors-grpc/view",
+        "snippet": "The \"Canceled\" status code in gRPC indicates that an operation was terminated before completion. This error appears in various scenarios including client timeouts, context cancellation, and connection issues.",
+        "published_date": "2026-01-24",
+        "source": "grok"
+      },
+      {
+        "title": "gRPC and Deadlines",
+        "url": "https://grpc.io/blog/deadlines",
+        "snippet": "Deadlines allow gRPC clients to specify how long they are willing to wait for an RPC to complete before the RPC is terminated with the error DEADLINE_EXCEEDED.",
+        "published_date": "2018-02-26",
+        "source": "grok",
+        "score": 0.25
+      },
+      {
+        "title": "How to Implement Request-Reply Pattern in RabbitMQ",
+        "url": "https://oneuptime.com/blog/post/2026-01-27-rabbitmq-request-reply/view",
+        "snippet": "Correlation ID A unique identifier that links a request to its response. Without it, clients cannot match incoming responses to their pending requests.",
+        "published_date": "2026-01-27",
+        "source": "grok"
+      },
+      {
+        "title": "how can I set timeout for each request in asynchronous client?",
+        "url": "https://github.com/grpc/grpc/issues/14602",
+        "snippet": "I used asynchronous client for gRPC, but I can't set timeout for each request, when I used synchronous client, I can set the timeout through the ClientContext.set_deadline()",
+        "published_date": "2018-03-06",
+        "source": "grok"
+      },
+      {
+        "title": "Real-world RPC with RabbitMQ and Node.JS",
+        "url": "https://facundoolano.wordpress.com/2016/06/26/real-world-rpc-with-rabbitmq-and-node-js",
+        "snippet": "That's when the correlation_id property is used. We were already checking the correlationId, and just needed to create the reply-to queue in order to receive responses.",
+        "published_date": "2016-06-26",
+        "source": "grok",
+        "score": 0.25
+      },
+      {
+        "title": "Uncovering RPC Servers through Windows API Analysis",
+        "url": "https://posts.specterops.io/uncovering-rpc-servers-through-windows-api-analysis-5d23c0459db6",
+        "snippet": "This blog post covers reverse engineering RPC servers, explaining opnum as the index for functions in the RPC server function table, with examples using NdrClientCall3 and tools like IDA for locating interfaces and methods.",
+        "published_date": "2023-10-18",
+        "source": "grok",
+        "score": 0.34
+      },
+      {
+        "title": "Fantastic RPC Interfaces and How to Find Them",
+        "url": "https://www.akamai.com/blog/security-research/rpc-toolkit-fantastic-interfaces-how-to-find",
+        "snippet": "Discusses RPC operation numbers (opnum) as indexes into the server's function table, security checks on opnum, caller origin, and related RPC internals useful for reverse engineering and protocol analysis.",
+        "published_date": "2023-02-22",
+        "source": "grok",
+        "score": 0.31
+      },
+      {
+        "title": "Impacket Developer Guide. Part 2. Finding RPC on the system ...",
+        "url": "https://cicada-8.medium.com/impacket-developer-guide-part-2-finding-rpc-on-the-system-and-some-words-about-in-security-7df65acbd621",
+        "snippet": "Explains RPC/DCOM servers, OpNum (Operation Number) for methods, tools like RPCView, rpv, and RpcEnum for enumeration and reverse engineering, including calling methods by OpNum.",
+        "published_date": "",
+        "source": "grok",
+        "score": 0.52
+      },
+      {
+        "title": "Automating MS-RPC vulnerability research",
+        "url": "https://incendium.rocks/posts/Automating-MS-RPC-Vulnerability-Research",
+        "snippet": "Covers MS-RPC procedures identified by opnum, MIDL interface definitions, reverse engineering approaches with Ghidra/IDA, and creating minimal reproducible examples for vulnerabilities like PetitPotam (opnum 0).",
+        "published_date": "2025-05-20",
+        "source": "grok",
+        "score": 0.38
+      },
+      {
+        "title": "Accessing the MS-NRPC interface as the RPC client ...",
+        "url": "https://securelist.com/ms-rpc-security-mechanism-step-by-step/116036",
+        "snippet": "Analyzes MS-NRPC security via reverse engineering, opnum checks in callbacks (e.g., opnum < 59), tools like RPC-Firewall for auditing RPC calls, UUIDs, and protocol behavior.",
+        "published_date": "2025-04-04",
+        "source": "grok",
+        "score": 0.35
+      },
+      {
+        "title": "Reverse engineering tricks: identifying opaque network protocols",
+        "url": "https://www.skullsecurity.org/2023/reverse-engineering-tricks-identifying-opaque-network-protocols",
+        "snippet": "Practical reverse engineering techniques for network protocols, including identifying message IDs (similar to opnum), switch statements in binaries, debugging with replayed packets, and handling opaque blobs.",
+        "published_date": "2023-05-02",
+        "source": "grok"
+      }
+    ]
+  }
+}
