@@ -110,7 +110,7 @@ But it is the practical memory the parent page should preserve when the branch i
 Compact anti-drift reminders worth preserving here:
 - do not keep broad packet or register collection going when the real blocker is still selecting the first truthful boundary
 - do not keep naming protocol or peripheral families once one smaller trustworthy contract is already available and the real bottleneck has shifted to ownership, consequence, acceptance, or handoff proof
-- in descriptor/ring-heavy firmware cases, do not mistake visible completion bytes for solved understanding when ownership transfer, freshness rules, or non-coherent cache visibility still decide whether the peer or CPU may trust them
+- in descriptor/ring-heavy firmware cases, do not mistake visible completion bytes for solved understanding when ownership transfer, freshness rules, notify/doorbell scope, or non-coherent cache visibility still decide whether the peer or CPU may trust them
 - do not stop at parser visibility or local acceptance if the first committed outbound or hardware-side effect edge is still unproved
 - do not treat one good technical proof as finished work if the next likely failure mode is rediscovery rather than missing one more hook
 
