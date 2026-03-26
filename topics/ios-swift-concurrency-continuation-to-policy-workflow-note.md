@@ -190,6 +190,8 @@ A source-backed discipline worth preserving here:
   - first MainActor-side state mutation / route selection / coordinator handoff when that is where behavior actually becomes durable
 - when the first clear consequence seems UI- or coordinator-owned, preserve one extra split between resumed task-side reducer truth and the first `@MainActor`-isolated state write / route selection / coordinator handoff; do not treat annotation visibility alone as enough
 - also preserve the practical possibility that the resumed task and the first MainActor-side consumer are separated by one explicit actor hop or executor handoff; do not flatten “resume happened” into “UI state changed here” without one later effect
+- treat explicit `MainActor.run { ... }`, clearly isolated `@MainActor` view-model methods/properties, and coordinator-side route writes as especially valuable handoff boundaries when the resumed task itself is not yet the durable consumer
+- when compare pairs show the same callback family and the same continuation resume, but different later route/state outcomes, prefer freezing one MainActor-side consumer before reopening generic callback or async-wrapper hunting
 - for stream-shaped cases, also separate:
   - stream construction
   - first yield / delivery
