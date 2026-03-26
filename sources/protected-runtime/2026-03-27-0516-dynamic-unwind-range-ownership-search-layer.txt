@@ -1,0 +1,326 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "RtlAddGrowableFunctionTable RtlLookupFunctionEntry dynamic unwind current PC range callback reverse engineering",
+    "RtlInstallFunctionTableCallback TableIdentifier BaseAddress Length callback range ownership unwind reverse engineering",
+    "Windows dynamic function table unwind generated code stack walking RtlDeleteGrowableFunctionTable range coverage"
+  ],
+  "count": 17,
+  "results": [
+    {
+      "title": "winapi - RtlLookupFunctionEntry - Overshooting Function Size on ARM64 Windows - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/79599579/rtllookupfunctionentry-overshooting-function-size-on-arm64-windows",
+      "snippet": "Title: winapi - RtlLookupFunctionEntry - Overshooting Function Size on ARM64 Windows - Stack Overflow\n2. Stack Data Licensing Get access to top-class technical expertise with trusted & attributed content. 4. Releases Keep up-to-date on features we add to Stack Overflow and Stack Internal. ##### Collectives™ on Stack Overflow. # RtlLookupFunctionEntry - Overshooting Function Size on ARM64 Windows. I'm working on a project in C++ on Windows ARM64, and I’ve run into an issue when trying to retrieve function boundaries using RtlLookupFunctionEntry. * However, the calculated function size (runtimeFunction->FunctionLength) seems to overshoot by hundreds of bytes. * Sometimes (depending on when I rebuild code or not) the FunctionLength is correct but if I rebuild the project it breaks again and overshoots, but checking a function ntdll.dll for example always returns a FunctionSize that is way to big. PRUNTIME_FUNCTION pRuntimeFunction = RtlLookupFunctionEntry(RIP, &ImageBase, nullptr);. Here is the PRUNTIME\\_FUNCTION struct for ARM64:. typedef struct _IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY { DWORD BeginAddress; union { DWORD UnwindData; struct { DWORD Flag : 2; DWORD FunctionLength : 11; DWORD RegF : 3; DWORD RegI : 4; DWORD H : 1; DWORD CR : 2; DWORD FrameSize : 9; } DUMMYSTRUCTNAME; } DUMMYUNIONNAME; } IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, * PIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;. ULONG_PTR imageBase = 0; PRUNTIME_FUNCTION fn = RtlLookupFunctionEntry((ULONG_PTR)GetProcAddress(GetModuleHandleA(\"ntdll.dll\"), \"NtClose\"), &imageBase, NULL); //NtClose is only 8 bytes long -> svc 0x0F, ret; if (fn != NULL) { printf(\"Begin Address: 0x%p\\n\", imageBase + fn->BeginAddress); printf(\"Size: %d\\n\", fn->FunctionLength); //ARM64 instructions are always 4 bytes, so true length is \"(fn->FunctionLength * 4)\", but it returns something like 1000+ for some reason? * Is this a known quirk on ARM64 Windows, or could I be missing something about how ARM64's unwind information or function tables work? Commented Apr 30, 2025 at 11:32. Commented Apr 30, 2025 at 18:12. Commented Apr 30, 2025 at 19:12. * DWORD Flag : 2; is \"0\" when the size is overshooting and not \"0\" when the size is correct, however it still means that a Unwind entry has been made for the function otherwise \"fn->\" from RtlLookupFunctionEntry would be NULL, what triggers this issue seems to be random, a example can be found here. * Logo updates to Stack Overflow's visual identity. * How to portably map an error number in errno to the symbolic error name?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6867
+    },
+    {
+      "title": "RtlAddFunctionTable function (winnt.h) - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtladdfunctiontable",
+      "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. # RtlAddFunctionTable function (winnt.h). Adds a dynamic function table to the dynamic function table list. A pointer to an array of function entries. For a definition of the **PRUNTIME\\_FUNCTION** type, see WinNT.h. For more information on runtime function entries, see the calling convention documentation for the processor. The base address to use when computing full virtual addresses from relative virtual addresses of function table entries. If the function succeeds, the return value is **TRUE**. However, applications must provide the function table for dynamically generated code. For more information about function tables, see the architecture guide for your system. This function is useful for code that is generated from a template or generated only once during the life of the process. For more dynamically generated code, use the RtlInstallFunctionTableCallback function. Want to try using Ask Learn to clarify or guide you through this topic?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "RtlLookupFunctionEntry function (winnt.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtllookupfunctionentry",
+      "snippet": "Title: RtlLookupFunctionEntry function (winnt.h) - Win32 apps | Microsoft Learn\nSkip to Ask Learn chat experience. This browser is no longer supported. Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. Download Microsoft Edge   More info about Internet Explorer and Microsoft Edge. #### Share via. Facebook   x.com   LinkedIn   Email. Access to this page requires authorization. You can try signing in or changing directories. Access to this page requires authorization. You can try changing directories. # RtlLookupFunctionEntry function (winnt.h). Searches the active function tables for an entry that corresponds to the specified PC value. ## Syntax. NTSYSAPI PRUNTIME_FUNCTION RtlLookupFunctionEntry( [in] DWORD64 ControlPc, [out] PDWORD64 ImageBase, [out] PUNWIND_HISTORY_TABLE HistoryTable );. ## Parameters. The virtual address of an instruction bundle within the function. The base address of module to which the function belongs. The global pointer value of the module. This parameter has a different declaration on x64 and ARM systems. For more information, see x64 Definition and ARM Definition. ## Return value. If there is no entry in the function table for the specified PC, the function returns `NULL`. Otherwise, the function returns the address of the function table entry that corresponds to the specified PC. ## Requirements. | **Header** | winnt.h (include Windows.h) |. Vertdll APIs available in VBS enclaves. ## Feedback. Need help with this topic? Want to try using Ask Learn to clarify or guide you through this topic? ## Additional resources. * Last updated on  2024-02-22.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6467
+    },
+    {
+      "title": "RtlInstallFunctionTableCallback function (winnt.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtlinstallfunctiontablecallback",
+      "snippet": "",
+      "published_date": "2022-07-26T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "How to uninstall RtlInstallFunctionTableCallback?",
+      "url": "https://stackoverflow.com/questions/68827883/how-to-uninstall-rtlinstallfunctiontablecallback",
+      "snippet": "",
+      "published_date": "2021-08-18T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "Describing dynamically generated code with RtlAddFunctionTable on Windows x64",
+      "url": "https://stackoverflow.com/questions/20998155/describing-dynamically-generated-code-with-rtladdfunctiontable-on-windows-x64",
+      "snippet": "",
+      "published_date": "2014-01-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "RtlAddGrowableFunctionTable function (winnt.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtladdgrowablefunctiontable",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "runtime: support SEH stack unwinding on Windows #57302 - GitHub",
+      "url": "https://github.com/golang/go/issues/57302",
+      "snippet": "",
+      "published_date": "2022-12-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "x64 exception handling | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/cpp/build/exception-handling-x64?view=msvc-170",
+      "snippet": "typedef enum _UNWIND_OP_CODES { UWOP_PUSH_NONVOL = 0, /* info == register number */ UWOP_ALLOC_LARGE, /* no info, alloc size in next 2 slots */ UWOP_ALLOC_SMALL, /* info == size of allocation / 8 - 1 */ UWOP_SET_FPREG, /* no info, FP = RSP + UNWIND_INFO.FPRegOffset*16 */ UWOP_SAVE_NONVOL, /* info == register number, offset in next slot */ UWOP_SAVE_NONVOL_FAR, /* info == register number, offset in next 2 slots */ UWOP_SAVE_XMM128 = 8, /* info == XMM reg number, offset in next slot */ UWOP_SAVE_XMM128_FAR, /* info == XMM reg number, offset in next 2 slots */ UWOP_PUSH_MACHFRAME /* info == 0: no error-code, 1: error-code */ } UNWIND_CODE_OPS; typedef unsigned char UBYTE; typedef union _UNWIND_CODE { struct { UBYTE CodeOffset; UBYTE UnwindOp : 4; UBYTE OpInfo : 4; }; USHORT FrameOffset; } UNWIND_CODE, *PUNWIND_CODE; #define UNW_FLAG_EHANDLER 0x01 #define UNW_FLAG_UHANDLER 0x02 #define UNW_FLAG_CHAININFO 0x04 typedef struct _UNWIND_INFO { UBYTE Version : 3; UBYTE Flags : 5; UBYTE SizeOfProlog; UBYTE CountOfCodes; UBYTE FrameRegister : 4; UBYTE FrameOffset : 4; UNWIND_CODE UnwindCode[1]; /* UNWIND_CODE MoreUnwindCode[((CountOfCodes + 1) & ~1) - 1]; * union { * OPTIONAL ULONG ExceptionHandler; * OPTIONAL ULONG FunctionEntry; * }; * OPTIONAL ULONG ExceptionData[]; */ } UNWIND_INFO, *PUNWIND_INFO; typedef struct _RUNTIME_FUNCTION { ULONG BeginAddress; ULONG EndAddress; ULONG UnwindData; } RUNTIME_FUNCTION, *PRUNTIME_FUNCTION; #define GetUnwindCodeEntry(info, index) \\ ((info)->UnwindCode[index]) #define GetLanguageSpecificDataPtr(info) \\ ((PVOID)&GetUnwindCodeEntry((info),((info)->CountOfCodes + 1) & ~1)) #define GetExceptionHandler(base, info) \\ ((PEXCEPTION_HANDLER)((base) + *(PULONG)GetLanguageSpecificDataPtr(info))) #define GetChainedFunctionEntry(base, info) \\ ((PRUNTIME_FUNCTION)((base) + *(PULONG)GetLanguageSpecificDataPtr(info))) #define GetExceptionDataPtr(info) \\ ((PVOID)((PULONG)GetLanguageSpecificData(info) + 1)).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "What is the difference between RtlAddFunctionTable and RtlInsertInvertedFunctionTable?",
+      "url": "https://stackoverflow.com/questions/78565505/what-is-the-difference-between-rtladdfunctiontable-and-rtlinsertinvertedfunction",
+      "snippet": "",
+      "published_date": "2024-06-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "RtlDeleteGrowableFunctionTable function (winnt.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtldeletegrowablefunctiontable",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Structured Exception Handling Functions - Win32 - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/debug/structured-exception-handling-functions",
+      "snippet": "",
+      "published_date": "2025-07-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Stack-Walking and generated code | Sebastian Schöner",
+      "url": "https://blog.s-schoener.com/2025-01-24-stack-walking-generated-code/",
+      "snippet": "I am currently working with inserting hooks into other processes, for debugging purposes: my use case is that I want to understand what function of an API surface is called where (yes, there are flaws with that idea), which is what my hooks hopefully provide. My hooks are calling arbitrary other functions, so they are not leaf functions, which means that they need to have unwind information associated with them for stack walking to work. * On x64 Windows, functions must adhere to strict requirements for their prolog, epilog, and everything in between. * This allows Windows to get away with a rather minimal set of static unwind data: the code and data required to support stack unwinding for handling exceptions is completely out of the way of your function. * The `UNWIND_INFO` contains a bunch of opcodes for how to unwind your function’s stack. It is designed such that you only need to care about your functions prolog. 2. Unwinding while executing the epilog: the stack walking code can detect this because of the strict rules around code structure and just continue to execute the epilog. This means that if you generate code, you also need to generate unwind info for it. The crucial detail is that when you register your unwind information (“add a function table”), you get to choose the “image base”, and all your offsets are relative to that base you have chosen. * When adding unwind information using either `RtlAddFunctionTable`, `RtlAddGrowableFunctionTable`, or `RtlInstallFunctionTableCallback`, you can validate that it works by querying for your data using `RtlLookupFunctionEntry`. * The debugger is going to be able to unwind your function if you registered the data and `RtlLookupFunctionEntry` found it. Similarly, ETW stackwalking is going to work for your function. * `RtlCaptureStackBackTrace` will *not* work for your function. Rip;} frameCount ++; DWORD64 imageBase; RUNTIME_FUNCTION* function = RtlLookupFunctionEntry(context. Rip, & imageBase, & table);// If there is no function entry, then this is a leaf function if(function == nullptr){// Unwind the leaf: RSP points to the old RIP context. Rip, function, & context, & handlerData, & establisherFrame, nullptr);}} if(frameCount< framesToSkip) return 0; return frameCount - framesToSkip;}.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5667
+    },
+    {
+      "title": "A deep dive into modern Windows Structured Exception Handler ...",
+      "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+      "snippet": "",
+      "published_date": "2024-11-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "C++ Unwind Exception Metadata: A Hidden Reverse Engineering Bonanza — Möbius Strip Reverse Engineering",
+      "url": "https://www.msreverseengineering.com/blog/2024/8/20/c-unwind-metadata-1",
+      "snippet": "Title: C++ Unwind Exception Metadata: A Hidden Reverse Engineering Bonanza — Möbius Strip Reverse Engineering\nHex-Rays 9.0 contains built-in support to display this information -- namely, C++ exception `wind` and `unwind` metadata on MSVC/x64 targets -- naturally and automatically, directly in the decompilation listing. However, this blog entry is about a different kind of C++ exception metadata: namely, `wind` and `unwind`. Leaving exceptions aside for the moment, in the C++ object model, the compiler is obligated to insert calls to object destructors when their lifetimes end. That means that, in exceptional circumstances, the destructor calls for local objects `a0` and `a1` at the bottom of the function will not execute. What actually happens is that the C++ compiler emits special `wind`/`unwind` metadata to ensure that the destructors are called. These `__wind` and `__unwind` blocks are effectively invisible `try` and `catch` blocks that ensure destructors are called in the event of exceptional control flow. void f() { may_throw(); printf(\"-1: no exn\\n\"); A a0(0); // NEW: wind block for a0 __wind { may_throw(); printf(\"0: no exn\\n\"); A a1(1); // NEW: wind block for a1 __wind { may_throw(); printf(\"No exn anywhere %d %d\\n\", a0.val, a1.val); } // NEW: unwind handler for a1 __unwind { // Destroy a1 if exception at point 1 a1.~A(); } a1.~A(); } // NEW: unwind handler for a0 __unwind { // Destroy a0 if exception at point 0 or 1 a0.~A(); } a0.~A(); }. Thus, we have resolved the mystery of why the compiler is able to destroy locally-allocated objects in spite of exceptional control flow and lack of `try`/`catch` blocks: because the invisibly-inserted `__wind` and `__unwind` blocks play the roles of `try`/`catch` and ensure the proper destructors are called. So far, we have seen that MSVC inserts so-called `__unwind`/`__wind` metadata to ensure that destructors of locally-held stack objects shall be called when exceptions are thrown. Suppose that the constructor for a `struct` or `class` object calls functions that might throw exceptions. However, because the outer function and the `unwind` handlers both call the same destructor functions, we do not gain any new information about the types of those objects. Those caveats aside, `wind` metadata can still be useful when analyzing non-constructor functions, because `unwind` handlers are separate functions that cannot be inlined into the main function.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "RtlAddFunctionTable vs RtlAddGrowableFunctionTable? - NTDEV",
+      "url": "https://community.osr.com/t/rtladdfunctiontable-vs-rtladdgrowablefunctiontable/51512",
+      "snippet": "RtlAddGrowableFunctionTable informs the kernel (in addition to the user mode portion of the process) of the existence of a dynamic unwind region, such that kernel mode stack trace facilities such as Etw are able to trace through the dynamically generated code, in addition to user mode exception/unwind supporting the dynamic code region. I can imagine crafting a test case where I hand-write assembly that simulates says calls to functions and then see that the debugger and as you say other facilities can unwind the stack? > RtlAddGrowableFunctionTable informs the kernel (in addition to the user mode portion of the process) of the existence of a dynamic unwind region, such that kernel mode stack trace facilities such as Etw are able to trace through the dynamically generated code, in addition to user mode exception/unwind supporting the dynamic code region.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "RtlLookupFunctionEntry | P/Invoke",
+      "url": "https://www.pinvoke.dev/debug/rtllookupfunctionentry",
+      "snippet": "Title: RtlLookupFunctionEntry | P/Invoke\nImage 1Image 2 P/Invoke. Image 3Image 4 P/Invoke. [DllImport(\"KERNEL32.dll\", ExactSpelling = true)]. public static extern unsafe IMAGE_RUNTIME_FUNCTION_ENTRY* RtlLookupFunctionEntry(. Last updated 1 year ago.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "A deep dive into modern Windows Structured Exception Handler ...",
+        "url": "https://blog.elmo.sg/posts/structured-exception-handler-x64/",
+        "snippet": "",
+        "published_date": "2024-11-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "RtlInstallFunctionTableCallback function (winnt.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtlinstallfunctiontablecallback",
+        "snippet": "",
+        "published_date": "2022-07-26T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "What is the difference between RtlAddFunctionTable and RtlInsertInvertedFunctionTable?",
+        "url": "https://stackoverflow.com/questions/78565505/what-is-the-difference-between-rtladdfunctiontable-and-rtlinsertinvertedfunction",
+        "snippet": "",
+        "published_date": "2024-06-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "How to uninstall RtlInstallFunctionTableCallback?",
+        "url": "https://stackoverflow.com/questions/68827883/how-to-uninstall-rtlinstallfunctiontablecallback",
+        "snippet": "",
+        "published_date": "2021-08-18T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "Describing dynamically generated code with RtlAddFunctionTable on Windows x64",
+        "url": "https://stackoverflow.com/questions/20998155/describing-dynamically-generated-code-with-rtladdfunctiontable-on-windows-x64",
+        "snippet": "",
+        "published_date": "2014-01-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6333
+      },
+      {
+        "title": "RtlDeleteGrowableFunctionTable function (winnt.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtldeletegrowablefunctiontable",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "RtlAddGrowableFunctionTable function (winnt.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtladdgrowablefunctiontable",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6333
+      },
+      {
+        "title": "Structured Exception Handling Functions - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/debug/structured-exception-handling-functions",
+        "snippet": "",
+        "published_date": "2025-07-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Describing dynamically generated code with RtlAddFunctionTable on Windows x64",
+        "url": "https://stackoverflow.com/questions/20998155/describing-dynamically-generated-code-with-rtladdfunctiontable-on-windows-x64",
+        "snippet": "",
+        "published_date": "2014-01-08T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "runtime: support SEH stack unwinding on Windows #57302 - GitHub",
+        "url": "https://github.com/golang/go/issues/57302",
+        "snippet": "",
+        "published_date": "2022-12-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6333
+      }
+    ],
+    "tavily": [
+      {
+        "title": "RtlInstallFunctionTableCallback function (winnt.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtlinstallfunctiontablecallback",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. The identifier for the dynamic function table callback. The base address of the region of memory managed by the callback function. A pointer to the callback function that is called to retrieve the function table entries for the functions in the specified region of memory. For a definition of the **PGET\\_RUNTIME\\_FUNCTION\\_CALLBACK** type, see WinNT.h. A pointer to the user-defined data to be passed to the callback function. When a debugger unwinds to a function in the range of addresses managed by the callback function, it loads this DLL and calls the **OUT\\_OF\\_PROCESS\\_FUNCTION\\_TABLE\\_CALLBACK\\_EXPORT\\_NAME** function, whose type is **POUT\\_OF\\_PROCESS\\_FUNCTION\\_TABLE\\_CALLBACK**. Function tables are used on 64-bit Windows to determine how to unwind or walk the stack. However, applications must provide the function table for dynamically generated code. For more information about function tables, see the architecture guide for your system. The callback function must return the runtime function entry for the specified address.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to uninstall RtlInstallFunctionTableCallback?",
+        "url": "https://stackoverflow.com/questions/68827883/how-to-uninstall-rtlinstallfunctiontablecallback",
+        "snippet": "### current community. ### your communities. ### more stack exchange communities. Communities for your favorite technologies. Stack Overflow for Teams is now called **Stack Internal**. ##### Collectives™ on Stack Overflow. What is the reverse of the RtlInstallFunctionTableCallback function ? I have been looking at it to avoid the rather slow RtlAddFunctionTable/RtlDeleteFunctionTable for transient JIT'ed math expressions, but I could not find a way to uninstall a callback... PRUNTIME\\_FUNCTION type, see WinNT.h. Eric Grange's user avatar. ## 1 Answer 1. As remarked by Hans Passant in a comment, the answer is in RtlDeleteFunctionTable documentation. NTSYSAPI BOOLEAN RtlDeleteFunctionTable( PRUNTIME\\_FUNCTION. A pointer to an array of function entries that were previously passed. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Start asking to get answers. Find the answer to your question by asking. # Subscribe to RSS. To subscribe to this RSS feed, copy and paste this URL into your RSS reader. ##### Stack Overflow. ##### Stack Exchange Network.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RtlLookupFunctionEntry function (winnt.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtllookupfunctionentry",
+        "snippet": "Title: RtlLookupFunctionEntry function (winnt.h) - Win32 apps | Microsoft Learn\nSkip to Ask Learn chat experience. This browser is no longer supported. Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. Download Microsoft Edge   More info about Internet Explorer and Microsoft Edge. #### Share via. Facebook   x.com   LinkedIn   Email. Access to this page requires authorization. You can try signing in or changing directories. Access to this page requires authorization. You can try changing directories. # RtlLookupFunctionEntry function (winnt.h). Searches the active function tables for an entry that corresponds to the specified PC value. ## Syntax. NTSYSAPI PRUNTIME_FUNCTION RtlLookupFunctionEntry( [in] DWORD64 ControlPc, [out] PDWORD64 ImageBase, [out] PUNWIND_HISTORY_TABLE HistoryTable );. ## Parameters. The virtual address of an instruction bundle within the function. The base address of module to which the function belongs. The global pointer value of the module. This parameter has a different declaration on x64 and ARM systems. For more information, see x64 Definition and ARM Definition. ## Return value. If there is no entry in the function table for the specified PC, the function returns `NULL`. Otherwise, the function returns the address of the function table entry that corresponds to the specified PC. ## Requirements. | **Header** | winnt.h (include Windows.h) |. Vertdll APIs available in VBS enclaves. ## Feedback. Need help with this topic? Want to try using Ask Learn to clarify or guide you through this topic? ## Additional resources. * Last updated on  2024-02-22.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6467
+      },
+      {
+        "title": "RtlLookupFunctionEntry | P/Invoke",
+        "url": "https://www.pinvoke.dev/debug/rtllookupfunctionentry",
+        "snippet": "Title: RtlLookupFunctionEntry | P/Invoke\nImage 1Image 2 P/Invoke. Image 3Image 4 P/Invoke. [DllImport(\"KERNEL32.dll\", ExactSpelling = true)]. public static extern unsafe IMAGE_RUNTIME_FUNCTION_ENTRY* RtlLookupFunctionEntry(. Last updated 1 year ago.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "winapi - RtlLookupFunctionEntry - Overshooting Function Size on ARM64 Windows - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/79599579/rtllookupfunctionentry-overshooting-function-size-on-arm64-windows",
+        "snippet": "Title: winapi - RtlLookupFunctionEntry - Overshooting Function Size on ARM64 Windows - Stack Overflow\n2. Stack Data Licensing Get access to top-class technical expertise with trusted & attributed content. 4. Releases Keep up-to-date on features we add to Stack Overflow and Stack Internal. ##### Collectives™ on Stack Overflow. # RtlLookupFunctionEntry - Overshooting Function Size on ARM64 Windows. I'm working on a project in C++ on Windows ARM64, and I’ve run into an issue when trying to retrieve function boundaries using RtlLookupFunctionEntry. * However, the calculated function size (runtimeFunction->FunctionLength) seems to overshoot by hundreds of bytes. * Sometimes (depending on when I rebuild code or not) the FunctionLength is correct but if I rebuild the project it breaks again and overshoots, but checking a function ntdll.dll for example always returns a FunctionSize that is way to big. PRUNTIME_FUNCTION pRuntimeFunction = RtlLookupFunctionEntry(RIP, &ImageBase, nullptr);. Here is the PRUNTIME\\_FUNCTION struct for ARM64:. typedef struct _IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY { DWORD BeginAddress; union { DWORD UnwindData; struct { DWORD Flag : 2; DWORD FunctionLength : 11; DWORD RegF : 3; DWORD RegI : 4; DWORD H : 1; DWORD CR : 2; DWORD FrameSize : 9; } DUMMYSTRUCTNAME; } DUMMYUNIONNAME; } IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, * PIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;. ULONG_PTR imageBase = 0; PRUNTIME_FUNCTION fn = RtlLookupFunctionEntry((ULONG_PTR)GetProcAddress(GetModuleHandleA(\"ntdll.dll\"), \"NtClose\"), &imageBase, NULL); //NtClose is only 8 bytes long -> svc 0x0F, ret; if (fn != NULL) { printf(\"Begin Address: 0x%p\\n\", imageBase + fn->BeginAddress); printf(\"Size: %d\\n\", fn->FunctionLength); //ARM64 instructions are always 4 bytes, so true length is \"(fn->FunctionLength * 4)\", but it returns something like 1000+ for some reason? * Is this a known quirk on ARM64 Windows, or could I be missing something about how ARM64's unwind information or function tables work? Commented Apr 30, 2025 at 11:32. Commented Apr 30, 2025 at 18:12. Commented Apr 30, 2025 at 19:12. * DWORD Flag : 2; is \"0\" when the size is overshooting and not \"0\" when the size is correct, however it still means that a Unwind entry has been made for the function otherwise \"fn->\" from RtlLookupFunctionEntry would be NULL, what triggers this issue seems to be random, a example can be found here. * Logo updates to Stack Overflow's visual identity. * How to portably map an error number in errno to the symbolic error name?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6867
+      },
+      {
+        "title": "Stack-Walking and generated code | Sebastian Schöner",
+        "url": "https://blog.s-schoener.com/2025-01-24-stack-walking-generated-code/",
+        "snippet": "I am currently working with inserting hooks into other processes, for debugging purposes: my use case is that I want to understand what function of an API surface is called where (yes, there are flaws with that idea), which is what my hooks hopefully provide. My hooks are calling arbitrary other functions, so they are not leaf functions, which means that they need to have unwind information associated with them for stack walking to work. * On x64 Windows, functions must adhere to strict requirements for their prolog, epilog, and everything in between. * This allows Windows to get away with a rather minimal set of static unwind data: the code and data required to support stack unwinding for handling exceptions is completely out of the way of your function. * The `UNWIND_INFO` contains a bunch of opcodes for how to unwind your function’s stack. It is designed such that you only need to care about your functions prolog. 2. Unwinding while executing the epilog: the stack walking code can detect this because of the strict rules around code structure and just continue to execute the epilog. This means that if you generate code, you also need to generate unwind info for it. The crucial detail is that when you register your unwind information (“add a function table”), you get to choose the “image base”, and all your offsets are relative to that base you have chosen. * When adding unwind information using either `RtlAddFunctionTable`, `RtlAddGrowableFunctionTable`, or `RtlInstallFunctionTableCallback`, you can validate that it works by querying for your data using `RtlLookupFunctionEntry`. * The debugger is going to be able to unwind your function if you registered the data and `RtlLookupFunctionEntry` found it. Similarly, ETW stackwalking is going to work for your function. * `RtlCaptureStackBackTrace` will *not* work for your function. Rip;} frameCount ++; DWORD64 imageBase; RUNTIME_FUNCTION* function = RtlLookupFunctionEntry(context. Rip, & imageBase, & table);// If there is no function entry, then this is a leaf function if(function == nullptr){// Unwind the leaf: RSP points to the old RIP context. Rip, function, & context, & handlerData, & establisherFrame, nullptr);}} if(frameCount< framesToSkip) return 0; return frameCount - framesToSkip;}.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5667
+      },
+      {
+        "title": "C++ Unwind Exception Metadata: A Hidden Reverse Engineering Bonanza — Möbius Strip Reverse Engineering",
+        "url": "https://www.msreverseengineering.com/blog/2024/8/20/c-unwind-metadata-1",
+        "snippet": "Title: C++ Unwind Exception Metadata: A Hidden Reverse Engineering Bonanza — Möbius Strip Reverse Engineering\nHex-Rays 9.0 contains built-in support to display this information -- namely, C++ exception `wind` and `unwind` metadata on MSVC/x64 targets -- naturally and automatically, directly in the decompilation listing. However, this blog entry is about a different kind of C++ exception metadata: namely, `wind` and `unwind`. Leaving exceptions aside for the moment, in the C++ object model, the compiler is obligated to insert calls to object destructors when their lifetimes end. That means that, in exceptional circumstances, the destructor calls for local objects `a0` and `a1` at the bottom of the function will not execute. What actually happens is that the C++ compiler emits special `wind`/`unwind` metadata to ensure that the destructors are called. These `__wind` and `__unwind` blocks are effectively invisible `try` and `catch` blocks that ensure destructors are called in the event of exceptional control flow. void f() { may_throw(); printf(\"-1: no exn\\n\"); A a0(0); // NEW: wind block for a0 __wind { may_throw(); printf(\"0: no exn\\n\"); A a1(1); // NEW: wind block for a1 __wind { may_throw(); printf(\"No exn anywhere %d %d\\n\", a0.val, a1.val); } // NEW: unwind handler for a1 __unwind { // Destroy a1 if exception at point 1 a1.~A(); } a1.~A(); } // NEW: unwind handler for a0 __unwind { // Destroy a0 if exception at point 0 or 1 a0.~A(); } a0.~A(); }. Thus, we have resolved the mystery of why the compiler is able to destroy locally-allocated objects in spite of exceptional control flow and lack of `try`/`catch` blocks: because the invisibly-inserted `__wind` and `__unwind` blocks play the roles of `try`/`catch` and ensure the proper destructors are called. So far, we have seen that MSVC inserts so-called `__unwind`/`__wind` metadata to ensure that destructors of locally-held stack objects shall be called when exceptions are thrown. Suppose that the constructor for a `struct` or `class` object calls functions that might throw exceptions. However, because the outer function and the `unwind` handlers both call the same destructor functions, we do not gain any new information about the types of those objects. Those caveats aside, `wind` metadata can still be useful when analyzing non-constructor functions, because `unwind` handlers are separate functions that cannot be inlined into the main function.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "RtlInstallFunctionTableCallback function (winnt.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtlinstallfunctiontablecallback",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. The identifier for the dynamic function table callback. The base address of the region of memory managed by the callback function. A pointer to the callback function that is called to retrieve the function table entries for the functions in the specified region of memory. For a definition of the **PGET\\_RUNTIME\\_FUNCTION\\_CALLBACK** type, see WinNT.h. A pointer to the user-defined data to be passed to the callback function. When a debugger unwinds to a function in the range of addresses managed by the callback function, it loads this DLL and calls the **OUT\\_OF\\_PROCESS\\_FUNCTION\\_TABLE\\_CALLBACK\\_EXPORT\\_NAME** function, whose type is **POUT\\_OF\\_PROCESS\\_FUNCTION\\_TABLE\\_CALLBACK**. Function tables are used on 64-bit Windows to determine how to unwind or walk the stack. However, applications must provide the function table for dynamically generated code. For more information about function tables, see the architecture guide for your system. The callback function must return the runtime function entry for the specified address.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RtlAddFunctionTable vs RtlAddGrowableFunctionTable? - NTDEV",
+        "url": "https://community.osr.com/t/rtladdfunctiontable-vs-rtladdgrowablefunctiontable/51512",
+        "snippet": "RtlAddGrowableFunctionTable informs the kernel (in addition to the user mode portion of the process) of the existence of a dynamic unwind region, such that kernel mode stack trace facilities such as Etw are able to trace through the dynamically generated code, in addition to user mode exception/unwind supporting the dynamic code region. I can imagine crafting a test case where I hand-write assembly that simulates says calls to functions and then see that the debugger and as you say other facilities can unwind the stack? > RtlAddGrowableFunctionTable informs the kernel (in addition to the user mode portion of the process) of the existence of a dynamic unwind region, such that kernel mode stack trace facilities such as Etw are able to trace through the dynamically generated code, in addition to user mode exception/unwind supporting the dynamic code region.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Stack-Walking and generated code - Sebastian Schöner",
+        "url": "https://blog.s-schoener.com/2025-01-24-stack-walking-generated-code/",
+        "snippet": "My hooks are calling arbitrary other functions, so they are not leaf functions, which means that they need to have unwind information associated with them for stack walking to work. * This allows Windows to get away with a rather minimal set of static unwind data: the code and data required to support stack unwinding for handling exceptions is completely out of the way of your function. * The `UNWIND_INFO` contains a bunch of opcodes for how to unwind your function’s stack. * The debugger is going to be able to unwind your function if you registered the data and `RtlLookupFunctionEntry` found it. Similarly, ETW stackwalking is going to work for your function. * `RtlCaptureStackBackTrace` will *not* work for your function. Rip;} frameCount ++; DWORD64 imageBase; RUNTIME_FUNCTION* function = RtlLookupFunctionEntry(context. Rip, & imageBase, & table);// If there is no function entry, then this is a leaf function if(function == nullptr){// Unwind the leaf: RSP points to the old RIP context.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RtlAddFunctionTable function (winnt.h) - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtladdfunctiontable",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. # RtlAddFunctionTable function (winnt.h). Adds a dynamic function table to the dynamic function table list. A pointer to an array of function entries. For a definition of the **PRUNTIME\\_FUNCTION** type, see WinNT.h. For more information on runtime function entries, see the calling convention documentation for the processor. The base address to use when computing full virtual addresses from relative virtual addresses of function table entries. If the function succeeds, the return value is **TRUE**. However, applications must provide the function table for dynamically generated code. For more information about function tables, see the architecture guide for your system. This function is useful for code that is generated from a template or generated only once during the life of the process. For more dynamically generated code, use the RtlInstallFunctionTableCallback function. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "x64 exception handling | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/cpp/build/exception-handling-x64?view=msvc-170",
+        "snippet": "typedef enum _UNWIND_OP_CODES { UWOP_PUSH_NONVOL = 0, /* info == register number */ UWOP_ALLOC_LARGE, /* no info, alloc size in next 2 slots */ UWOP_ALLOC_SMALL, /* info == size of allocation / 8 - 1 */ UWOP_SET_FPREG, /* no info, FP = RSP + UNWIND_INFO.FPRegOffset*16 */ UWOP_SAVE_NONVOL, /* info == register number, offset in next slot */ UWOP_SAVE_NONVOL_FAR, /* info == register number, offset in next 2 slots */ UWOP_SAVE_XMM128 = 8, /* info == XMM reg number, offset in next slot */ UWOP_SAVE_XMM128_FAR, /* info == XMM reg number, offset in next 2 slots */ UWOP_PUSH_MACHFRAME /* info == 0: no error-code, 1: error-code */ } UNWIND_CODE_OPS; typedef unsigned char UBYTE; typedef union _UNWIND_CODE { struct { UBYTE CodeOffset; UBYTE UnwindOp : 4; UBYTE OpInfo : 4; }; USHORT FrameOffset; } UNWIND_CODE, *PUNWIND_CODE; #define UNW_FLAG_EHANDLER 0x01 #define UNW_FLAG_UHANDLER 0x02 #define UNW_FLAG_CHAININFO 0x04 typedef struct _UNWIND_INFO { UBYTE Version : 3; UBYTE Flags : 5; UBYTE SizeOfProlog; UBYTE CountOfCodes; UBYTE FrameRegister : 4; UBYTE FrameOffset : 4; UNWIND_CODE UnwindCode[1]; /* UNWIND_CODE MoreUnwindCode[((CountOfCodes + 1) & ~1) - 1]; * union { * OPTIONAL ULONG ExceptionHandler; * OPTIONAL ULONG FunctionEntry; * }; * OPTIONAL ULONG ExceptionData[]; */ } UNWIND_INFO, *PUNWIND_INFO; typedef struct _RUNTIME_FUNCTION { ULONG BeginAddress; ULONG EndAddress; ULONG UnwindData; } RUNTIME_FUNCTION, *PRUNTIME_FUNCTION; #define GetUnwindCodeEntry(info, index) \\ ((info)->UnwindCode[index]) #define GetLanguageSpecificDataPtr(info) \\ ((PVOID)&GetUnwindCodeEntry((info),((info)->CountOfCodes + 1) & ~1)) #define GetExceptionHandler(base, info) \\ ((PEXCEPTION_HANDLER)((base) + *(PULONG)GetLanguageSpecificDataPtr(info))) #define GetChainedFunctionEntry(base, info) \\ ((PRUNTIME_FUNCTION)((base) + *(PULONG)GetLanguageSpecificDataPtr(info))) #define GetExceptionDataPtr(info) \\ ((PVOID)((PULONG)GetLanguageSpecificData(info) + 1)).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      }
+    ],
+    "grok": []
+  }
+}
