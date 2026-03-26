@@ -371,11 +371,18 @@ Why it helps:
 Practical stop rule:
 - do not stop at `KiUserExceptionDispatcher` / `RtlDispatchException` alone
 - do not stop at `RtlInstallFunctionTableCallback` / `RtlAddFunctionTable` / growable-table registration alone either
+- keep four proof objects separate when possible:
+  - **registered** -> one callback/table API was installed at all
+  - **covering this PC** -> the installed base/range or callback-managed region actually covers the instruction pointer that matters
+  - **lookup hit** -> `RtlLookupFunctionEntry` or equivalent unwind-aware observation actually resolves the current PC into one concrete runtime-owned entry/range
+  - **resumed consequence** -> one later resumed target, unwind consequence, or handler-owned edge actually predicts behavior
 - leave this subcase once one runtime-installed range plus one later resume/consequence edge are both preserved well enough to predict the next ordinary behavior
 
 Practical caution:
 - when generated-code or hook stubs are involved, treat direct unwind-aware evidence (`RtlLookupFunctionEntry`, debugger/ETW-visible unwind success, callback-owned range correlation) as stronger than one convenience stack-capture surface that appears to ignore dynamic tables
 - a misleading backtrace alone is weaker than one proved runtime-installed range
+- Microsoft’s callback/table API surfaces are range-shaped (`BaseAddress`, `Length`, callback-managed region), so API presence by itself is weaker than proving that the current PC actually falls inside the owned region and that unwind lookup really hits there
+- if registration is visible but the current PC is outside the owned range, or lookup still returns `NULL`, treat that as failed ownership proof rather than as partial success
 
 ### E. Linux signal handler converts trap/fault into hidden continuation
 Use when:
