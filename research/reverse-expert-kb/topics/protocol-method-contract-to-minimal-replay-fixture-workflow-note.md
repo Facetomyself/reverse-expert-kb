@@ -186,6 +186,11 @@ A practical lifecycle rule worth preserving here is:
 - if the representative call is async-, timeout-, or completion-shaped, fixture identity may also need one explicit statement of deadline/timeout posture and what counts as the expected completion artifact
 - otherwise later `timeout`, `cancel`, or stale/late reply behavior can be misread as argument-shape failure when the real difference is request lifecycle reproduction
 
+A practical compare rule worth preserving here is:
+- if two runs keep the same body / opnum / route core but diverge in deadline posture, metadata/header set, authority/host routing, binding-handle family, authn posture, or context-handle lineage, do not reopen broad body semantics first
+- treat that pair as **body-identical but call-context-different** until one truthful like-for-like call has been frozen
+- only after call comparability is honest should later accept/reject behavior be overread as replay-gate or payload proof
+
 The goal is not perfect semantics.
 The goal is to stop treating every field as equally mysterious.
 The related goal is to stop pretending that every meaningful replay obligation lives inside the message body.
@@ -465,6 +470,8 @@ Primary retained source influences for this page:
   - `sources/firmware-protocol/2026-03-23-streaming-first-minimal-replay-fixture-notes.md`
 - streaming / half-close and Windows RPC representative call-bundle material summarized in:
   - `sources/firmware-protocol/2026-03-23-streaming-and-opnum-minimal-replay-fixture-notes.md`
+- cross-family call-context continuation summarized in:
+  - `sources/firmware-protocol/2026-03-26-call-context-minimal-replay-notes.md`
 - Windows RPC binding/context comparability continuation summarized in:
   - `sources/firmware-protocol/2026-03-26-rpc-binding-context-fixture-notes.md`
 - existing schema-externalization source note:
