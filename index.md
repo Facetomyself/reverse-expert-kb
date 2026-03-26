@@ -276,10 +276,11 @@ This branch should now be read as a practical bridge from runtime-evidence synth
 - `topics/malware-powershell-scheduled-job-consumer-proof-workflow-note.md`
 - `topics/malware-service-servicemain-consumer-proof-workflow-note.md`
 - `topics/malware-service-failure-action-and-timeout-abuse-workflow-note.md`
+- `topics/malware-bits-job-persistence-consumer-proof-workflow-note.md`
 - `topics/malware-wmi-permanent-event-subscription-consumer-proof-workflow-note.md`
 - `topics/malware-com-clsid-hijack-consumer-proof-workflow-note.md`
 
-The persistence-consumer step now explicitly includes thinner startup-side families such as Run-key / StartupApproved autorun chains, Scheduled Task trigger/action chains, PowerShell Scheduled Job definition-owned chains, Windows service / ServiceMain-owned startup chains, WMI permanent event subscriptions, and COM/CLSID-resolution hijack paths, not only generic Run-key or service-install examples, and the malware branch now preserves dedicated narrower continuation leaves for Run-key autorun, Scheduled Task, PowerShell Scheduled Job, service, WMI, and COM/CLSID consumer-proof work.
+The persistence-consumer step now explicitly includes thinner startup-side families such as Run-key / StartupApproved autorun chains, Scheduled Task trigger/action chains, PowerShell Scheduled Job definition-owned chains, Windows service / ServiceMain-owned startup chains, Windows BITS-job abuse chains, WMI permanent event subscriptions, and COM/CLSID-resolution hijack paths, not only generic Run-key or service-install examples, and the malware branch now preserves dedicated narrower continuation leaves for Run-key autorun, Scheduled Task, PowerShell Scheduled Job, service, BITS-job, WMI, and COM/CLSID consumer-proof work.
 - `topics/malware-sleep-jitter-and-environment-gate-workflow-note.md`
 - `topics/malware-reporting-and-handoff-evidence-packaging-workflow-note.md`
 
