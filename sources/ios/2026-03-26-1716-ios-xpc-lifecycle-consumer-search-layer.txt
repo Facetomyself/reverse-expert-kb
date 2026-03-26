@@ -1,0 +1,361 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "NSXPCConnection interruption invalidation exported object listener shouldAcceptNewConnection apple documentation",
+    "Creating XPC Services NSXPCConnection exportedObject interruption handler Apple guide",
+    "NSXPCConnection interruptionHandler invalidationHandler exported object reverse engineering service consumer"
+  ],
+  "count": 17,
+  "results": [
+    {
+      "title": "NSXPCConnection | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection?language=objc",
+      "snippet": "## Explore Platforms. ## Explore Support. Initializes an `NSXPCConnection` object to connect to an `NSXPCListener` object in another process, identified by an `NSXPCListenerEndpoint` object. Initializes an `NSXPCConnection` object to connect to an `NSXPCListener` object in an XPC service, identified by a service name. Returns the current connection, in the context of a call to a method on your exported object. If the connection was created with an `NSXPCListenerEndpoint` object, returns the endpoint object used. An exported object for the connection. Returns a proxy for the remote object (that is, the `exportedObject` from the other side of this connection). Returns a proxy for the remote object (that is, the object exported from the other side of this connection) with the specified error handler. The XPC connection was interrupted. The XPC connection was invalid. The lower bounds of XPC connection error code values. The upper bounds of XPC connection error code values. A coder that encodes and decodes objects that your app sends over an XPC connection.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.8
+    },
+    {
+      "title": "NSXPCConnection.Options",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/options",
+      "snippet": "## Explore Platforms. ## Explore Technologies. ## Explore Support. 32 of 38 symbols inside 1368171724. 30 of 38 symbols inside 1368171724. 32 of 38 symbols inside 1368171724. 30 of 38 symbols inside 1368171724. 27 of 38 symbols inside 1368171724. 22 of 38 symbols inside 1368171724. 19 of 38 symbols inside 1368171724 var exportedObject: Any? 16 of 38 symbols inside 1368171724 var serviceName: String? 15 of 38 symbols inside 1368171724. 13 of 38 symbols inside 1368171724 class func current() -> NSXPCConnection?). 12 of 38 symbols inside 1368171724 var invalidationHandler: (() -> Void)? 11 of 38 symbols inside 1368171724 var interruptionHandler: (() -> Void)? 6 of 38 symbols inside 1368171724. 3 of 4 symbols inside -937119863. 2 of 4 symbols inside -937119863 static var privileged: NSXPCConnection.Options. 1 of 4 symbols inside -937119863. 4 of 38 symbols inside 1368171724 containing 4 symbolsNSXPCConnection.Options. 3 of 38 symbols inside 1368171724 init(machServiceName: String, options: NSXPCConnection.Options)). 1 of 38 symbols inside 1368171724. 1 of 9 symbols inside 1940286794.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7667
+    },
+    {
+      "title": "exportedObject | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/exportedobject",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7333
+    },
+    {
+      "title": "NSXPCConnection | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection?changes=_7",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7
+    },
+    {
+      "title": "interruptionHandler | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/interruptionhandler",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7
+    },
+    {
+      "title": "NSXPCConnection | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7
+    },
+    {
+      "title": "listener:shouldAcceptNewConnection - Apple Developer",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpclistenerdelegate/listener(_:shouldacceptnewconnection:)?language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7
+    },
+    {
+      "title": "NSXPCConnection debugging interruption/invalidation",
+      "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+      "snippet": "",
+      "published_date": "2017-11-21T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.7
+    },
+    {
+      "title": "listener(_:shouldAcceptNewConnection:) - Apple Developer",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpclistenerdelegate/listener(_:shouldacceptnewconnection:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7
+    },
+    {
+      "title": "NSXPCConnectionInterrupted | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnectioninterrupted-c.enum.case?changes=_8&language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7
+    },
+    {
+      "title": "invalidate() | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidate()",
+      "snippet": "## Explore Platforms. ## Explore Technologies. ## Explore Documentation. ## Explore Support. 33 of 38 symbols inside 1368171724 var NSXPCConnectionInterrupted: Int. To navigate the symbols, press Up Arrow, Down Arrow, Left Arrow or Right Arrow. 6 of 9 symbols inside 1940286794. 34 of 38 symbols inside 1368171724 var NSXPCConnectionInvalid: Int. To navigate the symbols, press Up Arrow, Down Arrow, Left Arrow or Right Arrow. 38 of 38 symbols inside 1368171724 var NSXPCConnectionCodeSigningRequirementFailure: Int. To navigate the symbols, press Up Arrow, Down Arrow, Left Arrow or Right Arrow. 37 of 38 symbols inside 1368171724 var NSXPCConnectionErrorMaximum: Int. To navigate the symbols, press Up Arrow, Down Arrow, Left Arrow or Right Arrow. 6 of 9 symbols inside 1940286794. 32 of 38 symbols inside 1368171724. 30 of 38 symbols inside 1368171724. 27 of 38 symbols inside 1368171724. 22 of 38 symbols inside 1368171724. 15 of 38 symbols inside 1368171724. 9 of 38 symbols inside 1368171724 func invalidate()). 6 of 38 symbols inside 1368171724.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "objective c - Reset / Re-initialize NSXPCConnection?",
+      "url": "https://stackoverflow.com/questions/66479755/reset-re-initialize-nsxpcconnection",
+      "snippet": "### your communities. ### more stack exchange communities. Communities for your favorite technologies. Stack Overflow for Teams is now called **Stack Internal**. ##### Collectives™ on Stack Overflow. There are specific API calls that require a total restart of the API, but the only way to accomplish that is fully shutting down the client application that invokes it (the API acts like a Singleton with no way to reinitialize itself). My *hope* is that potentially wrapping the C API in an XPC Service would let me more gracefully shut down the service and restart it so I can avoid restarting the entire client application. ## 1 Answer 1. I *think* I got this to work with NSXPCConnection. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. # Subscribe to RSS. To subscribe to this RSS feed, copy and paste this URL into your RSS reader. ##### Stack Overflow. ##### Stack Exchange Network.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "Creating XPC Services - Apple Developer",
+      "url": "https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html",
+      "snippet": "",
+      "published_date": "2016-09-13T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "XPC Between two cocoa applications in workspace, the NSXPCConnection is immediately being invalidated",
+      "url": "https://stackoverflow.com/questions/41901512/xpc-between-two-cocoa-applications-in-workspace-the-nsxpcconnection-is-immediat",
+      "snippet": "",
+      "published_date": "2017-01-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "Is an XPC interruption handler called when launchd kills ...",
+      "url": "https://stackoverflow.com/questions/17263490/is-an-xpc-interruption-handler-called-when-launchd-kills-the-process",
+      "snippet": "",
+      "published_date": "2014-03-26T09:17:54.330Z",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "XPC Service Connection Invalidated Immediately on Launch",
+      "url": "https://stackoverflow.com/questions/77519923/xpc-service-connection-invalidated-immediately-on-launch",
+      "snippet": "",
+      "published_date": "2023-11-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How and when to use XPC services - Multi.app",
+      "url": "https://multi.app/blog/how-and-when-to-use-xpc-services",
+      "snippet": "# How and when to use XPC services. What is an XPC Service? Remotion uses an XPC service to overlay shared content. ## What is an XPC Service? We use this API to create *XPC services:* tools that run on different processes and can perform work on behalf of our app. A helpful side effect of XPC services is that if the external process crashes, it won't affect your host process. # How to create an XPC Service connection. This protocol will also need to be visible to the process hosting the service. /// This object implements the protocol which we have defined./// It provides the actual behavior for the service./// It is 'exported' by the service to make it available to the/// process hosting the service over an NSXPCConnection. Use the XPC Service in your main process. // Create the manager let xpcManager HostAppXPCManager()// Start the connection xpcManager.startXPCConnection()// Interact with the process via XPC Services xpcManager.proxy.doSomething() xpcManager.proxy.doSomethingElse()// When you no longer need the XPCServiceConnection, shut it down xpcManager.stopXPCConnection(). # How and when to use XPC services.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Creating XPC Services - Apple Developer",
+        "url": "https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html",
+        "snippet": "",
+        "published_date": "2016-09-13T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection?changes=_7",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7
+      },
+      {
+        "title": "interruptionHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/interruptionhandler",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7
+      },
+      {
+        "title": "exportedObject | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/exportedobject",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7333
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7
+      },
+      {
+        "title": "listener:shouldAcceptNewConnection - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpclistenerdelegate/listener(_:shouldacceptnewconnection:)?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7
+      },
+      {
+        "title": "NSXPCConnection debugging interruption/invalidation",
+        "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+        "snippet": "",
+        "published_date": "2017-11-21T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.7
+      },
+      {
+        "title": "listener(_:shouldAcceptNewConnection:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpclistenerdelegate/listener(_:shouldacceptnewconnection:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7
+      },
+      {
+        "title": "XPC Between two cocoa applications in workspace, the NSXPCConnection is immediately being invalidated",
+        "url": "https://stackoverflow.com/questions/41901512/xpc-between-two-cocoa-applications-in-workspace-the-nsxpcconnection-is-immediat",
+        "snippet": "",
+        "published_date": "2017-01-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6333
+      },
+      {
+        "title": "NSXPCConnectionInterrupted | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnectioninterrupted-c.enum.case?changes=_8&language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7
+      },
+      {
+        "title": "NSXPCConnection debugging interruption/invalidation",
+        "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+        "snippet": "",
+        "published_date": "2018-03-26T09:17:54.330Z",
+        "source": "exa"
+      },
+      {
+        "title": "XPC Service Connection Invalidated Immediately on Launch",
+        "url": "https://stackoverflow.com/questions/77519923/xpc-service-connection-invalidated-immediately-on-launch",
+        "snippet": "",
+        "published_date": "2023-11-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Is an XPC interruption handler called when launchd kills ...",
+        "url": "https://stackoverflow.com/questions/17263490/is-an-xpc-interruption-handler-called-when-launchd-kills-the-process",
+        "snippet": "",
+        "published_date": "2014-03-26T09:17:54.330Z",
+        "source": "exa",
+        "score": 0.6333
+      },
+      {
+        "title": "XPC Between two cocoa applications in workspace, the NSXPCConnection is immediately being invalidated",
+        "url": "https://stackoverflow.com/questions/41901512/xpc-between-two-cocoa-applications-in-workspace-the-nsxpcconnection-is-immediat",
+        "snippet": "",
+        "published_date": "2017-01-27T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection?changes=_7",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Creating XPC Services - Apple Developer",
+        "url": "https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html",
+        "snippet": "The `NSXPCConnection` API is an Objective-C-based API that provides a remote procedure call mechanism, allowing the client application to call methods on proxy objects that transparently relay those calls to corresponding objects in the service helper and vice-versa. The Objective-C `NSXPCConnection` API provides a high-level remote procedure call interface that allows you to call methods on objects in one process from another process (usually an application calling a method in an XPC service). When the main application calls a method on a proxy object, the XPC service’s `NSXPCConnection` object calls that method on the object stored in its `exportedObject` property. However, because connections are bidirectional, the XPC service helper can also reply by calling methods in the interface provided by the main application, if desired. 2. The application calls some combination of `xpc_connection_set_event_handler(3) Mac OS X Developer Tools Manual Page` or `xpc_connection_set_target_queue(3) Mac OS X Developer Tools Manual Page` as needed to configure connection parameters prior to actually connecting to the service.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection?changes=_7",
+        "snippet": "Initializes an NSXPCConnection object to connect to an NSXPCListener object in an XPC service, identified by a service name. ... An interruption handler that is",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "interruptionHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/interruptionhandler",
+        "snippet": "An invalidation handler that is called if the connection can not be formed or the connection has terminated and may not be re-established.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "exportedObject | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/exportedobject",
+        "snippet": "Messages delivered to exported objects are serialized and sent on a non-main queue. The receiver is responsible for handling the messages on a different queue",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How and when to use XPC services - Multi.app",
+        "url": "https://multi.app/blog/how-and-when-to-use-xpc-services",
+        "snippet": "# How and when to use XPC services. What is an XPC Service? Remotion uses an XPC service to overlay shared content. ## What is an XPC Service? We use this API to create *XPC services:* tools that run on different processes and can perform work on behalf of our app. A helpful side effect of XPC services is that if the external process crashes, it won't affect your host process. # How to create an XPC Service connection. This protocol will also need to be visible to the process hosting the service. /// This object implements the protocol which we have defined./// It provides the actual behavior for the service./// It is 'exported' by the service to make it available to the/// process hosting the service over an NSXPCConnection. Use the XPC Service in your main process. // Create the manager let xpcManager HostAppXPCManager()// Start the connection xpcManager.startXPCConnection()// Interact with the process via XPC Services xpcManager.proxy.doSomething() xpcManager.proxy.doSomethingElse()// When you no longer need the XPCServiceConnection, shut it down xpcManager.stopXPCConnection(). # How and when to use XPC services.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection?language=objc",
+        "snippet": "## Explore Platforms. ## Explore Support. Initializes an `NSXPCConnection` object to connect to an `NSXPCListener` object in another process, identified by an `NSXPCListenerEndpoint` object. Initializes an `NSXPCConnection` object to connect to an `NSXPCListener` object in an XPC service, identified by a service name. Returns the current connection, in the context of a call to a method on your exported object. If the connection was created with an `NSXPCListenerEndpoint` object, returns the endpoint object used. An exported object for the connection. Returns a proxy for the remote object (that is, the `exportedObject` from the other side of this connection). Returns a proxy for the remote object (that is, the object exported from the other side of this connection) with the specified error handler. The XPC connection was interrupted. The XPC connection was invalid. The lower bounds of XPC connection error code values. The upper bounds of XPC connection error code values. A coder that encodes and decodes objects that your app sends over an XPC connection.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.8
+      },
+      {
+        "title": "NSXPCConnection.Options",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/options",
+        "snippet": "## Explore Platforms. ## Explore Technologies. ## Explore Support. 32 of 38 symbols inside 1368171724. 30 of 38 symbols inside 1368171724. 32 of 38 symbols inside 1368171724. 30 of 38 symbols inside 1368171724. 27 of 38 symbols inside 1368171724. 22 of 38 symbols inside 1368171724. 19 of 38 symbols inside 1368171724 var exportedObject: Any? 16 of 38 symbols inside 1368171724 var serviceName: String? 15 of 38 symbols inside 1368171724. 13 of 38 symbols inside 1368171724 class func current() -> NSXPCConnection?). 12 of 38 symbols inside 1368171724 var invalidationHandler: (() -> Void)? 11 of 38 symbols inside 1368171724 var interruptionHandler: (() -> Void)? 6 of 38 symbols inside 1368171724. 3 of 4 symbols inside -937119863. 2 of 4 symbols inside -937119863 static var privileged: NSXPCConnection.Options. 1 of 4 symbols inside -937119863. 4 of 38 symbols inside 1368171724 containing 4 symbolsNSXPCConnection.Options. 3 of 38 symbols inside 1368171724 init(machServiceName: String, options: NSXPCConnection.Options)). 1 of 38 symbols inside 1368171724. 1 of 9 symbols inside 1940286794.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7667
+      },
+      {
+        "title": "listener(_:shouldAcceptNewConnection:)",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpclistenerdelegate/listener(_:shouldacceptnewconnection:)",
+        "snippet": "To accept the connection, first configure the connection if desired, then call resume() on the new connection, then return true.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSXPCConnectionInterrupted",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnectioninterrupted-c.enum.case?changes=_8&language=objc",
+        "snippet": "The XPC connection was invalid. NSXPCConnectionReplyInvalid. The XPC connection reply was invalid. NSXPCConnectionErrorMinimum. The lower bounds of XPC",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "invalidate() | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidate()",
+        "snippet": "## Explore Platforms. ## Explore Technologies. ## Explore Documentation. ## Explore Support. 33 of 38 symbols inside 1368171724 var NSXPCConnectionInterrupted: Int. To navigate the symbols, press Up Arrow, Down Arrow, Left Arrow or Right Arrow. 6 of 9 symbols inside 1940286794. 34 of 38 symbols inside 1368171724 var NSXPCConnectionInvalid: Int. To navigate the symbols, press Up Arrow, Down Arrow, Left Arrow or Right Arrow. 38 of 38 symbols inside 1368171724 var NSXPCConnectionCodeSigningRequirementFailure: Int. To navigate the symbols, press Up Arrow, Down Arrow, Left Arrow or Right Arrow. 37 of 38 symbols inside 1368171724 var NSXPCConnectionErrorMaximum: Int. To navigate the symbols, press Up Arrow, Down Arrow, Left Arrow or Right Arrow. 6 of 9 symbols inside 1940286794. 32 of 38 symbols inside 1368171724. 30 of 38 symbols inside 1368171724. 27 of 38 symbols inside 1368171724. 22 of 38 symbols inside 1368171724. 15 of 38 symbols inside 1368171724. 9 of 38 symbols inside 1368171724 func invalidate()). 6 of 38 symbols inside 1368171724.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "NSXPCConnection debugging interruption/invalidation",
+        "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+        "snippet": "I have heard that in case \"interruption\" you should try to reestablish the connection. This can be useful when your service is a launch agent which gets",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "objective c - Reset / Re-initialize NSXPCConnection?",
+        "url": "https://stackoverflow.com/questions/66479755/reset-re-initialize-nsxpcconnection",
+        "snippet": "### your communities. ### more stack exchange communities. Communities for your favorite technologies. Stack Overflow for Teams is now called **Stack Internal**. ##### Collectives™ on Stack Overflow. There are specific API calls that require a total restart of the API, but the only way to accomplish that is fully shutting down the client application that invokes it (the API acts like a Singleton with no way to reinitialize itself). My *hope* is that potentially wrapping the C API in an XPC Service would let me more gracefully shut down the service and restart it so I can avoid restarting the entire client application. ## 1 Answer 1. I *think* I got this to work with NSXPCConnection. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. # Subscribe to RSS. To subscribe to this RSS feed, copy and paste this URL into your RSS reader. ##### Stack Overflow. ##### Stack Exchange Network.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      }
+    ],
+    "grok": []
+  }
+}
