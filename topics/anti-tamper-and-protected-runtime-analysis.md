@@ -255,7 +255,7 @@ It should also preserve where the analyst is supposed to enter and leave the bra
 - reduce noisy protected execution into one stable semantic anchor before broadening the case again
 - normalize one opaque-predicate / computed-next-state bottleneck into one trustworthy successor relation when flattening is recognizable but successor truth is still blocked by helper-mediated writes, computed indices, or dispatcher-local mechanics
 - reduce a recognizable flattened dispatcher or protected state machine into one durable state edge once successor recovery is already trustworthy enough
-- hand off out of staged bootstrap into one trustworthy post-protection target, while keeping Windows/native startup-normalization reality explicit when TLS callbacks, CRT/runtime startup, or constructor/init-table work still separate a raw post-unpack transfer from the first payload-bearing post-startup handoff
+- hand off out of staged bootstrap into one trustworthy post-protection target, while keeping Windows/native startup-normalization reality explicit when TLS callbacks, CRT/runtime startup, or constructor/init-table work still separate raw PE entry, startup-owned pre-entry truth, raw post-unpack transfer, and the first payload-bearing post-startup handoff
 - prove the first ordinary consumer of one recovered artifact
 - recover the smallest runtime artifact or init obligation that explains close-but-wrong replay
 - reduce visible checks into one first consequence-bearing tripwire
