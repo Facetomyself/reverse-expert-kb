@@ -310,6 +310,7 @@ Start here when:
 - a mailbox, command queue, submission slot, or peer-facing command buffer is already plausible
 - some command ID, slot, sequence, tail pointer, or doorbell logic is already visible
 - the real missing proof is the smaller chain from local command staging to peer-visible publish and then to request-linked completion/ack
+- or, in posted-MMIO cases, the still-thinner split between peer-visible publish, issued doorbell, actual device observation, and only then request-linked completion/ack
 - the next useful output is one trustworthy publish→completion chain rather than broader ring or register taxonomy
 
 Do **not** start here when:
@@ -324,7 +325,7 @@ Use:
 Start here when:
 - one descriptor, ring slot, or completion record is already visible enough to track
 - one owner/valid bit, producer/tail/WR_IDX publication, or reclaim/RD_IDX return path is already plausible
-- the remaining uncertainty is the exact trust boundary: when the other side may consume the record, whether the case behaves like coherent shared descriptor memory or streaming/non-coherent DMA-backed visibility, how ordering/cache visibility or explicit CPU/device trust transfer affects that, and what reclaim or slot reuse proves durable completion
+- the remaining uncertainty is the exact trust boundary: when the other side may consume the record, whether the case behaves like coherent shared descriptor memory or streaming/non-coherent DMA-backed visibility, how ordering/cache visibility or explicit CPU/device trust transfer affects that, whether notify/doorbell is only a publish hint or still weaker than actual device observation under posted-MMIO rules, and what reclaim or slot reuse proves durable completion
 - the next useful output is one compact ownership-transfer -> visibility -> reclaim contract rather than broader ring taxonomy
 
 Do **not** start here when:
@@ -690,7 +691,7 @@ The compact reading is:
 - localize the first parser/state consequence
 - prove the first acceptance gate
 - prove the first real output handoff
-- prove one descriptor publish/completion chain when publish-to-hardware is the true bottleneck
+- preserve the thinner stop rule `published != doorbelled != observed-by-device != consequence` when posted-MMIO or safe-register-read-back behavior decides whether a hardware-facing kick is truly observable yet
 - prove the first hardware-side or interrupt/deferred consequence
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which protocol/firmware workflow note to read first.

@@ -1,0 +1,418 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "PCI posted write MMIO doorbell readl flush writel device observe kick driver",
+    "Linux device io ordering readl after writel posted write flush driver-api",
+    "mmiowb writel readl posted writes MMIO ordering doorbell ring driver"
+  ],
+  "count": 21,
+  "results": [
+    {
+      "title": "MMIO read/write latency - linux - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/17770823/mmio-read-write-latency",
+      "snippet": "In the kernel space, I wrote a simple program to read a 4 byte value in a PCIe device's BAR0 address. The device is a PCIe Intel 10G NIC and",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "Ordering I/O writes to memory-mapped addresses",
+      "url": "https://docs.kernel.org/driver-api/io_ordering.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.575
+    },
+    {
+      "title": "Linux-Kernel Archive: [PATCH v9 4/6] PCI: endpoint: pci-epf-test: Add doorbell test support",
+      "url": "https://lkml.iu.edu/hypermail/linux/kernel/2412.0/03684.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.55
+    },
+    {
+      "title": "Flushing writes to PCI devices",
+      "url": "https://linux-kernel.vger.kernel.narkive.com/xsLwS0Ep/flushing-writes-to-pci-devices",
+      "snippet": "Flushing writes to PCI devices. MMIO writes (writel, writew, writeb) to PCI devices by reading from the. MMIO writes (writel, writew, writeb) to PCI devices by reading from the. Flushing PCI space writes shouldn't be done until you want. should NOT attach a read to every PCI space write! MMIO writes (writel, writew, writeb) to PCI devices by reading from the. Flushing PCI space writes shouldn't be done until you want. should NOT attach a read to every PCI space write! MMIO writes (writel, writew, writeb) to PCI devices by reading from the. Flushing PCI space writes shouldn't be done until you want. should NOT attach a read to every PCI space write! Bryan> posted writes out of order, for example. Bryan> posted writes out of order, for example. MMIO writes (writel, writew, writeb) to PCI devices by reading from the. MMIO writes (writel, writew, writeb) to PCI devices by reading from the. Technically, according to the PCI specification, I/O space writes may be.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.475
+    },
+    {
+      "title": "PCI MMIO read / write for windows - Adaptive Support - AMD",
+      "url": "https://adaptivesupport.amd.com/s/question/0D54U00006pQHXQSA4/pci-mmio-read-write-for-windows?language=en_US",
+      "snippet": "In my custom windows PCI driver, I use WRITE_REGISTER_BUFFER_ULONG function to pass write request to device. Along this, I use ILA debug",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "Semantics of MMIO mapping attributes across architectures - LWN.net",
+      "url": "https://lwn.net/Articles/698014/",
+      "snippet": "Given that both MMIO reads and writes can change device state, ordering is extremely important and, as will be discussed below, many of the Linux kernel's MMIO access functions provide strong ordering, both with each other and with locking primitives and value-returning atomic operations. In short, MMIO reads and writes can be thought of as a message-passing communication mechanism for interacting with devices; they can be uncached for traditional device access or write combining for access to things like frame buffers and InfiniBand, and they require special attention in order to interact properly with synchronization primitives such as locks. Fortunately, most device manufacturers now dedicate one full PCI base address register (BAR) to MMIO and another for frame-buffer use, which means that developers writing drivers for modern devices can for the most part simply use the ioremap\\_nocache() and ioremap\\_wc() APIs. One important last note: On x86 systems, spinlock-release primitives usually use a plain store instruction. A non-relaxed MMIO access (aside from not ordering prior writes against later reads) or either mb(), rmb(), or wmb().",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "PCI: flushing the posted write buffer - Google Groups",
+      "url": "https://groups.google.com/g/comp.os.vxworks/c/34_d90EfFa0",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Diff - kernel/msm - Git at Google - Android GoogleSource",
+      "url": "https://android.googlesource.com/kernel/msm/+/3ae684e1c48e6deedc9b9faff8fa1c391ca8a652%5E2%5E%5E2%5E8..3ae684e1c48e6deedc9b9faff8fa1c391ca8a652%5E2%5E%5E2/",
+      "snippet": "- - Also, on some platforms your driver may need to flush CPU write - buffers in much the same way as it needs to flush write buffers - found in PCI bridges",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "device-io.rst - The Linux Kernel Archives",
+      "url": "https://www.kernel.org/doc/Documentation/driver-api/device-io.rst",
+      "snippet": "The normal approach to ensure posted write completion is to do a dummy read after a write as explained in `Accessing the device`_, which works with ioremap() on",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.375
+    },
+    {
+      "title": "Documentation/driver-api/device-io.rst - Linux - GitLab",
+      "url": "https://gitlab.baylibre.com/msp8/linux/-/blob/1c163f4c7b3f621efff9b28a47abb36f7378d783/Documentation/driver-api/device-io.rst",
+      "snippet": "The read and write functions are defined to be ordered. That is the compiler is not permitted to reorder the I/O sequence. When the ordering can",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Documentation/driver-api/device-io.rst - Linux kernel - GitLab",
+      "url": "https://gitlab.nic.cz/turris/linux/-/blob/248632a37173cb5b546078fa1929ee8fda8c2e87/Documentation/driver-api/device-io.rst",
+      "snippet": "The read and write functions are defined to be ordered. That is the compiler is not permitted to reorder the I/O sequence. When the ordering can",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Understanding PCIe MMIO: Control Registers and Device Interaction",
+      "url": "https://www.linkedin.com/posts/rakesh-myakala-481192281_in-pcie-mmio-memory-mapped-io-represents-activity-7415266845911355393-nJvW",
+      "snippet": "",
+      "published_date": "2026-01-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "Documentation/driver-api/device-io.rst - Linux kernel - GitLab",
+      "url": "https://gitlab.nic.cz/turris/linux/-/blob/b7435db8b8d11df94453708295c2ea5b09caff5f/Documentation/driver-api/device-io.rst",
+      "snippet": "",
+      "published_date": "2017-01-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "Documentation/driver-api/device-io.rst - pub/scm/linux/kernel/git/mark/linux - Git at Google",
+      "url": "https://kernel.googlesource.com/pub/scm/linux/kernel/git/mark/linux/+/refs/heads/fuzzing/arm64-fkci-20220725/Documentation/driver-api/device-io.rst",
+      "snippet": "",
+      "published_date": "2022-07-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "iowrite32(), writel() and memory barriers taken apart - Eli Billauer",
+      "url": "https://billauer.co.il/blog/2014/08/wmb-rmb-mmiomb-effects/",
+      "snippet": "",
+      "published_date": "2014-08-14T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.35
+    },
+    {
+      "title": "wmb vs mmiowb - linuxppc-dev@lists.ozlabs.org",
+      "url": "https://linuxppc-dev.ozlabs.narkive.com/3yCdClgO/wmb-vs-mmiowb",
+      "snippet": "mmiowb isn't really like a write barrier. wmb is supposed to order all writes coming out of a single CPU, so that's pretty simple.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "Ordering I/O writes to memory-mapped addresses — The Linux Kernel documentation",
+      "url": "https://kernel.org/doc/html/latest/driver-api/io_ordering.html",
+      "snippet": "",
+      "published_date": "2023-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "[v2,07/10] nvme-pci: Use PCI p2pmem subsystem to manage the CMB",
+      "url": "https://patchwork.ozlabs.org/patch/879489/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "drivers/infiniband/hw/mthca/mthca_cmd.c ... - GitLab",
+      "url": "https://gitlab.eclipse.org/eclipse/oniro-core/linux/-/blob/257edc6db9432d6d9f19bd313b6b30406b431766/drivers/infiniband/hw/mthca/mthca_cmd.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.325
+    },
+    {
+      "title": "[PATCH] Bugfix for handling of shadow doorbell buffer.",
+      "url": "https://lore.kernel.org/lkml/20180814221735.62804-1-wnukowski@google.com/t/",
+      "snippet": "",
+      "published_date": "2018-08-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "Linux kernel memory barriers — The Linux Kernel documentation",
+      "url": "https://kernel.org/doc/html/latest/core-api/wrappers/memory-barriers.html",
+      "snippet": "",
+      "published_date": "2023-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Ordering I/O writes to memory-mapped addresses",
+        "url": "https://docs.kernel.org/driver-api/io_ordering.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.575
+      },
+      {
+        "title": "Ordering I/O writes to memory-mapped addresses — The Linux Kernel documentation",
+        "url": "https://kernel.org/doc/html/latest/driver-api/io_ordering.html",
+        "snippet": "",
+        "published_date": "2023-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "Documentation/driver-api/device-io.rst - Linux kernel - GitLab",
+        "url": "https://gitlab.nic.cz/turris/linux/-/blob/b7435db8b8d11df94453708295c2ea5b09caff5f/Documentation/driver-api/device-io.rst",
+        "snippet": "",
+        "published_date": "2017-01-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "Documentation/driver-api/device-io.rst - pub/scm/linux/kernel/git/mark/linux - Git at Google",
+        "url": "https://kernel.googlesource.com/pub/scm/linux/kernel/git/mark/linux/+/refs/heads/fuzzing/arm64-fkci-20220725/Documentation/driver-api/device-io.rst",
+        "snippet": "",
+        "published_date": "2022-07-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "Linux kernel memory barriers — The Linux Kernel documentation",
+        "url": "https://kernel.org/doc/html/latest/core-api/wrappers/memory-barriers.html",
+        "snippet": "",
+        "published_date": "2023-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "PCI: flushing the posted write buffer - Google Groups",
+        "url": "https://groups.google.com/g/comp.os.vxworks/c/34_d90EfFa0",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Flushing writes to PCI devices",
+        "url": "https://linux-kernel.vger.kernel.narkive.com/xsLwS0Ep/flushing-writes-to-pci-devices",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "",
+        "url": "https://www.kernel.org/doc/Documentation/driver-api/device-io.rst",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Understanding PCIe MMIO: Control Registers and Device Interaction",
+        "url": "https://www.linkedin.com/posts/rakesh-myakala-481192281_in-pcie-mmio-memory-mapped-io-represents-activity-7415266845911355393-nJvW",
+        "snippet": "",
+        "published_date": "2026-01-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "Linux-Kernel Archive: [PATCH v9 4/6] PCI: endpoint: pci-epf-test: Add doorbell test support",
+        "url": "https://lkml.iu.edu/hypermail/linux/kernel/2412.0/03684.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.55
+      },
+      {
+        "title": "[v2,07/10] nvme-pci: Use PCI p2pmem subsystem to manage the CMB",
+        "url": "https://patchwork.ozlabs.org/patch/879489/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "iowrite32(), writel() and memory barriers taken apart - Eli Billauer",
+        "url": "https://billauer.co.il/blog/2014/08/wmb-rmb-mmiomb-effects/",
+        "snippet": "",
+        "published_date": "2014-08-14T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.35
+      },
+      {
+        "title": "drivers/infiniband/hw/mthca/mthca_cmd.c ... - GitLab",
+        "url": "https://gitlab.eclipse.org/eclipse/oniro-core/linux/-/blob/257edc6db9432d6d9f19bd313b6b30406b431766/drivers/infiniband/hw/mthca/mthca_cmd.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.325
+      },
+      {
+        "title": "[PATCH] Bugfix for handling of shadow doorbell buffer.",
+        "url": "https://lore.kernel.org/lkml/20180814221735.62804-1-wnukowski@google.com/t/",
+        "snippet": "",
+        "published_date": "2018-08-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "",
+        "url": "https://www.kernel.org/doc/Documentation/driver-api/device-io.rst",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Ordering I/O writes to memory-mapped addresses",
+        "url": "https://docs.kernel.org/driver-api/io_ordering.html",
+        "snippet": "This is typically done by reading a 'safe' device or bridge register, causing the I/O chipset to flush pending writes to the device before any reads are posted.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "device-io.rst - The Linux Kernel Archives",
+        "url": "https://www.kernel.org/doc/Documentation/driver-api/device-io.rst",
+        "snippet": "The normal approach to ensure posted write completion is to do a dummy read after a write as explained in `Accessing the device`_, which works with ioremap() on",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.375
+      },
+      {
+        "title": "Documentation/driver-api/device-io.rst - Linux - GitLab",
+        "url": "https://gitlab.baylibre.com/msp8/linux/-/blob/1c163f4c7b3f621efff9b28a47abb36f7378d783/Documentation/driver-api/device-io.rst",
+        "snippet": "The read and write functions are defined to be ordered. That is the compiler is not permitted to reorder the I/O sequence. When the ordering can",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Documentation/driver-api/device-io.rst - Linux kernel - GitLab",
+        "url": "https://gitlab.nic.cz/turris/linux/-/blob/248632a37173cb5b546078fa1929ee8fda8c2e87/Documentation/driver-api/device-io.rst",
+        "snippet": "The read and write functions are defined to be ordered. That is the compiler is not permitted to reorder the I/O sequence. When the ordering can",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Flushing writes to PCI devices",
+        "url": "https://linux-kernel.vger.kernel.narkive.com/xsLwS0Ep/flushing-writes-to-pci-devices",
+        "snippet": "Flushing writes to PCI devices. MMIO writes (writel, writew, writeb) to PCI devices by reading from the. MMIO writes (writel, writew, writeb) to PCI devices by reading from the. Flushing PCI space writes shouldn't be done until you want. should NOT attach a read to every PCI space write! MMIO writes (writel, writew, writeb) to PCI devices by reading from the. Flushing PCI space writes shouldn't be done until you want. should NOT attach a read to every PCI space write! MMIO writes (writel, writew, writeb) to PCI devices by reading from the. Flushing PCI space writes shouldn't be done until you want. should NOT attach a read to every PCI space write! Bryan> posted writes out of order, for example. Bryan> posted writes out of order, for example. MMIO writes (writel, writew, writeb) to PCI devices by reading from the. MMIO writes (writel, writew, writeb) to PCI devices by reading from the. Technically, according to the PCI specification, I/O space writes may be.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.475
+      },
+      {
+        "title": "Flushing writes to PCI devices",
+        "url": "https://linux-kernel.vger.kernel.narkive.com/xsLwS0Ep/flushing-writes-to-pci-devices",
+        "snippet": "Flushing writes to PCI devices. MMIO writes (writel, writew, writeb) to PCI devices by reading from the. MMIO writes (writel, writew, writeb) to PCI devices by reading from the. Flushing PCI space writes shouldn't be done until you want. should NOT attach a read to every PCI space write! MMIO writes (writel, writew, writeb) to PCI devices by reading from the. Flushing PCI space writes shouldn't be done until you want. should NOT attach a read to every PCI space write! MMIO writes (writel, writew, writeb) to PCI devices by reading from the. Flushing PCI space writes shouldn't be done until you want. should NOT attach a read to every PCI space write! Bryan> posted writes out of order, for example. Bryan> posted writes out of order, for example. MMIO writes (writel, writew, writeb) to PCI devices by reading from the. MMIO writes (writel, writew, writeb) to PCI devices by reading from the. Technically, according to the PCI specification, I/O space writes may be.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "PCI MMIO read / write for windows - Adaptive Support - AMD",
+        "url": "https://adaptivesupport.amd.com/s/question/0D54U00006pQHXQSA4/pci-mmio-read-write-for-windows?language=en_US",
+        "snippet": "In my custom windows PCI driver, I use WRITE_REGISTER_BUFFER_ULONG function to pass write request to device. Along this, I use ILA debug",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "PCI: flushing the posted write buffer - Google Groups",
+        "url": "https://groups.google.com/g/comp.os.vxworks/c/34_d90EfFa0",
+        "snippet": "The flushing of the posted write buffer is triggered by doing a read after you've completed your writes - that's the only software involvement.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "MMIO read/write latency - linux - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/17770823/mmio-read-write-latency",
+        "snippet": "In the kernel space, I wrote a simple program to read a 4 byte value in a PCIe device's BAR0 address. The device is a PCIe Intel 10G NIC and",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "Diff - kernel/msm - Git at Google - Android GoogleSource",
+        "url": "https://android.googlesource.com/kernel/msm/+/3ae684e1c48e6deedc9b9faff8fa1c391ca8a652%5E2%5E%5E2%5E8..3ae684e1c48e6deedc9b9faff8fa1c391ca8a652%5E2%5E%5E2/",
+        "snippet": "- - Also, on some platforms your driver may need to flush CPU write - buffers in much the same way as it needs to flush write buffers - found in PCI bridges",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Semantics of MMIO mapping attributes across architectures - LWN.net",
+        "url": "https://lwn.net/Articles/698014/",
+        "snippet": "Given that both MMIO reads and writes can change device state, ordering is extremely important and, as will be discussed below, many of the Linux kernel's MMIO access functions provide strong ordering, both with each other and with locking primitives and value-returning atomic operations. In short, MMIO reads and writes can be thought of as a message-passing communication mechanism for interacting with devices; they can be uncached for traditional device access or write combining for access to things like frame buffers and InfiniBand, and they require special attention in order to interact properly with synchronization primitives such as locks. Fortunately, most device manufacturers now dedicate one full PCI base address register (BAR) to MMIO and another for frame-buffer use, which means that developers writing drivers for modern devices can for the most part simply use the ioremap\\_nocache() and ioremap\\_wc() APIs. One important last note: On x86 systems, spinlock-release primitives usually use a plain store instruction. A non-relaxed MMIO access (aside from not ordering prior writes against later reads) or either mb(), rmb(), or wmb().",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "drivers/infiniband/hw/mthca/mthca_cmd.c ... - GitLab",
+        "url": "https://gitlab.eclipse.org/eclipse/oniro-core/linux/-/blob/257edc6db9432d6d9f19bd313b6b30406b431766/drivers/infiniband/hw/mthca/mthca_cmd.c",
+        "snippet": "... mmiowb() to order MMIO writes between CPUs using lock-free synchronisation. If you've ended up bisecting to this commit, you can reintroduce the mmiowb",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "wmb vs mmiowb - linuxppc-dev@lists.ozlabs.org",
+        "url": "https://linuxppc-dev.ozlabs.narkive.com/3yCdClgO/wmb-vs-mmiowb",
+        "snippet": "mmiowb isn't really like a write barrier. wmb is supposed to order all writes coming out of a single CPU, so that's pretty simple.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "iowrite32(), writel() and memory barriers taken apart - Eli Billauer",
+        "url": "https://billauer.co.il/blog/2014/08/wmb-rmb-mmiomb-effects/",
+        "snippet": "Most drivers rely on subsequent iowrite32′s (or writel's) to arrive to the hardware in the same order they appear in the code, and this is",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Ordering I/O writes to memory-mapped addresses",
+        "url": "https://docs.kernel.org/driver-api/io_ordering.html",
+        "snippet": "Driver writers are responsible for ensuring that I/O writes to memory-mapped addresses on their device arrive in the order intended.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}

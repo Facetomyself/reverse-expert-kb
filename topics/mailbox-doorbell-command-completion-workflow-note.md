@@ -156,6 +156,7 @@ Useful local role labels:
 - `slot-fill`
 - `publish-tail`
 - `doorbell`
+- `doorbell-flush/observe`
 - `owner-transfer`
 - `peer-consume`
 - `ack/completion`
@@ -207,6 +208,10 @@ A filled mailbox buffer is not yet a peer-visible command.
 
 ### 2. Treating interrupt visibility as enough
 An interrupt without request-linked completion is often still too weak.
+
+### 2.5 Treating doorbell issuance as device-observation proof
+A tail/doorbell/submit write may be the decisive publish edge without yet proving that a posted MMIO write has been observed by the device under the case's ordering rules.
+If code or platform docs show safe-register read-back, config-space fallback reads, or another explicit flush/observation step, preserve `published != doorbelled != observed-by-device` instead of collapsing them.
 
 ### 3. Overfitting the whole register map before one chain is proved
 One trustworthy publish→completion chain is usually more valuable than full mailbox taxonomy.
@@ -280,6 +285,7 @@ This note is intentionally workflow-first.
 
 It is grounded by:
 - `sources/firmware-protocol/2026-03-22-mailbox-doorbell-command-completion-notes.md`
+- `sources/firmware-protocol/2026-03-27-posted-mmio-doorbell-observation-notes.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/descriptor-tail-kick-and-completion-chain-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
