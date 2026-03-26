@@ -17,6 +17,7 @@ Supporting source notes:
 - sources/firmware-protocol/2026-03-23-streaming-first-minimal-replay-fixture-notes.md
 - sources/firmware-protocol/2026-03-23-streaming-and-opnum-minimal-replay-fixture-notes.md
 - sources/firmware-protocol/2026-03-23-opnum-and-timeout-lifecycle-minimal-replay-notes.md
+- sources/protocol/2026-03-26-call-context-truth-minimal-replay-notes.md
 
 ## 1. When to use this note
 Use this note when a protocol or RPC-shaped case has already progressed far enough that:
@@ -170,6 +171,7 @@ For gRPC-like families, a compact first route core is often already available as
 But gRPC-like fixture work should now preserve one extra stop rule:
 - do not flatten **body truth** and **call-context truth** into the same bucket
 - the same protobuf body can still produce a practically different call when deadline posture, metadata, authority, or call-credential routing differ
+- gRPC’s own documentation makes this split concrete because metadata rides as HTTP/2 header/trailer side-channel state rather than inside the request body, and deadline posture can independently produce `DEADLINE_EXCEEDED` / cancellation behavior even when the body is unchanged
 - if replay fails after the body already looks stable, first ask whether the fixture froze the same call-context contract before reopening broad payload semantics
 
 For Windows RPC-like families, a compact first route core is often:
@@ -180,6 +182,7 @@ For Windows RPC-like families, a compact first route core is often:
 
 And Windows RPC-like fixture work should preserve the same extra stop rule:
 - do not treat opnum plus arguments as the whole replay object when one binding family, authn level, or context-handle posture still decides whether the call is even comparable
+- Microsoft’s own RPC documentation makes this split concrete because binding handles are part of how calls are actually made, while context handles preserve server-side session/state lineage that cannot be reduced to copied scalar arguments alone
 - if one live call bundle only works under one narrower binding/context contract, freeze that separately instead of smearing it into vague “ambient runtime state”
 
 A practical lifecycle rule worth preserving here is:
