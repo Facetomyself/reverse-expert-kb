@@ -1,0 +1,463 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Qt installEventFilter eventFilter queued connection direct connection reverse engineering first consumer",
+    "Qt eventFilter QObject::event signal slot direct queued connection analysis",
+    "Win32 subclass Qt event filter first consumer reverse engineering GUI message pump"
+  ],
+  "count": 26,
+  "results": [
+    {
+      "title": "Qt signals (QueuedConnection and DirectConnection)",
+      "url": "https://stackoverflow.com/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+      "snippet": "### more stack exchange communities. `connect( A, SIGNAL(somethingChanged()), B, SLOT(handleChange()), Qt::DirectConnection );`. Assuming `B`'s thread is running an event loop, emitting the signal will post an event to `B`'s event loop. This makes it pretty easy to deal with communication between/among threads in Qt (again, assuming your threads are running their own local event loops). It does make a difference if you *specify* a queued connection - even for two objects on the same thread. However, if you don't specify a connection method, the direct method is automatically used for connections between objects on the same thread (at least it is in Qt 4.8). emitting a signal to a direct connection within the same thread will execute the slot immediately, just like a simple function call. emitting a signal to a queued connection within the same thread will enqueue the call into the threads event loop, thus the execution will *always* happen delayed. Start asking to get answers. Find the answer to your question by asking.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.7
+    },
+    {
+      "title": "QT event filter precedence problems",
+      "url": "https://stackoverflow.com/questions/74345192/qt-event-filter-precedence-problems",
+      "snippet": "",
+      "published_date": "2023-03-26T03:17:41.515Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How can I handle and filter events that are accepted and discarded deep inside some hierarchy without having to subclass every component on the way?",
+      "url": "https://stackoverflow.com/questions/69043814/how-can-i-handle-and-filter-events-that-are-accepted-and-discarded-deep-inside-s",
+      "snippet": "",
+      "published_date": "2021-09-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How to install event filter on a custom Qt class?",
+      "url": "https://stackoverflow.com/questions/55986902/how-to-install-event-filter-on-a-custom-qt-class",
+      "snippet": "",
+      "published_date": "2019-05-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "installing event filters in QT - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/22785271/installing-event-filters-in-qt",
+      "snippet": "You can install an event filter from one GraphicsItem to another through the QGraphicsScene. This is detailed in the Qt Documentation here.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Are Signals and Slots running on different threads?",
+      "url": "https://www.reddit.com/r/QtFramework/comments/qo3zd3/are_signals_and_slots_running_on_different_threads/",
+      "snippet": "In auto, Qt looks at what threads the sender and receiver belong to and decides whether to use direct or queued connection.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "How to post a native win32 event to qt's event loop",
+      "url": "https://stackoverflow.com/questions/79635978/how-to-post-a-native-win32-event-to-qts-event-loop",
+      "snippet": "",
+      "published_date": "2025-05-26T03:17:41.283Z",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Hints to reverse engineering a QT software",
+      "url": "https://reverseengineering.stackexchange.com/questions/6828/hints-to-reverse-engineering-a-qt-software",
+      "snippet": "#### Stack Exchange Network. Stack Exchange network consists of 183 Q&A communities including Stack Overflow, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers. ### more stack exchange communities. # Hints to reverse engineering a QT software. I am facing a little bit of problem during reverse a QT application with Ollydbg or IDA. Someone of you can point me to some hints to work with QT application or explain me how to identify an event (signal/slot) and work on it please? Any help will be appreciated, i have searching a lot but there aren't tutorial or documentation about QT reversing... Take a look at the file Properties->Details of \"QtCore4.dll\" it uses to see what Qt version it is. Look at the Qt imports in the application. Thanks for contributing an answer to Reverse Engineering Stack Exchange! Find the answer to your question by asking. ##### Reverse Engineering. ##### Stack Exchange Network.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5667
+    },
+    {
+      "title": "Understanding Qt's Event Loop and Signals/Slots",
+      "url": "https://dekonvoluted.github.io/programming/2018/09/16/qt-event-loop.html",
+      "snippet": "Understanding Qt's Event Loop and Signals/Slots. This behavior of pushing an event onto the event loop (as a `Qt::QueuedConnection`) tripped me up because I expected the slot would be immediately executed and the application would stop dead in its tracks and quit. Once all the slots connected to signals triggered by events are executed, the control will eventually return back to the main event loop and the cycle begins anew. | ``` 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68  ``` | ``` #include  #include  #include  #include  class Foo: public QObject{Q_OBJECT public: Foo(QObject* parent = 0): QObject(parent){} private: void doStuff(){qDebug()<< \"Emit signal one\"; emit signal1(); qDebug()<< \"Emit finished\"; emit finished(); qDebug()<< \"Emit signal two\"; emit signal2();} signals: void signal1(); void signal2(); void finished(); public slots: void slot1(){qDebug()<< \"Execute slot one\";} void slot2(){qDebug()<< \"Execute slot two\";} void start(){doStuff(); qDebug()<<\"Bye!\";}}; int main(int argc, char** argv){QCoreApplication app(argc, argv); Foo foo; QObject:: connect(& foo, & Foo:: signal1, & foo, & Foo:: slot1); QObject:: connect(& foo, & Foo:: signal2, & foo, & Foo:: slot2); QObject:: connect(& foo, & Foo:: finished, & app, & QCoreApplication:: quit); QTimer:: singleShot(0, & foo, & Foo:: start); return app.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5167
+    },
+    {
+      "title": "Understanding Qt::QueuedConnection: A Deep Dive into Signals ...",
+      "url": "https://medium.com/@alphaneker40/understanding-qt-queuedconnection-a-deep-dive-into-signals-and-slots-in-multithreaded-qt-62184ca5722f",
+      "snippet": "",
+      "published_date": "2024-11-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4667
+    },
+    {
+      "title": "A practical checklist to debug your signal/slot connections",
+      "url": "https://www.kdab.com/slot-not-invoked/",
+      "snippet": "**Qt automatically breaks a signal/slot connection if either the sender or the receiver are destroyed** (or if *context object* is destroyed, when using the new connection syntax and connecting to free functions). The second requirement is a consequence of the first: when a queued connection is activated, Qt needs to copy the arguments of the signal into the event sent to the receiver. // the connect to debug // the connect to debugconnect(sender, &Sender::aSignal, receiver, &Receiver::aSlot); connect(, &::,, &::);// add: // add:connect(sender, &Sender::aSignal, // same sender and signal connect(, &::,// same sender and signal receiver, // context object to break this connection ,// context object to break this connection [receiver]() { // debug output [](){// debug output qDebug() << \"Direct?\" << QThread::currentThread() == receiver->thread(); qDebug()<< \"Direct?\"<< QThread:: currentThread() == -> thread(); }, }, Qt::DirectConnection); // see below::);// see below. ## Checking all the signals and slots connected to an object.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4333
+    },
+    {
+      "title": "Qt signals (QueuedConnection and DirectConnection)",
+      "url": "https://wiki.hoelee.com/content/stackoverflow.com_en_all_2023-11/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+      "snippet": "I'm having trouble with Qt signals. I don't understand how DirectConnection and QueuedConnection works? I'd be thankful if someone",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "How installEventFilter and eventFilter works ? why when ...",
+      "url": "https://forum.qt.io/topic/154945/how-installeventfilter-and-eventfilter-works-why-when-return-true-in-event-filter-not-load-qml",
+      "snippet": "",
+      "published_date": "2024-02-27T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "[SOLVED] SIGNAL/SLOT cannot work with ...",
+      "url": "https://forum.qt.io/topic/55065/solved-signal-slot-cannot-work-with-qt-queuedconnection",
+      "snippet": "Your browser does not seem to support JavaScript. Please download a browser that supports JavaScript, or enable it if it's disabled (i.e. NoScript). # [SOLVED] SIGNAL/SLOT cannot work with Qt:QueuedConnection. I was working on Terminal example of Qt, and encountered a problem that, the SLOT never work once Qt::QueuedConnection added. With queued connections, the parameters must be of types that are known to Qt's meta-object system, because Qt needs to copy the arguments to store them in an event behind the scenes. Call qRegisterMetaType() to register the data type before you establish the connection. With queued connections, the parameters must be of types that are known to Qt's meta-object system, because Qt needs to copy the arguments to store them in an event behind the scenes. Call qRegisterMetaType() to register the data type before you establish the connection. I will try it right now. Looks like your connection to Qt Forum was lost, please wait while we try to reconnect.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "eventFilter anywhere in the program. | Qt Forum",
+      "url": "https://forum.qt.io/topic/83995/eventfilter-anywhere-in-the-program",
+      "snippet": "",
+      "published_date": "2017-10-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Thread: Event Filter doesnt work as expected - Qt Centre",
+      "url": "https://www.qtcentre.org/threads/55379-Event-Filter-doesnt-work-as-expected",
+      "snippet": "I tried to override the keypressevent for my lineEdit control using eventFiltering. but when i run my application it doesnt do anything! i even set a break",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "How Qt Signals and Slots Work - Part 3 - Queued and Inter Thread ...",
+      "url": "https://woboq.com/blog/how-qt-signals-slots-work-part3-queuedconnection.html",
+      "snippet": "",
+      "published_date": "2016-02-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Using an Eventfilter",
+      "url": "https://forum.qt.io/topic/105602/using-an-eventfilter",
+      "snippet": "",
+      "published_date": "2019-08-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "QWidget::winEvent, QApplication::winEventFilter, and qFindChild<QWidget*>(this) | Qt Forum",
+      "url": "https://forum.qt.io/topic/84263/qwidget-winevent-qapplication-wineventfilter-and-qfindchild-qwidget-this",
+      "snippet": "",
+      "published_date": "2017-10-17T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Qt Reversing - Scott Knight",
+      "url": "https://knight.sc/reverse%20engineering/2008/03/30/qt-reversing.html",
+      "snippet": "So first thing I usually do when looking at a C++ applications is to try to find the RTTI information since it makes identifying code much easier. The way Qt does RTTI information is with a layer they build on top of normal C++ classes. They use custom macros that are put into the classes and then use their meta object compiler to include all the extra functions of the class to do things like dynamic typing. We can clearly see that for every Qt class that is written, moc will generate a `className()` function as well as generating a function called `staticMetaObject` that hooks up the class hierarchy and the singals and slots that Qt uses. The final key thing that is helpful to know is that once you have the `staticMetaObject` for a Qt class found you now know what the parent class is based on what `staticMetaObject` method is called.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "The Event System | Qt Core | Qt 6.11.0",
+      "url": "https://doc.qt.io/qt-6/eventsandfilters.html",
+      "snippet": "It is also possible to filter all events for the entire application, by installing an event filter on the QApplication or QCoreApplication object. Such global",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Performance comparison of the Qt Signals and Slots mechanism",
+      "url": "https://sii.pl/blog/en/performance-comparison-of-the-qt-signals-and-slots-mechanism-and-the-native-c-implementation/",
+      "snippet": "",
+      "published_date": "2023-10-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Getting QWidget's Windows messages without subclassing it and reimplementing QWidget::winEvent | Qt Forum",
+      "url": "https://forum.qt.io/topic/27145/getting-qwidget-s-windows-messages-without-subclassing-it-and-reimplementing-qwidget-winevent",
+      "snippet": "",
+      "published_date": "2013-05-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "The Event System | Qt Core 6.8.6",
+      "url": "https://doc.qt.io/qt-6.8/eventsandfilters.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Introduction to Qt Widgets (Part 69) - Event Filters - YouTube",
+      "url": "https://www.youtube.com/watch?v=8KtmDyxPlJM",
+      "snippet": "This final episode of \"Introduction to Qt Widgets\" will end on a high note - a very high note even - namely by Jesper talking about event",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Event filter: very confused about how they work - Qt Centre",
+      "url": "https://www.qtcentre.org/threads/45957-Event-filter-very-confused-about-how-they-work",
+      "snippet": "I've read documentation about event filters and have been have to install a filter for a glFrame control, that triggers on keypress events.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "QT event filter precedence problems",
+        "url": "https://stackoverflow.com/questions/74345192/qt-event-filter-precedence-problems",
+        "snippet": "",
+        "published_date": "2023-03-26T03:17:41.515Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "How installEventFilter and eventFilter works ? why when ...",
+        "url": "https://forum.qt.io/topic/154945/how-installeventfilter-and-eventfilter-works-why-when-return-true-in-event-filter-not-load-qml",
+        "snippet": "",
+        "published_date": "2024-02-27T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "How can I handle and filter events that are accepted and discarded deep inside some hierarchy without having to subclass every component on the way?",
+        "url": "https://stackoverflow.com/questions/69043814/how-can-i-handle-and-filter-events-that-are-accepted-and-discarded-deep-inside-s",
+        "snippet": "",
+        "published_date": "2021-09-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "How to install event filter on a custom Qt class?",
+        "url": "https://stackoverflow.com/questions/55986902/how-to-install-event-filter-on-a-custom-qt-class",
+        "snippet": "",
+        "published_date": "2019-05-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "eventFilter anywhere in the program. | Qt Forum",
+        "url": "https://forum.qt.io/topic/83995/eventfilter-anywhere-in-the-program",
+        "snippet": "",
+        "published_date": "2017-10-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Understanding Qt::QueuedConnection: A Deep Dive into Signals ...",
+        "url": "https://medium.com/@alphaneker40/understanding-qt-queuedconnection-a-deep-dive-into-signals-and-slots-in-multithreaded-qt-62184ca5722f",
+        "snippet": "",
+        "published_date": "2024-11-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4667
+      },
+      {
+        "title": "How Qt Signals and Slots Work - Part 3 - Queued and Inter Thread ...",
+        "url": "https://woboq.com/blog/how-qt-signals-slots-work-part3-queuedconnection.html",
+        "snippet": "",
+        "published_date": "2016-02-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Performance comparison of the Qt Signals and Slots mechanism",
+        "url": "https://sii.pl/blog/en/performance-comparison-of-the-qt-signals-and-slots-mechanism-and-the-native-c-implementation/",
+        "snippet": "",
+        "published_date": "2023-10-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Qt signals (QueuedConnection and DirectConnection)",
+        "url": "https://stackoverflow.com/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+        "snippet": "",
+        "published_date": "2013-02-24T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "QT event filter precedence problems",
+        "url": "https://stackoverflow.com/questions/74345192/qt-event-filter-precedence-problems",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "How to post a native win32 event to qt's event loop",
+        "url": "https://stackoverflow.com/questions/79635978/how-to-post-a-native-win32-event-to-qts-event-loop",
+        "snippet": "",
+        "published_date": "2025-05-26T03:17:41.283Z",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Using an Eventfilter",
+        "url": "https://forum.qt.io/topic/105602/using-an-eventfilter",
+        "snippet": "",
+        "published_date": "2019-08-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "QWidget::winEvent, QApplication::winEventFilter, and qFindChild<QWidget*>(this) | Qt Forum",
+        "url": "https://forum.qt.io/topic/84263/qwidget-winevent-qapplication-wineventfilter-and-qfindchild-qwidget-this",
+        "snippet": "",
+        "published_date": "2017-10-17T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Getting QWidget's Windows messages without subclassing it and reimplementing QWidget::winEvent | Qt Forum",
+        "url": "https://forum.qt.io/topic/27145/getting-qwidget-s-windows-messages-without-subclassing-it-and-reimplementing-qwidget-winevent",
+        "snippet": "",
+        "published_date": "2013-05-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "The Event System | Qt Core 6.8.6",
+        "url": "https://doc.qt.io/qt-6.8/eventsandfilters.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "installing event filters in QT - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/22785271/installing-event-filters-in-qt",
+        "snippet": "You can install an event filter from one GraphicsItem to another through the QGraphicsScene. This is detailed in the Qt Documentation here.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "The Event System | Qt Core | Qt 6.11.0",
+        "url": "https://doc.qt.io/qt-6/eventsandfilters.html",
+        "snippet": "It is also possible to filter all events for the entire application, by installing an event filter on the QApplication or QCoreApplication object. Such global",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "How installEventFilter and eventFilter works ? why when return true ...",
+        "url": "https://forum.qt.io/topic/154945/how-installeventfilter-and-eventfilter-works-why-when-return-true-in-event-filter-not-load-qml",
+        "snippet": "How installEventFilter and eventFilter works ? why when return true in event filter not load qml ? How installEventFilter and eventFilter works",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Qt signals (QueuedConnection and DirectConnection)",
+        "url": "https://wiki.hoelee.com/content/stackoverflow.com_en_all_2023-11/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+        "snippet": "I'm having trouble with Qt signals. I don't understand how DirectConnection and QueuedConnection works? I'd be thankful if someone",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Thread: Event Filter doesnt work as expected - Qt Centre",
+        "url": "https://www.qtcentre.org/threads/55379-Event-Filter-doesnt-work-as-expected",
+        "snippet": "I tried to override the keypressevent for my lineEdit control using eventFiltering. but when i run my application it doesnt do anything! i even set a break",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "Qt signals (QueuedConnection and DirectConnection)",
+        "url": "https://stackoverflow.com/questions/15051553/qt-signals-queuedconnection-and-directconnection",
+        "snippet": "### more stack exchange communities. `connect( A, SIGNAL(somethingChanged()), B, SLOT(handleChange()), Qt::DirectConnection );`. Assuming `B`'s thread is running an event loop, emitting the signal will post an event to `B`'s event loop. This makes it pretty easy to deal with communication between/among threads in Qt (again, assuming your threads are running their own local event loops). It does make a difference if you *specify* a queued connection - even for two objects on the same thread. However, if you don't specify a connection method, the direct method is automatically used for connections between objects on the same thread (at least it is in Qt 4.8). emitting a signal to a direct connection within the same thread will execute the slot immediately, just like a simple function call. emitting a signal to a queued connection within the same thread will enqueue the call into the threads event loop, thus the execution will *always* happen delayed. Start asking to get answers. Find the answer to your question by asking.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.7
+      },
+      {
+        "title": "A practical checklist to debug your signal/slot connections",
+        "url": "https://www.kdab.com/slot-not-invoked/",
+        "snippet": "**Qt automatically breaks a signal/slot connection if either the sender or the receiver are destroyed** (or if *context object* is destroyed, when using the new connection syntax and connecting to free functions). The second requirement is a consequence of the first: when a queued connection is activated, Qt needs to copy the arguments of the signal into the event sent to the receiver. // the connect to debug // the connect to debugconnect(sender, &Sender::aSignal, receiver, &Receiver::aSlot); connect(, &::,, &::);// add: // add:connect(sender, &Sender::aSignal, // same sender and signal connect(, &::,// same sender and signal receiver, // context object to break this connection ,// context object to break this connection [receiver]() { // debug output [](){// debug output qDebug() << \"Direct?\" << QThread::currentThread() == receiver->thread(); qDebug()<< \"Direct?\"<< QThread:: currentThread() == -> thread(); }, }, Qt::DirectConnection); // see below::);// see below. ## Checking all the signals and slots connected to an object.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4333
+      },
+      {
+        "title": "Are Signals and Slots running on different threads?",
+        "url": "https://www.reddit.com/r/QtFramework/comments/qo3zd3/are_signals_and_slots_running_on_different_threads/",
+        "snippet": "In auto, Qt looks at what threads the sender and receiver belong to and decides whether to use direct or queued connection.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "[SOLVED] SIGNAL/SLOT cannot work with ...",
+        "url": "https://forum.qt.io/topic/55065/solved-signal-slot-cannot-work-with-qt-queuedconnection",
+        "snippet": "Your browser does not seem to support JavaScript. Please download a browser that supports JavaScript, or enable it if it's disabled (i.e. NoScript). # [SOLVED] SIGNAL/SLOT cannot work with Qt:QueuedConnection. I was working on Terminal example of Qt, and encountered a problem that, the SLOT never work once Qt::QueuedConnection added. With queued connections, the parameters must be of types that are known to Qt's meta-object system, because Qt needs to copy the arguments to store them in an event behind the scenes. Call qRegisterMetaType() to register the data type before you establish the connection. With queued connections, the parameters must be of types that are known to Qt's meta-object system, because Qt needs to copy the arguments to store them in an event behind the scenes. Call qRegisterMetaType() to register the data type before you establish the connection. I will try it right now. Looks like your connection to Qt Forum was lost, please wait while we try to reconnect.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Understanding Qt's Event Loop and Signals/Slots",
+        "url": "https://dekonvoluted.github.io/programming/2018/09/16/qt-event-loop.html",
+        "snippet": "Understanding Qt's Event Loop and Signals/Slots. This behavior of pushing an event onto the event loop (as a `Qt::QueuedConnection`) tripped me up because I expected the slot would be immediately executed and the application would stop dead in its tracks and quit. Once all the slots connected to signals triggered by events are executed, the control will eventually return back to the main event loop and the cycle begins anew. | ``` 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68  ``` | ``` #include  #include  #include  #include  class Foo: public QObject{Q_OBJECT public: Foo(QObject* parent = 0): QObject(parent){} private: void doStuff(){qDebug()<< \"Emit signal one\"; emit signal1(); qDebug()<< \"Emit finished\"; emit finished(); qDebug()<< \"Emit signal two\"; emit signal2();} signals: void signal1(); void signal2(); void finished(); public slots: void slot1(){qDebug()<< \"Execute slot one\";} void slot2(){qDebug()<< \"Execute slot two\";} void start(){doStuff(); qDebug()<<\"Bye!\";}}; int main(int argc, char** argv){QCoreApplication app(argc, argv); Foo foo; QObject:: connect(& foo, & Foo:: signal1, & foo, & Foo:: slot1); QObject:: connect(& foo, & Foo:: signal2, & foo, & Foo:: slot2); QObject:: connect(& foo, & Foo:: finished, & app, & QCoreApplication:: quit); QTimer:: singleShot(0, & foo, & Foo:: start); return app.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5167
+      },
+      {
+        "title": "Hints to reverse engineering a QT software",
+        "url": "https://reverseengineering.stackexchange.com/questions/6828/hints-to-reverse-engineering-a-qt-software",
+        "snippet": "#### Stack Exchange Network. Stack Exchange network consists of 183 Q&A communities including Stack Overflow, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers. ### more stack exchange communities. # Hints to reverse engineering a QT software. I am facing a little bit of problem during reverse a QT application with Ollydbg or IDA. Someone of you can point me to some hints to work with QT application or explain me how to identify an event (signal/slot) and work on it please? Any help will be appreciated, i have searching a lot but there aren't tutorial or documentation about QT reversing... Take a look at the file Properties->Details of \"QtCore4.dll\" it uses to see what Qt version it is. Look at the Qt imports in the application. Thanks for contributing an answer to Reverse Engineering Stack Exchange! Find the answer to your question by asking. ##### Reverse Engineering. ##### Stack Exchange Network.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5667
+      },
+      {
+        "title": "Introduction to Qt Widgets (Part 69) - Event Filters - YouTube",
+        "url": "https://www.youtube.com/watch?v=8KtmDyxPlJM",
+        "snippet": "This final episode of \"Introduction to Qt Widgets\" will end on a high note - a very high note even - namely by Jesper talking about event",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "How to post a native win32 event to qt's event loop - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/79635978/how-to-post-a-native-win32-event-to-qts-event-loop",
+        "snippet": "You can't forward raw Win32 messages into Qt's event system — not just because Qt doesn't expose an API for it, but because that's not how Win32",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Event filter: very confused about how they work - Qt Centre",
+        "url": "https://www.qtcentre.org/threads/45957-Event-filter-very-confused-about-how-they-work",
+        "snippet": "I've read documentation about event filters and have been have to install a filter for a glFrame control, that triggers on keypress events.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Qt Reversing - Scott Knight",
+        "url": "https://knight.sc/reverse%20engineering/2008/03/30/qt-reversing.html",
+        "snippet": "So first thing I usually do when looking at a C++ applications is to try to find the RTTI information since it makes identifying code much easier. The way Qt does RTTI information is with a layer they build on top of normal C++ classes. They use custom macros that are put into the classes and then use their meta object compiler to include all the extra functions of the class to do things like dynamic typing. We can clearly see that for every Qt class that is written, moc will generate a `className()` function as well as generating a function called `staticMetaObject` that hooks up the class hierarchy and the singals and slots that Qt uses. The final key thing that is helpful to know is that once you have the `staticMetaObject` for a Qt class found you now know what the parent class is based on what `staticMetaObject` method is called.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      }
+    ],
+    "grok": []
+  }
+}
