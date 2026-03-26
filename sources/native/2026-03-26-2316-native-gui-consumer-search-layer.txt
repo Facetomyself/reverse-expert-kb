@@ -1,0 +1,443 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "SetWindowLongPtr subclass procedure CallWindowProc first consumer reverse engineering",
+    "Qt installEventFilter eventFilter first real handler slot reverse engineering",
+    "NSApplication sendEvent target action first responder reverse engineering"
+  ],
+  "count": 23,
+  "results": [
+    {
+      "title": "About Window Procedures - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/about-window-procedures",
+      "snippet": "In *global subclassing*, an application replaces the address of the window procedure in the **WNDCLASSEX** structure of a window class. The application must also have the original window procedure address to remove the subclass from the window. To remove the subclass, the application calls **SetWindowLongPtr** again, passing the address of the original window procedure with the **GWL\\_WNDPROC** flag and the handle to the window. If the application must subclass a window that belongs to a system global class, the developer may need to update the application when a new version of the system is released. The application removes the subclass from the window class by calling **SetClassLongPtr** again, specifying the address of the original window procedure, the **GCL\\_WNDPROC** flag, and the handle to a window of the class being subclassed. The application must save this address, to pass messages to the original window procedure, and then copy the address of the superclass procedure into the **lpfnWndProc** member.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7125
+    },
+    {
+      "title": "using-window-procedures.md - MicrosoftDocs/win32",
+      "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/winmsg/using-window-procedures.md",
+      "snippet": "To subclass an instance of a window, call the SetWindowLong function and specify the handle to the window to subclass the GWL_WNDPROC flag and a pointer to the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "Qt Quick KeyListener [eventFilter, event filter] - GitHub Gist",
+      "url": "https://gist.github.com/mitchcurtis/0d95a6d2f016fe6fc9434ded60b6a07d",
+      "snippet": "Qt Quick KeyListener [eventFilter, event filter]. GitHub Gist: instantly share code, notes, and snippets.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "How to intercept value from NSResponder and use that string?",
+      "url": "https://stackoverflow.com/questions/78899997/how-to-intercept-value-from-nsresponder-and-use-that-string",
+      "snippet": "",
+      "published_date": "2024-08-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "sendAction(_:to:from:) - Documentation - Apple Developer",
+      "url": "https://developer.apple.com/documentation/appkit/nsapplication/sendaction(_:to:from:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "What does this call to CallWindowProc do?",
+      "url": "https://reverseengineering.stackexchange.com/questions/4125/what-does-this-call-to-callwindowproc-do",
+      "snippet": "CallWindowProc treats the pointer to the string as a function pointer, and calls it. As long as the heap that the string exists in is executable",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5375
+    },
+    {
+      "title": "[PDF] Cocoa Fundamentals Guide",
+      "url": "http://class.ece.iastate.edu/cpre388/Fall2011/lecture/CocoaFundamentals.pdf",
+      "snippet": "and the Responder Chain” (page 220)). In target-action connections you can specify the First Responder object as target; when a control or",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5375
+    },
+    {
+      "title": "Win32 Subclassing - OSDev.org",
+      "url": "https://forum.osdev.org/viewtopic.php?t=3205",
+      "snippet": "As Each control is created it subclasses the parent procedure so it can automatically handle notification events. ... SetWindowLongPtr",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4125
+    },
+    {
+      "title": "Event Delivery on iOS: Part 3. How target-action pattern ... - Medium",
+      "url": "https://medium.com/bpxl-craft/event-delivery-on-ios-part-3-14463fba84b4",
+      "snippet": "",
+      "published_date": "2016-10-07T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Production Ready DLL Injection - Sam Rambles",
+      "url": "https://samrambles.com/guides/window-hacking-with-rust/production-ready-dll-injection/index.html",
+      "snippet": "Calling SetWindowLongPtr with the GWLP_WNDPROC index creates a subclass of the window class used to create the window. Perfect, that's what we did. An",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Quick and dirty subclassing in Win32 - the sporks space",
+      "url": "https://sporks.space/2021/09/28/quick-and-dirty-subclassing-in-win32/",
+      "snippet": "# the sporks space. ## party with sporks in space. ## Quick and dirty subclassing in Win32. Turns out it’s just marking it as having the extended style in the resource editor or calling `DragAcceptFiles`, or so I thought. While I could get my dialog to accept the files, I couldn’t get the list view to do so. It turns out that the list view doesn’t handle these messages, nor does it send a notification back to the parent. One strategy to deal with this is *subclassing*, although we aren’t going through the formal channels to do. static LRESULT CALLBACK MyListViewProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) { switch (msg) { case WM_DROPFILES: SendMessage(GetParent(hwnd), msg, wParam, lParam); break; } return CallWindowProc(ListViewProc, hwnd, msg, wParam, lParam); }. ListViewProc = (WNDPROC)GetWindowLong(hwnd, GWL_WNDPROC); SetWindowLong(lv, GWL_WNDPROC, (LONG)MyListViewProc);. It sucks I needed to do it (why didn’t it send a notification to the parent?), but the time to fix that was a quarter century ago.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "How installEventFilter and eventFilter works ? why when return true ...",
+      "url": "https://forum.qt.io/topic/154945/how-installeventfilter-and-eventfilter-works-why-when-return-true-in-event-filter-not-load-qml",
+      "snippet": "why when return true in event filter not load qml ? I want to know why qml not get loaded due to below type of implementation. I want to know why qml not get loaded due to below type of implementation. Although I know nothing about QML, if `eventFilter()` always returns `true` then no events are passed are passed to any object. Although I know nothing about QML, if `eventFilter()` always returns `true` then no events are passed are passed to any object. i also want to understand that why when pass true at that time it not allow to load qml ? I also want to know when this type of scenario come to not allow loading of qml. i also want to understand that why when pass true at that time it not allow to load qml ? I also want to know when this type of scenario come to not allow loading of qml.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3
+    },
+    {
+      "title": "Event filter: very confused about how they work - Qt Centre",
+      "url": "https://www.qtcentre.org/threads/45957-Event-filter-very-confused-about-how-they-work",
+      "snippet": "* Event filter: very confused about how they work. # Thread: Event filter: very confused about how they work. :   Thanked 27 Times in 22 Posts. > You can simply install the same class as event filter for any other widget:. :   Thanked 27 Times in 22 Posts. :   Thanked 872 Times in 859 Posts. >  Event filters are installed on an instance by instance basis. >  You can have multiple event filters per object instance. >  You can use the same event filter for multiple object instances. If multiple filters are installed on the same object instance, then each one of them gets a whack at it (unless an event filter earlier in the chain killed it). 8. ## The following user says thank you to d\\_stranz for this useful post:. :   Thanked 872 Times in 859 Posts. ## The following user says thank you to d\\_stranz for this useful post:. :   Thanked 872 Times in 859 Posts. By d\\_stranz in forum Qt Programming.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "The Event System | Qt Core | Qt 6.11.0",
+      "url": "https://doc.qt.io/qt-6/eventsandfilters.html",
+      "snippet": "... handling. The QObject::installEventFilter() function enables this by setting up an event filter, causing a nominated filter object to receive the events for",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3
+    },
+    {
+      "title": "C++/Qt5 - Install event filter on UI QPushButton - Qt Centre",
+      "url": "https://www.qtcentre.org/threads/64659-C-Qt5-Install-event-filter-on-UI-QPushButton",
+      "snippet": "Your event filter is filtering out all events for the button (returning true). So it will not get the show event or paint events, etc. Cheers, _",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Qt C++ eventFilter concpet and simple example - YouTube",
+      "url": "https://www.youtube.com/watch?v=PR-21WXq7MY",
+      "snippet": "Share your videos with friends, family, and the world.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "The Event System - Qt for Python",
+      "url": "https://doc.qt.io/qtforpython-6/overviews/eventsandfilters.html",
+      "snippet": "",
+      "published_date": "2024-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "The Event System | Qt Core 6.4.3",
+      "url": "https://doc.qt.io/qt-6.4/eventsandfilters.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "The Event System | Qt Core 6.5.11",
+      "url": "https://doc.qt.io/qt-6.5/eventsandfilters.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "The Event System | Qt Core 5.15.19",
+      "url": "http://doc.qt.io/QtVirtualKeyboard/eventsandfilters.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Target-action for non-ui components. There is an easier way!",
+      "url": "https://zats.io/blog/target-action-for-non-ui-components-there-is-an-easier-way/",
+      "snippet": "",
+      "published_date": "2014-12-23T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Utilize The Responder Chain For Target-Action - Swift And Painless",
+      "url": "http://swiftandpainless.com/utilize-the-responder-chain-for-target-action/",
+      "snippet": "",
+      "published_date": "2016-01-01T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Target-Action and the Responder Chain on iOS - Speaker Deck",
+      "url": "https://speakerdeck.com/sammeadley/target-action-and-the-responder-chain-on-ios",
+      "snippet": "",
+      "published_date": "2016-02-01T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "How installEventFilter and eventFilter works ? why when return true ...",
+        "url": "https://forum.qt.io/topic/154945/how-installeventfilter-and-eventfilter-works-why-when-return-true-in-event-filter-not-load-qml",
+        "snippet": "why when return true in event filter not load qml ? I want to know why qml not get loaded due to below type of implementation. I want to know why qml not get loaded due to below type of implementation. Although I know nothing about QML, if `eventFilter()` always returns `true` then no events are passed are passed to any object. Although I know nothing about QML, if `eventFilter()` always returns `true` then no events are passed are passed to any object. i also want to understand that why when pass true at that time it not allow to load qml ? I also want to know when this type of scenario come to not allow loading of qml. i also want to understand that why when pass true at that time it not allow to load qml ? I also want to know when this type of scenario come to not allow loading of qml.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3
+      },
+      {
+        "title": "Qt Quick KeyListener [eventFilter, event filter] - GitHub Gist",
+        "url": "https://gist.github.com/mitchcurtis/0d95a6d2f016fe6fc9434ded60b6a07d",
+        "snippet": "Qt Quick KeyListener [eventFilter, event filter]. GitHub Gist: instantly share code, notes, and snippets.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Event filter: very confused about how they work - Qt Centre",
+        "url": "https://www.qtcentre.org/threads/45957-Event-filter-very-confused-about-how-they-work",
+        "snippet": "* Event filter: very confused about how they work. # Thread: Event filter: very confused about how they work. :   Thanked 27 Times in 22 Posts. > You can simply install the same class as event filter for any other widget:. :   Thanked 27 Times in 22 Posts. :   Thanked 872 Times in 859 Posts. >  Event filters are installed on an instance by instance basis. >  You can have multiple event filters per object instance. >  You can use the same event filter for multiple object instances. If multiple filters are installed on the same object instance, then each one of them gets a whack at it (unless an event filter earlier in the chain killed it). 8. ## The following user says thank you to d\\_stranz for this useful post:. :   Thanked 872 Times in 859 Posts. ## The following user says thank you to d\\_stranz for this useful post:. :   Thanked 872 Times in 859 Posts. By d\\_stranz in forum Qt Programming.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "The Event System | Qt Core | Qt 6.11.0",
+        "url": "https://doc.qt.io/qt-6/eventsandfilters.html",
+        "snippet": "... handling. The QObject::installEventFilter() function enables this by setting up an event filter, causing a nominated filter object to receive the events for",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3
+      },
+      {
+        "title": "C++/Qt5 - Install event filter on UI QPushButton - Qt Centre",
+        "url": "https://www.qtcentre.org/threads/64659-C-Qt5-Install-event-filter-on-UI-QPushButton",
+        "snippet": "Your event filter is filtering out all events for the button (returning true). So it will not get the show event or paint events, etc. Cheers, _",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Qt C++ eventFilter concpet and simple example - YouTube",
+        "url": "https://www.youtube.com/watch?v=PR-21WXq7MY",
+        "snippet": "Share your videos with friends, family, and the world.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Production Ready DLL Injection - Sam Rambles",
+        "url": "https://samrambles.com/guides/window-hacking-with-rust/production-ready-dll-injection/index.html",
+        "snippet": "Calling SetWindowLongPtr with the GWLP_WNDPROC index creates a subclass of the window class used to create the window. Perfect, that's what we did. An",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "using-window-procedures.md - MicrosoftDocs/win32",
+        "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/winmsg/using-window-procedures.md",
+        "snippet": "To subclass an instance of a window, call the SetWindowLong function and specify the handle to the window to subclass the GWL_WNDPROC flag and a pointer to the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "What does this call to CallWindowProc do?",
+        "url": "https://reverseengineering.stackexchange.com/questions/4125/what-does-this-call-to-callwindowproc-do",
+        "snippet": "CallWindowProc treats the pointer to the string as a function pointer, and calls it. As long as the heap that the string exists in is executable",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5375
+      },
+      {
+        "title": "Win32 Subclassing - OSDev.org",
+        "url": "https://forum.osdev.org/viewtopic.php?t=3205",
+        "snippet": "As Each control is created it subclasses the parent procedure so it can automatically handle notification events. ... SetWindowLongPtr",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4125
+      },
+      {
+        "title": "About Window Procedures - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/about-window-procedures",
+        "snippet": "In *global subclassing*, an application replaces the address of the window procedure in the **WNDCLASSEX** structure of a window class. The application must also have the original window procedure address to remove the subclass from the window. To remove the subclass, the application calls **SetWindowLongPtr** again, passing the address of the original window procedure with the **GWL\\_WNDPROC** flag and the handle to the window. If the application must subclass a window that belongs to a system global class, the developer may need to update the application when a new version of the system is released. The application removes the subclass from the window class by calling **SetClassLongPtr** again, specifying the address of the original window procedure, the **GCL\\_WNDPROC** flag, and the handle to a window of the class being subclassed. The application must save this address, to pass messages to the original window procedure, and then copy the address of the superclass procedure into the **lpfnWndProc** member.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7125
+      },
+      {
+        "title": "Quick and dirty subclassing in Win32 - the sporks space",
+        "url": "https://sporks.space/2021/09/28/quick-and-dirty-subclassing-in-win32/",
+        "snippet": "# the sporks space. ## party with sporks in space. ## Quick and dirty subclassing in Win32. Turns out it’s just marking it as having the extended style in the resource editor or calling `DragAcceptFiles`, or so I thought. While I could get my dialog to accept the files, I couldn’t get the list view to do so. It turns out that the list view doesn’t handle these messages, nor does it send a notification back to the parent. One strategy to deal with this is *subclassing*, although we aren’t going through the formal channels to do. static LRESULT CALLBACK MyListViewProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) { switch (msg) { case WM_DROPFILES: SendMessage(GetParent(hwnd), msg, wParam, lParam); break; } return CallWindowProc(ListViewProc, hwnd, msg, wParam, lParam); }. ListViewProc = (WNDPROC)GetWindowLong(hwnd, GWL_WNDPROC); SetWindowLong(lv, GWL_WNDPROC, (LONG)MyListViewProc);. It sucks I needed to do it (why didn’t it send a notification to the parent?), but the time to fix that was a quarter century ago.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "sendAction(_:to:from:) - Documentation - Apple Developer",
+        "url": "https://developer.apple.com/documentation/appkit/nsapplication/sendaction(_:to:from:)",
+        "snippet": "If the first responder can't respond, it tries the first responder's next responder and continues following next responder links up the responder chain. If",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Target-Action and the Responder Chain on iOS - Speaker Deck",
+        "url": "https://speakerdeck.com/sammeadley/target-action-and-the-responder-chain-on-ios",
+        "snippet": "UIApplication sendEvent(_:). UIControl Target-Action • UIWindow object delivers the event to the. view where the touch occurred Event A Event",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Target-action for non-ui components. There is an easier way!",
+        "url": "https://zats.io/blog/target-action-for-non-ui-components-there-is-an-easier-way/",
+        "snippet": "Use -[UIApplication sendAction:to:from:forEvent:] instead of calling action on target directly if you want responder chain behaviour for free.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Utilize The Responder Chain For Target-Action - Swift And Painless",
+        "url": "http://swiftandpainless.com/utilize-the-responder-chain-for-target-action/",
+        "snippet": "When the user taps a view in the view hierarchy, iOS uses hit testing to figure out which responder object should get the touch event first.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] Cocoa Fundamentals Guide",
+        "url": "http://class.ece.iastate.edu/cpre388/Fall2011/lecture/CocoaFundamentals.pdf",
+        "snippet": "and the Responder Chain” (page 220)). In target-action connections you can specify the First Responder object as target; when a control or",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5375
+      },
+      {
+        "title": "Event Delivery on iOS: Part 3. How target-action pattern ... - Medium",
+        "url": "https://medium.com/bpxl-craft/event-delivery-on-ios-part-3-14463fba84b4",
+        "snippet": "Before we get into how target-action pattern works and how we can use some of the same API for sending custom events down the Responder Chain,",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "exa": [
+      {
+        "title": "How installEventFilter and eventFilter works ? why when return true ...",
+        "url": "https://forum.qt.io/topic/154945/how-installeventfilter-and-eventfilter-works-why-when-return-true-in-event-filter-not-load-qml",
+        "snippet": "",
+        "published_date": "2024-02-27T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "The Event System - Qt for Python",
+        "url": "https://doc.qt.io/qtforpython-6/overviews/eventsandfilters.html",
+        "snippet": "",
+        "published_date": "2024-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "The Event System | Qt Core | Qt 6.11.0",
+        "url": "https://doc.qt.io/qt-6/eventsandfilters.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "The Event System | Qt Core 6.4.3",
+        "url": "https://doc.qt.io/qt-6.4/eventsandfilters.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "The Event System | Qt Core 6.5.11",
+        "url": "https://doc.qt.io/qt-6.5/eventsandfilters.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "The Event System | Qt Core 5.15.19",
+        "url": "http://doc.qt.io/QtVirtualKeyboard/eventsandfilters.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "How to intercept value from NSResponder and use that string?",
+        "url": "https://stackoverflow.com/questions/78899997/how-to-intercept-value-from-nsresponder-and-use-that-string",
+        "snippet": "",
+        "published_date": "2024-08-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "sendAction(_:to:from:) - Documentation - Apple Developer",
+        "url": "https://developer.apple.com/documentation/appkit/nsapplication/sendaction(_:to:from:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Target-action for non-ui components. There is an easier way!",
+        "url": "https://zats.io/blog/target-action-for-non-ui-components-there-is-an-easier-way/",
+        "snippet": "",
+        "published_date": "2014-12-23T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Utilize The Responder Chain For Target-Action - Swift And Painless",
+        "url": "http://swiftandpainless.com/utilize-the-responder-chain-for-target-action/",
+        "snippet": "",
+        "published_date": "2016-01-01T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Target-Action and the Responder Chain on iOS - Speaker Deck",
+        "url": "https://speakerdeck.com/sammeadley/target-action-and-the-responder-chain-on-ios",
+        "snippet": "",
+        "published_date": "2016-02-01T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Event Delivery on iOS: Part 3. How target-action pattern ... - Medium",
+        "url": "https://medium.com/bpxl-craft/event-delivery-on-ios-part-3-14463fba84b4",
+        "snippet": "",
+        "published_date": "2016-10-07T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4
+      }
+    ],
+    "grok": []
+  }
+}
+
+
+[stderr]
+[exa] error: 402 Client Error: Payment Required for url: http://158.178.236.241:7860/search
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
