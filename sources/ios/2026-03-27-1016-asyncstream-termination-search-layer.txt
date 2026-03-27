@@ -1,0 +1,285 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Swift AsyncStream onTermination yield finish cancellation continuation Apple docs reverse engineering",
+    "Swift AsyncStream AsyncThrowingStream onTermination bufferingPolicy yield cancellation Apple documentation",
+    "SE-0314 AsyncStream finish onTermination cancellation task consumer semantics"
+  ],
+  "count": 14,
+  "results": [
+    {
+      "title": "Help with AsyncStream termination task termination #1906 - GitHub",
+      "url": "https://github.com/pointfreeco/swift-composable-architecture/discussions/1906",
+      "snippet": "```  obdResponseStream: { .init { continuation in continuation.onTermination = { @Sendable status in print(\"Stream terminated with status \\(status)\") } let task = Task { while true { let item = try await ObdManager.client.getObdResponse() let result = parseObdResponse(obdLinkCommand: item.command, obdResponse: item.response) switch result { case .success(let obdLinkParse): print(\"obdResponseStream.yield(\\(obdLinkParse.command))\") continuation.yield(.response(obdLinkParse)) case .failure(let obdError): continuation.yield(.error(obdError)) } try? Task.checkCancellation()` with the following:  ``` if Task.isCancelled { break }  ```  You can reproduce this with the following playground:  ``` import PlaygroundSupport let task = Task { while true { print(\"task is running\") // Try commenting out the next line and uncommenting the 3 after to see the output is only printed ~1 time try? taskCompleted { let result = try await ObdManager.client.getObdResponse() switch result { case .success(let obdLinkParse): continuation.yield(.response(obdLinkParse)) if obdLinkParse.command == .lastCommand { continuation.finish() taskCompleted = true } case .failure(let obdError): continuation.yield(.error(obdError)) } } } } }  ```  Thanks for your help, moving on to the next struggle.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7636
+    },
+    {
+      "title": "AsyncStream.Continuation | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation",
+      "snippet": "18 of 39 symbols inside 963797267 func prefix(while: (Self.Element) async -> Bool) rethrows -> AsyncPrefixWhileSequence<Self>). 14 of 39 symbols inside 963797267 func max() async rethrows -> Self.Element?). 12 of 39 symbols inside 963797267 func min() async rethrows -> Self.Element?). 11 of 39 symbols inside 963797267 func first(where: (Self.Element) async throws -> Bool) async rethrows -> Self.Element?). 10 of 39 symbols inside 963797267 func allSatisfy((Self.Element) async throws -> Bool) async rethrows -> Bool). 9 of 39 symbols inside 963797267 func contains(where: (Self.Element) async throws -> Bool) async rethrows -> Bool). 8 of 39 symbols inside 963797267 func contains(Self.Element) async rethrows -> Bool). 10 of 15 symbols inside -1841555173 containing 11 symbolsAsyncStream.Continuation.Termination. 9 of 15 symbols inside -1841555173 var onTermination: ((AsyncStream<Element>.Continuation.Termination) -> Void)? 4 of 15 symbols inside -1841555173 func yield() -> AsyncStream<Element>.Continuation.YieldResult). 3 of 15 symbols inside -1841555173 func yield(with: sending Result<Element, Never>) -> AsyncStream<Element>.Continuation.YieldResult). 2 of 15 symbols inside -1841555173 func yield(sending Element) -> AsyncStream<Element>.Continuation.YieldResult).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7364
+    },
+    {
+      "title": "AsyncStream.Continuation.Termination.finished - Apple Developer",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/termination/finished?changes=__5",
+      "snippet": "AsyncStream.Continuation.Termination.finished. The stream finished as a result of calling the continuation's finish method. iOS 13.0",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7091
+    },
+    {
+      "title": "swift-evolution/proposals/0314-async-stream.md at main - GitHub",
+      "url": "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0314-async-stream.md",
+      "snippet": "Note that a call to the finish() method is required to end iteration for the consumer of an AsyncStream . ... AsyncStream is /// canceled via task cancellation",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7091
+    },
+    {
+      "title": "AsyncStream.Continuation.Termination - Apple Developer",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/termination",
+      "snippet": "AsyncStream.Continuation.Termination. A type that indicates how the stream terminated. iOS 13.0+iPadOS 13.0+",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "AsyncStream.Continuation.BufferingPolicy - Apple Developer",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/bufferingpolicy",
+      "snippet": "Constructs an asynchronous stream for an element type, using the specified buffering policy and element-producing closure.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "onTermination | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation/ontermination",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "Can't set AsyncStream `onTermination` handler - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/69047723/cant-set-asyncstream-ontermination-handler",
+      "snippet": "Update: You can work around this bug by adding @Sendable as the first thing inside the closure (before the capture list, parameters,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "AsyncThrowingStream | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6273
+    },
+    {
+      "title": "init(_:bufferingPolicy:_:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/init(_:bufferingpolicy:_:)",
+      "snippet": "Constructs an asynchronous stream for an element type, using the specified buffering policy and element-producing closure.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6273
+    },
+    {
+      "title": "Swift's AsyncStream Explained - Stackademic",
+      "url": "https://blog.stackademic.com/swifts-asyncstream-explained-127d84078424",
+      "snippet": "continuation.finish(throwing: Error?) // onTermination will hold the thrown error if continuation finished by throwing continuation.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5364
+    },
+    {
+      "title": "Swift Concurrency[PART-8]AsyncSequence & Streams in Swift Concurrency | by Debdut Saha | Jan, 2026 | Medium",
+      "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-8-asyncsequence-streams-in-swift-concurrency-dc813cc02269",
+      "snippet": "",
+      "published_date": "2026-01-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4273
+    },
+    {
+      "title": "Understanding Swift Concurrency’s AsyncStream and AsyncThrowingStream – Donny Wals",
+      "url": "https://www.donnywals.com/understanding-swift-concurrencys-asyncstream/",
+      "snippet": "",
+      "published_date": "2023-01-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "AsyncThrowingStream and AsyncStream explained with code ...",
+      "url": "https://www.avanderlee.com/swift/asyncthrowingstream-asyncstream/",
+      "snippet": "",
+      "published_date": "2022-04-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "onTermination | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation/ontermination",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "AsyncThrowingStream | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6273
+      },
+      {
+        "title": "Swift Concurrency[PART-8]AsyncSequence & Streams in Swift Concurrency | by Debdut Saha | Jan, 2026 | Medium",
+        "url": "https://medium.com/%40debdut.saha.1/swift-concurrency-part-8-asyncsequence-streams-in-swift-concurrency-dc813cc02269",
+        "snippet": "",
+        "published_date": "2026-01-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4273
+      },
+      {
+        "title": "AsyncThrowingStream and AsyncStream explained with code ...",
+        "url": "https://www.avanderlee.com/swift/asyncthrowingstream-asyncstream/",
+        "snippet": "",
+        "published_date": "2022-04-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "Understanding Swift Concurrency’s AsyncStream and AsyncThrowingStream – Donny Wals",
+        "url": "https://www.donnywals.com/understanding-swift-concurrencys-asyncstream/",
+        "snippet": "",
+        "published_date": "2023-01-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3545
+      }
+    ],
+    "tavily": [
+      {
+        "title": "onTermination | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation/ontermination",
+        "snippet": "## Explore Support. 30 of 39 symbols inside -1359829928 func makeAsyncIterator() -> AsyncThrowingStream<Element, Failure>.Iterator). 23 of 39 symbols inside -1359829928 func map<Transformed>((Self.Element) async throws -> Transformed) -> AsyncThrowingMapSequence<Self, Transformed>-58nrj). 16 of 39 symbols inside -1359829928 func prefix(while: (Self.Element) async -> Bool) rethrows -> AsyncPrefixWhileSequence<Self>). 12 of 39 symbols inside -1359829928 func max() async rethrows -> Self.Element?). 10 of 39 symbols inside -1359829928 func min() async rethrows -> Self.Element?). 9 of 39 symbols inside -1359829928 func first(where: (Self.Element) async throws -> Bool) async rethrows -> Self.Element?). 8 of 39 symbols inside -1359829928 func allSatisfy((Self.Element) async throws -> Bool) async rethrows -> Bool). 7 of 39 symbols inside -1359829928 func contains(where: (Self.Element) async throws -> Bool) async rethrows -> Bool). 6 of 39 symbols inside -1359829928 func contains(Self.Element) async rethrows -> Bool). 10 of 15 symbols inside 1200196286 containing 3 symbolsAsyncThrowingStream.Continuation.Termination. 9 of 15 symbols inside 1200196286 var onTermination: ((AsyncThrowingStream<Element, Failure>.Continuation.Termination) -> Void)?",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "init(_:bufferingPolicy:_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/init(_:bufferingpolicy:_:)",
+        "snippet": "Constructs an asynchronous stream for an element type, using the specified buffering policy and element-producing closure.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6273
+      },
+      {
+        "title": "AsyncStream.Continuation.Termination - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/termination",
+        "snippet": "AsyncStream.Continuation.Termination. A type that indicates how the stream terminated. iOS 13.0+iPadOS 13.0+",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "AsyncStream.Continuation.BufferingPolicy - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/bufferingpolicy",
+        "snippet": "Constructs an asynchronous stream for an element type, using the specified buffering policy and element-producing closure.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "AsyncThrowingStream | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream",
+        "snippet": "AsyncThrowingStream conforms to AsyncSequence , providing a convenient way to create an asynchronous sequence without manually implementing an asynchronous",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "AsyncStream.Continuation.Termination - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/termination",
+        "snippet": "The stream finished as a result of calling the continuation's finish method. case cancelled. The stream finished as a result of cancellation.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "AsyncStream.Continuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation",
+        "snippet": "18 of 39 symbols inside 963797267 func prefix(while: (Self.Element) async -> Bool) rethrows -> AsyncPrefixWhileSequence<Self>). 14 of 39 symbols inside 963797267 func max() async rethrows -> Self.Element?). 12 of 39 symbols inside 963797267 func min() async rethrows -> Self.Element?). 11 of 39 symbols inside 963797267 func first(where: (Self.Element) async throws -> Bool) async rethrows -> Self.Element?). 10 of 39 symbols inside 963797267 func allSatisfy((Self.Element) async throws -> Bool) async rethrows -> Bool). 9 of 39 symbols inside 963797267 func contains(where: (Self.Element) async throws -> Bool) async rethrows -> Bool). 8 of 39 symbols inside 963797267 func contains(Self.Element) async rethrows -> Bool). 10 of 15 symbols inside -1841555173 containing 11 symbolsAsyncStream.Continuation.Termination. 9 of 15 symbols inside -1841555173 var onTermination: ((AsyncStream<Element>.Continuation.Termination) -> Void)? 4 of 15 symbols inside -1841555173 func yield() -> AsyncStream<Element>.Continuation.YieldResult). 3 of 15 symbols inside -1841555173 func yield(with: sending Result<Element, Never>) -> AsyncStream<Element>.Continuation.YieldResult). 2 of 15 symbols inside -1841555173 func yield(sending Element) -> AsyncStream<Element>.Continuation.YieldResult).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7364
+      },
+      {
+        "title": "AsyncStream.Continuation.Termination.finished - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/termination/finished?changes=__5",
+        "snippet": "AsyncStream.Continuation.Termination.finished. The stream finished as a result of calling the continuation's finish method. iOS 13.0",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7091
+      },
+      {
+        "title": "onTermination | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation/ontermination",
+        "snippet": "## Explore Support. 30 of 39 symbols inside -1359829928 func makeAsyncIterator() -> AsyncThrowingStream<Element, Failure>.Iterator). 23 of 39 symbols inside -1359829928 func map<Transformed>((Self.Element) async throws -> Transformed) -> AsyncThrowingMapSequence<Self, Transformed>-58nrj). 16 of 39 symbols inside -1359829928 func prefix(while: (Self.Element) async -> Bool) rethrows -> AsyncPrefixWhileSequence<Self>). 12 of 39 symbols inside -1359829928 func max() async rethrows -> Self.Element?). 10 of 39 symbols inside -1359829928 func min() async rethrows -> Self.Element?). 9 of 39 symbols inside -1359829928 func first(where: (Self.Element) async throws -> Bool) async rethrows -> Self.Element?). 8 of 39 symbols inside -1359829928 func allSatisfy((Self.Element) async throws -> Bool) async rethrows -> Bool). 7 of 39 symbols inside -1359829928 func contains(where: (Self.Element) async throws -> Bool) async rethrows -> Bool). 6 of 39 symbols inside -1359829928 func contains(Self.Element) async rethrows -> Bool). 10 of 15 symbols inside 1200196286 containing 3 symbolsAsyncThrowingStream.Continuation.Termination. 9 of 15 symbols inside 1200196286 var onTermination: ((AsyncThrowingStream<Element, Failure>.Continuation.Termination) -> Void)?",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Help with AsyncStream termination task termination #1906 - GitHub",
+        "url": "https://github.com/pointfreeco/swift-composable-architecture/discussions/1906",
+        "snippet": "```  obdResponseStream: { .init { continuation in continuation.onTermination = { @Sendable status in print(\"Stream terminated with status \\(status)\") } let task = Task { while true { let item = try await ObdManager.client.getObdResponse() let result = parseObdResponse(obdLinkCommand: item.command, obdResponse: item.response) switch result { case .success(let obdLinkParse): print(\"obdResponseStream.yield(\\(obdLinkParse.command))\") continuation.yield(.response(obdLinkParse)) case .failure(let obdError): continuation.yield(.error(obdError)) } try? Task.checkCancellation()` with the following:  ``` if Task.isCancelled { break }  ```  You can reproduce this with the following playground:  ``` import PlaygroundSupport let task = Task { while true { print(\"task is running\") // Try commenting out the next line and uncommenting the 3 after to see the output is only printed ~1 time try? taskCompleted { let result = try await ObdManager.client.getObdResponse() switch result { case .success(let obdLinkParse): continuation.yield(.response(obdLinkParse)) if obdLinkParse.command == .lastCommand { continuation.finish() taskCompleted = true } case .failure(let obdError): continuation.yield(.error(obdError)) } } } } }  ```  Thanks for your help, moving on to the next struggle.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7636
+      },
+      {
+        "title": "swift-evolution/proposals/0314-async-stream.md at main - GitHub",
+        "url": "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0314-async-stream.md",
+        "snippet": "Note that a call to the finish() method is required to end iteration for the consumer of an AsyncStream . ... AsyncStream is /// canceled via task cancellation",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7091
+      },
+      {
+        "title": "AsyncStream.Continuation.Termination - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/termination",
+        "snippet": "The stream finished as a result of calling the continuation's finish method. case cancelled. The stream finished as a result of cancellation. Hashing · var",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Help with AsyncStream termination task termination #1906 - GitHub",
+        "url": "https://github.com/pointfreeco/swift-composable-architecture/discussions/1906",
+        "snippet": "```  obdResponseStream: { .init { continuation in continuation.onTermination = { @Sendable status in print(\"Stream terminated with status \\(status)\") } let task = Task { while true { let item = try await ObdManager.client.getObdResponse() let result = parseObdResponse(obdLinkCommand: item.command, obdResponse: item.response) switch result { case .success(let obdLinkParse): print(\"obdResponseStream.yield(\\(obdLinkParse.command))\") continuation.yield(.response(obdLinkParse)) case .failure(let obdError): continuation.yield(.error(obdError)) } try? Task.checkCancellation()` with the following:  ``` if Task.isCancelled { break }  ```  You can reproduce this with the following playground:  ``` import PlaygroundSupport let task = Task { while true { print(\"task is running\") // Try commenting out the next line and uncommenting the 3 after to see the output is only printed ~1 time try? taskCompleted { let result = try await ObdManager.client.getObdResponse() switch result { case .success(let obdLinkParse): continuation.yield(.response(obdLinkParse)) if obdLinkParse.command == .lastCommand { continuation.finish() taskCompleted = true } case .failure(let obdError): continuation.yield(.error(obdError)) } } } } }  ```  Thanks for your help, moving on to the next struggle.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Swift's AsyncStream Explained - Stackademic",
+        "url": "https://blog.stackademic.com/swifts-asyncstream-explained-127d84078424",
+        "snippet": "continuation.finish(throwing: Error?) // onTermination will hold the thrown error if continuation finished by throwing continuation.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5364
+      },
+      {
+        "title": "Can't set AsyncStream `onTermination` handler - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/69047723/cant-set-asyncstream-ontermination-handler",
+        "snippet": "Update: You can work around this bug by adding @Sendable as the first thing inside the closure (before the capture list, parameters,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6545
+      }
+    ],
+    "grok": []
+  }
+}
