@@ -144,3 +144,4 @@ hosts:
       - nas.tail646ee3.ts.net
     docs:
       host: infra/hosts/home-nas/HOST.md
+      network: infra/hosts/home-nas/NETWORK.md
