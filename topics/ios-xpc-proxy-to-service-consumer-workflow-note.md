@@ -119,7 +119,7 @@ Useful reminder:
 - do not overread interface reconstruction or selector names as equivalent to method-entry truth
 
 ### D. Reply / error / interruption truth
-This is where the service seam reveals whether the request completed, failed, or was interrupted.
+This is where the service seam reveals whether the request completed, failed, was interrupted, or hit the stronger invalidation boundary.
 Typical anchors:
 - reply block execution
 - error-handler execution
@@ -129,15 +129,114 @@ Typical anchors:
 - service restart / lazy-launch timing that changes request completion shape
 
 What to capture:
-- whether the meaningful truth is successful reply, error path, interruption, or no-reply drift
+- whether the meaningful truth is successful reply, error path, interruption, invalidation, or no-reply drift
 - whether the failure is contract-shaped, lifecycle-shaped, or later semantic rejection
+- whether a later healthy-looking connection is truly the same request family progressing, or only reconnection truth after earlier lifecycle loss
 
 Useful reminder:
 - reply or error visibility is stronger than bare proxy visibility, but it is still not automatically the durable consequence you care about
 - launchd-managed lifecycle can create misleading compare pairs unless reply/error truth is kept separate from later effect truth
 - Apple framework-visible interruption and invalidation surfaces are already different enough that they should not be flattened into one generic transport-failure bucket
+- interruption should usually be treated as weaker, temporary lifecycle-disturbance truth unless later evidence proves the stronger end-of-life boundary
 - invalidation is especially strong stop-rule evidence because Apple explicitly warns that you may not send messages over the connection from within an invalidation handler block
 - a later healthy-looking connection should therefore be treated as reconnection truth, not automatic proof that the same request family progressed to the same consumer
+- in practice, keep `accepted != interrupted != invalidated != reconnected != consumed` visible whenever launchd-managed restart or on-demand service behavior starts making compare pairs lie
+
+### E. Durable consequence truth
+This is the first boundary where the service-side work clearly predicts later behavior.
+Typical anchors:
+- one service-side state write
+- one filesystem or database write
+- one scheduler/job creation
+- one later helper invocation
+- one policy verdict or object that the caller or another daemon actually consumes
+- one later app-visible state change provably owned by the service call
+
+What to capture:
+- the narrowest effect that still predicts what happens next
+- one later durable consequence, not every downstream artifact
+
+Useful reminder:
+- this is the actual endpoint of the workflow
+- route truth, lifecycle truth, and durable consequence truth should stay separate even when one recovered connection starts looking healthy again
+- do not overread exported-object method re-entry either; if the practical operator question is later behavior, freeze one exported-method entry plus one later reducer/state write/helper handoff that makes the consequence durable
+
+## 4. Default workflow
+
+### Step 1: freeze one client-side XPC seam only
+Pick one seam only.
+Examples:
+- one private-framework method -> `remoteObjectProxy` selector -> service-side method
+- one protected action -> Mach service lookup -> exported-object method -> reply
+- one daemon/helper interaction whose durable effect matters for the case
+
+Avoid mixing multiple services, selectors, or helpers.
+
+### Step 2: draft one service-consumer chain
+Write the smallest plausible chain before widening the map:
+
+```text
+client trigger:
+  one app/private-framework action
+
+proxy route:
+  one connection/proxy/selector family
+
+routing or acceptance boundary:
+  listener / Mach service / exported interface setup if relevant
+
+candidate service-side consumer:
+  one exported-object method or immediate reducer
+
+candidate reply/error boundary:
+  reply / interruption / invalidation / contract failure
+
+visible durable effect:
+  one state write / policy outcome / later helper action
+```
+
+This draft may be wrong.
+Its purpose is to stop endless “XPC exists here too” accumulation.
+
+### Step 3: prove whether routing truth is already good enough
+Before spending more effort on proxy setup, answer:
+- is the connection family already frozen strongly enough?
+- do you already know the service name / endpoint / listener family well enough?
+- would more connection setup detail actually change the next experimental move?
+
+If yes, stop widening at routing.
+Move to service-side method truth.
+
+### Step 4: choose the first real service-side consumer
+Good candidates include:
+- the first exported-object selector implementation that deserializes and uses the arguments
+- the first helper call or reducer behind the exported method that actually predicts later behavior
+- the first service-side state write or queue/scheduler action behind the method
+
+Bad default choices include:
+- stopping at `remoteObjectProxy`
+- stopping at Mach service discovery
+- stopping at `listener:shouldAcceptNewConnection:`
+- treating a recovered protocol name as if it already proves the semantic consumer
+- treating connection validity as if it already proves durable effect
+
+A source-backed discipline worth preserving here:
+- Apple’s XPC architecture makes the exported object the receiver of remote proxy messages
+- therefore client-side proxy visibility and service-side consumer truth are different proof objects
+- listener acceptance and launchd lookup narrow the route but do not yet own the behavior
+
+### Step 5: separate contract failure from semantic failure
+When compare pairs drift, ask which bucket the drift really belongs to:
+- protocol or selector guess is wrong
+- interface/class whitelist is incomplete
+- connection was interrupted/invalidated
+- service restarted or did not keep the same request alive
+- remote method executed but later semantic reduction or state write differs
+
+This matters because the fix changes completely depending on the bucket.
+Do not flatten all of them into generic “XPC failed” language.
+
+### Step 6: prove one service-side consumer with one compare pair
 
 ### E. Durable consequence truth
 This is the first boundary where the service-side work clearly predicts later behavior.
@@ -321,15 +420,16 @@ service launches on demand
 ```
 
 What usually helps:
-- freeze request send attempt, reply/error path, and later durable effect separately
+- freeze request send attempt, interruption/error/invalidation path, and later durable effect separately
 - keep launch/restart/interruption truth as lifecycle evidence, not direct consequence evidence
-- preserve the narrower stop rule `accepted != replied != invalidated != reconnected != consumed`
+- preserve the narrower stop rule `accepted != interrupted != invalidated != reconnected != consumed`
 - treat "connection became valid again" or "service relaunched" as weaker than proving the same exported-object method or later service-owned reducer actually ran again
-- when compare pairs diverge around invalidation/restart, ask whether the first stable proof object is the reply/error class, the exported-object method re-entry, one explicit invalidation boundary, or one later durable effect rather than more client-side proxy inventory
+- when compare pairs diverge around interruption/invalidation/restart, ask whether the first stable proof object is the interruption boundary, the invalidation boundary, the exported-object method re-entry, or one later durable effect rather than more client-side proxy inventory
 
 A narrower Apple-platform lifecycle reminder now worth keeping explicit is:
 - launchd-managed restart, interruption, and invalidation frequently create compare-pair noise that looks like progress
-- acceptance truth, reply/error truth, invalidation truth, reconnection truth, and durable service-owned consequence are often five different proof objects
+- acceptance truth, interruption truth, invalidation truth, reconnection truth, and durable service-owned consequence are often five different proof objects
+- interruption should be preserved as weaker lifecycle-disturbance truth unless later evidence proves the stronger invalidation boundary
 - invalidation is especially strong stop-rule evidence because Apple documents that the connection may not be re-established and that you may not send messages over that connection from within an invalidation handler block
 - the analyst should therefore stop at the smallest one that actually predicts later behavior instead of overreading any generic "XPC recovered" event
 
