@@ -13,6 +13,7 @@
 - Current SSH verification: success on 2026-03-25
 - Hostname observed: `instance-20260325-1818`
 - Tailnet IPv4: `100.79.183.3` (joined 2026-03-25)
+- Tailscale-visible name is still the generic instance hostname; this machine has not yet been semantically renamed the way `oracle-registry` has
 
 ## System baseline
 - OS: Ubuntu 24.04.4 LTS
@@ -26,6 +27,10 @@
   - common ops tooling (`curl`, `wget`, `git`, `jq`, `tmux`, `htop`, `tree`, `rsync`, `ripgrep`, `dnsutils`, etc.)
   - build/runtime basics (`build-essential`, `python3`, `python3-pip`, `python3-venv`, `pipx`)
   - Docker stack (`docker.io`, `docker-compose-v2`)
+- Additional runtime installed on 2026-03-27 for JS reverse MCP validation:
+  - Node.js `v22.22.0` (NodeSource)
+  - npm `10.9.4`
+  - Chromium snap `146.0.7680.80` at `/snap/bin/chromium`
 - Swap:
   - `/swapfile` enabled at 2G and persisted in `/etc/fstab`
 - Docker:
@@ -40,3 +45,10 @@
 - Uses the same provided private key material currently stored locally as `~/.ssh/oracle-new1.pem`.
 - `fwupd-refresh.service` showed as failed during first baseline check; not currently treated as a blocker for server use.
 - Suitable as a lightweight ARM Docker worker / utility host; left otherwise mostly idle after base provisioning.
+- `js-reverse-mcp` has now been validated here in a minimal headless deployment shape using Chromium rather than official Google Chrome Stable.
+- Current validated launcher shape for that project is:
+  - `node build/src/index.js --headless --executablePath=/snap/bin/chromium --chrome-arg=--no-sandbox --chrome-arg=--disable-dev-shm-usage`
+- Convenience wrappers were created on-host:
+  - `~/bin/js-reverse-mcp-run`
+  - `~/bin/js-reverse-mcp-smoke`
+- Deployment notes for that project live at `~/js-reverse-mcp/.deploy/README.md` on the remote host.

@@ -1,0 +1,8 @@
+# oracle-new2 / CHANGELOG
+
+- 2026-03-25: Fresh Oracle ARM host (`140.245.61.236`) reached over SSH after OCI-side IPv4 ingress and internet-path fixes.
+- 2026-03-25: Base environment installed: common ops tools, Python runtime/build packages, Docker Engine + Compose v2, and persistent 2G swap.
+- 2026-03-25: Initial baseline check showed `fwupd-refresh.service` in failed state; documented as a non-blocking package-maintenance issue rather than a server-role blocker.
+- 2026-03-26: Read-only health check reconfirmed `oracle-new2` remained reachable and intentionally mostly idle. Snapshot at `2026-03-26 00:33 UTC`: uptime ~14 hours, load idle (`0.00 0.00 0.00`), root disk `96G total / 5.8G used / 91G free` (`6%` used), memory comfortable (`11Gi` total, `11Gi` available), no swap use, no running Docker containers, and listener surface remained minimal with only SSH publicly exposed. Tailscale remained joined at `100.79.183.3`.
+- 2026-03-27: Validated `js-reverse-mcp` minimal deployability on this host. Installed Node.js `v22.22.0` (NodeSource) and Chromium snap `146.0.7680.80`; browser smoke test succeeded in headless mode against `https://example.com`, repo clone/build succeeded, and a startup smoke test succeeded with `node build/src/index.js --headless --executablePath=/snap/bin/chromium --chrome-arg=--no-sandbox --chrome-arg=--disable-dev-shm-usage`.
+- 2026-03-27: Added remote convenience wrappers `~/bin/js-reverse-mcp-run` and `~/bin/js-reverse-mcp-smoke`, plus deployment notes at `~/js-reverse-mcp/.deploy/README.md`, to preserve a repeatable on-host launch shape without exposing the MCP as a network service.
