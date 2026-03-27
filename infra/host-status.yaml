@@ -17,7 +17,10 @@ hosts:
       - proxy.zhangxuemin.work is the primary documented domain
       - ExaFree is running on host port 7860 with host-side cron automation for approximate 3-hour / 5-account registration batches
       - Tavily proxy remains operational, but Tavily registration automation is intentionally paused as of 2026-03-19 to avoid repeated auto-attempts while upstream risk controls are active
-      - 2026-03-25 recurring check: host remained reachable and service posture looked stable, but root filesystem usage climbed to 87% (~6.1G free), making disk growth the main watch item
+      - 2026-03-26 recurring check initially found root filesystem pressure at 87% (~6.1G free); follow-up triage showed the main contributors were Docker images/overlay/build-cache plus large logs under /var, and a same-day conservative cleanup reduced usage to 50% (~23G free) without disturbing active services
+      - formerly public `:8011` ad-hoc host-level `uv/granian` Grok2API instance has been retired on 2026-03-26; the main Dockerized `:8000` service remained healthy after removal
+      - low-risk retention controls were added on 2026-03-26: journald size cap + weekly Docker prune cron
+      - same-day read-only recheck also confirmed an older standalone host-level Hysteria server is still active on UDP `53752` from `/etc/hysteria/config.yaml`; this is now recorded as documented legacy/live network surface rather than a new failure
 
   - name: oracle-docker-proxy
     provider: oracle
@@ -71,6 +74,7 @@ hosts:
     notes:
       - `mail.zhangxuemin.work` is currently live as the Outlook Email Plus web app via Docker Compose + Caddy
       - active containers live under /opt/outlook-email-plus
+      - `rbot.service` / `r_client` is also live here and still listened on public `:9527` during the 2026-03-26 recurring check while the documented browser-facing entrypoint remains `dreamhorse.eu.cc`
       - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.116.13.44`
       - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
       - Tailscale health check warns that SELinux may interfere with Tailscale SSH on this host
@@ -122,6 +126,7 @@ hosts:
       - public SSH is reachable as user `ubuntu`
       - hostname currently remains `instance-20260325-1818`
       - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.79.183.3`
+      - 2026-03-26 recurring check reconfirmed the host remains intentionally mostly idle with no running containers and only SSH publicly exposed
       - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
 
   - name: oracle-open_claw
@@ -138,3 +143,75 @@ hosts:
       - this is the local machine, not a separate next remote audit target
       - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.78.194.18`
       - tailnet connectivity from the local host to `oracle-gateway` was validated successfully on 2026-03-25
+
+  - name: home
+    provider: home-tailnet
+    ssh_alias: home
+    ip: 100.73.71.81
+    lifecycle: active
+    reachability: reachable_over_tailnet
+    importance: tier3
+    roles:
+      - windows-workstation
+      - home-lan-entrypoint
+      - tailnet-member
+    notes:
+      - Windows machine with raw hostname `DESKTOP-CAU8JMI` and MagicDNS name `home`
+      - verified reachable from the local OpenClaw host over Tailnet on 2026-03-26 via `tailscale ping`
+      - TCP 22 returned connection refused during 2026-03-26 probe, so generic SSH access is not yet enabled
+
+  - name: company
+    provider: home-tailnet
+    ssh_alias: company
+    ip: 100.110.20.68
+    lifecycle: active
+    reachability: reachable_over_tailnet
+    importance: tier3
+    roles:
+      - windows-workstation
+      - company-lan-entrypoint
+      - tailnet-member
+    notes:
+      - Windows machine with current hostname `mengma` and MagicDNS name `company`
+      - present online in the same Tailnet as of 2026-03-26
+      - 2026-03-26 probe from the OpenClaw host confirmed Tailnet reachability, but TCP 22 returned connection refused so SSH is not currently enabled
+
+  - name: home-macmini
+    provider: home-tailnet
+    ssh_alias: home-macmini
+    ip: 100.105.248.53
+    lifecycle: active
+    reachability: reachable_over_tailnet
+    importance: tier3
+    roles:
+      - mac-mini
+      - home-lan-node
+      - tailnet-member
+    notes:
+      - macOS node added to Tailnet on 2026-03-26 with semantic hostname `home-macmini`
+      - early setup was blocked by local GUI/VPN permission flow; later confirmed online with `tailscale ip -4` = `100.105.248.53`
+      - sleep policy was adjusted on 2026-03-26 (`sleep 0`, `tcpkeepalive 1`, `womp 1`) after observing that SSH access woke the machine and Tailscale connectivity returned
+      - 2026-03-26 probe from the OpenClaw host confirmed both Tailnet reachability and open TCP 22, but repeated later same-day probes still saw the node fall offline / time out over SSH
+      - per user decision on 2026-03-26, this instability is recorded for later and is not being actively remediated in the current session
+
+  - name: home-nas
+    provider: home-tailnet
+    ssh_alias: home-nas
+    ip: 100.73.212.89
+    lifecycle: active
+    reachability: reachable_over_tailnet
+    importance: tier3
+    roles:
+      - nas
+      - home-storage-node
+      - tailnet-member
+    notes:
+      - currently appears in Tailnet as hostname `NAS`
+      - MagicDNS name confirmed on 2026-03-27 as `nas.tail646ee3.ts.net`
+      - confirmed online from the local OpenClaw host on 2026-03-26 with tailnet IPv4 `100.73.212.89`
+      - later on 2026-03-26, SSH on TCP 22 was enabled and successfully verified from the OpenClaw host using user `zhangxuemin`
+      - 2026-03-27 follow-up: `zhangxuemin` now has passwordless sudo via `/etc/sudoers.d/zhangxuemin`
+      - Tailscale package status on Synology is misleading here: `/usr/syno/bin/synopkg status Tailscale` may report stopped (`263`) even while `/var/packages/Tailscale/target/bin/tailscale status` and `netcheck` work
+      - NAS-side Tailscale diagnostics on 2026-03-27: `UDP: true`, `PortMapping: UPnP`, `MappingVariesByDestIP: true`, `Nearest DERP: San Francisco`
+      - path quality is peer-specific: local OpenClaw host can reach `home-nas` directly, but `company` still consistently hits `via DERP(sfo)` around 480-570 ms
+      - current hypothesis is not a simple NAS misconfiguration, but a `company <-> home-nas` NAT/path issue amplified by the NAS-side network preferring SFO as nearest DERP

@@ -95,3 +95,52 @@ hosts:
     domains: []
     docs:
       host: infra/hosts/oracle-new2/HOST.md
+
+  - name: home
+    ssh_alias: home
+    provider: home-tailnet
+    role:
+      - windows-workstation
+      - frequent-home-lan-entrypoint
+      - tailnet-member
+    public_ip: null
+    domains: []
+    docs:
+      host: infra/hosts/home/HOST.md
+
+  - name: company
+    ssh_alias: company
+    provider: home-tailnet
+    role:
+      - windows-workstation
+      - frequent-company-lan-entrypoint
+      - tailnet-member
+    public_ip: null
+    domains: []
+    docs:
+      host: infra/hosts/company/HOST.md
+
+  - name: home-macmini
+    ssh_alias: home-macmini
+    provider: home-tailnet
+    role:
+      - mac-mini
+      - home-lan-node
+      - tailnet-member
+    public_ip: null
+    domains: []
+    docs:
+      host: infra/hosts/home-macmini/HOST.md
+
+  - name: home-nas
+    ssh_alias: home-nas
+    provider: home-tailnet
+    role:
+      - nas
+      - home-storage-node
+      - tailnet-member
+    public_ip: null
+    domains:
+      - nas.tail646ee3.ts.net
+    docs:
+      host: infra/hosts/home-nas/HOST.md
