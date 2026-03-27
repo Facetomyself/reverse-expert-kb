@@ -1,0 +1,466 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "virtqueue used ring notification completion reclaim ownership reverse engineering",
+    "DMA descriptor ownership completion reclaim ring phase bit doorbell driver",
+    "io_uring CQE seen consumed buffer reclaim ownership semantics"
+  ],
+  "count": 26,
+  "results": [
+    {
+      "title": "vm-virtio/virtio-queue/README.md at main - GitHub",
+      "url": "https://github.com/rust-vmm/vm-virtio/blob/main/virtio-queue/README.md",
+      "snippet": "The `virtio-queue` crate provides a virtio device implementation for a virtio queue, a virtio descriptor and a chain of such descriptors. 1. the device first disables the notifications to make the driver aware it is processing the available ring and does not want interruptions, by using `Queue::disable_notification`. Notifications are disabled by the device either if VIRTIO\\_F\\_EVENT\\_IDX is not negotiated, and VIRTQ\\_USED\\_F\\_NO\\_NOTIFY is set in the `flags` field of the used ring, or if VIRTIO\\_F\\_EVENT\\_IDX is negotiated, and `avail_event` value is not updated, i.e. it remains set to the latest `idx` value of the available ring that was already notified by the driver. Notifications are enabled by the device either if VIRTIO\\_F\\_EVENT\\_IDX is not negotiated, and 0 is set in the `flags` field of the used ring, or if VIRTIO\\_F\\_EVENT\\_IDX is negotiated, and `avail_event` value is set to the smallest `idx` value of the available ring that was not already notified by the driver. On the driver side, the `Queue` provides the `needs_notification` method which should be used each time the device adds a new entry to the used ring.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "io_uring_cqe.res meaning for non read/write operations · Issue #100",
+      "url": "https://github.com/axboe/liburing/issues/100",
+      "snippet": "Hi, I use io_uring_prep_poll_add on sockets. For listening sockets I mostly get completions with res = 195, but sometimes 'res=1'.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "Virtual I/O Device (VIRTIO) Version 1.1 - OASIS Open",
+      "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+      "snippet": "When the device has finished a buffer, it writes the descriptor index into the used ring, and sends an interrupt a used buffer notification. 2.6.1 Driver",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.65
+    },
+    {
+      "title": "DMA descriptor errors: checking \"during\" the transfer #491 - GitHub",
+      "url": "https://github.com/esp-rs/esp-hal/issues/491",
+      "snippet": "It does seem strange that we immediately check the DMA's interrupt register for descriptor errors (is that guaranteed to be set within a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "io_uring and networking in 2023 · axboe/liburing Wiki - GitHub",
+      "url": "https://github.com/axboe/liburing/wiki/io_uring-and-networking-in-2023",
+      "snippet": "",
+      "published_date": "2023-02-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "Understanding DMA Rings - DEV Community",
+      "url": "https://dev.to/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+      "snippet": "",
+      "published_date": "2026-02-21T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.5333
+    },
+    {
+      "title": "Stefan Hajnoczi: Building a virtio-serial FPGA device (Part 4): Virtqueue processing",
+      "url": "https://blog.vmsplice.net/2026/01/building-virtio-serial-fpga-device-part_01060935865.html",
+      "snippet": "",
+      "published_date": "2026-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4333
+    },
+    {
+      "title": "Mind the Patch Gap: Exploiting an io_uring Vulnerability in Ubuntu",
+      "url": "https://blog.exodusintel.com/2024/03/27/mind-the-patch-gap-exploiting-an-io_uring-vulnerability-in-ubuntu/",
+      "snippet": "* Put an io\\_uring on it – Exploiting the Linux Kernel, a writeup for an exploit targeting an `io_uring` operation that provides the same functionality (`IORING_OP_PROVIDE_BUFFERS`) as the vulnerability discussed here (`IORING_REGISTER_PBUF_RING`), and that has also a broad overview of this subsystem. Finally, if the provided arguments have the flag `IOU_PBUF_RING_MMAP` set, the `io_alloc_pbuf_ring()` function is called [4], passing in the address of the structure `reg`, which contains the arguments passed to the system call, and the pointer to the allocated buffer list structure `bl`. // Source: https://elixir.bootlin.com/linux/v6.5.3/source/io_uring/kbuf.c#L519 static int io_alloc_pbuf_ring(struct io_uring_buf_reg *reg, struct io_buffer_list *bl) { gfp_t gfp = GFP_KERNEL_ACCOUNT | __GFP_ZERO | __GFP_NOWARN | __GFP_COMP; size_t ring_size; void *ptr; [5] ring_size = reg-＞ring_entries * sizeof(struct io_uring_buf_ring); [6] ptr = (void *) __get_free_pages(gfp, get_order(ring_size)); if (! * Making an `io_uring_register()` system call with opcode `IORING_REGISTER_PBUF_RING` and the `IOU_PBUF_RING_MMAP` flag, so that the kernel itself allocates the memory for the provided buffer ring. * `mmap()`ing the memory of the provided buffer ring with read and write permissions, using the `io_uring` file descriptor and the offset `IORING_OFF_PBUF_RING`.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4333
+    },
+    {
+      "title": "‎Doorbell device ownership issue | Ring Community",
+      "url": "https://community.ring.com/t/doorbell-device-ownership-issue/239503",
+      "snippet": "If the Ring Doorbell is registered to another owner, they need to remove it from their Ring account before you can add it to your own Ring",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Virtqueues and virtio ring: How the data travels - Red Hat",
+      "url": "https://www.redhat.com/en/blog/virtqueues-and-virtio-ring-how-data-travels",
+      "snippet": "A virtqueue is just a queue of guest's buffers that the host consumes, either reading them or writing to them.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "OpenAMP Library: virtqueue Struct Reference",
+      "url": "https://openamp.readthedocs.io/en/latest/doxygen/openamp/structvirtqueue.html",
+      "snippet": "virtqueue Struct Reference. Local virtio queue to manage a virtio ring for sending or receiving. More... #include <virtqueue.h>",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "[Qemu-devel] [PULL 6/7] virtio: check VirtQueue Vring object is set",
+      "url": "https://lists.gnu.org/archive/html/qemu-devel/2017-12/msg00166.html",
+      "snippet": "From: Prasad J Pandit <address@hidden> A guest could attempt to use an uninitialised VirtQueue object or unset Vring.align leading to a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "The rapid growth of io_uring - LWN.net",
+      "url": "https://lwn.net/Articles/810414/",
+      "snippet": "At its core, io\\_uring is a mechanism for performing asynchronous I/O, but it has been steadily growing beyond that use case and adding new capabilities. > :   Submit a readv() or write() operation — the core purpose for io\\_uring in most settings. > :   IORING\\_OP\\_POLL\\_ADD will perform a poll() operation on a set of file descriptors. The io\\_uring subsystem also supports a concept of dependencies between operations; a poll could be used to hold off on issuing another operation until the underlying file descriptor is ready for it. > :   Frequently used files can be registered with io\\_uring for faster access; this command is a way of (asynchronously) adding files to the list (or removing them from the list). Dependencies between commands are supported by io\\_uring now, so it is possible to hold the initiation of an operation until some previous operation has completed.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "drivers/usb/host/xhci-ring.c - kernel/msm - Git at Google",
+      "url": "https://android.googlesource.com/kernel/msm/+/android-4.4w_r8/drivers/usb/host/xhci-ring.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "drivers/usb/host/xhci-ring.c - Linux v6.6.1",
+      "url": "https://sbexr.rabexc.org/latest/sources/2c/5a590ae598bc5c.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "Packed virtqueue: How to reduce overhead with virtio",
+      "url": "https://redhat.com/fr/blog/packed-virtqueue-how-reduce-overhead-virtio",
+      "snippet": "",
+      "published_date": "2024-03-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Packed virtqueue: How to reduce overhead with virtio - Red Hat",
+      "url": "https://www.redhat.com/en/blog/packed-virtqueue-how-reduce-overhead-virtio",
+      "snippet": "",
+      "published_date": "2020-07-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Packed virtqueue: How to reduce overhead with virtio | 花の様に",
+      "url": "http://hanayo.cn/2023/02/23/packed-virtqueue-how-to-reduce-overhead-with-virtio/",
+      "snippet": "",
+      "published_date": "2023-02-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "io_uring_cqe_seen(3) - Linux manual page - Michael Kerrisk",
+      "url": "https://man7.org/linux/man-pages/man3/io_uring_cqe_seen.3.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "Understand properly marking CQEs as seen with io_uring_cqe_seen",
+      "url": "https://app.studyraid.com/en/read/15033/519885/properly-marking-cqes-as-seen-with-iouringcqeseen",
+      "snippet": "",
+      "published_date": "2025-03-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "io_uring(7) — liburing-dev — Debian testing",
+      "url": "https://manpages.debian.org/testing/liburing-dev/io_uring.7.en.html",
+      "snippet": "",
+      "published_date": "2025-12-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "io_uring support for automatic buffers - LWN.net",
+      "url": "https://lwn.net/Articles/813311/",
+      "snippet": "",
+      "published_date": "2020-02-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "[PATCH 00/17] io_uring passthru over nvme - public-inbox listing",
+      "url": "https://lore.gnuweeb.org/io-uring/b223b7bf-0688-5020-ca46-3616f2558aaf@kernel.dk/t/",
+      "snippet": "> > Signed-off-by: Anuj Gupta  > Signed-off-by: Kanchan Joshi  > --- > drivers/nvme/host/ioctl.c | 29 +++++++++++++++++++++++++---- > 1 file changed, 25 insertions(+), 4 deletions(-) > > diff --git a/drivers/nvme/host/ioctl.c b/drivers/nvme/host/ioctl.c index > 701feaecabbe..ddb7e5864be6 100644 > --- a/drivers/nvme/host/ioctl.c > +++ b/drivers/nvme/host/ioctl.c > @@ -65,6 +65,14 @@ static void nvme_pt_task_cb(struct io_uring_cmd > *ioucmd) > } > kfree(pdu->meta); > > + if (ioucmd->flags & IO_URING_F_UCMD_INDIRECT) { > + struct nvme_passthru_cmd64 __user *ptcmd64 = ioucmd- > >cmd; > + u64 result = le64_to_cpu(nvme_req(req)->result.u64); > + > + if (put_user(result, &ptcmd64->result)) > + status = -EFAULT; > + } > + > io_uring_cmd_done(ioucmd, status); > } > > @@ -143,6 +151,13 @@ static inline bool nvme_is_fixedb_passthru(struct > io_uring_cmd *ioucmd) > return ((ioucmd) && (ioucmd->flags & > IO_URING_F_UCMD_FIXEDBUFS)); } > > +static inline bool is_inline_rw(struct io_uring_cmd *ioucmd, struct > +nvme_command *cmd) { > + return ((ioucmd->flags & IO_URING_F_UCMD_INDIRECT) || > + (cmd->common.opcode == nvme_cmd_write || > + cmd->common.opcode == nvme_cmd_read)); } > + > static int nvme_submit_user_cmd(struct request_queue *q, > struct nvme_command *cmd, u64 ubuffer, > unsigned bufflen, void __user *meta_buffer, unsigned > meta_len, @@ -193,8 +208,7 @@ static int nvme_submit_user_cmd(struct > request_queue *q, > } > } > if (ioucmd) { /* async dispatch */ > - if (cmd->common.opcode == nvme_cmd_write || > - cmd->common.opcode == nvme_cmd_read) { > + if (is_inline_rw(ioucmd, cmd)) { > if (bio && is_polling_enabled(ioucmd, req)) { > ioucmd->bio = bio; > bio->bi_opf |= REQ_POLLED; > @@ -204,7 +218,7 @@ static int nvme_submit_user_cmd(struct > request_queue *q, > blk_execute_rq_nowait(req, 0, nvme_end_async_pt); > return 0; > } else { > - /* support only read and write for now.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "[PDF] TMS320C645x DSP Serial RapidIO User's Guide (Rev. E)",
+      "url": "https://www.ti.com/lit/pdf/spru976",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Routing direct memory access requests using doorbell addresses",
+      "url": "https://patents.google.com/patent/US7574536B2/en",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "DMA ethernet descriptor OWN bit issue",
+      "url": "https://community.st.com/t5/stm32-mcus-embedded-software/dma-ethernet-descriptor-own-bit-issue/td-p/52306",
+      "snippet": "what kind of situation is making that DMA is not freeing this descriptor and passing it to the MAC controller if no error is detected? Despite",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Understanding DMA Rings - DEV Community",
+        "url": "https://dev.to/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.5333
+      },
+      {
+        "title": "[PDF] TMS320C645x DSP Serial RapidIO User's Guide (Rev. E)",
+        "url": "https://www.ti.com/lit/pdf/spru976",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "drivers/usb/host/xhci-ring.c - kernel/msm - Git at Google",
+        "url": "https://android.googlesource.com/kernel/msm/+/android-4.4w_r8/drivers/usb/host/xhci-ring.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "drivers/usb/host/xhci-ring.c - Linux v6.6.1",
+        "url": "https://sbexr.rabexc.org/latest/sources/2c/5a590ae598bc5c.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "Routing direct memory access requests using doorbell addresses",
+        "url": "https://patents.google.com/patent/US7574536B2/en",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Stefan Hajnoczi: Building a virtio-serial FPGA device (Part 4): Virtqueue processing",
+        "url": "https://blog.vmsplice.net/2026/01/building-virtio-serial-fpga-device-part_01060935865.html",
+        "snippet": "",
+        "published_date": "2026-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4333
+      },
+      {
+        "title": "Virtual I/O Device (VIRTIO) Version 1.1 - OASIS Open",
+        "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Packed virtqueue: How to reduce overhead with virtio",
+        "url": "https://redhat.com/fr/blog/packed-virtqueue-how-reduce-overhead-virtio",
+        "snippet": "",
+        "published_date": "2024-03-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Packed virtqueue: How to reduce overhead with virtio - Red Hat",
+        "url": "https://www.redhat.com/en/blog/packed-virtqueue-how-reduce-overhead-virtio",
+        "snippet": "",
+        "published_date": "2020-07-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "Packed virtqueue: How to reduce overhead with virtio | 花の様に",
+        "url": "http://hanayo.cn/2023/02/23/packed-virtqueue-how-to-reduce-overhead-with-virtio/",
+        "snippet": "",
+        "published_date": "2023-02-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "io_uring_cqe_seen(3) - Linux manual page - Michael Kerrisk",
+        "url": "https://man7.org/linux/man-pages/man3/io_uring_cqe_seen.3.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "Understand properly marking CQEs as seen with io_uring_cqe_seen",
+        "url": "https://app.studyraid.com/en/read/15033/519885/properly-marking-cqes-as-seen-with-iouringcqeseen",
+        "snippet": "",
+        "published_date": "2025-03-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "io_uring and networking in 2023 · axboe/liburing Wiki - GitHub",
+        "url": "https://github.com/axboe/liburing/wiki/io_uring-and-networking-in-2023",
+        "snippet": "",
+        "published_date": "2023-02-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6333
+      },
+      {
+        "title": "io_uring(7) — liburing-dev — Debian testing",
+        "url": "https://manpages.debian.org/testing/liburing-dev/io_uring.7.en.html",
+        "snippet": "",
+        "published_date": "2025-12-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "io_uring support for automatic buffers - LWN.net",
+        "url": "https://lwn.net/Articles/813311/",
+        "snippet": "",
+        "published_date": "2020-02-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      }
+    ],
+    "tavily": [
+      {
+        "title": "DMA ethernet descriptor OWN bit issue",
+        "url": "https://community.st.com/t5/stm32-mcus-embedded-software/dma-ethernet-descriptor-own-bit-issue/td-p/52306",
+        "snippet": "what kind of situation is making that DMA is not freeing this descriptor and passing it to the MAC controller if no error is detected? Despite",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Understanding DMA Rings - DEV Community",
+        "url": "https://dev.to/ripan030/how-hardware-and-software-share-a-queue-understanding-dma-rings-pea",
+        "snippet": "Modern high-performance systems rely on a shared memory queue for communication between hardware and software, where the device writes data using DMA and indicates new work by updating an index. Instead, modern devices and drivers communicate through **shared memory queues**. The device publishes completed work into memory using DMA, and software consumes it later. The device selects the slot at its current WR\\_IDX and DMA-writes a completion record. After the completion entry is fully written, the device updates WR\\_IDX in host memory. After consuming entries, software writes the updated RD\\_IDX to the device via MMIO. Otherwise, software may see an old index or partially updated entries even though the device has already written the new data to memory. This guarantees that when software observes the new WR\\_IDX, the corresponding completion entry is already fully written in memory. Completed work becomes visible when WR\\_IDX is updated, and buffer space is returned to the device when RD\\_IDX advances.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "‎Doorbell device ownership issue | Ring Community",
+        "url": "https://community.ring.com/t/doorbell-device-ownership-issue/239503",
+        "snippet": "If the Ring Doorbell is registered to another owner, they need to remove it from their Ring account before you can add it to your own Ring",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "DMA descriptor errors: checking \"during\" the transfer #491 - GitHub",
+        "url": "https://github.com/esp-rs/esp-hal/issues/491",
+        "snippet": "It does seem strange that we immediately check the DMA's interrupt register for descriptor errors (is that guaranteed to be set within a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "drivers/usb/host/xhci-ring.c - Linux v6.6.1",
+        "url": "https://sbexr.rabexc.org/latest/sources/2c/5a590ae598bc5c.html",
+        "snippet": "... bit should cause a cmd completion event, * however on some host hw the CMD_RING_RUNNING bit is correctly cleared * but the completion event in never sent.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "vm-virtio/virtio-queue/README.md at main - GitHub",
+        "url": "https://github.com/rust-vmm/vm-virtio/blob/main/virtio-queue/README.md",
+        "snippet": "The `virtio-queue` crate provides a virtio device implementation for a virtio queue, a virtio descriptor and a chain of such descriptors. 1. the device first disables the notifications to make the driver aware it is processing the available ring and does not want interruptions, by using `Queue::disable_notification`. Notifications are disabled by the device either if VIRTIO\\_F\\_EVENT\\_IDX is not negotiated, and VIRTQ\\_USED\\_F\\_NO\\_NOTIFY is set in the `flags` field of the used ring, or if VIRTIO\\_F\\_EVENT\\_IDX is negotiated, and `avail_event` value is not updated, i.e. it remains set to the latest `idx` value of the available ring that was already notified by the driver. Notifications are enabled by the device either if VIRTIO\\_F\\_EVENT\\_IDX is not negotiated, and 0 is set in the `flags` field of the used ring, or if VIRTIO\\_F\\_EVENT\\_IDX is negotiated, and `avail_event` value is set to the smallest `idx` value of the available ring that was not already notified by the driver. On the driver side, the `Queue` provides the `needs_notification` method which should be used each time the device adds a new entry to the used ring.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "Virtual I/O Device (VIRTIO) Version 1.1 - OASIS Open",
+        "url": "https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01-diff.html",
+        "snippet": "When the device has finished a buffer, it writes the descriptor index into the used ring, and sends an interrupt a used buffer notification. 2.6.1 Driver",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.65
+      },
+      {
+        "title": "Virtqueues and virtio ring: How the data travels - Red Hat",
+        "url": "https://www.redhat.com/en/blog/virtqueues-and-virtio-ring-how-data-travels",
+        "snippet": "A virtqueue is just a queue of guest's buffers that the host consumes, either reading them or writing to them.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "OpenAMP Library: virtqueue Struct Reference",
+        "url": "https://openamp.readthedocs.io/en/latest/doxygen/openamp/structvirtqueue.html",
+        "snippet": "virtqueue Struct Reference. Local virtio queue to manage a virtio ring for sending or receiving. More... #include <virtqueue.h>",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "[Qemu-devel] [PULL 6/7] virtio: check VirtQueue Vring object is set",
+        "url": "https://lists.gnu.org/archive/html/qemu-devel/2017-12/msg00166.html",
+        "snippet": "From: Prasad J Pandit <address@hidden> A guest could attempt to use an uninitialised VirtQueue object or unset Vring.align leading to a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "io_uring_cqe_seen(3) - Linux manual page - Michael Kerrisk",
+        "url": "https://man7.org/linux/man-pages/man3/io_uring_cqe_seen.3.html",
+        "snippet": "The io_uring_cqe_seen(3) function marks the IO completion cqe belonging to the ring param as consumed. After the caller has submitted a request with",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Mind the Patch Gap: Exploiting an io_uring Vulnerability in Ubuntu",
+        "url": "https://blog.exodusintel.com/2024/03/27/mind-the-patch-gap-exploiting-an-io_uring-vulnerability-in-ubuntu/",
+        "snippet": "* Put an io\\_uring on it – Exploiting the Linux Kernel, a writeup for an exploit targeting an `io_uring` operation that provides the same functionality (`IORING_OP_PROVIDE_BUFFERS`) as the vulnerability discussed here (`IORING_REGISTER_PBUF_RING`), and that has also a broad overview of this subsystem. Finally, if the provided arguments have the flag `IOU_PBUF_RING_MMAP` set, the `io_alloc_pbuf_ring()` function is called [4], passing in the address of the structure `reg`, which contains the arguments passed to the system call, and the pointer to the allocated buffer list structure `bl`. // Source: https://elixir.bootlin.com/linux/v6.5.3/source/io_uring/kbuf.c#L519 static int io_alloc_pbuf_ring(struct io_uring_buf_reg *reg, struct io_buffer_list *bl) { gfp_t gfp = GFP_KERNEL_ACCOUNT | __GFP_ZERO | __GFP_NOWARN | __GFP_COMP; size_t ring_size; void *ptr; [5] ring_size = reg-＞ring_entries * sizeof(struct io_uring_buf_ring); [6] ptr = (void *) __get_free_pages(gfp, get_order(ring_size)); if (! * Making an `io_uring_register()` system call with opcode `IORING_REGISTER_PBUF_RING` and the `IOU_PBUF_RING_MMAP` flag, so that the kernel itself allocates the memory for the provided buffer ring. * `mmap()`ing the memory of the provided buffer ring with read and write permissions, using the `io_uring` file descriptor and the offset `IORING_OFF_PBUF_RING`.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4333
+      },
+      {
+        "title": "[PATCH 00/17] io_uring passthru over nvme - public-inbox listing",
+        "url": "https://lore.gnuweeb.org/io-uring/b223b7bf-0688-5020-ca46-3616f2558aaf@kernel.dk/t/",
+        "snippet": "> > Signed-off-by: Anuj Gupta  > Signed-off-by: Kanchan Joshi  > --- > drivers/nvme/host/ioctl.c | 29 +++++++++++++++++++++++++---- > 1 file changed, 25 insertions(+), 4 deletions(-) > > diff --git a/drivers/nvme/host/ioctl.c b/drivers/nvme/host/ioctl.c index > 701feaecabbe..ddb7e5864be6 100644 > --- a/drivers/nvme/host/ioctl.c > +++ b/drivers/nvme/host/ioctl.c > @@ -65,6 +65,14 @@ static void nvme_pt_task_cb(struct io_uring_cmd > *ioucmd) > } > kfree(pdu->meta); > > + if (ioucmd->flags & IO_URING_F_UCMD_INDIRECT) { > + struct nvme_passthru_cmd64 __user *ptcmd64 = ioucmd- > >cmd; > + u64 result = le64_to_cpu(nvme_req(req)->result.u64); > + > + if (put_user(result, &ptcmd64->result)) > + status = -EFAULT; > + } > + > io_uring_cmd_done(ioucmd, status); > } > > @@ -143,6 +151,13 @@ static inline bool nvme_is_fixedb_passthru(struct > io_uring_cmd *ioucmd) > return ((ioucmd) && (ioucmd->flags & > IO_URING_F_UCMD_FIXEDBUFS)); } > > +static inline bool is_inline_rw(struct io_uring_cmd *ioucmd, struct > +nvme_command *cmd) { > + return ((ioucmd->flags & IO_URING_F_UCMD_INDIRECT) || > + (cmd->common.opcode == nvme_cmd_write || > + cmd->common.opcode == nvme_cmd_read)); } > + > static int nvme_submit_user_cmd(struct request_queue *q, > struct nvme_command *cmd, u64 ubuffer, > unsigned bufflen, void __user *meta_buffer, unsigned > meta_len, @@ -193,8 +208,7 @@ static int nvme_submit_user_cmd(struct > request_queue *q, > } > } > if (ioucmd) { /* async dispatch */ > - if (cmd->common.opcode == nvme_cmd_write || > - cmd->common.opcode == nvme_cmd_read) { > + if (is_inline_rw(ioucmd, cmd)) { > if (bio && is_polling_enabled(ioucmd, req)) { > ioucmd->bio = bio; > bio->bi_opf |= REQ_POLLED; > @@ -204,7 +218,7 @@ static int nvme_submit_user_cmd(struct > request_queue *q, > blk_execute_rq_nowait(req, 0, nvme_end_async_pt); > return 0; > } else { > - /* support only read and write for now.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "io_uring_cqe.res meaning for non read/write operations · Issue #100",
+        "url": "https://github.com/axboe/liburing/issues/100",
+        "snippet": "Hi, I use io_uring_prep_poll_add on sockets. For listening sockets I mostly get completions with res = 195, but sometimes 'res=1'.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "The rapid growth of io_uring - LWN.net",
+        "url": "https://lwn.net/Articles/810414/",
+        "snippet": "At its core, io\\_uring is a mechanism for performing asynchronous I/O, but it has been steadily growing beyond that use case and adding new capabilities. > :   Submit a readv() or write() operation — the core purpose for io\\_uring in most settings. > :   IORING\\_OP\\_POLL\\_ADD will perform a poll() operation on a set of file descriptors. The io\\_uring subsystem also supports a concept of dependencies between operations; a poll could be used to hold off on issuing another operation until the underlying file descriptor is ready for it. > :   Frequently used files can be registered with io\\_uring for faster access; this command is a way of (asynchronously) adding files to the list (or removing them from the list). Dependencies between commands are supported by io\\_uring now, so it is possible to hold the initiation of an operation until some previous operation has completed.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      }
+    ],
+    "grok": []
+  }
+}

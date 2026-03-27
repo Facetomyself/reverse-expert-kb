@@ -349,6 +349,16 @@ The external evidence used for this run repeatedly emphasized:
 - the practical split between coherent shared descriptor memory and streaming / non-coherent DMA-backed visibility where explicit CPU/device trust transfer can still be the decisive boundary
 - the practical danger of overreading kick / notify / doorbell edges as full trust transfer when publication, trust, and reclaim are still separate boundaries
 - the practical value of treating ownership transfer as a trust contract shaped by ordering, freshness, notification scope, and sometimes explicit CPU/device synchronization rather than by descriptor bytes alone
+- the completion-side reminder that visible completion and reusable slot truth can still be different proof objects, so `completion-visible != consumed != reclaimed/reusable` is worth preserving when later replay/emulation work depends on real slot return
+
+A later external pass also reinforced a thinner completion-side continuation:
+- `published != notified != completion-visible != consumed != reclaimed/reusable`
+- especially `completion-visible != slot-returned`
+
+That smaller rule is practical because some workflows stall not on whether a completion record exists, but on whether the representative slot was actually seen, advanced, reclaimed, or made reusable again.
+
+Additional source note for that thinner continuation:
+- `sources/firmware-protocol/2026-03-27-descriptor-consumed-vs-reclaim-and-slot-return-notes.md`
 
 That is enough for a conservative practical continuation note because the point is not to claim one universal ring architecture.
 The point is to preserve a recurring analyst move that repeatedly appears once queue structure is already visible.
