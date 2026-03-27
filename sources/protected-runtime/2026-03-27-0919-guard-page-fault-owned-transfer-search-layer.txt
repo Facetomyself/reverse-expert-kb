@@ -1,0 +1,634 @@
+[exa] error: 402 Client Error: Payment Required for url: http://158.178.236.241:7860/search
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "PAGE_GUARD Vectored Exception Handler STATUS_GUARD_PAGE_VIOLATION EXCEPTION_SINGLE_STEP reverse engineering",
+    "guard page exception handler resume address rearm anti debug reverse engineering",
+    "Windows PAGE_GUARD VirtualProtect exception handler single step rearm practical",
+    "Linux SIGSEGV mprotect page fault handler ucontext resume reverse engineering practical"
+  ],
+  "count": 35,
+  "results": [
+    {
+      "title": "winapi - Win32 GUARD Memory : How can I use PAGE_GUARD to implement stack - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/21333967/win32-guard-memory-how-can-i-use-page-guard-to-implement-stack",
+      "snippet": "Title: winapi - Win32 GUARD Memory : How can I use PAGE_GUARD to implement stack - Stack Overflow\n### current community. ### your communities. ### more stack exchange communities. Communities for your favorite technologies. Stack Overflow for Teams is now called **Stack Internal**. Bring the best of human thought and AI automation together at your work. ##### Collectives™ on Stack Overflow. # Win32 GUARD Memory : How can I use PAGE\\_GUARD to implement stack. I'm writing a tiny byte-code, interpreted language (or framework? I know Windows use `PAGE_GUARD` on stack, and I want to use this. First, I reserve virtual memory and do MEM\\_COMMIT/PAGE\\_GUARD on one page. `pStack->end = VirtualAlloc(NULL, MaxSize, MEM_RESERVE, PAGE_READWRITE);. if (VirtualAlloc(pStack->base - PageSize, PageSize, MEM_COMMIT, PAGE_READWRITE | PAGE_GUARD) != NULL)`. (I know I should commit (non PAGE\\_GUARD) one page, but it's for testing `PAGE_GUARD`.). and I write `__except` as follows:. if (exc->ExceptionRecord->ExceptionCode == STATUS_GUARD_PAGE_VIOLATION). (I also know I should commit/guard the next page, but it's for testing, too.). When I touch memory of stack, `STATUS_GUARD_PAGE_VIOLATION` is occured. Doesn't Windows unmark `PAGE_GUARD` after exception occur? and why doesn't this code work well? And, I don't know how to do this part: *(I also know I should commit/guard the next page, but it's for testing, too.)*. get guarded-page's address 2. commit/guard the next page, but I don't know how to do 1. the guarded address is here:. ## 1 Answer 1. Doesn't Windows unmark PAGE\\_GUARD after exception occur? Pages in the region become guard pages. Any attempt to access a guard page causes the system to raise a STATUS\\_GUARD\\_PAGE\\_VIOLATION exception and turn off the guard page status. Guard pages thus act as a one-time access alarm. void* baseAddr = ::VirtualAlloc(NULL, pageSize, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE );. BOOL ok = ::VirtualProtect( protectedAddr, pageSize, PAGE_READWRITE | PAGE_GUARD, &oldAttr );. ::OutputDebugString( L\"Reading the guarded page\\n\" );. ## Your Answer. Thanks for contributing an answer to Stack Overflow! To learn more, see our tips on writing great answers. Start asking to get answers. Find the answer to your question by asking. #### Hot Network Questions. # Subscribe to RSS. To subscribe to this RSS feed, copy and paste this URL into your RSS reader. ##### Stack Overflow. ##### Stack Exchange Network. Site design / logo © 2026 Stack Exchange Inc;.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7925
+    },
+    {
+      "title": "c - What stack does a vectored exception handler use (Windows)? - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/33152188/what-stack-does-a-vectored-exception-handler-use-windows",
+      "snippet": "##### Collectives™ on Stack Overflow. # What stack does a vectored exception handler use (Windows)? I have a toy programming language that uses a separate stack for each coroutine/fiber/thread. I've added a vectored exception handler that catches page faults that occur when the stack grows, and calls VirtualAlloc again on these pages with MEM\\_COMMIT. The problem I have is that my vectored exception handler (set up via AddVectoredExceptionHandler) is not running. The theory is that the program runs out of MEM\\_COMMIT stack, and starts the exception handler. Since the exception handler uses the same stack (possibly?) it also immediately faults, and thus never runs. **So, does the handler use the same stack as the coroutine/fiber that faulted?** Is there any way to make vectored exception handlers use a special stack? * For stack overflows you can make your handler run by using SetThreadStackGuarantee and \\_resetstkoflw. Commented Oct 15, 2015 at 17:30. ## 1 Answer 1. The \"regardless of where you are in a call frame\" makes me expect that the exception handler uses the current stack (`sp` register). To make sure, reserve some space before \"the program runs out of MEM\\_COMMIT stack\" to allow the handler to use the stack, and use a debugger to check the assembler sequence of instructions and the registers. answered Oct 15, 2015 at 16:29. I added a guard page at the end of the MEM\\_COMMIT range of the stack (right before the MEM\\_RESERVE range). Windows does not change the stack pointer before calling the vectored exception handler. Start asking to get answers. Find the answer to your question by asking. * What’s new at Stack Overflow: February 2026. 1\") Vectored exception handler and Microsoft C runtime error handling. Floating point stack handling with floating-point exceptions turned on. 1\") How does an exception handler register on a frame of the stack? How much is pushed onto a 32-bit stack under Windows x86-64 on an exception? 1\") Exception Handling with Stack in C++. 2\") How can you get more detailed exception information from a vectored exception handler? 1\") exception handling stack trace in VC++. 0\") Manually adding a vectored exception handler.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7925
+    },
+    {
+      "title": "GitHub - EvilBytecode/Ebyte-Syscalls: Obfuscating function calls using Vectored Exception Handlers by redirecting execution through exception-based control flow. Uses byte swapping without memory or assembly allocation.",
+      "url": "https://github.com/EvilBytecode/Ebyte-Syscalls",
+      "snippet": "",
+      "published_date": "2025-10-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.7125
+    },
+    {
+      "title": "c++ - PAGE_GUARD with VirtualProtect not raising an exception on ...",
+      "url": "https://stackoverflow.com/questions/50558785/page-guard-with-virtualprotect-not-raising-an-exception-on-execute-access",
+      "snippet": "I'm trying to hook a function using PAGE_GUARD but it does not raise any exception when the page/address is called.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "Is there any way to watch a block of memory of the current process ...",
+      "url": "https://reverseengineering.stackexchange.com/questions/27978/is-there-any-way-to-watch-a-block-of-memory-of-the-current-process-for-change",
+      "snippet": "#### Stack Exchange Network. Stack Exchange network consists of 183 Q&A communities including Stack Overflow, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers. ### more stack exchange communities. # Is there any way to watch a block of memory of the current process for change? VirtualProtect locks whole page and Raises an Exception on access and removes the PAGE\\_GUARD Memory Protection. In the Exception Handler you watch for a your small block. t1.field_a++; //this will raise guard page exception. printf(\"\\nwe have reset guard page exception 0x60 times \\n\");. printf(\"we access our field now \\n\");. t1.field_b = 0xdead; //this again will raise exception and we execute handler. printf(\"t1.field_b = %x\\n\", t1.field_b); // no exception. printf(\"t1.field_b = %x\\n\", t1.field_b);. we have reset guard page exception 0x60 times. we have reset guard page exception 0x60 times. Thanks for contributing an answer to Reverse Engineering Stack Exchange! Find the answer to your question by asking. ##### Stack Exchange Network.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "Early Exception Handling ::",
+      "url": "https://kr0tt.github.io/posts/early-exception-handling/",
+      "snippet": "Once execution has reached the kernel handler for the exception that was raised, the routine performs some checks, calls `nt! To find a handler for an exception, `ntdll! RtlpCallVectoredHandlers` function is called to check if there are any registered Vectored Exception Handlers by searching for entries in the `Exception Handler` list. If an entry exists in the Exception Handler list, `ntdll! We can place our hook by writing the address of our own exception handler or the address of injected shellcode into the address field of `Wow64PrepareForException` in the WoW64 callback table. The example below displays an early exception handler that will set a hook by changing the `RIP` to some hooking function when a `STATUS_GUARD_PAGE_VIOLATION` exception is raised. Second, because the exception handling logic relies only on the `ExceptionHandler` function, we must call `ntdll! We then find and overwrite the `Wow64PrepareForException` function pointer to point to our early exception handler. This will go through the exception and interrupt process all the way to `ntdll! Once inside our early exception handler, we remove the hardware breakpoint, set the correct SSN, set the `RIP` to the `syscall` instruction address in the function and resume execution using `ntdll.dll! We can use our early exception handler for threadless remote process injection as well. In this example we are going to overwrite the `Wow64PrepareForException` function pointer in the remote process to point to our shellcode, and then we are going to cause an exception in the remote process. KiUserExceptionDispatcher` and some shellcode we inject, we can in theory inject our custom shellcode, cause an exception, and interfere in the hooking process of the EDR in the injected process as early as we want. Because this function pointer resides in `ntdll.dll` we can be confident that it will be at same address in a remote process on the same system. To cause an exception in the remote process, we can again set a hardware breakpoint in the remote process on a function that we know that will execute during the process initialization process or we can set a `PAGE_GUARD` on the process entry point. The process will hit our hook, cause an exception, wind up in `ntdll!",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6375
+    },
+    {
+      "title": "Creating Guard Pages - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/memory/creating-guard-pages",
+      "snippet": "To create a guard page, set the PAGE_GUARD page protection modifier for the page. This value can be specified, along with other page",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6375
+    },
+    {
+      "title": "How to write a signal handler to catch SIGSEGV? - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/2663456/how-to-write-a-signal-handler-to-catch-sigsegv",
+      "snippet": "On Linux, this is a ucontext structure, which contains machine-specific info about the $PC address and other register contents where the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6375
+    },
+    {
+      "title": "SIGSEGV handler and mprotect and looping effect when injecting instructions at runtime. Handler can't get info->si_addr",
+      "url": "https://stackoverflow.com/questions/8208081/sigsegv-handler-and-mprotect-and-looping-effect-when-injecting-instructions-at-r",
+      "snippet": "",
+      "published_date": "2011-11-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6375
+    },
+    {
+      "title": "What&#39;s the requirement of the context of a handleable SIGSEGV on x86_64 Linux?",
+      "url": "https://stackoverflow.com/questions/78284006/whats-the-requirement-of-the-context-of-a-handleable-sigsegv-on-x86-64-linux",
+      "snippet": "",
+      "published_date": "2024-04-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Can I trap SIGSEGV (on a Linux) and what are are the conditions to ...",
+      "url": "https://reverseengineering.stackexchange.com/questions/21597/can-i-trap-sigsegv-on-a-linux-and-what-are-are-the-conditions-to-make-it-works",
+      "snippet": "Thus, when using `printf()` from within a signal handler, we may sometimes see strange output—or even a program crash or data corruption—if the handler interrupts the main program in the middle of executing a call to `printf()` or another `stdio` function. Implementing an exception handler for `SIGSEGV` may result in unintended signal handler behavior if non-reentrant library functions are called within the exception handler, since it may be possible to trigger a segmentation fault outside of the specific conditions you anticipate. The most interesting approach for your case would probably be changing the `uc_mcontext.gregs[REG_RIP]` (RIP here is the x86-64 instruction pointer) value in the signal handler's `context` struct to point to a function somewhere else in the program. After the signal handler finishes, program execution would resume at that function. Some related example code can also be found here: In a signal handler, how to know where the program is interrupted?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.575
+    },
+    {
+      "title": "[PDF] Anti-debugging techniques - Virtual Server List",
+      "url": "https://users.cs.utah.edu/~aburtsev/malw-sem/slides/02-anti-debugging.pdf",
+      "snippet": "○ Allocate and guard a page. ○ Put some code there (like RETN). ○ Jump to it. ○ If debugger uses page guarding, exception will be suppressed. – Magic values",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5375
+    },
+    {
+      "title": "Anti-Debugging Technique based on Memory Protection",
+      "url": "https://isc.sans.edu/diary/26200",
+      "snippet": "The technique of guard pages detection can help to detect the presence of a debugger with the creation of PAGE_GUARD memory page and accessing it.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5375
+    },
+    {
+      "title": "Catching SIGSEGV and recovering in-process: viable in practice?",
+      "url": "https://www.reddit.com/r/C_Programming/comments/1mq0bw6/catching_sigsegv_and_recovering_inprocess_viable/",
+      "snippet": "It is also possible to engineer specific situations where you expect a page fault and are able to recover from it in specific ways. ... A Deep-",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5
+    },
+    {
+      "title": "AMSI Bypass via Page Guard",
+      "url": "https://shigshag.com/blog/amsi_page_guard",
+      "snippet": "DECL_SHELLCODE LONG vectored_exception_handler(PEXCEPTION_POINTERS ExceptionInfo)(){{ if (ExceptionInfo->ExceptionRecord->ExceptionCode == STATUS_GUARD_PAGE_VIOLATION) if(-> -> ==) {{ // Resolve amsi.dll and AmsiScanBuffer// Resolve amsi.dll and AmsiScanBuffer uintptr_t amsi_base = resolver::find_module(W_HASH(L\"amsi.dll\")); uintptr_t =::((L\"amsi.dll\")); PVOID pAmsiScanBuffer = (PVOID)resolver::find_api(amsi_base, C_HASH(\"AmsiScanBuffer\")); =()::(,(\"AmsiScanBuffer\"));  // Check if the violation is at AmsiScanBuffer// Check if the violation is at AmsiScanBuffer if ((UINT_PTR)ExceptionInfo->ExceptionRecord->ExceptionAddress == (UINT_PTR)pAmsiScanBuffer) if(() -> -> ==()) {{ // Get the 6th parameter (AMSI_RESULT*) and set it to AMSI_RESULT_CLEAN// Get the 6th parameter (AMSI_RESULT*) and set it to AMSI_RESULT_CLEAN PVOID *stack = (PVOID *)ExceptionInfo->ContextRecord->Rsp;* =(*) -> ->; AMSI_RESULT *pAmsiResult = (AMSI_RESULT *)stack[6];* =(*)[6]; *pAmsiResult = AMSI_RESULT_CLEAN;* =;  // Exit from function - pop return address and jump to it// Exit from function - pop return address and jump to it PVOID retAddress = *(PVOID *)(ExceptionInfo->ContextRecord->Rsp); =*(*)(-> ->); ExceptionInfo->ContextRecord->Rsp += sizeof(PVOID); -> -> += sizeof(); ExceptionInfo->ContextRecord->Rip = (ULONG_PTR)retAddress; -> -> =(); }}  // Set single step flag to trigger single step exception for re-protection// Set single step flag to trigger single step exception for re-protection ExceptionInfo->ContextRecord->EFlags |= 0x100; -> ->|= 0x100;  // Right after this a STATUS_SINGLE_STEP exception will be triggered// Right after this a STATUS_SINGLE_STEP exception will be triggered return EXCEPTION_CONTINUE_EXECUTION; return; }}  // Handle single step to reapply PAGE_GUARD// Handle single step to reapply PAGE_GUARD if (ExceptionInfo->ExceptionRecord->ExceptionCode == STATUS_SINGLE_STEP) if(-> -> ==) {{ // ...// ...",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4875
+    },
+    {
+      "title": "Hooking via Vectored Exception Handling – sh3n",
+      "url": "https://mark.rxmsolutions.com/hook-via-vectored-exception-handling",
+      "snippet": "Title: Hooking via Vectored Exception Handling – sh3n\n# Hooking via Vectored Exception Handling. Code that handles such intercepted function calls, events or messages is called a **hook**. # Hooking Methods. Byte patching in the .text section is the easiest and most common way to place a hook. This hooking method is slow as hell due to the usage of the single step flag and should only be used for functions which get called very rarely. ## **Forced Exception hooking**. The exception itself should be a null-pointer dereference, just do your stuff in the redirected EIP hook and then reset the original values and continue the execution. LONG WINAPI Handler(EXCEPTION_POINTERS* pExceptionInfo) { if (pExceptionInfo->ExceptionRecord->ExceptionCode == STATUS_GUARD_PAGE_VIOLATION) //We will catch PAGE_GUARD Violation { if (pExceptionInfo->ContextRecord->XIP == (DWORD)og_fun) //Make sure we are at the address we want within the page { pExceptionInfo->ContextRecord->XIP = (DWORD)hk_fun; //Modify EIP/RIP to where we want to jump to instead of the original function } pExceptionInfo->ContextRecord->EFlags |= 0x100; //Will trigger an STATUS_SINGLE_STEP exception right after the next instruction get executed. In short, we come right back into this exception handler 1 instruction later return EXCEPTION_CONTINUE_EXECUTION; //Continue to next instruction } if (pExceptionInfo->ExceptionRecord->ExceptionCode == STATUS_SINGLE_STEP) //We will also catch STATUS_SINGLE_STEP, meaning we just had a PAGE_GUARD violation { //uint32_t dwOld; //dwOld = Controller->VirtualProtect((DWORD)og_fun, 1, PAGE_EXECUTE_READ | PAGE_GUARD); //Reapply the PAGE_GUARD flag because everytime it is triggered, it get removes DWORD dwOld; auto addr = (PVOID)og_fun; auto size = (SIZE_T)((int)1); NTSTATUS res = makesyscall(0x50, 0x00, 0x00, 0x00, \"RtlInterlockedCompareExchange64\", 0x170, 0xC2, 0x14, 0x00)(GetCurrentProcess(), &addr, &size, PAGE_EXECUTE_READ | PAGE_GUARD, &dwOld); return EXCEPTION_CONTINUE_EXECUTION; //Continue the next instruction } return EXCEPTION_CONTINUE_SEARCH; //Keep going down the exception handling list to find the right handler IF it is not PAGE_GUARD nor SINGLE_STEP }. bool Hook(DWORD original_fun, DWORD hooked_fun) { og_fun = original_fun; hk_fun = hooked_fun; //We cannot hook two functions in the same page, because we will cause an infinite callback if (AreInSamePage((const DWORD*)og_fun, (const DWORD*)hk_fun)) return false; //Register the Custom Exception Handler VEH_Handle = AddVectoredExceptionHandler(true, (PVECTORED_EXCEPTION_HANDLER)LeoHandler); //Toggle PAGE_GUARD flag on the page if (VEH_Handle) { auto addr = (PVOID)og_fun; auto size = (SIZE_T)((int)1); if (NT_SUCCESS(makesyscall(0x50, 0x00, 0x00, 0x00, \"RtlInterlockedCompareExchange64\", 0x170, 0xC2, 0x14, 0x00)(GetCurrentProcess(), &addr, &size, PAGE_EXECUTE_READ | PAGE_GUARD, &oldProtection))) { return true; } } return false; }.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4875
+    },
+    {
+      "title": "Reverse Engineering Vectored Exception Handlers: Structures (1/3) « RCE Endeavors",
+      "url": "https://www.codereversing.com/archives/205",
+      "snippet": "### Reverse Engineering Vectored Exception Handlers: Structures (1/3). This series of posts will cover the details of reverse engineering the AddVectoredExceptionHandler function, a Windows API function responsible for registering a special type of exception handler at runtime. The series will be split in to three parts: first identifying key structures that are used, second understanding the implementation, and lastly re-implementing the reverse engineered assembly to working C code. The third field at *+0x8* is always set to 1 in this function, and the fourth at *+0xC* is set to hold the encoded handler address. struct MysteryStruct { DWORD dwUnknown1; +0x0 DWORD dwUnknown2; +0x4 DWORD dwAlwaysOne; +0x8 PVECTORED\\_EXCEPTION\\_HANDLER pVectoredHandler; +0xC };. The code in **bright pink** begins by loading the second field in the *\\_LdrpVectorHandlerList* structure in to *EDI*. typedef struct \\_LdrpVectorHandlerEntry { \\_LdrpVectorHandlerEntry \\*pLink1; +0x0 \\_LdrpVectorHandlerEntry \\*pLink2; +0x4 DWORD dwAlwaysOne; +0x8 PVECTORED\\_EXCEPTION\\_HANDLER pVectoredHandler; +0xC } VECTORED\\_HANDLER\\_ENTRY, \\*PVECTORED\\_HANDLER\\_ENTRY;. typedef struct \\_LdrpVectorHandlerList { SRWLOCK srwLock; +0x0 VECTORED\\_HANDLER\\_ENTRY \\*pLink1; +0x4 VECTORED\\_HANDLER\\_ENTRY \\*pLink2; +0x8 } VECTORED\\_HANDLER\\_LIST, \\*PVECTORED\\_HANDLER\\_LIST; +0xC.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4875
+    },
+    {
+      "title": "SROP Mitigation — Store Halfword Byte-Reverse Indexed",
+      "url": "https://sthbrx.github.io/blog/2016/05/13/srop-mitigation/",
+      "snippet": "",
+      "published_date": "2016-05-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4875
+    },
+    {
+      "title": "Abusing Vectored Exception Handling (VEH) - Jacob Branco - Medium",
+      "url": "https://medium.com/@jakerebsaw/abusing-vectored-exception-handling-veh-6f2b9f5b9f6e",
+      "snippet": "",
+      "published_date": "2025-04-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.475
+    },
+    {
+      "title": "Linux Reverse Engineering CTFs for Beginners - Medium",
+      "url": "https://medium.com/bugbountywriteup/linux-reverse-engineering-ctfs-for-beginners-4cf03ff2cfb4",
+      "snippet": "Let's first have a look at the ELF headers. The best way to learn more about this in detail is to check the man pages for ELF.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.475
+    },
+    {
+      "title": "The Flow of the Kernel Upon Receiving a SIGSEGV for Null-Dereference | Code Sorcery",
+      "url": "https://imanseyed.github.io/posts/the-flow-of-the-kernel-upon-receiving-a-sigsegv-for-null-dereferene/",
+      "snippet": "",
+      "published_date": "2024-07-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "Windows Hooking via Guard Pages and Exception Handling | by S12 - 0x12Dark Development | Medium",
+      "url": "https://medium.com/%40s12deff/windows-hooking-via-guard-pages-and-exception-handling-e3f27d35fc15",
+      "snippet": "",
+      "published_date": "2024-04-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4375
+    },
+    {
+      "title": "Designing a Malware Loader detector with Guard Violation Exceptions",
+      "url": "https://reversing.codes/posts/Detecting-injected-code-with-page-guards/",
+      "snippet": "All of this is made possible by a memory page protection bit called `PAGE_GUARD`, which gives me the ability to detect when newly allocated memory is executed, read, or written to. end()) return EXCEPTION_CONTINUE_SEARCH; if(AccessType == READ) std:: printf(\"A read attempt was detected in the monitored memory address: 0x%p \\n \",(ULONG_PTR*) MemInfo -> second -> Address); else if(AccessType == WRITE) std:: printf(\"A write attempt was detected in the monitored memory address: 0x%p \\n \",(ULONG_PTR*) MemInfo -> second -> Address); pExceptionPointers -> ContextRecord -> EFlags|= 0x100; std:: puts(\"Proceeding with the code execution...\"); return EXCEPTION_CONTINUE_EXECUTION;} case STATUS_SINGLE_STEP: return EXCEPTION_CONTINUE_EXECUTION;} return EXCEPTION_CONTINUE_SEARCH;} ``` |`. If we detect that the memory is being allocated with any protections related to execution, we can append the `PAGE_GUARD` bit to it. IsBeingMonitored((ULONG_PTR) pExceptionPointers -> ContextRecord -> XIP)){PipeLogger:: LogInfo(L\"STATUS_GUARD_PAGE_VIOLATION: Attempt to execute a monitored memory area at address 0x%lx, starting dumping...\", ExceptionRecord -> ExceptionAddress); ULONG_PTR StartAddress =(ULONG_PTR) pExceptionPointers -> ContextRecord -> XIP; Memory* Mem = GenericUnpacker:: cUnpacker.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4125
+    },
+    {
+      "title": "Bypassing AMSI With Guard Pages: A Deep Dive Into Vectored Exception Handler Exploitation For Advanced Malware Development - Undercode Testing",
+      "url": "https://undercodetesting.com/bypassing-amsi-with-guard-pages-a-deep-dive-into-vectored-exception-handler-exploitation-for-advanced-malware-development/",
+      "snippet": "",
+      "published_date": "2025-12-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4125
+    },
+    {
+      "title": "ETW Event Injection via Guard Pages | by S12 - Medium",
+      "url": "https://medium.com/@s12deff/etw-event-injection-via-guard-pages-1345f3e5b271",
+      "snippet": "",
+      "published_date": "2025-05-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "EDR Analysis: Leveraging Fake DLLs, Guard Pages, and VEH for ...",
+      "url": "https://redops.at/en/blog/edr-analysis-leveraging-fake-dlls-guard-pages-and-veh-for-enhanced-detection",
+      "snippet": "This article attempts to analyse a specific function or detection mechanism of a particular EDR through debugging and reverse engineering.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.375
+    },
+    {
+      "title": "Exception Junction - Where All Exceptions Meet Their Handler",
+      "url": "https://bruteratel.com/research/2024/10/20/Exception-Junction",
+      "snippet": "",
+      "published_date": "2024-10-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "Exception Handling - GoDevTool",
+      "url": "https://godevtool.com/Except/Except.htm",
+      "snippet": "This program provides a simple example of how exception handling can be used in practice in Windows programs written in assembler. The source code is",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3375
+    },
+    {
+      "title": "Linux – Writing Fault handlers - core dump - Developers Area",
+      "url": "https://devarea.com/linux-writing-fault-handlers/",
+      "snippet": "The fault context. The most important thing about the fault handler is the 3rd parameter. In the prototype we declare it as void * but actually",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3375
+    },
+    {
+      "title": "Catching SIGSEGV - handelling segmentation faults",
+      "url": "https://www.linuxquestions.org/questions/programming-9/catching-sigsegv-handelling-segmentation-faults-646359-print/",
+      "snippet": "I have been messing around with signals lately and i was wondering if there is a nice simple way to pass arguments into a signal handler.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3375
+    },
+    {
+      "title": "Guard Pages - Unprotect Project",
+      "url": "https://unprotect.it/technique/guard-pages/",
+      "snippet": "This technique works by putting a return address onto the stack, then accessing the guard page. If the operating system detects that the guard page has been",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Multiple Bypass Techniques from other researchers",
+      "url": "https://open.substack.com/pub/crackamphetamine/p/multiple-bypass-techniques-from-other?r=1yy3k5",
+      "snippet": "",
+      "published_date": "2025-12-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "VirtualProtect DEP Bypass: Step-By-Step Exploit - xbz0n.sh",
+      "url": "https://xbz0n.sh/blog/virtualprotect_dep_bypass_guide",
+      "snippet": "BOOL VirtualProtect( LPVOID lpAddress, // ECX -> [ESP+4] (Address of shellcode) SIZE_T dwSize, // EDX -> [ESP+8] (Size of region to make executable) DWORD flNewProtect, // EBX -> [ESP+C] (PAGE_EXECUTE_READWRITE 0x40) PDWORD lpflOldProtect // ESP+8 -> [ESP+10] (Writable memory address) );. **Current Value**: 0x7653a3c1 (Writable memory address in KERNEL32.DLL) **Reason**: This register needs to hold the pointer to a writable memory location (lpflOldProtect parameter) where VirtualProtect can store the old memory protection flags. This exploit uses a `JMP [EAX]` technique combined with `PUSHAD` to call `VirtualProtect` and make our shellcode executable:. Crucially, the way the ROP chain is constructed and aligned means this value popped is the address we loaded into `ESI` (`0x75e95833`, the address of the `JMP DWORD PTR [EAX]` gadget). The `lpAddress` parameter (effectively the stack pointer `ESP` where the shellcode lies after the ROP chain arguments) indicates the memory to modify, `dwSize` is `0x201` (from `EBX` via stack), `flNewProtect` is `0x40` (from `EDX` via stack), and `lpflOldProtect` points to the writable KERNEL32 address (from `ECX` via stack).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Linux Page Faults, mmap, and userfaultfd",
+      "url": "https://www.shayon.dev/post/2026/65/linux-page-faults-mmap-and-userfaultfd/",
+      "snippet": "",
+      "published_date": "2026-03-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Using `setjmp`, `longjmp`, and Signals to Catch Page Faults and Measure Performance | 云微的胡思乱想",
+      "url": "https://www.yunwei37.com/blog/setjmp",
+      "snippet": "",
+      "published_date": "2024-05-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Guard Pages - Unprotect Project",
+        "url": "https://unprotect.it/technique/guard-pages/",
+        "snippet": "This technique works by putting a return address onto the stack, then accessing the guard page. If the operating system detects that the guard page has been",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "[PDF] Anti-debugging techniques - Virtual Server List",
+        "url": "https://users.cs.utah.edu/~aburtsev/malw-sem/slides/02-anti-debugging.pdf",
+        "snippet": "○ Allocate and guard a page. ○ Put some code there (like RETN). ○ Jump to it. ○ If debugger uses page guarding, exception will be suppressed. – Magic values",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5375
+      },
+      {
+        "title": "Is there any way to watch a block of memory of the current process ...",
+        "url": "https://reverseengineering.stackexchange.com/questions/27978/is-there-any-way-to-watch-a-block-of-memory-of-the-current-process-for-change",
+        "snippet": "#### Stack Exchange Network. Stack Exchange network consists of 183 Q&A communities including Stack Overflow, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers. ### more stack exchange communities. # Is there any way to watch a block of memory of the current process for change? VirtualProtect locks whole page and Raises an Exception on access and removes the PAGE\\_GUARD Memory Protection. In the Exception Handler you watch for a your small block. t1.field_a++; //this will raise guard page exception. printf(\"\\nwe have reset guard page exception 0x60 times \\n\");. printf(\"we access our field now \\n\");. t1.field_b = 0xdead; //this again will raise exception and we execute handler. printf(\"t1.field_b = %x\\n\", t1.field_b); // no exception. printf(\"t1.field_b = %x\\n\", t1.field_b);. we have reset guard page exception 0x60 times. we have reset guard page exception 0x60 times. Thanks for contributing an answer to Reverse Engineering Stack Exchange! Find the answer to your question by asking. ##### Stack Exchange Network.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "Anti-Debugging Technique based on Memory Protection",
+        "url": "https://isc.sans.edu/diary/26200",
+        "snippet": "The technique of guard pages detection can help to detect the presence of a debugger with the creation of PAGE_GUARD memory page and accessing it.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5375
+      },
+      {
+        "title": "EDR Analysis: Leveraging Fake DLLs, Guard Pages, and VEH for ...",
+        "url": "https://redops.at/en/blog/edr-analysis-leveraging-fake-dlls-guard-pages-and-veh-for-enhanced-detection",
+        "snippet": "This article attempts to analyse a specific function or detection mechanism of a particular EDR through debugging and reverse engineering.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.375
+      },
+      {
+        "title": "Designing a Malware Loader detector with Guard Violation Exceptions",
+        "url": "https://reversing.codes/posts/Detecting-injected-code-with-page-guards/",
+        "snippet": "All of this is made possible by a memory page protection bit called `PAGE_GUARD`, which gives me the ability to detect when newly allocated memory is executed, read, or written to. end()) return EXCEPTION_CONTINUE_SEARCH; if(AccessType == READ) std:: printf(\"A read attempt was detected in the monitored memory address: 0x%p \\n \",(ULONG_PTR*) MemInfo -> second -> Address); else if(AccessType == WRITE) std:: printf(\"A write attempt was detected in the monitored memory address: 0x%p \\n \",(ULONG_PTR*) MemInfo -> second -> Address); pExceptionPointers -> ContextRecord -> EFlags|= 0x100; std:: puts(\"Proceeding with the code execution...\"); return EXCEPTION_CONTINUE_EXECUTION;} case STATUS_SINGLE_STEP: return EXCEPTION_CONTINUE_EXECUTION;} return EXCEPTION_CONTINUE_SEARCH;} ``` |`. If we detect that the memory is being allocated with any protections related to execution, we can append the `PAGE_GUARD` bit to it. IsBeingMonitored((ULONG_PTR) pExceptionPointers -> ContextRecord -> XIP)){PipeLogger:: LogInfo(L\"STATUS_GUARD_PAGE_VIOLATION: Attempt to execute a monitored memory area at address 0x%lx, starting dumping...\", ExceptionRecord -> ExceptionAddress); ULONG_PTR StartAddress =(ULONG_PTR) pExceptionPointers -> ContextRecord -> XIP; Memory* Mem = GenericUnpacker:: cUnpacker.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4125
+      },
+      {
+        "title": "AMSI Bypass via Page Guard",
+        "url": "https://shigshag.com/blog/amsi_page_guard",
+        "snippet": "DECL_SHELLCODE LONG vectored_exception_handler(PEXCEPTION_POINTERS ExceptionInfo)(){{ if (ExceptionInfo->ExceptionRecord->ExceptionCode == STATUS_GUARD_PAGE_VIOLATION) if(-> -> ==) {{ // Resolve amsi.dll and AmsiScanBuffer// Resolve amsi.dll and AmsiScanBuffer uintptr_t amsi_base = resolver::find_module(W_HASH(L\"amsi.dll\")); uintptr_t =::((L\"amsi.dll\")); PVOID pAmsiScanBuffer = (PVOID)resolver::find_api(amsi_base, C_HASH(\"AmsiScanBuffer\")); =()::(,(\"AmsiScanBuffer\"));  // Check if the violation is at AmsiScanBuffer// Check if the violation is at AmsiScanBuffer if ((UINT_PTR)ExceptionInfo->ExceptionRecord->ExceptionAddress == (UINT_PTR)pAmsiScanBuffer) if(() -> -> ==()) {{ // Get the 6th parameter (AMSI_RESULT*) and set it to AMSI_RESULT_CLEAN// Get the 6th parameter (AMSI_RESULT*) and set it to AMSI_RESULT_CLEAN PVOID *stack = (PVOID *)ExceptionInfo->ContextRecord->Rsp;* =(*) -> ->; AMSI_RESULT *pAmsiResult = (AMSI_RESULT *)stack[6];* =(*)[6]; *pAmsiResult = AMSI_RESULT_CLEAN;* =;  // Exit from function - pop return address and jump to it// Exit from function - pop return address and jump to it PVOID retAddress = *(PVOID *)(ExceptionInfo->ContextRecord->Rsp); =*(*)(-> ->); ExceptionInfo->ContextRecord->Rsp += sizeof(PVOID); -> -> += sizeof(); ExceptionInfo->ContextRecord->Rip = (ULONG_PTR)retAddress; -> -> =(); }}  // Set single step flag to trigger single step exception for re-protection// Set single step flag to trigger single step exception for re-protection ExceptionInfo->ContextRecord->EFlags |= 0x100; -> ->|= 0x100;  // Right after this a STATUS_SINGLE_STEP exception will be triggered// Right after this a STATUS_SINGLE_STEP exception will be triggered return EXCEPTION_CONTINUE_EXECUTION; return; }}  // Handle single step to reapply PAGE_GUARD// Handle single step to reapply PAGE_GUARD if (ExceptionInfo->ExceptionRecord->ExceptionCode == STATUS_SINGLE_STEP) if(-> -> ==) {{ // ...// ...",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4875
+      },
+      {
+        "title": "Hooking via Vectored Exception Handling – sh3n",
+        "url": "https://mark.rxmsolutions.com/hook-via-vectored-exception-handling",
+        "snippet": "Title: Hooking via Vectored Exception Handling – sh3n\n# Hooking via Vectored Exception Handling. Code that handles such intercepted function calls, events or messages is called a **hook**. # Hooking Methods. Byte patching in the .text section is the easiest and most common way to place a hook. This hooking method is slow as hell due to the usage of the single step flag and should only be used for functions which get called very rarely. ## **Forced Exception hooking**. The exception itself should be a null-pointer dereference, just do your stuff in the redirected EIP hook and then reset the original values and continue the execution. LONG WINAPI Handler(EXCEPTION_POINTERS* pExceptionInfo) { if (pExceptionInfo->ExceptionRecord->ExceptionCode == STATUS_GUARD_PAGE_VIOLATION) //We will catch PAGE_GUARD Violation { if (pExceptionInfo->ContextRecord->XIP == (DWORD)og_fun) //Make sure we are at the address we want within the page { pExceptionInfo->ContextRecord->XIP = (DWORD)hk_fun; //Modify EIP/RIP to where we want to jump to instead of the original function } pExceptionInfo->ContextRecord->EFlags |= 0x100; //Will trigger an STATUS_SINGLE_STEP exception right after the next instruction get executed. In short, we come right back into this exception handler 1 instruction later return EXCEPTION_CONTINUE_EXECUTION; //Continue to next instruction } if (pExceptionInfo->ExceptionRecord->ExceptionCode == STATUS_SINGLE_STEP) //We will also catch STATUS_SINGLE_STEP, meaning we just had a PAGE_GUARD violation { //uint32_t dwOld; //dwOld = Controller->VirtualProtect((DWORD)og_fun, 1, PAGE_EXECUTE_READ | PAGE_GUARD); //Reapply the PAGE_GUARD flag because everytime it is triggered, it get removes DWORD dwOld; auto addr = (PVOID)og_fun; auto size = (SIZE_T)((int)1); NTSTATUS res = makesyscall(0x50, 0x00, 0x00, 0x00, \"RtlInterlockedCompareExchange64\", 0x170, 0xC2, 0x14, 0x00)(GetCurrentProcess(), &addr, &size, PAGE_EXECUTE_READ | PAGE_GUARD, &dwOld); return EXCEPTION_CONTINUE_EXECUTION; //Continue the next instruction } return EXCEPTION_CONTINUE_SEARCH; //Keep going down the exception handling list to find the right handler IF it is not PAGE_GUARD nor SINGLE_STEP }. bool Hook(DWORD original_fun, DWORD hooked_fun) { og_fun = original_fun; hk_fun = hooked_fun; //We cannot hook two functions in the same page, because we will cause an infinite callback if (AreInSamePage((const DWORD*)og_fun, (const DWORD*)hk_fun)) return false; //Register the Custom Exception Handler VEH_Handle = AddVectoredExceptionHandler(true, (PVECTORED_EXCEPTION_HANDLER)LeoHandler); //Toggle PAGE_GUARD flag on the page if (VEH_Handle) { auto addr = (PVOID)og_fun; auto size = (SIZE_T)((int)1); if (NT_SUCCESS(makesyscall(0x50, 0x00, 0x00, 0x00, \"RtlInterlockedCompareExchange64\", 0x170, 0xC2, 0x14, 0x00)(GetCurrentProcess(), &addr, &size, PAGE_EXECUTE_READ | PAGE_GUARD, &oldProtection))) { return true; } } return false; }.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4875
+      },
+      {
+        "title": "Early Exception Handling ::",
+        "url": "https://kr0tt.github.io/posts/early-exception-handling/",
+        "snippet": "Once execution has reached the kernel handler for the exception that was raised, the routine performs some checks, calls `nt! To find a handler for an exception, `ntdll! RtlpCallVectoredHandlers` function is called to check if there are any registered Vectored Exception Handlers by searching for entries in the `Exception Handler` list. If an entry exists in the Exception Handler list, `ntdll! We can place our hook by writing the address of our own exception handler or the address of injected shellcode into the address field of `Wow64PrepareForException` in the WoW64 callback table. The example below displays an early exception handler that will set a hook by changing the `RIP` to some hooking function when a `STATUS_GUARD_PAGE_VIOLATION` exception is raised. Second, because the exception handling logic relies only on the `ExceptionHandler` function, we must call `ntdll! We then find and overwrite the `Wow64PrepareForException` function pointer to point to our early exception handler. This will go through the exception and interrupt process all the way to `ntdll! Once inside our early exception handler, we remove the hardware breakpoint, set the correct SSN, set the `RIP` to the `syscall` instruction address in the function and resume execution using `ntdll.dll! We can use our early exception handler for threadless remote process injection as well. In this example we are going to overwrite the `Wow64PrepareForException` function pointer in the remote process to point to our shellcode, and then we are going to cause an exception in the remote process. KiUserExceptionDispatcher` and some shellcode we inject, we can in theory inject our custom shellcode, cause an exception, and interfere in the hooking process of the EDR in the injected process as early as we want. Because this function pointer resides in `ntdll.dll` we can be confident that it will be at same address in a remote process on the same system. To cause an exception in the remote process, we can again set a hardware breakpoint in the remote process on a function that we know that will execute during the process initialization process or we can set a `PAGE_GUARD` on the process entry point. The process will hit our hook, cause an exception, wind up in `ntdll!",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6375
+      },
+      {
+        "title": "winapi - Win32 GUARD Memory : How can I use PAGE_GUARD to implement stack - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/21333967/win32-guard-memory-how-can-i-use-page-guard-to-implement-stack",
+        "snippet": "Title: winapi - Win32 GUARD Memory : How can I use PAGE_GUARD to implement stack - Stack Overflow\n### current community. ### your communities. ### more stack exchange communities. Communities for your favorite technologies. Stack Overflow for Teams is now called **Stack Internal**. Bring the best of human thought and AI automation together at your work. ##### Collectives™ on Stack Overflow. # Win32 GUARD Memory : How can I use PAGE\\_GUARD to implement stack. I'm writing a tiny byte-code, interpreted language (or framework? I know Windows use `PAGE_GUARD` on stack, and I want to use this. First, I reserve virtual memory and do MEM\\_COMMIT/PAGE\\_GUARD on one page. `pStack->end = VirtualAlloc(NULL, MaxSize, MEM_RESERVE, PAGE_READWRITE);. if (VirtualAlloc(pStack->base - PageSize, PageSize, MEM_COMMIT, PAGE_READWRITE | PAGE_GUARD) != NULL)`. (I know I should commit (non PAGE\\_GUARD) one page, but it's for testing `PAGE_GUARD`.). and I write `__except` as follows:. if (exc->ExceptionRecord->ExceptionCode == STATUS_GUARD_PAGE_VIOLATION). (I also know I should commit/guard the next page, but it's for testing, too.). When I touch memory of stack, `STATUS_GUARD_PAGE_VIOLATION` is occured. Doesn't Windows unmark `PAGE_GUARD` after exception occur? and why doesn't this code work well? And, I don't know how to do this part: *(I also know I should commit/guard the next page, but it's for testing, too.)*. get guarded-page's address 2. commit/guard the next page, but I don't know how to do 1. the guarded address is here:. ## 1 Answer 1. Doesn't Windows unmark PAGE\\_GUARD after exception occur? Pages in the region become guard pages. Any attempt to access a guard page causes the system to raise a STATUS\\_GUARD\\_PAGE\\_VIOLATION exception and turn off the guard page status. Guard pages thus act as a one-time access alarm. void* baseAddr = ::VirtualAlloc(NULL, pageSize, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE );. BOOL ok = ::VirtualProtect( protectedAddr, pageSize, PAGE_READWRITE | PAGE_GUARD, &oldAttr );. ::OutputDebugString( L\"Reading the guarded page\\n\" );. ## Your Answer. Thanks for contributing an answer to Stack Overflow! To learn more, see our tips on writing great answers. Start asking to get answers. Find the answer to your question by asking. #### Hot Network Questions. # Subscribe to RSS. To subscribe to this RSS feed, copy and paste this URL into your RSS reader. ##### Stack Overflow. ##### Stack Exchange Network. Site design / logo © 2026 Stack Exchange Inc;.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7925
+      },
+      {
+        "title": "Reverse Engineering Vectored Exception Handlers: Structures (1/3) « RCE Endeavors",
+        "url": "https://www.codereversing.com/archives/205",
+        "snippet": "### Reverse Engineering Vectored Exception Handlers: Structures (1/3). This series of posts will cover the details of reverse engineering the AddVectoredExceptionHandler function, a Windows API function responsible for registering a special type of exception handler at runtime. The series will be split in to three parts: first identifying key structures that are used, second understanding the implementation, and lastly re-implementing the reverse engineered assembly to working C code. The third field at *+0x8* is always set to 1 in this function, and the fourth at *+0xC* is set to hold the encoded handler address. struct MysteryStruct { DWORD dwUnknown1; +0x0 DWORD dwUnknown2; +0x4 DWORD dwAlwaysOne; +0x8 PVECTORED\\_EXCEPTION\\_HANDLER pVectoredHandler; +0xC };. The code in **bright pink** begins by loading the second field in the *\\_LdrpVectorHandlerList* structure in to *EDI*. typedef struct \\_LdrpVectorHandlerEntry { \\_LdrpVectorHandlerEntry \\*pLink1; +0x0 \\_LdrpVectorHandlerEntry \\*pLink2; +0x4 DWORD dwAlwaysOne; +0x8 PVECTORED\\_EXCEPTION\\_HANDLER pVectoredHandler; +0xC } VECTORED\\_HANDLER\\_ENTRY, \\*PVECTORED\\_HANDLER\\_ENTRY;. typedef struct \\_LdrpVectorHandlerList { SRWLOCK srwLock; +0x0 VECTORED\\_HANDLER\\_ENTRY \\*pLink1; +0x4 VECTORED\\_HANDLER\\_ENTRY \\*pLink2; +0x8 } VECTORED\\_HANDLER\\_LIST, \\*PVECTORED\\_HANDLER\\_LIST; +0xC.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4875
+      },
+      {
+        "title": "c - What stack does a vectored exception handler use (Windows)? - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/33152188/what-stack-does-a-vectored-exception-handler-use-windows",
+        "snippet": "##### Collectives™ on Stack Overflow. # What stack does a vectored exception handler use (Windows)? I have a toy programming language that uses a separate stack for each coroutine/fiber/thread. I've added a vectored exception handler that catches page faults that occur when the stack grows, and calls VirtualAlloc again on these pages with MEM\\_COMMIT. The problem I have is that my vectored exception handler (set up via AddVectoredExceptionHandler) is not running. The theory is that the program runs out of MEM\\_COMMIT stack, and starts the exception handler. Since the exception handler uses the same stack (possibly?) it also immediately faults, and thus never runs. **So, does the handler use the same stack as the coroutine/fiber that faulted?** Is there any way to make vectored exception handlers use a special stack? * For stack overflows you can make your handler run by using SetThreadStackGuarantee and \\_resetstkoflw. Commented Oct 15, 2015 at 17:30. ## 1 Answer 1. The \"regardless of where you are in a call frame\" makes me expect that the exception handler uses the current stack (`sp` register). To make sure, reserve some space before \"the program runs out of MEM\\_COMMIT stack\" to allow the handler to use the stack, and use a debugger to check the assembler sequence of instructions and the registers. answered Oct 15, 2015 at 16:29. I added a guard page at the end of the MEM\\_COMMIT range of the stack (right before the MEM\\_RESERVE range). Windows does not change the stack pointer before calling the vectored exception handler. Start asking to get answers. Find the answer to your question by asking. * What’s new at Stack Overflow: February 2026. 1\") Vectored exception handler and Microsoft C runtime error handling. Floating point stack handling with floating-point exceptions turned on. 1\") How does an exception handler register on a frame of the stack? How much is pushed onto a 32-bit stack under Windows x86-64 on an exception? 1\") Exception Handling with Stack in C++. 2\") How can you get more detailed exception information from a vectored exception handler? 1\") exception handling stack trace in VC++. 0\") Manually adding a vectored exception handler.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7925
+      },
+      {
+        "title": "Patchless AMSI Bypass via Page Guard Exceptions - ShigShag",
+        "url": "https://shigshag.com/blog/amsi_page_guard",
+        "snippet": "DECL_SHELLCODE LONG vectored_exception_handler(PEXCEPTION_POINTERS ExceptionInfo)(){{ if (ExceptionInfo->ExceptionRecord->ExceptionCode == STATUS_GUARD_PAGE_VIOLATION) if(-> -> ==) {{ // Resolve amsi.dll and AmsiScanBuffer// Resolve amsi.dll and AmsiScanBuffer uintptr_t amsi_base = resolver::find_module(W_HASH(L\"amsi.dll\")); uintptr_t =::((L\"amsi.dll\")); PVOID pAmsiScanBuffer = (PVOID)resolver::find_api(amsi_base, C_HASH(\"AmsiScanBuffer\")); =()::(,(\"AmsiScanBuffer\"));  // Check if the violation is at AmsiScanBuffer// Check if the violation is at AmsiScanBuffer if ((UINT_PTR)ExceptionInfo->ExceptionRecord->ExceptionAddress == (UINT_PTR)pAmsiScanBuffer) if(() -> -> ==()) {{ // Get the 6th parameter (AMSI_RESULT*) and set it to AMSI_RESULT_CLEAN// Get the 6th parameter (AMSI_RESULT*) and set it to AMSI_RESULT_CLEAN PVOID *stack = (PVOID *)ExceptionInfo->ContextRecord->Rsp;* =(*) -> ->; AMSI_RESULT *pAmsiResult = (AMSI_RESULT *)stack[6];* =(*)[6]; *pAmsiResult = AMSI_RESULT_CLEAN;* =;  // Exit from function - pop return address and jump to it// Exit from function - pop return address and jump to it PVOID retAddress = *(PVOID *)(ExceptionInfo->ContextRecord->Rsp); =*(*)(-> ->); ExceptionInfo->ContextRecord->Rsp += sizeof(PVOID); -> -> += sizeof(); ExceptionInfo->ContextRecord->Rip = (ULONG_PTR)retAddress; -> -> =(); }}  // Set single step flag to trigger single step exception for re-protection// Set single step flag to trigger single step exception for re-protection ExceptionInfo->ContextRecord->EFlags |= 0x100; -> ->|= 0x100;  // Right after this a STATUS_SINGLE_STEP exception will be triggered// Right after this a STATUS_SINGLE_STEP exception will be triggered return EXCEPTION_CONTINUE_EXECUTION; return; }}  // Handle single step to reapply PAGE_GUARD// Handle single step to reapply PAGE_GUARD if (ExceptionInfo->ExceptionRecord->ExceptionCode == STATUS_SINGLE_STEP) if(-> -> ==) {{ // ...// ...",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "c++ - PAGE_GUARD with VirtualProtect not raising an exception on ...",
+        "url": "https://stackoverflow.com/questions/50558785/page-guard-with-virtualprotect-not-raising-an-exception-on-execute-access",
+        "snippet": "I'm trying to hook a function using PAGE_GUARD but it does not raise any exception when the page/address is called.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "Designing a Malware Loader detector with Guard Violation Exceptions",
+        "url": "https://reversing.codes/posts/Detecting-injected-code-with-page-guards/",
+        "snippet": "All of this is made possible by a memory page protection bit called `PAGE_GUARD`, which gives me the ability to detect when newly allocated memory is executed, read, or written to. end()) return EXCEPTION_CONTINUE_SEARCH; if(AccessType == READ) std:: printf(\"A read attempt was detected in the monitored memory address: 0x%p \\n \",(ULONG_PTR*) MemInfo -> second -> Address); else if(AccessType == WRITE) std:: printf(\"A write attempt was detected in the monitored memory address: 0x%p \\n \",(ULONG_PTR*) MemInfo -> second -> Address); pExceptionPointers -> ContextRecord -> EFlags|= 0x100; std:: puts(\"Proceeding with the code execution...\"); return EXCEPTION_CONTINUE_EXECUTION;} case STATUS_SINGLE_STEP: return EXCEPTION_CONTINUE_EXECUTION;} return EXCEPTION_CONTINUE_SEARCH;} ``` |`. If we detect that the memory is being allocated with any protections related to execution, we can append the `PAGE_GUARD` bit to it. IsBeingMonitored((ULONG_PTR) pExceptionPointers -> ContextRecord -> XIP)){PipeLogger:: LogInfo(L\"STATUS_GUARD_PAGE_VIOLATION: Attempt to execute a monitored memory area at address 0x%lx, starting dumping...\", ExceptionRecord -> ExceptionAddress); ULONG_PTR StartAddress =(ULONG_PTR) pExceptionPointers -> ContextRecord -> XIP; Memory* Mem = GenericUnpacker:: cUnpacker.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Exception Handling - GoDevTool",
+        "url": "https://godevtool.com/Except/Except.htm",
+        "snippet": "This program provides a simple example of how exception handling can be used in practice in Windows programs written in assembler. The source code is",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3375
+      },
+      {
+        "title": "Creating Guard Pages - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/memory/creating-guard-pages",
+        "snippet": "To create a guard page, set the PAGE_GUARD page protection modifier for the page. This value can be specified, along with other page",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6375
+      },
+      {
+        "title": "VirtualProtect DEP Bypass: Step-By-Step Exploit - xbz0n.sh",
+        "url": "https://xbz0n.sh/blog/virtualprotect_dep_bypass_guide",
+        "snippet": "BOOL VirtualProtect( LPVOID lpAddress, // ECX -> [ESP+4] (Address of shellcode) SIZE_T dwSize, // EDX -> [ESP+8] (Size of region to make executable) DWORD flNewProtect, // EBX -> [ESP+C] (PAGE_EXECUTE_READWRITE 0x40) PDWORD lpflOldProtect // ESP+8 -> [ESP+10] (Writable memory address) );. **Current Value**: 0x7653a3c1 (Writable memory address in KERNEL32.DLL) **Reason**: This register needs to hold the pointer to a writable memory location (lpflOldProtect parameter) where VirtualProtect can store the old memory protection flags. This exploit uses a `JMP [EAX]` technique combined with `PUSHAD` to call `VirtualProtect` and make our shellcode executable:. Crucially, the way the ROP chain is constructed and aligned means this value popped is the address we loaded into `ESI` (`0x75e95833`, the address of the `JMP DWORD PTR [EAX]` gadget). The `lpAddress` parameter (effectively the stack pointer `ESP` where the shellcode lies after the ROP chain arguments) indicates the memory to modify, `dwSize` is `0x201` (from `EBX` via stack), `flNewProtect` is `0x40` (from `EDX` via stack), and `lpflOldProtect` points to the writable KERNEL32 address (from `ECX` via stack).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Can I trap SIGSEGV (on a Linux) and what are are the conditions to ...",
+        "url": "https://reverseengineering.stackexchange.com/questions/21597/can-i-trap-sigsegv-on-a-linux-and-what-are-are-the-conditions-to-make-it-works",
+        "snippet": "Thus, when using `printf()` from within a signal handler, we may sometimes see strange output—or even a program crash or data corruption—if the handler interrupts the main program in the middle of executing a call to `printf()` or another `stdio` function. Implementing an exception handler for `SIGSEGV` may result in unintended signal handler behavior if non-reentrant library functions are called within the exception handler, since it may be possible to trigger a segmentation fault outside of the specific conditions you anticipate. The most interesting approach for your case would probably be changing the `uc_mcontext.gregs[REG_RIP]` (RIP here is the x86-64 instruction pointer) value in the signal handler's `context` struct to point to a function somewhere else in the program. After the signal handler finishes, program execution would resume at that function. Some related example code can also be found here: In a signal handler, how to know where the program is interrupted?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.575
+      },
+      {
+        "title": "How to write a signal handler to catch SIGSEGV? - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/2663456/how-to-write-a-signal-handler-to-catch-sigsegv",
+        "snippet": "On Linux, this is a ucontext structure, which contains machine-specific info about the $PC address and other register contents where the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6375
+      },
+      {
+        "title": "Catching SIGSEGV and recovering in-process: viable in practice?",
+        "url": "https://www.reddit.com/r/C_Programming/comments/1mq0bw6/catching_sigsegv_and_recovering_inprocess_viable/",
+        "snippet": "It is also possible to engineer specific situations where you expect a page fault and are able to recover from it in specific ways. ... A Deep-",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5
+      },
+      {
+        "title": "Linux – Writing Fault handlers - core dump - Developers Area",
+        "url": "https://devarea.com/linux-writing-fault-handlers/",
+        "snippet": "The fault context. The most important thing about the fault handler is the 3rd parameter. In the prototype we declare it as void * but actually",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3375
+      },
+      {
+        "title": "Linux Reverse Engineering CTFs for Beginners - Medium",
+        "url": "https://medium.com/bugbountywriteup/linux-reverse-engineering-ctfs-for-beginners-4cf03ff2cfb4",
+        "snippet": "Let's first have a look at the ELF headers. The best way to learn more about this in detail is to check the man pages for ELF.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.475
+      },
+      {
+        "title": "Catching SIGSEGV - handelling segmentation faults",
+        "url": "https://www.linuxquestions.org/questions/programming-9/catching-sigsegv-handelling-segmentation-faults-646359-print/",
+        "snippet": "I have been messing around with signals lately and i was wondering if there is a nice simple way to pass arguments into a signal handler.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3375
+      }
+    ],
+    "exa": [
+      {
+        "title": "Bypassing AMSI With Guard Pages: A Deep Dive Into Vectored Exception Handler Exploitation For Advanced Malware Development - Undercode Testing",
+        "url": "https://undercodetesting.com/bypassing-amsi-with-guard-pages-a-deep-dive-into-vectored-exception-handler-exploitation-for-advanced-malware-development/",
+        "snippet": "",
+        "published_date": "2025-12-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4125
+      },
+      {
+        "title": "Multiple Bypass Techniques from other researchers",
+        "url": "https://open.substack.com/pub/crackamphetamine/p/multiple-bypass-techniques-from-other?r=1yy3k5",
+        "snippet": "",
+        "published_date": "2025-12-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Windows Hooking via Guard Pages and Exception Handling | by S12 - 0x12Dark Development | Medium",
+        "url": "https://medium.com/%40s12deff/windows-hooking-via-guard-pages-and-exception-handling-e3f27d35fc15",
+        "snippet": "",
+        "published_date": "2024-04-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4375
+      },
+      {
+        "title": "Abusing Vectored Exception Handling (VEH) - Jacob Branco - Medium",
+        "url": "https://medium.com/@jakerebsaw/abusing-vectored-exception-handling-veh-6f2b9f5b9f6e",
+        "snippet": "",
+        "published_date": "2025-04-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.475
+      },
+      {
+        "title": "GitHub - EvilBytecode/Ebyte-Syscalls: Obfuscating function calls using Vectored Exception Handlers by redirecting execution through exception-based control flow. Uses byte swapping without memory or assembly allocation.",
+        "url": "https://github.com/EvilBytecode/Ebyte-Syscalls",
+        "snippet": "",
+        "published_date": "2025-10-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.7125
+      },
+      {
+        "title": "Exception Junction - Where All Exceptions Meet Their Handler",
+        "url": "https://bruteratel.com/research/2024/10/20/Exception-Junction",
+        "snippet": "",
+        "published_date": "2024-10-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "Bypassing AMSI With Guard Pages: A Deep Dive Into Vectored Exception Handler Exploitation For Advanced Malware Development - Undercode Testing",
+        "url": "https://undercodetesting.com/bypassing-amsi-with-guard-pages-a-deep-dive-into-vectored-exception-handler-exploitation-for-advanced-malware-development/",
+        "snippet": "",
+        "published_date": "2025-12-04T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Patchless AMSI Bypass via Page Guard Exceptions - ShigShag",
+        "url": "https://shigshag.com/blog/amsi_page_guard",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Windows Hooking via Guard Pages and Exception Handling | by S12 - 0x12Dark Development | Medium",
+        "url": "https://medium.com/%40s12deff/windows-hooking-via-guard-pages-and-exception-handling-e3f27d35fc15",
+        "snippet": "",
+        "published_date": "2024-04-23T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Designing a Malware Loader detector with Guard Violation Exceptions",
+        "url": "https://reversing.codes/posts/Detecting-injected-code-with-page-guards/",
+        "snippet": "",
+        "published_date": "2023-07-11T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "EDR Analysis: Leveraging Fake DLLs, Guard Pages, and VEH for ...",
+        "url": "https://redops.at/en/blog/edr-analysis-leveraging-fake-dlls-guard-pages-and-veh-for-enhanced-detection",
+        "snippet": "",
+        "published_date": "2025-02-23T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "ETW Event Injection via Guard Pages | by S12 - Medium",
+        "url": "https://medium.com/@s12deff/etw-event-injection-via-guard-pages-1345f3e5b271",
+        "snippet": "",
+        "published_date": "2025-05-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Linux Page Faults, mmap, and userfaultfd",
+        "url": "https://www.shayon.dev/post/2026/65/linux-page-faults-mmap-and-userfaultfd/",
+        "snippet": "",
+        "published_date": "2026-03-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "What&#39;s the requirement of the context of a handleable SIGSEGV on x86_64 Linux?",
+        "url": "https://stackoverflow.com/questions/78284006/whats-the-requirement-of-the-context-of-a-handleable-sigsegv-on-x86-64-linux",
+        "snippet": "",
+        "published_date": "2024-04-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "SIGSEGV handler and mprotect and looping effect when injecting instructions at runtime. Handler can't get info->si_addr",
+        "url": "https://stackoverflow.com/questions/8208081/sigsegv-handler-and-mprotect-and-looping-effect-when-injecting-instructions-at-r",
+        "snippet": "",
+        "published_date": "2011-11-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6375
+      },
+      {
+        "title": "The Flow of the Kernel Upon Receiving a SIGSEGV for Null-Dereference | Code Sorcery",
+        "url": "https://imanseyed.github.io/posts/the-flow-of-the-kernel-upon-receiving-a-sigsegv-for-null-dereferene/",
+        "snippet": "",
+        "published_date": "2024-07-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "SROP Mitigation — Store Halfword Byte-Reverse Indexed",
+        "url": "https://sthbrx.github.io/blog/2016/05/13/srop-mitigation/",
+        "snippet": "",
+        "published_date": "2016-05-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4875
+      },
+      {
+        "title": "Using `setjmp`, `longjmp`, and Signals to Catch Page Faults and Measure Performance | 云微的胡思乱想",
+        "url": "https://www.yunwei37.com/blog/setjmp",
+        "snippet": "",
+        "published_date": "2024-05-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      }
+    ],
+    "grok": []
+  }
+}
