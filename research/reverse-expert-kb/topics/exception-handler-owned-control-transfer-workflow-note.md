@@ -394,9 +394,141 @@ Why it helps:
 ### F. Debug-register or page-guard trigger feeds a handler-owned hook
 Use when:
 - the trigger mechanism is visible, but the real analyst task is proving which handler-side branch or trampoline owns the meaningful continuation
+- the case appears to depend on `PAGE_GUARD`, debug-register, `int3`, single-step, or similar trap-family ownership, but the first fault itself still does not explain later behavior
 
 Why it helps:
 - it keeps the focus on the first consequence-bearing resume edge rather than on the trigger primitive alone
+- it preserves a thinner practical stop rule for one recurring Windows-heavy seam: `PAGE_GUARD` is usually a **one-shot alarm** unless the guard state is explicitly reestablished, so one first-hit fault is weaker than one handler-side resume action plus one re-arm fact that keeps the mechanism alive
+
+Practical stop rule:
+- keep four proof objects separate when possible:
+  - **guard/trap configured** -> one page, debug register, or trap-family setup exists at all
+  - **first fault delivered** -> one `STATUS_GUARD_PAGE_VIOLATION`, single-step, `SIGSEGV`, or similar landing is actually observed
+  - **mechanism re-armed / sustained** -> the handler or immediate follow-on path deliberately restores the guard/trap precondition when the design depends on repeated use
+  - **resumed consequence** -> one resume-IP rewrite, return/stack rewrite, skip-length change, or downstream state write actually predicts later behavior
+- for Windows `PAGE_GUARD` cases specifically, do not stop at `VirtualProtect(..., PAGE_GUARD)` or one first `STATUS_GUARD_PAGE_VIOLATION`; the system clears guard status after the access, so repeated ownership claims are weaker than one explicit reapply fact
+- when a case appears Linux signal-owned instead, keep the analogous split **handler registered != fault delivered != resumed target edited**, and prefer one context-backed resumed target or state mutation over broad crash folklore
+
+Practical caution:
+- the trigger primitive is often only infrastructure
+- in guard-page-heavy cases, the first behavior-bearing proof object is usually the handler-side resume edit, while the single-step or equivalent re-arm path is the realism check that distinguishes one-off faulting from a sustained control-transfer mechanism
+- if later hits seem to keep happening but no re-arm evidence exists, assume the current story is incomplete rather than treating one first-hit violation as self-proving
+- do not overread public demo material into universal target behavior; preserve only the workflow lesson unless the exact same handler-side pattern is proved in the current case
+
+Concrete compare pair ideas:
+- first guard-page hit vs later repeated hit after the handler-side reapply path is altered or absent
+- same trigger family, same landing, different resumed RIP/PC or skip length
+- same fault family, handler present vs handler changed, with the resumed target compared directly
+- same fault delivered, but with and without a visible re-arm/protection-restore step when repeated ownership is suspected
+
+Common payoff:
+- this subcase often reduces a broad anti-debug story into one smaller question: is the meaningful analyst target the handler-side resume rewrite, the re-arm path that keeps the mechanism alive, or the later ordinary consumer reached after that resumed edge?
+
+Related shorthand worth preserving:
+- **guard configured != first fault != re-armed mechanism != resumed consequence**
+- and, for Linux-style signal cases, **handler registered != fault delivered != resumed target edited**
+
+## 8. Representative scratch schemas
+### Minimal handler-owned-transfer note
+```text
+earliest symptom:
+  ...
+
+suspected handler family:
+  ...
+
+first ownership boundary:
+  ...
+
+first consequence-bearing handler action:
+  ...
+
+post-handler ordinary target:
+  ...
+
+next route if confirmed:
+  ...
+```
+
+### Resume-edge proof note
+```text
+baseline condition:
+  ...
+
+changed condition:
+  ...
+
+first ownership boundary:
+  ...
+
+resume / redirected target:
+  ...
+
+later effect:
+  ...
+
+decision:
+  anti-debug continuation / integrity continuation / ordinary native follow-up / topology change
+```
+
+### Guard-page / fault-owned continuation scratch note
+```text
+guard or fault family:
+  PAGE_GUARD / single-step / SIGSEGV / ...
+
+configuration boundary:
+  ...
+
+first delivered landing:
+  ...
+
+handler-side resume edit:
+  ...
+
+re-arm / sustainment fact:
+  ...
+
+later ordinary target or consequence:
+  ...
+```
+
+## 9. Failure modes
+### Failure mode 1: exception mechanisms are documented, but no case progress happens
+Likely cause:
+- the work stayed at platform tutorial level and never proved one ownership boundary plus one consequence-bearing action
+
+Next move:
+- force the case into one handler family and one resume/state consequence
+
+### Failure mode 2: the trigger is overemphasized while the real branch stays hidden
+Likely cause:
+- the analyst kept focusing on `int3`, page-guard, or signal generation instead of the handler-side resume logic
+
+Next move:
+- isolate the first handler-side context rewrite, byte skip, or downstream state write
+
+### Failure mode 3: static control flow still looks wrong after likely handler APIs are found
+Likely cause:
+- the case is owned by dispatcher-side lookup, unwind metadata, or dynamic function-table registration, not by visible direct branches alone
+- the analyst proved registration names but never proved which runtime-owned code range or lookup result actually owns the exceptional path
+
+Next move:
+- localize one dispatcher-side landing, one concrete unwind/function-table lookup result, or one runtime-installed exception table callback
+- if the same generated or relocated region keeps appearing in lookup results, freeze that range as the truthful owner before widening back into broader protection theory
+
+### Failure mode 4: every crash is treated as anti-debug
+Likely cause:
+- real signal/exception ownership was not separated from ordinary crash handling or integrity consequence
+
+Next move:
+- define one compare pair and prove whether the handler resumes/diverts usefully or only fails
+
+### Failure mode 5: topology relocation starts before the handler path is reduced
+Likely cause:
+- the current posture was blamed too early, even though one narrower handler-owned transfer path could still be made explicit
+
+Next move:
+- return to one smallest symptom, one ownership boundary, and one post-handler target
 
 ## 8. Representative scratch schemas
 ### Minimal handler-owned-transfer note
