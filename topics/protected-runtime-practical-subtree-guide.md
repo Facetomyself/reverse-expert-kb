@@ -58,6 +58,7 @@ Protected-runtime practical work is easiest to navigate when the analyst first c
    - visible VM, handler churn, or repetitive protected execution is the main problem and the first stable semantic anchor is still missing
 6. **opaque-predicate / computed-next-state recovery**
    - flattening is already recognizable and some dispatcher/state object is visible, but the next-state relation is still obscured by opaque predicates, copied-code branches, helper-mediated writes, or computed-next-state machinery
+   - keep a thinner dispatch-family-aware stop rule explicit here too: in indirect/call forms, `dispatcher found != direct next-state truth != target-family truth != safe patch boundary`, and `index/field value visible != target-family proved != dispatcher contract preserved`
 7. **flattened-dispatcher-to-state-edge reduction**
    - a dispatcher or flattened protected region is already recognizable enough that one trustworthy successor relation already exists, but the first durable state object, reducer helper, or dispatcher-exit edge is still unclear
 8. **packed / staged bootstrap handoff**

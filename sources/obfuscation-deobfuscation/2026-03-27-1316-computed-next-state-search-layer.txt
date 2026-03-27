@@ -1,0 +1,240 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "control flow flattening computed next state indirect branch table index reverse engineering",
+    "tigress flatten compute next state dispatch table opaque predicate unflatten",
+    "ollvm flattened dispatcher next state recovery symbolic execution indirect branch"
+  ],
+  "count": 13,
+  "results": [
+    {
+      "title": "*> The dispatch loop takes a single indirect branch to the opcode ...",
+      "url": "https://news.ycombinator.com/item?id=40952404",
+      "snippet": "The dispatch loop takes a single indirect branch to the opcode-specific implementation. This means that the branch will be nigh unpredictable!",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.575
+    },
+    {
+      "title": "Deobfuscation: recovering an OLLVM-protected program",
+      "url": "https://blog.quarkslab.com/deobfuscation-recovering-an-ollvm-protected-program.html",
+      "snippet": "Below is documented *Miasm Python* code which enables us to do **symbolic execution** on a basic block in order to compute its **destination address**:. # Here we disassemble target function and collect relevants blocks# Collapsed for clarity but nothing complicated here, and the algorithm is given above relevants = get_relevants_blocks()# Control flow dictionnary {parent: set(childs)} flow ={} # Init flow dictionnary with empty sets of childs for r in relevants: flow[r] = set() # Start loop of symbolic execution while True: block_state = # Get next block state to emulate # Get current branch parameters # \"parent_addr\" is the parent block variable se seen earlier# \"symb\" is the context (symbols) of the current branch parent_addr, block_addr, symb = block_state # If it is a relevant block if block_addr in flow:# We avoid the prologue's parent, as it doesn't exist if parent_addr!= ExprInt32(prologue_parent): # Do the link between the block and its relevant parent flow[parent_addr].",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.525
+    },
+    {
+      "title": "MODeflattener - Miasm's OLLVM Deflattener - mrT4ntr4's Blog",
+      "url": "https://mrt4ntr4.github.io/MODeflattener/",
+      "snippet": "It then uses a dispatcher to reconstruct the control flow along with a control/state variable which is updated at the end of each block. The state variable is responsible for maintaining the control flow in the flattened function. These blocks update the value of the state variable at the very end. So if we don’t find any code related to modification of the state variable in a relevant block we mark this as tail. Block without any conditions, so the state variable is always updated with the same value. Here the state variable could have two possible values depending on whether the condition results in a true or false. Now we need to iterate over the backbone blocks and get their destinations if it includes condition regarding any of the possible state variable values. We can map these to the original state variable values and make use of it to correct the flow.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.525
+    },
+    {
+      "title": "Tigress Options",
+      "url": "https://tigress.cs.arizona.edu/options.html",
+      "snippet": "Whether the dispatch variable should be obfuscated with opaque expressions or not. Default=true. --FlattenOpaqueStructs, list, array, *, Type of opaque",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5
+    },
+    {
+      "title": "D810: A journey into control flow unflattening - eShard",
+      "url": "https://eshard.com/posts/D810-a-journey-into-control-flow-unflattening",
+      "snippet": "* Each block of the original function is modified: instead of specifying the next blocks to execute using a branch, it updates the state variable and jumps to the **dispatcher**. * For Tigress Flatten with *indirect dispatcher*, the address of each of the function basic block is stored in a global *jump table*. Each block will update the **state variable**, lookup the address of the next block in the *jump table* and jump to the **dispatcher** which is an indirect jump to the original function block. * **Hex-Rays microcode control flow patching:** We need to change the successors and predecessors of microcode blocks in order to remove the control flow flattening. So, in order to remove the control flow flattening of a function, D-810 will register an `optblock_t` callback and inspect and modify `mblock_t` blocks. To deal with such cases, we duplicate several blocks of the function to ensure we are back in the simple case (i.e. with only one possible value for the **state variable**).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5
+    },
+    {
+      "title": "Control Flow Flattening Example - iOS Reverse Engineering ...",
+      "url": "https://mintlify.com/LaurieWired/iOS_Reverse_Engineering/examples/control-flow-flattening-example",
+      "snippet": "This guide provides a detailed walkthrough of analyzing the ControlFlowFlattening.ipa sample, which demonstrates control flow flattening - a common obfuscation",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "Automated Detection of Control-flow Flattening - Emproof",
+      "url": "https://www.emproof.com/automated-detection-of-control-flow-flattening/",
+      "snippet": "Based on the dominator tree in the control-flow graph, we can automatically identify *natural loops* by looking for *back edges*: If we find an edge from a node *back* to one of its dominators, we identified a loop. In other words, we are looking for a block that controls a loop and also dominates large parts of the function. Intuitively, we expect to pinpoint functions that implement control-flow flattening or other complex state machines which share a similar graph structure. To conclude the experiments, we see that the heuristic identifies control-flow flattening as well as other state machines; some of them are very interesting for reverse engineers, since they implement complex dispatching routines that are relevant for understanding file formats, communication protocols or other important program logic. In our case, we designed a simple but effective heuristic for discovering control-flow flattening by looking for functions which have a basic block that dominates large parts of the function *and* controls a loop.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "Flatten - Tigress C obfuscator",
+      "url": "https://tigress.wtf/flatten.html",
+      "snippet": "These are the four basic kinds of block dispatch we currently support, and what a reursive factorial function looks like after transformation:. * In a *call dispatch*, each block becomes its own function, and indirect calls through a table of function pointers are used to switch between blocks. Threaded flattening should work well with other transformations. For example, you can first virtualize your function and then flatten it with a threaded dispatch: this results in a in interpreter where each instruction handler (or piece of instruction handler) will run in its own thread. You can even flatten the same function twice, with threaded dispatch both times. * switch = dispatch by while(1) {switch (next) {blocks}} * goto = dispatch by {labl1: block1; goto block2;} * indirect = dispatch by goto\\* (jtab[next]) * call = each block is outlined into its own function * concurrent = like call, but each function runs in its own thread. --Transform=Flatten --Functions=fac:region2 ...",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Control Flow Flattening: How to build your own - LODSB",
+      "url": "https://www.lodsb.com/control-flow-flattening-how-to-build-your-own",
+      "snippet": "Using LLVM and C++ to implement control flow flattening (CFF)",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Control-Flow Flattening | O-MVLL Documentation",
+      "url": "https://obfuscator.re/omvll/passes/control-flow-flattening/",
+      "snippet": "The purpose of this pass is to modify the graph representation of a function, by flattening its basic blocks.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Lightweight Dispatcher Constructions for Control Flow Flattening",
+      "url": "https://dl.acm.org/doi/pdf/10.1145/3151137.3151139",
+      "snippet": "We have implemented our construction in the open source obfuscator OLLVM and present experimental results on overheads from different dispatcher implementations",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Opaque Predicate - Tigress C obfuscator",
+      "url": "https://tigress.wtf/opaque.html",
+      "snippet": "Several transformations rely on boolean and integer expressions that have a known value, known as opaque predicates and expressions. To construct these, data",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Merge - Tigress C obfuscator",
+      "url": "https://tigress.wtf/merge.html",
+      "snippet": "If you set --MergeFlatten=true then constituent functions are first flattened, then the resulting blocks are merged together, and finally a dispatch method is",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [],
+    "tavily": [
+      {
+        "title": "Tigress Options",
+        "url": "https://tigress.cs.arizona.edu/options.html",
+        "snippet": "Whether the dispatch variable should be obfuscated with opaque expressions or not. Default=true. --FlattenOpaqueStructs, list, array, *, Type of opaque",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5
+      },
+      {
+        "title": "Flatten - Tigress C obfuscator",
+        "url": "https://tigress.wtf/flatten.html",
+        "snippet": "These are the four basic kinds of block dispatch we currently support, and what a reursive factorial function looks like after transformation:. * In a *call dispatch*, each block becomes its own function, and indirect calls through a table of function pointers are used to switch between blocks. Threaded flattening should work well with other transformations. For example, you can first virtualize your function and then flatten it with a threaded dispatch: this results in a in interpreter where each instruction handler (or piece of instruction handler) will run in its own thread. You can even flatten the same function twice, with threaded dispatch both times. * switch = dispatch by while(1) {switch (next) {blocks}} * goto = dispatch by {labl1: block1; goto block2;} * indirect = dispatch by goto\\* (jtab[next]) * call = each block is outlined into its own function * concurrent = like call, but each function runs in its own thread. --Transform=Flatten --Functions=fac:region2 ...",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "D810: A journey into control flow unflattening - eShard",
+        "url": "https://eshard.com/posts/D810-a-journey-into-control-flow-unflattening",
+        "snippet": "* Each block of the original function is modified: instead of specifying the next blocks to execute using a branch, it updates the state variable and jumps to the **dispatcher**. * For Tigress Flatten with *indirect dispatcher*, the address of each of the function basic block is stored in a global *jump table*. Each block will update the **state variable**, lookup the address of the next block in the *jump table* and jump to the **dispatcher** which is an indirect jump to the original function block. * **Hex-Rays microcode control flow patching:** We need to change the successors and predecessors of microcode blocks in order to remove the control flow flattening. So, in order to remove the control flow flattening of a function, D-810 will register an `optblock_t` callback and inspect and modify `mblock_t` blocks. To deal with such cases, we duplicate several blocks of the function to ensure we are back in the simple case (i.e. with only one possible value for the **state variable**).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5
+      },
+      {
+        "title": "Opaque Predicate - Tigress C obfuscator",
+        "url": "https://tigress.wtf/opaque.html",
+        "snippet": "Several transformations rely on boolean and integer expressions that have a known value, known as opaque predicates and expressions. To construct these, data",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Merge - Tigress C obfuscator",
+        "url": "https://tigress.wtf/merge.html",
+        "snippet": "If you set --MergeFlatten=true then constituent functions are first flattened, then the resulting blocks are merged together, and finally a dispatch method is",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Control Flow Flattening Example - iOS Reverse Engineering ...",
+        "url": "https://mintlify.com/LaurieWired/iOS_Reverse_Engineering/examples/control-flow-flattening-example",
+        "snippet": "This guide provides a detailed walkthrough of analyzing the ControlFlowFlattening.ipa sample, which demonstrates control flow flattening - a common obfuscation",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "Control Flow Flattening: How to build your own - LODSB",
+        "url": "https://www.lodsb.com/control-flow-flattening-how-to-build-your-own",
+        "snippet": "Using LLVM and C++ to implement control flow flattening (CFF)",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Control-Flow Flattening | O-MVLL Documentation",
+        "url": "https://obfuscator.re/omvll/passes/control-flow-flattening/",
+        "snippet": "The purpose of this pass is to modify the graph representation of a function, by flattening its basic blocks.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Automated Detection of Control-flow Flattening - Emproof",
+        "url": "https://www.emproof.com/automated-detection-of-control-flow-flattening/",
+        "snippet": "Based on the dominator tree in the control-flow graph, we can automatically identify *natural loops* by looking for *back edges*: If we find an edge from a node *back* to one of its dominators, we identified a loop. In other words, we are looking for a block that controls a loop and also dominates large parts of the function. Intuitively, we expect to pinpoint functions that implement control-flow flattening or other complex state machines which share a similar graph structure. To conclude the experiments, we see that the heuristic identifies control-flow flattening as well as other state machines; some of them are very interesting for reverse engineers, since they implement complex dispatching routines that are relevant for understanding file formats, communication protocols or other important program logic. In our case, we designed a simple but effective heuristic for discovering control-flow flattening by looking for functions which have a basic block that dominates large parts of the function *and* controls a loop.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "D810: A journey into control flow unflattening - eShard",
+        "url": "https://eshard.com/posts/D810-a-journey-into-control-flow-unflattening",
+        "snippet": "* Each block of the original function is modified: instead of specifying the next blocks to execute using a branch, it updates the state variable and jumps to the **dispatcher**. * For Tigress Flatten with *indirect dispatcher*, the address of each of the function basic block is stored in a global *jump table*. Each block will update the **state variable**, lookup the address of the next block in the *jump table* and jump to the **dispatcher** which is an indirect jump to the original function block. * **Hex-Rays microcode control flow patching:** We need to change the successors and predecessors of microcode blocks in order to remove the control flow flattening. So, in order to remove the control flow flattening of a function, D-810 will register an `optblock_t` callback and inspect and modify `mblock_t` blocks. To deal with such cases, we duplicate several blocks of the function to ensure we are back in the simple case (i.e. with only one possible value for the **state variable**).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Deobfuscation: recovering an OLLVM-protected program",
+        "url": "https://blog.quarkslab.com/deobfuscation-recovering-an-ollvm-protected-program.html",
+        "snippet": "Below is documented *Miasm Python* code which enables us to do **symbolic execution** on a basic block in order to compute its **destination address**:. # Here we disassemble target function and collect relevants blocks# Collapsed for clarity but nothing complicated here, and the algorithm is given above relevants = get_relevants_blocks()# Control flow dictionnary {parent: set(childs)} flow ={} # Init flow dictionnary with empty sets of childs for r in relevants: flow[r] = set() # Start loop of symbolic execution while True: block_state = # Get next block state to emulate # Get current branch parameters # \"parent_addr\" is the parent block variable se seen earlier# \"symb\" is the context (symbols) of the current branch parent_addr, block_addr, symb = block_state # If it is a relevant block if block_addr in flow:# We avoid the prologue's parent, as it doesn't exist if parent_addr!= ExprInt32(prologue_parent): # Do the link between the block and its relevant parent flow[parent_addr].",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.525
+      },
+      {
+        "title": "D810: A journey into control flow unflattening - eShard",
+        "url": "https://eshard.com/posts/D810-a-journey-into-control-flow-unflattening",
+        "snippet": "* Each block of the original function is modified: instead of specifying the next blocks to execute using a branch, it updates the state variable and jumps to the **dispatcher**. * For Tigress Flatten with *indirect dispatcher*, the address of each of the function basic block is stored in a global *jump table*. Each block will update the **state variable**, lookup the address of the next block in the *jump table* and jump to the **dispatcher** which is an indirect jump to the original function block. * **Hex-Rays microcode control flow patching:** We need to change the successors and predecessors of microcode blocks in order to remove the control flow flattening. So, in order to remove the control flow flattening of a function, D-810 will register an `optblock_t` callback and inspect and modify `mblock_t` blocks. To deal with such cases, we duplicate several blocks of the function to ensure we are back in the simple case (i.e. with only one possible value for the **state variable**).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Lightweight Dispatcher Constructions for Control Flow Flattening",
+        "url": "https://dl.acm.org/doi/pdf/10.1145/3151137.3151139",
+        "snippet": "We have implemented our construction in the open source obfuscator OLLVM and present experimental results on overheads from different dispatcher implementations",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "MODeflattener - Miasm's OLLVM Deflattener - mrT4ntr4's Blog",
+        "url": "https://mrt4ntr4.github.io/MODeflattener/",
+        "snippet": "It then uses a dispatcher to reconstruct the control flow along with a control/state variable which is updated at the end of each block. The state variable is responsible for maintaining the control flow in the flattened function. These blocks update the value of the state variable at the very end. So if we don’t find any code related to modification of the state variable in a relevant block we mark this as tail. Block without any conditions, so the state variable is always updated with the same value. Here the state variable could have two possible values depending on whether the condition results in a true or false. Now we need to iterate over the backbone blocks and get their destinations if it includes condition regarding any of the possible state variable values. We can map these to the original state variable values and make use of it to correct the flow.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.525
+      },
+      {
+        "title": "*> The dispatch loop takes a single indirect branch to the opcode ...",
+        "url": "https://news.ycombinator.com/item?id=40952404",
+        "snippet": "The dispatch loop takes a single indirect branch to the opcode-specific implementation. This means that the branch will be nigh unpredictable!",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.575
+      }
+    ],
+    "grok": []
+  }
+}

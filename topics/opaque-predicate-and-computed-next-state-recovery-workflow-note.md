@@ -278,6 +278,8 @@ Why it helps:
 
 Practical stop rule:
 - if you can already say `index/field family X reaches target family Y under dispatcher contract Z`, you often have enough to leave broad flattening work even before every constant is explained
+- preserve the thinner operator split explicitly: `dispatcher found != direct next-state truth != target-family truth != safe patch boundary`
+- in indirect/call forms also preserve: `index/field value visible != target-family proved != dispatcher contract preserved`
 
 ### D. Helper-output anchor first
 Use when:
@@ -300,6 +302,7 @@ Use when:
 Why it helps:
 - it separates `recover next target` from `preserve dispatcher-owned semantics`
 - it prevents a common failure mode where analysts correctly recover a successor family but incorrectly delete dispatcher-side writes, lookup steps, or return-shape obligations that still matter
+- it matches the retained practical source footprint from Tigress/O-MVLL plus practitioner unflattening notes, where indirect/call dispatch often leaves a smaller truthful object at `index/target-family + dispatcher contract` rather than at one fully decoded direct state constant
 
 Minimum useful output:
 - one small dispatcher contract note such as:
