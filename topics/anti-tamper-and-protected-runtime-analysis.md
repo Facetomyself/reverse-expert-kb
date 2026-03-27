@@ -242,6 +242,7 @@ At the practical branch level, this topic now reads most truthfully as twelve re
 10. runtime-artifact / initialization-obligation recovery
 11. integrity / tamper consequence proof
 12. exception-handler-owned control transfer
+   - with a thinner guard-page / fault-owned continuation reminder that **guard configured != first fault != re-armed mechanism != resumed consequence**, so page-guard and fault delivery do not get overread as behavior proof
 
 That practical ladder matters because the branch should no longer read as only:
 - generic anti-debugging
@@ -312,6 +313,7 @@ Includes:
 - recovering one smaller runtime artifact or initialization obligation when static views stay close-but-wrong
 - preserving a thinner middle object of **runtime-installed range ownership truth** in Windows exception-owned cases, so dispatcher landing and later resume truth are not forced to carry all of the explanation when dynamic function tables or callback-owned unwind regions are what actually make ownership coherent
 - preserving the sharper operator split **registered != covering this PC != lookup hit != resumed consequence** in those dynamic-unwind cases, so callback or growable-table API presence is not silently overread as proof that the current branch is really owned by that runtime-installed range
+- preserving a second thinner stop rule for guard-page / fault-owned cases: **guard configured != first fault != re-armed mechanism != resumed consequence**, so one `PAGE_GUARD` hit, single-step landing, or signal delivery does not silently collapse into proof that the mechanism is still live or that the meaningful behavior-bearing continuation has already been found
 
 ### 4. Domain-specific protected environments
 Includes:
