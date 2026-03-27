@@ -259,6 +259,24 @@ A compact continuation rule is:
 - do not enter this note just because callbacks are visible somewhere in the subsystem
 - enter it when the route or owner question is already reduced enough that one event-source -> registration -> dispatch -> consumer proof is now the narrowest truthful next move
 
+### Linux reactor/eventfd/timerfd/libuv stop rule
+Linux reactor-shaped cases deserve one thinner continuation rule because registration and wakeup evidence are easy to overread.
+
+Source-backed branch memory from this run:
+- `registered != ready != returned != drained/rearmed != callback-delivered != consumed`
+- for libuv async specifically: `uv_async_send-called != wakeup-observed != async-callback-delivered`
+
+Practical consequences:
+- **epoll:** keep interest-list registration, ready-list truth, one `epoll_wait(...)` return, full drain-to-`EAGAIN`, and explicit rearm under `EPOLLONESHOT` separate; in ET cases especially, `returned != drained`, and in ONESHOT cases `returned != rearmed`
+- **eventfd:** readability only proves the counter is nonzero; a later read resets the counter to zero or decrements it in semaphore mode, so `eventfd readable != loop-side consumer proved`
+- **timerfd:** readability only proves one or more expirations occurred and an expiration count is available to read; `timerfd readable != timer handler ran`
+- **libuv `uv_async_send(...)`:** the callback runs on the loop thread, but libuv coalesces sends, so raw send count is weaker than callback-delivery truth
+
+Why this matters in practice:
+- do not stop at `epoll_wait(...)` when the real question is whether one handler drained or rearmed the fd in the way the runtime expects
+- do not stop at `eventfd` / `timerfd` readability when the real question is which loop callback or later reducer first changed behavior
+- do not treat repeated `uv_async_send(...)` calls as one-for-one proof of callback frequency or consequence frequency
+
 ## 8. Practical handoff rule
 Leave this note as soon as the main uncertainty stops being “which async delivery or callback consumer first changes behavior?” and becomes one narrower follow-on proof task.
 

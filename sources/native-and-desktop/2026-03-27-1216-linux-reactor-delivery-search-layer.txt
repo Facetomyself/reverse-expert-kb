@@ -1,0 +1,419 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "epoll eventfd timerfd first consumer reverse engineering reactor loop ownership",
+    "libuv eventfd async wakeup epoll callback ownership uv_async_send reverse engineering",
+    "epoll edge triggered eventfd timerfd consumed rearm callback truth"
+  ],
+  "count": 25,
+  "results": [
+    {
+      "title": "Repeating timerfd event works with epoll and not with poll",
+      "url": "https://stackoverflow.com/questions/26304673/repeating-timerfd-event-works-with-epoll-and-not-with-poll",
+      "snippet": "I am implementing a timer using timerfd. This is a relative timer that I just need to repeat forever at the rate it is set to. I want to poll on this event.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "linux:  exploit `eventfd` in `EPOLLET` mode to avoid syscall per wakeup · Pull Request #4400 · libuv/libuv",
+      "url": "https://github.com/libuv/libuv/pull/4400",
+      "snippet": "",
+      "published_date": "2024-05-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "unix: remove busy loop from uv_async_send · Pull Request #3879 · libuv/libuv",
+      "url": "https://github.com/libuv/libuv/pull/3879",
+      "snippet": "",
+      "published_date": "2023-01-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "uv_async_send heavily hurts main thread performance when many ...",
+      "url": "https://github.com/libuv/libuv/issues/1866",
+      "snippet": "The async_send handler on UNIX involves a while loop which iterates over every created uv_async_t handle when a wakeup event is processed,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "kqueue: use EVFILT_USER as wakeup event if available · Pull Request #4330 · libuv/libuv",
+      "url": "https://github.com/libuv/libuv/pull/4330",
+      "snippet": "",
+      "published_date": "2024-02-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "adds check so we only queue one copy of the async wakeup request · Pull Request #1960 · libuv/libuv",
+      "url": "https://github.com/libuv/libuv/pull/1960",
+      "snippet": "",
+      "published_date": "2018-08-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Select(2) is fundamentally broken | Hacker News",
+      "url": "https://news.ycombinator.com/item?id=13332567",
+      "snippet": "This is all possible on Linux today with timerfd [0] and eventfd [1]. ... When you use epoll in edge-triggered mode it returns and reports a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.59
+    },
+    {
+      "title": "uv_async_t — Async handle - libuv documentation",
+      "url": "https://docs.libuv.org/en/v1.x/async.html",
+      "snippet": "Async handles allow the user to “wakeup” the event loop and get a callback called from another thread.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.58
+    },
+    {
+      "title": "Threads - libuv documentation",
+      "url": "https://docs.libuv.org/en/v1.x/guide/threads.html",
+      "snippet": "So it uses uv_async_send . The async callback, invoked in the main loop thread, which is the v8 thread, then interacts with v8 to invoke the JavaScript callback",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.58
+    },
+    {
+      "title": "It's essential to understand how an event loop works before ...",
+      "url": "https://news.ycombinator.com/item?id=3116177",
+      "snippet": "| | | |  | | --- | | jrockway on Oct 16, 2011  | parent )   There is some bookkeeping involved when you want IO watchers and timers, but it amounts to a heap for the timers (\"when does the next timer go off?\"), calling select with the timeout set for when the next timer expires, and then updating the timer queue when you wake up (if it's because the timer time arrived, rather than because IO is possible). | | | |  | | --- | | tptacek on Oct 16, 2011  | root | parent | next )   From what I can tell, less than half of all \"evented\" C code gets write events correct. | | | |  | | --- | | justincormack on Oct 16, 2011  | root | parent | prev )   Or you use timerfd(2) and get the kernel to manage the timer heap.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.56
+    },
+    {
+      "title": "libuv - man pages section 1: User Commands - Oracle Help Center",
+      "url": "https://docs.oracle.com/cd/E88353_01/html/E37839/libuv-1.html",
+      "snippet": "+ 7z(1)+ 7za(1)+ 7zr(1)+ a2ps(1)+ a2x(1)+ aafire(1)+ aalib-config(1)+ ab(1)+ accerciser(1)+ accessx(1)+ acctcom(1)+ aclocal-1.16(1)+ acpidump(1)+ acpixtract(1)+ acyclic(1)+ adb(1)+ addbib(1)+ addftinfo(1)+ addr2line(1g)+ admin(1)+ adrci(1)+ afmtodit(1)+ after(1t)+ agentxtrap(1)+ alias(1)+ androiddump(1)+ animate(1)+ annotate(1)+ ansible(1)+ ant(1)+ append(1t)+ apply(1t)+ appres(1)+ apptrace(1)+ apropos(1)+ apxs(1)+ ar(1)+ ar(1g)+ arch(1)+ argc(1t)+ arpaname(1)+ array(1t)+ as(1)+ as(1g)+ asciidoc(1)+ asn1Coding(1)+ asn1Decoding(1)+ asn1parse(1openssl)+ asn1Parser(1)+ aspell-import(1)+ aspell(1)+ at-spi-registryd(1)+ at(1)+ atobm(1)+ atq(1)+ atrm(1)+ audioconvert(1)+ audioctl(1)+ audioplay(1)+ audiorecord(1)+ audiotest(1)+ augparse(1)+ augtool(1)+ auths(1)+ auto\\_ef(1)+ auto\\_execok(1t)+ autoconf-2.13(1)+ autoconf(1)+ autoexpect(1)+ autoheader(1)+ autom4te(1)+ automake-1.16(1)+ autopoint(1)+ autoreconf(1)+ autoscan(1)+ autoupdate(1)+ avahi-browse(1)+ avahi-daemon-bridge-dsd(1)+ avahi-publish(1)+ avahi-resolve(1)+ avahi-set-host-name(1)+ awk(1)+ awk(1)+ awk(1g)+ b2sum(1)+ banner(1)+ baobab(1)+ base32(1)+ base64(1)+ basename(1)+ basename(1g)+ basepods(1)+ bash(1)+ bashbug(1)+ batch(1)+ bc(1)+ bcomps(1)+ bdftogd(1)+ bdftopcf(1)+ bdftruncate(1)+ bdiff(1)+ bell(1t)+ bg(1)+ bgerror(1t)+ binary(1t)+ bind(1t)+ bindtags(1t)+ bison(1)+ bitmap(1)+ bitmap(1t)+ bmtoa(1)+ break(1)+ break(1t)+ brltty(1)+ broadwayd(1)+ bssh(1)+ bugpoint(1)+ builtin(1)+ bunzip2(1)+ busy(1t)+ button(1t)+ bzcat(1)+ bzcmp(1)+ bzdiff(1)+ bzegrep(1)+ bzfgrep(1)+ bzgrep(1)+ bzip2(1)+ bzip2recover(1)+ bzless(1)+ bzmore(1)+ c++filt(1g)+ c\\_rehash(1openssl)+ ca(1openssl)+ CA.pl(1openssl)+ cal(1)+ calendar(1)+ callgrind\\_annotate(1)+ callgrind\\_control(1)+ canberra-gtk-play(1)+ cancel(1)+ canvas(1t)+ capinfos(1)+ card(1)+ card\\_eventmgr(1)+ cargo-bench(1)+ cargo-build(1)+ cargo-check(1)+ cargo-clean(1)+ cargo-doc(1)+ cargo-fetch(1)+ cargo-fix(1)+ cargo-generate-lockfile(1)+ cargo-help(1)+ cargo-init(1)+ cargo-install(1)+ cargo-locate-project(1)+ cargo-login(1)+ cargo-metadata(1)+ cargo-new(1)+ cargo-owner(1)+ cargo-package(1)+ cargo-pkgid(1)+ cargo-publish(1)+ cargo-run(1)+ cargo-rustc(1)+ cargo-rustdoc(1)+ cargo-search(1)+ cargo-test(1)+ cargo-tree(1)+ cargo-uninstall(1)+ cargo-update(1)+ cargo-vendor(1)+ cargo-verify-project(1)+ cargo-version(1)+ cargo-yank(1)+ cargo(1)+ case(1)+ case(1t)+ cat(1)+ cat(1g)+ catch(1t)+ ccache-swig(1)+ ccmake(1)+ ccomps(1)+ ccon(1)+ cd-create-profile(1)+ cd-fix-profile(1)+ cd-it8(1)+ cd(1)+ cd(1t)+ cdc(1)+ cdda2wav(1)+ cdrecord(1)+ cdrw(1)+ cdv(1)+ certtool(1)+ cfgmaker(1)+ cg\\_annotate(1)+ cg\\_diff(1)+ cg\\_merge(1)+ chan(1t)+ charmap(1)+ chdir(1)+ checkbutton(1t)+ checkeq(1)+ checkmk(1)+ checknr(1)+ chem(1)+ chgrp(1)+ chgrp(1g)+ chkey(1)+ chmod(1)+ chmod(1g)+ chown(1)+ chown(1g)+ chroot(1g)+ ciphers(1openssl)+ ciscodump(1)+ cjpeg(1)+ ck-history(1)+ ck-launch-session(1)+ ck-list-sessions(1)+ ckdate(1)+ ckgid(1)+ ckint(1)+ ckitem(1)+ ckkeywd(1)+ ckpath(1)+ ckrange(1)+ ckstr(1)+ cksum(1)+ cksum(1g)+ cktime(1)+ ckuid(1)+ ckyorn(1)+ clang(1)+ clear(1)+ clear(1g)+ clipboard(1t)+ clock(1t)+ close(1t)+ cluster(1)+ clusterssh\\_bash\\_completion.dist(1)+ cmake(1)+ cmap\\_alloc(1)+ cmap\\_compact(1)+ cmp(1)+ cmp(1g)+ cms(1openssl)+ cmtime(1)+ col(1)+ colcrt(1)+ collateindex.pl(1)+ colormgr(1)+ colors(1t)+ colrm(1)+ column(1)+ comb(1)+ combinediff(1)+ comm(1)+ comm(1g)+ command(1)+ comp\\_err(1)+ compare(1)+ composite(1)+ compress(1)+ concat(1t)+ conflict(1)+ conjure(1)+ console(1t)+ constype(1)+ continue(1)+ continue(1t)+ convert(1)+ convmv(1)+ corelist(1)+ coroutine(1t)+ cp(1)+ cp(1g)+ cpack(1)+ cpan(1)+ cpio(1)+ cpp(1)+ cpp(1)+ cputrack(1)+ crl(1openssl)+ crl2pkcs7(1openssl)+ crle(1)+ croco-0.6-config(1)+ crontab(1)+ crsh(1)+ cryptdir(1)+ csftp(1)+ csh(1)+ csplit(1)+ csplit(1g)+ cssh(1)+ csslint-0.6(1)+ ct\\_run(1)+ ctags(1)+ ctags(1g)+ ctel(1)+ ctest(1)+ ctrun(1)+ ctstat(1)+ ctwatch(1)+ cups-config(1)+ cups(1)+ cupstestppd(1)+ curl-config(1)+ curl(1)+ cursors(1t)+ cut(1)+ cut(1g)+ cvs(1)+ cvt(1)+ cvtsudoers(1)+ cwebp(1)+",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "Learning to use epoll, maybe a little confused - Reddit",
+      "url": "https://www.reddit.com/r/learnprogramming/comments/1bvdt2u/learning_to_use_epoll_maybe_a_little_confused/",
+      "snippet": "Why does epoll not update my thread for any EPOLLOUT events? You are using epoll in edge triggered mode ( EPOLLET ). This means that you",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.53
+    },
+    {
+      "title": "Teaching Robots how to Drum",
+      "url": "https://atrodo.github.io/teaching_robots_drumming/2019/06/25/experiences-using-libuv-eventfd.html",
+      "snippet": "",
+      "published_date": "2019-06-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "Building a Scalable Event-Driven Architecture Using epoll ...",
+      "url": "https://medium.com/embedworld/building-a-scalable-event-driven-architecture-using-epoll-on-embedded-linux-bfd69fa39eae",
+      "snippet": "",
+      "published_date": "2025-12-27T04:18:15.584Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "The Event Loop in asyncio: How Python Code Works on Top of Linux Mechanisms | by Stanislav Garanzha | Feb, 2026 | Medium",
+      "url": "https://medium.com/@garanzhasa/the-event-loop-in-asyncio-how-python-code-works-on-top-of-linux-mechanisms-d5d9b8bc4041",
+      "snippet": "",
+      "published_date": "2026-02-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "The method to epoll’s madness",
+      "url": "https://copyconstruct.medium.com/the-method-to-epolls-madness-d9d2d6378642",
+      "snippet": "",
+      "published_date": "2017-10-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "Linux::Event::Loop - Linux-native event loop (epoll + timerfd + signalfd + eventfd + pidfd) - metacpan.org",
+      "url": "https://metacpan.org/pod/Linux::Event::Loop",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.42
+    },
+    {
+      "title": "Writing a reverse proxy/loadbalancer from the ground up in ...",
+      "url": "https://www.gilesthomas.com/2013/09/writing-a-reverse-proxyloadbalancer-from-the-ground-up-in-c-part-2-handling-multiple-connections-with-epoll",
+      "snippet": "This presumably now makes sense -- we're creating a special handler to handle events on the server socket (that is, the thing that listens for incoming client connections) and we're then adding that to our `epoll` FD, with an event mask that says that we're interested in hearing from it when there's something to read on it (`EPOLLIN`) -- that is, a client connection has come in. We just create a new kind of handler, one for handling events on client sockets, and register it with our `epoll` loop saying that we're interested in events when data comes in, and when the remote end of the connection is closed. The same pattern as before -- create a handler to look after that FD, passing in information for the closure (in this case, just as the client handler needed to know about the backend, the backend needs to know about this client), then we add the handler to the `epoll` event loop, once again saying that we're interested in knowing about incoming data and when the remote end closes the connection.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "Simplyfile - Gottlieb+Freitag",
+      "url": "https://gottliebtfreitag.de/blog/2019/08/09/Simplyfile.html",
+      "snippet": "You can use file descriptors to realize communications (sockets), semaphores (eventfd), timers (timerfd) and many other things. A `read` (with a buffer of the appropriate size) on the file descriptor will return how often the timer expired. Epoll is very similar to poll as it allows monitoring of multiple file descriptors. Anyways, simplyfile comes with convenience functions for all file types it wraps and should allow for a significant decrease in boilerplate file descriptor related code and the certainty of not leaking resources. What remained to be implemented was to have the wrapper manage an `std::map` to remember the association of file descriptors to callbacks. simplyfile:: ServerSocket ss{simplyfile:: makeUnixDomainHost(\"mysock\")}; simplyfile:: Epoll epoll; std:: map< int, simplyfile:: ClientSocket> clients; bool work{true}; epoll. If no threads are waiting but an edge happens, then the next call to `epoll_wait` will return the file descriptor where that edge occurred. Some file descriptors exhibit special behaviors when used with epoll.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "timerfd() and system call review",
+      "url": "https://lwn.net/Articles/245688/",
+      "snippet": "The real solution avoiding timerfd is to write a proper main loop like the ones in glib, Qt, Twisted Python, libevent, etc., that puts timers on a heap.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "A new Event Loop for UNIX operating systems",
+      "url": "https://crystal-lang.org/2024/11/05/lifetime-event-loop/",
+      "snippet": "# A new Event Loop for UNIX operating systems. We’re changing how the event loop operates under the hood on Unix systems in #14996. The new implementation integrates the Crystal event loop directly with system selectors, `epoll` (Linux, Android) and `kqueue` (BSDs, macOS) instead of going through `libevent`. For the time being other UNIX operating systems still use the `libevent` event loop by default (regressions, issues or untested). You can switch back to the old event loop implementation with the compile-time flag `-Devloop=libevent`. The new implementation works well with the multi-threading preview (`-Dpreview_mt`), having one event loop instance per thread. There is one caveat though: file descriptors can only be owned by a single event loop instance *at a time*. A file descriptor *can be moved* from one fiber to another, possibly moving from one event loop instance to another along the way (transparently), but this is only possible if there are no pending operations on that file descriptor.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "[EPUB] libuv API documentation - uvloop",
+      "url": "https://uvloop.readthedocs.io/_/downloads/en/stable/epub/",
+      "snippet": "Full-featured event loop backed by epoll, kqueue, IOCP, event ports. ... uv_async_send (uv_async_t* async). Wakeup the event loop and call the async handle's",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Questions about epoll or linux-aio in seastar",
+      "url": "https://groups.google.com/g/seastar-dev/c/Fgo9eKNklA4",
+      "snippet": "",
+      "published_date": "2021-12-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "The edge-triggered misunderstanding - LWN.net",
+      "url": "https://lwn.net/Articles/865400/",
+      "snippet": "Checking the man page shows that re-arming the fd on EPOLLONESHOT is done via EPOLL_CTL_MOD and not EPOLL_CTL_ADD so the fd remains in the epoll",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "epoll(7) - Linux manual page - man7.org",
+      "url": "https://man7.org/linux/man-pages/man7/epoll.7.html",
+      "snippet": "| NAME | SYNOPSIS | DESCRIPTION | VERSIONS | STANDARDS | HISTORY | NOTES | SEE ALSO | COLOPHON |. The suggested way to use epoll as an edge-triggered (EPOLLET) interface is as follows: (1) with nonblocking file descriptors; and (2) by waiting for an event only after read(2) or write(2) return EAGAIN. • Can two epoll instances wait for the same file descriptor? If so, are events reported to both epoll file descriptors? Yes. If an epoll file descriptor has events waiting, then it will indicate as being readable. Receiving an event from epoll_wait(2) should suggest to you that such file descriptor is ready for the requested I/O operation. One solution for this is to call, during the processing of event 47, epoll_ctl(EPOLL_CTL_DEL) to delete file descriptor 13 and close(2), then mark its associated data structure as removed and link it to a cleanup list.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Building a Scalable Event-Driven Architecture Using epoll ...",
+        "url": "https://medium.com/embedworld/building-a-scalable-event-driven-architecture-using-epoll-on-embedded-linux-bfd69fa39eae",
+        "snippet": "",
+        "published_date": "2025-12-27T04:18:15.584Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "Linux::Event::Loop - Linux-native event loop (epoll + timerfd + signalfd + eventfd + pidfd) - metacpan.org",
+        "url": "https://metacpan.org/pod/Linux::Event::Loop",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.42
+      },
+      {
+        "title": "The Event Loop in asyncio: How Python Code Works on Top of Linux Mechanisms | by Stanislav Garanzha | Feb, 2026 | Medium",
+        "url": "https://medium.com/@garanzhasa/the-event-loop-in-asyncio-how-python-code-works-on-top-of-linux-mechanisms-d5d9b8bc4041",
+        "snippet": "",
+        "published_date": "2026-02-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "The method to epoll’s madness",
+        "url": "https://copyconstruct.medium.com/the-method-to-epolls-madness-d9d2d6378642",
+        "snippet": "",
+        "published_date": "2017-10-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "Questions about epoll or linux-aio in seastar",
+        "url": "https://groups.google.com/g/seastar-dev/c/Fgo9eKNklA4",
+        "snippet": "",
+        "published_date": "2021-12-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "linux:  exploit `eventfd` in `EPOLLET` mode to avoid syscall per wakeup · Pull Request #4400 · libuv/libuv",
+        "url": "https://github.com/libuv/libuv/pull/4400",
+        "snippet": "",
+        "published_date": "2024-05-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "kqueue: use EVFILT_USER as wakeup event if available · Pull Request #4330 · libuv/libuv",
+        "url": "https://github.com/libuv/libuv/pull/4330",
+        "snippet": "",
+        "published_date": "2024-02-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "unix: remove busy loop from uv_async_send · Pull Request #3879 · libuv/libuv",
+        "url": "https://github.com/libuv/libuv/pull/3879",
+        "snippet": "",
+        "published_date": "2023-01-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "Teaching Robots how to Drum",
+        "url": "https://atrodo.github.io/teaching_robots_drumming/2019/06/25/experiences-using-libuv-eventfd.html",
+        "snippet": "",
+        "published_date": "2019-06-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "adds check so we only queue one copy of the async wakeup request · Pull Request #1960 · libuv/libuv",
+        "url": "https://github.com/libuv/libuv/pull/1960",
+        "snippet": "",
+        "published_date": "2018-08-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      }
+    ],
+    "tavily": [
+      {
+        "title": "timerfd() and system call review",
+        "url": "https://lwn.net/Articles/245688/",
+        "snippet": "The real solution avoiding timerfd is to write a proper main loop like the ones in glib, Qt, Twisted Python, libevent, etc., that puts timers on a heap.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "Repeating timerfd event works with epoll and not with poll",
+        "url": "https://stackoverflow.com/questions/26304673/repeating-timerfd-event-works-with-epoll-and-not-with-poll",
+        "snippet": "I am implementing a timer using timerfd. This is a relative timer that I just need to repeat forever at the rate it is set to. I want to poll on this event.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "It's essential to understand how an event loop works before ...",
+        "url": "https://news.ycombinator.com/item?id=3116177",
+        "snippet": "| | | |  | | --- | | jrockway on Oct 16, 2011  | parent )   There is some bookkeeping involved when you want IO watchers and timers, but it amounts to a heap for the timers (\"when does the next timer go off?\"), calling select with the timeout set for when the next timer expires, and then updating the timer queue when you wake up (if it's because the timer time arrived, rather than because IO is possible). | | | |  | | --- | | tptacek on Oct 16, 2011  | root | parent | next )   From what I can tell, less than half of all \"evented\" C code gets write events correct. | | | |  | | --- | | justincormack on Oct 16, 2011  | root | parent | prev )   Or you use timerfd(2) and get the kernel to manage the timer heap.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.56
+      },
+      {
+        "title": "A new Event Loop for UNIX operating systems",
+        "url": "https://crystal-lang.org/2024/11/05/lifetime-event-loop/",
+        "snippet": "# A new Event Loop for UNIX operating systems. We’re changing how the event loop operates under the hood on Unix systems in #14996. The new implementation integrates the Crystal event loop directly with system selectors, `epoll` (Linux, Android) and `kqueue` (BSDs, macOS) instead of going through `libevent`. For the time being other UNIX operating systems still use the `libevent` event loop by default (regressions, issues or untested). You can switch back to the old event loop implementation with the compile-time flag `-Devloop=libevent`. The new implementation works well with the multi-threading preview (`-Dpreview_mt`), having one event loop instance per thread. There is one caveat though: file descriptors can only be owned by a single event loop instance *at a time*. A file descriptor *can be moved* from one fiber to another, possibly moving from one event loop instance to another along the way (transparently), but this is only possible if there are no pending operations on that file descriptor.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "Writing a reverse proxy/loadbalancer from the ground up in ...",
+        "url": "https://www.gilesthomas.com/2013/09/writing-a-reverse-proxyloadbalancer-from-the-ground-up-in-c-part-2-handling-multiple-connections-with-epoll",
+        "snippet": "This presumably now makes sense -- we're creating a special handler to handle events on the server socket (that is, the thing that listens for incoming client connections) and we're then adding that to our `epoll` FD, with an event mask that says that we're interested in hearing from it when there's something to read on it (`EPOLLIN`) -- that is, a client connection has come in. We just create a new kind of handler, one for handling events on client sockets, and register it with our `epoll` loop saying that we're interested in events when data comes in, and when the remote end of the connection is closed. The same pattern as before -- create a handler to look after that FD, passing in information for the closure (in this case, just as the client handler needed to know about the backend, the backend needs to know about this client), then we add the handler to the `epoll` event loop, once again saying that we're interested in knowing about incoming data and when the remote end closes the connection.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      },
+      {
+        "title": "[EPUB] libuv API documentation - uvloop",
+        "url": "https://uvloop.readthedocs.io/_/downloads/en/stable/epub/",
+        "snippet": "Full-featured event loop backed by epoll, kqueue, IOCP, event ports. ... uv_async_send (uv_async_t* async). Wakeup the event loop and call the async handle's",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "uv_async_t — Async handle - libuv documentation",
+        "url": "https://docs.libuv.org/en/v1.x/async.html",
+        "snippet": "Async handles allow the user to “wakeup” the event loop and get a callback called from another thread.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.58
+      },
+      {
+        "title": "uv_async_send heavily hurts main thread performance when many ...",
+        "url": "https://github.com/libuv/libuv/issues/1866",
+        "snippet": "The async_send handler on UNIX involves a while loop which iterates over every created uv_async_t handle when a wakeup event is processed,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "libuv - man pages section 1: User Commands - Oracle Help Center",
+        "url": "https://docs.oracle.com/cd/E88353_01/html/E37839/libuv-1.html",
+        "snippet": "+ 7z(1)+ 7za(1)+ 7zr(1)+ a2ps(1)+ a2x(1)+ aafire(1)+ aalib-config(1)+ ab(1)+ accerciser(1)+ accessx(1)+ acctcom(1)+ aclocal-1.16(1)+ acpidump(1)+ acpixtract(1)+ acyclic(1)+ adb(1)+ addbib(1)+ addftinfo(1)+ addr2line(1g)+ admin(1)+ adrci(1)+ afmtodit(1)+ after(1t)+ agentxtrap(1)+ alias(1)+ androiddump(1)+ animate(1)+ annotate(1)+ ansible(1)+ ant(1)+ append(1t)+ apply(1t)+ appres(1)+ apptrace(1)+ apropos(1)+ apxs(1)+ ar(1)+ ar(1g)+ arch(1)+ argc(1t)+ arpaname(1)+ array(1t)+ as(1)+ as(1g)+ asciidoc(1)+ asn1Coding(1)+ asn1Decoding(1)+ asn1parse(1openssl)+ asn1Parser(1)+ aspell-import(1)+ aspell(1)+ at-spi-registryd(1)+ at(1)+ atobm(1)+ atq(1)+ atrm(1)+ audioconvert(1)+ audioctl(1)+ audioplay(1)+ audiorecord(1)+ audiotest(1)+ augparse(1)+ augtool(1)+ auths(1)+ auto\\_ef(1)+ auto\\_execok(1t)+ autoconf-2.13(1)+ autoconf(1)+ autoexpect(1)+ autoheader(1)+ autom4te(1)+ automake-1.16(1)+ autopoint(1)+ autoreconf(1)+ autoscan(1)+ autoupdate(1)+ avahi-browse(1)+ avahi-daemon-bridge-dsd(1)+ avahi-publish(1)+ avahi-resolve(1)+ avahi-set-host-name(1)+ awk(1)+ awk(1)+ awk(1g)+ b2sum(1)+ banner(1)+ baobab(1)+ base32(1)+ base64(1)+ basename(1)+ basename(1g)+ basepods(1)+ bash(1)+ bashbug(1)+ batch(1)+ bc(1)+ bcomps(1)+ bdftogd(1)+ bdftopcf(1)+ bdftruncate(1)+ bdiff(1)+ bell(1t)+ bg(1)+ bgerror(1t)+ binary(1t)+ bind(1t)+ bindtags(1t)+ bison(1)+ bitmap(1)+ bitmap(1t)+ bmtoa(1)+ break(1)+ break(1t)+ brltty(1)+ broadwayd(1)+ bssh(1)+ bugpoint(1)+ builtin(1)+ bunzip2(1)+ busy(1t)+ button(1t)+ bzcat(1)+ bzcmp(1)+ bzdiff(1)+ bzegrep(1)+ bzfgrep(1)+ bzgrep(1)+ bzip2(1)+ bzip2recover(1)+ bzless(1)+ bzmore(1)+ c++filt(1g)+ c\\_rehash(1openssl)+ ca(1openssl)+ CA.pl(1openssl)+ cal(1)+ calendar(1)+ callgrind\\_annotate(1)+ callgrind\\_control(1)+ canberra-gtk-play(1)+ cancel(1)+ canvas(1t)+ capinfos(1)+ card(1)+ card\\_eventmgr(1)+ cargo-bench(1)+ cargo-build(1)+ cargo-check(1)+ cargo-clean(1)+ cargo-doc(1)+ cargo-fetch(1)+ cargo-fix(1)+ cargo-generate-lockfile(1)+ cargo-help(1)+ cargo-init(1)+ cargo-install(1)+ cargo-locate-project(1)+ cargo-login(1)+ cargo-metadata(1)+ cargo-new(1)+ cargo-owner(1)+ cargo-package(1)+ cargo-pkgid(1)+ cargo-publish(1)+ cargo-run(1)+ cargo-rustc(1)+ cargo-rustdoc(1)+ cargo-search(1)+ cargo-test(1)+ cargo-tree(1)+ cargo-uninstall(1)+ cargo-update(1)+ cargo-vendor(1)+ cargo-verify-project(1)+ cargo-version(1)+ cargo-yank(1)+ cargo(1)+ case(1)+ case(1t)+ cat(1)+ cat(1g)+ catch(1t)+ ccache-swig(1)+ ccmake(1)+ ccomps(1)+ ccon(1)+ cd-create-profile(1)+ cd-fix-profile(1)+ cd-it8(1)+ cd(1)+ cd(1t)+ cdc(1)+ cdda2wav(1)+ cdrecord(1)+ cdrw(1)+ cdv(1)+ certtool(1)+ cfgmaker(1)+ cg\\_annotate(1)+ cg\\_diff(1)+ cg\\_merge(1)+ chan(1t)+ charmap(1)+ chdir(1)+ checkbutton(1t)+ checkeq(1)+ checkmk(1)+ checknr(1)+ chem(1)+ chgrp(1)+ chgrp(1g)+ chkey(1)+ chmod(1)+ chmod(1g)+ chown(1)+ chown(1g)+ chroot(1g)+ ciphers(1openssl)+ ciscodump(1)+ cjpeg(1)+ ck-history(1)+ ck-launch-session(1)+ ck-list-sessions(1)+ ckdate(1)+ ckgid(1)+ ckint(1)+ ckitem(1)+ ckkeywd(1)+ ckpath(1)+ ckrange(1)+ ckstr(1)+ cksum(1)+ cksum(1g)+ cktime(1)+ ckuid(1)+ ckyorn(1)+ clang(1)+ clear(1)+ clear(1g)+ clipboard(1t)+ clock(1t)+ close(1t)+ cluster(1)+ clusterssh\\_bash\\_completion.dist(1)+ cmake(1)+ cmap\\_alloc(1)+ cmap\\_compact(1)+ cmp(1)+ cmp(1g)+ cms(1openssl)+ cmtime(1)+ col(1)+ colcrt(1)+ collateindex.pl(1)+ colormgr(1)+ colors(1t)+ colrm(1)+ column(1)+ comb(1)+ combinediff(1)+ comm(1)+ comm(1g)+ command(1)+ comp\\_err(1)+ compare(1)+ composite(1)+ compress(1)+ concat(1t)+ conflict(1)+ conjure(1)+ console(1t)+ constype(1)+ continue(1)+ continue(1t)+ convert(1)+ convmv(1)+ corelist(1)+ coroutine(1t)+ cp(1)+ cp(1g)+ cpack(1)+ cpan(1)+ cpio(1)+ cpp(1)+ cpp(1)+ cputrack(1)+ crl(1openssl)+ crl2pkcs7(1openssl)+ crle(1)+ croco-0.6-config(1)+ crontab(1)+ crsh(1)+ cryptdir(1)+ csftp(1)+ csh(1)+ csplit(1)+ csplit(1g)+ cssh(1)+ csslint-0.6(1)+ ct\\_run(1)+ ctags(1)+ ctags(1g)+ ctel(1)+ ctest(1)+ ctrun(1)+ ctstat(1)+ ctwatch(1)+ cups-config(1)+ cups(1)+ cupstestppd(1)+ curl-config(1)+ curl(1)+ cursors(1t)+ cut(1)+ cut(1g)+ cvs(1)+ cvt(1)+ cvtsudoers(1)+ cwebp(1)+",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "Threads - libuv documentation",
+        "url": "https://docs.libuv.org/en/v1.x/guide/threads.html",
+        "snippet": "So it uses uv_async_send . The async callback, invoked in the main loop thread, which is the v8 thread, then interacts with v8 to invoke the JavaScript callback",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.58
+      },
+      {
+        "title": "The edge-triggered misunderstanding - LWN.net",
+        "url": "https://lwn.net/Articles/865400/",
+        "snippet": "Checking the man page shows that re-arming the fd on EPOLLONESHOT is done via EPOLL_CTL_MOD and not EPOLL_CTL_ADD so the fd remains in the epoll",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "Select(2) is fundamentally broken | Hacker News",
+        "url": "https://news.ycombinator.com/item?id=13332567",
+        "snippet": "This is all possible on Linux today with timerfd [0] and eventfd [1]. ... When you use epoll in edge-triggered mode it returns and reports a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.59
+      },
+      {
+        "title": "Simplyfile - Gottlieb+Freitag",
+        "url": "https://gottliebtfreitag.de/blog/2019/08/09/Simplyfile.html",
+        "snippet": "You can use file descriptors to realize communications (sockets), semaphores (eventfd), timers (timerfd) and many other things. A `read` (with a buffer of the appropriate size) on the file descriptor will return how often the timer expired. Epoll is very similar to poll as it allows monitoring of multiple file descriptors. Anyways, simplyfile comes with convenience functions for all file types it wraps and should allow for a significant decrease in boilerplate file descriptor related code and the certainty of not leaking resources. What remained to be implemented was to have the wrapper manage an `std::map` to remember the association of file descriptors to callbacks. simplyfile:: ServerSocket ss{simplyfile:: makeUnixDomainHost(\"mysock\")}; simplyfile:: Epoll epoll; std:: map< int, simplyfile:: ClientSocket> clients; bool work{true}; epoll. If no threads are waiting but an edge happens, then the next call to `epoll_wait` will return the file descriptor where that edge occurred. Some file descriptors exhibit special behaviors when used with epoll.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      },
+      {
+        "title": "epoll(7) - Linux manual page - man7.org",
+        "url": "https://man7.org/linux/man-pages/man7/epoll.7.html",
+        "snippet": "| NAME | SYNOPSIS | DESCRIPTION | VERSIONS | STANDARDS | HISTORY | NOTES | SEE ALSO | COLOPHON |. The suggested way to use epoll as an edge-triggered (EPOLLET) interface is as follows: (1) with nonblocking file descriptors; and (2) by waiting for an event only after read(2) or write(2) return EAGAIN. • Can two epoll instances wait for the same file descriptor? If so, are events reported to both epoll file descriptors? Yes. If an epoll file descriptor has events waiting, then it will indicate as being readable. Receiving an event from epoll_wait(2) should suggest to you that such file descriptor is ready for the requested I/O operation. One solution for this is to call, during the processing of event 47, epoll_ctl(EPOLL_CTL_DEL) to delete file descriptor 13 and close(2), then mark its associated data structure as removed and link it to a cleanup list.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "Learning to use epoll, maybe a little confused - Reddit",
+        "url": "https://www.reddit.com/r/learnprogramming/comments/1bvdt2u/learning_to_use_epoll_maybe_a_little_confused/",
+        "snippet": "Why does epoll not update my thread for any EPOLLOUT events? You are using epoll in edge triggered mode ( EPOLLET ). This means that you",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.53
+      }
+    ],
+    "grok": []
+  }
+}
