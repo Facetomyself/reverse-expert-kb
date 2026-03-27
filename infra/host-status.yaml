@@ -37,6 +37,7 @@ hosts:
       - host is now the lightweight `oracle-gateway` and remains a small-footprint box with low free RAM and some swap use
       - old mixed registry / Harbor runtime residue was removed on 2026-03-25 so the host can stay focused on gateway duties
       - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.116.171.76`
+      - 2026-03-27 validated a reusable but normally-disabled temporary upload pattern on `backup.zhangxuemin.work`: browser Basic Auth popup via Caddy in front of a localhost Python upload backend; route was removed again after transfer and host-side notes remain under `~/.tmp-upload-gateway/`
       - currently serves as the main connectivity reference point for tailnet validation against the other hosts
 
   - name: ali-cloud

@@ -64,8 +64,27 @@ Observed on-host listeners / mapping:
 - After cleanup, the previously stale public names (`ui`, `hubcmd`, `gcr`, `k8sgcr`, `quay`, `elastic`, `nvcr`) are no longer routed by Caddy on this host.
 - `k8s.zhangxuemin.work` was briefly in an internal-only / no-public-DNS intermediate state during the cleanup, but DNS was added later on 2026-03-21 and the public route now resolves correctly to this host.
 
-## 4. To Be Confirmed
-- what exact intended purpose `backup.zhangxuemin.work` now serves on this host (it is intentionally pointed at this public IP and reaches Caddy over HTTP, but is not yet documented as an active HTTPS application route)
-- whether `backup.zhangxuemin.work` should later get its own explicit Caddy site block / certificate path / backend mapping
-- exact data volumes for each registry proxy
-- any nginx/traefik/cloudflared involvement behind or alongside Caddy
+## 4. Current confirmed gateway exposure
+Read-only SSH validation on 2026-03-26 confirmed the live public surface is now intentionally simple:
+- `backup.zhangxuemin.work` is the active public gateway domain on this host
+- host `caddy` is active and listening on TCP `80/443`
+- `caddy validate --config /etc/caddy/Caddyfile` returned `Valid configuration`
+- Hysteria is the only active containerized service and is listening on UDP `443`
+- Tailscale remains joined with IPv4 `100.116.171.76`
+- 2026-03-27 note: a temporary HTTPS upload route `/tmp-upload/` was briefly enabled on `backup.zhangxuemin.work` using Caddy `basic_auth` + reverse proxy to a localhost Python backend on `127.0.0.1:18081`; after file transfer it was intentionally removed and the current public surface returned to the baseline route set above
+
+## 5. Reusable temporary upload pattern
+A validated ad-hoc upload pattern now exists for this host when the user needs browser-based file transfer without SSH on the sender side:
+- front door: `backup.zhangxuemin.work`
+- auth UX: browser-native HTTP Basic Auth popup
+- Caddy path route: `/tmp-upload/`
+- backend shape: local Python upload app bound to `127.0.0.1:18081`
+- retained host-side notes/scripts: `~/.tmp-upload-gateway/`
+- retained upload directory from the 2026-03-27 run: `~/tmp-upload-drop`
+
+This pattern should be treated as reusable but normally disabled; only re-enable it for explicit short-lived transfer windows, then remove the public route afterward.
+
+## 6. To Be Confirmed
+- whether `backup.zhangxuemin.work` should later gain additional routed content beyond the current Clash Verge config distribution path
+- exact long-term retention expectations for any future gateway-side config artifacts
+- any future nginx/traefik/cloudflared involvement if the host role expands again

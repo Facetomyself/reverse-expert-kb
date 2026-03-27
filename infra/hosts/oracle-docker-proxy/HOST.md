@@ -18,13 +18,14 @@
 
 ## 3. Usage Pattern
 - Host style: small-footprint long-lived utility host
-- Change sensitivity: high; public registry proxy domains share the same front door and low-resource box
-- Operational preference: 保持运行面精简，优先只保留确实在用的 registry backends，避免再把杂项 UI 或重型服务堆回这台机器
+- Change sensitivity: medium-high; this is now a focused public gateway box with limited RAM, so avoid piling unrelated services back onto it
+- Operational preference: 保持运行面精简，优先只保留确实在用的网关/分发组件，避免再把杂项 UI 或重型服务堆回这台机器
 
 ## 4. Access Notes
 - Main SSH alias: `oracle-gateway`
 - Expected user: `root`
 - Tailnet IPv4: `100.116.171.76` (joined 2026-03-25)
+- Tailscale-visible raw hostname currently remains `24-7-10-2055`; operationally this host should be treated as semantic identity `oracle-gateway`
 - Useful first checks:
   ```bash
   ssh oracle-gateway
@@ -45,14 +46,15 @@ Historical / inactive footprints:
 - old registry and Harbor residual files were permanently deleted on 2026-03-25 per user instruction
 
 ## 6. Machine-Level Infrastructure Notes
-- current listener set is intentionally narrow: public `80/443`, SSH, rpcbind, plus the four local registry backend ports
-- recurring checks on 2026-03-20, 2026-03-21, and 2026-03-23 all show the same reduced four-container runtime
+- current listener set is intentionally narrow: public `80/443`, UDP `443` for Hysteria, SSH, rpcbind, Caddy admin on `127.0.0.1:2019`, plus Tailscale listeners
+- recurring 2026-03-26 check showed the expected focused runtime only: one `hysteria` container, host `caddy`, idle load, `32G` free on root, and light swap use (`91Mi / 2.0Gi`)
 - memory remains the main caution on this host: it is stable, but still a small box with limited free RAM and light swap use
-- current runtime no longer matches the earlier broader historical DNS surface; docs should treat the reduced registry set as the authoritative live role
+- current runtime should be treated as gateway-only; the older registry-proxy surface is now historical rather than live
+- a temporary browser-authenticated upload channel was successfully staged here on 2026-03-27 using host Caddy + a localhost Python backend, then intentionally removed after file transfer; reusable host-side notes/scripts were retained under `~/.tmp-upload-gateway/` and uploaded payloads remained under `~/tmp-upload-drop`
 
 ## 7. Documentation Scope
 This host's docs should focus on:
-- the live reduced registry-proxy runtime
-- Caddy hostname -> localhost backend mappings
+- the live Hysteria gateway runtime
+- Caddy-delivered config/front-door behavior on `backup.zhangxuemin.work`
 - low-memory operational constraints
-- the distinction between active custom registry proxies and inactive Harbor / removed UI residue
+- the distinction between the current gateway role and the now-retired registry/Harbor history
