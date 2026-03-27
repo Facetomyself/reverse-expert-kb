@@ -259,3 +259,120 @@ Before redeploying this service, inspect `docker-compose.yml` + current containe
 - Related Files: /root/.openclaw/workspace/TOOLS.md
 
 ---
+## [ERR-20260326-INFRA-PUSH-RACE] infra_git_sync
+
+**Logged**: 2026-03-26T00:35:00Z
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+`infra/bin/sync-infra.sh` push was rejected because remote `main` advanced unexpectedly before push.
+
+### Error
+```
+To https://github.com/Facetomyself/openclaw-infra.git
+ ! [remote rejected] main -> main (cannot lock ref refs/heads/main: is at de32e453a273b8990e6b899536569637c5591666 but expected bfb499abbe872230d1d69d1ee8ad27503caa7d0b)
+error: failed to push some refs to https://github.com/Facetomyself/openclaw-infra.git
+```
+
+### Context
+- Local commit succeeded in `/root/.openclaw/workspace/infra`
+- Failure happened during the sync step
+- Safe recovery path is `git fetch` + inspect + `git pull --rebase` (or explicit rebase) + push
+
+### Suggested Fix
+Harden infra sync workflow so remote-fast-forward races are handled explicitly and reported as sync-pending rather than silently implying completion.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: /root/.openclaw/workspace/infra/.git
+- See Also: none
+
+---
+## [ERR-20260326-001] cf_refresh browser label breaks reverse impersonation
+
+**Logged**: 2026-03-26T13:02:00+08:00
+**Priority**: high
+**Status**: pending
+**Area**: backend
+
+### Summary
+`cf_refresh.refresh_once()` wrote solver-reported `browser=camoufoxcustom` into runtime config, but `curl_cffi` does not support impersonating that label, causing reverse requests to fail locally before reaching upstream.
+
+### Error
+```
+curl_cffi.requests.exceptions.ImpersonateError: Impersonating camoufoxcustom is not supported
+```
+
+### Context
+- Operation: refresh solver-derived Cloudflare clearance and then reuse it in reverse requests
+- Project: `/root/grok2api`
+- Affected path: `app/services/cf_refresh/scheduler.py` writing `proxy.browser` directly from solver output
+- Solver could successfully return `cf_clearance/cookies/user_agent/browser`, and `refresh_once()` successfully updated config, but subsequent reverse requests crashed because `proxy.browser` became `camoufoxcustom`.
+
+### Suggested Fix
+Do not overwrite runtime `proxy.browser` with solver-local labels unsupported by `curl_cffi` (e.g. `camoufoxcustom`). Keep writing `cf_clearance/cf_cookies`; only write browser when it is a known supported impersonation profile or map it explicitly.
+
+### Metadata
+- Reproducible: yes
+- Related Files: app/services/cf_refresh/scheduler.py, app/services/reverse/utils/session.py
+
+---
+
+## [ERR-20260327-001] sh-vs-bash-pipefail
+
+**Logged**: 2026-03-27T02:32:47.903181+00:00
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+Local exec command failed because the default shell is `sh`, but the script assumed bash-only `set -o pipefail` support.
+
+### Error
+```
+/bin/sh: 1: set: Illegal option -o pipefail
+```
+
+### Context
+- Operation: build a Linux-localized Codex config bundle from uploaded files
+- Cause: used bash-specific shell options without invoking `bash -lc` explicitly
+
+### Suggested Fix
+When a command relies on bash features in this workspace, wrap it with `bash -lc` instead of assuming `/bin/sh` compatibility.
+
+### Metadata
+- Reproducible: yes
+- Related Files: .learnings/ERRORS.md
+
+---
+
+## [ERR-20260327-002] oracle-new2-mcp-bootstrap
+
+**Logged**: 2026-03-27T02:58:18.848957+00:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Bulk MCP bootstrap on oracle-new2 failed after DrissionPageMCP dependency install, likely during Chromium debug-profile startup or subsequent MCP registration steps.
+
+### Error
+```
+Composite remote bootstrap command exited with code 1 after uv sync completed.
+```
+
+### Context
+- Host: oracle-new2
+- Completed: uv install, DrissionPageMCP_rebuild uv sync
+- Pending/failing area: browser debug endpoints / codex mcp add chain
+
+### Suggested Fix
+Break the bootstrap into smaller remote checks: verify each debug port starter individually, then add MCP servers one by one.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: .learnings/ERRORS.md
+
+---

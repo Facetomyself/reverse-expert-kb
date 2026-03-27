@@ -52,3 +52,19 @@
   - `~/bin/js-reverse-mcp-run`
   - `~/bin/js-reverse-mcp-smoke`
 - Deployment notes for that project live at `~/js-reverse-mcp/.deploy/README.md` on the remote host.
+- Codex on this host was later localized into a Linux-first `~/.codex` layout and trimmed to a smaller active MCP set rather than carrying over the full Windows-oriented setup.
+- Current enabled Codex MCP servers on this host are:
+  - `DrissionPageMCP` → `uv --directory /home/ubuntu/DrissionPageMCP_rebuild run main.py`
+  - `Playwright` → `npx -y @playwright/mcp@latest --cdp-endpoint http://127.0.0.1:9224`
+  - `context7` → `npx -y @upstash/context7-mcp --api-key ...`
+  - `js-reverse` → `~/bin/js-reverse-mcp-run --browserUrl http://127.0.0.1:9222`
+  - `shrimp-task-manager` → `npx -y mcp-shrimp-task-manager`
+- To support those MCPs on a headless server, reusable Chromium remote-debug wrappers were added on-host:
+  - `~/.local/bin/start-chromium-9222`
+  - `~/.local/bin/start-chromium-9223`
+  - `~/.local/bin/start-chromium-9224`
+- The Chromium debug profiles are intentionally rooted under snap-compatible paths:
+  - `~/snap/chromium/common/chrome-js-reverse`
+  - `~/snap/chromium/common/chrome-mcp-dp`
+  - `~/snap/chromium/common/chrome-mcp-pw`
+- The imported Codex skills/prompts set was also pruned so entries that explicitly depended on undeployed MCP stacks (for example autoproxy/search-layer/markmap-related pieces) were removed instead of being left as dead routing noise.

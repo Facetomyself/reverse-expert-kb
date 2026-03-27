@@ -130,6 +130,8 @@ hosts:
       - 2026-03-26 recurring check reconfirmed the host remains intentionally mostly idle with no running containers and only SSH publicly exposed
       - 2026-03-27 validation confirmed the host can run `js-reverse-mcp` in a minimal headless shape using local Node.js 22 + Chromium snap with `--executablePath=/snap/bin/chromium`
       - helper launchers now exist on-host at `~/bin/js-reverse-mcp-run` and `~/bin/js-reverse-mcp-smoke`; current shape is preserved as an on-demand stdio MCP process rather than a public network service
+      - 2026-03-27 Codex on this host was trimmed to an active Linux MCP set of `DrissionPageMCP`, `Playwright`, `context7`, `js-reverse`, and `shrimp-task-manager`
+      - 2026-03-27 headless Chromium debug launchers for ports `9222` / `9223` / `9224` were validated using snap-compatible profiles under `~/snap/chromium/common/`
       - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
 
   - name: oracle-open_claw
