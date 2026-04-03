@@ -54,7 +54,7 @@ or should I stop reducing and preserve one truthful black-box request path?
 That decision is valuable because many iOS signing cases are dominated less by the final crypto primitive than by one small family of boundary problems:
 - Objective-C / Swift wrapper canonicalization before the native helper
 - request/body/header normalization immediately before `NSMutableURLRequest` or task creation
-- one nonce/timestamp/session seed pulled from local state or keychain-backed context
+- one nonce/timestamp/session seed pulled from local state or keychain-backed context (see also: `topics/ios-keychain-item-retrieval-to-request-signing-owner-workflow-note.md`)
 - one init/runtime-table/image-local artifact needed to make a nearly-correct helper truthful
 - one request family where in-app black-box replay is already cheaper than extracting a standalone signer
 

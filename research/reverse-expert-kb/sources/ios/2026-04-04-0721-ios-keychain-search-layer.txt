@@ -1,0 +1,41 @@
+Reverse KB autosync — search-layer raw trace (iOS keychain seam)
+Date: 2026-04-04 07:21 Asia/Shanghai / 2026-04-03 23:21 UTC
+
+Command:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py \
+  --queries \
+    "iOS Keychain SecItemCopyMatching reverse engineering request signing token boundary" \
+    "Apple Keychain Services SecItemCopyMatching SecItemAdd access groups documentation" \
+    "iOS keychain token retrieval request signing reverse engineering" \
+  --mode deep \
+  --intent exploratory \
+  --source exa,tavily,grok \
+  --num 5
+
+Follow-up command:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py \
+  --queries \
+    "Apple Security framework SecItemCopyMatching kSecReturnData kSecMatchLimit documentation" \
+    "iOS keychain access groups team ID Apple docs" \
+    "SecItemCopyMatching reverse engineering keychain token retrieval practical" \
+  --mode deep \
+  --intent exploratory \
+  --source exa,tavily,grok \
+  --num 5
+
+Observed:
+- Exa: returned results
+- Tavily: returned results
+- Grok: invoked; returned empty set; tool printed 502 Bad Gateway proxy errors
+
+High-signal anchors (titles/URLs):
+- Searching for keychain items | Apple Developer Documentation
+  https://developer.apple.com/documentation/security/searching-for-keychain-items
+- SecItemCopyMatching(_:_:) | Apple Developer Documentation
+  https://developer.apple.com/documentation/security/secitemcopymatching(_:_:)
+- kSecReturnData | Apple Developer Documentation
+  https://developer.apple.com/documentation/security/ksecreturndata
+- kSecMatchLimit | Apple Developer Documentation
+  https://developer.apple.com/documentation/security/ksecmatchlimit
+- Keychain access groups entitlement | Apple Developer Documentation
+  https://developer.apple.com/documentation/bundleresources/entitlements/keychain-access-groups
