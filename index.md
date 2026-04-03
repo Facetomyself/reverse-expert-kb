@@ -281,6 +281,7 @@ This branch should now be read as a practical bridge from runtime-evidence synth
 - `topics/malware-service-servicemain-consumer-proof-workflow-note.md`
 - `topics/malware-service-failure-action-and-timeout-abuse-workflow-note.md`
 - `topics/malware-bits-job-persistence-consumer-proof-workflow-note.md`
+- `topics/malware-appinit-dlls-consumer-proof-workflow-note.md`
 - `topics/malware-wmi-permanent-event-subscription-consumer-proof-workflow-note.md`
 - `topics/malware-com-clsid-hijack-consumer-proof-workflow-note.md`
 
