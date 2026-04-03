@@ -14,6 +14,7 @@ Related pages:
 - topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md
 - topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md
 - topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md
+- topics/ios-keychain-item-retrieval-to-request-signing-owner-workflow-note.md
 - topics/ios-block-callback-landing-and-signature-recovery-workflow-note.md
 - topics/ios-mitigation-aware-replay-repair-workflow-note.md
 - topics/ios-swift-concurrency-continuation-to-policy-workflow-note.md
