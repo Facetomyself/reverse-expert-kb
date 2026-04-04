@@ -32,7 +32,7 @@ hosts:
           compose_paths: [/root/OpenAi/docker-compose.yml]
           status: archive
 
-  oracle-docker-proxy:
+  oracle-gateway:
     documented_projects:
       - name: Hysteria gateway
         match:
@@ -80,14 +80,14 @@ hosts:
           paths: [/root/moemail]
           status: retired
 
-  oracle-new1:
+  oracle-registry:
     documented_projects:
       - name: Registry front door
         match:
           systemd: [caddy.service]
           infra_only: true
 
-  oracle-new2:
+  oracle-reverse-dev:
     documented_projects:
       - name: js-reverse-mcp helper
         match:

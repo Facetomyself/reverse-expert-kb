@@ -35,33 +35,33 @@ hint_rules:
   reg-:
     normalize_to: registry-runtime
     suppress_on_hosts:
-      - oracle-docker-proxy
+      - oracle-gateway
 
   harbor:
     suppress_stale_on_hosts:
-      - oracle-docker-proxy
+      - oracle-gateway
 
   registry-ui:
     suppress_stale_on_hosts:
-      - oracle-docker-proxy
+      - oracle-gateway
 
   hubcmd:
     suppress_stale_on_hosts:
-      - oracle-docker-proxy
+      - oracle-gateway
 
   registry:
     suppress_stale_on_hosts:
-      - oracle-docker-proxy
+      - oracle-gateway
 
   derper:
     treat_as_infra_service: true
     suppress_stale_on_hosts:
-      - oracle-docker-proxy
+      - oracle-gateway
 
   hysteria:
     treat_as_infra_service: true
     suppress_stale_on_hosts:
-      - oracle-docker-proxy
+      - oracle-gateway
 
   rbot:
     treat_as_infra_service: true

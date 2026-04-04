@@ -11,7 +11,7 @@ auto_remediation:
       - /root/tavily-key-generator/proxy
       - /root/tavily-key-generator
 
-  oracle-docker-proxy:
+  oracle-gateway:
     systemd:
       - caddy
       - derper
@@ -34,13 +34,13 @@ auto_remediation:
     compose_projects:
       - /opt/outlook-email-plus
 
-  oracle-new1:
+  oracle-registry:
     systemd:
       - caddy
     containers: []
     compose_projects: []
 
-  oracle-new2:
+  oracle-reverse-dev:
     systemd: []
     containers: []
     compose_projects: []

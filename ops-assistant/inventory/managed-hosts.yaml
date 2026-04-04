@@ -19,7 +19,7 @@ hosts:
       - grok-related-services
       - cli-proxy
 
-  - name: oracle-docker-proxy
+  - name: oracle-gateway
     ssh_alias: oracle-gateway
     enabled: true
     check_profile: remote-core
@@ -48,7 +48,7 @@ hosts:
       - web-app-host
       - archived-mail-stack-footprints
 
-  - name: oracle-new1
+  - name: oracle-registry
     ssh_alias: oracle-registry
     enabled: true
     check_profile: remote-standard
@@ -58,13 +58,14 @@ hosts:
       - ubuntu-arm-host
       - tailnet-member
 
-  - name: oracle-new2
-    ssh_alias: oracle-new2
+  - name: oracle-reverse-dev
+    ssh_alias: oracle-reverse-dev
     enabled: true
     check_profile: remote-standard
     alert_profile: standard
     expected_roles:
       - utility-worker-host
+      - reverse-development-host
       - ubuntu-arm-host
       - tailnet-member
 
