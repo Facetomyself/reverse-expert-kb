@@ -20,7 +20,7 @@ hosts:
       - cli-proxy
 
   - name: oracle-docker-proxy
-    ssh_alias: oracle-docker_proxy
+    ssh_alias: oracle-gateway
     enabled: true
     check_profile: remote-core
     alert_profile: core

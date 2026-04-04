@@ -17,6 +17,7 @@
   - 在 `ali-cloud` / `oracle-proxy` 上优先视为机器级基础设施，不作为项目漂移噪声
 
 - `oracle-docker-proxy`:
+  - SSH identity has moved to semantic alias `oracle-gateway`; do not keep probing stale local alias `oracle-docker_proxy` as the primary reachability path.
   - `harbor` / `hubcmd` / `registry` / `registry-ui` 当前先作为已知待细化映射，不在首版中反复告警
 
 ## Principle
