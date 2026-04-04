@@ -59,3 +59,9 @@ This host should document:
 - 1Panel itself as the machine control plane
 - EasyImages app deployment under 1Panel
 - standalone camoufox remote service
+
+## 8. Operational posture update (2026-04-04)
+- `hub.zhangxuemin.work` still exists as a self-hosted Docker Hub proxy front door, but it should no longer be treated as a life-support dependency for Docker pulls.
+- Same-day deep-dive confirmed selected Docker Hub blobs could still fail with `blob unknown` even when the mirror returned healthy `/v2/` and manifest responses, and even after isolating Docker Hub onto a fresh dedicated cache directory.
+- Preferred dependable path on this host is now: official registries over the local Hysteria SOCKS5 proxy at `127.0.0.1:18080`.
+- Treat the self-hosted Docker Hub mirror as optional acceleration only.

@@ -59,10 +59,12 @@ Confirmed on 2026-04-04:
   - `HTTP_PROXY=socks5://127.0.0.1:18080`
   - `HTTPS_PROXY=socks5://127.0.0.1:18080`
   - `NO_PROXY=localhost,127.0.0.1,::1`
+- Docker daemon no longer treats `hub.zhangxuemin.work` as a required registry mirror; same-day follow-up removed `registry-mirrors` from `/etc/docker/daemon.json` after validation showed the mirror could return manifests while still failing some Docker Hub blobs with `blob unknown`
 
 Operational implication:
-- Docker pulls on this host now rely on the local Hysteria SOCKS5 path to reach unstable foreign registry endpoints
-- this was validated with successful pulls for both `hello-world` and `tobyxdd/hysteria:latest`
+- Docker pulls on this host now rely primarily on the local Hysteria SOCKS5 path to reach official foreign registry endpoints
+- `hub.zhangxuemin.work` is now considered an optional accelerator only, not a life-support dependency
+- this primary path was validated with successful pulls for `hello-world`, `tobyxdd/hysteria:latest`, and post-cutover repulls of `busybox` plus `hello-world`
 
 ## 6. sing-box gateway ingress (first public transit entrypoint)
 Confirmed on 2026-04-04:
@@ -108,6 +110,7 @@ Validated consumer pattern:
 Current role interpretation:
 - this host now acts as a practical first-pass China-side transit gateway into Oracle-side egress
 - present stable shape is: public DNS helper (`1053`) + public explicit proxies (`2080` / `2081`) + local Oracle-side Hysteria egress (`127.0.0.1:18080`)
+- for Docker on this host, the primary dependable path is now official registries over the local Hysteria proxy, not the self-hosted Docker Hub mirror
 - current shape is still explicit-proxy ingress, not transparent routing / subnet routing / full gateway mode yet
 
 ## Next operational step
