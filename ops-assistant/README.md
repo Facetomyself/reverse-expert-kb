@@ -28,7 +28,13 @@
 - `runbooks/`：故障手册 / 自愈策略
 - `reports/`：周期巡检输出
 - `alerts/`：告警策略与模板
-- `state/`：运行状态、上次检查时间、指纹缓存
+- `state/`：运行状态、上次检查时间、指纹缓存（运行态目录，默认不入 Git）
 - `proposals/`：待人工确认的变更建议
 
 详细方案见 `docs/ops-assistant-design-v1.md`。
+
+## Git hygiene
+
+- `reports/` 下的有意义 Markdown 报告可以提交。
+- `state/` 下的运行态文件（`last-run.json`、stdout/stderr、cron log、alert state 等）默认不提交。
+- `reports/` 顶层的临时 `.log` 产物默认不提交。

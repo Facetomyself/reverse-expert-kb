@@ -1,0 +1,12 @@
+# Runtime state / transient outputs
+state/*
+!state/.gitkeep
+
+# Top-level transient run logs under reports/
+reports/*.log
+
+# Common transient stderr/stdout artifacts if they ever escape dated folders
+reports/**/*.stderr
+reports/**/*.stdout
+
+# Keep committed documentation and dated markdown reports by default
