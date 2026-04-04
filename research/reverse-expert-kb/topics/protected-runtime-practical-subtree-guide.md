@@ -395,6 +395,7 @@ Routing reminder:
 - keep the smaller stop rule visible: `raw_entry != pre_entry_startup != unpack_transfer != payload_handoff != consumed`
 
 Possible next handoff:
+- `topics/tls-callback-to-first-payload-consumer-workflow-note.md` when the broad packed/startup handoff is already reduced enough and the remaining ambiguity is specifically whether one TLS callback still owns startup work or whether payload-bearing code begins one hop later
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md` when unpacking is solved but later protected execution still dominates
 - `topics/native-semantic-anchor-stabilization-workflow-note.md` when the post-unpack region is readable but semantically slippery
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md` when the handoff yields one readable artifact whose first consumer is still unclear
