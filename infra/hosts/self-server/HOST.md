@@ -1,0 +1,30 @@
+# self-server / HOST
+
+## Identity
+- Name: `self-server`
+- Provider: unknown / domestic-hosting-side machine
+- Public IP: `211.144.221.229`
+- SSH aliases:
+  - `self-server` -> preferred OpenClaw-side access path via `ali-cloud` jump host
+  - `self-server-direct` -> direct probe path from the local OpenClaw host
+- Default SSH user: `root`
+
+## Access
+- Confirmed SSH port from user on 2026-04-04: `44001`
+- Authentication mode currently expected: password auth
+- Credential handling note: password was user-provided in chat context on 2026-04-04 but is intentionally **not** stored in `infra/`
+
+## Reachability notes
+Observed on 2026-04-04:
+- direct probe from the current OpenClaw host to `211.144.221.229:44001` still timed out
+- TCP probe from `ali-cloud` to `211.144.221.229:44001` succeeded
+- short banner probe from `ali-cloud` did not receive a prompt/banner within the small timeout window, so the target is not yet fully characterized, but it is clearly more reachable via `ali-cloud` than from the current OpenClaw host
+
+## Operational interpretation
+- Treat `ali-cloud` as the preferred China-side transit point when testing or using this host from the current environment
+- The local SSH config now reflects that preference by making `self-server` use `ProxyJump ali-cloud`
+- `self-server-direct` is preserved for direct-path diagnostics
+
+## Next checks
+- perform a full interactive SSH login from `ali-cloud` transit path to confirm server identity and shell responsiveness
+- once confirmed, add system baseline, role, and any project/network notes under this host directory

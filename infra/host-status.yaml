@@ -87,13 +87,15 @@ hosts:
     ssh_alias: self-server
     ip: 211.144.221.229
     lifecycle: unknown
-    reachability: unreachable_from_openclaw
+    reachability: transit_preferred_via_ali_cloud
     importance: tier3
     roles:
       - china-server
     notes:
-      - TCP and SSH timeout observed on 2026-03-15
-      - likely network path / target availability issue, not SSH key mismatch
+      - direct path from the current OpenClaw host still timed out during both the older 2026-03-15 probe and the refreshed 2026-04-04 probe
+      - user clarified on 2026-04-04 that the likely active SSH entrypoint is `root@211.144.221.229:44001`
+      - same-day TCP probe from `ali-cloud` to `211.144.221.229:44001` succeeded, so this host now prefers China-side transit via `ali-cloud` rather than direct access from the current OpenClaw host
+      - password authentication is expected, but the password is intentionally not stored in `infra/`
 
   - name: oracle-new1
     provider: oracle

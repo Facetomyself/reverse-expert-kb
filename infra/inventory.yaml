@@ -16,37 +16,32 @@ hosts:
       network: infra/hosts/oracle-proxy/NETWORK.md
       projects: infra/hosts/oracle-proxy/PROJECTS.md
 
-  - name: oracle-docker-proxy
+  - name: oracle-gateway
     ssh_alias: oracle-gateway
     provider: oracle
     role:
       - gateway-host
       - hysteria-relay
+      - derp-host
       - fallback-legacy-registry-host
     public_ip: 129.150.61.78
     domains:
       - backup.zhangxuemin.work
-      - hub.zhangxuemin.work
-      - ghcr.zhangxuemin.work
-      - k8s.zhangxuemin.work
-      - mcr.zhangxuemin.work
+      - derp.zhangxuemin.work
     docs:
-      host: infra/hosts/oracle-docker-proxy/HOST.md
-      network: infra/hosts/oracle-docker-proxy/NETWORK.md
-      projects: infra/hosts/oracle-docker-proxy/PROJECTS.md
+      host: infra/hosts/oracle-gateway/HOST.md
+      network: infra/hosts/oracle-gateway/NETWORK.md
+      projects: infra/hosts/oracle-gateway/PROJECTS.md
 
   - name: oracle-mail
     ssh_alias: oracle-mail
     provider: oracle
     role:
-      - mail-host
-      - dormant-mailu-deployment
-      - moemail-working-tree
+      - web-app-host
+      - archived-mail-stack-footprints
     public_ip: 140.83.52.216
     domains:
       - mail.zhangxuemin.work
-      - autoconfig.zhangxuemin.work
-      - autodiscover.zhangxuemin.work
       - dreamhorse.eu.cc
       - www.dreamhorse.eu.cc
       - zhangxuemin.eu.cc
@@ -72,7 +67,7 @@ hosts:
       network: infra/hosts/ali-cloud/NETWORK.md
       projects: infra/hosts/ali-cloud/PROJECTS.md
 
-  - name: oracle-new1
+  - name: oracle-registry
     ssh_alias: oracle-registry
     provider: oracle
     role:
@@ -82,19 +77,34 @@ hosts:
     public_ip: 140.245.33.114
     domains: []
     docs:
-      host: infra/hosts/oracle-new1/HOST.md
+      host: infra/hosts/oracle-registry/HOST.md
+      network: infra/hosts/oracle-registry/NETWORK.md
+      projects: infra/hosts/oracle-registry/PROJECTS.md
 
-  - name: oracle-new2
-    ssh_alias: oracle-new2
+  - name: oracle-reverse-dev
+    ssh_alias: oracle-reverse-dev
     provider: oracle
     role:
       - utility-worker-host
+      - reverse-development-host
       - ubuntu-arm-host
       - tailnet-member
     public_ip: 140.245.61.236
     domains: []
     docs:
-      host: infra/hosts/oracle-new2/HOST.md
+      host: infra/hosts/oracle-reverse-dev/HOST.md
+      projects: infra/hosts/oracle-reverse-dev/PROJECTS.md
+
+  - name: self-server
+    ssh_alias: self-server
+    provider: unknown
+    role:
+      - china-server
+      - prefers-ali-cloud-transit
+    public_ip: 211.144.221.229
+    domains: []
+    docs:
+      host: infra/hosts/self-server/HOST.md
 
   - name: home
     ssh_alias: home
