@@ -72,6 +72,7 @@ Confirmed on 2026-04-04:
 - config file: `/opt/sing-box-gateway/config.json`
 - systemd wrapper: `sing-box-gateway.service`
 - container name: `sing-box-gateway`
+- image pinned by digest: `ghcr.io/sagernet/sing-box@sha256:8772c662c8e349d3afb0c233ccc3864d7df69ce840d5aa25db4c248d5bcb44f7`
 - public SOCKS5 listener: `0.0.0.0:2080`
 - public HTTP proxy listener: `0.0.0.0:2081`
 - upstream outbound target: local Hysteria SOCKS5 at `127.0.0.1:18080`
