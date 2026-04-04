@@ -170,8 +170,8 @@ Priority 2 candidates include:
 - `topics/native-window-creation-and-subclass-first-consumer-workflow-note.md`
 - `topics/native-inotify-fanotify-first-event-consumer-workflow-note.md`
 - `topics/native-wait-object-and-threadpool-wait-first-consumer-workflow-note.md`
-- `topics/native-timer-queue-and-threadpool-timer-first-consumer-workflow-note.md
-- `topics/native-apc-alertable-wait-first-consumer-workflow-note.md
+- `topics/native-timer-queue-and-threadpool-timer-first-consumer-workflow-note.md`
+- `topics/native-apc-alertable-wait-first-consumer-workflow-note.md`
 - `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md`
 - `topics/decompilation-and-code-reconstruction.md`
 
@@ -220,7 +220,7 @@ This branch should now be read as a practical bridge from baseline native synthe
 - `topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md`
 - `topics/protocol-websocket-upgrade-to-first-framed-consumer-workflow-note.md`
 - `topics/protocol-windows-rpc-binding-authinfo-and-context-lineage-workflow-note.md`
-- `topics/protocol-content-pipeline-recovery-workflow-note.md
+- `topics/protocol-content-pipeline-recovery-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
@@ -296,7 +296,7 @@ This branch should now be read as a practical bridge from runtime-evidence synth
 - `topics/malware-bits-job-persistence-consumer-proof-workflow-note.md`
 - `topics/malware-systemd-service-and-timer-consumer-proof-workflow-note.md`
 - `topics/malware-appinit-dlls-consumer-proof-workflow-note.md`
-- `topics/malware-wmi-permanent-event-subscription-consumer-proof-workflow-note.md
+- `topics/malware-wmi-permanent-event-subscription-consumer-proof-workflow-note.md`
 - `topics/malware-com-clsid-hijack-consumer-proof-workflow-note.md`
 
 The persistence-consumer step now explicitly includes thinner startup-side families such as Run-key / StartupApproved autorun chains, Scheduled Task trigger/action chains, PowerShell Scheduled Job definition-owned chains, Windows service / ServiceMain-owned startup chains, Windows BITS-job abuse chains, WMI permanent event subscriptions, and COM/CLSID-resolution hijack paths, not only generic Run-key or service-install examples, and the malware branch now preserves dedicated narrower continuation leaves for Run-key autorun, Scheduled Task, PowerShell Scheduled Job, service, BITS-job, WMI, and COM/CLSID consumer-proof work.
