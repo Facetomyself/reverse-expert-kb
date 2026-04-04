@@ -50,7 +50,7 @@ Observed on 2026-04-04:
 - Kernel: `3.10.0-1160.119.1.el7.x86_64`
 - Primary private IP: `10.10.21.185/24`
 - Default route: `10.10.21.254`
-- Runtime shape: aggressively reduced toward 1Panel-only; historical `mihomo`, postfix, Docker workloads, and most operator tooling residue were removed on 2026-04-04
+- Runtime shape: aggressively reduced toward 1Panel-only; historical `mihomo`, postfix, Docker workloads, most operator tooling residue, and stale 1Panel MySQL application/data residue were removed on 2026-04-04
 - Key remaining listeners after cleanup: `22`, `30008`
 
 ## User-confirmed port constraints
