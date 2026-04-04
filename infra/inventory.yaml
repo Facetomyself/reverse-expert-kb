@@ -105,6 +105,8 @@ hosts:
     domains: []
     docs:
       host: infra/hosts/self-server/HOST.md
+      network: infra/hosts/self-server/NETWORK.md
+      projects: infra/hosts/self-server/PROJECTS.md
 
   - name: home
     ssh_alias: home

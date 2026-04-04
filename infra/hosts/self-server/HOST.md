@@ -36,6 +36,29 @@ Observed on 2026-04-04:
 - The local SSH config now reflects that preference by making `self-server` use `ProxyJump ali-cloud`
 - `self-server-direct` is preserved for direct-path diagnostics
 
+## System baseline snapshot (2026-04-04)
+### `:44001` / hostname `181`
+- OS: CentOS Linux 7 (Core)
+- Kernel: `5.15.60-1.el7.x86_64`
+- Primary private IP: `10.10.21.181/24`
+- Default route: `10.10.21.254`
+- Runtime shape: lightweight 1Panel + Docker host
+- Key observed listeners: `22`, `30011`, `30012`, `30013`
+
+### `:44005` / hostname `host185`
+- OS: CentOS Linux 7 (Core)
+- Kernel: `3.10.0-1160.119.1.el7.x86_64`
+- Primary private IP: `10.10.21.185/24`
+- Default route: `10.10.21.254`
+- Runtime shape: 1Panel + Docker + `mihomo` + more accumulated dev/tooling residue
+- Key observed listeners: `22`, `5837`, `30008`, `9090`, `1053`
+
+## User-confirmed port constraints
+Recorded on 2026-04-04 because public IP / forwarding resources are limited on this virtualization side:
+- `:44001` machine may use only `TCP 30011-30025`
+- `:44005` machine may use only `TCP 30001-30010`
+
 ## Next checks
 - decide later whether `:44001` and `:44005` should keep living under one shared host doc or be split into two dedicated machine docs on the same public IP
-- add system baseline, role, and any project/network notes for the confirmed `44001` and `44005` machines once a fuller inspection is desired
+- inspect 1Panel application definitions and compose/runtime details before deleting old workloads
+- verify which currently listening ports are truly externally forwarded versus only locally bound / internally reachable
