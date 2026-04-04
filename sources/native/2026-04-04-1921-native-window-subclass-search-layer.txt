@@ -1,0 +1,25 @@
+Reverse KB autosync — search-layer raw trace (native window creation / subclass seam)
+Date: 2026-04-04 19:21 Asia/Shanghai / 2026-04-04 11:21 UTC
+
+Command:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py \
+  --queries \
+    "RegisterClassEx CreateWindowEx WM_NCCREATE WM_CREATE subclass first consumer Microsoft docs" \
+    "SetWindowSubclass DefSubclassProc window procedure ownership documentation" \
+    "Win32 window creation subclass per-HWND consumer reverse engineering" \
+  --mode deep \
+  --intent exploratory \
+  --source exa,tavily,grok \
+  --num 5
+
+Observed:
+- Exa: returned results
+- Tavily: returned results
+- Grok: invoked; returned empty set
+
+High-signal anchors retained:
+- CreateWindowExA — https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-createwindowexa
+- WM_NCCREATE — https://learn.microsoft.com/en-us/windows/win32/winmsg/wm-nccreate
+- WM_CREATE — https://learn.microsoft.com/en-us/windows/win32/winmsg/wm-create
+- SetWindowSubclass — https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-setwindowsubclass
+- DefSubclassProc — https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-defsubclassproc
