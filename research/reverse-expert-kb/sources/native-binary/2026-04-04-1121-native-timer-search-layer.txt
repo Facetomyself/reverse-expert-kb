@@ -1,0 +1,24 @@
+Reverse KB autosync — search-layer raw trace (native timer queue / threadpool timer seam)
+Date: 2026-04-04 11:21 Asia/Shanghai / 2026-04-04 03:21 UTC
+
+Command:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py \
+  --queries \
+    "CreateTimerQueueTimer SetThreadpoolTimer timer callback first consumer Microsoft docs" \
+    "Windows thread pool timers CreateTimerQueueTimer SetThreadpoolTimer callback semantics documentation" \
+    "timer queue callback reverse engineering first consumer windows" \
+  --mode deep \
+  --intent exploratory \
+  --source exa,tavily,grok \
+  --num 5
+
+Observed:
+- Exa: returned results
+- Tavily: returned results
+- Grok: invoked; returned empty set
+
+High-signal anchors retained:
+- CreateTimerQueue — https://learn.microsoft.com/en-us/windows/win32/api/threadpoollegacyapiset/nf-threadpoollegacyapiset-createtimerqueue
+- CreateTimerQueueTimer — https://learn.microsoft.com/en-us/windows/win32/api/threadpoollegacyapiset/nf-threadpoollegacyapiset-createtimerqueuetimer
+- SetThreadpoolTimer — https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-setthreadpooltimer
+- On the finer points of cancelling timers and wait objects in Windows thread pool — https://devblogs.microsoft.com/oldnewthing/20230428-00/?p=108110
