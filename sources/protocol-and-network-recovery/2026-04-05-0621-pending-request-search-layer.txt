@@ -1,0 +1,35 @@
+Search 1:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "virtio split ring used idx wrap counter avail used event idx generation ownership slot reuse descriptor stale completion pending request"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Exa: usable hits
+Tavily: usable hits
+Representative surfaced hits:
+- OASIS virtio issue: VIRTIO_F_EVENT_IDX mechanism
+- SPDK issue: Virtio loses I/O completion
+- kernel/virtio wrap-counter fix reference
+- Red Hat virtqueue/ring explainer
+
+Search 2:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "NVMe queue phase tag completion queue entry phase stale completion command identifier queue wrap ownership pending request"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Exa: usable hits
+Tavily: usable hits
+Representative surfaced hits:
+- NVMe base specification references
+- OSDev discussion noting phase-tag stale-entry behavior
+- OSDev wiki / queue mechanism explainer
+- queue/cqpair explainer material
+
+Search 3:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "io_uring completion user_data generation stale CQE multishot cancel timeout slot reuse pending request ownership"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Exa: usable hits
+Tavily: usable hits
+Representative surfaced hits:
+- liburing issue: duplicated user_data with timeout behavior
+- io_uring_prep_cancel(3)
+- CQE explainer
+- io_uring feature/update material
