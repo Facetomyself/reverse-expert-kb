@@ -197,6 +197,23 @@ You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it
 
 **Tip:** Batch similar periodic checks into `HEARTBEAT.md` instead of creating multiple cron jobs. Use cron for precise schedules and standalone tasks.
 
+### Long-task continuation rule
+
+Heartbeat is not the primary mechanism for “I’ll continue this”. For long or stall-prone work, attach a real continuation mechanism instead of relying on a vague promise.
+
+Use this order:
+1. Finish in the current turn if the remaining steps are straightforward and low-risk.
+2. If the work must outlive one turn or wait on sub-steps, use a task/session/flow-style mechanism.
+3. If the task may stall because of waiting, background execution, or turn boundaries, create a **short-lived cron reminder/wake** as a watchdog.
+4. Keep global heartbeat for low-frequency patrol only; do not use it as the primary long-task executor.
+
+Practical rule:
+- If a task needs re-checking after a few minutes, or I explicitly say I will “continue”, I should prefer either:
+  - a detached/background task or flow for the work itself, or
+  - a temporary cron reminder to resume/check progress.
+- Temporary reminders should usually be short-lived (for example 10–30 minutes, limited retries) and expire once the task is resolved.
+- For complex long-running work with one owner context, prefer the ClawFlow pattern over ad-hoc heartbeat polling.
+
 **Things to check (rotate through these, 2-4 times per day):**
 
 - **Emails** - Any urgent unread messages?
