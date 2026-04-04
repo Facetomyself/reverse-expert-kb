@@ -61,6 +61,15 @@ hosts:
         match:
           systemd: [1panel.service]
           infra_only: true
+      - name: Hysteria egress
+        match:
+          compose_paths: [/opt/hysteria-egress/docker-compose.yml]
+      - name: sing-box gateway
+        match:
+          compose_paths: [/opt/sing-box-gateway/docker-compose.yml]
+      - name: CoreDNS gateway
+        match:
+          compose_paths: [/opt/coredns-gateway/docker-compose.yml]
 
   oracle-mail:
     documented_projects:
