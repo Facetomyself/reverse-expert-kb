@@ -95,8 +95,9 @@ hosts:
       - direct path from the current OpenClaw host still timed out during both the older 2026-03-15 probe and the refreshed 2026-04-04 probe
       - user clarified on 2026-04-04 that the likely active SSH entrypoint is `root@211.144.221.229:44001`
       - same-day TCP probe from `ali-cloud` to `211.144.221.229:44001` succeeded, so this host now prefers China-side transit via `ali-cloud` rather than direct access from the current OpenClaw host
-      - a same-day SSH attempt through `ProxyJump ali-cloud` reached the target password prompt, confirming reachability through the transit path; however, the user-provided password failed authentication
-      - password authentication is expected, but the password is intentionally not stored in `infra/`
+      - a same-day SSH attempt through `ProxyJump ali-cloud` reached the target password prompt, and a later retry with corrected credentials succeeded; OpenClaw-side public-key login was then installed and validated through `ssh self-server`
+      - the same public IP also has a user-mentioned second target on port `40005`, but TCP probe from `ali-cloud` still timed out there during this session
+      - password authentication is expected for bootstrap/recovery only, but the password is intentionally not stored in `infra/`
 
   - name: oracle-new1
     provider: oracle

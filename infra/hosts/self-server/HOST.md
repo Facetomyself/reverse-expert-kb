@@ -19,7 +19,9 @@ Observed on 2026-04-04:
 - direct probe from the current OpenClaw host to `211.144.221.229:44001` still timed out
 - TCP probe from `ali-cloud` to `211.144.221.229:44001` succeeded
 - a full SSH attempt through the configured `ProxyJump ali-cloud` path reached an interactive password prompt from the target host, confirming that the jump-host path is viable
-- the user-provided password attempted during that same check did **not** authenticate successfully, so the current remaining blocker is credentials (or auth policy), not reachability
+- after the user corrected the password, login through `ali-cloud` succeeded
+- same-day follow-up installed an OpenClaw-side public key on the remote root account and confirmed passwordless login works through `ssh self-server`
+- the same public IP also has another user-mentioned machine/service on port `40005`, but TCP probe from `ali-cloud` to `211.144.221.229:40005` still timed out during this session, so only the `44001` path is currently integrated
 
 ## Operational interpretation
 - Treat `ali-cloud` as the preferred China-side transit point when testing or using this host from the current environment
@@ -27,5 +29,6 @@ Observed on 2026-04-04:
 - `self-server-direct` is preserved for direct-path diagnostics
 
 ## Next checks
-- perform a full interactive SSH login from `ali-cloud` transit path to confirm server identity and shell responsiveness
-- once confirmed, add system baseline, role, and any project/network notes under this host directory
+- treat `211.144.221.229:40005` as a second machine/service candidate on the same public IP, but currently unreachable even from `ali-cloud`
+- once either `40005` becomes reachable or more identity detail is known, split that second target into its own documented access section or dedicated host doc
+- add system baseline, role, and any project/network notes for the confirmed `44001` machine once a fuller inspection is desired
