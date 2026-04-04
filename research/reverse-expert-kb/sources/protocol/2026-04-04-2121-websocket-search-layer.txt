@@ -1,0 +1,22 @@
+Reverse KB autosync — search-layer raw trace (WebSocket upgrade -> first framed consumer seam)
+Date: 2026-04-04 21:21 Asia/Shanghai / 2026-04-04 13:21 UTC
+
+Command:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py \
+  --queries \
+    "WebSocket upgrade first framed consumer RFC 6455 reverse engineering" \
+    "RFC 6455 opening handshake masking framing docs" \
+    "websocket upgrade accepted first frame consumer reverse engineering" \
+  --mode deep \
+  --intent exploratory \
+  --source exa,tavily,grok \
+  --num 5
+
+Observed:
+- Exa: returned results
+- Tavily: returned results
+- Grok: invoked; returned empty set
+
+High-signal anchors retained:
+- RFC 6455 — https://datatracker.ietf.org/doc/html/rfc6455
+- MDN: Writing WebSocket servers — https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers
