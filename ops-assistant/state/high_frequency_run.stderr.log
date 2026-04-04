@@ -1,0 +1,47 @@
+{
+  "lastRunAt": "2026-03-24T08:58:51.589206Z",
+  "summaryPath": "/root/.openclaw/workspace/ops-assistant/reports/2026-03-24/fleet-summary.md",
+  "alerts": {
+    "p1": [],
+    "p2": [],
+    "overall": {
+      "ali-cloud": true,
+      "oracle-docker-proxy": true,
+      "oracle-mail": true,
+      "oracle-open_claw": true,
+      "oracle-proxy": true,
+      "self-server": false
+    }
+  },
+  "checks": {
+    "host_health": {
+      "code": 0,
+      "stderr": "",
+      "out": "/tmp/ops_host_health.json"
+    },
+    "docker_inventory": {
+      "code": 0,
+      "stderr": "",
+      "out": "/tmp/ops_docker_inventory.json"
+    },
+    "systemd_inventory": {
+      "code": 0,
+      "stderr": "",
+      "out": "/tmp/ops_systemd_inventory.json"
+    },
+    "drift_scan": {
+      "code": 0,
+      "stderr": "",
+      "out": "/tmp/ops_drift_scan.json"
+    },
+    "reconcile_projects": {
+      "code": 0,
+      "stderr": "",
+      "out": "/tmp/ops_reconcile_projects.json"
+    }
+  },
+  "alertRuleNotes": [
+    "self-server: known-unreachable-from-openclaw",
+    "oracle-mail: retired-host"
+  ]
+}
