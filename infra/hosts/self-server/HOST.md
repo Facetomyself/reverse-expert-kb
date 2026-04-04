@@ -18,7 +18,8 @@
 Observed on 2026-04-04:
 - direct probe from the current OpenClaw host to `211.144.221.229:44001` still timed out
 - TCP probe from `ali-cloud` to `211.144.221.229:44001` succeeded
-- short banner probe from `ali-cloud` did not receive a prompt/banner within the small timeout window, so the target is not yet fully characterized, but it is clearly more reachable via `ali-cloud` than from the current OpenClaw host
+- a full SSH attempt through the configured `ProxyJump ali-cloud` path reached an interactive password prompt from the target host, confirming that the jump-host path is viable
+- the user-provided password attempted during that same check did **not** authenticate successfully, so the current remaining blocker is credentials (or auth policy), not reachability
 
 ## Operational interpretation
 - Treat `ali-cloud` as the preferred China-side transit point when testing or using this host from the current environment
