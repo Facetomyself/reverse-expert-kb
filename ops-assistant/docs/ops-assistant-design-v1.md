@@ -55,7 +55,7 @@
 
 ### Tier 1 / 核心
 - `oracle-proxy`
-- `oracle-docker-proxy`
+- `oracle-gateway`
 
 ### Tier 2 / 次核心
 - `ali-cloud`
@@ -294,7 +294,7 @@ hosts:
   - 仅在有变化时 commit
 - commit 信息示例：
   - `ops(report): daily oracle fleet check 2026-03-17`
-  - `ops(alert): record oracle-docker-proxy registry-ui drift`
+  - `ops(alert): record oracle-gateway registry-ui drift`
   - `ops(discovery): detect undocumented compose project on ali-cloud`
 
 ---
@@ -387,7 +387,7 @@ ops-assistant/
   reports/
     2026-03-17/
       oracle-proxy.md
-      oracle-docker-proxy.md
+      oracle-gateway.md
       fleet-summary.md
   alerts/
     telegram-templates.md

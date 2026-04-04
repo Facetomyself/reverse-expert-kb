@@ -2,8 +2,8 @@
 
 Additional noise-control refinements:
 
-- `oracle-docker-proxy: reg-`
-  - suppressed as a known naming artifact of the documented registry proxy stack
+- `oracle-gateway: reg-`
+  - suppressed as a known historical naming artifact from the registry-proxy era of the current gateway host
   - should not page as an undocumented project hint anymore
 
 - `oracle-proxy: camoufox`
