@@ -1,4 +1,4 @@
-updated_at: 2026-03-17
+updated_at: 2026-04-04
 hosts:
   oracle-proxy:
     documented_projects:
@@ -34,22 +34,18 @@ hosts:
 
   oracle-docker-proxy:
     documented_projects:
-      - name: Registry Proxies
+      - name: Hysteria gateway
         match:
-          container_prefixes: [reg-]
+          containers: [hysteria]
           compose_paths: []
-      - name: registry-ui
+      - name: DERP server
         match:
-          containers: [registry-ui]
-          compose_paths: []
-      - name: hubcmd-ui
+          systemd: [derper.service]
+          infra_only: true
+      - name: helper caddy
         match:
-          containers: [hubcmd-ui]
-          compose_paths: []
-      - name: Harbor footprint
-        match:
-          compose_paths: [/root/harbor/docker-compose.yml]
-          status: dormant
+          systemd: [caddy.service]
+          infra_only: true
 
   ali-cloud:
     documented_projects:
@@ -68,6 +64,13 @@ hosts:
 
   oracle-mail:
     documented_projects:
+      - name: Outlook Email Plus
+        match:
+          compose_paths: [/opt/outlook-email-plus/docker-compose.yml]
+      - name: rbot service
+        match:
+          systemd: [rbot.service]
+          infra_only: true
       - name: Mailu deployment footprint
         match:
           compose_paths: [/root/mailu/docker-compose.yml]
@@ -76,3 +79,23 @@ hosts:
         match:
           paths: [/root/moemail]
           status: retired
+
+  oracle-new1:
+    documented_projects:
+      - name: Registry front door
+        match:
+          systemd: [caddy.service]
+          infra_only: true
+
+  oracle-new2:
+    documented_projects:
+      - name: js-reverse-mcp helper
+        match:
+          paths: [/home/ubuntu/bin/js-reverse-mcp-run, /home/ubuntu/bin/js-reverse-mcp-smoke]
+          infra_only: true
+
+  home-nas:
+    documented_projects:
+      - name: Tailnet NAS access
+        match:
+          infra_only: true

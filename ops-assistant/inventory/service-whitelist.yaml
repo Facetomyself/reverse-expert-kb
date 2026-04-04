@@ -1,4 +1,4 @@
-updated_at: 2026-03-17
+updated_at: 2026-04-04
 auto_remediation:
   oracle-proxy:
     systemd: []
@@ -14,10 +14,38 @@ auto_remediation:
   oracle-docker-proxy:
     systemd:
       - caddy
-    containers: []
+      - derper
+    containers:
+      - hysteria
     compose_projects: []
 
   ali-cloud:
+    systemd:
+      - 1panel.service
+    containers:
+      - easyimage
+      - camoufox-remote
+    compose_projects: []
+
+  oracle-mail:
+    systemd:
+      - rbot.service
+    containers: []
+    compose_projects:
+      - /opt/outlook-email-plus
+
+  oracle-new1:
+    systemd:
+      - caddy
+    containers: []
+    compose_projects: []
+
+  oracle-new2:
+    systemd: []
+    containers: []
+    compose_projects: []
+
+  home-nas:
     systemd: []
     containers: []
     compose_projects: []

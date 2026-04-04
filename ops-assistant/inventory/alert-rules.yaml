@@ -1,4 +1,4 @@
-updated_at: 2026-03-17
+updated_at: 2026-04-04
 host_rules:
   self-server:
     reachability_mode: observe_only
@@ -6,9 +6,24 @@ host_rules:
     emit_note: known-unreachable-from-openclaw
 
   oracle-mail:
-    lifecycle: retired
+    lifecycle: retired-ish
     suppress_stale_hints: true
-    emit_note: retired-host
+    emit_note: archived-mail-stack-host
+
+  home:
+    reachability_mode: interactive_only
+    suppress_p1: true
+    emit_note: windows-tailnet-endpoint-not-an-ssh-ops-node
+
+  company:
+    reachability_mode: interactive_only
+    suppress_p1: true
+    emit_note: windows-tailnet-endpoint-not-an-ssh-ops-node
+
+  home-macmini:
+    reachability_mode: unstable_tailnet_observe
+    suppress_p1: true
+    emit_note: intermittently-online-tailnet-node
 
 hint_rules:
   1panel:
@@ -21,11 +36,6 @@ hint_rules:
     normalize_to: registry-runtime
     suppress_on_hosts:
       - oracle-docker-proxy
-
-  camoufox:
-    normalize_to: registration-support-runtime
-    suppress_on_hosts:
-      - oracle-proxy
 
   harbor:
     suppress_stale_on_hosts:
@@ -42,3 +52,18 @@ hint_rules:
   registry:
     suppress_stale_on_hosts:
       - oracle-docker-proxy
+
+  derper:
+    treat_as_infra_service: true
+    suppress_stale_on_hosts:
+      - oracle-docker-proxy
+
+  hysteria:
+    treat_as_infra_service: true
+    suppress_stale_on_hosts:
+      - oracle-docker-proxy
+
+  rbot:
+    treat_as_infra_service: true
+    suppress_stale_on_hosts:
+      - oracle-mail

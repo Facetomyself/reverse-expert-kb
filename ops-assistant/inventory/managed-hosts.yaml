@@ -1,5 +1,5 @@
 generated_from: infra/inventory.yaml
-updated_at: 2026-03-17
+updated_at: 2026-04-04
 hosts:
   - name: oracle-open_claw
     role: tier0-local-openclaw-host
@@ -25,9 +25,9 @@ hosts:
     check_profile: remote-core
     alert_profile: core
     expected_roles:
-      - shared-docker-proxy-host
-      - registry-proxy-or-mirror
-      - ui-entrypoint
+      - gateway-host
+      - hysteria-relay
+      - derp-host
 
   - name: ali-cloud
     ssh_alias: ali-cloud
@@ -45,9 +45,28 @@ hosts:
     check_profile: retired-observe
     alert_profile: retired
     expected_roles:
-      - mail-host
-      - dormant-mailu-deployment
-      - moemail-working-tree
+      - web-app-host
+      - archived-mail-stack-footprints
+
+  - name: oracle-new1
+    ssh_alias: oracle-registry
+    enabled: true
+    check_profile: remote-standard
+    alert_profile: standard
+    expected_roles:
+      - registry-front-door-host
+      - ubuntu-arm-host
+      - tailnet-member
+
+  - name: oracle-new2
+    ssh_alias: oracle-new2
+    enabled: true
+    check_profile: remote-standard
+    alert_profile: standard
+    expected_roles:
+      - utility-worker-host
+      - ubuntu-arm-host
+      - tailnet-member
 
   - name: self-server
     ssh_alias: self-server
@@ -56,3 +75,40 @@ hosts:
     alert_profile: exception
     expected_roles:
       - china-server
+
+  - name: home
+    ssh_alias: home
+    enabled: false
+    check_profile: tailnet-interactive-only
+    alert_profile: exception
+    expected_roles:
+      - windows-workstation
+      - home-lan-entrypoint
+
+  - name: company
+    ssh_alias: company
+    enabled: false
+    check_profile: tailnet-interactive-only
+    alert_profile: exception
+    expected_roles:
+      - windows-workstation
+      - company-lan-entrypoint
+
+  - name: home-macmini
+    ssh_alias: home-macmini
+    enabled: false
+    check_profile: unstable-tailnet-observe
+    alert_profile: exception
+    expected_roles:
+      - mac-mini
+      - home-lan-node
+
+  - name: home-nas
+    ssh_alias: home-nas
+    enabled: true
+    check_profile: remote-standard
+    alert_profile: standard
+    expected_roles:
+      - nas
+      - home-storage-node
+      - tailnet-member
