@@ -1,0 +1,23 @@
+Reverse KB autosync — search-layer raw trace (native wait object / threadpool wait seam)
+Date: 2026-04-04 15:21 Asia/Shanghai / 2026-04-04 07:21 UTC
+
+Command:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py \
+  --queries \
+    "CreateThreadpoolWait SetThreadpoolWait RegisterWaitForSingleObject callback semantics Microsoft docs" \
+    "Windows threadpool wait object callback reverse engineering first consumer" \
+    "registered wait object signaled callback queued documentation" \
+  --mode deep \
+  --intent exploratory \
+  --source exa,tavily,grok \
+  --num 5
+
+Observed:
+- Exa: returned results
+- Tavily: returned results
+- Grok: invoked; returned empty set
+
+High-signal anchors retained:
+- CreateThreadpoolWait — https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-createthreadpoolwait
+- SetThreadpoolWait — https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-setthreadpoolwait
+- RegisterWaitForSingleObject — https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-registerwaitforsingleobject
