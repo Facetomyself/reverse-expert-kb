@@ -23,6 +23,8 @@ Observed listening TCP ports during same-day read-only inspection:
 
 Operational note:
 - The observed listeners fit inside the user-confirmed allowed allocation.
+- Intended steady-state role after 2026-04-04 cleanup: keep this VM as the `1Panel + FRPS` box for this shared-IP pair.
+- Final same-day outbound model is explicit rather than transparent: this VM now keeps a local `dnsmasq` listener on `127.0.0.1:53`, forwards DNS to `106.15.239.221#1053`, and uses `ali-cloud` authenticated proxy ingress on `:2081` / `:2080` for shell and Docker egress.
 
 ### Target `:44005` (`host185`)
 Allowed public TCP range:
@@ -45,3 +47,5 @@ Post-cleanup state observed later on 2026-04-04:
 Operational note:
 - `30008/tcp` fits inside the user-confirmed allowed allocation.
 - historical listeners `5837`, `9090`, `1053`, and `111` were removed from active service during the same-day cleanup pass to bring this VM closer to a true 1Panel-only shape.
+- Intended steady-state role after 2026-04-04 cleanup: keep this VM as the cleaner `1Panel` rebuild box for this shared-IP pair.
+- Final same-day outbound model is explicit rather than transparent: this VM now keeps a local `dnsmasq` listener on `127.0.0.1:53`, forwards DNS to `106.15.239.221#1053`, and uses `ali-cloud` authenticated proxy ingress on `:2081` / `:2080` for shell and Docker egress; the short-lived transparent TUN experiment was removed after proving unstable for general HTTPS traffic.

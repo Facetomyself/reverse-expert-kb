@@ -58,8 +58,23 @@ Current shape is noticeably heavier and contains more development residue / oper
 - this machine had accumulated a mix of panel management, proxy tooling (`mihomo`), MCP/dev tooling, and editor/agent residue
 - on 2026-04-04 an aggressive cleanup removed the running `jshookmcp` container, disabled `mihomo` and postfix, removed most MCP/editor/dev-tool directories, later removed the extra SSH listener `5837` plus `rpcbind`, and finally deleted the stale 1Panel-managed MySQL application/data residue under `/opt/1panel/apps/mysql`, leaving the machine much closer to a true 1Panel-only box
 
-## Suggested cleanup order later
-1. confirm which externally reachable ports still matter on each machine
-2. map live services to actual business need
-3. inspect 1Panel app definitions / compose stacks before removing Docker residue
-4. only then decide what to archive, delete, or rebuild from scratch
+## Frozen operating intent after 2026-04-04 cleanup
+### `181` / `:44001`
+- treat as the retained `1Panel + FRPS` machine
+- future additions should be sparse and deliberate
+- avoid turning it back into a general experimentation box
+- keep the same-day stable outbound helper shape in place:
+  - local `dnsmasq` on `127.0.0.1:53`
+  - upstream DNS to `106.15.239.221#1053`
+  - shell/Docker explicit proxying via `ali-cloud`
+- validated after cutover: `docker pull hello-world` and `docker pull coredns/coredns:latest` both succeeded
+
+### `host185` / `:44005`
+- treat as the cleaner `1Panel` rebuild machine
+- future workloads should be reintroduced intentionally from a low-noise baseline
+- if new projects are added later, document them explicitly rather than letting residue accumulate again
+- keep the same-day stable outbound helper shape in place:
+  - local `dnsmasq` on `127.0.0.1:53`
+  - upstream DNS to `106.15.239.221#1053`
+  - shell/Docker explicit proxying via `ali-cloud`
+- validated after cutover: `docker pull hello-world` and `docker pull coredns/coredns:latest` both succeeded; the discarded transparent `sing-box-global` experiment should not be treated as an active project

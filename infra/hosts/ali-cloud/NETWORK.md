@@ -74,6 +74,15 @@ As of 2026-04-04, this host now has two stacked transit layers:
   - `2081/tcp` -> HTTP proxy
 - both forward outbound traffic to the local Hysteria SOCKS5 on `127.0.0.1:18080`
 
+### Public DNS helper
+- a same-day follow-up also added a public DNS forwarder on:
+  - `1053/tcp`
+  - `1053/udp`
+- domestic consumer hosts now use this as an upstream for local `dnsmasq`
+- validated consumer pattern on both `181` and `185` was:
+  - local resolver -> `127.0.0.1:53`
+  - local `dnsmasq` upstream -> `106.15.239.221#1053`
+
 This means the host has moved beyond a host-local egress fix and now acts as a first-pass explicit-proxy transit gateway for other machines that need Oracle-side egress.
 
 ## 6. To Be Confirmed

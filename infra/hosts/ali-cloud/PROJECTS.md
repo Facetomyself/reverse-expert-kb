@@ -87,8 +87,27 @@ Validated behavior:
 - official Docker Hub registry probe via the public SOCKS5 listener returned expected `401`
 - GitHub via the public HTTP proxy returned `HTTP/2 200`
 
+## 7. CoreDNS DNS forwarder (public helper for domestic consumer hosts)
+Confirmed on 2026-04-04:
+- deployment root: `/opt/coredns-gateway`
+- runtime shape: Docker-managed CoreDNS listener
+- public listeners:
+  - `0.0.0.0:1053/tcp`
+  - `0.0.0.0:1053/udp`
+- current purpose:
+  - provide a simple stable DNS forwarder for domestic hosts that keep local `dnsmasq`
+- validated consumers:
+  - `self-server :44001` (`181`)
+  - `self-server :44005` (`185`)
+
+Validated consumer pattern:
+- consumer `/etc/resolv.conf` -> `127.0.0.1`
+- consumer local `dnsmasq` upstream -> `106.15.239.221#1053`
+- with that shape in place, both consumer hosts restored stable resolution and successful Docker Hub pulls
+
 Current role interpretation:
 - this host now acts as a practical first-pass China-side transit gateway into Oracle-side egress
+- present stable shape is: public DNS helper (`1053`) + public explicit proxies (`2080` / `2081`) + local Oracle-side Hysteria egress (`127.0.0.1:18080`)
 - current shape is still explicit-proxy ingress, not transparent routing / subnet routing / full gateway mode yet
 
 ## Next operational step

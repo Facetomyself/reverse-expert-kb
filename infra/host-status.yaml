@@ -22,7 +22,7 @@ hosts:
       - low-risk retention controls were added on 2026-03-26: journald size cap + weekly Docker prune cron
       - same-day read-only recheck also confirmed an older standalone host-level Hysteria server is still active on UDP `53752` from `/etc/hysteria/config.yaml`; this is now recorded as documented legacy/live network surface rather than a new failure
 
-  - name: oracle-docker-proxy
+  - name: oracle-gateway
     provider: oracle
     ssh_alias: oracle-gateway
     ip: 129.150.61.78
@@ -52,6 +52,8 @@ hosts:
       - easyimage
       - camoufox-remote
       - tailnet-member
+      - explicit-proxy-gateway
+      - dns-forwarder-gateway
     notes:
       - 1Panel controls host port 80
       - camoufox websocket endpoint on 39222
@@ -61,6 +63,7 @@ hosts:
       - 2026-04-04 root cause for the old DNS warning was confirmed on-host: DHCP had pinned `eth0` to unreachable Alibaba internal resolvers `100.100.2.136` / `100.100.2.138`; a persistent netplan override now forces `223.5.5.5` / `223.6.6.6`, restoring local stub resolution through `127.0.0.53`
       - same-day follow-up established persistent Oracle-side foreign egress for this host: a local-only Hysteria SOCKS5 path on `127.0.0.1:18080` now runs via Docker Compose + `hysteria-egress.service`, exits through `oracle-gateway` (`129.150.61.78`), and Docker daemon is configured to use that SOCKS5 via systemd proxy drop-in; validated pulls succeeded for both `hello-world` and `tobyxdd/hysteria:latest`
       - same-day gateway build-out added an explicit-proxy ingress layer for other machines: authenticated SOCKS5 on `:2080` and authenticated HTTP proxy on `:2081`, both implemented by `sing-box-gateway.service` / `/opt/sing-box-gateway` and both forwarding into the local Hysteria egress path
+      - same-day final domestic-host routing shape also added a public DNS forwarder on `:1053`; `181` and `185` now use local `dnsmasq` on `127.0.0.1:53` with upstream `106.15.239.221#1053`, and both hosts use explicit shell/Docker proxying through `ali-cloud` instead of transparent TUN routing because TUN->remote-SOCKS proved unstable for general HTTPS traffic
 
   - name: oracle-mail
     provider: oracle
@@ -86,20 +89,24 @@ hosts:
     provider: unknown
     ssh_alias: self-server
     ip: 211.144.221.229
-    lifecycle: unknown
+    lifecycle: active
     reachability: transit_preferred_via_ali_cloud
     importance: tier3
     roles:
       - china-server
+      - explicit-proxy-consumer
     notes:
       - direct path from the current OpenClaw host still timed out during both the older 2026-03-15 probe and the refreshed 2026-04-04 probe
       - user clarified on 2026-04-04 that the likely active SSH entrypoint is `root@211.144.221.229:44001`
       - same-day TCP probe from `ali-cloud` to `211.144.221.229:44001` succeeded, so this host now prefers China-side transit via `ali-cloud` rather than direct access from the current OpenClaw host
       - a same-day SSH attempt through `ProxyJump ali-cloud` reached the target password prompt, and a later retry with corrected credentials succeeded; OpenClaw-side public-key login was then installed and validated through `ssh self-server` (`:44001`)
       - the same public IP also exposes a second user-confirmed SSH target on `:44005`; direct path from the current OpenClaw host still timed out, but transit via `ali-cloud` worked, password `WnhtOTcxMDA0` succeeded, and OpenClaw-side public-key login was then installed and validated through `ssh self-server-44005`
+      - same-day cleanup intent later diverged by VM: `:44001` was intentionally kept as `1Panel + FRPS`, while `:44005` was aggressively reduced toward a near-`1Panel`-only shape with `mihomo`, postfix, extra SSH listener `5837`, rpcbind, containers, and most MCP/dev-tool residue removed
+      - final same-day network shape on both VMs is local `dnsmasq` on `127.0.0.1:53` forwarding to `ali-cloud:1053`, plus shell/Docker explicit proxying through `ali-cloud:2081` / `:2080`; this replaced an unstable experimental transparent TUN path
+      - validated foreign-access outcome after the cutover: GitHub/Google worked through the explicit proxy path, and Docker pulls for `hello-world` plus `coredns/coredns:latest` succeeded on both `:44001` and `:44005`
       - password authentication is expected for bootstrap/recovery only, but passwords are intentionally not stored in `infra/`
 
-  - name: oracle-new1
+  - name: oracle-registry
     provider: oracle
     ssh_alias: oracle-registry
     ip: 140.245.33.114
@@ -117,9 +124,9 @@ hosts:
       - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.96.23.110`
       - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
 
-  - name: oracle-new2
+  - name: oracle-reverse-dev
     provider: oracle
-    ssh_alias: oracle-new2
+    ssh_alias: oracle-reverse-dev
     ip: 140.245.61.236
     lifecycle: active
     reachability: reachable

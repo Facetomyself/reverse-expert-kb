@@ -44,6 +44,7 @@ Observed on 2026-04-04:
 - Default route: `10.10.21.254`
 - Runtime shape: lightweight 1Panel + Docker host
 - Key observed listeners: `22`, `30011`, `30012`, `30013`
+- Final same-day outbound shape: local `dnsmasq` on `127.0.0.1:53` with upstream `106.15.239.221#1053`, plus explicit shell/Docker proxying via `ali-cloud` authenticated HTTP/SOCKS proxy ingress (`:2081` / `:2080`)
 
 ### `:44005` / hostname `host185`
 - OS: CentOS Linux 7 (Core)
@@ -52,13 +53,45 @@ Observed on 2026-04-04:
 - Default route: `10.10.21.254`
 - Runtime shape: aggressively reduced toward 1Panel-only; historical `mihomo`, postfix, Docker workloads, most operator tooling residue, and stale 1Panel MySQL application/data residue were removed on 2026-04-04
 - Key remaining listeners after cleanup: `22`, `30008`
+- Final same-day outbound shape: local `dnsmasq` on `127.0.0.1:53` with upstream `106.15.239.221#1053`, plus explicit shell/Docker proxying via `ali-cloud` authenticated HTTP/SOCKS proxy ingress (`:2081` / `:2080`)
 
 ## User-confirmed port constraints
 Recorded on 2026-04-04 because public IP / forwarding resources are limited on this virtualization side:
 - `:44001` machine may use only `TCP 30011-30025`
 - `:44005` machine may use only `TCP 30001-30010`
 
-## Next checks
-- decide later whether `:44001` and `:44005` should keep living under one shared host doc or be split into two dedicated machine docs on the same public IP
-- if `:44005` should become a cleaner long-term 1Panel box, consider whether Docker itself is still needed or whether 1Panel-only management should stay as the minimal baseline
-- verify whether any additional shell-init cleanup is still needed after the environment removals on `:44005`
+## Final intended roles (frozen on 2026-04-04)
+### `:44001` / `181`
+- Keep as: `1Panel + FRPS` machine
+- Preferred public-use budget: `30011-30025`
+- Current meaningful listeners after cleanup:
+  - `30011` -> `1panel-core`
+  - `30012` -> `frps`
+  - `30013` -> `frps` dashboard
+- Outbound access model:
+  - keep local resolver pointed at `127.0.0.1`
+  - keep `dnsmasq` forwarding to `ali-cloud:1053`
+  - keep shell/Docker on explicit proxy mode through `ali-cloud`
+  - do not reintroduce the same-day abandoned transparent TUN experiment unless the remote ingress protocol is redesigned
+- Cleanup rule:
+  - keep `1Panel`, `FRPS`, and SSH
+  - do not casually add unrelated long-lived dev environments here
+
+### `:44005` / `host185`
+- Keep as: near-blank `1Panel` machine
+- Preferred public-use budget: `30001-30010`
+- Current meaningful listeners after cleanup:
+  - `30008` -> `1panel-core`
+- Outbound access model:
+  - keep local resolver pointed at `127.0.0.1`
+  - keep `dnsmasq` forwarding to `ali-cloud:1053`
+  - keep shell/Docker on explicit proxy mode through `ali-cloud`
+  - do not restore the removed transparent `sing-box-global` experiment from 2026-04-04; it was intentionally abandoned after TUN->remote-SOCKS proved unstable for general HTTPS traffic
+- Cleanup rule:
+  - keep `1Panel` and SSH only unless a new workload is intentionally introduced later
+  - treat this VM as the cleaner rebuild target
+
+## Operator guidance
+- Prefer `ali-cloud` as the transit path for routine access from the current OpenClaw environment
+- Treat `self-server` (`:44001`) and `self-server-44005` (`:44005`) as distinct machines even though they share the same public IP
+- Before introducing any new externally reachable service, first map it into the user-confirmed per-VM TCP budget above
