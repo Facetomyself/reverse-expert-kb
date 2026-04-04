@@ -60,13 +60,21 @@ So the host had two distinct issues that day:
 1. broken DNS (fixed by overriding DHCP DNS)
 2. direct foreign-registry HTTPS instability from this host (worked around by local Hysteria egress for Docker)
 
-## 5. Current local-only egress behavior
-As of 2026-04-04, this host now has a persistent local outbound helper:
+## 5. Current local and public transit behavior
+As of 2026-04-04, this host now has two stacked transit layers:
+
+### Local egress helper
 - Hysteria client runs locally and exits through `oracle-gateway`
 - SOCKS5 bind is limited to `127.0.0.1:18080`
 - current validated egress IP through that path: `129.150.61.78`
 
-This is intentionally not yet an exposed public gateway design; it is a host-local egress fix that can later be evolved into a broader gateway role.
+### Public ingress helper
+- sing-box gateway now exposes authenticated proxy ingress on:
+  - `2080/tcp` -> SOCKS5
+  - `2081/tcp` -> HTTP proxy
+- both forward outbound traffic to the local Hysteria SOCKS5 on `127.0.0.1:18080`
+
+This means the host has moved beyond a host-local egress fix and now acts as a first-pass explicit-proxy transit gateway for other machines that need Oracle-side egress.
 
 ## 6. To Be Confirmed
 - whether `1panel` also serves an admin UI on a non-obvious path or additional port

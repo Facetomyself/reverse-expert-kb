@@ -60,6 +60,7 @@ hosts:
       - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
       - 2026-04-04 root cause for the old DNS warning was confirmed on-host: DHCP had pinned `eth0` to unreachable Alibaba internal resolvers `100.100.2.136` / `100.100.2.138`; a persistent netplan override now forces `223.5.5.5` / `223.6.6.6`, restoring local stub resolution through `127.0.0.53`
       - same-day follow-up established persistent Oracle-side foreign egress for this host: a local-only Hysteria SOCKS5 path on `127.0.0.1:18080` now runs via Docker Compose + `hysteria-egress.service`, exits through `oracle-gateway` (`129.150.61.78`), and Docker daemon is configured to use that SOCKS5 via systemd proxy drop-in; validated pulls succeeded for both `hello-world` and `tobyxdd/hysteria:latest`
+      - same-day gateway build-out added an explicit-proxy ingress layer for other machines: authenticated SOCKS5 on `:2080` and authenticated HTTP proxy on `:2081`, both implemented by `sing-box-gateway.service` / `/opt/sing-box-gateway` and both forwarding into the local Hysteria egress path
 
   - name: oracle-mail
     provider: oracle

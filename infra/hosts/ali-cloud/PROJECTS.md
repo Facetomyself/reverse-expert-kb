@@ -64,8 +64,34 @@ Operational implication:
 - Docker pulls on this host now rely on the local Hysteria SOCKS5 path to reach unstable foreign registry endpoints
 - this was validated with successful pulls for both `hello-world` and `tobyxdd/hysteria:latest`
 
+## 6. sing-box gateway ingress (first public transit entrypoint)
+Confirmed on 2026-04-04:
+- deployment root: `/opt/sing-box-gateway`
+- runtime shape: Docker Compose via `/usr/bin/docker-compose`
+- compose file: `/opt/sing-box-gateway/docker-compose.yml`
+- config file: `/opt/sing-box-gateway/config.json`
+- systemd wrapper: `sing-box-gateway.service`
+- container name: `sing-box-gateway`
+- public SOCKS5 listener: `0.0.0.0:2080`
+- public HTTP proxy listener: `0.0.0.0:2081`
+- upstream outbound target: local Hysteria SOCKS5 at `127.0.0.1:18080`
+
+Authentication currently enabled:
+- username: `gateway`
+- password: stored in `/opt/sing-box-gateway/config.json`
+
+Validated behavior:
+- SOCKS5 access through `106.15.239.221:2080` reached egress IP `129.150.61.78`
+- HTTP proxy access through `106.15.239.221:2081` also reached egress IP `129.150.61.78`
+- official Docker Hub registry probe via the public SOCKS5 listener returned expected `401`
+- GitHub via the public HTTP proxy returned `HTTP/2 200`
+
+Current role interpretation:
+- this host now acts as a practical first-pass China-side transit gateway into Oracle-side egress
+- current shape is still explicit-proxy ingress, not transparent routing / subnet routing / full gateway mode yet
+
 ## Next operational step
 - inspect 1Panel status/routes/config further
 - inspect EasyImages compose and health model
 - inspect camoufox-remote deployment wrapper and intended consumers
-- later decide what externalized gateway shape this host should offer (if any) instead of prematurely exposing the current local-only egress helper
+- later decide whether to keep explicit-proxy ingress only, or evolve this host toward transparent/TUN/subnet-style gateway behavior
