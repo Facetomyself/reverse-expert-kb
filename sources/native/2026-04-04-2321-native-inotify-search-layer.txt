@@ -1,0 +1,23 @@
+Reverse KB autosync — search-layer raw trace (native inotify/fanotify first-event-consumer seam)
+Date: 2026-04-04 23:21 Asia/Shanghai / 2026-04-04 15:21 UTC
+
+Command:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py \
+  --queries \
+    "inotify_init inotify_add_watch read struct inotify_event man page" \
+    "fanotify_init fanotify_mark read event first consumer docs" \
+    "Linux inotify fanotify reverse engineering first event consumer" \
+  --mode deep \
+  --intent exploratory \
+  --source exa,tavily,grok \
+  --num 5
+
+Observed:
+- Exa: returned results
+- Tavily: returned results
+- Grok: invoked; returned empty set
+
+High-signal anchors retained:
+- inotify(7) — https://man7.org/linux/man-pages/man7/inotify.7.html
+- fanotify_init(2) — https://man7.org/linux/man-pages/man2/fanotify_init.2.html
+- fanotify_mark(2) — https://man7.org/linux/man-pages/man2/fanotify_mark.2.html
