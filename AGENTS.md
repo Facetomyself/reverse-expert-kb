@@ -214,6 +214,31 @@ Practical rule:
 - Temporary reminders should usually be short-lived (for example 10–30 minutes, limited retries) and expire once the task is resolved.
 - For complex long-running work with one owner context, prefer the ClawFlow pattern over ad-hoc heartbeat polling.
 
+### Default thresholds for continuation
+
+Use these defaults unless the user asks otherwise:
+
+- **Keep working in the current turn**
+  - if the next steps are clear, low-risk, and likely to finish within about **5 minutes**.
+
+- **Use background process / task handling without cron**
+  - if a command is already running and just needs waiting/polling,
+  - or if the work is basically continuous execution with no likely “forget to resume” gap.
+
+- **Create a short watchdog cron**
+  - if the task needs a re-check after about **5–30 minutes**,
+  - or I said I would “continue” but the work may stall because of turn boundaries, waiting on services, or background execution.
+  - default watchdog: **10 minutes** after handoff/checkpoint.
+  - default retry budget: **2 follow-up checks** (for example at +10m and +20m) unless the task naturally resolves sooner.
+
+- **Prefer flow / detached multi-step handling**
+  - if the task is expected to outlive **30 minutes**,
+  - or has multiple dependent stages/subtasks,
+  - or needs one owner context with resumable state.
+
+- **Do not lower global heartbeat just to rescue one task**
+  - prefer task-level cron/watchdog over making the whole session poll more aggressively.
+
 **Things to check (rotate through these, 2-4 times per day):**
 
 - **Emails** - Any urgent unread messages?
