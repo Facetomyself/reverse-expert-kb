@@ -1,0 +1,27 @@
+Reverse KB autosync — search-layer raw trace (input-invariant opaque predicate seam)
+Date: 2026-04-04 17:21 Asia/Shanghai / 2026-04-04 09:21 UTC
+
+Command:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py \
+  --queries \
+    "input-invariant opaque predicates valid input constraint recovery deobfuscation" \
+    "opaque predicates valid inputs constraint solving deobfuscation paper" \
+    "input-invariant opaque predicate reverse engineering practical" \
+  --mode deep \
+  --intent exploratory \
+  --source exa,tavily,grok \
+  --num 5
+
+Observed:
+- Exa: returned results
+- Tavily: returned results
+- Grok: invoked; returned empty set
+
+High-signal anchors retained:
+- Input-Invariant Opaque Predicates: More Challenges for Symbolic Execution — USENIX Security 2021
+  https://www.usenix.org/conference/usenixsecurity21/presentation/yadegari
+  https://www.usenix.org/system/files/sec21fall-yadegari.pdf
+- A Heuristic Approach to Detect Opaque Predicates that Aid Malware Analysis
+  https://www.ndss-symposium.org/wp-content/uploads/2020/04/bar2020-23004.pdf
+- Logic-Oriented Opaque Predicate Detection in Obfuscated Binary Code
+  https://dl.acm.org/doi/pdf/10.1145/2810103.2813617

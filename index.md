@@ -155,6 +155,7 @@ Priority 2 candidates include:
 - `topics/trust-calibration-and-verification-burden.md`
 - `topics/collaborative-malware-analysis-and-role-differentiation.md`
 - `topics/opaque-predicate-and-computed-next-state-recovery-workflow-note.md`
+- `topics/input-invariant-opaque-predicate-to-valid-input-constraint-recovery-workflow-note.md`
 
 ### Native desktop/server practical branch
 - `topics/native-practical-subtree-guide.md`

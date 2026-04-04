@@ -11,6 +11,7 @@ Related pages:
 - topics/kernel-callback-telemetry-to-enforcement-consumer-workflow-note.md
 - topics/vm-trace-to-semantic-anchor-workflow-note.md
 - topics/opaque-predicate-and-computed-next-state-recovery-workflow-note.md
+- topics/input-invariant-opaque-predicate-to-valid-input-constraint-recovery-workflow-note.md
 - topics/flattened-dispatcher-to-state-edge-workflow-note.md
 - topics/packed-stub-to-oep-and-first-real-module-workflow-note.md
 - topics/decrypted-artifact-to-first-consumer-workflow-note.md
@@ -200,6 +201,26 @@ Do **not** start here when:
 - the first stable semantic anchor is still missing entirely and the current evidence is mostly noisy protected execution
 - a trustworthy successor relation already exists and the real problem is now outer-consumer proof or durable state-edge reduction
 - the dominant uncertainty is still packed/bootstrap handoff rather than successor-state recovery inside an already recognizable flattened region
+
+Possible next handoff:
+- `topics/input-invariant-opaque-predicate-to-valid-input-constraint-recovery-workflow-note.md` when the remaining ambiguity is no longer broad successor recovery but the smaller question of which valid-input invariant makes one suspicious predicate effectively fixed for accepted executions
+- `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
+- `topics/native-interface-to-state-proof-workflow-note.md`
+- `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
+
+### Start with `input-invariant-opaque-predicate-to-valid-input-constraint-recovery-workflow-note`
+Use:
+- `topics/input-invariant-opaque-predicate-to-valid-input-constraint-recovery-workflow-note.md`
+
+Start here when:
+- the branch family is already suspicious enough that broad opaque-predicate recovery is no longer the cheapest question
+- accepted or otherwise valid executions make one predicate look effectively fixed even though malformed or arbitrary inputs create misleading diversity
+- the next useful output is one recovered valid-input invariant, parser-normalized relation, checksum/range relation, or earlier acceptance guard that collapses the predicate family for real executions
+
+Do **not** start here when:
+- the main blocker is still broad successor-state recovery
+- there is not yet enough stable trace evidence to distinguish accepted-input behavior from arbitrary perturbation noise
+- the target is better described as packed/bootstrap handoff, artifact-to-consumer proof, or integrity consequence reduction
 
 ### Start with `packed-stub-to-oep-and-first-real-module-workflow-note`
 Use:
