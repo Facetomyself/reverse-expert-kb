@@ -1,73 +1,80 @@
 #!/usr/bin/env python3
 import json
-import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-WS = ROOT.parent
-INFRA = WS / 'infra' / 'hosts'
-TMP = Path('/tmp')
+import yaml
 
-HOST_PROJECT_DOCS = {
-    'oracle-proxy': INFRA / 'oracle-proxy' / 'PROJECTS.md',
-    'oracle-docker-proxy': INFRA / 'oracle-docker-proxy' / 'PROJECTS.md',
-    'ali-cloud': INFRA / 'ali-cloud' / 'PROJECTS.md',
-    'oracle-mail': INFRA / 'oracle-mail' / 'PROJECTS.md',
-}
+ROOT = Path(__file__).resolve().parents[1]
+TMP = Path('/tmp')
+PROJECT_MAP = ROOT / 'inventory' / 'project-map.yaml'
+
+TOKENS = [
+    'tavily', 'exafree', 'grok', 'cliproxy', 'easyimage', 'camoufox',
+    'mailu', 'moemail', 'harbor', 'registry-ui', 'hubcmd', 'registry',
+    'proxycat', 'flaresolverr', 'anticap', 'openai', '1panel', 'derper',
+    'hysteria', 'rbot', 'outlook', 'nas'
+]
 
 
 def load_json(name):
     return json.loads((TMP / name).read_text())
 
 
-def extract_doc_hints(text):
-    lower = text.lower()
+def load_project_map():
+    data = yaml.safe_load(PROJECT_MAP.read_text()) or {}
+    return data.get('hosts', {})
+
+
+def extract_tokens(text):
+    lower = (text or '').lower()
     hints = set()
-    for token in [
-        'tavily', 'exafree', 'grok', 'cliproxy', 'easyimage', 'camoufox',
-        'mailu', 'moemail', 'harbor', 'registry-ui', 'hubcmd', 'registry',
-        'proxycat', 'flaresolverr', 'anticap', 'openai', '1panel'
-    ]:
+    for token in TOKENS:
         if token in lower:
             hints.add(token)
+    return hints
+
+
+def extract_documented_hints(projects):
+    hints = set()
+    for item in projects:
+        hints |= extract_tokens(item.get('name', ''))
+        match = item.get('match', {}) or {}
+        for value in match.values():
+            if isinstance(value, list):
+                for part in value:
+                    hints |= extract_tokens(str(part))
+            else:
+                hints |= extract_tokens(str(value))
     return sorted(hints)
 
 
-def extract_runtime_hints(containers, compose_files):
+def extract_runtime_hints(containers, compose_files, services):
     hints = set()
     for line in containers:
-        low = line.lower()
-        for token in [
-            'tavily', 'exafree', 'grok', 'cliproxy', 'easyimage', 'camoufox',
-            'mailu', 'moemail', 'harbor', 'registry-ui', 'hubcmd', 'reg-',
-            'proxycat', 'flaresolverr', 'anticap', 'openai', '1panel'
-        ]:
-            if token in low:
-                hints.add(token)
+        hints |= extract_tokens(line)
     for path in compose_files:
-        low = path.lower()
-        for token in [
-            'tavily', 'exafree', 'grok', 'cliproxy', 'easyimage', 'camoufox',
-            'mailu', 'moemail', 'harbor', 'registry-ui', 'hubcmd', 'registry',
-            'proxycat', 'flaresolverr', 'anticap', 'openai', '1panel'
-        ]:
-            if token in low:
-                hints.add(token)
+        hints |= extract_tokens(path)
+    for line in services:
+        hints |= extract_tokens(line)
     return sorted(hints)
 
 
 def main():
     docker = load_json('ops_docker_inventory.json')['results']
     drift = load_json('ops_drift_scan.json')['results']
+    systemd = load_json('ops_systemd_inventory.json')['results']
     dmap = {x['host']: x for x in docker}
     mmap = {x['host']: x for x in drift}
+    smap = {x['host']: x for x in systemd}
+    project_map = load_project_map()
     out = []
-    for host, doc in HOST_PROJECT_DOCS.items():
-        text = doc.read_text() if doc.exists() else ''
-        doc_hints = set(extract_doc_hints(text))
+    for host, payload in project_map.items():
+        projects = payload.get('documented_projects', [])
+        doc_hints = set(extract_documented_hints(projects))
         runtime_hints = set(extract_runtime_hints(
             dmap.get(host, {}).get('containers', []),
             mmap.get(host, {}).get('composeFiles', []),
+            smap.get(host, {}).get('services', []),
         ))
         undocumented = sorted(runtime_hints - doc_hints)
         stale = sorted(doc_hints - runtime_hints)
