@@ -219,7 +219,31 @@ For analyst purposes, the practical reduction is:
 - prove where the consumer treats the later same-index record as stale because phase/ownership changed
 - then decide whether the target is really suffering parser mismatch, or simply rejecting stale ownership at the queue-lifetime boundary
 
-Use all of these source families conservatively as operator analogies, not as a claim that every target implements the same exact field, callback, queue, or ring machinery.
+#### Reminder G: virtio used-index visibility is still weaker than current wrap-owned completion truth
+Virtio/split-ring discussions are useful because they show a closely related trap in another queue family:
+- `used->idx` can move and still be weaker than one trustworthy current completion-owner interpretation
+- stale-index and wrap-counter fixes exist precisely because visible ring progress can be misread when wrap/lifetime handling drifts
+- notification-side surfaces such as event-index behavior are not the same thing as proving that the consumer accepted the current used entry as the live owner of one pending request
+
+For analyst purposes, the practical reduction is:
+- do not stop at visible used-index advance, one used-ring slot, or one notification edge
+- freeze one accepted used entry before wrap/counter drift and one later deceptively similar used entry after wrap/counter change
+- prove where the runtime ties current-owner truth to wrap/lifetime bookkeeping rather than stable slot/index visibility alone
+- only then decide whether the target is missing a completion, misparsing a descriptor, or correctly rejecting stale ownership at the ring-lifetime boundary
+
+#### Reminder H: io_uring `user_data` similarity is still weaker than current request-context truth
+`io_uring`-style completion handling is useful because it shows the same ownership trap in a modern async API shape:
+- a CQE can carry the expected `user_data`
+- timeout, cancel, multishot, or reused submission logic can still make that broad token weaker than current pending-owner truth
+- duplicate or recycled outer identifiers can therefore produce believable-but-wrong completion narratives if waiter lifetime is not frozen first
+
+For analyst purposes, the practical reduction is:
+- do not stop at “the CQE carried the right `user_data`”
+- freeze where the request context, timeout object, cancel target, or multishot state is created
+- freeze where that owner is retired, replaced, or reused while similar `user_data` still remains plausible
+- only then decide whether the target is suffering parser mismatch, bad correlation, or a correct stale/late-owner rejection at the completion-lifetime boundary
+
+Use all of these source families conservatively as operator analogies, not as a claim that every target implements the same exact field, callback, queue, ring, or completion API machinery.
 
 ### Step 4: Prove one retire/reuse path, not only one consume path
 Do not stop at the accepted case.
