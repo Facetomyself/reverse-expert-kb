@@ -5,14 +5,20 @@
 - Provider: unknown / domestic-hosting-side machine
 - Public IP: `211.144.221.229`
 - SSH aliases:
-  - `self-server` -> preferred OpenClaw-side access path via `ali-cloud` jump host
-  - `self-server-direct` -> direct probe path from the local OpenClaw host
+  - `self-server` -> preferred OpenClaw-side access path via `ali-cloud` jump host to `:44001`
+  - `self-server-direct` -> direct probe path to `:44001` from the local OpenClaw host
+  - `self-server-44005` -> preferred OpenClaw-side access path via `ali-cloud` jump host to `:44005`
+  - `self-server-44005-direct` -> direct probe path to `:44005` from the local OpenClaw host
 - Default SSH user: `root`
 
 ## Access
-- Confirmed SSH port from user on 2026-04-04: `44001`
-- Authentication mode currently expected: password auth
-- Credential handling note: password was user-provided in chat context on 2026-04-04 but is intentionally **not** stored in `infra/`
+- Confirmed SSH ports from user on 2026-04-04:
+  - `44001`
+  - `44005`
+- Authentication mode now established for both reachable paths:
+  - bootstrap via password auth
+  - routine access via OpenClaw-side public-key auth through `ali-cloud` jump-host transit
+- Credential handling note: user-provided passwords were used interactively during bootstrap on 2026-04-04 but are intentionally **not** stored in `infra/`
 
 ## Reachability notes
 Observed on 2026-04-04:
@@ -20,8 +26,10 @@ Observed on 2026-04-04:
 - TCP probe from `ali-cloud` to `211.144.221.229:44001` succeeded
 - a full SSH attempt through the configured `ProxyJump ali-cloud` path reached an interactive password prompt from the target host, confirming that the jump-host path is viable
 - after the user corrected the password, login through `ali-cloud` succeeded
-- same-day follow-up installed an OpenClaw-side public key on the remote root account and confirmed passwordless login works through `ssh self-server`
-- the same public IP also has another user-mentioned machine/service on port `40005`, but TCP probe from `ali-cloud` to `211.144.221.229:40005` still timed out during this session, so only the `44001` path is currently integrated
+- same-day follow-up installed an OpenClaw-side public key on the remote root account behind `:44001` and confirmed passwordless login works through `ssh self-server`
+- a second same-IP target behind `:44005` was later clarified by the user; direct path from the current OpenClaw host still timed out, but transit via `ali-cloud` worked
+- password `Zxm971004` failed for `:44005`, while corrected password `WnhtOTcxMDA0` succeeded
+- same-day follow-up then installed the same OpenClaw-side RSA public key on the remote root account behind `:44005` and confirmed passwordless login works through `ssh self-server-44005`
 
 ## Operational interpretation
 - Treat `ali-cloud` as the preferred China-side transit point when testing or using this host from the current environment
@@ -29,6 +37,5 @@ Observed on 2026-04-04:
 - `self-server-direct` is preserved for direct-path diagnostics
 
 ## Next checks
-- treat `211.144.221.229:40005` as a second machine/service candidate on the same public IP, but currently unreachable even from `ali-cloud`
-- once either `40005` becomes reachable or more identity detail is known, split that second target into its own documented access section or dedicated host doc
-- add system baseline, role, and any project/network notes for the confirmed `44001` machine once a fuller inspection is desired
+- decide later whether `:44001` and `:44005` should keep living under one shared host doc or be split into two dedicated machine docs on the same public IP
+- add system baseline, role, and any project/network notes for the confirmed `44001` and `44005` machines once a fuller inspection is desired
