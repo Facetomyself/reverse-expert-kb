@@ -50,8 +50,8 @@ Observed on 2026-04-04:
 - Kernel: `3.10.0-1160.119.1.el7.x86_64`
 - Primary private IP: `10.10.21.185/24`
 - Default route: `10.10.21.254`
-- Runtime shape: 1Panel + Docker + `mihomo` + more accumulated dev/tooling residue
-- Key observed listeners: `22`, `5837`, `30008`, `9090`, `1053`
+- Runtime shape: aggressively reduced toward 1Panel-only; historical `mihomo`, postfix, Docker workloads, and most operator tooling residue were removed on 2026-04-04
+- Key remaining listeners after cleanup: `22`, `30008`
 
 ## User-confirmed port constraints
 Recorded on 2026-04-04 because public IP / forwarding resources are limited on this virtualization side:
@@ -60,5 +60,5 @@ Recorded on 2026-04-04 because public IP / forwarding resources are limited on t
 
 ## Next checks
 - decide later whether `:44001` and `:44005` should keep living under one shared host doc or be split into two dedicated machine docs on the same public IP
-- inspect 1Panel application definitions and compose/runtime details before deleting old workloads
-- verify which currently listening ports are truly externally forwarded versus only locally bound / internally reachable
+- if `:44005` should become a cleaner long-term 1Panel box, consider whether Docker itself is still needed or whether 1Panel-only management should stay as the minimal baseline
+- verify whether any additional shell-init cleanup is still needed after the environment removals on `:44005`

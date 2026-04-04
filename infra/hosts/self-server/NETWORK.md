@@ -28,7 +28,7 @@ Operational note:
 Allowed public TCP range:
 - `30001-30010`
 
-Observed listening TCP ports during same-day read-only inspection:
+Observed listening TCP ports during initial same-day read-only inspection:
 - `22/tcp` - sshd
 - `5837/tcp` - sshd additional listener
 - `30008/tcp` - `1panel-core`
@@ -38,7 +38,10 @@ Observed listening TCP ports during same-day read-only inspection:
 - `25/tcp` loopback-only / localhost-bound by postfix
 - `7890/tcp` loopback-only by `mihomo`
 
+Post-cleanup state observed later on 2026-04-04:
+- `22/tcp` - sshd
+- `30008/tcp` - `1panel-core`
+
 Operational note:
-- Only the public-allocation claim is user-confirmed. The current `ss -ltnp` snapshot shows additional listeners, but not all of them are necessarily reachable from the public side.
 - `30008/tcp` fits inside the user-confirmed allowed allocation.
-- `9090`, `1053`, and `5837` deserve later verification before assuming they are intentionally exposed through external forwarding.
+- historical listeners `5837`, `9090`, `1053`, and `111` were removed from active service during the same-day cleanup pass to bring this VM closer to a true 1Panel-only shape.

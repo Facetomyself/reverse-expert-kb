@@ -55,8 +55,8 @@ Current shape is noticeably heavier and contains more development residue / oper
 - `/root/mcp/*`
 
 ### Likely interpretation
-- this machine has accumulated a mix of panel management, proxy tooling (`mihomo`), MCP/dev tooling, and editor/agent residue
-- if you want to simplify aggressively later, `host185` deserves a slower review before deletion because it contains more operator-state and more ambiguous leftovers
+- this machine had accumulated a mix of panel management, proxy tooling (`mihomo`), MCP/dev tooling, and editor/agent residue
+- on 2026-04-04 an aggressive cleanup removed the running `jshookmcp` container, disabled `mihomo` and postfix, removed most MCP/editor/dev-tool directories, and later removed the extra SSH listener `5837` plus `rpcbind`, leaving the machine much closer to a true 1Panel-only box
 
 ## Suggested cleanup order later
 1. confirm which externally reachable ports still matter on each machine
