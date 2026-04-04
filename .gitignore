@@ -30,6 +30,9 @@ memory/
 oracle-proxy-backups/
 repos/
 
+# Nested independent repos / worktrees
+infra/.git/
+
 # Generated maintenance outputs
 maintenance/nightly-system-checks/
 
