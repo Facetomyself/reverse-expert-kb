@@ -239,6 +239,33 @@ Use these defaults unless the user asks otherwise:
 - **Do not lower global heartbeat just to rescue one task**
   - prefer task-level cron/watchdog over making the whole session poll more aggressively.
 
+### Language triggers that imply continuation/watchdog intent
+
+Unless the user clearly means “just answer now”, treat the following wording as a strong hint that I should avoid dropping the task after this turn:
+
+- `继续`
+- `继续做`
+- `继续处理`
+- `继续看`
+- `继续盯`
+- `不要停`
+- `别停`
+- `一直做完`
+- `盯一下`
+- `监测`
+- `监控一下`
+- `过会再看`
+- `稍后再看`
+- `等会再查`
+- `你后面继续`
+- `有结果再告诉我`
+
+Default interpretation:
+- If these phrases appear and the task is not likely to finish cleanly in the current turn, prefer a real continuation mechanism.
+- For short waits/rechecks, default to a temporary watchdog cron.
+- For longer multi-step work, prefer detached task/flow handling.
+- Do not merely say “我继续” unless an actual continuation path has been attached.
+
 **Things to check (rotate through these, 2-4 times per day):**
 
 - **Emails** - Any urgent unread messages?
