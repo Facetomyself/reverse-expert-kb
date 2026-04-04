@@ -58,7 +58,8 @@ hosts:
       - current camoufox exposure is plain ws://<host>:39222/camoufox with no documented TLS/auth proxy in front
       - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.98.184.19`
       - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
-      - Tailscale health check warns that configured DNS servers are not reachable; tailnet membership still works, but DNS should be cleaned up later
+      - 2026-04-04 root cause for the old DNS warning was confirmed on-host: DHCP had pinned `eth0` to unreachable Alibaba internal resolvers `100.100.2.136` / `100.100.2.138`; a persistent netplan override now forces `223.5.5.5` / `223.6.6.6`, restoring local stub resolution through `127.0.0.53`
+      - same-day validation showed Hysteria client egress through `oracle-gateway` worked after DNS repair (SOCKS5 on `127.0.0.1:18080`, public egress `129.150.61.78`), but Docker/registry reliability is still only partially improved because some HTTPS registry paths continue to stall or hit TLS handshake timeout
 
   - name: oracle-mail
     provider: oracle
