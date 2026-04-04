@@ -1,0 +1,24 @@
+Reverse KB autosync — search-layer raw trace (TLS callback -> first payload consumer seam)
+Date: 2026-04-04 13:21 Asia/Shanghai / 2026-04-04 05:21 UTC
+
+Command:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py \
+  --queries \
+    "PE TLS callbacks loader execute before entry point Microsoft documentation" \
+    "Windows PE TLS callback unpacking first payload consumer reverse engineering" \
+    "IMAGE_TLS_DIRECTORY AddressOfCallbacks PE TLS callbacks docs" \
+  --mode deep \
+  --intent exploratory \
+  --source exa,tavily,grok \
+  --num 5
+
+Observed:
+- Exa: returned results
+- Tavily: returned results
+- Grok: invoked; returned empty set
+
+High-signal anchors retained:
+- PE Format — https://learn.microsoft.com/en-us/windows/win32/debug/pe-format
+- /TLS — https://learn.microsoft.com/en-us/cpp/build/reference/tls?view=msvc-170
+- Inside Windows: An In-Depth Look into the Win32 Portable Executable File Format, Part 2
+  https://learn.microsoft.com/en-us/archive/msdn-magazine/2002/march/inside-windows-an-in-depth-look-into-the-win32-portable-executable-file-format-part-2
