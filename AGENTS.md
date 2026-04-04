@@ -241,29 +241,43 @@ Use these defaults unless the user asks otherwise:
 
 ### Language triggers that imply continuation/watchdog intent
 
-Unless the user clearly means “just answer now”, treat the following wording as a strong hint that I should avoid dropping the task after this turn:
+Unless the user clearly means “just answer now”, treat the following wording as a strong hint that I should avoid dropping the task after this turn.
+
+#### A. Immediate continuous-execution intent
+These usually mean: keep going now if the next steps are clear and low-risk.
 
 - `继续`
 - `继续做`
 - `继续处理`
 - `继续看`
-- `继续盯`
 - `不要停`
 - `别停`
 - `一直做完`
+- `你后面继续`
+
+Default interpretation:
+- Prefer continuing in the current turn when practical.
+- If the task cannot be fully completed in the current turn, attach a real continuation mechanism instead of stopping silently.
+- If the work is long/multi-stage, prefer detached task or flow handling.
+
+#### B. Watch / re-check intent
+These usually mean: check again later or keep an eye on it.
+
+- `继续盯`
 - `盯一下`
 - `监测`
 - `监控一下`
 - `过会再看`
 - `稍后再看`
 - `等会再查`
-- `你后面继续`
 - `有结果再告诉我`
 
 Default interpretation:
+- Prefer a temporary watchdog cron when the task needs a short delayed re-check.
+- Prefer detached task/flow handling if the work is longer-running or depends on multiple later events.
+
+Universal rule:
 - If these phrases appear and the task is not likely to finish cleanly in the current turn, prefer a real continuation mechanism.
-- For short waits/rechecks, default to a temporary watchdog cron.
-- For longer multi-step work, prefer detached task/flow handling.
 - Do not merely say “我继续” unless an actual continuation path has been attached.
 
 **Things to check (rotate through these, 2-4 times per day):**
