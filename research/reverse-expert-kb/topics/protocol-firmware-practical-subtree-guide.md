@@ -11,6 +11,7 @@ Related pages:
 - topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
 - topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
 - topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
+- topics/protocol-windows-rpc-binding-authinfo-and-context-lineage-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 - topics/protocol-ingress-ownership-and-receive-path-workflow-note.md
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
@@ -447,10 +448,27 @@ Routing reminder:
 - leave broad minimal-fixture work once one truthful fixture package is already good enough and the real bottleneck becomes replay acceptance, parser/state consequence, or later output handoff
 
 Possible next handoff:
+- `topics/protocol-windows-rpc-binding-authinfo-and-context-lineage-workflow-note.md` when the remaining drift is Windows-RPC-specific and the true mismatch is binding-handle authentication posture or context-handle lineage rather than broader replay-fixture shape
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/analytic-provenance-and-evidence-management.md`
+
+### F2. Windows RPC opnum visible -> binding auth-info / context-lineage truth
+Typical question:
+- if one Windows RPC opnum-level call is already isolated, what narrower binding/authentication or context-handle lineage proof must be frozen before compare/replay claims are honest?
+
+Primary note:
+- `topics/protocol-windows-rpc-binding-authinfo-and-context-lineage-workflow-note.md`
+
+Routing reminder:
+- stay here while the missing proof is specifically whether one binding-handle auth-info tuple or one live context-handle lineage still decides comparability
+- leave this thinner Windows RPC continuation once the auth-info/context-lineage mismatch is already good enough and the real bottleneck becomes broader replay acceptance, parser/state consequence, or later output handoff
+
+Possible next handoff:
+- `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
+- `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 
 ### G. Visible continuation object -> first trustworthy artifact ladder
 Typical question:
