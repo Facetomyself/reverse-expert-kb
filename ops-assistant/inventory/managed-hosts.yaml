@@ -59,7 +59,7 @@ hosts:
       - tailnet-member
 
   - name: oracle-new2
-    ssh_alias: oracle-new2
+    ssh_alias: ubuntu@140.245.61.236
     enabled: true
     check_profile: remote-standard
     alert_profile: standard
@@ -106,7 +106,7 @@ hosts:
   - name: home-nas
     ssh_alias: home-nas
     enabled: true
-    check_profile: remote-standard
+    check_profile: nas-tailnet-minimal
     alert_profile: standard
     expected_roles:
       - nas

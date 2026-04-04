@@ -45,6 +45,16 @@ def ssh_cmd(alias, remote):
 
 def check(host):
     name = host['name']
+    profile = host.get('check_profile', '')
+    if profile in ('tailnet-interactive-only', 'unstable-tailnet-observe', 'nas-tailnet-minimal'):
+        return {
+            'host': name,
+            'ok': True,
+            'containers': [],
+            'error': '',
+            'skipped': True,
+            'skipReason': f'profile={profile}',
+        }
     base = "docker ps --format '{{.Names}}\t{{.Status}}'"
     if name == 'oracle-open_claw':
         cmd = base

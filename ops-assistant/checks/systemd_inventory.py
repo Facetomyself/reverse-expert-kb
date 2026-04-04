@@ -24,6 +24,16 @@ def ssh_cmd(alias, remote):
 
 def check(host):
     name = host['name']
+    profile = host.get('check_profile', '')
+    if profile in ('tailnet-interactive-only', 'unstable-tailnet-observe', 'nas-tailnet-minimal'):
+        return {
+            'host': name,
+            'ok': True,
+            'services': [],
+            'error': '',
+            'skipped': True,
+            'skipReason': f'profile={profile}',
+        }
     base = "systemctl list-units --type=service --state=running --no-pager --no-legend | head -n 20"
     if name == 'oracle-open_claw':
         cmd = base

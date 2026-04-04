@@ -49,6 +49,8 @@ auto_remediation:
     systemd: []
     containers: []
     compose_projects: []
+    notes:
+      - nas-tailnet-minimal-profile
 
   oracle-open_claw:
     systemd:

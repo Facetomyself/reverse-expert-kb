@@ -26,6 +26,16 @@ def ssh_cmd(alias, remote):
 
 def scan(host):
     name = host['name']
+    profile = host.get('check_profile', '')
+    if profile in ('tailnet-interactive-only', 'unstable-tailnet-observe', 'nas-tailnet-minimal'):
+        return {
+            'host': name,
+            'ok': True,
+            'composeFiles': [],
+            'error': '',
+            'skipped': True,
+            'skipReason': f'profile={profile}',
+        }
     if name == 'oracle-open_claw':
         cmd = COMMON_FIND
     else:

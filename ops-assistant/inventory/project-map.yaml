@@ -95,7 +95,4 @@ hosts:
           infra_only: true
 
   home-nas:
-    documented_projects:
-      - name: Tailnet NAS access
-        match:
-          infra_only: true
+    documented_projects: []
