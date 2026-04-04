@@ -209,6 +209,7 @@ This branch should now be read as a practical bridge from baseline native synthe
 - `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
 - `topics/protocol-schema-externalization-and-replay-harness-workflow-note.md`
 - `topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md`
+- `topics/protocol-windows-rpc-binding-authinfo-and-context-lineage-workflow-note.md`
 - `topics/protocol-content-pipeline-recovery-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
@@ -226,6 +227,7 @@ This branch should now be read as a practical bridge from firmware/protocol synt
 - layer peeling / smaller-contract recovery (`protocol-layer-peeling-and-contract-recovery-workflow-note`), which acts as the practical entry note when one visible object already exists but still mixes framing, compression, serialization, crypto wrapping, RPC shell, or continuation structure and the main need is reducing it into one smaller trustworthy contract
 - schema externalization / replay-harness generation (`protocol-schema-externalization-and-replay-harness-workflow-note`), which acts as the practical entry note when one smaller trustworthy contract is already visible but still trapped in traces, notes, or target-local objects and the next useful output is one reusable schema, service-contract artifact, or representative replay/edit/fuzz surface before narrower replay-gate debugging begins
 - method-contract -> minimal replay-fixture reduction (`protocol-method-contract-to-minimal-replay-fixture-workflow-note`), which acts as the practical thinner continuation when one representative method-bearing contract is already externalized but still not frozen into one truthful request/response, request/completion, or streaming-aware ordered fixture slice plus one smallest constructor path that makes later gate debugging and compare design honest; keep explicit branch memory that some families also need separate **call-context truth** outside the serialized body or argument bundle, such as gRPC deadline/metadata/authority posture or Windows RPC binding/authn/context-handle posture, and keep a narrower compare rule that asks whether two runs are actually **body-identical but call-context-different** before reopening schema doubt or broader replay-gate folklore; official gRPC and Windows RPC documentation now ground this as a practical operator distinction rather than purely internal KB wording
+- Windows RPC binding auth-info / context-lineage continuation (`protocol-windows-rpc-binding-authinfo-and-context-lineage-workflow-note`), which acts as a thinner Windows-RPC-specific continuation once one opnum-level call is already isolated but compare/replay still lies because binding-handle authentication posture or live context-handle lineage was not frozen as part of the comparable call object
 - content-pipeline continuation (`protocol-content-pipeline-recovery-workflow-note`), which acts as the practical entry note when the first authenticated API family is already visible but the real analyst object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder
 - ingress ownership (`protocol-ingress-ownership-and-receive-path-workflow-note`), which acts as the practical entry note when inbound traffic is already visible enough but the first local receive owner that makes parser-relevant handling trustworthy is still unclear
 - parser-to-state consequence localization (`protocol-parser-to-state-edge-localization-workflow-note`), which acts as the practical entry note when one parser or dispatch region is already visible and the next bottleneck is the first state/reply/peripheral consequence edge rather than more field cataloging
@@ -448,6 +450,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md`
 - `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
 - `topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md`
+- `topics/protocol-windows-rpc-binding-authinfo-and-context-lineage-workflow-note.md`
 - `topics/protocol-content-pipeline-recovery-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
