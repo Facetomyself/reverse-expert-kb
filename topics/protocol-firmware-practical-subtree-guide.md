@@ -89,7 +89,9 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - one mailbox, command queue, slot, or submission path is already plausible, but the first publish edge and request-linked completion chain are still unclear
 14. **descriptor ownership-transfer / completion-visibility uncertainty**
    - one descriptor, ring, or completion record is already visible, but the exact ownership-transfer, publish-vs-notify-vs-trust, or reclaim boundary is still unclear
-15. **hardware-side effect / interrupt consequence uncertainty**
+15. **USB URB completion / first-consumer uncertainty**
+   - USB transfer submission or completion visibility is already good enough, but the first callback/parser/router that gives the completed transfer behavioral meaning is still unclear
+16. **hardware-side effect / interrupt consequence uncertainty**
    - the path already reaches peripheral or interrupt/deferred boundaries, but the first durable effect-bearing write or later consequence handoff is still unproved
 
 A compact operator ladder for this branch is:
@@ -333,6 +335,21 @@ Do **not** start here when:
 - the real missing edge is still mailbox-style command publication rather than shared-ring ownership semantics
 - the first hardware-facing effect-bearing MMIO edge is still more important than the shared-memory trust boundary
 - the ownership / visibility contract is already good enough and the remaining gap is now a later ISR/deferred consequence or model-realism follow-up
+
+### Start with `usb-urb-completion-and-first-consumer-workflow-note`
+Use:
+- `topics/usb-urb-completion-and-first-consumer-workflow-note.md`
+
+Start here when:
+- USB transfer submission or usbmon completion visibility is already obvious enough to track
+- the main uncertainty is no longer whether USB traffic exists, but whether the relevant truth lives in submit/setup, completion, callback/parser ownership, or one later visible consequence
+- the next useful output is one smaller chain such as submit -> completion -> first callback/parser consumer -> visible consequence
+- the case is better described as completed USB-transfer ownership than as descriptor/ring trust or broader peripheral/MMIO effect proof
+
+Do **not** start here when:
+- the real bottleneck is still descriptor/ring ownership transfer or reclaim semantics
+- the real question is still generic enumeration, endpoint discovery, or non-USB transport framing
+- first completion-consumer ownership is already good enough and the remaining gap is now later parser/business logic or hardware-side effect proof
 
 ### Start with `peripheral-mmio-effect-proof-workflow-note`
 Use:
@@ -640,8 +657,12 @@ When a case is clearly firmware/protocol shaped, ask these in order:
    - if yes, start with reply-emission / transport handoff
 13. **Is the accepted local path already visible, but the true bottleneck is now mailbox/doorbell command publish-to-completion rather than broader output emission?**
    - if yes, start with mailbox/doorbell command publish-completion proof
-14. **Has the case already crossed into descriptor ownership/visibility or peripheral or interrupt/deferred consequences?**
-   - if yes, choose descriptor ownership/visibility, MMIO effect proof, or ISR/deferred consequence proof depending on whether the trust/reclaim boundary, the first effect-bearing hardware edge, or the later durable completion-driven reduction is still missing
+14. **Has the case already crossed into descriptor ownership/visibility?**
+   - if yes, start with descriptor ownership/visibility proof
+15. **Is USB submission or completion already visible, but the first completion-owned consumer is still unclear?**
+   - if yes, start with USB URB completion / first-consumer proof
+16. **Has the case already crossed into peripheral or interrupt/deferred consequences?**
+   - if yes, choose MMIO effect proof or ISR/deferred consequence proof depending on whether the first effect-bearing hardware edge or the later durable completion-driven reduction is still missing
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
 That usually means:

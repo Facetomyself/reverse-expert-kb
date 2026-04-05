@@ -1,0 +1,31 @@
+Search 1:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "Linux USB URB submit completion callback first consumer usb_submit_urb usb_complete_t docs usbmon"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- Linux USB API docs for `usb_submit_urb` / URB callbacks
+- usbmon documentation / references
+- URB completion callback guidance
+
+Search 2:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "libusb asynchronous transfer callback submit transfer completion first consumer docs"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- libusb asynchronous I/O / transfer callback docs
+- transfer-completion ownership references
+- async callback usage guidance
+
+Search 3:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "usbmon URB status completion callback endpoint direction actual_length first consumer docs"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- usbmon references
+- endpoint/direction/status/length visibility docs
+- completion record interpretation references
+
+Observed source status across all three searches:
+- Exa: usable hits
+- Tavily: usable hits
+- Grok: invoked, failed (502)
