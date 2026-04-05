@@ -331,18 +331,21 @@ It is best entered through `topics/mobile-protected-runtime-subtree-guide.md`, t
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md` when one owner path is already plausible enough that the next bottleneck is no longer broad owner choice, but the exact signing/preimage chain still needs reduction
 - `topics/result-code-and-enum-to-policy-mapping-workflow-note.md` when parsed objects, callbacks, or app-visible enums already expose result material, but the first app-local policy bucket or scheduler consequence is still hidden behind normalization helpers, switch lowering, or later state writes
 - `topics/webview-cookie-header-bootstrap-handoff-workflow-note.md` when page-side state clearly influences native behavior, but no explicit bridge object is visible and the analyst must localize the first native consumer through cookie reads, header merges, or bootstrap-store pulls
+- `topics/webview-native-bridge-payload-recovery-workflow-note.md` when the page/native seam is clearly bridge-shaped but the missing object is still the bridge family, the current frame/world/context truth, or the first native consumer that actually interprets the payload
 - `topics/webview-native-response-handoff-and-page-consumption-workflow-note.md` when native code already obtains a meaningful result, but the decisive next behavior still happens inside the page and the analyst must separate outbound native emission from the first meaningful page consumer
 
-That Android / hybrid route helps separate five recurring operator bottlenecks that are easy to collapse together:
+That Android / hybrid route helps separate six recurring operator bottlenecks that are easy to collapse together:
 - mixed-runtime owner uncertainty across Java / Flutter / Dart / native boundaries
 - owner-to-signature/preimage reduction once the right owner path is already plausible enough
 - result-code / enum-to-policy reduction once visible result material exists but its first local behavioral consequence is still unclear
+- bridge-family / frame-world / first-native-consumer proof when the WebView seam is explicit but payload ownership is still ambiguous
 - page-state-to-native bootstrap handoff localization when WebView state obviously matters but the first native consumer is still hidden
 - native-to-page return-path and page-consumer proof when native work is already visible but the decisive later consequence still lives in page-side consumption
 
 A compact way to remember the Android / hybrid continuation is:
 - **own** the first cross-runtime consequence-bearing object
 - **reduce** the first signing or policy bucket that turns visible material into smaller behavior claims
+- **classify** one explicit bridge family and prove one frame/world/current-consumer boundary when the seam is explicit but still ambiguous
 - **handoff** page/bootstrap state into one native consumer when the bridge is implicit rather than explicit
 - **return** one native result into the first meaningful page-side consumer when the decisive consequence still happens after the app leaves native code again
 
