@@ -343,6 +343,8 @@ A practical routing rule is now worth making explicit:
   - `topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md`
 - once one interface family, concrete implementation family, or loaded-module owner is plausible but behavioral ownership still breaks at async dispatch boundaries, localize the first consequence-bearing event-loop consumer before mapping more framework plumbing:
   - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
+- once that async bottleneck has already narrowed specifically into Linux filesystem-watch registration and event delivery, keep one thinner reminder visible at the parent-page level: watcher setup and raw event receipt are still weaker than delivery interpretation and first consumer truth, so coalesced inotify records, rename-cookie pairing, overflow handling, and fanotify permission-response ownership should stay separate from mere watcher existence:
+  - `topics/native-inotify-fanotify-first-event-consumer-workflow-note.md`
 
 This branch should now be read as a practical native ladder:
 - subtree navigation and bottleneck selection (`native-practical-subtree-guide`), which acts as the branch entry surface when the analyst first needs to decide whether the current native bottleneck is semantic instability, route overabundance, virtual-dispatch implementation uncertainty, module-owner uncertainty, or async ownership break
@@ -357,6 +359,8 @@ A practical sequencing reminder now worth preserving at the parent-page level is
 - do not stay too long in broad interface-path proof work once the real bottleneck has narrowed into concrete slot-implementation proof
 - do not stay too long in broad virtual-dispatch work once the real bottleneck has narrowed into loader/provider ownership
 - do not stay too long in loader/provider ownership work once the real bottleneck has narrowed into async delivery or callback-consumer proof
+- once the async bottleneck has already narrowed into Linux filesystem-watch delivery, preserve a second thinner stop rule: `watch registration != relevant event occurred != returned event record fully explains history != first event-owned consumer proved`
+- inside that watcher seam specifically, keep coalescing, rename-cookie pairing, overflow handling, and fanotify permission-response ownership separate rather than collapsing them into one vague “event seen” claim
 - do not stay too long in broad async callback/event-loop work once one consequence-bearing consumer is already good enough and the real bottleneck has narrowed into reverse-causality, broader runtime-evidence strategy, or one narrower output-side continuation
 - treat each handoff as a branch-routing decision, not just leaf-note detail, so analysts keep reducing the case toward one smaller trustworthy object instead of re-expanding the subsystem map
 
