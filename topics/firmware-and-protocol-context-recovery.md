@@ -111,6 +111,7 @@ Compact anti-drift reminders worth preserving here:
 - do not keep broad packet or register collection going when the real blocker is still selecting the first truthful boundary
 - do not keep naming protocol or peripheral families once one smaller trustworthy contract is already available and the real bottleneck has shifted to ownership, consequence, acceptance, or handoff proof
 - in descriptor/ring-heavy firmware cases, do not mistake visible completion bytes for solved understanding when ownership transfer, freshness rules, notify/doorbell scope, or non-coherent cache visibility still decide whether the peer or CPU may trust them
+- preserve a sharper parent-page reminder for descriptor-heavy cases: `descriptor or completion bytes visible != peer may already trust them != ownership transfer is complete != durable completion consequence proved`; on streaming or non-coherent DMA paths, CPU->device handoff, device->CPU ownership return, and memory-barrier / observation splits can all be the narrower missing proof object even after queue shape and descriptor fields are already visible
 - do not stop at parser visibility or local acceptance if the first committed outbound or hardware-side effect edge is still unproved
 - do not treat one good technical proof as finished work if the next likely failure mode is rediscovery rather than missing one more hook
 
@@ -293,6 +294,7 @@ Progress often depends on:
 - focusing effort on in-use context rather than nominal hardware completeness
 - once one message family is isolated, localizing the first parser-to-state or parser-to-peripheral consequence edge rather than collecting a wider but shallower corpus of similar traffic
 - once one candidate MMIO/register family is visible, localizing the first effect-bearing write, arm, or status-latch edge rather than widening register labeling without consequence proof
+- once one descriptor/ring family is visible, localizing the first trustworthy ownership-transfer / trust boundary rather than widening descriptor anatomy without proving when either side may actually trust the record bytes
 
 ### Long-horizon analysis
 Analysts need to preserve:
