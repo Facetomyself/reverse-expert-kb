@@ -364,6 +364,7 @@ This branch should now be read as a practical bridge from mature protected/deobf
 - `topics/jsvmp-and-ast-based-devirtualization.md`
 - `topics/browser-side-risk-control-and-captcha-workflows.md`
 - `topics/browser-fingerprint-and-state-dependent-token-generation.md`
+- `topics/browser-service-worker-fetch-consumer-and-cache-ownership-workflow-note.md`
 
 A practical routing rule now reinforced across the browser subtree:
 - prefer concrete boundary chains over family labels alone
@@ -397,7 +398,7 @@ A practical routing rule now reinforced across the browser subtree:
 
 This subtree is now best read as coordinated browser analyst entry surfaces:
 - structural recovery (`jsvmp-and-ast-based-devirtualization`)
-- workflow/state recovery (`browser-side-risk-control-and-captcha-workflows`, `browser-fingerprint-and-state-dependent-token-generation`, `reese84-and-utmvc-workflow-note`, `datadome-geetest-kasada-workflow-note`, `datadome-cookie-challenge-workflow-note`, `geetest-v4-w-parameter-and-validate-workflow-note`, `slider-captcha-state-capture-and-trace-comparison-workflow-note`, and `cloudflare-turnstile-widget-lifecycle-workflow-note`)
+- workflow/state recovery (`browser-side-risk-control-and-captcha-workflows`, `browser-fingerprint-and-state-dependent-token-generation`, `browser-service-worker-fetch-consumer-and-cache-ownership-workflow-note`, `reese84-and-utmvc-workflow-note`, `datadome-geetest-kasada-workflow-note`, `datadome-cookie-challenge-workflow-note`, `geetest-v4-w-parameter-and-validate-workflow-note`, `slider-captcha-state-capture-and-trace-comparison-workflow-note`, and `cloudflare-turnstile-widget-lifecycle-workflow-note`)
 - request-path and request-boundary recovery (`browser-parameter-path-localization-workflow-note` and `browser-request-finalization-backtrace-workflow-note`), now also read as the browser-side continuation for hybrid cases where the decisive request-finalization edge only becomes visible after native→page reinjection succeeds
 - instrumentation and contested observability (`browser-cdp-and-debugger-assisted-re` and `browser-debugger-detection-and-countermeasures`)
 - environment and mixed-runtime execution (`browser-environment-reconstruction` and `js-wasm-mixed-runtime-re`)

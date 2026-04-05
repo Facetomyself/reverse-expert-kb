@@ -155,6 +155,14 @@ Read this when the main problem is:
 - you need to recover the local input → transform → output chain for a token or field
 - environment reconstruction and live observation both seem necessary to explain the value
 
+### 7b. Service worker fetch consumer and cache ownership
+- `topics/browser-service-worker-fetch-consumer-and-cache-ownership-workflow-note.md`
+
+Read this when the main problem is:
+- a service worker is already visible through registration, script, or DevTools behavior, but current control, fetch-event consumer truth, and visible outcome ownership are still being flattened together
+- the main uncertainty is whether the relevant truth lives in registration, activation/current controller state, one `fetch`/`respondWith` branch, one cache/network choice, or one later visible stale-vs-fresh / rewritten response outcome
+- the next useful output is one smaller chain such as registration -> active controller -> fetch branch -> cache hit/network fallback -> visible consequence rather than a broad “service worker exists” statement
+
 ### 8. Concrete target-family workflow notes
 Current concrete notes:
 - `topics/reese84-and-utmvc-workflow-note.md`
