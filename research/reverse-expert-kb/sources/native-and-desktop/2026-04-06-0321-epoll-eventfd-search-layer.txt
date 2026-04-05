@@ -1,0 +1,32 @@
+Search 1:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "Linux epoll eventfd first consumer callback event loop ready list epoll_wait eventfd docs"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- man7 `epoll(7)`
+- man7 `epoll_wait(2)`
+- event-loop/event-library references around `epoll_wait(...)` result handling
+
+Search 2:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "epoll edge-triggered oneshot eventfd readiness consumer ownership docs man7"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- man7 `epoll(7)`
+- man7 `epoll_ctl(2)`
+- man7 `eventfd(2)`
+- edge-triggered / one-shot handling references
+
+Search 3:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "libevent libuv epoll eventfd loop wakeup first consumer docs"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- libuv event-loop docs
+- libevent/libev wakeup-loop references
+- libuv `eventfd` / EPOLLET wakeup references
+
+Observed source status across all three searches:
+- Exa: usable hits
+- Tavily: usable hits
+- Grok: invoked, failed (502)
