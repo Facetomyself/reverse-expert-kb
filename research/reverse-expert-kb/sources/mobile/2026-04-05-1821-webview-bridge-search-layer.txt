@@ -1,0 +1,35 @@
+Search 1:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "Android addJavascriptInterface WebMessagePort shouldOverrideUrlLoading WKScriptMessageHandler WKURLSchemeHandler bridge payload first consumer documentation"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- Android Developers WebView native bridges guidance
+- Chromium Java Bridge in WebView internals doc
+- Apple `WKScriptMessageHandler` docs
+- Apple `WKURLSchemeHandler` docs
+- OWASP MASTG WebView bridge examples
+
+Search 2:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "Android WebView WebMessagePort postWebMessage addJavascriptInterface shouldInterceptRequest bridge payload lifecycle docs"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- Android API docs for `WebViewCompat.postWebMessage`
+- AndroidX `WebMessagePortCompat` docs
+- Android `shouldInterceptRequest` docs/discussions
+- Chromium bridge / messaging behavior references
+
+Search 3:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "WKScriptMessageHandler WKURLSchemeHandler evaluateJavaScript first consumer payload ownership docs"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- Apple `WKScriptMessageHandler` docs
+- Apple `WKURLSchemeHandler` docs
+- Apple `evaluateJavaScript` docs
+- WebKit / app-side bridge usage references
+
+Observed source status across all three searches:
+- Exa: usable hits
+- Tavily: usable hits
+- Grok: invoked, failed (502)
