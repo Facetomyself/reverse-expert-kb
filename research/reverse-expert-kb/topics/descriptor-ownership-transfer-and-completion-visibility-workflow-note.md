@@ -84,6 +84,7 @@ Treat these as high-value proof surfaces:
 - owner, valid, or phase/freshness transitions that clearly switch the slot from local-prepared to peer-consumable
 - producer / tail / WR_IDX / used-index publication that changes which range is considered valid
 - shadow index or freshness-marker updates in memory that software reads before trusting completion records
+- explicit CPU->device ownership transfer boundaries on streaming or non-coherent paths (`dma_sync_*for_device()`-style handoff, write-buffer flush, barrier-adjacent publish)
 - MMIO RD_IDX, CQ head, or similar reclaim write that explicitly returns ownership to hardware or peer logic
 - compare-run evidence where identical descriptor fill exists in both runs, but only one run performs the publish edge that later leads to completion or reclaim
 
@@ -101,6 +102,7 @@ Treat these as high-value proof surfaces:
 - used-index, reclaim path, CQ head advance, or slot reuse occurs only after the completion record is visible and consumed
 - callback / waiter / worker carries the same request ID, descriptor ID, slot index, or queue position through the handoff
 - software writes the reclaim index or release marker only after consuming the completion record
+- completion-side trust is still kept separate from mere DMA-finished or interrupt-visible status when memory-barrier or ownership-return rules say stale bytes may still be observable
 
 Treat these as useful but weaker:
 - generic ISR entry
@@ -190,6 +192,8 @@ Freeze, in writing, these five things first:
 Check explicitly for:
 - **publish order**
   - completion / descriptor contents written before the publish index, owner bit, or freshness marker moves
+- **publish-barrier / observation split**
+  - memory barriers, cache maintenance, or posted-write drain may still separate “publish was written” from “peer may now truthfully observe it”
 - **notify-vs-trust split**
   - tail / avail-idx / WR_IDX / doorbell / notify may only announce availability; do not collapse that into “the peer may already trust descriptor or completion contents” unless ordering, ownership, and freshness semantics actually justify it
 - **consume order**
@@ -242,8 +246,8 @@ When posted-MMIO behavior or explicit read-back/flush patterns matter, preserve 
 ### 2.5 Treating populated completion bytes as fresh completion proof
 A slot can look structurally correct while still being stale under an owner/phase/tag rule.
 
-### 3. Ignoring cache-coherency and stale-read problems
-If the system is non-coherent, software may still read stale completion bytes after the device wrote them.
+### 3. Ignoring cache-coherency, ownership-transfer, and stale-read problems
+If the system is non-coherent or uses streaming DMA ownership handoff, software may still read stale completion bytes after the device wrote them, and the device may likewise not yet truthfully own CPU-prepared descriptor contents until the CPU->device handoff boundary is complete.
 
 ### 4. Losing track of which side owns the slot
 Without explicit ownership labels, analysts quickly overclaim that both sides can trust the same record at the same time.
@@ -292,6 +296,20 @@ completion bytes present in memory backing store
 
 Best move:
 - preserve cache visibility or explicit CPU-trust handoff as part of the proof object, not as an implementation footnote.
+
+### Scenario B2: Descriptor bytes are filled, but CPU->device ownership transfer is still incomplete
+Pattern:
+
+```text
+CPU fills descriptor / buffer contents
+  -> tail / notify path is nearby or even visible
+  -> device still behaves as if descriptor is stale or incomplete
+  -> barrier / sync-for-device / ownership-transfer boundary occurs
+  -> only then does real device consumption and later completion become possible
+```
+
+Best move:
+- keep “descriptor bytes present” separate from “device may now truthfully trust them,” especially on streaming or non-coherent DMA paths.
 
 ### Scenario C: Publish is solved, reclaim is the real missing proof
 Pattern:

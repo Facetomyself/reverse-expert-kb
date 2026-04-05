@@ -1,0 +1,34 @@
+Search 1:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "dma coherent noncoherent descriptor ownership cache sync completion visibility dma_sync_single_for_cpu for_device ring driver doc"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- Linux DMA API HOWTO / core DMA API docs
+- ownership explanation around `dma_sync_single_for_cpu()` / `dma_sync_single_for_device()`
+- dma-buf synchronization docs
+- vendor/platform discussions illustrating non-coherent issues
+
+Search 2:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "virtio used ring available ring memory barriers descriptor ownership completion visible consumed reclaimed driver requirements"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- OASIS virtio spec
+- Red Hat virtqueue explanation
+- virtqueue role/ownership material
+- packed virtqueue discussion
+
+Search 3:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "linux dma api howto cacheline sharing descriptor status ownership valid bit completion stale bytes"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- Linux DMA Engine API guide
+- Linux memory-barriers documentation
+- DMA API HOWTO / current docs
+- ownership/lifetime reminders around submitted descriptors and completion callbacks
+
+Observed source status across all three searches:
+- Exa: usable hits
+- Tavily: usable hits
+- Grok: invoked, failed (502)
