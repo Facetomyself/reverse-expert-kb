@@ -436,6 +436,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md`
 - `topics/android-linker-binder-ebpf-observation-surfaces.md`
 - `topics/android-observation-surface-selection-workflow-note.md`
+- `topics/android-binder-contentprovider-first-consumer-workflow-note.md`
 - `topics/trace-guided-and-dbi-assisted-re.md`
 - `topics/unity-il2cpp-state-ownership-and-persistence-workflow-note.md`
 - `topics/trace-slice-to-handler-reconstruction-workflow-note.md`
@@ -459,6 +460,8 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/webview-native-bridge-payload-recovery-workflow-note.md`
   - now explicitly warns that a correct page→native payload does not prove the case is solved if the later native→page return still misses listener registration, route mount, or stable page-state timing
 - `topics/webview-cookie-header-bootstrap-handoff-workflow-note.md`
+- `topics/android-binder-contentprovider-first-consumer-workflow-note.md`
+  - preserves the Android IPC stop rule `interface/provider exists != current client call uses it != relevant transact/provider selection truth != first Binder/provider consumer proved != later visible consequence truth`, and keeps `ContentProvider.call(...)` visible as a first-class provider seam rather than collapsing provider analysis into CRUD-only mental models
 
 ### Firmware / protocol practical branch
 - `topics/protocol-firmware-practical-subtree-guide.md`
