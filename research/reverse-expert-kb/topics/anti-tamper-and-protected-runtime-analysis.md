@@ -254,7 +254,7 @@ It should also preserve where the analyst is supposed to enter and leave the bra
 - reduce one callback-heavy kernel telemetry path into one first enforcement-relevant consumer when registration is visible but policy ownership is still missing
 - reposition observation when the current topology is itself the unstable thing
 - reduce noisy protected execution into one stable semantic anchor before broadening the case again
-- normalize one opaque-predicate / computed-next-state bottleneck into one trustworthy successor relation when flattening is recognizable but successor truth is still blocked by helper-mediated writes, computed indices, or dispatcher-local mechanics
+- normalize one opaque-predicate / computed-next-state bottleneck into one trustworthy successor relation when flattening is recognizable but successor truth is still blocked by helper-mediated writes, computed indices, dispatcher-local mechanics, or encoded-branch / obfuscated-next variants
 - reduce a recognizable flattened dispatcher or protected state machine into one durable state edge once successor recovery is already trustworthy enough
 - hand off out of staged bootstrap into one trustworthy post-protection target, while keeping Windows/native startup-normalization reality explicit when TLS callbacks, CRT/runtime startup, or constructor/init-table work still separate raw PE entry, startup-owned pre-entry truth, raw post-unpack transfer, and the first payload-bearing post-startup handoff
 - prove the first ordinary consumer of one recovered artifact
@@ -265,7 +265,7 @@ A compact parent-page memory worth preserving is that the protected-runtime bran
 - first triage the earliest anti-instrumentation gate if some detector effect is already visible but the first decisive gate family is still unclear
 - then repair observation topology if the current attach/spawn/app-local posture is itself distorting the case
 - then stabilize one semantic anchor if protected execution is still mostly noisy churn
-- then normalize one blocked successor relation if flattening is recognizable but next-state truth is still obscured by opaque predicates, helper-mediated writes, computed indices, or dispatcher-contract ambiguity
+- then normalize one blocked successor relation if flattening is recognizable but next-state truth is still obscured by opaque predicates, helper-mediated writes, computed indices, dispatcher-contract ambiguity, or encoded-branch / obfuscated-next variants
 - then reduce one recognizable dispatcher or protected state machine into one durable state edge
 - then hand off from packed/bootstrap churn into one trustworthy post-protection region
 - then prove the first ordinary consumer of one recovered artifact
@@ -275,6 +275,11 @@ A compact parent-page memory worth preserving is that the protected-runtime bran
 This compact ladder is narrower than the full protected-runtime domain.
 It does **not** imply every case traverses every stage or that every protected target starts with observation-topology failure.
 It means the branch is now best taught as a route for shrinking protection-shaped uncertainty until the remaining work can leave this branch and continue as ordinary native, mobile, browser, protocol, or broader runtime-evidence analysis.
+
+A practical reminder worth preserving at the parent-page level is:
+- **dispatcher recognized != next-state carrier recovered != trustworthy successor relation != full deobfuscation required**
+- Tigress-style next-variable obfuscation and encoded-branch variants can keep the successor question narrow even after dispatcher discovery is already done
+- symbolic execution, IL repair, or opaque-predicate cleanup should usually be treated here as narrow successor-extraction or noise-reduction aids rather than as a requirement to solve the whole flattened function before progress is allowed
 
 A few anti-drift reminders follow from that ladder:
 - do not keep cataloging hooks if the real blocker is still choosing a truthful observation boundary
