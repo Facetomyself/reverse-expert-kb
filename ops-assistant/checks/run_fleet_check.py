@@ -79,6 +79,13 @@ def build_summary():
     return out, {'p1': p1, 'p2': p2, 'overall': host_overall}
 
 
+def best_effort_send_alerts():
+    send_script = ROOT / 'checks' / 'send_alerts.py'
+    if not send_script.exists():
+        return
+    subprocess.run(['python3', str(send_script)], text=True, capture_output=True)
+
+
 def main():
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
     STATE_DIR.mkdir(parents=True, exist_ok=True)
@@ -122,8 +129,10 @@ def main():
                     lines += [f'- {x}' for x in p2]
                 lines.append('')
             summary_path.write_text('\n'.join(lines) + '\n')
+            best_effort_send_alerts()
             print(json.dumps(filtered, ensure_ascii=False, indent=2))
             return
+    best_effort_send_alerts()
     print(json.dumps(state, ensure_ascii=False, indent=2))
 
 

@@ -38,3 +38,9 @@
 - `reports/` 下的有意义 Markdown 报告可以提交。
 - `state/` 下的运行态文件（`last-run.json`、stdout/stderr、cron log、alert state 等）默认不提交。
 - `reports/` 顶层的临时 `.log` 产物默认不提交。
+
+## Alert-state sync note
+
+- `run_fleet_check.py` now does a best-effort follow-up call to `send_alerts.py` after it writes and filters `last-run.json`.
+- This reduces the common confusion where a manual fleet check has already cleared alerts, but `alert-state.json` still reflects the previously sent alert signature.
+- Existing cron chains that still call `run_fleet_check.py && send_alerts.py` remain safe because `send_alerts.py` deduplicates by alert signature.
