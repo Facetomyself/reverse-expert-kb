@@ -119,6 +119,15 @@ Shape:
 Why it matters:
 - the practical move is branch normalization: label and strip the noise around the state-driving core
 
+### E. Encoded-branch / obfuscated-next variants that still preserve one next-state carrier
+Shape:
+- branch structure is additionally obscured by encoded-branch schemes or by explicit next-variable obfuscation rather than by plain dispatcher repetition alone
+- the visible compare or branch edge is not yet the real successor object because the next-state carrier is still being transformed
+
+Why it matters:
+- Tigress-style `FlattenObfuscateNext` and encoded-branch variants are a useful reminder that the first trustworthy object may be the normalized next-carrier or one reduced branch-family output, not the superficial branch instruction the decompiler currently emphasizes
+- this is still a next-state recovery problem, not automatically a separate full deobfuscation campaign
+
 ## 6. Practical workflow
 
 ### Step 1: anchor the successor question, not the whole function
@@ -232,6 +241,11 @@ Useful proof targets include:
 - one patch-worthy replacement where a dispatcher return can be rewritten as a direct edge
 
 Do not wait to recover the whole function if one trustworthy relation is already enough to unblock static work.
+
+Practical reminder from recent Binary Ninja / Miasm / OLLVM unflattening material:
+- many workable pipelines succeed by extracting one state mapping or one successor edge first, then rewriting or simplifying around that proof
+- they do **not** require perfect decompilation or total opaque-predicate removal before progress starts
+- if your workflow keeps demanding full CFG prettification before you trust any edge, you are probably solving the wrong step first
 
 ### Step 7: decide whether CFG repair is now worth it
 Once one successor relation is trusted, decide what to do next.
@@ -416,8 +430,17 @@ If you still only have:
 
 then you are not done yet.
 
-## 11. Relationship to neighboring pages
+## 11. Practical reminders from external tooling and transform docs
+- Tigress flattening documentation is useful because it makes the transform knobs explicit: dispatch shape (`switch`, `goto`, `indirect`, `call`) and next-variable obfuscation are separate moving parts. That is a practical reminder not to confuse “dispatcher recognized” with “next-state carrier already recovered.”
+- Binary Ninja-based unflattening writeups are useful because they often succeed by mapping one state variable or one block-to-state relation and only then patching or rewiring blocks. That supports the operator rule: recover one edge first, prettify later.
+- Opaque-predicate-removal material is useful, but mainly as a **noise reduction** aid. If the real missing object is still one successor relation, do not over-promote generic opaque cleanup into the whole task.
+- Miasm / OLLVM deflattening material is useful because it repeatedly treats symbolic execution or local emulation as a narrow successor extractor, not as a requirement to fully solve the whole function in one pass.
+
+## 12. Relationship to neighboring pages
 - Use `vm-trace-to-semantic-anchor-workflow-note` when the main problem is still finding the first stable semantic anchor inside noisy protected execution.
 - Use `flattened-dispatcher-to-state-edge-workflow-note` when the anchor is already good enough and the remaining problem is a more ordinary state-edge / dispatcher-exit reduction.
-- Use this page **between** them when the flattened region is already recognizable, but the next-state relation is still obscured by opaque predicates, helper-mediated writes, or computed-next-state structure.
+- Use this page **between** them when the flattened region is already recognizable, but the next-state relation is still obscured by opaque predicates, helper-mediated writes, computed-next-state structure, or encoded-branch / obfuscated-next variants.
 - Leave this page once one trustworthy successor relation already exists and the real next task becomes outer-consumer proof, CFG repair, or downstream consequence localization.
+
+## 13. Sources
+- `sources/protected-runtime/2026-04-05-opaque-next-state-recovery-notes.md`
