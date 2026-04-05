@@ -126,6 +126,18 @@ Signs:
 - `shouldOverrideUrlLoading(...)` or a URL parser dispatches native behavior
 - payload may be URL-encoded rather than passed as ordinary method arguments
 
+#### Case D: WKWebView-style script-message / script-world bridge
+Signs:
+- `WKScriptMessageHandler` / `messageHandlers.<name>.postMessage(...)` patterns exist
+- handler registration lives in `WKUserContentController`
+- payload scope may depend on injected script world / frame context rather than one global page namespace
+
+#### Case E: request/resource-shaped bridge
+Signs:
+- the decisive handoff is not a direct bridge method call but a WebView resource/request interception path
+- Android `shouldInterceptRequest(...)` or iOS `WKURLSchemeHandler` style handlers shape what the page sees next
+- the first native consumer may sit at request interception or synthetic-response creation rather than at a classic JS-interface call
+
 Do not assume “no `addJavascriptInterface`” means “no bridge”.
 
 ### Step 3: capture registration first, invocation second
@@ -135,16 +147,21 @@ That often reveals names and structure for free.
 High-yield registration surfaces:
 - `addJavascriptInterface(obj, name)`
 - message channel creation / callback registration
+- `WKUserContentController.add(_:name:)` / script-message registration
 - WebView client attachment for navigation handoff paths
 - custom URL dispatch registration in WebView client or bridge controller code
+- resource/request interception registration such as `shouldInterceptRequest(...)` ownership or `WKURLSchemeHandler` registration
 
 Then capture invocation boundaries:
 - exposed bridge methods at method entry
 - message receive callbacks
+- `WKScriptMessageHandler.userContentController(_:didReceive:)`
 - `shouldOverrideUrlLoading(...)` arguments and post-parse handlers
+- request/resource interception callbacks when the native side synthesizes or redirects what the page receives
 
 Why this order helps:
 - registration gives naming and topology
+- registration often also reveals frame/world/scope constraints that matter later
 - invocation gives timing and payload
 - together they explain the handoff without requiring full app-wide tracing
 
@@ -346,9 +363,11 @@ Next move:
 Likely causes:
 - message-channel bridge in use
 - custom-URL/navigation handoff in use
+- WKScriptMessageHandler / script-message bridge in use
+- request/resource interception path is the real seam
 
 Next move:
-- inspect message-port APIs and navigation overrides before concluding that page and native sides are independent
+- inspect message-port APIs, script-message handlers, request-interception hooks, and navigation overrides before concluding that page and native sides are independent
 
 ### Failure mode 4: custom URLs are dismissed as navigation noise
 Likely causes:
@@ -414,8 +433,8 @@ This page is meant to sit between broad hybrid ownership diagnosis and deeper na
 This page adds grounded material the mobile subtree needed more of:
 - bridge-family-first reasoning
 - payload-shape capture before native normalization
-- equal treatment of object bridges, message channels, and custom-URL handoff
-- hook placement centered on registration, invocation, and first-consumer boundaries
+- equal treatment of object bridges, message channels, script-message bridges, request/resource interception bridges, and custom-URL handoff
+- hook placement centered on registration, invocation, frame/world scope, and first-consumer boundaries
 - explicit separation of bridge payload recovery from later transport ownership
 
 It is intentionally closer to real hybrid-app debugging than to WebView theory.
@@ -423,8 +442,10 @@ It is intentionally closer to real hybrid-app debugging than to WebView theory.
 ## 12. Source footprint / evidence note
 Grounding for this page comes mainly from:
 - `sources/mobile-runtime-instrumentation/2026-03-15-webview-native-bridge-payload-recovery-notes.md`
+- `sources/mobile/2026-04-05-webview-bridge-family-and-first-consumer-notes.md`
 - Android Developers guidance on WebView native bridges
 - Android WebView API reference for message-channel primitives
+- Apple WebKit API references for `WKScriptMessageHandler` and `WKURLSchemeHandler`
 - OWASP MASTG bridge examples showing canonical `addJavascriptInterface` usage
 - practical custom-URL / navigation-handoff evidence around `shouldOverrideUrlLoading(...)`
 
