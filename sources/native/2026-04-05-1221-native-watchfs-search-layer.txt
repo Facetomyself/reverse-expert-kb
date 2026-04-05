@@ -1,0 +1,26 @@
+Search 1:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "inotify coalesced events rename cookie IN_Q_OVERFLOW first consumer event loop watcher delivery semantics"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- inotify(7) manpage references
+- LWN deeper inotify article
+- watchdog coalesced-event handling PR
+- watcher library rename/association issue material
+- inotify rename-cookie discussion
+
+Search 2:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "fanotify permission events response listener first consumer semantics FAN_Q_OVERFLOW FAN_REPORT_FID man page"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- fanotify(7) manpage references
+- fanotify_init(2) / fanotify_mark(2) references
+- permission-event explanation material
+- FAN_REPORT_FID / report-flag references
+- Red Hat support note on permission-response blocking behavior
+
+Observed source status across both searches:
+- Exa: usable hits
+- Tavily: usable hits
+- Grok: invoked, failed (502)

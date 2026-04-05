@@ -86,11 +86,15 @@ This is weaker than event-consumer truth.
 From the Linux man pages:
 - inotify events are read from the inotify file descriptor as `struct inotify_event` records
 - fanotify returns event metadata records on the fanotify file descriptor
+- inotify rename-related events are connected by a shared `cookie`
+- successive identical unread inotify events may be coalesced into one returned record
+- inotify queues can overflow and emit `IN_Q_OVERFLOW`
 
 What to capture here:
 - one concrete event record
 - one mask / event-type family
 - one path/object identity if recoverable
+- whether the current record could be coalesced, paired, or overflow-adjacent rather than a one-to-one reflection of every underlying filesystem operation
 
 ### C. First event-owned consumer truth
 This is the first parser/dispatcher/handler that turns the event record into meaningful application behavior.
@@ -100,6 +104,7 @@ Typical anchors:
 - one path filter / allow-deny decision
 - one reload/scan/launch branch
 - one queue insertion or state change driven by the event
+- for fanotify permission classes, one first allow/deny response path that actually decides whether later file access proceeds
 
 ### D. Effect truth
 This is where the analyst proves the first event consumer actually matters.
@@ -126,10 +131,15 @@ This prevents stopping at registration or mask inventory.
 From the docs:
 - inotify events arrive as read records containing masks and names
 - fanotify marks and event metadata have their own semantics and object scope
+- inotify may coalesce identical unread events, preserves queue order, and uses rename cookies to pair `IN_MOVED_FROM` / `IN_MOVED_TO`
+- inotify overflow (`IN_Q_OVERFLOW`) is a first-class condition, not background noise
+- fanotify may identify objects by file descriptor or by FID-style records depending on report flags, so object identity may not always look like one simple path string
 
 Practical stop rules:
 - do not flatten “path is watched” into “relevant event occurred in the run that matters”
 - do not overread one observed read from the monitoring FD as proof that the later behavior is owned by that event family
+- do not assume one returned inotify record means a one-to-one underlying operation history when coalescing or rename pairing could already be shaping what the consumer sees
+- do not treat overflow as mere observability noise if the consumer’s own behavior may already be shaped by missed events or by explicit overflow handling
 
 ### Step 4: preserve event-mask / object-scope truth
 Prefer one event family with:
@@ -145,6 +155,7 @@ Among candidate consumers, prefer the one that:
 - predicts later behavior better than watch registration alone
 - turns one event record into a state/dispatch decision
 - survives compare-runs better than raw FD activity
+- for fanotify permission cases, actually emits or gates the allow/deny response rather than merely logging metadata arrival
 
 ### Step 6: use one narrow runtime move
 Typical minimal proofs include:
@@ -160,11 +171,17 @@ It is one proof that links registration to a first consequence-bearing event con
 - `one event record read != first event-owned consumer proved`
 - `watched path visibility != downstream effect ownership`
 - `one event family observed != full monitoring semantics recovered`
+- `one returned inotify record != one complete underlying operation history`
+- `rename-related record seen != rename consumer truth unless cookie-paired handling is preserved`
+- `overflow seen != harmless logging artifact`
+- `fanotify metadata arrival != permission decision consumer proved`
 
 ## 7. Sources
 See: `sources/native/2026-04-04-native-inotify-fanotify-first-event-consumer-notes.md`
 
 Primary references:
 - https://man7.org/linux/man-pages/man7/inotify.7.html
+- https://man7.org/linux/man-pages/man7/fanotify.7.html
 - https://man7.org/linux/man-pages/man2/fanotify_init.2.html
 - https://man7.org/linux/man-pages/man2/fanotify_mark.2.html
+- sources/native/2026-04-05-native-inotify-fanotify-delivery-and-overflow-notes.md
