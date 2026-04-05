@@ -234,6 +234,7 @@ The branch is now best entered through these recurring bottlenecks:
 - **structural recovery pressure** when JSVMP, AST-hostile transforms, or wasm-backed control structure still prevent one stable semantic foothold from forming
 - **stateful risk-control / challenge workflow uncertainty** when the target family is already browser-shaped, but the next trustworthy object is still the challenge/session/token workflow rather than only the script structure
 - **request-path or request-boundary uncertainty** when callback visibility, token state, or preimage hints already exist, but the first decisive parameter-localization or request-finalization edge is still unclear
+- **service-worker control / fetch-consumer uncertainty** when a worker is already visible through registration or DevTools behavior, but current control, one `fetch`/`respondWith` branch, or cache/network ownership still decides the visible result
 - **observation-pressure or debugger-surface distortion** when DevTools/CDP/breakpoint-visible behavior may itself be changing execution, suppressing code paths, or shifting the anti-bot verdict
 - **environment-reconstruction burden** when the meaningful path is already partly known, but replay, harnessing, or node-side reuse still fails because browser-local APIs, state, timing, or mixed JS/wasm execution remain under-reconstructed
 
@@ -251,6 +252,7 @@ Read the branch in this order when helpful:
 - structural recovery and devirtualization (`topics/jsvmp-and-ast-based-devirtualization.md`)
 - risk-control / captcha workflow recovery (`topics/browser-side-risk-control-and-captcha-workflows.md`)
 - request-parameter and request-boundary recovery (`topics/browser-parameter-path-localization-workflow-note.md` and `topics/browser-request-finalization-backtrace-workflow-note.md`)
+- service-worker-owned request/cache recovery (`topics/browser-service-worker-fetch-consumer-and-cache-ownership-workflow-note.md`)
 - debugger/CDP observation and counter-pressure (`topics/browser-cdp-and-debugger-assisted-re.md` and `topics/browser-debugger-detection-and-countermeasures.md`)
 - environment reconstruction and mixed-runtime execution (`topics/browser-environment-reconstruction.md` and `topics/js-wasm-mixed-runtime-re.md`)
 
@@ -279,7 +281,8 @@ Progress often depends on:
 A practical routing rule worth preserving here is:
 - leave broad structural-recovery work once one stable semantic foothold is already good enough and the real bottleneck has narrowed into challenge/state or request-boundary proof
 - leave broad challenge/token workflow work once the family and one meaningful state object are already good enough and the real bottleneck has narrowed into request-finalization or first accepted consumer proof
-- leave broad request-boundary work once one accepted consumer boundary is already good enough and the real bottleneck has narrowed into debugger-surface distortion or environment-faithful replay
+- leave broad request-boundary work once one accepted consumer boundary is already good enough and the real bottleneck has narrowed into debugger-surface distortion, service-worker-owned fetch/cache control, or environment-faithful replay
+- once the browser path has already narrowed specifically into service-worker-owned behavior, preserve a thinner stop rule: `service worker registration exists != current page is controlled by the worker that matters != relevant fetch-event consumer proved != cache/network ownership truth != later visible outcome truth`
 - leave broad debugger/countermeasure work once one quieter truthful surface is already good enough and the real bottleneck has narrowed into stateful workflow proof or environment reconstruction rather than continued anti-debug narration
 - leave broad environment-reconstruction work once one truthful replay or mixed-runtime boundary is already good enough and the real bottleneck has narrowed into one smaller signer, validator, callback, or consumer proof
 
