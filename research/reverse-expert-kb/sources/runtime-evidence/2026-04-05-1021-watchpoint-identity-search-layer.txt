@@ -1,0 +1,24 @@
+Search 1:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "rr reverse watchpoint object moved memcpy same address different object watchpoint hardware watchpoint identity relocation"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- rr reverse-watchpoint / reverse-execution issues
+- fixed-address watchpoint discussion
+- reverse watchpoint behavior discussion
+- hardware watchpoint explainer material
+
+Search 2:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "gdb watchpoints scope expression watched value memory location object lifetime placement same address different object"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- GDB `Set Watchpoints` docs
+- fixed-address watchpoint discussion
+- dynamic-memory / compound-object watchpoint discussions
+- Memfault hardware watchpoint explainer
+
+Observed source status across both searches:
+- Exa: usable hits
+- Tavily: usable hits
+- Grok: invoked, failed (502)
