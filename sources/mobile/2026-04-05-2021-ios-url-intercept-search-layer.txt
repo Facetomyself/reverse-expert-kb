@@ -1,0 +1,32 @@
+Search 1:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "NSURLProtocol canInitWithRequest startLoading stopLoading canonicalRequest first request owner docs WKURLSchemeHandler"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- Apple `NSURLProtocol` / `URLProtocol` docs
+- Apple URL loading system docs
+- lifecycle/selection references around `canInit(with:)`, canonical request, `startLoading()`
+- `WKURLSchemeHandler` references
+
+Search 2:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "WKURLSchemeHandler startURLSchemeTask stopURLSchemeTask first consumer resource ownership docs"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- Apple `WKURLSchemeHandler` docs
+- WebKit custom-scheme handling references
+- resource ownership / custom response handling examples
+
+Search 3:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "NSURLSession protocolClasses custom URLProtocol request interception first consumer ownership docs"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- Apple / practical docs on `URLSessionConfiguration.protocolClasses`
+- custom URLProtocol integration discussions
+- request interception ownership references
+
+Observed source status across all three searches:
+- Exa: usable hits
+- Tavily: usable hits
+- Grok: invoked, failed (502)
