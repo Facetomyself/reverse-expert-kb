@@ -1,0 +1,36 @@
+Search 1:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "MDN service worker fetch event respondWith waitUntil clients.claim skipWaiting lifecycle cache storage first consumer"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- MDN `ServiceWorkerGlobalScope: fetch event`
+- MDN `FetchEvent.respondWith()`
+- MDN `Using Service Workers`
+- MDN `skipWaiting()`
+- W3C Service Workers spec
+
+Search 2:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "service worker update lifecycle skipWaiting clients.claim stale worker active controller first request ownership"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- MDN `skipWaiting()`
+- W3C Service Workers spec
+- lifecycle/update-control references
+- Workbox update immediacy guidance
+- lifecycle discussions preserving active-vs-controlling split
+
+Search 3:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent factual --num 6 "service worker fetch event cache storage network fallback first consequence consumer cache.match put stale while revalidate"
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+Observed usable surfaced material:
+- web.dev stale-while-revalidate
+- Workbox caching strategy overview
+- Cache API / fetch-event strategy writeups
+- stale-while-revalidate examples and discussions
+
+Observed source status across all three searches:
+- Exa: usable hits
+- Tavily: usable hits
+- Grok: invoked, failed (502)
