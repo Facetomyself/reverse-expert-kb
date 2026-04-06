@@ -360,3 +360,31 @@ The evidence base is sufficient for a practical workflow note because the claims
 When a modern iOS case narrows into one PAC-shaped callback or dispatch failure, the next best move is usually not broader tracing.
 Freeze one boundary, classify it conservatively as family/context/code-view/replay-close, prove one runtime landing with one compare pair, and then route back out quickly.
 That keeps mitigation-aware callback confusion from swallowing the rest of the case.
+
+
+## Practical arm64e/PAC triage reminders added in the 2026-04-07 external pass
+
+A sharper stop rule worth preserving here is:
+
+```text
+callback/dispatch crash
+  != PAC-shaped callable-pointer failure
+  != generic selector/signature mismatch
+  != block-lifetime / capture / object-ownership failure
+  != later consumer/state consequence problem
+```
+
+Useful practical split:
+- selector/ABI/signature mismatch
+- block layout / invoke-pointer / capture-lifetime mistake
+- stale or wrongly reconstructed function pointer under arm64e/PAC expectations
+- later queue/actor/UI consumer problem after callback delivery is already fine
+
+Practical reminders:
+- not every arm64e callback crash is a PAC problem
+- keep callback landing truth separate from callable-pointer truth
+- keep callable-pointer truth separate from later resume/delivery truth
+- keep delivery truth separate from later consumer/state consequence truth
+- analyst-built trampolines, copied block objects, stale function pointers, or reinterpreted callable storage are better treated as narrower candidate causes than broad “PAC broke it” folklore until one boundary is proved
+
+This branch now explicitly preserves the operator split between ordinary lifetime/layout mistakes and genuinely PAC-shaped callable-pointer failures on arm64e.

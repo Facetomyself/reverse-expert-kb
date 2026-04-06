@@ -1,0 +1,410 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "arm64e pointer authentication objc block invoke callback dispatch crash triage official docs",
+    "Apple pointer authentication arm64e dispatch blocks Objective-C official documentation",
+    "iOS arm64e PAC callback block dispatch debugging crash EXC_BAD_ACCESS docs"
+  ],
+  "count": 20,
+  "results": [
+    {
+      "title": "ARM64e iOS/macOS pointer authentication · Issue #559",
+      "url": "https://github.com/LuaJIT/LuaJIT/issues/559",
+      "snippet": "At the moment, the M1/M2 MacBooks have hardware support for ARM64e, but it is not enabled by default, and it is deliberately difficult to enable.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "Preparing your app to work with pointer authentication",
+      "url": "https://developer.apple.com/documentation/Security/preparing-your-app-to-work-with-pointer-authentication",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.65
+    },
+    {
+      "title": "Preparing your app to work with pointer authentication | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/security/preparing-your-app-to-work-with-pointer-authentication?changes=lat__7_1_5_1",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Improving control flow integrity with pointer authentication",
+      "url": "https://developer.apple.com/documentation/apple-silicon/improving-control-flow-integrity-with-pointer-authentication",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.65
+    },
+    {
+      "title": "Preparing your app to work with pointer authentication | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/security/preparing_your_app_to_work_with_pointer_authentication",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Preparing your app to work with pointer authentication",
+      "url": "https://developer.apple.com/documentation/security/preparing-your-app-to-work-with-pointer-authentication",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "[iOS 26] Systematic crash on physical devices — PAC pointer ...",
+      "url": "https://github.com/facebook/hermes/issues/1966",
+      "snippet": "",
+      "published_date": "2026-03-29T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.65
+    },
+    {
+      "title": "EXC_BAD_ACCESS error thrown when running application #908",
+      "url": "https://github.com/kivy/kivy-ios/issues/908",
+      "snippet": "If Xcode is forced to resume the app, it crashes. To Reproduce. To compile the app, I followed standard Kivy iOS docs, so I ran the following",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "Incorrect code generation with `-arch arm64e -mbranch-protection=standard` or `=pac-ret` · Issue #60239 · llvm/llvm-project",
+      "url": "https://github.com/llvm/llvm-project/issues/60239",
+      "snippet": "",
+      "published_date": "2023-01-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "iOS app crashes EXC_BAD_ACCESS when not debugging (cable ...",
+      "url": "https://stackoverflow.com/questions/27924204/ios-app-crashes-exc-bad-access-when-not-debugging-cable-disconnected",
+      "snippet": "I'm trying to debug an app which only crashes when executing a specific action when the debugging cable is not connected.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.625
+    },
+    {
+      "title": "Investigating memory access crashes - Apple Developer",
+      "url": "https://developer.apple.com/documentation/xcode/investigating-memory-access-crashes",
+      "snippet": "These crashes are most often identified by the EXC_BAD_ACCESS (SIGSEGV) or EXC_BAD_ACCESS (SIGBUS) exceptions in the crash report: Exception Type",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.625
+    },
+    {
+      "title": "Enabling enhanced security for your app - Apple Developer",
+      "url": "https://developer.apple.com/documentation/xcode/enabling-enhanced-security-for-your-app",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "iOS Crash Dump Analysis, Second Edition - GitHub Pages",
+      "url": "https://faisalmemon.github.io/ios-crash-dump-analysis-book/en/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.475
+    },
+    {
+      "title": "[ios/arm64e] Strip pointer authentication from addresses in ...",
+      "url": "https://issues.chromium.org/issues/42310328",
+      "snippet": "For example, a crash ... I think this code needs to invoke ptrauth_strip(ip, ptrauth_key_return_address) before adding it to the product data.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "Understanding and Experimenting with Apple's PAC on iOS",
+      "url": "https://blog.reversesociety.co/blog/2026/pointer-authentication-code-for-ios",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "C++ project build for arm64e crashes with pointer authentication ...",
+      "url": "https://discourse.llvm.org/t/c-project-build-for-arm64e-crashes-with-pointer-authentication-failure-on-ios-14/88512",
+      "snippet": "",
+      "published_date": "2025-10-06T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Pointer Authentication — Clang 23.0.0git documentation",
+      "url": "https://clang.llvm.org/docs/PointerAuthentication.html",
+      "snippet": "For example, the `__ptrauth` type qualifier can be used to change how pointers or pointer sized integers are signed when they are stored in a particular variable or field; this provides much stronger protection than is guaranteed by the default rules for C function and data pointers. On arm64e, C function pointers are currently signed with the `IA` key without address diversity and with a constant discriminator of 0. By default the pointer to a C++ virtual table is currently signed with the `DA` key, address diversity, and a constant discriminator equal to the string hash (see ptrauth\\_string\\_discriminator) of the mangled v-table identifier of the primary base class for the v-table. A member function pointer is signed with the `IA` key, no address diversity, and a constant discriminator equal to the string hash (see ptrauth\\_string\\_discriminator) of the member pointer type. The read-only data pointer in Objective-C classes are signed with the `DA` key using address diversity, and a constant discriminator of 0x61F8.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "[llvm-dev] [RFC] Pointer authentication for arm64e",
+      "url": "https://groups.google.com/g/llvm-dev/c/AVuW68RG-Oo",
+      "snippet": "# [llvm-dev] [RFC] Pointer authentication for arm64e. Apple would like to upstream our implementation of pointer authentication in LLVM, Clang, and Swift. * Pointer authentication is a general language technology for signing and authenticating pointers, protecting against arbitrary replacement by an attacker. At the LLVM level, pointer authentication requires several different things:. * intrinsics to sign, resign, and (unsafely) authenticate pointers, as well as several other operations;. * Various places throughout IRGen have been improved to sign and authenticate pointers. Apple would like to upstream our implementation of pointer authentication in LLVM, Clang, and Swift. >> \\* Pointer authentication is a general language technology for signing and authenticating pointers, protecting against arbitrary replacement by an attacker. >> At the LLVM level, pointer authentication requires several different things:. >> \\* intrinsics to sign, resign, and (unsafely) authenticate pointers, as well as several other operations;. >> \\* Various places throughout IRGen have been improved to sign and authenticate pointers.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "arm64e pointer authentication failure",
+      "url": "https://srd.cx/possible-pointer-authentication-failure-data-abort/",
+      "snippet": "The article focus is with respect to General Protection Faults and possible pointer authentication failure & data abort in iOS & macOS.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.375
+    },
+    {
+      "title": "D8.10.5 Faulting on pointer authentication - Arm Developer",
+      "url": "https://developer.arm.com/documentation/ddi0487/maa/-Part-D-The-AArch64-System-Level-Architecture/-Chapter-D8-The-AArch64-Virtual-Memory-System-Architecture/-D8-10-Pointer-authentication/-D8-10-5-Faulting-on-pointer-authentication",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.35
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Preparing your app to work with pointer authentication",
+        "url": "https://developer.apple.com/documentation/Security/preparing-your-app-to-work-with-pointer-authentication",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.65
+      },
+      {
+        "title": "Preparing your app to work with pointer authentication | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/security/preparing-your-app-to-work-with-pointer-authentication?changes=lat__7_1_5_1",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "Improving control flow integrity with pointer authentication",
+        "url": "https://developer.apple.com/documentation/apple-silicon/improving-control-flow-integrity-with-pointer-authentication",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.65
+      },
+      {
+        "title": "Enabling enhanced security for your app - Apple Developer",
+        "url": "https://developer.apple.com/documentation/xcode/enabling-enhanced-security-for-your-app",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Preparing your app to work with pointer authentication | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/security/preparing_your_app_to_work_with_pointer_authentication",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "arm64e pointer authentication failure - David Hoyt",
+        "url": "https://srd.cx/possible-pointer-authentication-failure-data-abort/",
+        "snippet": "",
+        "published_date": "2024-02-21T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "iOS Crash Dump Analysis, Second Edition - GitHub Pages",
+        "url": "https://faisalmemon.github.io/ios-crash-dump-analysis-book/en/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.475
+      },
+      {
+        "title": "Understanding and Experimenting with Apple's PAC on iOS",
+        "url": "https://blog.reversesociety.co/blog/2026/pointer-authentication-code-for-ios",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Preparing your app to work with pointer authentication",
+        "url": "https://developer.apple.com/documentation/security/preparing-your-app-to-work-with-pointer-authentication",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "D8.10.5 Faulting on pointer authentication - Arm Developer",
+        "url": "https://developer.arm.com/documentation/ddi0487/maa/-Part-D-The-AArch64-System-Level-Architecture/-Chapter-D8-The-AArch64-Virtual-Memory-System-Architecture/-D8-10-Pointer-authentication/-D8-10-5-Faulting-on-pointer-authentication",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.35
+      },
+      {
+        "title": "[iOS 26] Systematic crash on physical devices — PAC pointer ...",
+        "url": "https://github.com/facebook/hermes/issues/1966",
+        "snippet": "",
+        "published_date": "2026-03-29T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.65
+      },
+      {
+        "title": "C++ project build for arm64e crashes with pointer authentication ...",
+        "url": "https://discourse.llvm.org/t/c-project-build-for-arm64e-crashes-with-pointer-authentication-failure-on-ios-14/88512",
+        "snippet": "",
+        "published_date": "2025-10-06T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Preparing your app to work with pointer authentication | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/security/preparing_your_app_to_work_with_pointer_authentication",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "arm64e pointer authentication failure",
+        "url": "https://srd.cx/possible-pointer-authentication-failure-data-abort/",
+        "snippet": "",
+        "published_date": "2024-02-21T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Incorrect code generation with `-arch arm64e -mbranch-protection=standard` or `=pac-ret` · Issue #60239 · llvm/llvm-project",
+        "url": "https://github.com/llvm/llvm-project/issues/60239",
+        "snippet": "",
+        "published_date": "2023-01-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.625
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Preparing your app to work with pointer authentication",
+        "url": "https://developer.apple.com/documentation/Security/preparing-your-app-to-work-with-pointer-authentication",
+        "snippet": "Overview. The arm64e architecture introduces pointer authentication codes (PACs) to detect and guard against unexpected changes to pointers in memory.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Pointer Authentication — Clang 23.0.0git documentation",
+        "url": "https://clang.llvm.org/docs/PointerAuthentication.html",
+        "snippet": "For example, the `__ptrauth` type qualifier can be used to change how pointers or pointer sized integers are signed when they are stored in a particular variable or field; this provides much stronger protection than is guaranteed by the default rules for C function and data pointers. On arm64e, C function pointers are currently signed with the `IA` key without address diversity and with a constant discriminator of 0. By default the pointer to a C++ virtual table is currently signed with the `DA` key, address diversity, and a constant discriminator equal to the string hash (see ptrauth\\_string\\_discriminator) of the mangled v-table identifier of the primary base class for the v-table. A member function pointer is signed with the `IA` key, no address diversity, and a constant discriminator equal to the string hash (see ptrauth\\_string\\_discriminator) of the member pointer type. The read-only data pointer in Objective-C classes are signed with the `DA` key using address diversity, and a constant discriminator of 0x61F8.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "[llvm-dev] [RFC] Pointer authentication for arm64e",
+        "url": "https://groups.google.com/g/llvm-dev/c/AVuW68RG-Oo",
+        "snippet": "# [llvm-dev] [RFC] Pointer authentication for arm64e. Apple would like to upstream our implementation of pointer authentication in LLVM, Clang, and Swift. * Pointer authentication is a general language technology for signing and authenticating pointers, protecting against arbitrary replacement by an attacker. At the LLVM level, pointer authentication requires several different things:. * intrinsics to sign, resign, and (unsafely) authenticate pointers, as well as several other operations;. * Various places throughout IRGen have been improved to sign and authenticate pointers. Apple would like to upstream our implementation of pointer authentication in LLVM, Clang, and Swift. >> \\* Pointer authentication is a general language technology for signing and authenticating pointers, protecting against arbitrary replacement by an attacker. >> At the LLVM level, pointer authentication requires several different things:. >> \\* intrinsics to sign, resign, and (unsafely) authenticate pointers, as well as several other operations;. >> \\* Various places throughout IRGen have been improved to sign and authenticate pointers.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "arm64e pointer authentication failure",
+        "url": "https://srd.cx/possible-pointer-authentication-failure-data-abort/",
+        "snippet": "The article focus is with respect to General Protection Faults and possible pointer authentication failure & data abort in iOS & macOS.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.375
+      },
+      {
+        "title": "Improving control flow integrity with pointer authentication",
+        "url": "https://developer.apple.com/documentation/apple-silicon/improving-control-flow-integrity-with-pointer-authentication",
+        "snippet": "To use a signed pointer, you authenticate it, which validates the PAC and, if valid, returns the raw pointer. Otherwise, if the authentication operation detects",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "arm64e pointer authentication failure",
+        "url": "https://srd.cx/possible-pointer-authentication-failure-data-abort/",
+        "snippet": "The article focus is with respect to General Protection Faults and possible pointer authentication failure & data abort in iOS & macOS.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[ios/arm64e] Strip pointer authentication from addresses in ...",
+        "url": "https://issues.chromium.org/issues/42310328",
+        "snippet": "For example, a crash ... I think this code needs to invoke ptrauth_strip(ip, ptrauth_key_return_address) before adding it to the product data.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "Preparing your app to work with pointer authentication",
+        "url": "https://developer.apple.com/documentation/Security/preparing-your-app-to-work-with-pointer-authentication",
+        "snippet": "The arm64e architecture introduces pointer authentication codes (PACs) to detect and guard against unexpected changes to pointers in memory.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "ARM64e iOS/macOS pointer authentication · Issue #559",
+        "url": "https://github.com/LuaJIT/LuaJIT/issues/559",
+        "snippet": "At the moment, the M1/M2 MacBooks have hardware support for ARM64e, but it is not enabled by default, and it is deliberately difficult to enable.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "D8.10.5 Faulting on pointer authentication",
+        "url": "https://developer.arm.com/documentation/ddi0487/maa/-Part-D-The-AArch64-System-Level-Architecture/-Chapter-D8-The-AArch64-Virtual-Memory-System-Architecture/-D8-10-Pointer-authentication/-D8-10-5-Faulting-on-pointer-authentication",
+        "snippet": "A PAC authentication failure for a given VA can cause a fault to be generated in the following three manners, according to the type of the instruction and",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[iOS 26] Systematic crash on physical devices — PAC pointer ...",
+        "url": "https://github.com/facebook/hermes/issues/1966",
+        "snippet": "[iOS 26] Systematic EXC_BAD_ACCESS (KERN_PROTECTION_FAILURE) crash on physical devices — PAC pointer authentication incompatibility #1966.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "C++ project build for arm64e crashes with pointer authentication ...",
+        "url": "https://discourse.llvm.org/t/c-project-build-for-arm64e-crashes-with-pointer-authentication-failure-on-ios-14/88512",
+        "snippet": "# C++ project build for arm64e crashes with pointer authentication failure on iOS 14. `c++ -Wall -Wextra -O2 -isysroot $(xcrun --show-sdk-path -sdk iphoneos) -arch arm64e main.cpp -o test.app/test -framework Foundation`. thread #1: tid = 0x29a31, 0x000000010075813c test`std::__1::basic_ostream<char, std::__1::char_traits<char>>& std::__1::__put_character_sequence[abi:ne200100]<char, std::__1::char_traits<char>>(std::__1::basic_ostream<char, std::__1::char_traits<char>>&, char const*, unsigned long) + 88, queue = 'com.apple.main-thread', stop reason = EXC_BAD_ACCESS (code=1, address=0x2000020c8489e8). Are there any compiler flags that would enable some kind of iOS14 compatibility mode for arm64e that could prevent C++ code from crashing on this OS? | [[RFC] Pointer authentication for arm64e](https://discourse.llvm.org/t/rfc-pointer-authentication-for-arm64e/53433)  LLVM Dev List Archives | 3 | 465 | November 1, 2021 |. | Does clang cc1 frontend support arm64e/PAC builtins/qualifiers? | [[libcxx] RFC: C++14 and beyond](https://discourse.llvm.org/t/libcxx-rfc-c-14-and-beyond/27489)  Clang Frontend | 16 | 329 | May 7, 2013 |. | ARM Linux libc++ / libunwind — Exceptions not being caught  Clang Frontend | 11 | 367 | August 31, 2018 |.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "iOS app crashes EXC_BAD_ACCESS when not debugging (cable ...",
+        "url": "https://stackoverflow.com/questions/27924204/ios-app-crashes-exc-bad-access-when-not-debugging-cable-disconnected",
+        "snippet": "I'm trying to debug an app which only crashes when executing a specific action when the debugging cable is not connected.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.625
+      },
+      {
+        "title": "EXC_BAD_ACCESS error thrown when running application #908",
+        "url": "https://github.com/kivy/kivy-ios/issues/908",
+        "snippet": "If Xcode is forced to resume the app, it crashes. To Reproduce. To compile the app, I followed standard Kivy iOS docs, so I ran the following",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "Investigating memory access crashes - Apple Developer",
+        "url": "https://developer.apple.com/documentation/xcode/investigating-memory-access-crashes",
+        "snippet": "These crashes are most often identified by the EXC_BAD_ACCESS (SIGSEGV) or EXC_BAD_ACCESS (SIGBUS) exceptions in the crash report: Exception Type",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.625
+      }
+    ],
+    "grok": []
+  },
+  "freshness_filter": "py"
+}
