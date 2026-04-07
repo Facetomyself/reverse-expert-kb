@@ -1,0 +1,439 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "NSXPCConnection interruptionHandler invalidationHandler remoteObjectProxyWithErrorHandler exportedObject official docs",
+    "NSXPCConnection listener shouldAcceptNewConnection interruption invalidation relaunch service official docs",
+    "Apple XPC interrupted connection invalidated connection exported object service method reply official docs"
+  ],
+  "count": 23,
+  "results": [
+    {
+      "title": "invalidationHandler | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler?language=objc",
+      "snippet": "## Explore Get Started. ## Explore Platforms. ## Explore Technologies. ## Explore Community. ## Explore Documentation. ## Explore Downloads. ## Explore Support. 31 of 39 symbols inside <root>. 6 of 9 symbols inside 1940286794. 38 of 38 symbols inside 1368171724 NSXPCConnectionCodeSigningRequirementFailure. 32 of 38 symbols inside 1368171724. 31 of 38 symbols inside 1368171724 - setCodeSigningRequirement:? 30 of 38 symbols inside 1368171724. ### Working with code signing. 29 of 38 symbols inside 1368171724 - synchronousRemoteObjectProxyWithErrorHandler:? 27 of 38 symbols inside 1368171724. 26 of 38 symbols inside 1368171724 effectiveUserIdentifier. 22 of 38 symbols inside 1368171724. 20 of 38 symbols inside 1368171724 remoteObjectInterface. 15 of 38 symbols inside 1368171724. 12 of 38 symbols inside 1368171724 invalidationHandler. 9 of 38 symbols inside 1368171724 - invalidate? 8 of 38 symbols inside 1368171724 - resume? 6 of 38 symbols inside 1368171724. 5 of 38 symbols inside 1368171724 - initWithServiceName:? You may not send messages over the connection from within an invalidation handler block.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7286
+    },
+    {
+      "title": "NSXPCConnection | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/Foundation/NSXPCConnection",
+      "snippet": "An interruption handler that is called if the remote process exits or crashes. var invalidationHandler: (() -> Void)?. An invalidation handler that is called",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6857
+    },
+    {
+      "title": "currentConnection | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/current()?changes=__8_5&language=objc",
+      "snippet": "An NSXPCConnection object ... An interruption handler that is called if the remote process exits or crashes. invalidationHandler. An invalidation",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6857
+    },
+    {
+      "title": "NSXPCConnection debugging interruption/invalidation",
+      "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+      "snippet": "",
+      "published_date": "2017-11-21T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6429
+    },
+    {
+      "title": "interruptionHandler | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/interruptionhandler",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6429
+    },
+    {
+      "title": "invalidationHandler | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "remoteObjectProxyWithErrorHandler(_:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcproxycreating/remoteobjectproxywitherrorhandler(_:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "NSXPCConnectionInvalid | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnectioninvalid-swift.var",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "listener:shouldAcceptNewConnection - Apple Developer",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpclistenerdelegate/listener(_:shouldacceptnewconnection:)?language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "listener(_:shouldAcceptNewConnection:) - Apple Developer",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpclistenerdelegate/listener(_:shouldacceptnewconnection:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "TN3113: Testing and debugging XPC code with an anonymous listener | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/technotes/tn3113-testing-xpc-code-with-an-anonymous-listener",
+      "snippet": "",
+      "published_date": "2025-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "invalidate() | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidate()",
+      "snippet": "An invalidation handler that is called if the connection can not be formed or the connection has terminated and may not be re-established. class func current()",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "remoteObjectProxyWithErrorHan...",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/remoteobjectproxywitherrorhandler(_:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "XPC_ERROR_CONNECTION_I...",
+      "url": "https://developer.apple.com/documentation/xpc/xpc_error_connection_interrupted-swift.var",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "XPCSession | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/xpc/xpcsession",
+      "snippet": "",
+      "published_date": "2025-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Check whether XPC remote proxy res…",
+      "url": "https://developer.apple.com/forums/thread/772895",
+      "snippet": "",
+      "published_date": "2025-03-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Issue #672 · apple/container - [Bug]: XPC Connection Error - GitHub",
+      "url": "https://github.com/apple/container/issues/672",
+      "snippet": "Error: interrupted: \"internalError: \"failed to get a response from apiserver: interrupted: \"XPC connection error: Connection invalid\"\"",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "XPC Connection Not Invalidated on … - Apple Developer Forums",
+      "url": "https://origin-devforums.apple.com/forums/thread/719900",
+      "snippet": "You’ve stopped watching this thread and will no longer receive emails or web notifications when there’s activity. 1. Should I expect that NSXPCConnection.remoteObjectProxyWithErrorHandler to call the error handler if the associated NSXPCListenerDelegate returns false in its listener function? 4. Should I expect that NSXPCConnection.invalidate() and/or the connection's invalidationHandler to be called when the associated NSXPCListenerDelegate returns false in its listener function? import XCTest final class InvalidateTest: XCTestCase {   func testConnectionIsInvalidatedOnListenerRejection() {     //set up anonymous XPC Listener     let listener = NSXPCListener.anonymous()     let listenerDelegate = MockListenerDelegate()     listener.delegate = listenerDelegate     listener.resume()           //establish connection to service     let clientConnection = MockConnection(listenerEndpoint: listener.endpoint)     var interruptHandlerCalled = false     var invalidateHandlerCalled = false     let interruptionHandler = { interruptHandlerCalled = true }     let invalidationHandler = { invalidateHandlerCalled = true }     clientConnection.interruptionHandler = interruptionHandler     clientConnection.invalidationHandler = invalidationHandler     clientConnection.remoteObjectInterface = NSXPCInterface(with: XPCServDelegate.self)     clientConnection.exportedInterface = NSXPCInterface(with: XPCCliDelegate.self)     clientConnection.exportedObject = XPCCDelegate()     clientConnection.resume()           // get the proxy delegate to make the XPC pulse call     guard let proxy = clientConnection.remoteObjectProxy() as?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5143
+    },
+    {
+      "title": "NSXPCConnection | Documentation",
+      "url": "https://lkzhao.com/UIComponent/documentation/uicomponent/nsxpcconnection/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "Xpc services on macOS app using Swift - Dwarves Memo",
+      "url": "https://memo.d.foundation/topics/mobile/xpc-services-on-macos-app-using-swift",
+      "snippet": "",
+      "published_date": "2020-11-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "XPC connection consistently invalidated on app upgrade - Forums",
+      "url": "https://origin-devforums.apple.com/forums/thread/779395",
+      "snippet": "",
+      "published_date": "2025-06-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "XPC connection was invalidated - Apple Support Community",
+      "url": "https://discussions.apple.com/thread/7255321",
+      "snippet": "When I close Lightroom, the message stops printing to the console, xpcproxy disappears, and my load average returns to baseline. I wish I had to",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "XPC Connection error (SOLVED) - Apple Support Community",
+      "url": "https://discussions.apple.com/thread/253289481",
+      "snippet": "I solved the XPC Connection error on my Macbook as follows: Download the JavaUninstallTool (https://www.java.com/en/download/uninstalltool.jsp), and then the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "listener:shouldAcceptNewConnection - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpclistenerdelegate/listener(_:shouldacceptnewconnection:)?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "NSXPCConnection debugging interruption/invalidation",
+        "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+        "snippet": "",
+        "published_date": "2017-11-21T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6429
+      },
+      {
+        "title": "listener(_:shouldAcceptNewConnection:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpclistenerdelegate/listener(_:shouldacceptnewconnection:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Xpc services on macOS app using Swift - Dwarves Memo",
+        "url": "https://memo.d.foundation/topics/mobile/xpc-services-on-macos-app-using-swift",
+        "snippet": "",
+        "published_date": "2020-11-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "TN3113: Testing and debugging XPC code with an anonymous listener | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/technotes/tn3113-testing-xpc-code-with-an-anonymous-listener",
+        "snippet": "",
+        "published_date": "2025-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "interruptionHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/interruptionhandler",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6429
+      },
+      {
+        "title": "NSXPCConnection | Documentation",
+        "url": "https://lkzhao.com/UIComponent/documentation/uicomponent/nsxpcconnection/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "remoteObjectProxyWithErrorHan...",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/remoteobjectproxywitherrorhandler(_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "invalidationHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "remoteObjectProxyWithErrorHandler(_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcproxycreating/remoteobjectproxywitherrorhandler(_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "XPC_ERROR_CONNECTION_I...",
+        "url": "https://developer.apple.com/documentation/xpc/xpc_error_connection_interrupted-swift.var",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "XPCSession | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/xpc/xpcsession",
+        "snippet": "",
+        "published_date": "2025-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "NSXPCConnectionInvalid | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnectioninvalid-swift.var",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "XPC connection consistently invalidated on app upgrade - Forums",
+        "url": "https://origin-devforums.apple.com/forums/thread/779395",
+        "snippet": "",
+        "published_date": "2025-06-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Check whether XPC remote proxy res…",
+        "url": "https://developer.apple.com/forums/thread/772895",
+        "snippet": "",
+        "published_date": "2025-03-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      }
+    ],
+    "tavily": [
+      {
+        "title": "listener(_:shouldAcceptNewConnection:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpclistenerdelegate/listener(_:shouldacceptnewconnection:)",
+        "snippet": "To accept the connection, first configure the connection if desired, then call resume() on the new connection, then return true.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/Foundation/NSXPCConnection",
+        "snippet": "An interruption handler that is called if the remote process exits or crashes. var invalidationHandler: (() -> Void)?. An invalidation handler that is called",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6857
+      },
+      {
+        "title": "currentConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/current()?changes=__8_5&language=objc",
+        "snippet": "An NSXPCConnection object ... An interruption handler that is called if the remote process exits or crashes. invalidationHandler. An invalidation",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6857
+      },
+      {
+        "title": "invalidate() | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidate()",
+        "snippet": "An invalidation handler that is called if the connection can not be formed or the connection has terminated and may not be re-established. class func current()",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "NSXPCConnection debugging interruption/invalidation",
+        "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+        "snippet": "I have heard that in case \"interruption\" you should try to reestablish the connection. This can be useful when your service is a launch agent which gets",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "remoteObjectProxyWithErrorHan...",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/remoteobjectproxywitherrorhandler(_:)",
+        "snippet": "Returns a proxy for the remote object (that is, the object exported from the other side of this connection) with the specified error handler.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "invalidationHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler?language=objc",
+        "snippet": "## Explore Get Started. ## Explore Platforms. ## Explore Technologies. ## Explore Community. ## Explore Documentation. ## Explore Downloads. ## Explore Support. 31 of 39 symbols inside <root>. 6 of 9 symbols inside 1940286794. 38 of 38 symbols inside 1368171724 NSXPCConnectionCodeSigningRequirementFailure. 32 of 38 symbols inside 1368171724. 31 of 38 symbols inside 1368171724 - setCodeSigningRequirement:? 30 of 38 symbols inside 1368171724. ### Working with code signing. 29 of 38 symbols inside 1368171724 - synchronousRemoteObjectProxyWithErrorHandler:? 27 of 38 symbols inside 1368171724. 26 of 38 symbols inside 1368171724 effectiveUserIdentifier. 22 of 38 symbols inside 1368171724. 20 of 38 symbols inside 1368171724 remoteObjectInterface. 15 of 38 symbols inside 1368171724. 12 of 38 symbols inside 1368171724 invalidationHandler. 9 of 38 symbols inside 1368171724 - invalidate? 8 of 38 symbols inside 1368171724 - resume? 6 of 38 symbols inside 1368171724. 5 of 38 symbols inside 1368171724 - initWithServiceName:? You may not send messages over the connection from within an invalidation handler block.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7286
+      },
+      {
+        "title": "NSXPCConnection | Documentation",
+        "url": "https://lkzhao.com/UIComponent/documentation/uicomponent/nsxpcconnection/",
+        "snippet": "invalidate() · func remoteObjectProxyWithErrorHandler((any Error) -> Void) -> Any · func resume() · func scheduleSendBarrierBlock(() -> Void) · func suspend().",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "interruptionHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/interruptionhandler",
+        "snippet": "An invalidation handler that is called if the connection can not be formed or the connection has terminated and may not be re-established.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "XPC Connection Not Invalidated on … - Apple Developer Forums",
+        "url": "https://origin-devforums.apple.com/forums/thread/719900",
+        "snippet": "You’ve stopped watching this thread and will no longer receive emails or web notifications when there’s activity. 1. Should I expect that NSXPCConnection.remoteObjectProxyWithErrorHandler to call the error handler if the associated NSXPCListenerDelegate returns false in its listener function? 4. Should I expect that NSXPCConnection.invalidate() and/or the connection's invalidationHandler to be called when the associated NSXPCListenerDelegate returns false in its listener function? import XCTest final class InvalidateTest: XCTestCase {   func testConnectionIsInvalidatedOnListenerRejection() {     //set up anonymous XPC Listener     let listener = NSXPCListener.anonymous()     let listenerDelegate = MockListenerDelegate()     listener.delegate = listenerDelegate     listener.resume()           //establish connection to service     let clientConnection = MockConnection(listenerEndpoint: listener.endpoint)     var interruptHandlerCalled = false     var invalidateHandlerCalled = false     let interruptionHandler = { interruptHandlerCalled = true }     let invalidationHandler = { invalidateHandlerCalled = true }     clientConnection.interruptionHandler = interruptionHandler     clientConnection.invalidationHandler = invalidationHandler     clientConnection.remoteObjectInterface = NSXPCInterface(with: XPCServDelegate.self)     clientConnection.exportedInterface = NSXPCInterface(with: XPCCliDelegate.self)     clientConnection.exportedObject = XPCCDelegate()     clientConnection.resume()           // get the proxy delegate to make the XPC pulse call     guard let proxy = clientConnection.remoteObjectProxy() as?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5143
+      },
+      {
+        "title": "XPC Connection Not Invalidated on … - Apple Developer Forums",
+        "url": "https://origin-devforums.apple.com/forums/thread/719900",
+        "snippet": "You’ve stopped watching this thread and will no longer receive emails or web notifications when there’s activity. 1. Should I expect that NSXPCConnection.remoteObjectProxyWithErrorHandler to call the error handler if the associated NSXPCListenerDelegate returns false in its listener function? 4. Should I expect that NSXPCConnection.invalidate() and/or the connection's invalidationHandler to be called when the associated NSXPCListenerDelegate returns false in its listener function? import XCTest final class InvalidateTest: XCTestCase {   func testConnectionIsInvalidatedOnListenerRejection() {     //set up anonymous XPC Listener     let listener = NSXPCListener.anonymous()     let listenerDelegate = MockListenerDelegate()     listener.delegate = listenerDelegate     listener.resume()           //establish connection to service     let clientConnection = MockConnection(listenerEndpoint: listener.endpoint)     var interruptHandlerCalled = false     var invalidateHandlerCalled = false     let interruptionHandler = { interruptHandlerCalled = true }     let invalidationHandler = { invalidateHandlerCalled = true }     clientConnection.interruptionHandler = interruptionHandler     clientConnection.invalidationHandler = invalidationHandler     clientConnection.remoteObjectInterface = NSXPCInterface(with: XPCServDelegate.self)     clientConnection.exportedInterface = NSXPCInterface(with: XPCCliDelegate.self)     clientConnection.exportedObject = XPCCDelegate()     clientConnection.resume()           // get the proxy delegate to make the XPC pulse call     guard let proxy = clientConnection.remoteObjectProxy() as?",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "XPC connection was invalidated - Apple Support Community",
+        "url": "https://discussions.apple.com/thread/7255321",
+        "snippet": "When I close Lightroom, the message stops printing to the console, xpcproxy disappears, and my load average returns to baseline. I wish I had to",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Issue #672 · apple/container - [Bug]: XPC Connection Error - GitHub",
+        "url": "https://github.com/apple/container/issues/672",
+        "snippet": "Error: interrupted: \"internalError: \"failed to get a response from apiserver: interrupted: \"XPC connection error: Connection invalid\"\"",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "XPC_ERROR_CONNECTION_I...",
+        "url": "https://developer.apple.com/documentation/xpc/xpc_error_connection_interrupted-swift.var",
+        "snippet": "This error serves as a client's indication that it should resynchronize any state that it had given the service.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "XPC Connection error (SOLVED) - Apple Support Community",
+        "url": "https://discussions.apple.com/thread/253289481",
+        "snippet": "I solved the XPC Connection error on my Macbook as follows: Download the JavaUninstallTool (https://www.java.com/en/download/uninstalltool.jsp), and then the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      }
+    ],
+    "grok": []
+  }
+}

@@ -158,6 +158,8 @@ Useful reminder:
 - Apple framework-visible interruption and invalidation surfaces are already different enough that they should not be flattened into one generic transport-failure bucket
 - invalidation is especially strong stop-rule evidence because Apple explicitly warns that you may not send messages over the connection from within an invalidation handler block
 - a later healthy-looking connection should therefore be treated as reconnection truth, not automatic proof that the same request family progressed to the same consumer
+- `remoteObjectProxyWithErrorHandler(...)` error visibility is still weaker than proving which exported-object method ran, whether the failure was listener-rejection / contract-shape / lifecycle breakage, and whether one later durable consumer was actually bypassed or merely retried
+- a useful compact lifecycle ladder for compare pairs is `accepted != replied != reconnected != consumed`, so listener acceptance, reply/error visibility, later healthy reconnection, and the first service-owned consumer stay separate
 
 ### E. Durable consequence truth
 This is the first boundary where the service-side work clearly predicts later behavior.
@@ -258,11 +260,13 @@ Use one narrow compare pair:
 - accepted run vs degraded/error run
 - same proxy call with/without one expected class/argument shape
 - connection-valid run vs interrupted/restarted run
+- same client proxy selector with listener-accepted vs listener-rejected / invalidated / later-reconnected behavior
 
 What you want to learn:
 - does the same client-side proxy route appear in both runs?
 - does the same remote exported-object method entry appear in both runs?
 - does reply/error truth differ before the same durable effect?
+- is the visible drift best explained by listener rejection, interface/class contract mismatch, interruption/invalidation, or later semantic divergence?
 - which first service-side consumer best predicts the downstream consequence?
 
 A particularly useful question in Apple XPC cases is:
@@ -270,6 +274,14 @@ A particularly useful question in Apple XPC cases is:
 
 If yes, the next proof object is usually not more client tracing.
 It is one narrower service-side routing / contract / lifecycle explanation.
+
+A second practical question now worth preserving explicitly is:
+- did the run only prove `accepted`, `replied`, or `reconnected`, or did it actually prove `consumed`?
+
+That smaller ladder prevents three common overclaims:
+- listener acceptance becoming fake method-entry proof
+- `remoteObjectProxyWithErrorHandler(...)` becoming fake semantic-failure proof
+- later healthy reconnection becoming fake same-request/same-consumer proof
 
 ### Step 7: stop at the first durable service-owned consequence
 The workflow succeeds when you can rewrite the path as:
