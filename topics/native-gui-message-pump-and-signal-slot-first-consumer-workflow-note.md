@@ -141,6 +141,9 @@ A narrower fate rule worth preserving now:
 - **filter visibility != filter-owned fate**
 - a filter becomes the truthful first consumer only when it actually suppresses, rewrites, or retargets the event in a way that predicts later behavior
 - if it returns `false`, continue into the later object handler, direct slot, or queued slot rather than freezing the map at the filter layer
+- preserve the sharper ladder **filter returned false != receiver event handled != signal edge chosen != slot delivered != first consequence-bearing consumer** so a visible fall-through does not silently become proof that one later signal/slot path already owns the behavior
+- this matters most when one handler emits several signals, when several slots hang off one signal, or when `Qt::AutoConnection` could still resolve either immediate-direct or queued delivery depending on receiver thread affinity at emission time
+- if queued delivery is the remaining uncertainty, freeze two smaller facts separately before claiming ownership: whether the receiver object actually lives in a different thread, and whether that receiver thread has a running event loop able to deliver the queued call
 
 ### D. Qt signals do not automatically imply deferred event-loop delivery
 Qt documentation makes an important distinction:

@@ -1,0 +1,11 @@
+Search-layer run used explicit sources: exa,tavily,grok
+Queries:
+1. Qt eventFilter return true false queued connection receiver thread affinity documentation
+2. Qt AutoConnection receiver thread affinity event loop queued slot delivery official docs
+3. Qt event filter signal slot first consumer official docs
+
+Summary:
+- Exa returned usable official Qt docs and supporting hits
+- Tavily returned usable official Qt docs and supporting hits
+- Grok was explicitly invoked but returned 502 errors through the configured proxy path
+- Primary useful anchors were Qt docs on events/filters, QObject/connect semantics, signals/slots, and threads/QObject affinity
