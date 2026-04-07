@@ -1,0 +1,10 @@
+Search-layer run used explicit sources: exa,tavily,grok
+Queries:
+1. Qt signals slots queued connection direct connection thread affinity official docs
+2. Qt connection types queued direct blockingqueued official documentation
+3. Qt AutoConnection receiver thread affinity queued delivery official docs
+
+Summary:
+- Exa and Tavily returned usable results
+- Grok was invoked but returned no usable results
+- Primary useful surfaced themes matched Qt docs around connection type, receiver thread affinity, and queued delivery semantics
