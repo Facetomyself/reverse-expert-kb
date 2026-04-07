@@ -126,6 +126,7 @@ Shape:
 
 Why it matters:
 - Tigress-style `FlattenObfuscateNext` and encoded-branch variants are a useful reminder that the first trustworthy object may be the normalized next-carrier or one reduced branch-family output, not the superficial branch instruction the decompiler currently emphasizes
+- when encoded-branch or obfuscated-next machinery is present, the first useful operator question is often **which value is stable enough to stop again at dispatcher re-entry**, not “what is the prettiest recovered branch condition?”
 - this is still a next-state recovery problem, not automatically a separate full deobfuscation campaign
 
 ## 6. Practical workflow
@@ -175,9 +176,11 @@ Typical choices:
 - one compare result or normalized condition flag that selects between two state families
 - one table index used to enter a jump/call table
 - one arg-struct field in call-dispatch flattening
+- one encoded or obfuscated `next` carrier just before it is decoded, table-looked-up, or folded back into dispatcher state
 
 Practical rule:
 - if your chosen object still requires interpreting the whole flattened block, it is too large
+- for encoded-branch / obfuscated-next cases, prefer the **last comparatively stable carrier before dispatcher re-entry** over the earliest arithmetic noise that happens to feed it
 
 ### Step 4: label opaque structure by role before exact truth
 Before proving exact semantics, label code regions as:
@@ -222,15 +225,18 @@ Use when:
 - copied-code or opaque branching makes raw symbolic results too noisy
 - the next-state carrier is stable, but the path condition is cluttered
 - direct solving is possible only after reducing one compare/helper family
+- encoded-branch or obfuscated-next machinery means the visible branch instruction is not yet the real successor object
 
 Typical techniques:
 - isolate the most-written state variable and its dependencies
 - classify which outgoing branch actually depends on that dependency family
 - collapse repeated bogus branches into one branch-normalized split
 - focus on the helper output or compare result rather than every branch wrapper
+- in encoded-next cases, normalize the value family that survives to dispatcher re-entry before reopening broader predicate cleanup
 
 Good output:
 - `OBB Y has a real two-way split controlled by normalized condition C, producing successor states A/B`
+- `encoded next-carrier N normalizes to dispatcher states {A, B} even though the visible branch family stays noisy`
 
 ### Step 6: prove one trustworthy relation, not all of them
 Useful proof targets include:
@@ -245,6 +251,7 @@ Do not wait to recover the whole function if one trustworthy relation is already
 Practical reminder from recent Binary Ninja / Miasm / OLLVM unflattening material:
 - many workable pipelines succeed by extracting one state mapping or one successor edge first, then rewriting or simplifying around that proof
 - they do **not** require perfect decompilation or total opaque-predicate removal before progress starts
+- this remains true even for Tigress-style `FlattenObfuscateNext` and encoded-branch variants: recover one trustworthy next-carrier or one reduced successor family first, then decide whether broader cleanup is still worth paying for
 - if your workflow keeps demanding full CFG prettification before you trust any edge, you are probably solving the wrong step first
 
 ### Step 7: decide whether CFG repair is now worth it
