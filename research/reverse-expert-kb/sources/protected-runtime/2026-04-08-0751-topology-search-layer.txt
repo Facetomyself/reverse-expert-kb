@@ -1,0 +1,430 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Frida gadget early instrumentation vs attach detection official docs",
+    "eBPF uprobes Android tracing lower overhead syscall boundary official docs",
+    "dynamic binary instrumentation overhead anti instrumentation Intel PIN DynamoRIO official docs"
+  ],
+  "count": 22,
+  "results": [
+    {
+      "title": "Early Instrumentation · sensepost/objection Wiki - GitHub",
+      "url": "https://github.com/sensepost/objection/wiki/early-instrumentation",
+      "snippet": "",
+      "published_date": "2025-06-17T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.675
+    },
+    {
+      "title": "eBPF Syscall - The Linux Kernel documentation",
+      "url": "https://docs.kernel.org/userspace-api/ebpf/syscall.html",
+      "snippet": ":   Pin an eBPF program or map referred by the specified *bpf\\_fd* to the provided *pathname* on the filesystem. The *attach\\_bpf\\_fd* must be a valid file descriptor for a loaded eBPF program of a cgroup, flow dissector, LIRC, sockmap or sock\\_ops type corresponding to the specified *attach\\_type*. The *prog\\_fd* must be a valid file descriptor associated with a loaded eBPF program of type **BPF\\_PROG\\_TYPE\\_RAW\\_TRACEPOINT**. The returned file descriptor can be passed to other **bpf**() subcommands such as **BPF\\_PROG\\_LOAD** or **BPF\\_MAP\\_CREATE** to associate the BTF with those objects. If the *pid* and *fd* are associated with a tracepoint, kprobe or uprobe perf event, then the *prog\\_id* and *fd\\_type* will be populated with the eBPF program id and file descriptor type of type **bpf\\_task\\_fd\\_type**. If the resulting file descriptor is pinned to the filesystem using **BPF\\_OBJ\\_PIN**, then subsequent **read**(2) syscalls for that path will trigger the iterator to read kernel state using the eBPF program attached to *link\\_fd*.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5875
+    },
+    {
+      "title": "Mastering Frida: A Guide to Fixing Early Instrumentation in Gadget ...",
+      "url": "https://medium.com/@mengxipeng/mastering-frida-a-guide-to-fixing-early-instrumentation-in-gadget-mode-f64e327137d8",
+      "snippet": "",
+      "published_date": "2024-01-22T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.55
+    },
+    {
+      "title": "Dynamic binary instrumentation (DBI) with DynamoRio",
+      "url": "https://blog.talosintelligence.com/dynamic-binary-instrumentation-dbi-with-dynamorio/",
+      "snippet": "The main reasons why Talos uses DR for Windows- and Linux-based malware analysis is its low performance impact at execution time, the excellent transparency (the target application does not recognize it is instrumented), and the open source license. The DR client (“client.dll”) is the instrumentation code you are writing to do something with the target application (“target\\_app.exe”). In other words, DR is using callback functions for executing the code you want to use during instrumentation. A good use case would be patching an VM detection routine or an anti-analyzing function in a malware which detects the instrumentation process. **Result:** As long as you do not do foolish things, such as insert too much code at runtime or instrument a large loop inside the target application, DR is usually fast enough to avoid detection. The screenshot below is from the simple\\_client3 DR client run against the anti-x target application mentioned above, which is doing a code trace over the self modifying function.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.475
+    },
+    {
+      "title": "A Dive into Dynamic Binary Instrumentation with DynamoRIO",
+      "url": "https://medium.com/@saratgandholi/unlocking-the-binary-a-dive-into-dynamic-binary-instrumentation-with-dynamorio-8a003b95e836",
+      "snippet": "DynamoRIO is an open-source dynamic binary instrumentation tool that supports Windows, Linux, and macOS. Originally developed by Hewlett-Packard",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4375
+    },
+    {
+      "title": "Gadget | Frida • A world-class dynamic instrumentation toolkit",
+      "url": "https://frida.re/docs/gadget/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.4125
+    },
+    {
+      "title": "The eBPF -3 uprobes",
+      "url": "https://blog.rudrasecure.com/the-ebpf-3-uprobes",
+      "snippet": "",
+      "published_date": "2023-08-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Android | Frida • A world-class dynamic instrumentation toolkit",
+      "url": "https://frida.re/docs/android/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Troubleshooting | Frida • A world-class dynamic instrumentation toolkit",
+      "url": "https://frida.re/docs/troubleshooting/",
+      "snippet": "",
+      "published_date": "2026-03-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "FRIDA 101 Android | PDF - Slideshare",
+      "url": "https://www.slideshare.net/slideshow/frida-101-android/114862182",
+      "snippet": "The document is a comprehensive guide to dynamic instrumentation on Android using Frida, detailing methods such as embedded and injected instrumentation.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "A Dynamic Binary Instrumentation Tool - Pin - Intel",
+      "url": "https://www.intel.com/content/www/us/en/developer/articles/tool/pin-a-dynamic-binary-instrumentation-tool.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3375
+    },
+    {
+      "title": "[PDF] Intel's Dynamic Binary Instrumentation Engine Pin Tutorial",
+      "url": "https://www.intel.com/content/dam/develop/external/us/en/documents/cgo2013-256675.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3375
+    },
+    {
+      "title": "Dynamic Binary Instrumentation with Intel Pin - Reflare",
+      "url": "https://reflare.com/research/dynamic-binary-instrumentation-with-intel-pin",
+      "snippet": "",
+      "published_date": "2026-02-21T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3375
+    },
+    {
+      "title": "Dynamic Binary Analysis with Intel Pin - NetSPI",
+      "url": "https://www.netspi.com/blog/technical-blog/thick-application-pentesting/dynamic-binary-analysis-intel-pin/",
+      "snippet": "Dynamic Binary Instrumentation (DBI) is a technique for analyzing a running program by dynamically injecting analysis code. The added analysis code,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3375
+    },
+    {
+      "title": "Uprobe-based Event Tracing — The Linux Kernel documentation",
+      "url": "https://kernel.org/doc/html/latest/trace/uprobetracer.html",
+      "snippet": "",
+      "published_date": "2023-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "How to Trace System Calls and Functions with eBPF (bpftrace, bcc)",
+      "url": "https://oneuptime.com/blog/post/2026-01-07-ebpf-tracing-bpftrace-bcc/view",
+      "snippet": "",
+      "published_date": "2026-01-07T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Documentation/trace/uprobetracer.txt - kernel/msm - Git at Google",
+      "url": "https://android.googlesource.com/kernel/msm/+/android-msm-bullhead-3.10-marshmallow-dr/Documentation/trace/uprobetracer.txt",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Exploring Function Tracing with eBPF and Uprobes - Episode 1",
+      "url": "https://getanteon.com/blog/exploring-function-tracing-with-ebpf-and-uprobes/",
+      "snippet": "",
+      "published_date": "2024-05-15T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Master eBPF Kernel Observability: Syscall Tracing, Runtime Security ...",
+      "url": "https://www.youtube.com/watch?v=6c-J-KnL1S4",
+      "snippet": "Master eBPF Kernel Observability: Syscall Tracing, Runtime Security & Low Overhead Monitoring. 79 views · 1 month ago. #cloudsecurity #ebpf",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Extend the kernel with eBPF - Android Open Source Project",
+      "url": "https://source.android.com/docs/core/architecture/kernel/bpf",
+      "snippet": "runs user-supplied eBPF programs to extend kernel functionality. programs to eBPF using simple build file syntax described in this document. During Android boot, all eBPF programs located at `/system/etc/bpf/` are. from C programs and are accompanied by `Android.bp` files in the Android source. ### Format of an Android eBPF C program. An eBPF C program must have the following format:. kernel's license when the program makes use of BPF helper functions provided by. For the Android build system to build an eBPF `.c` program, you must. build an eBPF C program named `bpf_test.c`, make the following. `/system/etc/bpf/`, creates the maps that the program needs, and pins the loaded. program with its maps to the BPF file system. further interaction with the eBPF program or reading maps. `FILENAME` is the name of the eBPF C file, the Android loader creates and. `myschedtp.c`, a program file is created and pinned to. `FILENAME` is the name of the eBPF C file, the Android loader creates and.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Pin: Pin 4.1 User Guide",
+      "url": "https://software.intel.com/sites/landingpage/pintool/docs/99687/Pin/doc/html/index.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Pin vs DynamoRIO for Dynamic Analyses for multithreaded code",
+      "url": "https://groups.google.com/g/dynamorio-users/c/KB9ctRN_6xo",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Uprobe-based Event Tracing — The Linux Kernel documentation",
+        "url": "https://kernel.org/doc/html/latest/trace/uprobetracer.html",
+        "snippet": "",
+        "published_date": "2023-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "How to Trace System Calls and Functions with eBPF (bpftrace, bcc)",
+        "url": "https://oneuptime.com/blog/post/2026-01-07-ebpf-tracing-bpftrace-bcc/view",
+        "snippet": "",
+        "published_date": "2026-01-07T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "The eBPF -3 uprobes",
+        "url": "https://blog.rudrasecure.com/the-ebpf-3-uprobes",
+        "snippet": "",
+        "published_date": "2023-08-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Documentation/trace/uprobetracer.txt - kernel/msm - Git at Google",
+        "url": "https://android.googlesource.com/kernel/msm/+/android-msm-bullhead-3.10-marshmallow-dr/Documentation/trace/uprobetracer.txt",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Exploring Function Tracing with eBPF and Uprobes - Episode 1",
+        "url": "https://getanteon.com/blog/exploring-function-tracing-with-ebpf-and-uprobes/",
+        "snippet": "",
+        "published_date": "2024-05-15T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Mastering Frida: A Guide to Fixing Early Instrumentation in Gadget ...",
+        "url": "https://medium.com/@mengxipeng/mastering-frida-a-guide-to-fixing-early-instrumentation-in-gadget-mode-f64e327137d8",
+        "snippet": "",
+        "published_date": "2024-01-22T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.55
+      },
+      {
+        "title": "Gadget | Frida • A world-class dynamic instrumentation toolkit",
+        "url": "https://frida.re/docs/gadget/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.4125
+      },
+      {
+        "title": "Android | Frida • A world-class dynamic instrumentation toolkit",
+        "url": "https://frida.re/docs/android/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Troubleshooting | Frida • A world-class dynamic instrumentation toolkit",
+        "url": "https://frida.re/docs/troubleshooting/",
+        "snippet": "",
+        "published_date": "2026-03-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "Early Instrumentation · sensepost/objection Wiki - GitHub",
+        "url": "https://github.com/sensepost/objection/wiki/early-instrumentation",
+        "snippet": "",
+        "published_date": "2025-06-17T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.675
+      },
+      {
+        "title": "A Dynamic Binary Instrumentation Tool - Pin - Intel",
+        "url": "https://www.intel.com/content/www/us/en/developer/articles/tool/pin-a-dynamic-binary-instrumentation-tool.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3375
+      },
+      {
+        "title": "[PDF] Intel's Dynamic Binary Instrumentation Engine Pin Tutorial",
+        "url": "https://www.intel.com/content/dam/develop/external/us/en/documents/cgo2013-256675.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3375
+      },
+      {
+        "title": "Pin: Pin 4.1 User Guide",
+        "url": "https://software.intel.com/sites/landingpage/pintool/docs/99687/Pin/doc/html/index.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Pin vs DynamoRIO for Dynamic Analyses for multithreaded code",
+        "url": "https://groups.google.com/g/dynamorio-users/c/KB9ctRN_6xo",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Dynamic Binary Instrumentation with Intel Pin - Reflare",
+        "url": "https://reflare.com/research/dynamic-binary-instrumentation-with-intel-pin",
+        "snippet": "",
+        "published_date": "2026-02-21T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3375
+      }
+    ],
+    "tavily": [
+      {
+        "title": "eBPF Syscall - The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/userspace-api/ebpf/syscall.html",
+        "snippet": ":   Pin an eBPF program or map referred by the specified *bpf\\_fd* to the provided *pathname* on the filesystem. The *attach\\_bpf\\_fd* must be a valid file descriptor for a loaded eBPF program of a cgroup, flow dissector, LIRC, sockmap or sock\\_ops type corresponding to the specified *attach\\_type*. The *prog\\_fd* must be a valid file descriptor associated with a loaded eBPF program of type **BPF\\_PROG\\_TYPE\\_RAW\\_TRACEPOINT**. The returned file descriptor can be passed to other **bpf**() subcommands such as **BPF\\_PROG\\_LOAD** or **BPF\\_MAP\\_CREATE** to associate the BTF with those objects. If the *pid* and *fd* are associated with a tracepoint, kprobe or uprobe perf event, then the *prog\\_id* and *fd\\_type* will be populated with the eBPF program id and file descriptor type of type **bpf\\_task\\_fd\\_type**. If the resulting file descriptor is pinned to the filesystem using **BPF\\_OBJ\\_PIN**, then subsequent **read**(2) syscalls for that path will trigger the iterator to read kernel state using the eBPF program attached to *link\\_fd*.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5875
+      },
+      {
+        "title": "Master eBPF Kernel Observability: Syscall Tracing, Runtime Security ...",
+        "url": "https://www.youtube.com/watch?v=6c-J-KnL1S4",
+        "snippet": "Master eBPF Kernel Observability: Syscall Tracing, Runtime Security & Low Overhead Monitoring. 79 views · 1 month ago. #cloudsecurity #ebpf",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Extend the kernel with eBPF - Android Open Source Project",
+        "url": "https://source.android.com/docs/core/architecture/kernel/bpf",
+        "snippet": "runs user-supplied eBPF programs to extend kernel functionality. programs to eBPF using simple build file syntax described in this document. During Android boot, all eBPF programs located at `/system/etc/bpf/` are. from C programs and are accompanied by `Android.bp` files in the Android source. ### Format of an Android eBPF C program. An eBPF C program must have the following format:. kernel's license when the program makes use of BPF helper functions provided by. For the Android build system to build an eBPF `.c` program, you must. build an eBPF C program named `bpf_test.c`, make the following. `/system/etc/bpf/`, creates the maps that the program needs, and pins the loaded. program with its maps to the BPF file system. further interaction with the eBPF program or reading maps. `FILENAME` is the name of the eBPF C file, the Android loader creates and. `myschedtp.c`, a program file is created and pinned to. `FILENAME` is the name of the eBPF C file, the Android loader creates and.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Exploring Function Tracing with eBPF and Uprobes - Episode 1",
+        "url": "https://getanteon.com/blog/exploring-function-tracing-with-ebpf-and-uprobes/",
+        "snippet": "* Go for attaching our eBPF program to kernel. eBPF programs can be attached to various points, including kprobes, tracepoints, and uprobes. Uprobes enable the dynamic instrumentation and observation of user-space program behavior by attaching eBPF handlers to any memory address, typically the entry point of a function. This part of the program operates within the kernel space, gathering data as specified by the eBPF program’s instructions. The user-space side of the program is responsible for loading the eBPF program into the kernel. After the data is collected by the kernel side of the eBPF program, it is sent back to the user-space. The user-space program is responsible for loading the BPF bytecode into the kernel and reading data from the BPF maps populated by our uprobe handler. On the right, our eBPF program runs and traces the `Greet` function. In this article, we’ve leveraged the power of eBPF to trace a function in our Go program.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to Trace System Calls and Functions with eBPF (bpftrace, bcc)",
+        "url": "https://oneuptime.com/blog/post/2026-01-07-ebpf-tracing-bpftrace-bcc/view",
+        "snippet": "This comprehensive guide covers how to leverage these tools to trace system calls, kernel functions, user-space functions, and more. Whether you",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Gadget | Frida • A world-class dynamic instrumentation toolkit",
+        "url": "https://frida.re/docs/gadget/",
+        "snippet": "* `on_load`: string specifying either `resume` or `wait`, stating what to do when Gadget is loaded. The first argument, `stage`, is a string specifying either `early` or `late`, useful for knowing if Gadget was just loaded, or the script is being reloaded. * `path`: string specifying the filesystem path to the script to load. * `on_change`: string specifying either `ignore` or `reload`, where `ignore` means the script will be loaded exactly once, and `reload` means Gadget will monitor the file and reload the script anytime it changes. * `path`: string specifying the filesystem path to the directory containing scripts to load. This means that *twitter.js* may specify its configuration in a file named *twitter.config*. * `on_change`: string specifying either `ignore` or `reload`, where `ignore` means the script will be loaded exactly once, and `reload` means Gadget will monitor the file and reload the script anytime it changes. Next to the `filter` key you may also specify `parameters` and `on_change`, just like in the Script configuration above.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Mastering Frida: A Guide to Fixing Early Instrumentation in Gadget ...",
+        "url": "https://medium.com/@mengxipeng/mastering-frida-a-guide-to-fixing-early-instrumentation-in-gadget-mode-f64e327137d8",
+        "snippet": "This blog post addressed early instrumentation challenges in Frida's Gadget mode and provided a solution by modifying the resume_on_attach flag.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Early Instrumentation · sensepost/objection Wiki - GitHub",
+        "url": "https://github.com/sensepost/objection/wiki/early-instrumentation",
+        "snippet": "Under normal circumstances, when objection starts up, it will search for and connect to the FridaGadget that is available either via USB or the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Android | Frida • A world-class dynamic instrumentation toolkit",
+        "url": "https://frida.re/docs/android/",
+        "snippet": "## Setting up your Android device. It is technically also possible to use Frida without rooting your device, for example by repackaging the app to include frida-gadget, or using a debugger to accomplish the same. However if you’re just starting out with Frida it is strongly recommended to go for a Pixel or Nexus device running the latest official software, or a device whose software is as close to AOSP as possible. Now, let’s get it running on your device:. For the last step, make sure you start frida-server as root, i.e. if you are doing this on a rooted device, you might need to *su* and run it from that shell. This will also ensure that the adb daemon is running on your desktop, which allows Frida to discover and communicate with your device regardless of whether you’ve got it hooked up through USB or WiFi. Fire up the Chrome app on your device and return to your desktop and run:.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "FRIDA 101 Android | PDF - Slideshare",
+        "url": "https://www.slideshare.net/slideshow/frida-101-android/114862182",
+        "snippet": "The document is a comprehensive guide to dynamic instrumentation on Android using Frida, detailing methods such as embedded and injected instrumentation.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "[PDF] Intel's Dynamic Binary Instrumentation Engine Pin Tutorial",
+        "url": "https://www.intel.com/content/dam/develop/external/us/en/documents/cgo2013-256675.pdf",
+        "snippet": "Pin team's job is to minimize this. Usually much larger than pin overhead. Pintool writers can help minimize this! Reducing Instrumentation. Overhead. Page 67",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Dynamic binary instrumentation (DBI) with DynamoRio",
+        "url": "https://blog.talosintelligence.com/dynamic-binary-instrumentation-dbi-with-dynamorio/",
+        "snippet": "The main reasons why Talos uses DR for Windows- and Linux-based malware analysis is its low performance impact at execution time, the excellent transparency (the target application does not recognize it is instrumented), and the open source license. The DR client (“client.dll”) is the instrumentation code you are writing to do something with the target application (“target\\_app.exe”). In other words, DR is using callback functions for executing the code you want to use during instrumentation. A good use case would be patching an VM detection routine or an anti-analyzing function in a malware which detects the instrumentation process. **Result:** As long as you do not do foolish things, such as insert too much code at runtime or instrument a large loop inside the target application, DR is usually fast enough to avoid detection. The screenshot below is from the simple\\_client3 DR client run against the anti-x target application mentioned above, which is doing a code trace over the self modifying function.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.475
+      },
+      {
+        "title": "A Dive into Dynamic Binary Instrumentation with DynamoRIO",
+        "url": "https://medium.com/@saratgandholi/unlocking-the-binary-a-dive-into-dynamic-binary-instrumentation-with-dynamorio-8a003b95e836",
+        "snippet": "DynamoRIO is an open-source dynamic binary instrumentation tool that supports Windows, Linux, and macOS. Originally developed by Hewlett-Packard",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4375
+      },
+      {
+        "title": "Dynamic Binary Analysis with Intel Pin - NetSPI",
+        "url": "https://www.netspi.com/blog/technical-blog/thick-application-pentesting/dynamic-binary-analysis-intel-pin/",
+        "snippet": "Dynamic Binary Instrumentation (DBI) is a technique for analyzing a running program by dynamically injecting analysis code. The added analysis code,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3375
+      },
+      {
+        "title": "Dynamic Binary Instrumentation with Intel Pin - Reflare",
+        "url": "https://reflare.com/research/dynamic-binary-instrumentation-with-intel-pin",
+        "snippet": "What is Intel Pin? Intel Pin is a dynamic binary instrumentation (DBI) framework that allows you to insert arbitrary code into running programs.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}

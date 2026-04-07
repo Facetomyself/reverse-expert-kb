@@ -214,6 +214,10 @@ Useful decision rule:
 - if control structure is the issue -> trace/DBI topology
 - if the whole capture position is wrong -> relocate observation topology outside the original path
 
+A narrower practical decision rule now worth preserving explicitly is:
+- if earlier Frida/Gadget or DBI access mainly buys **more user-space visibility** but still leaves anti-instrumentation churn or target-shaped distortion unresolved, ask whether one syscall-adjacent, transport-adjacent, or lower-surface boundary would buy **truer evidence** more cheaply
+- do not assume earlier or richer user-space visibility automatically beats a lower-surface topology when the real operator question is about observation truth rather than tooling comfort
+
 ### Step 4: define one compare-worthy slice
 Choose one trigger window and one expected consequence.
 
@@ -259,6 +263,14 @@ The topology change should hand back one concrete next object such as:
 - one request-finalization edge
 - one integrity reducer
 - one environment gate
+
+A compact compare checklist for this branch is now worth keeping explicit:
+- did the new move only improve **user-space visibility**?
+- did it reduce **anti-instrumentation distortion**?
+- did it expose a **lower-surface truth boundary** that answers the question more directly?
+- did it preserve enough semantic meaning to avoid reopening the same ambiguity one layer lower?
+
+That checklist helps keep “better tooling comfort” separate from “better evidence.”
 
 The workflow is not complete until the better topology has yielded one smaller actionable target.
 
@@ -435,7 +447,17 @@ Grounding for this page comes from:
 The page intentionally stays conservative:
 - it does not claim stealthier observation is always better
 - it does not claim lower surfaces are always more truthful
+- it does not claim earlier Frida/Gadget or richer DBI visibility automatically dominates a cheaper lower-surface boundary when the real bottleneck is distortion rather than raw visibility
 - it treats topology selection as a workflow for finding one more trustworthy boundary when the current observation model has stopped paying off
+
+A compact branch-memory shorthand now worth preserving is:
+
+```text
+visibility improved
+  != distortion reduced
+  != lower-surface truth gained
+  != useful semantic consequence recovered
+```
 
 ## 13. Topic summary
 Protected-runtime observation-topology selection is a practical workflow for cases where the current observation model is the bottleneck.
