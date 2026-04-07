@@ -43,6 +43,26 @@ In those cases start with:
 
 ## 2. Core claim
 
+A practical stop rule worth preserving even more sharply for timeout/cancel-shaped async paths is:
+
+```text
+timeout/cancel happened
+  != pending owner/liveness ended the way you think
+  != late completion cannot still appear
+  != late completion still belongs to the same meaningful path
+  != later consequence truth
+```
+
+Treat these as different proof objects until one is frozen:
+- timeout return / cancel request / canceled-status observation
+- current-owner cleanup truth
+- whether late completion can still race in
+- whether a late completion still belongs to the same meaningful current path
+- later consequence that answers the analyst’s real question
+
+This keeps async request/reply work from silently overreading timeout or cancellation results as already-good current-owner proof.
+
+
 A practical stop rule worth preserving more sharply for async request/reply systems is:
 
 ```text
