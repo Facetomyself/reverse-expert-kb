@@ -1,5 +1,7 @@
 # MEMORY.md
 
+- 2026-04-07: User preference: in this private direct-control environment, OpenClaw should avoid requiring manual click approvals for routine execution. Keep exec approvals configured for low-friction operation on the gateway unless the user asks to tighten security.
+
 - 2026-03-07: For openclaw-search-skills on this host, only use the user-provided API tokens from ~/.openclaw/credentials/search.json. When a search source is not explicitly specified, default to using Grok only (exa/tavily disabled unless the user asks).
 
 - 2026-03-12: Headless cloud server (no GUI). Prefer CLI-only instructions; do not ask the user to "look at the screen"—have them paste terminal output when needed. Tooling/runtime baselines:
