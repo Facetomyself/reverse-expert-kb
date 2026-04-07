@@ -113,7 +113,7 @@ The KB should now be maintained with explicit branch-balance awareness rather th
 
 Current practical branch picture:
 - **very strong / easy-to-overfeed**:
-  - browser runtime anti-bot / captcha / request-signature workflows — now also preserving a dedicated CDP side-effect / automation-signal continuation so DevTools-open state, CDP domain enablement, target-observable automation signal, classification decision, and later token/state consequence do not collapse into one vague “CDP is detectable” story
+  - browser runtime anti-bot / captcha / request-signature workflows — now also preserving a dedicated CDP side-effect / automation-signal continuation so DevTools-open state, CDP domain enablement, target-observable automation signal, classification decision, and later token/state consequence do not collapse into one vague “CDP is detectable” story, and a targeted evidence trust-calibration continuation so real-but-weak browser evidence slices do not get overread into larger mechanism claims before the next hook or branch choice is justified
   - mobile protected-runtime / WebView / challenge-loop workflows
 - **now materially established and worth preserving canonically**:
   - native practical workflows
@@ -374,6 +374,7 @@ This branch should now be read as a practical bridge from mature protected/deobf
 - `topics/browser-fingerprint-and-state-dependent-token-generation.md`
 - `topics/browser-service-worker-fetch-consumer-and-cache-ownership-workflow-note.md`
 - `topics/cdp-side-effect-and-automation-signal-analysis.md`
+- `topics/targeted-evidence-trust-calibration.md`
 
 A practical routing rule now reinforced across the browser subtree:
 - prefer concrete boundary chains over family labels alone
