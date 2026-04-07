@@ -148,6 +148,8 @@ Priority 2 candidates include:
 - none currently urgent enough to list as a single standout from this branch
 
 ### Newly added / notable practical continuation pages
+A top-level practical reading now worth preserving is that recent maintenance has materially extended thinner operator seams across malware persistence/trigger proof, browser evidence discipline, mobile/protected-runtime lower-surface observation choice, native async delivery realism, protocol pending-request owner realism, and iOS XPC lifecycle realism, so future work should prefer underfed branch refinement or canonical synchronization over easy dense-branch expansion.
+
 - `topics/analytic-provenance-and-evidence-management.md`
 - `topics/native-binary-reversing-baseline.md`
 - `topics/protocol-state-and-message-recovery.md`
