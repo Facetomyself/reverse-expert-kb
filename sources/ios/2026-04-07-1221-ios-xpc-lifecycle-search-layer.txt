@@ -1,0 +1,383 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "NSXPCConnection interruption invalidation resume reconnect exported object official docs",
+    "Apple NSXPCConnection interruption invalidation exported object official documentation",
+    "NSXPCListener interruption invalidation connection service consumer Apple docs"
+  ],
+  "count": 17,
+  "results": [
+    {
+      "title": "NSXPCConnection debugging interruption/invalidation",
+      "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+      "snippet": "",
+      "published_date": "2017-11-21T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.7
+    },
+    {
+      "title": "current() | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/current()",
+      "snippet": "An NSXPCConnection object, representing a connection to another process. ... Starts or resumes handling of messages on a connection. func invalidate().",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "NSXPCConnection.h - iOS-SDKs - GitHub",
+      "url": "https://github.com/xybp888/iOS-SDKs/blob/master/iPhoneOS13.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXPCConnection.h",
+      "snippet": "This is a good time to set up properties on the new connection, like its exported object and interfaces. If a value of NO is returned, the connection object",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.7
+    },
+    {
+      "title": "exportedObject | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/exportedobject",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "invalidate | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidate()?changes=_1&language=objc",
+      "snippet": "Suspends the connection. interruptionHandler. An interruption handler that is called if the remote process exits or crashes. invalidationHandler.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "NSXPCConnection.Options | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/options",
+      "snippet": "Initializes an NSXPCConnection object to connect to an NSXPCListener object in another process, identified by an NSXPCListenerEndpoint object.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "NSXPCConnection | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "invalidationHandler | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "NSXPCConnectionInterrupted | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnectioninterrupted-c.enum.case?changes=_3&language=objc",
+      "snippet": "The upper bounds of XPC connection error code values. NSXPCConnectionCodeSigningRequirementFailure. A code-signing requirement check failed.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "NSXPCConnection | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection?changes=la",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "resume | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/resume()?language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "NSXPCConnection.h",
+      "url": "https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSXPCConnection.h",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "NSXPCListener | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpclistener?language=objc",
+      "snippet": "Each XPC service, launchd agent, or launchd daemon typically has at least one NSXPCListener object that listens for connections to a specified service name.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "NSXPCListener | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpclistener",
+      "snippet": "Each XPC service, launchd agent, or launchd daemon typically has at least one NSXPCListener object that listens for connections to a specified service name.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6333
+    },
+    {
+      "title": "XPC_ERROR_CONNECTION_INTERRUPTED | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/xpc/xpc_error_connection_interrupted-swift.var",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "TN3113: Testing and debugging XPC code with an anonymous listener | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/technotes/tn3113-testing-xpc-code-with-an-anonymous-listener",
+      "snippet": "",
+      "published_date": "2025-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "NSXPCConnection documentation",
+      "url": "https://wwwmain.gnustep.org/resources/documentation/Developer/Base/Reference/NSXPCConnection.html",
+      "snippet": "",
+      "published_date": "2025-02-11T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3333
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "exportedObject | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/exportedobject",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6333
+      },
+      {
+        "title": "invalidationHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "XPC_ERROR_CONNECTION_INTERRUPTED | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/xpc/xpc_error_connection_interrupted-swift.var",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "NSXPCConnection debugging interruption/invalidation",
+        "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+        "snippet": "",
+        "published_date": "2017-11-21T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.7
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection?changes=la",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "NSXPCConnection debugging interruption/invalidation",
+        "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+        "snippet": "",
+        "published_date": "2018-04-07T04:23:08.993Z",
+        "source": "exa"
+      },
+      {
+        "title": "resume | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/resume()?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "NSXPCConnection documentation",
+        "url": "https://wwwmain.gnustep.org/resources/documentation/Developer/Base/Reference/NSXPCConnection.html",
+        "snippet": "",
+        "published_date": "2025-02-11T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "NSXPCConnection.h",
+        "url": "https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSXPCConnection.h",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "NSXPCListener | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpclistener",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "NSXPCConnection debugging interruption/invalidation",
+        "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+        "snippet": "",
+        "published_date": "2018-04-07T04:23:33.999Z",
+        "source": "exa"
+      },
+      {
+        "title": "NSXPCConnection.h - iOS-SDKs",
+        "url": "https://github.com/xybp888/iOS-SDKs/blob/master/iPhoneOS13.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXPCConnection.h",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "TN3113: Testing and debugging XPC code with an anonymous listener | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/technotes/tn3113-testing-xpc-code-with-an-anonymous-listener",
+        "snippet": "",
+        "published_date": "2025-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection?changes=la",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "invalidate | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidate()?changes=_1&language=objc",
+        "snippet": "Suspends the connection. interruptionHandler. An interruption handler that is called if the remote process exits or crashes. invalidationHandler.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "invalidationHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler",
+        "snippet": "An invalidation handler that is called if the connection can not be formed or the connection has terminated and may not be re-established.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSXPCConnection debugging interruption/invalidation",
+        "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+        "snippet": "I have heard that in case \"interruption\" you should try to reestablish the connection. This can be useful when your service is a launch agent which gets",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSXPCConnectionInterrupted | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnectioninterrupted-c.enum.case?changes=_3&language=objc",
+        "snippet": "The upper bounds of XPC connection error code values. NSXPCConnectionCodeSigningRequirementFailure. A code-signing requirement check failed.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "exportedObject | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/exportedobject",
+        "snippet": "Messages delivered to exported objects are serialized and sent on a non-main queue. The receiver is responsible for handling the messages on a different queue",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection?changes=la",
+        "snippet": "An invalidation handler that is called if the connection ... The NSXPCInterface object that describes the protocol for the exported object on this connection.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "resume | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/resume()?language=objc",
+        "snippet": "An interruption handler that is called if the remote process exits or crashes. invalidationHandler. An invalidation handler that is called if the connection can",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "current() | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/current()",
+        "snippet": "An NSXPCConnection object, representing a connection to another process. ... Starts or resumes handling of messages on a connection. func invalidate().",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "NSXPCConnection.h - GitHub",
+        "url": "https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSXPCConnection.h",
+        "snippet": "This is a good time to set up properties on the new connection, like its exported object and interfaces. If a value of NO is returned, the connection object",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSXPCConnection.h - iOS-SDKs - GitHub",
+        "url": "https://github.com/xybp888/iOS-SDKs/blob/master/iPhoneOS13.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXPCConnection.h",
+        "snippet": "This is a good time to set up properties on the new connection, like its exported object and interfaces. If a value of NO is returned, the connection object",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.7
+      },
+      {
+        "title": "NSXPCListener | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpclistener?language=objc",
+        "snippet": "Each XPC service, launchd agent, or launchd daemon typically has at least one NSXPCListener object that listens for connections to a specified service name.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "NSXPCListener | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpclistener",
+        "snippet": "Each XPC service, launchd agent, or launchd daemon typically has at least one NSXPCListener object that listens for connections to a specified service name.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6333
+      },
+      {
+        "title": "NSXPCConnection.Options | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/options",
+        "snippet": "Initializes an NSXPCConnection object to connect to an NSXPCListener object in another process, identified by an NSXPCListenerEndpoint object.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "NSXPCConnection.h - iOS-SDKs - GitHub",
+        "url": "https://github.com/xybp888/iOS-SDKs/blob/master/iPhoneOS13.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXPCConnection.h",
+        "snippet": "The invalidation handler will also be called if a connection created with an NSXPCListenerEndpoint is invalidated from the remote side, or if the NSXPCListener",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSXPCConnection.h - GitHub",
+        "url": "https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSXPCConnection.h",
+        "snippet": "// Suspend the connection. Suspends must be balanced with resumes before the connection may be invalidated. - (void)suspend;. // Invalidate the connection.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  },
+  "freshness_filter": "py"
+}
