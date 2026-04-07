@@ -1,0 +1,459 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "eBPF tracing overhead observability anti-debug instrumentation lower surface official docs",
+    "seccomp ptrace anti debug Android syscall tracing docs eBPF official",
+    "user space hooks vs syscall tracing observation distortion anti instrumentation docs"
+  ],
+  "count": 25,
+  "results": [
+    {
+      "title": "eBPF - Honeycomb Docs",
+      "url": "https://docs.honeycomb.io/get-started/basics/observability/concepts/ebpf",
+      "snippet": "eBPF works for both user and OS applications and can apply cross-cutting tasks such as observability, security, and networking functionality. eBPF programs are executed when configured kernel or application hook points are triggered. If a pre-defined hook does not exist, additional kernel probes (Kprobes) or user probes (Uprobes) can be created to attach eBPF programs almost anywhere in kernel or user applications. Developers can add instrumentation libraries to an application either by using an automatic instrumentation tool to automatically configure them or by adding them manually during application start-up, which requires code changes. For applications written in languages lacking automatic instrumentation tools, using eBPF allows developers to still experience a low cost way to implement observability. OpenTelemetry is developing an automatic instrumentation tool for Golang using eBPF. Automatic instrumentation tools for other languages, such as C++ and Rust, using eBPF may also be developed in the future.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.67
+    },
+    {
+      "title": "[PDF] Eliminating eBPF Tracing Overhead on Untraced Processes - People",
+      "url": "https://people.cs.vt.edu/djwillia/papers/ebpf24-mookernel.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.59
+    },
+    {
+      "title": "[PDF] Untrusted Code Security and Syscall Interception",
+      "url": "https://www.seclab.cs.sunysb.edu/sekar/cse509/ln/untrusted.pdf",
+      "snippet": "Drawbacks Approaches ptrace seccomp & secomp-BPF eBPF Sy eBPF Probes Code snippets hook to Linux kernel’s well-developed tracing/hooking infrastructure Tracepoints (See /sys/kernel/debug/tracing/events) LSM hooks, kprobes (kernel function entry and exit), XDP (network stack) Probes written in restricted C, compiled by LLVM Verified for memory safety, no global variables or loops Very minimal set of helper functions (read memory, access key/value store) Mainly for observability, e.g., so most hooks are limited to be read-only But some can respond: LSM (block), XDP (packet rewrite) Communicate with user-level via Perf buffers (older mechanism, one per core), Ring buffer (newer) Maps (hash tables and LRU hash tables) 28 / 31 Intro Isolation Syscall interception related techniques Why syscalls?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.59
+    },
+    {
+      "title": "Expert Guide to eBPF Tracing in Linux",
+      "url": "https://linuxgd.medium.com/expert-guide-to-ebpf-tracing-in-linux-a1ca43bd7249",
+      "snippet": "# **Expert Guide to eBPF Tracing in Linux**. The convergence of high-performance computing and complex distributed systems necessitates diagnostic tooling capable of operating with near-zero overhead, a requirement uniquely fulfilled by the extended Berkeley Packet Filter architecture, commonly known as eBPF. This technology revolutionizes kernel and application observability by providing a verifiable, secure mechanism to execute custom programs directly within the Linux kernel space, allowing senior engineers to capture performance metrics, security events, and operational anomalies without the traditional expense of context switching or kernel module loading. Harness the power of eBPF to revolutionize Linux kernel observability, debug production performance bottlenecks, and enhance system security modeling. The strategic adoption of eBPF tracing represents a crucial step forward for organizations managing high-throughput cloud environments and mission-critical infrastructure, moving beyond traditional tools like `strace` or kernel logging, which often introduce significant performance instrumentation overhead when deployed in production. ## Written by Linux Guide. Beginner basics to advanced server management, get expert guides, tips, and tutorials to elevate your Linux skills.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "Seccomp BPF (SECure COMPuting with filters)",
+      "url": "https://docs.kernel.org/userspace-api/seccomp_filter.html",
+      "snippet": "A seccomp filter may return any of the following values. The tracer will be notified of a `PTRACE_EVENT_SECCOMP` and the `SECCOMP_RET_DATA` portion of the BPF program return value will be available to the tracer via `PTRACE_GETEVENTMSG`. When multiple filters return values of the same precedence, only the `SECCOMP_RET_DATA` from the most recently installed filter will be returned. The `SECCOMP_RET_USER_NOTIF` return code lets seccomp filters pass a particular syscall to userspace to be handled. To acquire a notification FD, use the `SECCOMP_FILTER_FLAG_NEW_LISTENER` argument to the `seccomp()` syscall:. In general, if an architecture supports both ptrace\\_event and seccomp, it will be able to support seccomp filter with minor fixup: `SIGSYS` support and seccomp return value checking. * A return value of `SECCOMP_RET_TRAP` will set a `si_call_addr` pointing to the vsyscall entry for the given call and not the address after the ‘syscall’ instruction. * A return value of `SECCOMP_RET_TRACE` will signal the tracer as usual, but the syscall may not be changed to another system call using the orig\\_rax register.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "[PDF] A Survey on Function and System Call Hooking Approaches",
+      "url": "https://csl.fiu.edu/wp-content/uploads/2023/05/hooking_survey.pdf",
+      "snippet": "Most system calls have user-space wrapper functions [31], so we can hook either the function or the actual system call. For example, to create a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5
+    },
+    {
+      "title": "Programmable System Call Security with eBPF",
+      "url": "https://tianyin.github.io/pub/seccomp-ebpf.pdf",
+      "snippet": "",
+      "published_date": "2023-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.48
+    },
+    {
+      "title": "A Practical Introduction to eBPF: Observing the Linux Kernel in Real ...",
+      "url": "https://medium.com/the-thoughtful-engineer/a-practical-introduction-to-ebpf-observing-the-linux-kernel-in-real-time-3d0b81e0af2f",
+      "snippet": "These are special kernel-space hooks that fire at predefined points in the kernel's logic — such as entering or exiting a syscall, scheduling a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.43
+    },
+    {
+      "title": "eBPF-Based Linux Filesystem Syscall Runtime Monitoring - Medium",
+      "url": "https://medium.com/@psy_maestro/ebpf-based-linux-filesystem-syscall-runtime-monitoring-8e5a49ff82d9",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "What is eBPF, and why does it matter for observability? - New Relic",
+      "url": "https://newrelic.com/blog/observability/what-is-ebpf",
+      "snippet": "",
+      "published_date": "2025-06-03T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.36
+    },
+    {
+      "title": "OpenTelemetry eBPF Instrumentation",
+      "url": "https://opentelemetry.io/docs/zero-code/obi/",
+      "snippet": "",
+      "published_date": "2026-02-27T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Don’t Attach a Debugger—Attach eBPF: How to Feed a Debug AI Without Breaking Prod | DebuggAI Resources",
+      "url": "https://debugg.ai/resources/dont-attach-a-debugger-attach-ebpf-debug-ai-production-blueprint",
+      "snippet": "",
+      "published_date": "2026-01-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "How to Create Low-Overhead Profiling",
+      "url": "https://oneuptime.com/blog/post/2026-01-30-low-overhead-profiling/view",
+      "snippet": "",
+      "published_date": "2026-01-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "What is eBPF and How Does It Work?",
+      "url": "https://oneuptime.com/blog/post/2025-12-10-what-is-ebpf-and-how-does-it-work/view",
+      "snippet": "eBPF   Linux   Observability   Security   Networking   Tracing   Performance   Kernel. **eBPF (extended Berkeley Packet Filter)** is a revolutionary technology that allows you to run sandboxed programs directly in the Linux kernel without changing kernel source code or loading kernel modules. timeline title Evolution of BPF to eBPF 1992 : Original BPF : Packet filtering only : 2 registers, 32-bit 2014 : eBPF introduced : Extended to general purpose : 10 registers, 64-bit 2016 : XDP for networking : Cilium project starts 2018 : BTF introduced : Better debugging 2020 : CO-RE (Compile Once Run Everywhere) : Portable programs 2023 : eBPF Foundation : Industry standardization. // Common helpers for eBPF programs bpf_map_lookup_elem() // Read a value from a BPF map by key bpf_map_update_elem() // Write or update a value in a BPF map bpf_probe_read() // Safely read kernel memory (with bounds checking) bpf_get_current_pid_tgid() // Get current process ID and thread group ID bpf_ktime_get_ns() // Get current kernel timestamp in nanoseconds bpf_trace_printk() // Debug output (writes to trace_pipe) bpf_perf_event_output() // Send data to userspace via perf ring buffer.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "[PDF] Programmable System Call Security with eBPF",
+      "url": "https://tugraz.elsevierpure.com/files/75511242/2302.10366v1.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.33
+    },
+    {
+      "title": "Seccomp | Engineering Everything with eBPF",
+      "url": "https://ebpf.hamza-megahed.com/docs/chapter5/1-seccomp/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.33
+    },
+    {
+      "title": "eBPF seccomp filters - LWN.net",
+      "url": "https://lwn.net/Articles/855970/",
+      "snippet": "",
+      "published_date": "2021-05-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Hook points | Tetragon - Tetragon",
+      "url": "https://tetragon.io/docs/concepts/tracing-policy/hooks/",
+      "snippet": "**Note** Notice the `syscall` field, specific to a `kprobe` spec, with default value `false`, that indicates whether Tetragon will hook a syscall or just a regular kernel function. apiVersion: cilium.io/v1alpha1 apiVersion: cilium.io/v1alpha1 apiVersion:cilium.io/v1alpha1kind: TracingPolicy kind: TracingPolicy kind: TracingPolicymetadata: metadata: metadata: name: \"lsm\"  name: \"lsm\" name: \"lsm\"spec: spec: spec: kprobes:  kprobes: kprobes: - call: \"security_inode_copy_up\"  - call: \"security_inode_copy_up\" call: \"security_inode_copy_up\" syscall: false  syscall: false syscall: false args:  args: args: - index: 0 # struct dentry *src  - index: 0 # struct dentry *src index: 0# struct dentry *src type: \"int64\"  type: \"int64\" type: \"int64\" - index: 1 # struct cred **new  - index: 1 # struct cred **new index: 1# struct cred **new type: \"int\"  type: \"int\" type: \"int\" resolve: \"user.uid.val\"  resolve: \"user.uid.val\" resolve:\"user.uid.val\" selectors:  selectors: selectors: - matchActions:  - matchActions: matchActions: - action: Post  - action: Post action: Post.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.33
+    },
+    {
+      "title": "Using user-space tracepoints with BPF - LWN.net",
+      "url": "https://lwn.net/Articles/753601/",
+      "snippet": "These probes provide a low-overhead way of instrumenting user-space code and provide a convenient way to debug applications running in",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "Hunting Rootkits with eBPF: Detecting Linux Syscall Hooking",
+      "url": "https://www.aquasec.com/blog/linux-syscall-hooking-using-tracee/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Userspace eBPF Runtimes: Overview and Applications - eunomia",
+      "url": "https://eunomia.dev/blogs/userspace-ebpf/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Seccomp filter in Android O",
+      "url": "https://android-developers.googleblog.com/2017/07/seccomp-filter-in-android-o.html?m=1",
+      "snippet": "",
+      "published_date": "2017-07-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Android: ptrace hole makes seccomp filter useless on devices with ...",
+      "url": "https://project-zero.issues.chromium.org/42450789",
+      "snippet": "The seccomp.2 manpage ( http://man7.org/linux/man-pages/man2/seccomp.2.html ) documents: Before kernel 4.8, the seccomp check will not be run again after",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Bypassing User-Mode Hooks and Direct Invocation of System Calls ...",
+      "url": "https://www.mdsec.co.uk/2020/12/bypassing-user-mode-hooks-and-direct-invocation-of-system-calls-for-red-teams/",
+      "snippet": "#define RVA2VA(Type, DllBase, Rva) (Type)((ULONG_PTR) DllBase + Rva) static void GetSyscallList(PSYSCALL_LIST List) { PPEB_LDR_DATA Ldr; PLDR_DATA_TABLE_ENTRY LdrEntry; PIMAGE_DOS_HEADER DosHeader; PIMAGE_NT_HEADERS NtHeaders; DWORD i, j, NumberOfNames, VirtualAddress, Entries=0; PIMAGE_DATA_DIRECTORY DataDirectory; PIMAGE_EXPORT_DIRECTORY ExportDirectory; PDWORD Functions; PDWORD Names; PWORD Ordinals; PCHAR DllName, FunctionName; PVOID DllBase; PSYSCALL_ENTRY Table; SYSCALL_ENTRY Entry; // // Get the DllBase address of NTDLL.dll // NTDLL is not guaranteed to be the second in the list. Ldr = (PPEB_LDR_DATA)NtCurrentTeb()->ProcessEnvironmentBlock->Ldr; // For each DLL loaded for (LdrEntry=(PLDR_DATA_TABLE_ENTRY)Ldr->Reserved2[1]; LdrEntry->DllBase != NULL; LdrEntry=(PLDR_DATA_TABLE_ENTRY)LdrEntry->Reserved1[0]) { DllBase = LdrEntry->DllBase; DosHeader = (PIMAGE_DOS_HEADER)DllBase; NtHeaders = RVA2VA(PIMAGE_NT_HEADERS, DllBase, DosHeader->e_lfanew); DataDirectory = (PIMAGE_DATA_DIRECTORY)NtHeaders->OptionalHeader.DataDirectory; VirtualAddress = DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress; if(VirtualAddress == 0) continue; ExportDirectory = (PIMAGE_EXPORT_DIRECTORY) RVA2VA(ULONG_PTR, DllBase, VirtualAddress); // // If this is NTDLL.dll, exit loop // DllName = RVA2VA(PCHAR,DllBase, ExportDirectory->Name); if((*(ULONG*)DllName | 0x20202020) != 'ldtn') continue; if((*(ULONG*)(DllName + 4) | 0x20202020) == 'ld.l') break; } NumberOfNames = ExportDirectory->NumberOfNames; Functions = RVA2VA(PDWORD,DllBase, ExportDirectory->AddressOfFunctions); Names = RVA2VA(PDWORD,DllBase, ExportDirectory->AddressOfNames); Ordinals = RVA2VA(PWORD, DllBase, ExportDirectory->AddressOfNameOrdinals); Table = List->Table; do { FunctionName = RVA2VA(PCHAR, DllBase, Names[NumberOfNames-1]); // // Is this a system call?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "LibIHT: A Hardware-Based Approach to Efficient and Evasion ...",
+      "url": "https://dl.acm.org/doi/full/10.1145/3733822.3764670",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "[PDF] Eliminating eBPF Tracing Overhead on Untraced Processes - People",
+        "url": "https://people.cs.vt.edu/djwillia/papers/ebpf24-mookernel.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.59
+      },
+      {
+        "title": "Don’t Attach a Debugger—Attach eBPF: How to Feed a Debug AI Without Breaking Prod | DebuggAI Resources",
+        "url": "https://debugg.ai/resources/dont-attach-a-debugger-attach-ebpf-debug-ai-production-blueprint",
+        "snippet": "",
+        "published_date": "2026-01-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "How to Create Low-Overhead Profiling",
+        "url": "https://oneuptime.com/blog/post/2026-01-30-low-overhead-profiling/view",
+        "snippet": "",
+        "published_date": "2026-01-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "What is eBPF, and why does it matter for observability? - New Relic",
+        "url": "https://newrelic.com/blog/observability/what-is-ebpf",
+        "snippet": "",
+        "published_date": "2025-06-03T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.36
+      },
+      {
+        "title": "OpenTelemetry eBPF Instrumentation",
+        "url": "https://opentelemetry.io/docs/zero-code/obi/",
+        "snippet": "",
+        "published_date": "2026-02-27T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.36
+      },
+      {
+        "title": "[PDF] Programmable System Call Security with eBPF",
+        "url": "https://tugraz.elsevierpure.com/files/75511242/2302.10366v1.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.33
+      },
+      {
+        "title": "Seccomp filter in Android O",
+        "url": "https://android-developers.googleblog.com/2017/07/seccomp-filter-in-android-o.html?m=1",
+        "snippet": "",
+        "published_date": "2017-07-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Programmable System Call Security with eBPF",
+        "url": "https://tianyin.github.io/pub/seccomp-ebpf.pdf",
+        "snippet": "",
+        "published_date": "2023-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.48
+      },
+      {
+        "title": "Seccomp | Engineering Everything with eBPF",
+        "url": "https://ebpf.hamza-megahed.com/docs/chapter5/1-seccomp/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.33
+      },
+      {
+        "title": "eBPF seccomp filters - LWN.net",
+        "url": "https://lwn.net/Articles/855970/",
+        "snippet": "",
+        "published_date": "2021-05-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Hook points | Tetragon - Tetragon",
+        "url": "https://tetragon.io/docs/concepts/tracing-policy/hooks/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "LibIHT: A Hardware-Based Approach to Efficient and Evasion ...",
+        "url": "https://dl.acm.org/doi/full/10.1145/3733822.3764670",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "eBPF-Based Linux Filesystem Syscall Runtime Monitoring - Medium",
+        "url": "https://medium.com/@psy_maestro/ebpf-based-linux-filesystem-syscall-runtime-monitoring-8e5a49ff82d9",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "Hunting Rootkits with eBPF: Detecting Linux Syscall Hooking",
+        "url": "https://www.aquasec.com/blog/linux-syscall-hooking-using-tracee/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Userspace eBPF Runtimes: Overview and Applications - eunomia",
+        "url": "https://eunomia.dev/blogs/userspace-ebpf/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      }
+    ],
+    "tavily": [
+      {
+        "title": "eBPF - Honeycomb Docs",
+        "url": "https://docs.honeycomb.io/get-started/basics/observability/concepts/ebpf",
+        "snippet": "eBPF works for both user and OS applications and can apply cross-cutting tasks such as observability, security, and networking functionality. eBPF programs are executed when configured kernel or application hook points are triggered. If a pre-defined hook does not exist, additional kernel probes (Kprobes) or user probes (Uprobes) can be created to attach eBPF programs almost anywhere in kernel or user applications. Developers can add instrumentation libraries to an application either by using an automatic instrumentation tool to automatically configure them or by adding them manually during application start-up, which requires code changes. For applications written in languages lacking automatic instrumentation tools, using eBPF allows developers to still experience a low cost way to implement observability. OpenTelemetry is developing an automatic instrumentation tool for Golang using eBPF. Automatic instrumentation tools for other languages, such as C++ and Rust, using eBPF may also be developed in the future.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.67
+      },
+      {
+        "title": "OpenTelemetry eBPF Instrumentation",
+        "url": "https://opentelemetry.io/docs/zero-code/obi/",
+        "snippet": "OpenTelemetry eBPF Instrumentation (OBI) is an auto-instrumentation tool to. OBI offers the following features:. OBI requires the following to run:. OBI is tested with the following Linux distributions:. OBI has its limitations too. While most eBPF programs require elevated privileges, OBI allows you to specify. Some OBI functionality requires further permissions, for example using the. For a comprehensive list of capabilities required by OBI, refer to. ## Get started with OBI. ##### Configure OBI. Learn how to configure OBI. Configuring OBI to observe point-to-point network metrics. ##### Set up OBI. Learn how to set up and run OBI. ##### OBI exported metrics. Learn about the HTTP/gRPC metrics OBI can export. ##### Distributed traces with OBI. Learn about OBI’s distributed traces support. Privileges and capabilities required by OBI. ##### OBI and Cilium compatibility. ##### OBI metrics cardinality. Learn how OBI correlates application logs with distributed traces for faster debugging and troubleshooting.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Expert Guide to eBPF Tracing in Linux",
+        "url": "https://linuxgd.medium.com/expert-guide-to-ebpf-tracing-in-linux-a1ca43bd7249",
+        "snippet": "# **Expert Guide to eBPF Tracing in Linux**. The convergence of high-performance computing and complex distributed systems necessitates diagnostic tooling capable of operating with near-zero overhead, a requirement uniquely fulfilled by the extended Berkeley Packet Filter architecture, commonly known as eBPF. This technology revolutionizes kernel and application observability by providing a verifiable, secure mechanism to execute custom programs directly within the Linux kernel space, allowing senior engineers to capture performance metrics, security events, and operational anomalies without the traditional expense of context switching or kernel module loading. Harness the power of eBPF to revolutionize Linux kernel observability, debug production performance bottlenecks, and enhance system security modeling. The strategic adoption of eBPF tracing represents a crucial step forward for organizations managing high-throughput cloud environments and mission-critical infrastructure, moving beyond traditional tools like `strace` or kernel logging, which often introduce significant performance instrumentation overhead when deployed in production. ## Written by Linux Guide. Beginner basics to advanced server management, get expert guides, tips, and tutorials to elevate your Linux skills.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "What is eBPF and How Does It Work?",
+        "url": "https://oneuptime.com/blog/post/2025-12-10-what-is-ebpf-and-how-does-it-work/view",
+        "snippet": "eBPF   Linux   Observability   Security   Networking   Tracing   Performance   Kernel. **eBPF (extended Berkeley Packet Filter)** is a revolutionary technology that allows you to run sandboxed programs directly in the Linux kernel without changing kernel source code or loading kernel modules. timeline title Evolution of BPF to eBPF 1992 : Original BPF : Packet filtering only : 2 registers, 32-bit 2014 : eBPF introduced : Extended to general purpose : 10 registers, 64-bit 2016 : XDP for networking : Cilium project starts 2018 : BTF introduced : Better debugging 2020 : CO-RE (Compile Once Run Everywhere) : Portable programs 2023 : eBPF Foundation : Industry standardization. // Common helpers for eBPF programs bpf_map_lookup_elem() // Read a value from a BPF map by key bpf_map_update_elem() // Write or update a value in a BPF map bpf_probe_read() // Safely read kernel memory (with bounds checking) bpf_get_current_pid_tgid() // Get current process ID and thread group ID bpf_ktime_get_ns() // Get current kernel timestamp in nanoseconds bpf_trace_printk() // Debug output (writes to trace_pipe) bpf_perf_event_output() // Send data to userspace via perf ring buffer.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "What is eBPF, and why does it matter for observability? - New Relic",
+        "url": "https://newrelic.com/blog/observability/what-is-ebpf",
+        "snippet": "eBPF is far more innovative and extensive, essentially going beyond network packet filtering to observing various activities within the kernel. eBPF allows developers to explore various system calls, trace points, and more, making it an ideal technology for performance monitoring, security, and observability. eBPF makes the tasks of IT and observability more efficient by running versatile programs in their own environment in the Linux kernel instead of copying data to user space. ## What is eBPF? eBPF (Extended Berkeley Packet Filter) and BPF (Berkeley Packet Filter) both serve as technologies for observing and monitoring network traffic, but they are far from identical. ## New Relic and eBPF. ## eBPF observability. eBPF unlocks advanced capabilities for observability in newer Linux versions, and New Relic makes it simple to harness these powerful tools. By leveraging eBPF, developers can create applications with privileged access to kernel operations, seamlessly integrating with New Relic’s observability solutions for application performance monitoring (APM), security, and system insights.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Seccomp BPF (SECure COMPuting with filters)",
+        "url": "https://docs.kernel.org/userspace-api/seccomp_filter.html",
+        "snippet": "A seccomp filter may return any of the following values. The tracer will be notified of a `PTRACE_EVENT_SECCOMP` and the `SECCOMP_RET_DATA` portion of the BPF program return value will be available to the tracer via `PTRACE_GETEVENTMSG`. When multiple filters return values of the same precedence, only the `SECCOMP_RET_DATA` from the most recently installed filter will be returned. The `SECCOMP_RET_USER_NOTIF` return code lets seccomp filters pass a particular syscall to userspace to be handled. To acquire a notification FD, use the `SECCOMP_FILTER_FLAG_NEW_LISTENER` argument to the `seccomp()` syscall:. In general, if an architecture supports both ptrace\\_event and seccomp, it will be able to support seccomp filter with minor fixup: `SIGSYS` support and seccomp return value checking. * A return value of `SECCOMP_RET_TRAP` will set a `si_call_addr` pointing to the vsyscall entry for the given call and not the address after the ‘syscall’ instruction. * A return value of `SECCOMP_RET_TRACE` will signal the tracer as usual, but the syscall may not be changed to another system call using the orig\\_rax register.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "Seccomp | Engineering Everything with eBPF",
+        "url": "https://ebpf.hamza-megahed.com/docs/chapter5/1-seccomp/",
+        "snippet": "Seccomp is a security facility in the Linux kernel designed to be a tool for sandboxing processes by restricting the set of system calls they can use. to",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Android: ptrace hole makes seccomp filter useless on devices with ...",
+        "url": "https://project-zero.issues.chromium.org/42450789",
+        "snippet": "The seccomp.2 manpage ( http://man7.org/linux/man-pages/man2/seccomp.2.html ) documents: Before kernel 4.8, the seccomp check will not be run again after",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "[PDF] Untrusted Code Security and Syscall Interception",
+        "url": "https://www.seclab.cs.sunysb.edu/sekar/cse509/ln/untrusted.pdf",
+        "snippet": "Drawbacks Approaches ptrace seccomp & secomp-BPF eBPF Sy eBPF Probes Code snippets hook to Linux kernel’s well-developed tracing/hooking infrastructure Tracepoints (See /sys/kernel/debug/tracing/events) LSM hooks, kprobes (kernel function entry and exit), XDP (network stack) Probes written in restricted C, compiled by LLVM Verified for memory safety, no global variables or loops Very minimal set of helper functions (read memory, access key/value store) Mainly for observability, e.g., so most hooks are limited to be read-only But some can respond: LSM (block), XDP (packet rewrite) Communicate with user-level via Perf buffers (older mechanism, one per core), Ring buffer (newer) Maps (hash tables and LRU hash tables) 28 / 31 Intro Isolation Syscall interception related techniques Why syscalls?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.59
+      },
+      {
+        "title": "[PDF] Programmable System Call Security with eBPF",
+        "url": "https://tugraz.elsevierpure.com/files/75511242/2302.10366v1.pdf",
+        "snippet": "More specifically, we create a new Seccomp. eBPF program type, exposing, modifying or creating new. eBPF helper functions to safely manage filter state, access.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] A Survey on Function and System Call Hooking Approaches",
+        "url": "https://csl.fiu.edu/wp-content/uploads/2023/05/hooking_survey.pdf",
+        "snippet": "Most system calls have user-space wrapper functions [31], so we can hook either the function or the actual system call. For example, to create a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5
+      },
+      {
+        "title": "Hook points | Tetragon - Tetragon",
+        "url": "https://tetragon.io/docs/concepts/tracing-policy/hooks/",
+        "snippet": "**Note** Notice the `syscall` field, specific to a `kprobe` spec, with default value `false`, that indicates whether Tetragon will hook a syscall or just a regular kernel function. apiVersion: cilium.io/v1alpha1 apiVersion: cilium.io/v1alpha1 apiVersion:cilium.io/v1alpha1kind: TracingPolicy kind: TracingPolicy kind: TracingPolicymetadata: metadata: metadata: name: \"lsm\"  name: \"lsm\" name: \"lsm\"spec: spec: spec: kprobes:  kprobes: kprobes: - call: \"security_inode_copy_up\"  - call: \"security_inode_copy_up\" call: \"security_inode_copy_up\" syscall: false  syscall: false syscall: false args:  args: args: - index: 0 # struct dentry *src  - index: 0 # struct dentry *src index: 0# struct dentry *src type: \"int64\"  type: \"int64\" type: \"int64\" - index: 1 # struct cred **new  - index: 1 # struct cred **new index: 1# struct cred **new type: \"int\"  type: \"int\" type: \"int\" resolve: \"user.uid.val\"  resolve: \"user.uid.val\" resolve:\"user.uid.val\" selectors:  selectors: selectors: - matchActions:  - matchActions: matchActions: - action: Post  - action: Post action: Post.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.33
+      },
+      {
+        "title": "Bypassing User-Mode Hooks and Direct Invocation of System Calls ...",
+        "url": "https://www.mdsec.co.uk/2020/12/bypassing-user-mode-hooks-and-direct-invocation-of-system-calls-for-red-teams/",
+        "snippet": "#define RVA2VA(Type, DllBase, Rva) (Type)((ULONG_PTR) DllBase + Rva) static void GetSyscallList(PSYSCALL_LIST List) { PPEB_LDR_DATA Ldr; PLDR_DATA_TABLE_ENTRY LdrEntry; PIMAGE_DOS_HEADER DosHeader; PIMAGE_NT_HEADERS NtHeaders; DWORD i, j, NumberOfNames, VirtualAddress, Entries=0; PIMAGE_DATA_DIRECTORY DataDirectory; PIMAGE_EXPORT_DIRECTORY ExportDirectory; PDWORD Functions; PDWORD Names; PWORD Ordinals; PCHAR DllName, FunctionName; PVOID DllBase; PSYSCALL_ENTRY Table; SYSCALL_ENTRY Entry; // // Get the DllBase address of NTDLL.dll // NTDLL is not guaranteed to be the second in the list. Ldr = (PPEB_LDR_DATA)NtCurrentTeb()->ProcessEnvironmentBlock->Ldr; // For each DLL loaded for (LdrEntry=(PLDR_DATA_TABLE_ENTRY)Ldr->Reserved2[1]; LdrEntry->DllBase != NULL; LdrEntry=(PLDR_DATA_TABLE_ENTRY)LdrEntry->Reserved1[0]) { DllBase = LdrEntry->DllBase; DosHeader = (PIMAGE_DOS_HEADER)DllBase; NtHeaders = RVA2VA(PIMAGE_NT_HEADERS, DllBase, DosHeader->e_lfanew); DataDirectory = (PIMAGE_DATA_DIRECTORY)NtHeaders->OptionalHeader.DataDirectory; VirtualAddress = DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress; if(VirtualAddress == 0) continue; ExportDirectory = (PIMAGE_EXPORT_DIRECTORY) RVA2VA(ULONG_PTR, DllBase, VirtualAddress); // // If this is NTDLL.dll, exit loop // DllName = RVA2VA(PCHAR,DllBase, ExportDirectory->Name); if((*(ULONG*)DllName | 0x20202020) != 'ldtn') continue; if((*(ULONG*)(DllName + 4) | 0x20202020) == 'ld.l') break; } NumberOfNames = ExportDirectory->NumberOfNames; Functions = RVA2VA(PDWORD,DllBase, ExportDirectory->AddressOfFunctions); Names = RVA2VA(PDWORD,DllBase, ExportDirectory->AddressOfNames); Ordinals = RVA2VA(PWORD, DllBase, ExportDirectory->AddressOfNameOrdinals); Table = List->Table; do { FunctionName = RVA2VA(PCHAR, DllBase, Names[NumberOfNames-1]); // // Is this a system call?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "A Practical Introduction to eBPF: Observing the Linux Kernel in Real ...",
+        "url": "https://medium.com/the-thoughtful-engineer/a-practical-introduction-to-ebpf-observing-the-linux-kernel-in-real-time-3d0b81e0af2f",
+        "snippet": "These are special kernel-space hooks that fire at predefined points in the kernel's logic — such as entering or exiting a syscall, scheduling a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.43
+      },
+      {
+        "title": "Using user-space tracepoints with BPF - LWN.net",
+        "url": "https://lwn.net/Articles/753601/",
+        "snippet": "These probes provide a low-overhead way of instrumenting user-space code and provide a convenient way to debug applications running in",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      }
+    ],
+    "grok": []
+  },
+  "freshness_filter": "py"
+}
+
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
