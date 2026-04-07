@@ -1,0 +1,439 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Tigress FlattenObfuscateNext encoded branch next variable control flow flattening official docs",
+    "OLLVM flattening opaque predicate next state recovery symbolic execution Binary Ninja Miasm",
+    "control flow flattening computed next state opaque predicates encoded branch deobfuscation workflow"
+  ],
+  "count": 23,
+  "results": [
+    {
+      "title": "Control flow flattening",
+      "url": "https://tigress.cs.arizona.edu/transformPage/docs/flatten/index.html",
+      "snippet": "The next variable can be obfuscated using different kinds of opaque predicates. Conditional branches can be encoded in several different ways. Dispatch.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6909
+    },
+    {
+      "title": "cdong1012/ollvm-unflattener: Obfuscator-llvm Control Flow ...",
+      "url": "https://github.com/cdong1012/ollvm-unflattener",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "JbvrgtonYT/ollvm-unflattener",
+      "url": "https://github.com/JbvrgtonYT/ollvm-unflattener",
+      "snippet": "",
+      "published_date": "2025-04-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Control-Flow Flattening",
+      "url": "https://tigress.cs.arizona.edu/transformPage/docs/flatten/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5818
+    },
+    {
+      "title": "[PDF] Generalized Dynamic Opaque Predicates: A New Control Flow ...",
+      "url": "https://faculty.ist.psu.edu/wu/papers/opaque-isc16.pdf",
+      "snippet": "In order to overcome the limitations of current opaque predicates, we present a systematic design of a novel control ﬂow obfuscation method, Generalized Dy-namic Opaque Predicates, which is able to inject diversiﬁed dynamic opaque predicates into complicated program structures such as branch and loop. After that, we explain how to insert generalized dynamic opaque predicates into straight-line programs, branches and loops. When inserting dynamic opaque predicates into straight-line code, we have two strategies, depth-ﬁrst and breadth-ﬁrst, whose obfuscation result is shown in Fig. 2(c) and Fig. 2(e). Particularly, we implement the procedure of inserting generalized dynamic opaque predicates to a straight-line, branch and loop program as three separate passes, which includes 1251 lines of C++ code in total.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5818
+    },
+    {
+      "title": "Deobfuscation: recovering an OLLVM-protected program",
+      "url": "https://blog.quarkslab.com/deobfuscation-recovering-an-ollvm-protected-program.html",
+      "snippet": "Below is documented *Miasm Python* code which enables us to do **symbolic execution** on a basic block in order to compute its **destination address**:. # Here we disassemble target function and collect relevants blocks# Collapsed for clarity but nothing complicated here, and the algorithm is given above relevants = get_relevants_blocks()# Control flow dictionnary {parent: set(childs)} flow ={} # Init flow dictionnary with empty sets of childs for r in relevants: flow[r] = set() # Start loop of symbolic execution while True: block_state = # Get next block state to emulate # Get current branch parameters # \"parent_addr\" is the parent block variable se seen earlier# \"symb\" is the context (symbols) of the current branch parent_addr, block_addr, symb = block_state # If it is a relevant block if block_addr in flow:# We avoid the prologue's parent, as it doesn't exist if parent_addr!= ExprInt32(prologue_parent): # Do the link between the block and its relevant parent flow[parent_addr].",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5364
+    },
+    {
+      "title": "Anti Branch Analysis",
+      "url": "https://tigress.cs.arizona.edu/transformPage/docs/encodeBranches/",
+      "snippet": "By default, a function is flattened prior to direct jumps being replaced by calls to branch functionThis creates more direct jumps and hence more opportunities",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.5273
+    },
+    {
+      "title": "Function Merging - Tigress",
+      "url": "https://tigress.cs.arizona.edu/transformPage/docs/merge/index.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5273
+    },
+    {
+      "title": "Control Flow Flattening",
+      "url": "https://tigress.wtf/flatten.html",
+      "snippet": "The next variable can be obfuscated using different kinds of opaque predicates. Conditional branches can be encoded in several different ways. Dispatch.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4909
+    },
+    {
+      "title": "MODeflattener - Miasm's OLLVM Deflattener",
+      "url": "https://mrt4ntr4.github.io/MODeflattener/",
+      "snippet": "",
+      "published_date": "2021-06-26T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Transformations",
+      "url": "https://tigress.wtf/transformations.html",
+      "snippet": "Turn a function into a specialized interpreter. #### Jit. Turn a function into one that generates its code at runtime. Turn a function into one that continously transforms itself. Remove control flow from a function. Split a function into smaller parts. Merge multipe functions into one. #### Add Opaque. Split up control flow by adding opaque branches. Replace integer arithmetic with more complex expressions. #### Encode Branches. Initialize the opaque predicate library. Initialize the library for collecting randomness. Initialize the anti taint analysis library. #### Random Function. #### Clean Up. Last transformation to run, to clean up the generated code. Measure the time to run a transformed function. Make a copy of a function. #### Leak Information. Simulate a misbehaving obfuscator that leaks a secret. The identity transformation; it does nothing. Reorder function arguments and/or add bogus arguments. Transform a function into one that modifies its own code. Replace a function call with the body of the called function.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Control-Flow Flattening | O-MVLL Documentation",
+      "url": "https://obfuscator.re/omvll/passes/control-flow-flattening/",
+      "snippet": "The purpose of this pass is to modify the graph representation of a function, by flattening its basic blocks.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Breaking Control Flow Flattening: A Deep Technical Analysis | Zerotistic's blog",
+      "url": "https://zerotistic.blog/posts/cff-remover/",
+      "snippet": "",
+      "published_date": "2024-11-03T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "A parameterized flattening control flow based obfuscation algorithm with opaque predicate for reduplicate obfuscation",
+      "url": "https://ieeexplore.ieee.org/document/8359575",
+      "snippet": "",
+      "published_date": "2024-06-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Automated Detection of Control-flow Flattening - Emproof",
+      "url": "https://www.emproof.com/automated-detection-of-control-flow-flattening/",
+      "snippet": "",
+      "published_date": "2021-03-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "D810: A journey into control flow unflattening - eShard",
+      "url": "https://eshard.com/posts/D810-a-journey-into-control-flow-unflattening",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Advancing Code Obfuscation: Novel Opaque Predicate Techniques ...",
+      "url": "https://www.sciopen.com/article/10.32604/cmc.2025.062743",
+      "snippet": "Techniques such as control flow flattening and opaque predicates are commonly employed to complicate the program's control flow. Among these",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Deobfuscation of Control Flow Flattening Based on Abstract ...",
+      "url": "https://www.computer.org/csdl/journal/ts/2026/03/11369430/2dHiaZk6Q5a",
+      "snippet": "Control Flow Flattening (CFF) is one of the control flow obfuscation techniques. It flattens control flows to conceal the sequential flow of programs.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Automated Detection of Control-flow Flattening | Tim Blazytko",
+      "url": "https://synthesis.to/2021/03/03/flattening_detection.html",
+      "snippet": "Control-flow flattening is a code transformation that removes structure from a control-flow graph. As a result, the control flow cannot be easily recovered as",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Control Flow Transformations",
+      "url": "https://tigress.wtf/control-transforms.html",
+      "snippet": "Control Flow Transformations. These transformations obfuscate the bodies of functions by removing obvious control flow or inserting bogus control flow.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "Control-Flow Deobfuscation using Trace-Informed Compositional ...",
+      "url": "https://dl.acm.org/doi/10.1145/3689789",
+      "snippet": "",
+      "published_date": "2024-10-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "Binary Ninja - Automated Opaque Predicate Removal",
+      "url": "https://binary.ninja/2017/10/01/automated-opaque-predicate-removal.html",
+      "snippet": "",
+      "published_date": "2017-10-01T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Advanced Binary Deobfuscation - GitHub",
+      "url": "https://raw.githubusercontent.com/malrev/ABD/master/Advanced-Binary-Deobfuscation.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Control Flow Flattening",
+        "url": "https://tigress.wtf/flatten.html",
+        "snippet": "The next variable can be obfuscated using different kinds of opaque predicates. Conditional branches can be encoded in several different ways. Dispatch.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4909
+      },
+      {
+        "title": "Control flow flattening",
+        "url": "https://tigress.cs.arizona.edu/transformPage/docs/flatten/index.html",
+        "snippet": "The next variable can be obfuscated using different kinds of opaque predicates. Conditional branches can be encoded in several different ways. Dispatch.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6909
+      },
+      {
+        "title": "Anti Branch Analysis",
+        "url": "https://tigress.cs.arizona.edu/transformPage/docs/encodeBranches/",
+        "snippet": "By default, a function is flattened prior to direct jumps being replaced by calls to branch functionThis creates more direct jumps and hence more opportunities",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.5273
+      },
+      {
+        "title": "Control Flow Transformations",
+        "url": "https://tigress.wtf/control-transforms.html",
+        "snippet": "Control Flow Transformations. These transformations obfuscate the bodies of functions by removing obvious control flow or inserting bogus control flow.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "Transformations",
+        "url": "https://tigress.wtf/transformations.html",
+        "snippet": "Turn a function into a specialized interpreter. #### Jit. Turn a function into one that generates its code at runtime. Turn a function into one that continously transforms itself. Remove control flow from a function. Split a function into smaller parts. Merge multipe functions into one. #### Add Opaque. Split up control flow by adding opaque branches. Replace integer arithmetic with more complex expressions. #### Encode Branches. Initialize the opaque predicate library. Initialize the library for collecting randomness. Initialize the anti taint analysis library. #### Random Function. #### Clean Up. Last transformation to run, to clean up the generated code. Measure the time to run a transformed function. Make a copy of a function. #### Leak Information. Simulate a misbehaving obfuscator that leaks a secret. The identity transformation; it does nothing. Reorder function arguments and/or add bogus arguments. Transform a function into one that modifies its own code. Replace a function call with the body of the called function.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "cdong1012/ollvm-unflattener: Obfuscator-llvm Control Flow ... - GitHub",
+        "url": "https://github.com/cdong1012/ollvm-unflattener",
+        "snippet": "This tool leverages the Miasm framework to analyze and recover the original control flow of functions obfuscated with OLLVM's control flow flattening technique.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Automated Opaque Predicate Removal - Binary Ninja",
+        "url": "https://binary.ninja/2017/10/01/automated-opaque-predicate-removal.html",
+        "snippet": "Below, we’ll show how to automatically remove a class of anti-analysis automatically with Binary Ninja’s API by leveraging our architecture agnostic Medium Level IL (MLIL), data flow, and patching. Opaque predicates are a series of instructions which always evaluate to the same boolean result, like this:. To understand the effect on the flags for the above instruction sequence, you could pop open python (always available in Binary Ninja via the ``` hotkey) and do some hex math to see if the sign flag will change. 2. Find the `MLIL_IF` instructions. First a lesson in how Binary Ninja organizes functions, basic blocks and instructions. Since we are iterating over the MLIL instructions, we don’t want to do anything that will affect the analysis while in this loop. If a binary uses loops to calculate the result used in a conditional comparison, we won’t have any luck patching the branch.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "MODeflattener - Miasm's OLLVM Deflattener - mrT4ntr4's Blog",
+        "url": "https://mrt4ntr4.github.io/MODeflattener/",
+        "snippet": "It then uses a dispatcher to reconstruct the control flow along with a control/state variable which is updated at the end of each block. The state variable is responsible for maintaining the control flow in the flattened function. These blocks update the value of the state variable at the very end. So if we don’t find any code related to modification of the state variable in a relevant block we mark this as tail. Block without any conditions, so the state variable is always updated with the same value. Here the state variable could have two possible values depending on whether the condition results in a true or false. Now we need to iterate over the backbone blocks and get their destinations if it includes condition regarding any of the possible state variable values. We can map these to the original state variable values and make use of it to correct the flow.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Deobfuscation: recovering an OLLVM-protected program",
+        "url": "https://blog.quarkslab.com/deobfuscation-recovering-an-ollvm-protected-program.html",
+        "snippet": "Below is documented *Miasm Python* code which enables us to do **symbolic execution** on a basic block in order to compute its **destination address**:. # Here we disassemble target function and collect relevants blocks# Collapsed for clarity but nothing complicated here, and the algorithm is given above relevants = get_relevants_blocks()# Control flow dictionnary {parent: set(childs)} flow ={} # Init flow dictionnary with empty sets of childs for r in relevants: flow[r] = set() # Start loop of symbolic execution while True: block_state = # Get next block state to emulate # Get current branch parameters # \"parent_addr\" is the parent block variable se seen earlier# \"symb\" is the context (symbols) of the current branch parent_addr, block_addr, symb = block_state # If it is a relevant block if block_addr in flow:# We avoid the prologue's parent, as it doesn't exist if parent_addr!= ExprInt32(prologue_parent): # Do the link between the block and its relevant parent flow[parent_addr].",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5364
+      },
+      {
+        "title": "Control-Flow Flattening | O-MVLL Documentation",
+        "url": "https://obfuscator.re/omvll/passes/control-flow-flattening/",
+        "snippet": "The purpose of this pass is to modify the graph representation of a function, by flattening its basic blocks.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Advancing Code Obfuscation: Novel Opaque Predicate Techniques ...",
+        "url": "https://www.sciopen.com/article/10.32604/cmc.2025.062743",
+        "snippet": "Techniques such as control flow flattening and opaque predicates are commonly employed to complicate the program's control flow. Among these",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Deobfuscation of Control Flow Flattening Based on Abstract ...",
+        "url": "https://www.computer.org/csdl/journal/ts/2026/03/11369430/2dHiaZk6Q5a",
+        "snippet": "Control Flow Flattening (CFF) is one of the control flow obfuscation techniques. It flattens control flows to conceal the sequential flow of programs.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "[PDF] Generalized Dynamic Opaque Predicates: A New Control Flow ...",
+        "url": "https://faculty.ist.psu.edu/wu/papers/opaque-isc16.pdf",
+        "snippet": "In order to overcome the limitations of current opaque predicates, we present a systematic design of a novel control ﬂow obfuscation method, Generalized Dy-namic Opaque Predicates, which is able to inject diversiﬁed dynamic opaque predicates into complicated program structures such as branch and loop. After that, we explain how to insert generalized dynamic opaque predicates into straight-line programs, branches and loops. When inserting dynamic opaque predicates into straight-line code, we have two strategies, depth-ﬁrst and breadth-ﬁrst, whose obfuscation result is shown in Fig. 2(c) and Fig. 2(e). Particularly, we implement the procedure of inserting generalized dynamic opaque predicates to a straight-line, branch and loop program as three separate passes, which includes 1251 lines of C++ code in total.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5818
+      },
+      {
+        "title": "Breaking Control Flow Flattening: A Deep Technical Analysis",
+        "url": "https://zerotistic.blog/posts/cff-remover/",
+        "snippet": "Control flow flattening (CFF) is an interesting form of code obfuscation. While most obfuscation techniques focus on making individual operations hard to",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Automated Detection of Control-flow Flattening | Tim Blazytko",
+        "url": "https://synthesis.to/2021/03/03/flattening_detection.html",
+        "snippet": "Control-flow flattening is a code transformation that removes structure from a control-flow graph. As a result, the control flow cannot be easily recovered as",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      }
+    ],
+    "exa": [
+      {
+        "title": "Control flow flattening - Tigress",
+        "url": "https://tigress.cs.arizona.edu/transformPage/docs/flatten/index.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Flatten - Tigress C obfuscator",
+        "url": "https://tigress.wtf/flatten.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Anti Branch Analysis - Tigress",
+        "url": "https://tigress.cs.arizona.edu/transformPage/docs/encodeBranches/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Function Merging - Tigress",
+        "url": "https://tigress.cs.arizona.edu/transformPage/docs/merge/index.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5273
+      },
+      {
+        "title": "Control-Flow Flattening",
+        "url": "https://tigress.cs.arizona.edu/transformPage/docs/flatten/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5818
+      },
+      {
+        "title": "cdong1012/ollvm-unflattener: Obfuscator-llvm Control Flow ...",
+        "url": "https://github.com/cdong1012/ollvm-unflattener",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "MODeflattener - Miasm's OLLVM Deflattener",
+        "url": "https://mrt4ntr4.github.io/MODeflattener/",
+        "snippet": "",
+        "published_date": "2021-06-26T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.45
+      },
+      {
+        "title": "JbvrgtonYT/ollvm-unflattener",
+        "url": "https://github.com/JbvrgtonYT/ollvm-unflattener",
+        "snippet": "",
+        "published_date": "2025-04-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Binary Ninja - Automated Opaque Predicate Removal",
+        "url": "https://binary.ninja/2017/10/01/automated-opaque-predicate-removal.html",
+        "snippet": "",
+        "published_date": "2017-10-01T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Advanced Binary Deobfuscation - GitHub",
+        "url": "https://raw.githubusercontent.com/malrev/ABD/master/Advanced-Binary-Deobfuscation.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Breaking Control Flow Flattening: A Deep Technical Analysis | Zerotistic's blog",
+        "url": "https://zerotistic.blog/posts/cff-remover/",
+        "snippet": "",
+        "published_date": "2024-11-03T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Control-Flow Deobfuscation using Trace-Informed Compositional ...",
+        "url": "https://dl.acm.org/doi/10.1145/3689789",
+        "snippet": "",
+        "published_date": "2024-10-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "A parameterized flattening control flow based obfuscation algorithm with opaque predicate for reduplicate obfuscation",
+        "url": "https://ieeexplore.ieee.org/document/8359575",
+        "snippet": "",
+        "published_date": "2024-06-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "Automated Detection of Control-flow Flattening - Emproof",
+        "url": "https://www.emproof.com/automated-detection-of-control-flow-flattening/",
+        "snippet": "",
+        "published_date": "2021-03-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "D810: A journey into control flow unflattening - eShard",
+        "url": "https://eshard.com/posts/D810-a-journey-into-control-flow-unflattening",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3818
+      }
+    ],
+    "grok": []
+  }
+}
