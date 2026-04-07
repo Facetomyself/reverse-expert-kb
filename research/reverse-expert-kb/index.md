@@ -457,6 +457,7 @@ This subtree is now best read as coordinated browser analyst entry surfaces:
 - `topics/environment-differential-diagnosis-workflow-note.md`
 - `topics/observation-distortion-and-misleading-evidence.md`
 - `topics/mobile-signing-and-parameter-generation-workflows.md`
+- `topics/ebpf-seccomp-and-svc-tracing-for-mobile-re.md`
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
 - `topics/mobile-challenge-and-verification-loop-analysis.md`
 - `topics/mobile-challenge-trigger-and-loop-slice-workflow-note.md`
