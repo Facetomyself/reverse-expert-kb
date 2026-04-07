@@ -1,0 +1,392 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "CreateWaitableTimer SetWaitableTimer RegisterWaitForSingleObject SetThreadpoolWait official docs callback race cancellation Windows",
+    "Windows waitable timer register wait threadpool wait official docs callback delivery cancellation",
+    "SetWaitableTimer APC completion routine waitable timer vs wait object official docs Windows"
+  ],
+  "count": 18,
+  "results": [
+    {
+      "title": "win32/desktop-src/ProcThread/thread-pools.md at docs - GitHub",
+      "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/ProcThread/thread-pools.md",
+      "snippet": "Before unloading a DLL that uses the thread pool, cancel all work items, I/O, wait operations, and timers, and wait for executing callbacks to complete.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "Using Waitable Timer Objects - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/sync/using-waitable-timer-objects",
+      "snippet": "First, the code uses the CreateWaitableTimer function to create a waitable timer object. Then it uses the SetWaitableTimer function to set",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "Waitable Timer Objects - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects",
+      "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. A *waitable timer object* is a synchronization object whose state is set to signaled when the specified due time arrives. | synchronization timer | A timer whose state remains signaled until a thread completes a wait operation on the timer object. Any thread with a handle to a timer object can use one of the wait functions to wait for the timer state to be set to signaled. * Use the *lpDueTime* parameter to specify the time at which the timer is to be set to the signaled state. When a manual-reset timer is set to the signaled state, it remains in this state until **SetWaitableTimer** establishes a new due time. When a synchronization timer is set to the signaled state, it remains in this state until a thread completes a wait operation on the timer object. Want to try using Ask Learn to clarify or guide you through this topic?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "RegisterWaitForSingleObject function (winbase.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-registerwaitforsingleobject",
+      "snippet": "",
+      "published_date": "2021-12-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "SetThreadpoolWaitEx function (threadpoolapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-setthreadpoolwaitex",
+      "snippet": "",
+      "published_date": "2022-07-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "SetWaitableTimer function (synchapi.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-setwaitabletimer",
+      "snippet": "",
+      "published_date": "2024-11-18T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.63
+    },
+    {
+      "title": "WaitForThreadpoolTimerCallbacks function (threadpoolapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-waitforthreadpooltimercallbacks",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "CreateWaitableTimerW function (synchapi.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-createwaitabletimerw",
+      "snippet": "Creates or opens a waitable timer object. To specify an access mask for the object, use the CreateWaitableTimerEx function.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "SetWaitableTimerEx function (synchapi.h) - Win32 - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-setwaitabletimerex",
+      "snippet": "Activates the specified waitable timer and provides context information for the timer. When the due time arrives, the timer is signaled.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "SetThreadpoolWait function (threadpoolapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-setthreadpoolwait",
+      "snippet": "",
+      "published_date": "2024-06-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "SetWaitableTimer function (synchapi.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-setwaitabletimer?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2022-09-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "Waitable timers or a timer queue? Pros and cons of each?",
+      "url": "https://stackoverflow.com/questions/1915441/waitable-timers-or-a-timer-queue-pros-and-cons-of-each",
+      "snippet": "We tend to pass NULL for the completion routine in SetWaitableTimer, turning it into a normal, waitable, handle. Any pros/cons using it this way",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "Using Waitable Timers with an Asynchronous Procedure Call",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/sync/using-a-waitable-timer-with-an-asynchronous-procedure-call",
+      "snippet": "The following example associates an asynchronous procedure call (APC) function, also known as a completion routine, with a waitable timer when the timer is set.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6
+    },
+    {
+      "title": "SetThreadpoolTimerEx function (threadpoolapiset.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-setthreadpooltimerex",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "CancelWaitableTimer function (synchapi.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-cancelwaitabletimer",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Using Waitable Timers with an Asynchronous Procedure Call - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/sync/using-a-waitable-timer-with-an-asynchronous-procedure-call?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2022-07-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "On the finer points of cancelling timers and wait objects in Windows ...",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20230428-00/?p=108110",
+      "snippet": "When you cancel a timer or wait, no future callbacks will be created, but existing ones are not recalled. Therefore, there's a race condition if",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "How To Use a Waitable Timer with an Asynchronous Procedure Call",
+      "url": "https://mskb.pkisolutions.com/kb/184796",
+      "snippet": "An asynchronous procedure call (APC) can be associated with a waitable timer to allow a callback function to be executed whenever the timer is signaled.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.33
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Waitable Timer Objects - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. A *waitable timer object* is a synchronization object whose state is set to signaled when the specified due time arrives. | synchronization timer | A timer whose state remains signaled until a thread completes a wait operation on the timer object. Any thread with a handle to a timer object can use one of the wait functions to wait for the timer state to be set to signaled. * Use the *lpDueTime* parameter to specify the time at which the timer is to be set to the signaled state. When a manual-reset timer is set to the signaled state, it remains in this state until **SetWaitableTimer** establishes a new due time. When a synchronization timer is set to the signaled state, it remains in this state until a thread completes a wait operation on the timer object. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "win32/desktop-src/ProcThread/thread-pools.md at docs - GitHub",
+        "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/ProcThread/thread-pools.md",
+        "snippet": "Before unloading a DLL that uses the thread pool, cancel all work items, I/O, wait operations, and timers, and wait for executing callbacks to complete.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "On the finer points of cancelling timers and wait objects in Windows ...",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20230428-00/?p=108110",
+        "snippet": "When you cancel a timer or wait, no future callbacks will be created, but existing ones are not recalled. Therefore, there's a race condition if",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      },
+      {
+        "title": "Using Waitable Timers with an Asynchronous Procedure Call",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/sync/using-a-waitable-timer-with-an-asynchronous-procedure-call",
+        "snippet": "The following example associates an asynchronous procedure call (APC) function, also known as a completion routine, with a waitable timer when the timer is set.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6
+      },
+      {
+        "title": "How To Use a Waitable Timer with an Asynchronous Procedure Call",
+        "url": "https://mskb.pkisolutions.com/kb/184796",
+        "snippet": "An asynchronous procedure call (APC) can be associated with a waitable timer to allow a callback function to be executed whenever the timer is signaled.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.33
+      },
+      {
+        "title": "Using Waitable Timer Objects - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/sync/using-waitable-timer-objects",
+        "snippet": "First, the code uses the CreateWaitableTimer function to create a waitable timer object. Then it uses the SetWaitableTimer function to set",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "CreateWaitableTimerW function (synchapi.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-createwaitabletimerw",
+        "snippet": "Creates or opens a waitable timer object. To specify an access mask for the object, use the CreateWaitableTimerEx function.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "SetWaitableTimer function (synchapi.h) - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-setwaitabletimer",
+        "snippet": "Activates the specified waitable timer. When the due time arrives, the timer is signaled and the thread that set the timer calls the optional completion",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Waitable Timer Objects - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. A *waitable timer object* is a synchronization object whose state is set to signaled when the specified due time arrives. | synchronization timer | A timer whose state remains signaled until a thread completes a wait operation on the timer object. Any thread with a handle to a timer object can use one of the wait functions to wait for the timer state to be set to signaled. * Use the *lpDueTime* parameter to specify the time at which the timer is to be set to the signaled state. When a manual-reset timer is set to the signaled state, it remains in this state until **SetWaitableTimer** establishes a new due time. When a synchronization timer is set to the signaled state, it remains in this state until a thread completes a wait operation on the timer object. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "SetWaitableTimerEx function (synchapi.h) - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-setwaitabletimerex",
+        "snippet": "Activates the specified waitable timer and provides context information for the timer. When the due time arrives, the timer is signaled.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "SetWaitableTimer function (synchapi.h) - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-setwaitabletimer",
+        "snippet": "Activates the specified waitable timer. When the due time arrives, the timer is signaled and the thread that set the timer calls the optional completion",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Using Waitable Timers with an Asynchronous Procedure Call",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/sync/using-a-waitable-timer-with-an-asynchronous-procedure-call",
+        "snippet": "The following example associates an asynchronous procedure call (APC) function, also known as a completion routine, with a waitable timer when the timer is set.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Waitable timers or a timer queue? Pros and cons of each?",
+        "url": "https://stackoverflow.com/questions/1915441/waitable-timers-or-a-timer-queue-pros-and-cons-of-each",
+        "snippet": "We tend to pass NULL for the completion routine in SetWaitableTimer, turning it into a normal, waitable, handle. Any pros/cons using it this way",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "How To Use a Waitable Timer with an Asynchronous Procedure Call",
+        "url": "https://mskb.pkisolutions.com/kb/184796",
+        "snippet": "The APC function is called a completion routine. The address of the completion routine is the fourth parameter to SetWaitableTimer(). The fifth parameter is",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Waitable Timer Objects - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. A *waitable timer object* is a synchronization object whose state is set to signaled when the specified due time arrives. | synchronization timer | A timer whose state remains signaled until a thread completes a wait operation on the timer object. Any thread with a handle to a timer object can use one of the wait functions to wait for the timer state to be set to signaled. * Use the *lpDueTime* parameter to specify the time at which the timer is to be set to the signaled state. When a manual-reset timer is set to the signaled state, it remains in this state until **SetWaitableTimer** establishes a new due time. When a synchronization timer is set to the signaled state, it remains in this state until a thread completes a wait operation on the timer object. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "exa": [
+      {
+        "title": "RegisterWaitForSingleObject function (winbase.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-registerwaitforsingleobject",
+        "snippet": "",
+        "published_date": "2021-12-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "SetThreadpoolWaitEx function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-setthreadpoolwaitex",
+        "snippet": "",
+        "published_date": "2022-07-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "SetWaitableTimer function (synchapi.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-setwaitabletimer",
+        "snippet": "",
+        "published_date": "2024-11-18T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.63
+      },
+      {
+        "title": "SetThreadpoolTimerEx function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-setthreadpooltimerex",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "WaitForThreadpoolTimerCallbacks function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-waitforthreadpooltimercallbacks",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "SetWaitableTimer function (synchapi.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-setwaitabletimer",
+        "snippet": "",
+        "published_date": "2024-11-18T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "SetThreadpoolWaitEx function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-setthreadpoolwaitex",
+        "snippet": "",
+        "published_date": "2022-07-26T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "RegisterWaitForSingleObject function (winbase.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-registerwaitforsingleobject",
+        "snippet": "",
+        "published_date": "2021-12-10T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "SetThreadpoolWait function (threadpoolapiset.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-setthreadpoolwait",
+        "snippet": "",
+        "published_date": "2024-06-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "CancelWaitableTimer function (synchapi.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-cancelwaitabletimer",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "SetWaitableTimer function (synchapi.h) - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-setwaitabletimer",
+        "snippet": "",
+        "published_date": "2024-11-18T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Using Waitable Timers with an Asynchronous Procedure Call - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/sync/using-a-waitable-timer-with-an-asynchronous-procedure-call?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2022-07-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Using Waitable Timers with an Asynchronous Procedure Call",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/sync/using-a-waitable-timer-with-an-asynchronous-procedure-call",
+        "snippet": "",
+        "published_date": "2022-09-07T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "SetWaitableTimer function (synchapi.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-setwaitabletimer?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2022-09-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "How To Use a Waitable Timer with an Asynchronous Procedure Call",
+        "url": "https://mskb.pkisolutions.com/kb/184796",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "grok": []
+  },
+  "freshness_filter": "py"
+}
