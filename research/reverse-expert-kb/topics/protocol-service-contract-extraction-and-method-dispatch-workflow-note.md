@@ -40,6 +40,26 @@ In those cases, start with:
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 
 ## 2. Core claim
+
+A practical stop rule worth preserving more sharply for RPC/service-contract-shaped work is:
+
+```text
+interface described
+  != server registered
+  != endpoint published
+  != client reachable/bindable
+  != meaningful method dispatch or later consequence
+```
+
+Treat these as different proof objects until one is actually frozen:
+- IDL/stub/proxy visibility or recovered service/interface roster
+- runtime server registration
+- endpoint publication / mapper visibility
+- actual client binding/reachability in the run that matters
+- later method dispatch or consequence that answers the analyst’s real question
+
+This keeps service-contract work from silently overreading recovered interface descriptions, registration helpers, or endpoint visibility as already-good call reality.
+
 A recurring protocol RE bottleneck appears after the analyst can already say:
 - this family is service-oriented
 - these messages probably belong to one RPC or dispatcher surface
