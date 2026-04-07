@@ -41,6 +41,26 @@ Do **not** use this note when:
 In those cases, route to the broader or adjacent note first.
 
 ## 2. Core claim
+
+A practical stop rule worth preserving more sharply for Apple XPC-shaped service handoffs is:
+
+```text
+client connection/proxy exists
+  != listener accepted connection
+  != exported-object method entry
+  != interruption/invalidation/reconnection truth for this path
+  != later same-service consequence or later consumer truth
+```
+
+Treat these as different proof objects until one is frozen:
+- client-side proxy / connection setup
+- listener acceptance
+- exported-object method entry
+- interruption vs invalidation vs reconnection lifecycle truth
+- later consequence that answers the analyst’s real question
+
+This keeps XPC work from silently overreading proxy visibility, connection health, or later reconnection as already-good service-consumer proof for the same meaningful path.
+
 Once an Apple-platform case already exposes one plausible XPC client seam, the best next move is often **not** more client-side proxy tracing and **not** a broad XPC taxonomy digression.
 It is to freeze the first **service-side consumer boundary**.
 
