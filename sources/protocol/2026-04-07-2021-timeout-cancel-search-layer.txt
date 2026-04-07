@@ -1,0 +1,10 @@
+Search-layer run used explicit sources: exa,tavily,grok
+Queries:
+1. async timeout cancellation completion queue stale response ownership official docs
+2. Boost.Asio cancellation timeout async operation completion handler official docs
+3. tokio timeout cancellation late response ownership async docs
+
+Summary:
+- Exa and Tavily returned usable results
+- Grok was invoked but returned no usable results
+- Primary useful surfaced themes matched official docs around timeout semantics, cancellation, and late completion / ownership ambiguity
