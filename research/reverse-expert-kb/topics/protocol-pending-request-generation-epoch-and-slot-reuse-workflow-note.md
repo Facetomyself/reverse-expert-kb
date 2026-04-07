@@ -42,6 +42,26 @@ In those cases start with:
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 
 ## 2. Core claim
+
+A practical stop rule worth preserving more sharply for async request/reply systems is:
+
+```text
+visible correlation token matches
+  != request is still the current live owner
+  != timeout/cancel/retire/epoch shift left ownership unchanged
+  != late completion still belongs to the same meaningful path
+  != later consequence truth
+```
+
+Treat these as different proof objects until one is frozen:
+- visible ID/tag/user_data/correlation-token match
+- current live owner truth
+- timeout/cancel/retire/epoch/slot-reuse truth
+- late completion still belonging to the same path
+- later consequence that answers the analyst’s real question
+
+This keeps async protocol work from silently overreading superficial token matches as already-good current-owner proof.
+
 A recurring late replay failure is not merely:
 - wrong reply shape
 - missing correlation ID
