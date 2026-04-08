@@ -2,10 +2,11 @@
 import json
 import subprocess
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 ROOT = Path(__file__).resolve().parents[1]
-REPORT_DIR = ROOT / 'reports' / datetime.now().strftime('%Y-%m-%d')
+TZ = timezone(timedelta(hours=8))
+REPORT_DIR = ROOT / 'reports' / datetime.now(TZ).strftime('%Y-%m-%d')
 STATE_DIR = ROOT / 'state'
 HISTORY_DIR = STATE_DIR / 'history'
 TMP_DIR = Path('/tmp')
@@ -89,10 +90,10 @@ def best_effort_send_alerts():
 
 def append_history(state):
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
-    stamp = datetime.now(timezone.utc)
+    stamp = datetime.now(TZ)
     day_path = HISTORY_DIR / f"{stamp.strftime('%Y-%m-%d')}.jsonl"
     entry = {
-        'recordedAt': stamp.isoformat().replace('+00:00', 'Z'),
+        'recordedAt': stamp.isoformat(),
         'lastRunAt': state.get('lastRunAt'),
         'summaryPath': state.get('summaryPath'),
         'alerts': state.get('alerts', {}),
@@ -111,7 +112,7 @@ def main():
         results[name] = run_py(script, out)
     summary_path, alerts = build_summary()
     state = {
-        'lastRunAt': datetime.utcnow().isoformat() + 'Z',
+        'lastRunAt': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
         'summaryPath': str(summary_path),
         'alerts': alerts,
         'checks': results,
