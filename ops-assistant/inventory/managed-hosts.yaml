@@ -14,7 +14,7 @@ hosts:
     check_profile: remote-core
     alert_profile: core
     expected_roles:
-      - tavily-registration-and-proxy
+      - tavily-proxy
       - exafree-registration-service
       - grok-related-services
       - cli-proxy

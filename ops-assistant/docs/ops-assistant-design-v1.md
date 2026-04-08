@@ -244,8 +244,6 @@ hosts:
   oracle-proxy:
     auto_actions:
       - restart:proxy-tavily-proxy-1
-      - restart:tavily-scheduler
-      - restart:camoufox
     ask_first:
       - edit:nginx
       - compose-rebuild:any

@@ -63,11 +63,6 @@ hint_rules:
     suppress_stale_on_hosts:
       - oracle-gateway
 
-  rbot:
-    treat_as_infra_service: true
-    suppress_stale_on_hosts:
-      - oracle-mail
-
   openai:
     suppress_stale_on_hosts:
       - oracle-proxy

@@ -7,7 +7,6 @@
 Only these targets are in pilot scope initially:
 - local host: `openclaw-gateway`
 - oracle-proxy container: `proxy-tavily-proxy-1`
-- oracle-proxy container: `tavily-scheduler`
 
 ## Operating mode in v1
 - not auto-wired into hourly cron yet

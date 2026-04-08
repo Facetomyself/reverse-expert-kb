@@ -12,7 +12,7 @@ TOKENS = [
     'tavily', 'exafree', 'grok', 'cliproxy', 'easyimage', 'camoufox',
     'mailu', 'moemail', 'harbor', 'registry-ui', 'hubcmd', 'registry',
     'proxycat', 'flaresolverr', 'anticap', 'openai', '1panel', 'derper',
-    'hysteria', 'rbot', 'outlook', 'nas'
+    'hysteria', 'outlook', 'nas'
 ]
 
 

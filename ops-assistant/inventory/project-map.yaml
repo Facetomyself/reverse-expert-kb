@@ -6,10 +6,6 @@ hosts:
         match:
           containers: [proxy-tavily-proxy-1]
           compose_paths: [/root/tavily-key-generator/proxy/docker-compose.yml]
-      - name: Tavily Key Generator
-        match:
-          containers: [tavily-scheduler, tavily-camoufox, tavily-camoufox-adapter]
-          compose_paths: [/root/tavily-key-generator/docker-compose.yml]
       - name: ExaFree
         match:
           containers: [exafree]
@@ -76,10 +72,6 @@ hosts:
       - name: Outlook Email Plus
         match:
           compose_paths: [/opt/outlook-email-plus/docker-compose.yml]
-      - name: rbot service
-        match:
-          systemd: [rbot.service]
-          infra_only: true
       - name: Mailu deployment footprint
         match:
           compose_paths: [/root/mailu/docker-compose.yml]

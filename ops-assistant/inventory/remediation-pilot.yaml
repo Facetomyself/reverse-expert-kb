@@ -7,7 +7,6 @@ pilot_targets:
   oracle-proxy:
     containers:
       - proxy-tavily-proxy-1
-      - tavily-scheduler
 
 rules:
   max_attempts_per_run: 1
