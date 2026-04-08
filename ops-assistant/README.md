@@ -44,3 +44,12 @@
 - `run_fleet_check.py` now does a best-effort follow-up call to `send_alerts.py` after it writes and filters `last-run.json`.
 - This reduces the common confusion where a manual fleet check has already cleared alerts, but `alert-state.json` still reflects the previously sent alert signature.
 - Existing cron chains that still call `run_fleet_check.py && send_alerts.py` remain safe because `send_alerts.py` deduplicates by alert signature.
+
+## Alerting / daily report policy
+
+- High-frequency checks are for state refresh, not for blasting Telegram every hour.
+- Immediate Telegram push is reserved for significant incidents only:
+  - new `P1`
+  - newly down/unreachable `core` / `standard` hosts
+  - recovery of those significant incidents
+- A separate daily Telegram report should carry the broad per-host summary.

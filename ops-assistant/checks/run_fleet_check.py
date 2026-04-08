@@ -2,11 +2,12 @@
 import json
 import subprocess
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT_DIR = ROOT / 'reports' / datetime.now().strftime('%Y-%m-%d')
 STATE_DIR = ROOT / 'state'
+HISTORY_DIR = STATE_DIR / 'history'
 TMP_DIR = Path('/tmp')
 
 CHECKS = [
@@ -86,6 +87,21 @@ def best_effort_send_alerts():
     subprocess.run(['python3', str(send_script)], text=True, capture_output=True)
 
 
+def append_history(state):
+    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.now(timezone.utc)
+    day_path = HISTORY_DIR / f"{stamp.strftime('%Y-%m-%d')}.jsonl"
+    entry = {
+        'recordedAt': stamp.isoformat().replace('+00:00', 'Z'),
+        'lastRunAt': state.get('lastRunAt'),
+        'summaryPath': state.get('summaryPath'),
+        'alerts': state.get('alerts', {}),
+        'alertRuleNotes': state.get('alertRuleNotes', []),
+    }
+    with day_path.open('a', encoding='utf-8') as fh:
+        fh.write(json.dumps(entry, ensure_ascii=False) + '\n')
+
+
 def main():
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
     STATE_DIR.mkdir(parents=True, exist_ok=True)
@@ -129,9 +145,11 @@ def main():
                     lines += [f'- {x}' for x in p2]
                 lines.append('')
             summary_path.write_text('\n'.join(lines) + '\n')
+            append_history(filtered)
             best_effort_send_alerts()
             print(json.dumps(filtered, ensure_ascii=False, indent=2))
             return
+    append_history(state)
     best_effort_send_alerts()
     print(json.dumps(state, ensure_ascii=False, indent=2))
 
