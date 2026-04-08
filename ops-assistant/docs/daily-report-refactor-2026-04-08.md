@@ -12,6 +12,10 @@ Reduce Telegram noise from server inspection while keeping visibility.
   - new P1 items
   - newly down/unreachable hosts whose `alert_profile` is `core` or `standard`
   - recovery of the above significant incidents
+- Host reachability uses simple flap damping:
+  - host-down paging requires 2 consecutive failing runs
+  - host recovery message requires 2 consecutive healthy runs
+  - P1 still pages immediately
 - Normal P2 churn no longer triggers Telegram pushes.
 - A new daily Telegram report summarizes fleet state in a host-centric layout.
 

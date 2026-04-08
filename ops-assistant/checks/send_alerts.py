@@ -12,6 +12,8 @@ LAST_RUN = STATE_DIR / 'last-run.json'
 ALERT_STATE = STATE_DIR / 'alert-state.json'
 MANAGED = ROOT / 'inventory' / 'managed-hosts.yaml'
 TARGET = '5585354085'
+HOST_DOWN_THRESHOLD = 2
+HOST_RECOVERY_THRESHOLD = 2
 
 
 def send(msg):
@@ -34,17 +36,35 @@ def load_managed_hosts():
     return {item['name']: item for item in data.get('hosts', [])}
 
 
-def build_significant_view(alerts, host_map):
+def build_significant_view(alerts, host_map, host_counters):
     overall = alerts.get('overall') or {}
     p1 = sorted(alerts.get('p1') or [])
-    critical_down = sorted([
-        host for host, ok in overall.items()
-        if ok is False and host_map.get(host, {}).get('alert_profile') in ('core', 'standard')
-    ])
+    effective_down = []
+
+    all_hosts = set(overall) | set(host_counters)
+    for host in sorted(all_hosts):
+        profile = host_map.get(host, {}).get('alert_profile')
+        if profile not in ('core', 'standard'):
+            continue
+        ok = overall.get(host)
+        counters = host_counters.setdefault(host, {'down': 0, 'up': 0, 'effectiveDown': False})
+        if ok is False:
+            counters['down'] = int(counters.get('down') or 0) + 1
+            counters['up'] = 0
+            if counters['down'] >= HOST_DOWN_THRESHOLD:
+                counters['effectiveDown'] = True
+        else:
+            counters['up'] = int(counters.get('up') or 0) + 1
+            counters['down'] = 0
+            if counters.get('effectiveDown') and counters['up'] >= HOST_RECOVERY_THRESHOLD:
+                counters['effectiveDown'] = False
+        if counters.get('effectiveDown'):
+            effective_down.append(host)
+
     return {
         'p1': p1,
-        'criticalDown': critical_down,
-    }
+        'criticalDown': sorted(effective_down),
+    }, host_counters
 
 
 def render_new_incident_message(new_p1, new_down, state):
@@ -78,9 +98,10 @@ def main():
     host_map = load_managed_hosts()
     state = json.loads(LAST_RUN.read_text())
     alerts = state.get('alerts', {})
-    significant = build_significant_view(alerts, host_map)
-    cur_sig = sig(significant)
     prev = json.loads(ALERT_STATE.read_text()) if ALERT_STATE.exists() else {}
+    host_counters = prev.get('hostCounters') or {}
+    significant, host_counters = build_significant_view(alerts, host_map, host_counters)
+    cur_sig = sig(significant)
     prev_sig = prev.get('signature')
     prev_significant = prev.get('significant') or {'p1': [], 'criticalDown': []}
 
@@ -108,6 +129,7 @@ def main():
         'signature': cur_sig,
         'alerts': alerts,
         'significant': significant,
+        'hostCounters': host_counters,
     }, ensure_ascii=False, indent=2))
 
 

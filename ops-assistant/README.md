@@ -52,4 +52,8 @@
   - new `P1`
   - newly down/unreachable `core` / `standard` hosts
   - recovery of those significant incidents
+- Host reachability is flap-damped:
+  - 2 consecutive failing runs before host-down push
+  - 2 consecutive healthy runs before recovery push
+  - `P1` still pushes immediately
 - A separate daily Telegram report should carry the broad per-host summary.
