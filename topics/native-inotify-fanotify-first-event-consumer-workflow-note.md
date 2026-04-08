@@ -162,9 +162,18 @@ Typical minimal proofs include:
 - breakpoint/log on the first event-mask/path dispatcher after `read()` from the monitor FD
 - compare one run with the triggering file event against one quiet run while observing one later effect
 - watch one state variable or queue that changes only after the first accepted event record
+- for fanotify permission cases, freeze the first allow/deny response owner rather than stopping at metadata arrival alone
 
 The aim is not full watcher reconstruction.
 It is one proof that links registration to a first consequence-bearing event consumer.
+
+A compact compare checklist for this seam is now worth keeping explicit:
+- did the run only prove **watch registration**?
+- did it prove only a **returned event record**?
+- did it prove only a **coalesced/paired/overflow-shaped or permission-shaped watcher surface**?
+- did it actually prove the first **event-owned consumer** that predicts later behavior?
+
+That checklist helps keep watcher setup, returned-record truth, record-shaping semantics, and later event-owned consumer truth separate.
 
 ## 6. Practical stop rules this note preserves
 - `watch registration exists != relevant event occurred`
@@ -172,6 +181,7 @@ It is one proof that links registration to a first consequence-bearing event con
 - `watched path visibility != downstream effect ownership`
 - `one event family observed != full monitoring semantics recovered`
 - `one returned inotify record != one complete underlying operation history`
+- `coalesced/paired/overflow-shaped returned record != first event-owned consumer proved`
 - `rename-related record seen != rename consumer truth unless cookie-paired handling is preserved`
 - `overflow seen != harmless logging artifact`
 - `fanotify metadata arrival != permission decision consumer proved`
