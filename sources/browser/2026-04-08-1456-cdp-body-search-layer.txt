@@ -1,0 +1,457 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Chrome DevTools Protocol Fetch domain request body postData interception docs",
+    "puppeteer request interception postData modified request body docs",
+    "chromedevtools network getRequestPostData fetch continueRequest body modification docs"
+  ],
+  "count": 25,
+  "results": [
+    {
+      "title": "Chrome DevTools Protocol Fetch Domain. Intercept image ...",
+      "url": "https://stackoverflow.com/questions/61329842/chrome-devtools-protocol-fetch-domain-intercept-image-requests",
+      "snippet": "I tried to save the image to disk and then send the encoded base64 representation to the body . The page remains at readyState === \"interactive\"",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.78
+    },
+    {
+      "title": "Network Request Interception and URL Replacement #848 - GitHub",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp/issues/848",
+      "snippet": "Currently there is no automated way through the Chrome DevTools MCP server to intercept and modify network requests. Developers can manually",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.72
+    },
+    {
+      "title": "DevTools protocol Interception, Blocking and",
+      "url": "https://docs.google.com/document/d/1nEN0SqC1jEpHgKuQPrppwSabC8JRAuJb7MSTGCe2Pzg/",
+      "snippet": "Headless Chrome allows C++ embedders who write their own ProtocolHandlers to programmatically block or redirect requests or even mock responses. C++ embedders",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "Puppeteer - Request Interception postData not overriding",
+      "url": "https://stackoverflow.com/questions/66519538/puppeteer-request-interception-postdata-not-overriding",
+      "snippet": "",
+      "published_date": "2021-03-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "Fetch domain - Chrome DevTools Protocol - GitHub Pages",
+      "url": "https://chromedevtools.github.io/devtools-protocol/tot/Fetch/",
+      "snippet": "If set, overrides response interception behavior for this request. If specified, only requests matching any of these patterns will produce fetchRequested event and will be paused until clients response. Provides response to the request. If absent, original response body will be used if the request is intercepted at the response stage and empty body will be used if the request is intercepted at the request stage. May only be issued for a request that is paused in the Response stage and is mutually exclusive with takeResponseBodyForInterceptionAsStream. Requests paused in the *redirect received* state may be differentiated by `responseCode` and presence of `location` response header, see comments to `requestPaused` for details. Note that after this command the request can't be continued as is -- client either needs to cancel it or to provide the response body. :   [Network.Request](/devtools-protocol/tot/Network/#type-Request). :   [Network.Request](/devtools-protocol/tot/Network/#type-Request). #### Fetch.AuthChallengeResponse [#](#type-AuthChallengeResponse \"Double click to copy markdown-formatted URL\"). If set, only requests for matching resource types will be intercepted.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.69
+    },
+    {
+      "title": "puppeteer-intercept-and-modify-requests - NPM",
+      "url": "https://www.npmjs.com/package/puppeteer-intercept-and-modify-requests",
+      "snippet": "The `puppeteer-intercept-and-modify-requests` TypeScript library allows you to intercept and modify network requests and responses using Puppeteer. 1. **Simpler API**: The library provides a more concise and easy-to-understand API for intercepting and modifying requests and responses, making it easier to implement and maintain your code. 2. **Fine-grained control**: The library allows you to intercept and modify requests and responses at various stages, giving you greater control over the network behavior of your application. In summary, the `puppeteer-intercept-and-modify-requests` library offers a more powerful and flexible solution for controlling network behavior in your Puppeteer projects, making it a superior choice over the built-in `page.setRequestInterception` and `page.on('request', interceptedRequestCallback)` features. npm install puppeteer-intercept-and-modify-requests. import { RequestInterceptionManager } from 'puppeteer-intercept-and-modify-requests'. Here's an example of how to use the `RequestInterceptionManager` to intercept and modify a request and a response:. } from 'puppeteer-intercept-and-modify-requests'. This example modifies the request by adding a custom header and modifies the response by replacing all occurrences of the word \"example\" with \"intercepted\". } from 'puppeteer-intercept-and-modify-requests'. } from 'puppeteer-intercept-and-modify-requests'. } from 'puppeteer-intercept-and-modify-requests'. } from 'puppeteer-intercept-and-modify-requests'.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "How do you modify \"Form Data\" when a request is intercepted in Puppeteer?",
+      "url": "https://stackoverflow.com/questions/59974021/how-do-you-modify-form-data-when-a-request-is-intercepted-in-puppeteer",
+      "snippet": "",
+      "published_date": "2020-01-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "Chrome DevTools Protocol - version 1-3 - Fetch domain",
+      "url": "https://chromedevtools.github.io/devtools-protocol/1-3/Fetch/",
+      "snippet": "Enables issuing of requestPaused events. A request will be paused until client calls one of failRequest, fulfillRequest or continueRequest/continueWithAuth.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.63
+    },
+    {
+      "title": "How to intercept and modify the Response? · Issue #409 · chromedp/chromedp",
+      "url": "https://github.com/chromedp/chromedp/issues/409",
+      "snippet": "",
+      "published_date": "2019-06-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "Network domain - Chrome DevTools Protocol - GitHub Pages",
+      "url": "https://chromedevtools.github.io/devtools-protocol/tot/Network/",
+      "snippet": "#### Network.Cookie [#](#type-Cookie \"Double click to copy markdown-formatted URL\"). #### Network.Request [#](#type-Request \"Double click to copy markdown-formatted URL\"). #### Network.Response [#](#type-Response \"Double click to copy markdown-formatted URL\"). #### Network.AdScriptIdentifier Experimental [#](#type-AdScriptIdentifier \"Double click to copy markdown-formatted URL\"). #### Network.AlternateProtocolUsage Experimental [#](#type-AlternateProtocolUsage \"Double click to copy markdown-formatted URL\"). #### Network.AuthChallenge Experimental [#](#type-AuthChallenge \"Double click to copy markdown-formatted URL\"). #### Network.AuthChallengeResponse Experimental [#](#type-AuthChallengeResponse \"Double click to copy markdown-formatted URL\"). #### Network.BlockPattern Experimental [#](#type-BlockPattern \"Double click to copy markdown-formatted URL\"). #### Network.ChallengeEventDetails Experimental [#](#type-ChallengeEventDetails \"Double click to copy markdown-formatted URL\"). #### Network.CookiePartitionKey Experimental [#](#type-CookiePartitionKey \"Double click to copy markdown-formatted URL\"). #### Network.DeviceBoundSession Experimental [#](#type-DeviceBoundSession \"Double click to copy markdown-formatted URL\"). #### Network.DirectTCPSocketOptions Experimental [#](#type-DirectTCPSocketOptions \"Double click to copy markdown-formatted URL\"). #### Network.DirectUDPSocketOptions Experimental [#](#type-DirectUDPSocketOptions \"Double click to copy markdown-formatted URL\"). #### Network.LoadNetworkResourceOptions Experimental [#](#type-LoadNetworkResourceOptions \"Double click to copy markdown-formatted URL\"). #### Network.RefreshEventDetails Experimental [#](#type-RefreshEventDetails \"Double click to copy markdown-formatted URL\"). #### Network.TrustTokenOperationType Experimental [#](#type-TrustTokenOperationType \"Double click to copy markdown-formatted URL\").",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Mastering Request Interceptions in Puppeteer - DEV Community",
+      "url": "https://dev.to/saairaam/mastering-request-interceptions-in-puppeteer-e75",
+      "snippet": "Cover image for Mastering Request Interceptions in Puppeteer. # Mastering Request Interceptions in Puppeteer. One standout feature of Puppeteer is its capability to intercept and manipulate network requests, empowering developers to customize requests, modify responses, and manage data flow during web scraping or automation tasks. Request interception in Puppeteer enables developers to observe, modify, or block outgoing HTTP requests and incoming responses. To activate request interception in Puppeteer, you follow these steps:. Let's explore practical use cases for request interception in Puppeteer:. **Note**: Keep in mind that Puppeteer's `page.on(\"request\")` only captures requests made using the page object. XHR and fetch requests made within the page's context are captured, but requests initiated outside the context of the page might not be intercepted. Now let's start the implementation of request interception on the IRCTC website. Delving into Puppeteer's request interception unlocks a realm of possibilities for web automation and testing. Whether you're a seasoned developer or new to web automation, Puppeteer's request interception offers endless opportunities for innovation.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.59
+    },
+    {
+      "title": "Intercept requests and responses with Chrome Devtools ...",
+      "url": "https://www.youtube.com/watch?v=Kkv30vZyQ14",
+      "snippet": "The Chome Devtools Protocol has been updated and the methods have moved from the Network domain to the Fetch domain.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.48
+    },
+    {
+      "title": "Mastering Request Interceptions in Puppeteer | by Saairaamprasad",
+      "url": "https://medium.com/@saairaamprasad/mastering-request-interceptions-in-puppeteer-403120bdf922",
+      "snippet": "",
+      "published_date": "2024-02-25T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.46
+    },
+    {
+      "title": "Create a chrome extension for accessing the response body of network calls | by sidhant gupta | Medium",
+      "url": "https://medium.com/@sidhantg2/create-a-chrome-extension-for-accessing-the-response-body-of-network-calls-21e55690e65d",
+      "snippet": "",
+      "published_date": "2024-09-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.46
+    },
+    {
+      "title": "protocol/fetch · chrobot · v2.2.4",
+      "url": "https://hexdocs.pm/chrobot/2.2.4/protocol/fetch.html",
+      "snippet": "Fetch Domain. A domain for letting clients substitute browser's network layer with client code. View this domain on the DevTools Protocol API Docs. Types",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "chrome-devtools-kotlin 5.12.0-1263784 javadoc",
+      "url": "https://javadoc.io/doc/org.hildan.chrome/chrome-devtools-kotlin/5.12.0-1263784/chrome-devtools-kotlin/org.hildan.chrome.devtools.domains.network/-get-request-post-data-response/index.html",
+      "snippet": "... NetworkRequestCreated · SharedStorageAccessed · StorageBucketCreatedOrUpdated ... getRequestPostData command. Members. Constructors. GetRequestPostData",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "DevTools protocol interception, blocking & modification of network requests",
+      "url": "https://groups.google.com/a/chromium.org/g/headless-dev/c/uvms04dXTIM",
+      "snippet": "",
+      "published_date": "2017-12-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.42
+    },
+    {
+      "title": "Intercepting and Modifying responses with Chrome via the Devtools Protocol | F5",
+      "url": "https://www.f5.com/ja_jp/company/blog/intercepting-and-modifying-responses-with-chrome-via-the-devtools-protocol",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "chrome.devtools.network | API - Chrome for Developers",
+      "url": "https://developer.chrome.com/docs/extensions/reference/api/devtools/network",
+      "snippet": "# chrome.devtools.network Stay organized with collections Save and categorize content based on your preferences. Use the `chrome.devtools.network` API to retrieve the information about network requests displayed by the Developer Tools in the Network panel. Network requests information is represented in the HTTP Archive format (*HAR*). In terms of HAR, the `chrome.devtools.network.getHAR()` method returns entire *HAR log*, while `chrome.devtools.network.onRequestFinished` event provides *HAR entry* as an argument to the event callback. Note that request content is not provided as part of HAR for efficiency reasons. You may call request's `getContent()` method to retrieve content. If the Developer Tools window is opened after the page is loaded, some requests may be missing in the array of entries returned by `getHAR()`. In general, the list of requests returned by `getHAR()` should match that displayed in the Network panel. ### Request. Represents a network request for a document resource (script, image and so on). Returns HAR log that contains all known network requests.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "How to use Chrome DevTools as a Request Interceptor",
+      "url": "https://requestly.com/blog/how-to-use-chrome-devtools-as-a-request-interceptor/",
+      "snippet": "",
+      "published_date": "2024-09-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "chrome.devtools.network  |  Reference  |  Chrome for Developers",
+      "url": "http://developer.chrome.com/docs/extensions/mv2/reference/devtools/network",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "Intercepting and Modifying Network Requests in Puppeteer - Latenode",
+      "url": "https://latenode.com/blog/web-automation-scraping/puppeteer-fundamentals-setup/intercepting-and-modifying-network-requests-in-puppeteer-a-practical-guide",
+      "snippet": "",
+      "published_date": "2026-02-12T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.33
+    },
+    {
+      "title": "Intercepting and Modifying Network Requests in Puppeteer: A Practical Guide - Latenode Blog",
+      "url": "https://latenode.com/blog/intercepting-and-modifying-network-requests-in-puppeteer-a-practical-guide",
+      "snippet": "",
+      "published_date": "2026-02-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "How to Intercept Requests in Puppeteer? - Webshare",
+      "url": "https://www.webshare.io/academy-article/puppeteer-intercept-request",
+      "snippet": "This capability is essential for developers who need to test how web applications handle various network conditions or modify requests for testing APIs. In this tutorial, you will learn how to intercept requests in Puppeteer with step-by-step examples. const browser = await puppeteer.launch();  const page = await browser.newPage();  await page.goto('https://puppeteer-example.com');  return { browser, page }; } code> class =\"highlight pre-shadow\"> < code  class = \"js\">  const puppeteer = require('puppeteer');  async function startBrowser() { //the await request pauses the rest of the code until the current line is done. class=\"highlight pre-shadow\"> <code class=\"js\"> page.on('request', interceptedRequest => {  if (interceptedRequest.resourceType() === 'image') {  interceptedRequest.abort();  } else {  interceptedRequest.continue();  } });  await page.goto('https://puppeteer-example.com'); // await browser. close closes the opened browser await browser.close(); code> class =\"highlight pre-shadow\"> < code  class = \"js\">  page.on('request', interceptedRequest => {  if (interceptedRequest.resourceType() === 'image') {  interceptedRequest.abort();  } else {  interceptedRequest.continue();  } });  await page.goto('https://puppeteer-example.com'); // await browser.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "How to Track and Intercept Network Requests and Responses | Testplane",
+      "url": "https://testplane.io/docs/v8/guides/how-to-intercept-requests-and-responses",
+      "snippet": "",
+      "published_date": "2025-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Intercepting and Modifying Network Requests in Puppeteer - Latenode",
+        "url": "https://latenode.com/blog/web-automation-scraping/puppeteer-fundamentals-setup/intercepting-and-modifying-network-requests-in-puppeteer-a-practical-guide",
+        "snippet": "",
+        "published_date": "2026-02-12T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.33
+      },
+      {
+        "title": "Intercepting and Modifying Network Requests in Puppeteer: A Practical Guide - Latenode Blog",
+        "url": "https://latenode.com/blog/intercepting-and-modifying-network-requests-in-puppeteer-a-practical-guide",
+        "snippet": "",
+        "published_date": "2026-02-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Mastering Request Interceptions in Puppeteer | by Saairaamprasad",
+        "url": "https://medium.com/@saairaamprasad/mastering-request-interceptions-in-puppeteer-403120bdf922",
+        "snippet": "",
+        "published_date": "2024-02-25T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.46
+      },
+      {
+        "title": "Puppeteer - Request Interception postData not overriding",
+        "url": "https://stackoverflow.com/questions/66519538/puppeteer-request-interception-postdata-not-overriding",
+        "snippet": "",
+        "published_date": "2021-03-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.69
+      },
+      {
+        "title": "How do you modify \"Form Data\" when a request is intercepted in Puppeteer?",
+        "url": "https://stackoverflow.com/questions/59974021/how-do-you-modify-form-data-when-a-request-is-intercepted-in-puppeteer",
+        "snippet": "",
+        "published_date": "2020-01-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "Chrome DevTools Protocol - version 1-3 - Fetch domain",
+        "url": "https://chromedevtools.github.io/devtools-protocol/1-3/Fetch/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Intercept requests and responses with Chrome Devtools ...",
+        "url": "https://www.youtube.com/watch?v=Kkv30vZyQ14",
+        "snippet": "",
+        "published_date": "2019-04-08T07:05:21.999Z",
+        "source": "exa"
+      },
+      {
+        "title": "How to Track and Intercept Network Requests and Responses | Testplane",
+        "url": "https://testplane.io/docs/v8/guides/how-to-intercept-requests-and-responses",
+        "snippet": "",
+        "published_date": "2025-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Chrome DevTools Protocol Fetch Domain. Intercept image ...",
+        "url": "https://stackoverflow.com/questions/61329842/chrome-devtools-protocol-fetch-domain-intercept-image-requests",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Intercepting and Modifying responses with Chrome via the Devtools Protocol | F5",
+        "url": "https://www.f5.com/ja_jp/company/blog/intercepting-and-modifying-responses-with-chrome-via-the-devtools-protocol",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "How to use Chrome DevTools as a Request Interceptor",
+        "url": "https://requestly.com/blog/how-to-use-chrome-devtools-as-a-request-interceptor/",
+        "snippet": "",
+        "published_date": "2024-09-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "Create a chrome extension for accessing the response body of network calls | by sidhant gupta | Medium",
+        "url": "https://medium.com/@sidhantg2/create-a-chrome-extension-for-accessing-the-response-body-of-network-calls-21e55690e65d",
+        "snippet": "",
+        "published_date": "2024-09-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.46
+      },
+      {
+        "title": "DevTools protocol interception, blocking & modification of network requests",
+        "url": "https://groups.google.com/a/chromium.org/g/headless-dev/c/uvms04dXTIM",
+        "snippet": "",
+        "published_date": "2017-12-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.42
+      },
+      {
+        "title": "How to intercept and modify the Response? · Issue #409 · chromedp/chromedp",
+        "url": "https://github.com/chromedp/chromedp/issues/409",
+        "snippet": "",
+        "published_date": "2019-06-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "chrome.devtools.network  |  Reference  |  Chrome for Developers",
+        "url": "http://developer.chrome.com/docs/extensions/mv2/reference/devtools/network",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.36
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Mastering Request Interceptions in Puppeteer | by Saairaamprasad",
+        "url": "https://medium.com/@saairaamprasad/mastering-request-interceptions-in-puppeteer-403120bdf922",
+        "snippet": "[Sign in](https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fmedium.com%2F%40saairaamprasad%2Fmastering-request-interceptions-in-puppeteer-403120bdf922&source=post_page---top_nav_layout_nav-----------------------global_nav------------------). [Sign in](https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fmedium.com%2F%40saairaamprasad%2Fmastering-request-interceptions-in-puppeteer-403120bdf922&source=post_page---top_nav_layout_nav-----------------------global_nav------------------). [Listen](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2Fplans%3Fdimension%3Dpost_audio_button%26postId%3D403120bdf922&operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40saairaamprasad%2Fmastering-request-interceptions-in-puppeteer-403120bdf922&source=---header_actions--403120bdf922---------------------post_audio_button------------------). [What are your thoughts?](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40saairaamprasad%2Fmastering-request-interceptions-in-puppeteer-403120bdf922&source=---post_responses--403120bdf922---------------------respond_sidebar------------------). After all, why…](https://medium.com/@saairaamprasad/opencv-in-python-image-processing-part-10-10-6882b85507d0?source=post_page---author_recirc--403120bdf922----0---------------------59834906_6f74_46f3_9175_2cd11b81ffc1--------------). [](https://medium.com/@saairaamprasad/opencv-in-python-image-processing-part-10-10-6882b85507d0?source=post_page---author_recirc--403120bdf922----0---------------------59834906_6f74_46f3_9175_2cd11b81ffc1--------------). [](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40saairaamprasad%2Fmastering-request-interceptions-in-puppeteer-403120bdf922&source=---author_recirc--403120bdf922----0-----------------explicit_signal----59834906_6f74_46f3_9175_2cd11b81ffc1--------------). Today, we’re diving into the magical world of contours — because clearly, you’ve…](https://medium.com/@saairaamprasad/opencv-in-python-image-processing-part-7-10-0e6df6e24703?source=post_page---author_recirc--403120bdf922----1---------------------59834906_6f74_46f3_9175_2cd11b81ffc1--------------). [1](https://medium.com/@saairaamprasad/opencv-in-python-image-processing-part-7-10-0e6df6e24703?source=post_page---author_recirc--403120bdf922----1---------------------59834906_6f74_46f3_9175_2cd11b81ffc1--------------). [](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40saairaamprasad%2Fmastering-request-interceptions-in-puppeteer-403120bdf922&source=---author_recirc--403120bdf922----1-----------------explicit_signal----59834906_6f74_46f3_9175_2cd11b81ffc1--------------). [## Unveiling the Power of Satellite Image Processing ### Satellite image processing has become an essential tool in our modern world, fundamentally changing how we observe and analyze the Earth.](https://medium.com/@saairaamprasad/unveiling-the-power-of-satellite-image-processing-5d330beb94bb?source=post_page---author_recirc--403120bdf922----2---------------------59834906_6f74_46f3_9175_2cd11b81ffc1--------------). [27 1](https://medium.com/@saairaamprasad/unveiling-the-power-of-satellite-image-processing-5d330beb94bb?source=post_page---author_recirc--403120bdf922----2---------------------59834906_6f74_46f3_9175_2cd11b81ffc1--------------). [](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40saairaamprasad%2Fmastering-request-interceptions-in-puppeteer-403120bdf922&source=---author_recirc--403120bdf922----2-----------------explicit_signal----59834906_6f74_46f3_9175_2cd11b81ffc1--------------). If you’ve ever been curious…](https://medium.com/@saairaamprasad/opencv-in-python-image-processing-96552f0fff29?source=post_page---author_recirc--403120bdf922----3---------------------59834906_6f74_46f3_9175_2cd11b81ffc1--------------). [3 1](https://medium.com/@saairaamprasad/opencv-in-python-image-processing-96552f0fff29?source=post_page---author_recirc--403120bdf922----3---------------------59834906_6f74_46f3_9175_2cd11b81ffc1--------------). [](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40saairaamprasad%2Fmastering-request-interceptions-in-puppeteer-403120bdf922&source=---author_recirc--403120bdf922----3-----------------explicit_signal----59834906_6f74_46f3_9175_2cd11b81ffc1--------------). [![Image 16: Generative AI](https://miro.medium.com/v2/resize:fill:20:20/1*M4RBhIRaSSZB7lXfrGlatA.png)](https://medium.com/generative-ai?source=post_page---read_next_recirc--403120bdf922----0---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [Generative AI](https://medium.com/generative-ai?source=post_page---read_next_recirc--403120bdf922----0---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [Adham Khaled](https://medium.com/@adham__khaled__?source=post_page---read_next_recirc--403120bdf922----0---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). This new technique unlocks 2× more creativity from ANY AI model — no training required…](https://medium.com/generative-ai/stanford-just-killed-prompt-engineering-with-8-words-and-i-cant-believe-it-worked-8349d6524d2b?source=post_page---read_next_recirc--403120bdf922----0---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [25K 696](https://medium.com/generative-ai/stanford-just-killed-prompt-engineering-with-8-words-and-i-cant-believe-it-worked-8349d6524d2b?source=post_page---read_next_recirc--403120bdf922----0---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40saairaamprasad%2Fmastering-request-interceptions-in-puppeteer-403120bdf922&source=---read_next_recirc--403120bdf922----0-----------------explicit_signal----d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [![Image 18: Write A Catalyst](https://miro.medium.com/v2/resize:fill:20:20/1*KCHN5TM3Ga2PqZHA4hNbaw.png)](https://medium.com/write-a-catalyst?source=post_page---read_next_recirc--403120bdf922----1---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [Write A Catalyst](https://medium.com/write-a-catalyst?source=post_page---read_next_recirc--403120bdf922----1---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [Dr. Patricia Schmidt](https://medium.com/@creatorschmidt?source=post_page---read_next_recirc--403120bdf922----1---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [44K 908](https://medium.com/write-a-catalyst/as-a-neuroscientist-i-quit-these-5-morning-habits-that-destroy-your-brain-3efe1f410226?source=post_page---read_next_recirc--403120bdf922----1---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40saairaamprasad%2Fmastering-request-interceptions-in-puppeteer-403120bdf922&source=---read_next_recirc--403120bdf922----1-----------------explicit_signal----d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [![Image 20: Michal Malewicz](https://miro.medium.com/v2/resize:fill:20:20/1*149zXrb2FXvS_mctL4NKSg.png)](https://medium.com/@michalmalewicz?source=post_page---read_next_recirc--403120bdf922----0---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [Michal Malewicz](https://medium.com/@michalmalewicz?source=post_page---read_next_recirc--403120bdf922----0---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [6.6K 275](https://medium.com/@michalmalewicz/the-end-of-dashboards-and-design-systems-5d98ec9de627?source=post_page---read_next_recirc--403120bdf922----0---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40saairaamprasad%2Fmastering-request-interceptions-in-puppeteer-403120bdf922&source=---read_next_recirc--403120bdf922----0-----------------explicit_signal----d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [![Image 22: Level Up Coding](https://miro.medium.com/v2/resize:fill:20:20/1*5D9oYBd58pyjMkV_5-zXXQ.jpeg)](https://medium.com/gitconnected?source=post_page---read_next_recirc--403120bdf922----1---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [Level Up Coding](https://medium.com/gitconnected?source=post_page---read_next_recirc--403120bdf922----1---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [Kusireddy](https://medium.com/@kusireddy?source=post_page---read_next_recirc--403120bdf922----1---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). Here’s how to be in the 9% who actually win.](https://medium.com/gitconnected/i-stopped-using-chatgpt-for-30-days-what-happened-to-my-brain-was-terrifying-70d2a62246c0?source=post_page---read_next_recirc--403120bdf922----1---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [12.5K 482](https://medium.com/gitconnected/i-stopped-using-chatgpt-for-30-days-what-happened-to-my-brain-was-terrifying-70d2a62246c0?source=post_page---read_next_recirc--403120bdf922----1---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40saairaamprasad%2Fmastering-request-interceptions-in-puppeteer-403120bdf922&source=---read_next_recirc--403120bdf922----1-----------------explicit_signal----d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F70d2a62246c0&operation=register&redirect=https%3A%2F%2Flevelup.gitconnected.com%2Fi-stopped-using-chatgpt-for-30-days-what-happened-to-my-brain-was-terrifying-70d2a62246c0&source=---read_next_recirc--403120bdf922----1-----------------bookmark_preview----d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [![Image 24: unicodeveloper](https://miro.medium.com/v2/resize:fill:20:20/0*-kqhhb24fzA5QqSY.jpeg)](https://medium.com/@unicodeveloper?source=post_page---read_next_recirc--403120bdf922----2---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [unicodeveloper](https://medium.com/@unicodeveloper?source=post_page---read_next_recirc--403120bdf922----2---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [1.2K 17](https://medium.com/@unicodeveloper/10-must-have-skills-for-claude-and-any-coding-agent-in-2026-b5451b013051?source=post_page---read_next_recirc--403120bdf922----2---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40saairaamprasad%2Fmastering-request-interceptions-in-puppeteer-403120bdf922&source=---read_next_recirc--403120bdf922----2-----------------explicit_signal----d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [![Image 26: ILLUMINATION](https://miro.medium.com/v2/resize:fill:20:20/1*AZxiin1Cvws3J0TwNUP2sQ.png)](https://medium.com/illumination?source=post_page---read_next_recirc--403120bdf922----3---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [ILLUMINATION](https://medium.com/illumination?source=post_page---read_next_recirc--403120bdf922----3---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [Sufyan Maan, M.Eng](https://medium.com/@sufyanmaan?source=post_page---read_next_recirc--403120bdf922----3---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [6.6K 293](https://medium.com/illumination/i-woke-up-at-4-30-am-every-day-for-30-days-here-is-what-nobody-tells-you-054bf0160903?source=post_page---read_next_recirc--403120bdf922----3---------------------d086718a_16ff_455e_a0e2_1faf9859daaf--------------). [](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40saairaamprasad%2Fmastering-request-interceptions-in-puppeteer-403120bdf922&source=---read_next_recirc--403120bdf922----3-----------------explicit_signal----d086718a_16ff_455e_a0e2_1faf9859daaf--------------).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "puppeteer-intercept-and-modify-requests - NPM",
+        "url": "https://www.npmjs.com/package/puppeteer-intercept-and-modify-requests",
+        "snippet": "The `puppeteer-intercept-and-modify-requests` TypeScript library allows you to intercept and modify network requests and responses using Puppeteer. 1. **Simpler API**: The library provides a more concise and easy-to-understand API for intercepting and modifying requests and responses, making it easier to implement and maintain your code. 2. **Fine-grained control**: The library allows you to intercept and modify requests and responses at various stages, giving you greater control over the network behavior of your application. In summary, the `puppeteer-intercept-and-modify-requests` library offers a more powerful and flexible solution for controlling network behavior in your Puppeteer projects, making it a superior choice over the built-in `page.setRequestInterception` and `page.on('request', interceptedRequestCallback)` features. npm install puppeteer-intercept-and-modify-requests. import { RequestInterceptionManager } from 'puppeteer-intercept-and-modify-requests'. Here's an example of how to use the `RequestInterceptionManager` to intercept and modify a request and a response:. } from 'puppeteer-intercept-and-modify-requests'. This example modifies the request by adding a custom header and modifies the response by replacing all occurrences of the word \"example\" with \"intercepted\". } from 'puppeteer-intercept-and-modify-requests'. } from 'puppeteer-intercept-and-modify-requests'. } from 'puppeteer-intercept-and-modify-requests'. } from 'puppeteer-intercept-and-modify-requests'.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "Intercepting and Modifying Network Requests in Puppeteer - Latenode",
+        "url": "https://latenode.com/blog/web-automation-scraping/puppeteer-fundamentals-setup/intercepting-and-modifying-network-requests-in-puppeteer-a-practical-guide",
+        "snippet": "# Intercepting and Modifying Network Requests in Puppeteer: A Practical Guide - Latenode Blog. *   [Expert Consultations Work with certified Latenode experts](https://latenode.com/request/migrate-workflows-to-latenode). ![Image 11: Intercepting and Modifying Network Requests in Puppeteer: A Practical Guide](https://latenode.com/_next/image?url=https%3A%2F%2Fblog-static.latenode.com%2Flatenode-strapi-blog%2Fintercepting_and_modifying_network_requests_in_puppeteer_a_practical_guide_featured_f5e460104d.jpg&w=1200&q=75). Intercepting and modifying network requests in [Puppeteer](https://github.com/puppeteer/puppeteer) is a powerful way to manage web automation tasks. ## [Puppeteer](https://github.com/puppeteer/puppeteer) Tutorial #12 | HTTP Interceptors | Intercept Requests. > \"Request interception facilitates modification of outgoing requests' properties, such as setting custom headers, altering request methods, or adjusting the request payload.\" - Saairaamprasad [[1]](https://medium.com/@saairaamprasad/mastering-request-interceptions-in-puppeteer-403120bdf922). This feature is handy when optimizing page loading, simulating various network conditions, or handling dynamic content loading.\" – Saairaamprasad [[1]](https://medium.com/@saairaamprasad/mastering-request-interceptions-in-puppeteer-403120bdf922). Blocking unnecessary resources can significantly cut down page load times - sometimes by as much as 500 milliseconds [[3]](https://www.checklyhq.com/blog/speed-up-playwright-scripts-request-interception/). For instance, in a recent e-commerce case, modifying product price requests based on zip codes demonstrated its utility [[2]](https://agenty.com/docs/how-to-intercept-http-request-responses-with-puppeteer/411). A Guide to Automation, Testing, and Web Scraping](https://latenode.com/_next/image?url=https%3A%2F%2Fblog-static.latenode.com%2Flatenode-strapi-blog%2Fwhat_is_headless_browser_featured_9fc9c8e040.jpg&w=1200&q=75) Web Automation & Scraping ### What is a Headless Browser? *   [Request Integration](https://latenode.com/request/fast-track-app). *   [Expert Consultations](https://latenode.com/request/migrate-workflows-to-latenode).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Mastering Request Interceptions in Puppeteer - DEV Community",
+        "url": "https://dev.to/saairaam/mastering-request-interceptions-in-puppeteer-e75",
+        "snippet": "Cover image for Mastering Request Interceptions in Puppeteer. # Mastering Request Interceptions in Puppeteer. One standout feature of Puppeteer is its capability to intercept and manipulate network requests, empowering developers to customize requests, modify responses, and manage data flow during web scraping or automation tasks. Request interception in Puppeteer enables developers to observe, modify, or block outgoing HTTP requests and incoming responses. To activate request interception in Puppeteer, you follow these steps:. Let's explore practical use cases for request interception in Puppeteer:. **Note**: Keep in mind that Puppeteer's `page.on(\"request\")` only captures requests made using the page object. XHR and fetch requests made within the page's context are captured, but requests initiated outside the context of the page might not be intercepted. Now let's start the implementation of request interception on the IRCTC website. Delving into Puppeteer's request interception unlocks a realm of possibilities for web automation and testing. Whether you're a seasoned developer or new to web automation, Puppeteer's request interception offers endless opportunities for innovation.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.59
+      },
+      {
+        "title": "How to Intercept Requests in Puppeteer? - Webshare",
+        "url": "https://www.webshare.io/academy-article/puppeteer-intercept-request",
+        "snippet": "This capability is essential for developers who need to test how web applications handle various network conditions or modify requests for testing APIs. In this tutorial, you will learn how to intercept requests in Puppeteer with step-by-step examples. const browser = await puppeteer.launch();  const page = await browser.newPage();  await page.goto('https://puppeteer-example.com');  return { browser, page }; } code> class =\"highlight pre-shadow\"> < code  class = \"js\">  const puppeteer = require('puppeteer');  async function startBrowser() { //the await request pauses the rest of the code until the current line is done. class=\"highlight pre-shadow\"> <code class=\"js\"> page.on('request', interceptedRequest => {  if (interceptedRequest.resourceType() === 'image') {  interceptedRequest.abort();  } else {  interceptedRequest.continue();  } });  await page.goto('https://puppeteer-example.com'); // await browser. close closes the opened browser await browser.close(); code> class =\"highlight pre-shadow\"> < code  class = \"js\">  page.on('request', interceptedRequest => {  if (interceptedRequest.resourceType() === 'image') {  interceptedRequest.abort();  } else {  interceptedRequest.continue();  } });  await page.goto('https://puppeteer-example.com'); // await browser.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "Intercept requests and responses with Chrome Devtools ...",
+        "url": "https://www.youtube.com/watch?v=Kkv30vZyQ14",
+        "snippet": "The Chome Devtools Protocol has been updated and the methods have moved from the Network domain to the Fetch domain.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.48
+      },
+      {
+        "title": "Chrome DevTools Protocol Fetch Domain. Intercept image ...",
+        "url": "https://stackoverflow.com/questions/61329842/chrome-devtools-protocol-fetch-domain-intercept-image-requests",
+        "snippet": "I tried to save the image to disk and then send the encoded base64 representation to the body . The page remains at readyState === \"interactive\"",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.78
+      },
+      {
+        "title": "Chrome DevTools Protocol - version 1-3 - Fetch domain",
+        "url": "https://chromedevtools.github.io/devtools-protocol/1-3/Fetch/",
+        "snippet": "Enables issuing of requestPaused events. A request will be paused until client calls one of failRequest, fulfillRequest or continueRequest/continueWithAuth.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.63
+      },
+      {
+        "title": "protocol/fetch · chrobot · v2.2.4",
+        "url": "https://hexdocs.pm/chrobot/2.2.4/protocol/fetch.html",
+        "snippet": "Fetch Domain. A domain for letting clients substitute browser's network layer with client code. View this domain on the DevTools Protocol API Docs. Types",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "DevTools protocol Interception, Blocking and",
+        "url": "https://docs.google.com/document/d/1nEN0SqC1jEpHgKuQPrppwSabC8JRAuJb7MSTGCe2Pzg/",
+        "snippet": "Headless Chrome allows C++ embedders who write their own ProtocolHandlers to programmatically block or redirect requests or even mock responses. C++ embedders",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "Fetch domain - Chrome DevTools Protocol - GitHub Pages",
+        "url": "https://chromedevtools.github.io/devtools-protocol/tot/Fetch/",
+        "snippet": "If set, overrides response interception behavior for this request. If specified, only requests matching any of these patterns will produce fetchRequested event and will be paused until clients response. Provides response to the request. If absent, original response body will be used if the request is intercepted at the response stage and empty body will be used if the request is intercepted at the request stage. May only be issued for a request that is paused in the Response stage and is mutually exclusive with takeResponseBodyForInterceptionAsStream. Requests paused in the *redirect received* state may be differentiated by `responseCode` and presence of `location` response header, see comments to `requestPaused` for details. Note that after this command the request can't be continued as is -- client either needs to cancel it or to provide the response body. :   [Network.Request](/devtools-protocol/tot/Network/#type-Request). :   [Network.Request](/devtools-protocol/tot/Network/#type-Request). #### Fetch.AuthChallengeResponse [#](#type-AuthChallengeResponse \"Double click to copy markdown-formatted URL\"). If set, only requests for matching resource types will be intercepted.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.69
+      },
+      {
+        "title": "chrome-devtools-kotlin 5.12.0-1263784 javadoc",
+        "url": "https://javadoc.io/doc/org.hildan.chrome/chrome-devtools-kotlin/5.12.0-1263784/chrome-devtools-kotlin/org.hildan.chrome.devtools.domains.network/-get-request-post-data-response/index.html",
+        "snippet": "... NetworkRequestCreated · SharedStorageAccessed · StorageBucketCreatedOrUpdated ... getRequestPostData command. Members. Constructors. GetRequestPostData",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "chrome.devtools.network | API - Chrome for Developers",
+        "url": "https://developer.chrome.com/docs/extensions/reference/api/devtools/network",
+        "snippet": "# chrome.devtools.network Stay organized with collections Save and categorize content based on your preferences. Use the `chrome.devtools.network` API to retrieve the information about network requests displayed by the Developer Tools in the Network panel. Network requests information is represented in the HTTP Archive format (*HAR*). In terms of HAR, the `chrome.devtools.network.getHAR()` method returns entire *HAR log*, while `chrome.devtools.network.onRequestFinished` event provides *HAR entry* as an argument to the event callback. Note that request content is not provided as part of HAR for efficiency reasons. You may call request's `getContent()` method to retrieve content. If the Developer Tools window is opened after the page is loaded, some requests may be missing in the array of entries returned by `getHAR()`. In general, the list of requests returned by `getHAR()` should match that displayed in the Network panel. ### Request. Represents a network request for a document resource (script, image and so on). Returns HAR log that contains all known network requests.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      },
+      {
+        "title": "Network Request Interception and URL Replacement #848 - GitHub",
+        "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp/issues/848",
+        "snippet": "Currently there is no automated way through the Chrome DevTools MCP server to intercept and modify network requests. Developers can manually",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.72
+      },
+      {
+        "title": "Network domain - Chrome DevTools Protocol - GitHub Pages",
+        "url": "https://chromedevtools.github.io/devtools-protocol/tot/Network/",
+        "snippet": "#### Network.Cookie [#](#type-Cookie \"Double click to copy markdown-formatted URL\"). #### Network.Request [#](#type-Request \"Double click to copy markdown-formatted URL\"). #### Network.Response [#](#type-Response \"Double click to copy markdown-formatted URL\"). #### Network.AdScriptIdentifier Experimental [#](#type-AdScriptIdentifier \"Double click to copy markdown-formatted URL\"). #### Network.AlternateProtocolUsage Experimental [#](#type-AlternateProtocolUsage \"Double click to copy markdown-formatted URL\"). #### Network.AuthChallenge Experimental [#](#type-AuthChallenge \"Double click to copy markdown-formatted URL\"). #### Network.AuthChallengeResponse Experimental [#](#type-AuthChallengeResponse \"Double click to copy markdown-formatted URL\"). #### Network.BlockPattern Experimental [#](#type-BlockPattern \"Double click to copy markdown-formatted URL\"). #### Network.ChallengeEventDetails Experimental [#](#type-ChallengeEventDetails \"Double click to copy markdown-formatted URL\"). #### Network.CookiePartitionKey Experimental [#](#type-CookiePartitionKey \"Double click to copy markdown-formatted URL\"). #### Network.DeviceBoundSession Experimental [#](#type-DeviceBoundSession \"Double click to copy markdown-formatted URL\"). #### Network.DirectTCPSocketOptions Experimental [#](#type-DirectTCPSocketOptions \"Double click to copy markdown-formatted URL\"). #### Network.DirectUDPSocketOptions Experimental [#](#type-DirectUDPSocketOptions \"Double click to copy markdown-formatted URL\"). #### Network.LoadNetworkResourceOptions Experimental [#](#type-LoadNetworkResourceOptions \"Double click to copy markdown-formatted URL\"). #### Network.RefreshEventDetails Experimental [#](#type-RefreshEventDetails \"Double click to copy markdown-formatted URL\"). #### Network.TrustTokenOperationType Experimental [#](#type-TrustTokenOperationType \"Double click to copy markdown-formatted URL\").",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      }
+    ],
+    "grok": []
+  }
+}

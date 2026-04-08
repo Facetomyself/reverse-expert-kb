@@ -194,12 +194,14 @@ At the final boundary, ask:
 - which fields stayed the same despite changed outcome?
 - did the call stack differ?
 - did an upstream cache/state read change source object contents?
+- did you only prove an intercepted/continued request surface or did you prove the last meaningful body-preimage owner?
 
 This often reveals whether you are facing:
 - execution drift
 - session drift
 - trust/environment drift
 - observation distortion
+- interception-surface truth being overread as body-ownership truth
 
 ### Step 7: if the request is only a validation/update edge, follow through to the first accepted consumer
 In widget-family and challenge-family targets, the first token-carrying request is not always the strongest anchor.
@@ -397,6 +399,17 @@ Next move:
 - compare no-hook/minimal-hook/heavier-hook runs
 - trust outward request-boundary evidence more than deep hooks when they disagree
 
+### Failure mode 6: analyst proves interception success but not who owned the body that mattered
+Likely cause:
+- CDP `Fetch` / Puppeteer interception paused or modified the request after the meaningful preimage was already fixed
+- `Network.getRequestPostData` or similar tooling exposed body bytes, but not the producer that assembled them
+- the intercepted request is a transport-visible shell around earlier request/session/runtime ownership
+
+Next move:
+- separate **intercepted request truth** from **last meaningful body-preimage owner truth**
+- step one layer earlier from CDP/DevTools interception into the serializer, request-client helper, or state read that fixed the body semantics
+- if interception-modified and normal runs both succeed, do not narrate the interception layer as the original owner without a backtrace into the preimage-producing code
+
 ## 8. Environment assumptions
 This workflow usually assumes:
 - you can observe at least one trustworthy request-finalization boundary
@@ -423,6 +436,7 @@ This page adds a missing practical bridge in the browser subtree:
 - a concrete backward-tracing method from final request to upstream state
 - explicit producer classification and preimage capture discipline
 - a reusable diagnosis pattern for “token looks right but request still fails” cases
+- a CDP/DevTools-specific reminder that intercepted / continued / visible postData is still weaker than proving who owned the last meaningful request-body preimage
 
 That makes it a better fit for the KB’s current practical, case-driven direction than another abstract browser methodology page would have been.
 
@@ -436,7 +450,7 @@ Grounding for this page comes from cross-synthesis of existing concrete browser 
 - `sources/browser-runtime/2026-03-14-bytedance-web-signature-family-notes.md`
 - `sources/browser-runtime/2026-03-14-acw-sc-v2-cookie-bootstrap-notes.md`
 
-An exploratory search this run for JSONP/callback-style browser protection workflows produced mostly generic security material rather than strong reverse-engineering practitioner evidence, so this page intentionally consolidates the better-grounded request-boundary pattern already supported by the KB.
+A later external pass also sharpened one CDP-specific caution now reflected in this page: Chrome DevTools Protocol `Fetch` / `Network` surfaces and Puppeteer-style interception can expose, pause, continue, or even modify request-visible body material, but that still does not prove who owned the last meaningful body preimage. That refinement fits this page because the practical question is still request-boundary backtrace, not generic interception capability.
 
 A small but important extension also matters for hybrid mobile/WebView cases:
 - sometimes the request-finalization edge only becomes visible after native code successfully returns result material back into the page
