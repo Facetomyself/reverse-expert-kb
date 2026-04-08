@@ -75,6 +75,8 @@ A useful operator shorthand for this branch is:
 
 That shorthand helps prevent a recurring overclaim:
 - seeing an interrupt line fire or a worker get scheduled is often only arrival truth, not yet the first truthful behavior owner
+- on Linux-heavy cases specifically, do not flatten hard-IRQ visibility, softirq/tasklet/workqueue visibility, and later consumer truth into one generic “interrupt handled” story
+- on Windows-heavy cases specifically, do not flatten ISR visibility, DPC scheduling/execution visibility, and later consumer/effect truth into one generic “interrupt path proved” story
 - the stronger target is the first completion/status reduction, poll owner, worker-side state write, reply selector, or wakeup edge that actually predicts later durable behavior
 
 It also guards the opposite mistake:
@@ -189,6 +191,14 @@ Once localized, route the result into one next task only:
 
 Do not immediately widen into full interrupt-controller or driver taxonomy unless the next experiment truly needs it.
 
+A compact compare checklist for this seam is now worth keeping explicit:
+- did the run only prove the peripheral was **armed**?
+- did it prove only **IRQ arrival / top-half entry**?
+- did it prove only **deferred scheduling/execution**?
+- did it actually prove the first **consumer/reduction** that predicts later behavior?
+
+That checklist helps keep write-side hardware truth, interrupt-plumbing truth, and durable effect truth separate.
+
 ### Practical handoff rule
 Stay on this note while the missing proof is still the first durable interrupt/completion/deferred consequence:
 - the first ISR or deferred-worker reduction that turns an already-visible hardware-facing edge into one trustworthy state, reply, scheduler, or policy consequence
@@ -240,6 +250,7 @@ The stronger target is often the first reduction from completion/status material
 
 ### 4. Confusing generic interrupt plumbing with the interesting consequence
 The meaningful edge is often later and more conditional than generic vectoring or ack boilerplate.
+A visible ISR entry, DPC, tasklet, or workqueue callback is still weaker than one completion/status reduction, reply-family choice, scheduler/wakeup edge, or state write that actually predicts the later behavior.
 
 ### 5. Chasing full hardware-model completeness too early
 A partial but proven ISR/deferred consequence edge is often enough to unblock rehosting, replay, protocol, or state reasoning.
