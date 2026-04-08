@@ -267,6 +267,11 @@ A practical bridge rule worth preserving is:
 - **first meaningful divergence** and **best watched object** are often adjacent, but they are not automatically the same proof object
 - if the divergence is still semantically rich, aggregate, or awkward to query directly, shrink it into the narrowest truthful watched object before continuing
 - treat **query scope as part of correctness**, not just speed: oversized watched objects and broad memory/event searches mix unrelated semantic roles and can return upstream edges that are real but not explanatory for the consequence you care about
+- debugger-supported watchpoints/data breakpoints reinforce the same operator rule: a real hit proves one access to the watched range or location, not automatically that the watched scope was already the causal object you should narrate
+
+A second compact reminder now worth preserving explicitly is:
+- **watchable != causally selected**
+- a watchpoint or data-breakpoint hit can be perfectly real while still belonging to a range, wrapper object, or reused location whose semantic scope is too broad for the actual consequence question
 
 A compact operator ladder is:
 
@@ -276,6 +281,14 @@ first meaningful divergence isolated
   -> if not, shrink it into one field / slot / slice / reducer output
   -> only then hand off into first-bad-write / decisive-reducer localization or wider reverse-causality
 ```
+
+A compact compare checklist for this seam is now worth keeping explicit:
+- did the run only prove the object/range was **watchable**?
+- did it prove only that one **real access/hit** occurred?
+- did it prove the watched scope was actually the **causal object selection**?
+- did it prove one narrower field/slot/reducer output that predicts the later consequence?
+
+That checklist helps keep watchability, real hit truth, object-scope truth, and consequence-bearing causal selection separate.
 
 ### Step 7: decide the next handoff
 After the first meaningful divergence is either accepted as the watched object or reduced into one smaller watched object, choose the next note by the remaining bottleneck:
@@ -313,6 +326,7 @@ The practical convergence is:
 
 Additional source-backed refinement for async-heavy compare work:
 - Microsoft Learn and Binary Ninja TTD material reinforce that replay/query value comes from smaller bounded questions, not whole-trace narration or broad unscoped queries
+- GDB/ROCGDB watchpoint documentation and WinDbg data-breakpoint material reinforce a related operator rule: hardware/software watch support helps answer a bounded access question, but it does not choose the right semantic object for you
 - Raymond Chen's TTD position-order discussion reinforces that cross-thread chronology is weaker than many analysts want at fine granularity, so raw mixed-thread step order should not be overread as behavioral proof by itself
 - rr divergence-debugging guidance reinforces that once one narrower delivery boundary is plausible, denser observation around that boundary is more useful than broad timeline storytelling
 

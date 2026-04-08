@@ -1,0 +1,439 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "rr watchpoints hardware watchpoint limitations false positives object scope docs",
+    "GDB watchpoint masked watchpoints scope data breakpoint docs",
+    "WinDbg data breakpoint watchpoint object selection false positives docs"
+  ],
+  "count": 23,
+  "results": [
+    {
+      "title": "gdb - How do I set persistent and conditional watchpoints on locally ...",
+      "url": "https://stackoverflow.com/questions/1354637/how-do-i-set-persistent-and-conditional-watchpoints-on-locally-scoped-variables",
+      "snippet": "",
+      "published_date": "2009-08-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6667
+    },
+    {
+      "title": "Could not insert hardware watchpoint · Issue #4001 · rr-debugger/rr",
+      "url": "https://github.com/rr-debugger/rr/issues/4001",
+      "snippet": "",
+      "published_date": "2025-08-09T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "Implement HW watchpoints · Issue #951 · rr-debugger/rr",
+      "url": "https://github.com/rr-debugger/rr/issues/951",
+      "snippet": "",
+      "published_date": "2014-03-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6667
+    },
+    {
+      "title": "windbg-release-notes.md - windows-driver-docs-pr - GitHub",
+      "url": "https://github.com/MicrosoftDocs/windows-driver-docs/blob/staging/windows-driver-docs-pr/debuggercmds/windbg-release-notes.md",
+      "snippet": "Maintained previous keyboard focus, selection, and scroll, when possible, for editing items in Locals, Watch, and Breakpoints windows. Improved general support",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "Watchpoints - 2025.2 English - UG1702",
+      "url": "https://docs.amd.com/r/en-US/ug1702-vitis-accelerated-reference/Watchpoints",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6167
+    },
+    {
+      "title": "Watchpoints",
+      "url": "https://docs.libdebug.org/latest/stopping_events/watchpoints/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6167
+    },
+    {
+      "title": "Watchpoints - 2024.2 English - UG1702",
+      "url": "https://docs.amd.com/r/2024.2-English/ug1702-vitis-accelerated-reference/Watchpoints?contentId=hYQXli12E2FEU93bE7c7rw",
+      "snippet": "A watchpoint is a type of breakpoint. Watchpoints can be used to stop the execution of a core when the value at an address changes.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6167
+    },
+    {
+      "title": "Trace and Watch (wt) on breakpoint in WinDbg - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/55581667/trace-and-watch-wt-on-breakpoint-in-windbg",
+      "snippet": "I'd like to get a trace of function calls inside comctl32.dll beginning when the left mouse button is pressed on a tree control item and while the mouse button",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": ".apply_dbp (Apply Data Breakpoint to Context) - Windows drivers",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/-apply-dbp--apply-data-breakpoint-to-context-",
+      "snippet": "",
+      "published_date": "2023-10-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Troubleshooting .NET data breakpoints - Visual Studio",
+      "url": "https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/debuggers/troubleshooting-data-breakpoint-errors",
+      "snippet": "",
+      "published_date": "2023-10-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Conditional Breakpoints in WinDbg and Other Windows Debuggers - Windows drivers",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/setting-a-conditional-breakpoint?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2021-12-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "ba (Break on Access) - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/ba--break-on-access-",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Processor Breakpoints (ba Breakpoints) - Windows drivers",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/processor-breakpoints---ba-breakpoints-?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2023-08-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "What a good debugger can do | Hacker News",
+      "url": "https://news.ycombinator.com/item?id=35092998",
+      "snippet": "With a time travel recording I can put a watchpoint (aka data breakpoint) on the state that is supposedly impossible, and reverse-continue back",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5333
+    },
+    {
+      "title": "Set Watchpoints (Debugging with GDB) - Sourceware",
+      "url": "https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html",
+      "snippet": "[](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html)`watch [-l|-location] expr [thread thread-id] [mask maskvalue] [task task-id]`. [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html)`rwatch [-l|-location] expr [thread thread-id] [mask maskvalue]`. [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html)`awatch [-l|-location] expr [thread thread-id] [mask maskvalue]`. This command prints a list of watchpoints, using the same format as `info break` (see [Set Breaks](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Breaks.html#Set-Breaks)). [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). `set can-use-hw-watchpoints`[](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). `show can-use-hw-watchpoints`[](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). For remote targets, you can restrict the number of hardware watchpoints GDB will use, see [set remote hardware-breakpoint-limit](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Remote-Configuration.html#set-remote-hardware_002dbreakpoint_002dlimit). Currently, the `awatch` and `rwatch` commands can only set hardware watchpoints, because accesses to data that don’t change the value of the watched expression cannot be detected without examining every instruction as it is being executed, and GDB does not do that currently. Sometimes, GDB cannot set a hardware watchpoint because the data type of the watched expression is wider than what a hardware watchpoint on the target machine can handle. If GDB creates a software watchpoint, it can only watch the value of an expression _in a single thread_. See [set remote hardware-watchpoint-limit](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Remote-Configuration.html#set-remote-hardware_002dwatchpoint_002dlimit).",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4333
+    },
+    {
+      "title": "Debugging with GDB - Set Watchpoints",
+      "url": "https://ftp.gnu.org/old-gnu/Manuals/gdb/html_node/gdb_29.html",
+      "snippet": "However the hardware breakpoint registers can only take two data watchpoints, and both watchpoints must be the same kind. For example, you can set two",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4
+    },
+    {
+      "title": "Set Watchpoints (Debugging with ROCGDB) - ROCm Documentation",
+      "url": "https://rocm.docs.amd.com/projects/ROCgdb/en/latest/ROCgdb/gdb/doc/gdb/Set-Watchpoints.html",
+      "snippet": "(This is sometimes called a data breakpoint.) The expression may be as ... ) A masked watchpoint specifies a mask in addition to an address to watch.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3667
+    },
+    {
+      "title": "Faster Debugging with Watchpoints - Memfault Interrupt",
+      "url": "https://interrupt.memfault.com/blog/cortex-m-watchpoints",
+      "snippet": "",
+      "published_date": "2020-09-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "WinDbg usage guide - wtrace.net",
+      "url": "https://wtrace.net/guides/windbg/",
+      "snippet": "-v -r1# Debugger.Sessions[0].Processes[15416].Threads[12796] [Switch To]# Id : 0x31fc# Index : 0x0 # Stack # Registers # SwitchTo [SwitchTo() - Switch to this thread as the default context] # Environment # TTD # ToDisplayString [ToDisplayString([FormatSpecifier]) - Method which converts the object to its display string representation according to an optional format specifier]. SendMessageA\")]# Memory [Returns memory access information for specified address range: TTD.Memory(startAddress, endAddress [, \"rwec\"])]# MemoryForPositionRange [Returns memory access information for specified address range and position range: TTD.MemoryForPositionRange(startAddress, endAddress [, \"rwec\"], minPosition, maxPosition)]# PinObjectPosition [Pins an object to the given time position: TTD.PinObjectPosition(obj, pos)]# AsyncQueryEnabled : false# Data : Normalized data sources based on the contents of the time travel trace# Utility : Methods that can be useful when analyzing time travel traces# ToDisplayString [ToDisplayString([FormatSpecifier]) - Method which converts the object to its display string representation according to an optional format specifier] -v $curprocess# @$curprocess.TTD # Index # Threads # Events # DebugOutput # Lifetime : [66:0, 118A2:0]# DefaultMemoryPolicy : GloballyAggressive# SetPosition [Sets the debugger to point to the given position on this process.]# GatherMemoryUse [0] # RecordClients.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Watch Point | Official documents",
+      "url": "https://ysyx.oscc.cc/docs/en/ics-pa/1.6.html",
+      "snippet": "In the process of implementing watchpoints, you will most likely encounter segmentation errors. If you feel helpless, you should read this chapter carefully.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "GDB - watch and display — Debugging documentation",
+      "url": "https://cgi.cse.unsw.edu.au/~learn/debugging/modules/gdb_watch_display/",
+      "snippet": "Able to set a watchpoint on a variable in order to break a program when a variable changes. Use display to automatically print how variables change throughout",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "GDB watchpoint ( HW breakpoint ) - Google Groups",
+      "url": "https://groups.google.com/g/android-ndk/c/3aObwV2R_e4",
+      "snippet": "I'm trying to set a breakpoint on a memory value to see when that value is being read. I believe GDB calls this a data breakpoint or a watchpoint.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "A closer look at how breakpoints work - Read the Docs",
+      "url": "https://winappdbg.readthedocs.io/en/v1.6/HowBreakpointsWork.html",
+      "snippet": "This wiki page aims at giving a more detailed explanation on how breakpoints really work, behind the simplified break_at, stalk_at, watch_variable and",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Set Watchpoints (Debugging with ROCGDB) - ROCm Documentation",
+        "url": "https://rocm.docs.amd.com/projects/ROCgdb/en/latest/ROCgdb/gdb/doc/gdb/Set-Watchpoints.html",
+        "snippet": "(This is sometimes called a data breakpoint.) The expression may be as ... ) A masked watchpoint specifies a mask in addition to an address to watch.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3667
+      },
+      {
+        "title": "Set Watchpoints (Debugging with GDB) - Sourceware",
+        "url": "https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html",
+        "snippet": "[](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html)`watch [-l|-location] expr [thread thread-id] [mask maskvalue] [task task-id]`. [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html)`rwatch [-l|-location] expr [thread thread-id] [mask maskvalue]`. [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html)`awatch [-l|-location] expr [thread thread-id] [mask maskvalue]`. This command prints a list of watchpoints, using the same format as `info break` (see [Set Breaks](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Breaks.html#Set-Breaks)). [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). `set can-use-hw-watchpoints`[](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). `show can-use-hw-watchpoints`[](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). For remote targets, you can restrict the number of hardware watchpoints GDB will use, see [set remote hardware-breakpoint-limit](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Remote-Configuration.html#set-remote-hardware_002dbreakpoint_002dlimit). Currently, the `awatch` and `rwatch` commands can only set hardware watchpoints, because accesses to data that don’t change the value of the watched expression cannot be detected without examining every instruction as it is being executed, and GDB does not do that currently. Sometimes, GDB cannot set a hardware watchpoint because the data type of the watched expression is wider than what a hardware watchpoint on the target machine can handle. If GDB creates a software watchpoint, it can only watch the value of an expression _in a single thread_. See [set remote hardware-watchpoint-limit](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Remote-Configuration.html#set-remote-hardware_002dwatchpoint_002dlimit).",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4333
+      },
+      {
+        "title": "GDB - watch and display — Debugging documentation",
+        "url": "https://cgi.cse.unsw.edu.au/~learn/debugging/modules/gdb_watch_display/",
+        "snippet": "Able to set a watchpoint on a variable in order to break a program when a variable changes. Use display to automatically print how variables change throughout",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "Debugging with GDB - Set Watchpoints",
+        "url": "https://ftp.gnu.org/old-gnu/Manuals/gdb/html_node/gdb_29.html",
+        "snippet": "However the hardware breakpoint registers can only take two data watchpoints, and both watchpoints must be the same kind. For example, you can set two",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4
+      },
+      {
+        "title": "GDB watchpoint ( HW breakpoint ) - Google Groups",
+        "url": "https://groups.google.com/g/android-ndk/c/3aObwV2R_e4",
+        "snippet": "I'm trying to set a breakpoint on a memory value to see when that value is being read. I believe GDB calls this a data breakpoint or a watchpoint.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "A closer look at how breakpoints work - Read the Docs",
+        "url": "https://winappdbg.readthedocs.io/en/v1.6/HowBreakpointsWork.html",
+        "snippet": "This wiki page aims at giving a more detailed explanation on how breakpoints really work, behind the simplified break_at, stalk_at, watch_variable and",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "windbg-release-notes.md - windows-driver-docs-pr - GitHub",
+        "url": "https://github.com/MicrosoftDocs/windows-driver-docs/blob/staging/windows-driver-docs-pr/debuggercmds/windbg-release-notes.md",
+        "snippet": "Maintained previous keyboard focus, selection, and scroll, when possible, for editing items in Locals, Watch, and Breakpoints windows. Improved general support",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "Trace and Watch (wt) on breakpoint in WinDbg - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/55581667/trace-and-watch-wt-on-breakpoint-in-windbg",
+        "snippet": "I'd like to get a trace of function calls inside comctl32.dll beginning when the left mouse button is pressed on a tree control item and while the mouse button",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "WinDbg usage guide - wtrace.net",
+        "url": "https://wtrace.net/guides/windbg/",
+        "snippet": "-v -r1# Debugger.Sessions[0].Processes[15416].Threads[12796] [Switch To]# Id : 0x31fc# Index : 0x0 # Stack # Registers # SwitchTo [SwitchTo() - Switch to this thread as the default context] # Environment # TTD # ToDisplayString [ToDisplayString([FormatSpecifier]) - Method which converts the object to its display string representation according to an optional format specifier]. SendMessageA\")]# Memory [Returns memory access information for specified address range: TTD.Memory(startAddress, endAddress [, \"rwec\"])]# MemoryForPositionRange [Returns memory access information for specified address range and position range: TTD.MemoryForPositionRange(startAddress, endAddress [, \"rwec\"], minPosition, maxPosition)]# PinObjectPosition [Pins an object to the given time position: TTD.PinObjectPosition(obj, pos)]# AsyncQueryEnabled : false# Data : Normalized data sources based on the contents of the time travel trace# Utility : Methods that can be useful when analyzing time travel traces# ToDisplayString [ToDisplayString([FormatSpecifier]) - Method which converts the object to its display string representation according to an optional format specifier] -v $curprocess# @$curprocess.TTD # Index # Threads # Events # DebugOutput # Lifetime : [66:0, 118A2:0]# DefaultMemoryPolicy : GloballyAggressive# SetPosition [Sets the debugger to point to the given position on this process.]# GatherMemoryUse [0] # RecordClients.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "What a good debugger can do | Hacker News",
+        "url": "https://news.ycombinator.com/item?id=35092998",
+        "snippet": "With a time travel recording I can put a watchpoint (aka data breakpoint) on the state that is supposedly impossible, and reverse-continue back",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5333
+      },
+      {
+        "title": "Watchpoints - Docs / libdebug",
+        "url": "https://docs.libdebug.org/latest/stopping_events/watchpoints/",
+        "snippet": "Watchpoints are a special type of hardware breakpoint that triggers when a specific memory location is accessed. You can set a watchpoint to trigger on certain",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Could not insert hardware watchpoint #4001 - rr-debugger/rr - GitHub",
+        "url": "https://github.com/rr-debugger/rr/issues/4001",
+        "snippet": "Could not insert hardware breakpoints: You may have requested too many hardware breakpoints/watchpoints. Command aborted. (rr) info breakpoints",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Set Watchpoints (Debugging with GDB) - Sourceware",
+        "url": "https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html",
+        "snippet": "[](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html)`watch [-l|-location] expr [thread thread-id] [mask maskvalue] [task task-id]`. [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html)`rwatch [-l|-location] expr [thread thread-id] [mask maskvalue]`. [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html)`awatch [-l|-location] expr [thread thread-id] [mask maskvalue]`. This command prints a list of watchpoints, using the same format as `info break` (see [Set Breaks](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Breaks.html#Set-Breaks)). [](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). `set can-use-hw-watchpoints`[](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). `show can-use-hw-watchpoints`[](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html). For remote targets, you can restrict the number of hardware watchpoints GDB will use, see [set remote hardware-breakpoint-limit](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Remote-Configuration.html#set-remote-hardware_002dbreakpoint_002dlimit). Currently, the `awatch` and `rwatch` commands can only set hardware watchpoints, because accesses to data that don’t change the value of the watched expression cannot be detected without examining every instruction as it is being executed, and GDB does not do that currently. Sometimes, GDB cannot set a hardware watchpoint because the data type of the watched expression is wider than what a hardware watchpoint on the target machine can handle. If GDB creates a software watchpoint, it can only watch the value of an expression _in a single thread_. See [set remote hardware-watchpoint-limit](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Remote-Configuration.html#set-remote-hardware_002dwatchpoint_002dlimit).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Watch Point | Official documents",
+        "url": "https://ysyx.oscc.cc/docs/en/ics-pa/1.6.html",
+        "snippet": "In the process of implementing watchpoints, you will most likely encounter segmentation errors. If you feel helpless, you should read this chapter carefully.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Watchpoints - 2024.2 English - UG1702",
+        "url": "https://docs.amd.com/r/2024.2-English/ug1702-vitis-accelerated-reference/Watchpoints?contentId=hYQXli12E2FEU93bE7c7rw",
+        "snippet": "A watchpoint is a type of breakpoint. Watchpoints can be used to stop the execution of a core when the value at an address changes.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6167
+      }
+    ],
+    "exa": [
+      {
+        "title": "Set Watchpoints (Debugging with ROCGDB) - ROCm Documentation",
+        "url": "https://rocm.docs.amd.com/projects/ROCgdb/en/latest/ROCgdb/gdb/doc/gdb/Set-Watchpoints.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Set Watchpoints (Debugging with GDB) - Sourceware",
+        "url": "https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Faster Debugging with Watchpoints - Memfault Interrupt",
+        "url": "https://interrupt.memfault.com/blog/cortex-m-watchpoints",
+        "snippet": "",
+        "published_date": "2020-09-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "gdb - How do I set persistent and conditional watchpoints on locally ...",
+        "url": "https://stackoverflow.com/questions/1354637/how-do-i-set-persistent-and-conditional-watchpoints-on-locally-scoped-variables",
+        "snippet": "",
+        "published_date": "2009-08-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6667
+      },
+      {
+        "title": "Debugging with GDB - Set Watchpoints",
+        "url": "https://ftp.gnu.org/old-gnu/Manuals/gdb/html_node/gdb_29.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": ".apply_dbp (Apply Data Breakpoint to Context) - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/-apply-dbp--apply-data-breakpoint-to-context-",
+        "snippet": "",
+        "published_date": "2023-10-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Troubleshooting .NET data breakpoints - Visual Studio",
+        "url": "https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/debuggers/troubleshooting-data-breakpoint-errors",
+        "snippet": "",
+        "published_date": "2023-10-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Conditional Breakpoints in WinDbg and Other Windows Debuggers - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/setting-a-conditional-breakpoint?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2021-12-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "ba (Break on Access) - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/ba--break-on-access-",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Processor Breakpoints (ba Breakpoints) - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/processor-breakpoints---ba-breakpoints-?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2023-08-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Could not insert hardware watchpoint · Issue #4001 · rr-debugger/rr",
+        "url": "https://github.com/rr-debugger/rr/issues/4001",
+        "snippet": "",
+        "published_date": "2025-08-09T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "Implement HW watchpoints · Issue #951 · rr-debugger/rr",
+        "url": "https://github.com/rr-debugger/rr/issues/951",
+        "snippet": "",
+        "published_date": "2014-03-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6667
+      },
+      {
+        "title": "Set Watchpoints (Debugging with GDB)",
+        "url": "https://sourceware.org/gdb/current/onlinedocs/gdb.html/Set-Watchpoints.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Watchpoints - 2025.2 English - UG1702",
+        "url": "https://docs.amd.com/r/en-US/ug1702-vitis-accelerated-reference/Watchpoints",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6167
+      },
+      {
+        "title": "Watchpoints",
+        "url": "https://docs.libdebug.org/latest/stopping_events/watchpoints/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6167
+      }
+    ],
+    "grok": []
+  }
+}
