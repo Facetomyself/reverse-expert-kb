@@ -1,0 +1,394 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Swift AsyncStream AsyncThrowingStream yield finish termination docs Apple",
+    "Swift MainActor AsyncStream iterator consumer docs Apple",
+    "Swift AsyncStream bufferingPolicy yield termination continuation docs"
+  ],
+  "count": 18,
+  "results": [
+    {
+      "title": "AsyncThrowingStream.Continuation.Termination - Apple Developer",
+      "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation/termination",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7125
+    },
+    {
+      "title": "AsyncThrowingStream | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream",
+      "snippet": "In contrast to AsyncStream , this type can throw an error from the awaited next() , which terminates the stream with the thrown error. You initialize an",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7125
+    },
+    {
+      "title": "swift-evolution/proposals/0314-async-stream.md at main - GitHub",
+      "url": "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0314-async-stream.md",
+      "snippet": "Note that a call to the finish() method is required to end iteration for the consumer of an AsyncStream . Any buffered elements are provided to the sequence",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.7125
+    },
+    {
+      "title": "AsyncStream.Continuation.Termination - Apple Developer",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/termination",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7125
+    },
+    {
+      "title": "AsyncStream.Continuation.YieldResult.terminated - Apple Developer",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/yieldresult/terminated",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7125
+    },
+    {
+      "title": "AsyncThrowingStream.Continuation | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.675
+    },
+    {
+      "title": "AsyncStream | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.675
+    },
+    {
+      "title": "yield(_:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation/yield(_:)?changes=l__5",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "AsyncStream and Actors - Using Swift",
+      "url": "https://forums.swift.org/t/asyncstream-and-actors/70545",
+      "snippet": "",
+      "published_date": "2024-03-10T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.675
+    },
+    {
+      "title": "AsyncStream.Iterator | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/iterator",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.675
+    },
+    {
+      "title": "Adopting Swift concurrency — App Dev Tutorials | Apple Developer Documentation",
+      "url": "https://developer.apple.com/tutorials/app-dev-training/adopting-swift-concurrency",
+      "snippet": "",
+      "published_date": "2025-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "AsyncStream.AsyncIterator | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/asynciterator",
+      "snippet": "AsyncStream.AsyncIterator The type of asynchronous iterator that produces elements of this asynchronous sequence.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "AsyncStream.Continuation.BufferingPolicy - Apple Developer",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/bufferingpolicy",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.675
+    },
+    {
+      "title": "MainActor | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/Swift/MainActor",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6375
+    },
+    {
+      "title": "swift/stdlib/public/Concurrency/MainActor.swift at main - GitHub",
+      "url": "https://github.com/apple/swift/blob/main/stdlib/public/Concurrency/MainActor.swift",
+      "snippet": "This source file is part of the Swift.org open source project // // Copyright (c) 2021 Apple Inc. and the Swift project authors // Licensed under Apache",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.615
+    },
+    {
+      "title": "What is a recommended approach for passing non-sendable values ...",
+      "url": "https://forums.swift.org/t/what-is-a-recommended-approach-for-passing-non-sendable-values-to-asyncstream-continuation-ontermination/71480",
+      "snippet": "",
+      "published_date": "2024-04-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Termination · Swift 6.3 documentation",
+      "url": "https://swiftinit.org/docs/swift/swift/asyncstream/continuation/termination",
+      "snippet": "Resume the task awaiting the next iteration point by having it return normally from its suspension point. func yield(sending Element) -> AsyncStream<Element>.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "How to create and use AsyncStreams to return buffered data",
+      "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-create-and-use-asyncstreams-to-return-buffered-data",
+      "snippet": "",
+      "published_date": "2024-11-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3375
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "AsyncThrowingStream.Continuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.675
+      },
+      {
+        "title": "AsyncStream | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.675
+      },
+      {
+        "title": "AsyncThrowingStream.Continuation.Termination - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation/termination",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7125
+      },
+      {
+        "title": "yield(_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation/yield(_:)?changes=l__5",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.675
+      },
+      {
+        "title": "How to create and use AsyncStreams to return buffered data",
+        "url": "https://www.hackingwithswift.com/quick-start/concurrency/how-to-create-and-use-asyncstreams-to-return-buffered-data",
+        "snippet": "",
+        "published_date": "2024-11-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3375
+      },
+      {
+        "title": "AsyncStream and Actors - Using Swift",
+        "url": "https://forums.swift.org/t/asyncstream-and-actors/70545",
+        "snippet": "",
+        "published_date": "2024-03-10T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.675
+      },
+      {
+        "title": "AsyncStream.Iterator | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/iterator",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.675
+      },
+      {
+        "title": "MainActor | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/Swift/MainActor",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6375
+      },
+      {
+        "title": "AsyncStream | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Adopting Swift concurrency — App Dev Tutorials | Apple Developer Documentation",
+        "url": "https://developer.apple.com/tutorials/app-dev-training/adopting-swift-concurrency",
+        "snippet": "",
+        "published_date": "2025-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.675
+      },
+      {
+        "title": "AsyncStream.Continuation.BufferingPolicy - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/bufferingpolicy",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.675
+      },
+      {
+        "title": "AsyncStream.Continuation.Termination - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/termination",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7125
+      },
+      {
+        "title": "AsyncStream.Continuation.YieldResult.terminated - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/yieldresult/terminated",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7125
+      },
+      {
+        "title": "What is a recommended approach for passing non-sendable values ...",
+        "url": "https://forums.swift.org/t/what-is-a-recommended-approach-for-passing-non-sendable-values-to-asyncstream-continuation-ontermination/71480",
+        "snippet": "",
+        "published_date": "2024-04-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "swift-evolution/proposals/0314-async-stream.md at main - GitHub",
+        "url": "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0314-async-stream.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "AsyncThrowingStream.Continuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation",
+        "snippet": "Use this continuation to provide elements to the stream by calling one of the yield methods, then terminate the stream normally by calling the finish() method.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "AsyncThrowingStream.Continuation.Termination - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream/continuation/termination",
+        "snippet": "The stream finished as a result of calling the continuation's finish method. case cancelled. The stream finished as a result of cancellation.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "AsyncThrowingStream | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncthrowingstream",
+        "snippet": "In contrast to AsyncStream , this type can throw an error from the awaited next() , which terminates the stream with the thrown error. You initialize an",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7125
+      },
+      {
+        "title": "AsyncStream | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream",
+        "snippet": "When there are no further elements to produce, call the continuation's finish() method. This causes the sequence iterator to produce a nil , which terminates",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "swift-evolution/proposals/0314-async-stream.md at main - GitHub",
+        "url": "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0314-async-stream.md",
+        "snippet": "Note that a call to the finish() method is required to end iteration for the consumer of an AsyncStream . Any buffered elements are provided to the sequence",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.7125
+      },
+      {
+        "title": "AsyncStream.Iterator | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/iterator",
+        "snippet": "The asynchronous iterator for iterating an asynchronous stream.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "AsyncStream | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream",
+        "snippet": "AsyncStream conforms to AsyncSequence, providing a convenient way to create an asynchronous sequence without manually implementing an asynchronous iterator.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "AsyncStream.AsyncIterator | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/asynciterator",
+        "snippet": "AsyncStream.AsyncIterator The type of asynchronous iterator that produces elements of this asynchronous sequence.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "AsyncStream and Actors - Using Swift",
+        "url": "https://forums.swift.org/t/asyncstream-and-actors/70545",
+        "snippet": "That seems to be covered with this proposal - swift-evolution/proposals/0420-inheritance-of-actor-isolation.md at main · apple/swift-evolution · GitHub. Yet it is not going to be available until Swift 6, so right now I suppose the only way to handle this is to make function `nonisolated`. I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? I know the data I pass through the AsyncStream is not at risk of being changed elsewhere by my code, but are there any particular issues with Data and swift concurrency that need particular attention ? // WARNING: Passing argument of non-sendable type 'inout AsyncStream<Data>.Iterator' outside of main actor-isolated context may introduce data races.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "swift/stdlib/public/Concurrency/MainActor.swift at main - GitHub",
+        "url": "https://github.com/apple/swift/blob/main/stdlib/public/Concurrency/MainActor.swift",
+        "snippet": "This source file is part of the Swift.org open source project // // Copyright (c) 2021 Apple Inc. and the Swift project authors // Licensed under Apache",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.615
+      },
+      {
+        "title": "AsyncStream.Continuation.YieldResult.terminated",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/yieldresult/terminated",
+        "snippet": "This indicates the stream terminated prior to calling yield , either because the stream finished normally or through cancellation. See Also · Yield Results.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Termination · Swift 6.3 documentation",
+        "url": "https://swiftinit.org/docs/swift/swift/asyncstream/continuation/termination",
+        "snippet": "Resume the task awaiting the next iteration point by having it return normally from its suspension point. func yield(sending Element) -> AsyncStream<Element>.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "AsyncStream.Continuation.BufferingPolicy",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/bufferingpolicy",
+        "snippet": "Constructs an asynchronous stream for an element type, using the specified buffering policy and element-producing closure.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "AsyncStream.Continuation.Termination",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/termination",
+        "snippet": "The stream finished as a result of calling the continuation's finish method. case cancelled. The stream finished as a result of cancellation.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "swift-evolution/proposals/0314-async-stream.md at main",
+        "url": "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0314-async-stream.md",
+        "snippet": "The yield function of the Continuation type for both AsyncStream and AsyncThrowingStream returns the state in which that yield transacted - it can return",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}

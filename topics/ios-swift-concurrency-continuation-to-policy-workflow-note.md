@@ -300,6 +300,8 @@ Best move:
 - do not stop at “the async sequence exists”
 - separate sequence construction from first iterator-side consumer that turns bytes/events into app-local meaning
 - prove whether the first decisive boundary is framing, parsing, reduction, or later coordinator use
+- keep the smaller stream-shaped ladder explicit: `yielded != enqueued != consumed != terminated != durable-effect`
+- Apple `AsyncStream` / `AsyncThrowingStream` surfaces make this practical split stronger: producer-side `yield(...)`, buffering acceptance, iterator-side consumption, termination, and later MainActor/policy consequence are distinct proof objects
 
 ### Scenario D: replay is good enough to expose results, but policy still looks hidden
 Pattern:
@@ -349,6 +351,15 @@ Useful anchors include:
 - the first task/coordinator/controller consumer that writes state or selects the next route
 - one later effect that proves the chosen consumer mattered
 
+A compact compare checklist for stream-shaped cases is now worth keeping explicit:
+- did the run only prove **yield happened**?
+- did it prove only **buffer acceptance / enqueue truth**?
+- did it prove only **iterator-side consumption**?
+- did it prove only **termination / finish / cancellation**?
+- did it actually prove the first **MainActor / policy-side durable effect**?
+
+That checklist helps keep producer traffic, stream buffering, iterator-side truth, stream end-state, and later consequence separate.
+
 If evidence is noisy, prefer:
 - one async-facing flow and one compare pair
 - one resume/delivery/iterator boundary, not every task helper nearby
@@ -371,6 +382,8 @@ Creating/storing a continuation, calling `resume`, and reaching the first resume
 
 ### 5. Flattening continuation, `AsyncStream`, and `AsyncSequence`/bytes-consumption cases into one bucket
 Single-shot resume, multi-value stream delivery, and iterator-side consumption often have different truthful stop rules.
+A smaller stream-shaped stop rule now worth keeping explicit is:
+- `yield happened != enqueued != consumed != terminated != durable-effect`
 
 ### 6. Reopening broad owner search when the real next gap is continuation-owned delivery or consumption
 Once callback truth is already good enough, widening too early usually wastes effort.
