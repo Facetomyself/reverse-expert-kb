@@ -1,4 +1,17 @@
 hosts:
+  - name: oracle-open_claw
+    ssh_alias: oracle-open_claw
+    provider: oracle
+    role:
+      - current-openclaw-host
+      - local-maintenance-target
+      - tailnet-member
+    public_ip: 64.110.106.11
+    domains:
+      - dev.zhangxuemin.work
+    docs:
+      overview: infra/OVERVIEW.md
+
   - name: oracle-proxy
     ssh_alias: oracle-proxy
     provider: oracle
