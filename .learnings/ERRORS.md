@@ -713,3 +713,64 @@ web_fetch 404 / redirect failures on docs.ebpf.io and source.android.com path us
 - See Also: none
 
 ---
+## [ERR-20260408-001] reverse-kb-autosync-path-drift
+
+**Logged**: 2026-04-07T19:53:00Z
+**Priority**: low
+**Status**: pending
+**Area**: docs
+
+### Summary
+Tried to read a stale guessed iOS XPC topic path during autosync branch selection
+
+### Error
+```
+ENOENT: no such file or directory, access '/root/.openclaw/workspace-reverse/research/reverse-expert-kb/topics/ios-xpc-service-lifecycle-and-first-consumer-workflow-note.md'
+```
+
+### Context
+- Operation: read candidate topic page before choosing this run's scope
+- The page path was inferred from memory rather than re-listed from the topics directory
+- Recovery was immediate: locate the actual path before proceeding
+
+### Suggested Fix
+When revisiting candidate pages named in top-level steering text, list matching topic files first instead of guessing the filename.
+
+### Metadata
+- Reproducible: yes
+- Related Files: research/reverse-expert-kb/index.md
+
+---
+## [ERR-20260408-002] ops-assistant-empty-docker-inventory-json
+
+**Logged**: 2026-04-08T15:25:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+`ops-assistant/checks/run_fleet_check.py` crashed while building the fleet summary because `/tmp/ops_docker_inventory.json` was not valid JSON at read time.
+
+### Error
+```text
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+```
+
+### Context
+- Command/operation attempted: `python3 ops-assistant/checks/run_fleet_check.py`
+- Failure site: `build_summary()` in `ops-assistant/checks/run_fleet_check.py`
+- The script unconditionally does `json.loads((TMP_DIR/'ops_docker_inventory.json').read_text())`
+- Other generated artifacts from the workflow were readable, but the docker inventory temp artifact appears to have been empty or otherwise non-JSON when the summary stage parsed it
+- This prevented the current high-frequency run from refreshing `ops-assistant/state/last-run.json`; the latest recorded successful state remained the earlier one already on disk
+
+### Suggested Fix
+- In `run_fleet_check.py`, validate each temp JSON artifact before `json.loads` and surface a clear per-check failure instead of crashing the whole run
+- In `docker_inventory.py` / `run_py()`, preserve stderr separately and treat empty stdout as an explicit failed payload contract
+- Optionally write temp outputs under `ops-assistant/state/` instead of shared `/tmp` to reduce accidental clobbering between runs
+
+### Metadata
+- Reproducible: unknown
+- Related Files: /root/.openclaw/workspace/ops-assistant/checks/run_fleet_check.py, /root/.openclaw/workspace/ops-assistant/checks/docker_inventory.py, /root/.openclaw/workspace/.learnings/ERRORS.md
+- See Also: ERR-20260407-001
+
+---
