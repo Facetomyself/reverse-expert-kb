@@ -13,7 +13,6 @@ Located at:
 Deployment characteristics:
 - containers: `outlook-email-plus-app`, `outlook-email-plus-caddy`
 - public domain: `mail.zhangxuemin.work`
-- additional front-door route: `dreamhorse.eu.cc` -> reverse proxy to local `rbot` on `https://140.83.52.216:9527`
 - TLS: automatic Let's Encrypt issuance handled by Caddy
 - app runtime: Flask/Gunicorn on internal port `5000`
 - compose action: `cd /opt/outlook-email-plus && docker compose up -d --build`
@@ -24,28 +23,6 @@ Operational notes:
 - current deployment intentionally does **not** repoint `autoconfig` / `autodiscover`
 - Outlook OAuth can be postponed until actual import time
 - Cloudflare temporary mailbox integration was evaluated on 2026-03-20 and intentionally deferred
-- `Caddyfile` now multiplexes two HTTPS sites on shared `80/443`: the Outlook app on `mail.zhangxuemin.work`, and the `rbot` browser entrypoint on `dreamhorse.eu.cc`
-
-### 1.1 Radiance OCI Bot (`rbot`) deployment
-Located at:
-- `/root/rbot/client_config`
-- `/root/rbot/oci_api_key.pem`
-- `/root/rbot/r_client`
-- `/etc/systemd/system/rbot.service`
-
-Deployment characteristics:
-- systemd service: `rbot.service`
-- local listener: `https://0.0.0.0:9527`
-- public browser entrypoint: `https://dreamhorse.eu.cc`
-- bot/web credentials currently bound through `radiance_helper_bot`
-- current configured external URL: `local_address=https://dreamhorse.eu.cc`
-
-Operational notes:
-- direct browser access on `mail.zhangxuemin.work:9527` was abandoned because host-level HSTS for `mail.zhangxuemin.work` plus the app's self-signed `radiance` certificate caused hard browser failures
-- the stable browser path is now via Caddy + Let's Encrypt on `dreamhorse.eu.cc`
-- as of 2026-03-25 the client successfully loads Oracle config from `client_config` and logs `oracle配置获取成功 -> 当前profile为:DEFAULT,地区为:ap-singapore-2`
-- the configured OCI private key lives at `/root/rbot/oci_api_key.pem`
-- runtime currently warns `非闪电用户只能使用1个，请去【客户端管理】删除其他客户端`; this is an account/service-side limitation rather than a local process failure
 
 ### 2. Mailu deployment footprint
 Located at:

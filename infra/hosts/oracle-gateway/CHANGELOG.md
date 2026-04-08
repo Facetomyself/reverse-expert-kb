@@ -1,5 +1,8 @@
 # oracle-gateway / CHANGELOG
 
+- 2026-04-05: Recurring read-only fleet check reconfirmed `oracle-gateway` remained reachable and generally healthy in its focused gateway role. Snapshot at `2026-04-04 19:56 UTC`: uptime ~240 days, load idle (`0.00 0.00 0.00`), root disk `45G total / 16G used / 30G free` (`34%` used), memory still small-but-stable (`952Mi` total, `517Mi` available) with light swap use (`111Mi / 2.0Gi`), `derper` still owned public TCP `80/443` plus UDP `3478`, the single `hysteria` container remained up on UDP `443`, and helper `caddy` stayed confined to local `8080/8443` with admin on `127.0.0.1:2019`.
+- 2026-04-05: One meaningful runtime delta only: besides the previously documented local-only upload helper on `127.0.0.1:18081`, the host was also serving a temporary public static distribution endpoint via `python3 -m http.server 18733 --bind 0.0.0.0 --directory /tmp/hy2dist`. This is now documented as current read-only observed runtime surface rather than assumed DERP/Hysteria baseline behavior.
+
 - 2026-04-04: A user-directed low-risk cleanup kept DERP as the primary public entrypoint and pruned the stale `/tmp-upload` block from `/etc/caddy/Caddyfile`. Caddy validation and reload succeeded afterward, leaving the host in the intended split shape: `derper` on public TCP `80/443`, `hysteria` on UDP `443`, and helper `caddy` only on local `8080/8443`.
 
 - 2026-04-03: Deployed a custom Tailscale DERP server (`derper`) on `oracle-gateway` for `derp.zhangxuemin.work`.

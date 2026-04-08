@@ -9,14 +9,12 @@ hosts:
     importance: tier1
     roles:
       - tavily-proxy
-      - tavily-registration-paused
       - exafree
       - grok-services
       - cliproxy
     notes:
       - proxy.zhangxuemin.work is the primary documented domain
       - ExaFree is running on host port 7860 with host-side cron automation for approximate 3-hour / 5-account registration batches
-      - Tavily proxy remains operational, but Tavily registration automation is intentionally paused as of 2026-03-19 to avoid repeated auto-attempts while upstream risk controls are active
       - 2026-03-26 recurring check initially found root filesystem pressure at 87% (~6.1G free); follow-up triage showed the main contributors were Docker images/overlay/build-cache plus large logs under /var, and a same-day conservative cleanup reduced usage to 50% (~23G free) without disturbing active services
       - formerly public `:8011` ad-hoc host-level `uv/granian` Grok2API instance has been retired on 2026-03-26; the main Dockerized `:8000` service remained healthy after removal
       - low-risk retention controls were added on 2026-03-26: journald size cap + weekly Docker prune cron
@@ -81,7 +79,6 @@ hosts:
     notes:
       - `mail.zhangxuemin.work` is currently live as the Outlook Email Plus web app via Docker Compose + Caddy
       - active containers live under /opt/outlook-email-plus
-      - `rbot.service` / `r_client` is also live here and still listened on public `:9527` during the 2026-03-26 recurring check while the documented browser-facing entrypoint remains `dreamhorse.eu.cc`
       - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.116.13.44`
       - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
       - Tailscale health check warns that SELinux may interfere with Tailscale SSH on this host

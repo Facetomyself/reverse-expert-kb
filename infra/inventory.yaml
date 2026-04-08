@@ -4,7 +4,7 @@ hosts:
     provider: oracle
     role:
       - reverse-proxy-adjacent-utility-host
-      - tavily-registration-and-proxy
+      - tavily-proxy
       - exafree-registration-service
       - grok-related-services
       - cli-proxy
@@ -42,12 +42,6 @@ hosts:
     public_ip: 140.83.52.216
     domains:
       - mail.zhangxuemin.work
-      - dreamhorse.eu.cc
-      - www.dreamhorse.eu.cc
-      - zhangxuemin.eu.cc
-      - www.zhangxuemin.eu.cc
-      - mengma.eu.cc
-      - www.mengma.eu.cc
     docs:
       host: infra/hosts/oracle-mail/HOST.md
       network: infra/hosts/oracle-mail/NETWORK.md

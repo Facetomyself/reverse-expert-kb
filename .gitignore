@@ -17,13 +17,21 @@ tmp/
 /tmp_*
 /*.new
 /*.patchtarget
-/{{*}}
-/", repr(v))\nPY"
-/",m.get(Destination), rw=+str(m.get(RW)))\nPY\n  echo\n done\n"
-/= not in text:\n    text = text.replace([dependency-groups]ndev
-/=0.13.0,\n    beautifulsoup4
-/=0.13.0,\n', '    curl-cffi
-/=4.12.3,\n')
+
+# Editor / OS junk
+*.swp
+*.swo
+.DS_Store
+
+# Local logs/artifacts
+logs/
+
+# Terraform local state / secrets (keep untracked)
+**/terraform.tfstate
+**/terraform.tfstate.*
+**/.terraform/
+**/terraform.auto.tfvars
+**/*.tfvars
 
 # Local memory and backups
 memory/

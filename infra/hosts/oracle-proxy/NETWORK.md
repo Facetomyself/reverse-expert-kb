@@ -17,7 +17,6 @@
 | 8317 | 0.0.0.0 | cliproxy | public/direct | OpenAI-compatible CLI proxy |
 | 9874 | 0.0.0.0 | Tavily proxy | public/direct | Web console + `/api/*` |
 | 15072 | 0.0.0.0 | grok-register adapter | public/direct | Grok solver adapter |
-| 16072 | 0.0.0.0 | Tavily adapter | public/direct | Tavily solver adapter |
 | 30011 | 0.0.0.0 | nginx | public | exact purpose TBD |
 | 30001 / 30004-30010 | * | sing-box | mixed | proxy/tunnel related, TBD |
 | 14391 | * | xray | mixed | TBD |
@@ -29,7 +28,6 @@
 ## 4. Tavily-related entry points
 - Web console: `http://proxy.zhangxuemin.work:9874/`
 - API base: `http://proxy.zhangxuemin.work:9874/api`
-- Internal proxy target used by scheduler container: `http://host.docker.internal:9874`
 
 ## 5. Nginx / Proxy Layer Notes
 ### System nginx

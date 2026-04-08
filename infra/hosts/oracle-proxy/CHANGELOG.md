@@ -1,5 +1,11 @@
 # oracle-proxy / Change Log
 
+## 2026-04-08
+- Per user instruction, removed Tavily registration from active infra and ops tracking. The standalone registration stack (`tavily-scheduler`, `tavily-camoufox`, `tavily-camoufox-adapter`) is no longer treated as a documented project or maintenance target; only the active Tavily proxy surface remains in current docs.
+
+## 2026-04-06
+- Recurring read-only fleet check reconfirmed `oracle-proxy` remained reachable and generally healthy. Snapshot at `2026-04-05 19:55 UTC`: uptime ~37.7 days, load low (`0.07 0.08 0.09`), root disk `45G total / 23G used / 23G free` (`51%` used), memory comfortable (`11Gi` total, `8.0Gi` available), no swap configured, and the expected active containers remained up: `cliproxy`, `grok2api`, `exafree`, `proxy-tavily-proxy-1`, `grok-register-camoufox`, and `grok-register-camoufox-adapter`.
+
 ## 2026-03-21
 - Checked `oracle-proxy:/root/grok2api` against upstream `https://github.com/TQZHR/grok2api.git` while explicitly avoiding changes to the separate Grok registration stack.
 - Verified deployed `grok2api` repo was already up to date with upstream: local `HEAD` and `origin/main` both at `d6a945c` (`feat: sync model catalog and update admin/chat flows`), so no upstream pull/update was performed.
@@ -52,7 +58,7 @@
 - Explicitly marked the migrated `OpenAi` directory as **not running** and **not part of the active service map**.
 - Added dedicated archive note: `./projects/openai-migrated.md`.
 - Future operational checks on `oracle-proxy` should treat `/root/OpenAi` as migrated material unless process / port / container evidence proves otherwise.
-- Performed a read-only host health check over SSH. Current snapshot: uptime ~17 days, root disk 40% used, memory healthy (~9.1 GiB available), and main long-lived containers (`proxy-tavily-proxy-1`, `tavily-scheduler`, `tavily-camoufox*`, `grok-register-camoufox*`, `grok2api`, `cliproxy`) all appeared up. No immediate resource-pressure signal observed.
+- Performed a read-only host health check over SSH. Current snapshot: uptime ~17 days, root disk 40% used, memory healthy, and main long-lived containers (`proxy-tavily-proxy-1`, `tavily-scheduler`, `tavily-camoufox*`, `grok-register-camoufox*`, `grok2api`, `cliproxy`) all appeared up. No immediate resource-pressure signal observed.
 - Confirmed Tavily proxy admin password on-host is `Zxm971004` via `/root/tavily-key-generator/proxy/.env` and retained env-driven password loading instead of hardcoding compose.
 - Confirmed Tavily generator on-host config now uses `EMAIL_ADMIN_PASSWORD = "Zxm971004"`, `EMAIL_SITE_PASSWORD = "Zxm971004"`, and `PROXY_ADMIN_PASSWORD = "Zxm971004"` in `/root/tavily-key-generator/config.py`.
 - Changed Tavily generator batch size from `RUN_COUNT = 1` to `RUN_COUNT = 5` while keeping `RUN_THREADS = 1`.

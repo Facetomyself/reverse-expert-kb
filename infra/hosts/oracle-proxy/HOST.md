@@ -4,9 +4,9 @@
 - Host label: `oracle-proxy`
 - Static hostname: `24-7-10-2039`
 - Provider: Oracle Cloud
-- Primary role: utility / proxy / registration host
+- Primary role: utility / proxy host
 - SSH alias: `oracle-proxy`
-- Main purpose: 承载 Tavily 注册与代理、ExaFree 注册服务、Grok 相关求解/转发组件、CLI proxy 等对外或半对外服务
+- Main purpose: 承载 Tavily Proxy、ExaFree 注册服务、Grok 相关求解/转发组件、CLI proxy 等对外或半对外服务
 
 ## 2. System Baseline
 - OS: Ubuntu 20.04.6 LTS (Focal)
@@ -36,8 +36,6 @@
 ## 5. High-Level Service Map
 当前确认运行中的主要服务：
 - `proxy-tavily-proxy-1` — Tavily key pool + Web console + API proxy
-- `tavily-scheduler` — Tavily 自动注册调度器（**2026-03-19 起主动暂停**）
-- `tavily-camoufox` / `tavily-camoufox-adapter` — Tavily 私有 Turnstile 求解链路（**2026-03-19 起主动暂停**）
 - `grok-register-camoufox` / `grok-register-camoufox-adapter` — Grok 独立求解链路
 - `grok2api` — Grok API bridge on port 8000
 - `cliproxy` — CLI proxy service on port 8317

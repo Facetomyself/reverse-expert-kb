@@ -6,18 +6,11 @@
 - Related DNS:
   - `autoconfig.zhangxuemin.work` -> CNAME to `mail.zhangxuemin.work`
   - `autodiscover.zhangxuemin.work` -> CNAME to `mail.zhangxuemin.work`
-  - `dreamhorse.eu.cc` -> A `140.83.52.216`
-  - `www.dreamhorse.eu.cc` -> A `140.83.52.216`
-  - `zhangxuemin.eu.cc` -> A `140.83.52.216`
-  - `www.zhangxuemin.eu.cc` -> A `140.83.52.216`
-  - `mengma.eu.cc` -> A `140.83.52.216`
-  - `www.mengma.eu.cc` -> A `140.83.52.216`
 
 ## 2. Current Reachability
 Current documented state after the 2026-03-20 repurpose:
 - `mail.zhangxuemin.work` is live on this host as the `Outlook Email Plus` web app
 - public `80/443` are owned by the `outlook-email-plus-caddy` container
-- `dreamhorse.eu.cc` is now also live on this host as the public browser entrypoint for the `rbot` / `Radiance OCI Bot` web UI, fronted by the same Caddy instance and reverse-proxied to local `https://140.83.52.216:9527`
 - `autoconfig.zhangxuemin.work` and `autodiscover.zhangxuemin.work` still resolve here via CNAME, but no classic mail protocol stack has been reactivated behind them
 
 ## 3. On-Host Listener Reality

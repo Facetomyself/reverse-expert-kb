@@ -90,7 +90,7 @@ infra/
 ## 当前覆盖
 
 - `oracle-proxy`：已建立较完整文档
-- `oracle-docker-proxy`：已建立较完整文档
+- `oracle-gateway`：已建立较完整文档
 - `ali-cloud`：已建立第一、二轮文档
 - `oracle-mail`：已建立首轮文档并标记为退役
 - `self-server`：已确认当前不可达

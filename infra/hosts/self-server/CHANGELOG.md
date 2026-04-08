@@ -8,3 +8,12 @@
 - 2026-04-04: Same-day outbound-access stabilization for both VMs converged on an explicit-proxy design through `ali-cloud` rather than transparent routing. Final steady shape on both `:44001` and `:44005`: local `dnsmasq` bound to `127.0.0.1:53`, upstream DNS forwarded to `106.15.239.221#1053`, shell-wide proxy env installed via `/etc/profile.d/ali-proxy.sh`, `yum` configured to use the `ali-cloud` HTTP proxy, and Docker daemon configured with a systemd proxy drop-in using authenticated HTTP proxy `106.15.239.221:2081` (with SOCKS5 `:2080` also available for tools). Validation after the cutover confirmed GitHub/Google access through the proxy path and successful `docker pull` for both `hello-world` and `coredns/coredns:latest` on both VMs.
 - 2026-04-04: A short-lived transparent-routing attempt on `:44005` using `sing-box-global` TUN plus remote SOCKS transit through `ali-cloud` was intentionally abandoned and cleaned up the same day. Although DNS was made to work, the TUN->remote-SOCKS combination proved unstable for general HTTPS traffic (including Docker/GitHub paths) and should not be revived casually without redesigning the remote ingress protocol.
 - 2026-04-06: Deployed `prompt-optimizer-studio` onto `self-server-44005` (`host185`) as a self-hosted Docker Compose application. Because direct `git clone` and GHCR-based bootstrap paths were flaky from the host's shell path, source was fetched on the better-connected OpenClaw side, copied to `/opt/prompt-optimizer-studio`, and built locally on the target host. Final public exposure was intentionally trimmed to `30001/tcp` only (container `3000`), with persistent app data stored under `/opt/prompt-optimizer-studio/data`; `/api/health` returned `200 OK` after deployment.
+- 2026-04-08: Implemented FRPS on `self-server-44005` (`host185`) via Docker Compose at `/opt/frps-44005`. Listener ports:
+  - `30009/tcp` (frps bind)
+  - `30010/tcp` (dashboard; BasicAuth enabled)
+  Firewall normalization on the same day:
+  - removed stale `30007/tcp -> 9090/tcp` forward rule
+  - removed stale public `9090/tcp` open
+  - removed unused public opens `30003-30007/tcp` (can be re-enabled selectively when specific home services are mapped)
+  Resulting steady public opens on this VM: `22/tcp`, `80/tcp`, `443/tcp`, `30001/tcp`, `30008/tcp`, `30009/tcp`, `30010/tcp`.
+  Credential note: FRPS uses token auth and dashboard BasicAuth; secrets are stored on-host in the FRP config and are intentionally not recorded in `infra/`.

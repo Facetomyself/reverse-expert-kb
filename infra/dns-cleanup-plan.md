@@ -56,7 +56,7 @@ Reason:
 These are likely stale or uncertain, but should be explicitly confirmed before editing DNS.
 
 ### `backup.zhangxuemin.work`
-- **Current status**: points to `oracle-docker-proxy`, but current Caddy mapping not confirmed
+- **Current status**: points to `oracle-gateway`; treat this host as the canonical gateway identity in current docs
 - **Action**: confirm whether it still has any real use
 - **If no known use**: mark for deletion
 
