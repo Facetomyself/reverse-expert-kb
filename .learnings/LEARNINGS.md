@@ -43,6 +43,29 @@ Docker build fails on Apple Silicon due to platform mismatch
 
 ---
 
+## [LRN-20260408-001] correction
+
+**Logged**: 2026-04-08T13:50:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Do not default FRP relay mappings to SSH when the user asked for business-service ports.
+
+### Details
+In the FRPS relay follow-up for `self-server-44005`, I initially treated `30002`/`30003` as SSH exposure for `home-macmini` and `home-nas` because SSH was already easy to verify. The user corrected this: the intended public mappings were business ports, specifically ComfyUI on the Mac and the Synology DSM WebUI on the NAS, while SSH should continue over Tailscale only.
+
+### Suggested Action
+When continuing prior infra work, verify the intended service targets before freezing public port mappings in docs. If the user mentions application names (for example ComfyUI / DSM WebUI), prefer confirming local listening ports and service responses rather than assuming SSH.
+
+### Metadata
+- Source: user_feedback
+- Related Files: infra/hosts/self-server/projects/frps-relay-plan.md, infra/hosts/self-server/NETWORK.md
+- Tags: frp, correction, infra, service-mapping
+
+---
+
 ## [LRN-20260314-001] correction
 
 **Logged**: 2026-03-14T15:48:00+08:00

@@ -44,15 +44,17 @@ Rollout result on 2026-04-08:
 
 Validated live state on 2026-04-08 later the same day:
 - `frps` process is actively listening on `30009` and `30010`
-- published proxy listeners are already active on:
-  - `30002/tcp` -> `home-macmini` SSH (`frpc` running from `/Users/mengma/frp/frpc.toml`)
-  - `30003/tcp` -> `home-nas` SSH (`frpc` running from `/usr/local/etc/frpc-nas.toml`)
-- from `ali-cloud`, public TCP connect checks to `211.144.221.229:30002`, `:30003`, `:30009`, and `:30010` all succeeded
-- `ssh-keyscan` via `ali-cloud` confirmed `30002` and `30003` are exposing real SSH daemons behind FRP rather than just open sockets
+- published proxy listeners were first brought up as temporary SSH mappings for validation, then repointed to the actual desired business services
+- final confirmed active mappings after correction:
+  - `30002/tcp` -> `home-macmini` ComfyUI on local `127.0.0.1:8188` (`frpc` config at `/Users/mengma/frp/frpc.toml`)
+  - `30003/tcp` -> `home-nas` DSM WebUI on local `127.0.0.1:5000` (`frpc` config at `/usr/local/etc/frpc-nas.toml`)
+- from `ali-cloud`, public checks confirmed:
+  - `http://211.144.221.229:30002/` returns the ComfyUI HTML entry page
+  - `http://211.144.221.229:30003/` returns the Synology HTTP entry page that redirects toward HTTPS
 - current `firewalld` public opens on `:44005` are therefore effectively: `22/80/443`, `30001`, `30002`, `30003`, `30008`, `30009`, `30010`
 
 Ongoing discipline:
-- treat `30002` and `30003` as now claimed by the active SSH mappings above
+- treat `30002` and `30003` as now claimed by the active business-service mappings above
 - only re-open / reuse `30004-30007` when a specific additional home-side service mapping is decided
 - dashboard on `30010` is BasicAuth-protected, but still consider restricting exposure further if not needed
 
