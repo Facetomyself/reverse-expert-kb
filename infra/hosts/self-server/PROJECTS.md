@@ -70,11 +70,32 @@ Current shape is noticeably heavier and contains more development residue / oper
 - validated after cutover: `docker pull hello-world` and `docker pull coredns/coredns:latest` both succeeded
 
 ### `host185` / `:44005`
-- treat as the cleaner `1Panel` rebuild machine
-- future workloads should be reintroduced intentionally from a low-noise baseline
+- updated intent on 2026-04-08: promote this VM from a cleaner `1Panel` rebuild machine into the dedicated `FRPS` relay box for home-lab exposure
+- expected long-lived projects on this VM after repurpose:
+  - `1Panel`
+  - `prompt-optimizer-studio`
+  - `FRPS` relay for `home-macmini` and `home-nas`
+- future workloads should still be introduced intentionally from a low-noise baseline
 - if new projects are added later, document them explicitly rather than letting residue accumulate again
 - keep the same-day stable outbound helper shape in place:
   - local `dnsmasq` on `127.0.0.1:53`
   - upstream DNS to `106.15.239.221#1053`
   - shell/Docker explicit proxying via `ali-cloud`
 - validated after cutover: `docker pull hello-world` and `docker pull coredns/coredns:latest` both succeeded; the discarded transparent `sing-box-global` experiment should not be treated as an active project
+- rollout guidance for the new FRPS role:
+  - reserve `30009/tcp` for the `frps` server port
+  - reserve `30010/tcp` only if the dashboard is explicitly needed; prefer loopback-only or disabled
+  - use `30002-30007/tcp` as the main externally published service pool for `frpc` clients from `home-macmini` / `home-nas`
+  - keep `30001/tcp` for `prompt-optimizer-studio` and `30008/tcp` for `1Panel`
+  - remove stale firewall exposure related to old `9090` / `30007 -> 9090` forwarding before reusing `30007`
+
+#### Active project added on 2026-04-06: Prompt Optimizer Studio
+- deployment path: `/opt/prompt-optimizer-studio`
+- runtime shape: Docker Compose local source build on host `host185`
+- public port: `30001 -> container 3000`
+- storage path: `/opt/prompt-optimizer-studio/data` mounted to `/app/data`
+- service/container name shape: `prompt-optimizer-studio-app-1`
+- health check: `GET /api/health`
+- update path: refresh source tree on a better-connected host if needed, sync to `host185`, then `docker-compose up -d --build`
+- operational note: direct GitHub/GHCR shell access from this host was flaky during bootstrap, but Docker base-image pulls and local source-build deployment succeeded through the established explicit-proxy shape
+- detailed runbook: `infra/hosts/self-server/projects/prompt-optimizer-studio.md`

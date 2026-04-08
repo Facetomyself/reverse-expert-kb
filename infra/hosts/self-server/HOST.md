@@ -53,6 +53,7 @@ Observed on 2026-04-04:
 - Default route: `10.10.21.254`
 - Runtime shape: aggressively reduced toward 1Panel-only; historical `mihomo`, postfix, Docker workloads, most operator tooling residue, and stale 1Panel MySQL application/data residue were removed on 2026-04-04
 - Key remaining listeners after cleanup: `22`, `30008`
+- Additional documented service as of 2026-04-06: `prompt-optimizer-studio` on public `30001`
 - Final same-day outbound shape: local `dnsmasq` on `127.0.0.1:53` with upstream `106.15.239.221#1053`, plus explicit shell/Docker proxying via `ali-cloud` authenticated HTTP/SOCKS proxy ingress (`:2081` / `:2080`)
 
 ## User-confirmed port constraints
@@ -78,18 +79,26 @@ Recorded on 2026-04-04 because public IP / forwarding resources are limited on t
   - do not casually add unrelated long-lived dev environments here
 
 ### `:44005` / `host185`
-- Keep as: near-blank `1Panel` machine
-- Preferred public-use budget: `30001-30010`
-- Current meaningful listeners after cleanup:
+- Updated intent on 2026-04-08: repurpose this VM from a near-blank `1Panel` box into the dedicated `FRPS` relay for home-lab exposure, with `home-macmini` and `home-nas` expected to connect outward via `frpc`
+- Preferred public-use budget remains: `30001-30010`
+- Current meaningful listeners observed on 2026-04-08:
+  - `30001` -> `prompt-optimizer-studio`
   - `30008` -> `1panel-core`
+- Recommended steady-state port map for the FRP role:
+  - `30009/tcp` -> `frps` bind/control port
+  - `30010/tcp` -> `frps` dashboard / admin UI only if intentionally enabled; otherwise prefer loopback-only or disabled entirely
+  - `30002-30007/tcp` -> reserved public proxy payload ports to map selected services from `home-macmini` / `home-nas`
+  - `30001/tcp` -> keep occupied by `prompt-optimizer-studio`
+  - `30008/tcp` -> keep occupied by `1panel-core`
 - Outbound access model:
   - keep local resolver pointed at `127.0.0.1`
   - keep `dnsmasq` forwarding to `ali-cloud:1053`
   - keep shell/Docker on explicit proxy mode through `ali-cloud`
   - do not restore the removed transparent `sing-box-global` experiment from 2026-04-04; it was intentionally abandoned after TUN->remote-SOCKS proved unstable for general HTTPS traffic
-- Cleanup rule:
-  - keep `1Panel` and SSH only unless a new workload is intentionally introduced later
-  - treat this VM as the cleaner rebuild target
+- Role/cleanup rule after the repurpose:
+  - keep `1Panel`, SSH, `prompt-optimizer-studio`, and the new `FRPS` stack
+  - avoid reintroducing unrelated long-lived dev tooling
+  - when exposing home services through FRP, stay strictly inside the `30001-30010` allocation and document every claimed public port
 
 ## Operator guidance
 - Prefer `ali-cloud` as the transit path for routine access from the current OpenClaw environment

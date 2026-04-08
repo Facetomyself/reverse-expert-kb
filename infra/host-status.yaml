@@ -38,6 +38,7 @@ hosts:
       - old mixed registry / Harbor runtime residue was removed on 2026-03-25 so the host can stay focused on gateway duties
       - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.116.171.76`
       - 2026-03-27 validated a reusable but normally-disabled temporary upload pattern on `backup.zhangxuemin.work`: browser Basic Auth popup via Caddy in front of a localhost Python upload backend; route was removed again after transfer and host-side notes remain under `~/.tmp-upload-gateway/`
+      - 2026-04-05 recurring read-only check found an additional temporary public static distribution endpoint on `:18733` (`python3 -m http.server --directory /tmp/hy2dist`), while the older helper backend on `127.0.0.1:18081` still remained local-only
       - currently serves as the main connectivity reference point for tailnet validation against the other hosts
 
   - name: ali-cloud
@@ -105,6 +106,8 @@ hosts:
       - final same-day network shape on both VMs is local `dnsmasq` on `127.0.0.1:53` forwarding to `ali-cloud:1053`, plus shell/Docker explicit proxying through `ali-cloud:2081` / `:2080`; this replaced an unstable experimental transparent TUN path
       - validated foreign-access outcome after the cutover: GitHub/Google worked through the explicit proxy path, and Docker pulls for `hello-world` plus `coredns/coredns:latest` succeeded on both `:44001` and `:44005`
       - password authentication is expected for bootstrap/recovery only, but passwords are intentionally not stored in `infra/`
+      - 2026-04-06 added a new public service on `:44005`: `prompt-optimizer-studio` on `30001/tcp`, deployed from local source build with data persisted under `/opt/prompt-optimizer-studio/data`; extra accidental exposure on `3000/tcp` was later removed the same day so only `30001` remains public
+      - 2026-04-08 read-only validation on `:44005` found actual listeners limited to `22`, `30001`, and `30008`, while `firewalld` still had residual opens for `30003-30007`, `30009`, `30010`, plus a stale `30007 -> 9090` forward rule; current operator intent is to repurpose this VM into the FRPS relay for exposing selected `home-macmini` / `home-nas` services within the documented `30001-30010/tcp` budget
 
   - name: oracle-registry
     provider: oracle

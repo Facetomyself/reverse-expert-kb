@@ -101,12 +101,15 @@ hosts:
     role:
       - china-server
       - prefers-ali-cloud-transit
+      - shared-public-ip-dual-vm
+      - frps-relay-on-44005-planned
     public_ip: 211.144.221.229
     domains: []
     docs:
       host: infra/hosts/self-server/HOST.md
       network: infra/hosts/self-server/NETWORK.md
       projects: infra/hosts/self-server/PROJECTS.md
+      frps_relay_plan: infra/hosts/self-server/projects/frps-relay-plan.md
 
   - name: home
     ssh_alias: home
