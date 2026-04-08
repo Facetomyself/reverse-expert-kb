@@ -1,0 +1,457 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Linux interrupt top half threaded irq tasklet workqueue bottom half docs",
+    "Windows ISR DPC interrupt service routine deferred procedure call official docs",
+    "embedded dma completion interrupt bottom half deferred worker consequence"
+  ],
+  "count": 25,
+  "results": [
+    {
+      "title": "Chapter 8: Bottom Halves and Deferring Work",
+      "url": "https://github.com/firmianay/Life-long-Learner/blob/master/linux-kernel-development/chapter-8.md",
+      "snippet": "In the current three methods that exist for deferring work, tasklets are built on softirqs and work queues are their own subsystem. When the kernel runs a softirq handler, it executes this `action` function with a pointer to the corresponding `softirq_action` structure as its argument. The softirq handlers run with interrupts enabled and cannot sleep.While a handler runs, softirqs on the current processor are disabled.Another processor, however, can execute other softirqs. Because most tasklets and softirqs are marked pending in interrupt handlers, `do_softirq()` most likely runs when the last interrupt returns. Unlike softirqs, however, two of the same tasklets never run concurrently. Work queues defer work into a kernel thread which always runs in process context. To queue a given work's handler function with the default events worker threads, call:. Because softirqs and tasklets can occur asynchronously, kernel code may need to disable them.With work queues, on the other hand, protecting shared data is the same as in any process context.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.72
+    },
+    {
+      "title": "what is the issue if bottom halfs are enabled in the interrupt ...",
+      "url": "https://stackoverflow.com/questions/26909006/what-is-the-issue-if-bottom-halfs-are-enabled-in-the-interrupt-context",
+      "snippet": "If they were inadvertently enabled within interrupt context you could end up with very strange behavior, loss of data, malfunctioning hardware,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.69
+    },
+    {
+      "title": "dpcisr | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/test/wpt/dpcisr",
+      "snippet": "This action produces a text report that summarizes the various metrics regarding deferred procedure calls (DPCs) and interrupt service routines",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "Deferred Procedure Call - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Deferred_Procedure_Call",
+      "snippet": "A Deferred Procedure Call (DPC) is a Microsoft Windows operating system mechanism which allows high-priority tasks (eg an interrupt handler) to defer required",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "Introduction to DPC Objects - Windows drivers - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/introduction-to-dpc-objects",
+      "snippet": "",
+      "published_date": "2025-05-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Guidelines for Writing DPC Routines - Windows drivers",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/guidelines-for-writing-dpc-routines",
+      "snippet": "",
+      "published_date": "2021-12-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Introduction to DPCs - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/introduction-to-dpcs",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Softirq, Tasklets and Workqueues · Linux Inside - 0xax",
+      "url": "https://0xax.gitbooks.io/linux-insides/content/Interrupts/linux-interrupts-9.html",
+      "snippet": "Top half;; Bottom half;. In the past there was one way to defer interrupt handling in Linux kernel. And it was called: the bottom half of the processor, but",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.54
+    },
+    {
+      "title": "deciding what must be in the ISR vs deferred to a task - Reddit",
+      "url": "https://www.reddit.com/r/embedded/comments/1p6aazb/deciding_what_must_be_in_the_isr_vs_deferred_to_a/",
+      "snippet": "",
+      "published_date": "2025-11-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "Deferred work — The Linux Kernel documentation",
+      "url": "https://linux-kernel-labs.github.io/refs/heads/master/labs/deferred_work.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.48
+    },
+    {
+      "title": "Linux Interrupt Handling: Top-Half and Bottom-Half Explained",
+      "url": "https://www.linkedin.com/posts/tushar-vyavahare-251015b2_linuxkernel-interrupts-networking-activity-7394029630938214400-E_KJ",
+      "snippet": "",
+      "published_date": "2025-11-11T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.45
+    },
+    {
+      "title": "The Windows Concept Journey — DPC (Deferred Procedure Call)",
+      "url": "https://medium.com/@boutnaru/the-windows-concept-journey-dpc-deferred-procedure-call-d43dfd35d4ba",
+      "snippet": "Due to the fact ISRs (Interrupt Service Routines) have to finish execution as quickly as possible, kernel code (like drivers) usually defers",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.43
+    },
+    {
+      "title": "Direct Memory Access in Embedded System",
+      "url": "https://medium.com/mala-sina-plocha/direct-memory-access-in-embedded-system-5b9d3fb6df4b",
+      "snippet": "On each firing of the interrupt a context-switching occurs and it results in some overhead. Since this interrupt fires pretty often, it would",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.43
+    },
+    {
+      "title": "Softirqs Tasklets and Bottom Halves - Linux Kernel Reference",
+      "url": "https://www.halolinux.us/kernel-reference/softirqs-tasklets-and-bottom-halves.html",
+      "snippet": "",
+      "published_date": "2023-05-26T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.42
+    },
+    {
+      "title": "Understanding Deferred Procedure Calls (DPCs) for Windows ...",
+      "url": "https://medium.com/@WaterBucket/understanding-deferred-procedure-calls-dpcs-in-windows-ecd138292883",
+      "snippet": "",
+      "published_date": "2025-03-01T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Linux Bottom Half",
+      "url": "https://thinkty.net/general/2024/04/29/bottom_half.html",
+      "snippet": "",
+      "published_date": "2024-04-29T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.39
+    },
+    {
+      "title": "[PDF] 1 Hardware interrupts, tasklets and workqueues",
+      "url": "https://www.cs.otago.ac.nz/cosc440/labs/lab08.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.39
+    },
+    {
+      "title": "10.4. Top and Bottom Halves",
+      "url": "https://makelinux.net/ldd3/chp-10-sect-4.shtml",
+      "snippet": "",
+      "published_date": "2008-04-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "Deferred Procedure Call (DPC) - Geoff Chappell, Software Analyst",
+      "url": "https://www.geoffchappell.com/studies/windows/km/ntoskrnl/api/ke/dpcobj/index.htm",
+      "snippet": "Execution can be interrupted by code that runs at a higher IRQL. However, the higher the IRQL the more restricted is the execution.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Chapter 7. Bottom Halves and Deferring Work - Litux",
+      "url": "https://litux.nl/mirror/kerneldevelopment/0672327201/ch07.html",
+      "snippet": "Interrupt handlers run with the current interrupt level disabled at best (if SA_INTERRUPT is unset), and at worst (if SA_INTERRUPT is set) with all interrupts",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Solved: Why DMA half transfer and transfer complete interr...",
+      "url": "https://community.st.com/t5/stm32cubemx-mcus/why-dma-half-transfer-and-transfer-complete-interrupts-cannot-be/td-p/614022",
+      "snippet": "Using DMA1 channel 1, copy the data collected by the ADC during half transfer interrupts and transfer complete interrupts.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "Bottom Halves in Linux Device Drivers - embitude.in",
+      "url": "https://embitude.in/bottom-halves-in-linux-device-drivers/",
+      "snippet": "",
+      "published_date": "2025-10-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "Softirqs - Linux Kernel Internals",
+      "url": "https://kernel-internals.org/interrupts/softirq/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "DMA and Interrupt Handling | zephyrproject-rtos/zephyr | DeepWiki",
+      "url": "https://deepwiki.com/zephyrproject-rtos/zephyr/5.4-dma-and-interrupt-handling",
+      "snippet": "",
+      "published_date": "2026-02-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "What are DPCs and Why Do They Matter? - FlexRadio",
+      "url": "https://helpdesk.flexradio.com/hc/en-us/articles/202118398-What-are-DPCs-and-Why-Do-They-Matter",
+      "snippet": "",
+      "published_date": "2026-03-19T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Linux Bottom Half",
+        "url": "https://thinkty.net/general/2024/04/29/bottom_half.html",
+        "snippet": "",
+        "published_date": "2024-04-29T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.39
+      },
+      {
+        "title": "10.4. Top and Bottom Halves",
+        "url": "https://makelinux.net/ldd3/chp-10-sect-4.shtml",
+        "snippet": "",
+        "published_date": "2008-04-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "[PDF] 1 Hardware interrupts, tasklets and workqueues",
+        "url": "https://www.cs.otago.ac.nz/cosc440/labs/lab08.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.39
+      },
+      {
+        "title": "Softirqs Tasklets and Bottom Halves - Linux Kernel Reference",
+        "url": "https://www.halolinux.us/kernel-reference/softirqs-tasklets-and-bottom-halves.html",
+        "snippet": "",
+        "published_date": "2023-05-26T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.42
+      },
+      {
+        "title": "Linux Interrupt Handling: Top-Half and Bottom-Half Explained",
+        "url": "https://www.linkedin.com/posts/tushar-vyavahare-251015b2_linuxkernel-interrupts-networking-activity-7394029630938214400-E_KJ",
+        "snippet": "",
+        "published_date": "2025-11-11T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Introduction to DPC Objects - Windows drivers - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/introduction-to-dpc-objects",
+        "snippet": "",
+        "published_date": "2025-05-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Understanding Deferred Procedure Calls (DPCs) for Windows ...",
+        "url": "https://medium.com/@WaterBucket/understanding-deferred-procedure-calls-dpcs-in-windows-ecd138292883",
+        "snippet": "",
+        "published_date": "2025-03-01T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Guidelines for Writing DPC Routines - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/guidelines-for-writing-dpc-routines",
+        "snippet": "",
+        "published_date": "2021-12-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "What are DPCs and Why Do They Matter? - FlexRadio",
+        "url": "https://helpdesk.flexradio.com/hc/en-us/articles/202118398-What-are-DPCs-and-Why-Do-They-Matter",
+        "snippet": "",
+        "published_date": "2026-03-19T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Introduction to DPCs - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/introduction-to-dpcs",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "deciding what must be in the ISR vs deferred to a task - Reddit",
+        "url": "https://www.reddit.com/r/embedded/comments/1p6aazb/deciding_what_must_be_in_the_isr_vs_deferred_to_a/",
+        "snippet": "",
+        "published_date": "2025-11-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5
+      },
+      {
+        "title": "Bottom Halves in Linux Device Drivers - embitude.in",
+        "url": "https://embitude.in/bottom-halves-in-linux-device-drivers/",
+        "snippet": "",
+        "published_date": "2025-10-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "Deferred work — The Linux Kernel documentation",
+        "url": "https://linux-kernel-labs.github.io/refs/heads/master/labs/deferred_work.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.48
+      },
+      {
+        "title": "DMA and Interrupt Handling | zephyrproject-rtos/zephyr | DeepWiki",
+        "url": "https://deepwiki.com/zephyrproject-rtos/zephyr/5.4-dma-and-interrupt-handling",
+        "snippet": "",
+        "published_date": "2026-02-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Softirqs - Linux Kernel Internals",
+        "url": "https://kernel-internals.org/interrupts/softirq/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.36
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Linux Interrupt Handling: Top-Half and Bottom-Half Explained",
+        "url": "https://www.linkedin.com/posts/tushar-vyavahare-251015b2_linuxkernel-interrupts-networking-activity-7394029630938214400-E_KJ",
+        "snippet": "🧵 Tasklets — Light and Fast Used for quick and simple deferred work Run in interrupt context (⚠️ can’t sleep or block) Built on top of SoftIRQs ✅ Great when you just need speed without complexity ⚡ SoftIRQs — High-Performance, Low-Level Used internally by the kernel (e.g., networking, disk I/O) Can run on multiple CPUs at once Faster than tasklets, but more complex ❌ Still can’t sleep or block ✅ Designed for speed and scalability 🧰 Workqueues — Flexible and Powerful Run in process context (not interrupt context) ✅ Can sleep, use mutexes, and perform file I/O Ideal for complex, blocking, or long-running tasks 💡 Example: Logging to a file, waiting for hardware, or processing large data 📦 Recap Linux handles interrupts smartly by splitting the work: 🔼 Top Half → Fast response to the interrupt 🔽 Bottom Half → Actual processing done safely using: Tasklets → simple SoftIRQs → fast & advanced Workqueues → flexible & safe 💡 Why This Matters This design ensures your system stays: ✅ Fast ✅ Stable ✅ Responsive — even when many devices demand attention at the same time #Linux #Kernel #Interrupts #EmbeddedSystems #LinuxProgramming #DeviceDrivers #OperatingSystems #SoftIRQ #Workqueue.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Softirq, Tasklets and Workqueues · Linux Inside - 0xax",
+        "url": "https://0xax.gitbooks.io/linux-insides/content/Interrupts/linux-interrupts-9.html",
+        "snippet": "Top half;; Bottom half;. In the past there was one way to defer interrupt handling in Linux kernel. And it was called: the bottom half of the processor, but",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.54
+      },
+      {
+        "title": "Chapter 8: Bottom Halves and Deferring Work",
+        "url": "https://github.com/firmianay/Life-long-Learner/blob/master/linux-kernel-development/chapter-8.md",
+        "snippet": "In the current three methods that exist for deferring work, tasklets are built on softirqs and work queues are their own subsystem. When the kernel runs a softirq handler, it executes this `action` function with a pointer to the corresponding `softirq_action` structure as its argument. The softirq handlers run with interrupts enabled and cannot sleep.While a handler runs, softirqs on the current processor are disabled.Another processor, however, can execute other softirqs. Because most tasklets and softirqs are marked pending in interrupt handlers, `do_softirq()` most likely runs when the last interrupt returns. Unlike softirqs, however, two of the same tasklets never run concurrently. Work queues defer work into a kernel thread which always runs in process context. To queue a given work's handler function with the default events worker threads, call:. Because softirqs and tasklets can occur asynchronously, kernel code may need to disable them.With work queues, on the other hand, protecting shared data is the same as in any process context.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.72
+      },
+      {
+        "title": "1 Hardware interrupts, tasklets and workqueues",
+        "url": "https://www.cs.otago.ac.nz/cosc440/labs/lab08.pdf",
+        "snippet": "Basically the top half itself is the interrupt handler. The bottom half does the rest of the processing that has been deferred, which can be time consuming, or",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Linux Bottom Half",
+        "url": "https://thinkty.net/general/2024/04/29/bottom_half.html",
+        "snippet": "In Linux, there are several mechanisms to implement the bottom half (or deferred work): threaded interrupt handlers (threadedirq), workqueues, softirqs, and",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "The Windows Concept Journey — DPC (Deferred Procedure Call)",
+        "url": "https://medium.com/@boutnaru/the-windows-concept-journey-dpc-deferred-procedure-call-d43dfd35d4ba",
+        "snippet": "Due to the fact ISRs (Interrupt Service Routines) have to finish execution as quickly as possible, kernel code (like drivers) usually defers",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.43
+      },
+      {
+        "title": "dpcisr | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/test/wpt/dpcisr",
+        "snippet": "This action produces a text report that summarizes the various metrics regarding deferred procedure calls (DPCs) and interrupt service routines",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "Deferred Procedure Call (DPC) - Geoff Chappell, Software Analyst",
+        "url": "https://www.geoffchappell.com/studies/windows/km/ntoskrnl/api/ke/dpcobj/index.htm",
+        "snippet": "Execution can be interrupted by code that runs at a higher IRQL. However, the higher the IRQL the more restricted is the execution.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "Deferred Procedure Call - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Deferred_Procedure_Call",
+        "snippet": "A Deferred Procedure Call (DPC) is a Microsoft Windows operating system mechanism which allows high-priority tasks (eg an interrupt handler) to defer required",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "Understanding Deferred Procedure Calls (DPCs) for Windows ...",
+        "url": "https://medium.com/@WaterBucket/understanding-deferred-procedure-calls-dpcs-in-windows-ecd138292883",
+        "snippet": "DPCs are a mechanism that allows code running at a high interrupt request level (IRQL) to defer execution of lower-priority work until the processor returns to",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Chapter 7. Bottom Halves and Deferring Work - Litux",
+        "url": "https://litux.nl/mirror/kerneldevelopment/0672327201/ch07.html",
+        "snippet": "Interrupt handlers run with the current interrupt level disabled at best (if SA_INTERRUPT is unset), and at worst (if SA_INTERRUPT is set) with all interrupts",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "Chapter 8: Bottom Halves and Deferring Work",
+        "url": "https://github.com/firmianay/Life-long-Learner/blob/master/linux-kernel-development/chapter-8.md",
+        "snippet": "In the current three methods that exist for deferring work, tasklets are built on softirqs and work queues are their own subsystem. When the kernel runs a softirq handler, it executes this `action` function with a pointer to the corresponding `softirq_action` structure as its argument. The softirq handlers run with interrupts enabled and cannot sleep.While a handler runs, softirqs on the current processor are disabled.Another processor, however, can execute other softirqs. Because most tasklets and softirqs are marked pending in interrupt handlers, `do_softirq()` most likely runs when the last interrupt returns. Unlike softirqs, however, two of the same tasklets never run concurrently. Work queues defer work into a kernel thread which always runs in process context. To queue a given work's handler function with the default events worker threads, call:. Because softirqs and tasklets can occur asynchronously, kernel code may need to disable them.With work queues, on the other hand, protecting shared data is the same as in any process context.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Direct Memory Access in Embedded System",
+        "url": "https://medium.com/mala-sina-plocha/direct-memory-access-in-embedded-system-5b9d3fb6df4b",
+        "snippet": "On each firing of the interrupt a context-switching occurs and it results in some overhead. Since this interrupt fires pretty often, it would",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.43
+      },
+      {
+        "title": "what is the issue if bottom halfs are enabled in the interrupt ...",
+        "url": "https://stackoverflow.com/questions/26909006/what-is-the-issue-if-bottom-halfs-are-enabled-in-the-interrupt-context",
+        "snippet": "If they were inadvertently enabled within interrupt context you could end up with very strange behavior, loss of data, malfunctioning hardware,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.69
+      },
+      {
+        "title": "Solved: Why DMA half transfer and transfer complete interr...",
+        "url": "https://community.st.com/t5/stm32cubemx-mcus/why-dma-half-transfer-and-transfer-complete-interrupts-cannot-be/td-p/614022",
+        "snippet": "Using DMA1 channel 1, copy the data collected by the ADC during half transfer interrupts and transfer complete interrupts.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      }
+    ],
+    "grok": []
+  }
+}
