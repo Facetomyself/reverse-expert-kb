@@ -149,43 +149,63 @@ def project_runtime_status(project, docker_entry, systemd_entry, drift_entry):
     expected_containers = set(match.get('containers') or [])
     expected_services = set(match.get('systemd') or [])
     expected_compose = set(match.get('compose_paths') or [])
+    infra_only = bool(match.get('infra_only'))
 
-    hits = []
-    misses = []
-    if expected_containers:
-        found = sorted(expected_containers & containers)
-        missing = sorted(expected_containers - containers)
-        if found:
-            hits.append(f"容器 {', '.join(found)}")
-        if missing:
-            misses.append(f"缺容器 {', '.join(missing)}")
-    if expected_services:
-        found = sorted(expected_services & services)
-        missing = sorted(expected_services - services)
-        if found:
-            hits.append(f"服务 {', '.join(found)}")
-        if missing:
-            misses.append(f"缺服务 {', '.join(missing)}")
-    if expected_compose:
-        found = sorted(expected_compose & compose_files)
-        missing = sorted(expected_compose - compose_files)
-        if found:
-            hits.append(f"编排 {', '.join(found)}")
-        if missing:
-            misses.append(f"缺编排 {', '.join(missing)}")
+    runtime_hits = []
+    runtime_misses = []
+    drift_notes = []
+
+    found_containers = sorted(expected_containers & containers)
+    missing_containers = sorted(expected_containers - containers)
+    found_services = sorted(expected_services & services)
+    missing_services = sorted(expected_services - services)
+    found_compose = sorted(expected_compose & compose_files)
+    missing_compose = sorted(expected_compose - compose_files)
+
+    if found_containers:
+        runtime_hits.append(f"容器 {', '.join(found_containers)}")
+    if missing_containers:
+        runtime_misses.append(f"缺容器 {', '.join(missing_containers)}")
+
+    if found_services:
+        runtime_hits.append(f"服务 {', '.join(found_services)}")
+    if missing_services:
+        runtime_misses.append(f"缺服务 {', '.join(missing_services)}")
+
+    if found_compose:
+        drift_notes.append(f"编排 {', '.join(found_compose)}")
+    if missing_compose:
+        drift_notes.append(f"编排漂移 {', '.join(missing_compose)}")
 
     status = 'unknown'
-    if hits and not misses:
-        status = 'up'
-    elif hits and misses:
-        status = 'partial'
-    elif misses:
-        status = 'down'
-
     if match.get('status') in ('archive', 'retired'):
         status = 'retired'
+    else:
+        has_runtime_expectation = bool(expected_containers or expected_services)
+        has_runtime_hits = bool(runtime_hits)
+        has_runtime_misses = bool(runtime_misses)
 
-    return status, hits, misses
+        if has_runtime_expectation:
+            if has_runtime_hits and not has_runtime_misses:
+                status = 'up'
+            elif has_runtime_hits and has_runtime_misses:
+                status = 'partial'
+            elif has_runtime_misses:
+                status = 'down'
+            elif drift_notes and not infra_only:
+                status = 'partial'
+        else:
+            if found_compose and not missing_compose:
+                status = 'up'
+            elif found_compose and missing_compose:
+                status = 'partial'
+            elif missing_compose and not infra_only:
+                status = 'partial'
+            elif infra_only and (found_services or found_containers):
+                status = 'up'
+
+    details = runtime_hits + runtime_misses + drift_notes
+    return status, details
 
 
 def project_status_emoji(status):
@@ -274,9 +294,9 @@ def render_message(day_str, state, hosts, history):
         if documented_projects:
             lines.append('  - 已登记项目:')
             for project in documented_projects:
-                status, hits, misses = project_runtime_status(project, docker_entry, systemd_entry, drift_entry)
+                status, details = project_runtime_status(project, docker_entry, systemd_entry, drift_entry)
                 pe = project_status_emoji(status)
-                detail = '; '.join((hits + misses)[:2]) if (hits or misses) else '暂无足够运行态样本'
+                detail = '; '.join(details[:3]) if details else '暂无足够运行态样本'
                 lines.append(f"    - {pe} {project.get('name')}: {detail}")
         else:
             lines.append('  - 已登记项目: 无')
