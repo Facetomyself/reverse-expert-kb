@@ -1,0 +1,421 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "RFC 6455 opening handshake frames masking first application consumer WebSocket",
+    "WebSocket client onopen message event framing MDN official docs",
+    "libwebsockets callback receive data first framed consumer official docs"
+  ],
+  "count": 21,
+  "results": [
+    {
+      "title": "WebSocket",
+      "url": "https://en.wikipedia.org/wiki/WebSocket",
+      "snippet": "The WebSocket protocol enables full-duplex#Full_duplex \"Duplex (telecommunications)\") interaction between a web browser (or other client \"Client (computing)\") application) and a web server with lower overhead than half-duplex alternatives such as HTTP polling \"Polling (computer science)\"), facilitating real-time data transfer from and to the server. HTTP and WebSocket clients can connect to a server using the same port because the opening handshake uses HTTP. | Sec-WebSocket-Protocol | The request may contain a comma-separated list of strings (ordered by preference) indicating application-level protocols (built on top of WebSocket data messages) the client wishes to use. GET/chat HTTP/1.1 Host:server.example.com Upgrade: websocket Connection: UpgradeSec-WebSocket-Key:dGhlIHNhbXBsZSBub25jZQ== Origin:http://example.comSec-WebSocket-Protocol:chat, superchatSec-WebSocket-Version: 13. join([b\"HTTP/1.1 101 Switching Protocols\", b\"Connection: Upgrade\", b\"Upgrade: websocket\", b\"Sec-WebSocket-Accept: \" + sec_accept, b \"\", b \"\",])) # Decode and print frames while True: byte0, byte1 = conn. WebSocket protocol client implementations try to detect whether the user agent is configured to use a proxy when connecting to destination host and port, and if it is, uses HTTP CONNECT method to set up a persistent tunnel.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "RFC 6455 - The WebSocket Protocol",
+      "url": "https://datatracker.ietf.org/doc/html/rfc6455",
+      "snippet": "RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 2]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 3]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 7]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 8]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 15]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 16]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 17]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 18]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 19]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 23]. The WebSocket Connection Close CodeFette & Melnikov Standards Track [Page 42]. Registration of the \"WebSocket\" HTTP Upgrade KeywordFette & Melnikov Standards Track [Page 56].",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.69
+    },
+    {
+      "title": "receive ping callback? · Issue #663 · warmcat/libwebsockets - GitHub",
+      "url": "https://github.com/warmcat/libwebsockets/issues/663",
+      "snippet": "It appears that there's a callback ( LWS_CALLBACK_RECEIVE_PONG ) invoked when PONG frames are received by the client however there is not,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "WebSocket: message event - Web APIs | MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/message_event",
+      "snippet": "",
+      "published_date": "2025-05-02T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.63
+    },
+    {
+      "title": "WebSocket: open event - Web APIs | MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/open_event",
+      "snippet": "",
+      "published_date": "2025-05-02T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.63
+    },
+    {
+      "title": "WebSocket - Web APIs | MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket",
+      "snippet": "",
+      "published_date": "2024-09-25T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.63
+    },
+    {
+      "title": "Understanding WebSocket - kilabit.info",
+      "url": "https://kilabit.info/websocket/understanding/",
+      "snippet": "The WebSocket protocol, as defined in RFC 6455, is TCP based protocol to allow client, commonly web browser, to open connection to server as long as they want. Each request for asking whether Y have new message require opening new connection, sending HTTP GET, and closing the connection. Instead of continuous request, the client identify itself when creating new connection to the server, and when new message receive to that user, the server than send the message directly. In WebSocket, each data, whether its part of file or part of message, is \"wrapped\" inside the format called frame. The binary or text frame can be split into multiple frames, which is called fragmentation, where client or server can sent/receive them one-by-one in order through WebSocket connection. After the connection has been established, client then send the HTTP GET request to server to communicate which version and sub-protocol that both can agree on. The WebSocket protocol allow long-lived connection between client and server either inside a web application or system application.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.48
+    },
+    {
+      "title": "WebSocket Protocol: RFC 6455 Handshake, Frames & More",
+      "url": "https://websocket.org/guides/websocket-protocol/",
+      "snippet": "",
+      "published_date": "2024-09-02T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.45
+    },
+    {
+      "title": "4. Opening Handshake | RFCinfo",
+      "url": "https://rfcinfo.com/rfc-6455/OpeningHandshake",
+      "snippet": "",
+      "published_date": "2026-02-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "WebSocket Handshake: HTTP Upgrade at Protocol Level | WebSocket.org",
+      "url": "https://www.websocket.org/reference/handshake/",
+      "snippet": "",
+      "published_date": "2026-03-28T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "A Deep Dive into WebSocket: Mechanisms, Usage, and Protocol ...",
+      "url": "https://zenn.dev/mima_ita/articles/1cfc28411a8266?locale=en",
+      "snippet": "",
+      "published_date": "2025-12-03T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.33
+    },
+    {
+      "title": "5. Data Framing | RFCinfo",
+      "url": "https://rfcinfo.com/rfc-6455/DataFraming/",
+      "snippet": "",
+      "published_date": "2026-02-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "WebSocket: message event - Web APIs | MDN",
+      "url": "https://mdn2.netlify.app/en-us/docs/web/api/websocket/message_event/",
+      "snippet": "",
+      "published_date": "2022-01-13T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.33
+    },
+    {
+      "title": "WebSocket: message event - 网络 API - MDN Web 中文网",
+      "url": "https://web.nodejs.cn/en-us/docs/Web/API/WebSocket/message_event",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "WebSocket Web APIs MDN - St. John Junior College",
+      "url": "https://www.sjjc.edu.in/websocket-web-apis-mdn/",
+      "snippet": "The event, which is raised once the connection is established, is called the onopen. All you have to do is call the WebSocket constructor and pass in the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "User Callback - libwebsockets",
+      "url": "https://libwebsockets.org/lws-api-doc-main/html/group__usercb.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.33
+    },
+    {
+      "title": "LibWebSocket API - Documentation - AENet",
+      "url": "https://aenet.fr.nf/article.php?id=libwebsocket-api",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.33
+    },
+    {
+      "title": "libwebsockets: Callback when writeable",
+      "url": "https://libwebsockets.org/lws-api-doc-main/html/group__callback-when-writeable.html",
+      "snippet": "",
+      "published_date": "2025-09-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "libwebsockets-api-doc.html · v2.0.1 - GitLab",
+      "url": "https://dev.iopsys.eu/fork/libwebsockets/-/blob/v2.0.1/libwebsockets-api-doc.html",
+      "snippet": "",
+      "published_date": "2016-05-06T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.33
+    },
+    {
+      "title": "libwebsockets: include/libwebsockets/lws-callbacks.h Source File",
+      "url": "https://libwebsockets.org/lws-api-doc-main/html/lws-callbacks_8h_source.html",
+      "snippet": "",
+      "published_date": "2025-05-14T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Notes about coding with lws - Libwebsockets",
+      "url": "https://libwebsockets.org/lws-api-doc-main/html/md_READMEs_README_coding.html",
+      "snippet": "Originally lws only supported the \"manual\" method of handling everything in the user callback found in test-server.c / test-server-http.c. Since v2.0, the need for most or all of this manual boilerplate has been eliminated: the protocols[0] http stuff is provided by a generic lib export `lws_callback_http_dummy()`. You should only send data on a websocket connection from the user callback `LWS_CALLBACK_SERVER_WRITEABLE` (or `LWS_CALLBACK_CLIENT_WRITEABLE` for clients). When the wake is handled by the lws event loop thread, it will broadcast a `LWS_CALLBACK_EVENT_WAIT_CANCELLED` message to every vhost-protocol instantiation, so you can handle this callback, usually lock a shared data region, and if you see you need to write, call `lws_callback_on_writable()` for the wsi(s) that need to write. However if you set the info.ssl\\_info\\_event\\_mask to nonzero (ie, set some of the bits in it like `SSL_CB_ALERT` at vhost creation time, then connections to that vhost will call back using LWS\\_CALLBACK\\_SSL\\_INFO for the wsi, and the `in` parameter will be pointing to a struct of related args:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "WebSocket Protocol: RFC 6455 Handshake, Frames & More",
+        "url": "https://websocket.org/guides/websocket-protocol/",
+        "snippet": "",
+        "published_date": "2024-09-02T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.45
+      },
+      {
+        "title": "4. Opening Handshake | RFCinfo",
+        "url": "https://rfcinfo.com/rfc-6455/OpeningHandshake",
+        "snippet": "",
+        "published_date": "2026-02-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "WebSocket Handshake: HTTP Upgrade at Protocol Level | WebSocket.org",
+        "url": "https://www.websocket.org/reference/handshake/",
+        "snippet": "",
+        "published_date": "2026-03-28T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "A Deep Dive into WebSocket: Mechanisms, Usage, and Protocol ...",
+        "url": "https://zenn.dev/mima_ita/articles/1cfc28411a8266?locale=en",
+        "snippet": "",
+        "published_date": "2025-12-03T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.33
+      },
+      {
+        "title": "5. Data Framing | RFCinfo",
+        "url": "https://rfcinfo.com/rfc-6455/DataFraming/",
+        "snippet": "",
+        "published_date": "2026-02-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "WebSocket: message event - Web APIs | MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/message_event",
+        "snippet": "",
+        "published_date": "2025-05-02T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.63
+      },
+      {
+        "title": "WebSocket: open event - Web APIs | MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/open_event",
+        "snippet": "",
+        "published_date": "2025-05-02T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.63
+      },
+      {
+        "title": "WebSocket: message event - Web APIs | MDN",
+        "url": "https://mdn2.netlify.app/en-us/docs/web/api/websocket/message_event/",
+        "snippet": "",
+        "published_date": "2022-01-13T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.33
+      },
+      {
+        "title": "WebSocket - Web APIs | MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket",
+        "snippet": "",
+        "published_date": "2024-09-25T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.63
+      },
+      {
+        "title": "WebSocket: message event - 网络 API - MDN Web 中文网",
+        "url": "https://web.nodejs.cn/en-us/docs/Web/API/WebSocket/message_event",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "User Callback - libwebsockets",
+        "url": "https://libwebsockets.org/lws-api-doc-main/html/group__usercb.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.33
+      },
+      {
+        "title": "LibWebSocket API - Documentation - AENet",
+        "url": "https://aenet.fr.nf/article.php?id=libwebsocket-api",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.33
+      },
+      {
+        "title": "libwebsockets: Callback when writeable",
+        "url": "https://libwebsockets.org/lws-api-doc-main/html/group__callback-when-writeable.html",
+        "snippet": "",
+        "published_date": "2025-09-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "libwebsockets-api-doc.html · v2.0.1 - GitLab",
+        "url": "https://dev.iopsys.eu/fork/libwebsockets/-/blob/v2.0.1/libwebsockets-api-doc.html",
+        "snippet": "",
+        "published_date": "2016-05-06T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.33
+      },
+      {
+        "title": "libwebsockets: include/libwebsockets/lws-callbacks.h Source File",
+        "url": "https://libwebsockets.org/lws-api-doc-main/html/lws-callbacks_8h_source.html",
+        "snippet": "",
+        "published_date": "2025-05-14T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      }
+    ],
+    "tavily": [
+      {
+        "title": "WebSocket Protocol: RFC 6455 Handshake, Frames & More",
+        "url": "https://websocket.org/guides/websocket-protocol/",
+        "snippet": "# WebSocket Protocol: RFC 6455 Handshake, Frames & More. In a nutshell, the base WebSocket protocol consists of an opening handshake (upgrading the connection from HTTP to WebSockets), followed by data transfer. After the client and server successfully negotiate the opening handshake, the WebSocket connection acts as a persistent full-duplex communication channel where each side can, independently, send data at will. The server, if it supports the WebSocket protocol and is willing to establish a connection with the client, responds with a WebSocket handshake response. 2. The client sends an Extended CONNECT request with `:protocol = websocket`. // Client-side HTTP/2 WebSocket connection. Once the WebSocket connection is established, the client and server can send WebSocket data frames back and forth in either direction. Control frames are used for protocol-level signaling within the WebSocket connection. ### Why are WebSocket frames masked from client to server? Section titled “Why are WebSocket frames masked from client to server?”.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Understanding WebSocket - kilabit.info",
+        "url": "https://kilabit.info/websocket/understanding/",
+        "snippet": "The WebSocket protocol, as defined in RFC 6455, is TCP based protocol to allow client, commonly web browser, to open connection to server as long as they want. Each request for asking whether Y have new message require opening new connection, sending HTTP GET, and closing the connection. Instead of continuous request, the client identify itself when creating new connection to the server, and when new message receive to that user, the server than send the message directly. In WebSocket, each data, whether its part of file or part of message, is \"wrapped\" inside the format called frame. The binary or text frame can be split into multiple frames, which is called fragmentation, where client or server can sent/receive them one-by-one in order through WebSocket connection. After the connection has been established, client then send the HTTP GET request to server to communicate which version and sub-protocol that both can agree on. The WebSocket protocol allow long-lived connection between client and server either inside a web application or system application.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.48
+      },
+      {
+        "title": "A Deep Dive into WebSocket: Mechanisms, Usage, and ...",
+        "url": "https://zenn.dev/mima_ita/articles/1cfc28411a8266?locale=en",
+        "snippet": "The client sets a base64-encoded 16-byte random value, used only once, as the Sec-WebSocket-Key. The server concatenates the string \"258EAFA5-E914-47DA-95CA-C5AB0DC85B11\" to the Sec-WebSocket-Key from the request, calculates the SHA-1 hash for the result, and sets the base64-encoded 20-byte value to Sec-WebSocket-Accept. The Payload Data of all frames sent from the client to the server is masked by the Masking-key. When sending a message from a client to a server, masking must be performed on the Payload Data of the frame. When \"permessage-deflate\" is present in the Sec-WebSocket-Extensions request header during the handshake and is also present in the response header, data compression becomes possible for that WebSocket communication. The following sample code shows implementation examples of a Node.js WebSocket server and client. The server side is designed to send back messages such as ping, pong, fragments, and compressed data depending on the message received. Text, binary, and fragmented messages are sent using the send method on the server side and the send method on the client side.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RFC 6455 - The WebSocket Protocol",
+        "url": "https://datatracker.ietf.org/doc/html/rfc6455",
+        "snippet": "RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 2]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 3]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 7]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 8]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 15]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 16]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 17]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 18]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 19]. RFC 6455 The WebSocket Protocol December 2011Fette & Melnikov Standards Track [Page 23]. The WebSocket Connection Close CodeFette & Melnikov Standards Track [Page 42]. Registration of the \"WebSocket\" HTTP Upgrade KeywordFette & Melnikov Standards Track [Page 56].",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.69
+      },
+      {
+        "title": "WebSocket",
+        "url": "https://en.wikipedia.org/wiki/WebSocket",
+        "snippet": "The WebSocket protocol enables full-duplex#Full_duplex \"Duplex (telecommunications)\") interaction between a web browser (or other client \"Client (computing)\") application) and a web server with lower overhead than half-duplex alternatives such as HTTP polling \"Polling (computer science)\"), facilitating real-time data transfer from and to the server. HTTP and WebSocket clients can connect to a server using the same port because the opening handshake uses HTTP. | Sec-WebSocket-Protocol | The request may contain a comma-separated list of strings (ordered by preference) indicating application-level protocols (built on top of WebSocket data messages) the client wishes to use. GET/chat HTTP/1.1 Host:server.example.com Upgrade: websocket Connection: UpgradeSec-WebSocket-Key:dGhlIHNhbXBsZSBub25jZQ== Origin:http://example.comSec-WebSocket-Protocol:chat, superchatSec-WebSocket-Version: 13. join([b\"HTTP/1.1 101 Switching Protocols\", b\"Connection: Upgrade\", b\"Upgrade: websocket\", b\"Sec-WebSocket-Accept: \" + sec_accept, b \"\", b \"\",])) # Decode and print frames while True: byte0, byte1 = conn. WebSocket protocol client implementations try to detect whether the user agent is configured to use a proxy when connecting to destination host and port, and if it is, uses HTTP CONNECT method to set up a persistent tunnel.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "WebSocket: open event - Web APIs | MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/open_event",
+        "snippet": "Get to know MDN better. # WebSocket: open event. This feature is well established and works across many devices and browser versions. It’s been available across browsers since July 2015. **Note:** This feature is available in Web Workers. The `open` event is fired when a connection with a `WebSocket` is opened. ## In this article. ## Syntax. Use the event name in methods like `addEventListener()`\"), or set an event handler property. ## Event type. ## Examples. const socket = new WebSocket(\"ws://localhost:8080\");. ## Specifications. ## Browser compatibility. Enable JavaScript to view this browser compatibility table. ## Help improve MDN. This page was last modified on May 2, 2025 by MDN contributors. Your blueprint for a better internet. Visit Mozilla Corporation’s not-for-profit parent, the Mozilla Foundation. Portions of this content are ©1998–2026 by individual mozilla.org contributors. Content available under a Creative Commons license.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "WebSocket: message event - Web APIs | MDN",
+        "url": "https://mdn2.netlify.app/en-us/docs/web/api/websocket/message_event/",
+        "snippet": "The message event is fired when data is received through a WebSocket . Syntax. Use the event name in methods like addEventListener() , or set an",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "WebSocket: message event - Web APIs | MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/message_event",
+        "snippet": "The message event is fired when data is received through a WebSocket . In this article. Syntax; Event type; Event properties; Examples",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "WebSocket Web APIs MDN - St. John Junior College",
+        "url": "https://www.sjjc.edu.in/websocket-web-apis-mdn/",
+        "snippet": "The event, which is raised once the connection is established, is called the onopen. All you have to do is call the WebSocket constructor and pass in the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "WebSocket - Web APIs | MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket",
+        "snippet": "Get to know MDN better. # WebSocket. It’s been available across browsers since July 2015. **Note:** This feature is available in Web Workers. The `WebSocket` object provides the API for creating and managing a WebSocket connection to a server, as well as for sending and receiving data on the connection. To construct a `WebSocket`, use the `WebSocket()` constructor. ## Instance properties. The absolute URL of the WebSocket. Fired when a connection with a `WebSocket` is closed. Also available via the `onclose` property. Fired when a connection with a `WebSocket` has been closed because of an error, such as when some data couldn't be sent. Also available via the `onerror` property. Fired when data is received through a `WebSocket`. Also available via the `onmessage` property. Fired when a connection with a `WebSocket` is opened. Also available via the `onopen` property. console.log(\"Message from server \", event.data);. This page was last modified on Sep 25, 2024 by MDN contributors. Content available under a Creative Commons license.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Notes about coding with lws - Libwebsockets",
+        "url": "https://libwebsockets.org/lws-api-doc-main/html/md_READMEs_README_coding.html",
+        "snippet": "Originally lws only supported the \"manual\" method of handling everything in the user callback found in test-server.c / test-server-http.c. Since v2.0, the need for most or all of this manual boilerplate has been eliminated: the protocols[0] http stuff is provided by a generic lib export `lws_callback_http_dummy()`. You should only send data on a websocket connection from the user callback `LWS_CALLBACK_SERVER_WRITEABLE` (or `LWS_CALLBACK_CLIENT_WRITEABLE` for clients). When the wake is handled by the lws event loop thread, it will broadcast a `LWS_CALLBACK_EVENT_WAIT_CANCELLED` message to every vhost-protocol instantiation, so you can handle this callback, usually lock a shared data region, and if you see you need to write, call `lws_callback_on_writable()` for the wsi(s) that need to write. However if you set the info.ssl\\_info\\_event\\_mask to nonzero (ie, set some of the bits in it like `SSL_CB_ALERT` at vhost creation time, then connections to that vhost will call back using LWS\\_CALLBACK\\_SSL\\_INFO for the wsi, and the `in` parameter will be pointing to a struct of related args:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "LibWebSocket API - Documentation - AENet",
+        "url": "https://aenet.fr.nf/article.php?id=libwebsocket-api",
+        "snippet": "The LWS\\_CALLBACK\\_RECEIVE callback handler can use this API to find out if the buffer it has just been given is the last piece of a \"complete packet\" from the client -- when that is the case **libwebsockets\\_remaining\\_packet\\_payload** will return 0. *LWS\\_EXTERN int* **callback** (*struct libwebsocket\\_context \\** **context**, *struct libwebsocket \\** **wsi**, *enum libwebsocket\\_callback\\_reasons* **reason**, *void \\** **user**, *void \\** **in**, *size\\_t* **len**). > if the libwebsockets context was created with the option LWS\\_SERVER\\_OPTION\\_REQUIRE\\_VALID\\_OPENSSL\\_CLIENT\\_CERT, then this callback is generated during OpenSSL verification of the cert sent from the client. > When a client connection is being prepared to start a handshake to a server, each supported extension is checked with protocols[0] callback with this reason, giving the user code a chance to suppress the claim to support that extension by returning non-zero. *LWS\\_EXTERN int* **extension\\_callback** (*struct libwebsocket\\_context \\** **context**, *struct libwebsocket\\_extension \\** **ext**, *struct libwebsocket \\** **wsi**, *enum libwebsocket\\_extension\\_callback\\_reasons* **reason**, *void \\** **user**, *void \\** **in**, *size\\_t* **len**).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "receive ping callback? · Issue #663 · warmcat/libwebsockets - GitHub",
+        "url": "https://github.com/warmcat/libwebsockets/issues/663",
+        "snippet": "It appears that there's a callback ( LWS_CALLBACK_RECEIVE_PONG ) invoked when PONG frames are received by the client however there is not,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "libwebsockets-api-doc.html · v2.0.1 - GitLab",
+        "url": "https://dev.iopsys.eu/fork/libwebsockets/-/blob/v2.0.1/libwebsockets-api-doc.html",
+        "snippet": "... receive callback for incoming frame data received by server or client connections. <p>. You need to call this service function periodically",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "User Callback - libwebsockets",
+        "url": "https://libwebsockets.org/lws-api-doc-main/html/group__usercb.html",
+        "snippet": "| enum | lws\\_callback\\_reasons { LWS\\_CALLBACK\\_PROTOCOL\\_INIT = 27 , LWS\\_CALLBACK\\_PROTOCOL\\_DESTROY = 28 , LWS\\_CALLBACK\\_WSI\\_CREATE = 29 , LWS\\_CALLBACK\\_WSI\\_DESTROY = 30 , LWS\\_CALLBACK\\_WSI\\_TX\\_CREDIT\\_GET = 103 , LWS\\_CALLBACK\\_OPENSSL\\_LOAD\\_EXTRA\\_CLIENT\\_VERIFY\\_CERTS = 21 , LWS\\_CALLBACK\\_OPENSSL\\_LOAD\\_EXTRA\\_SERVER\\_VERIFY\\_CERTS = 22 , LWS\\_CALLBACK\\_OPENSSL\\_PERFORM\\_CLIENT\\_CERT\\_VERIFICATION = 23 , LWS\\_CALLBACK\\_SSL\\_INFO = 67 , LWS\\_CALLBACK\\_OPENSSL\\_PERFORM\\_SERVER\\_CERT\\_VERIFICATION = 58 , LWS\\_CALLBACK\\_SERVER\\_NEW\\_CLIENT\\_INSTANTIATED = 19 , LWS\\_CALLBACK\\_HTTP = 12 , LWS\\_CALLBACK\\_HTTP\\_BODY = 13 , LWS\\_CALLBACK\\_HTTP\\_BODY\\_COMPLETION = 14 , LWS\\_CALLBACK\\_HTTP\\_FILE\\_COMPLETION = 15 , LWS\\_CALLBACK\\_HTTP\\_WRITEABLE = 16 , LWS\\_CALLBACK\\_CLOSED\\_HTTP = 5 , LWS\\_CALLBACK\\_FILTER\\_HTTP\\_CONNECTION = 18 , LWS\\_CALLBACK\\_ADD\\_HEADERS = 53 , LWS\\_CALLBACK\\_VERIFY\\_BASIC\\_AUTHORIZATION = 102 , LWS\\_CALLBACK\\_CHECK\\_ACCESS\\_RIGHTS = 51 , LWS\\_CALLBACK\\_PROCESS\\_HTML = 52 , LWS\\_CALLBACK\\_HTTP\\_BIND\\_PROTOCOL = 49 , LWS\\_CALLBACK\\_HTTP\\_DROP\\_PROTOCOL = 50 , LWS\\_CALLBACK\\_HTTP\\_CONFIRM\\_UPGRADE = 86 , LWS\\_CALLBACK\\_ESTABLISHED\\_CLIENT\\_HTTP = 44 , LWS\\_CALLBACK\\_CLOSED\\_CLIENT\\_HTTP = 45 , LWS\\_CALLBACK\\_RECEIVE\\_CLIENT\\_HTTP\\_READ = 48 , LWS\\_CALLBACK\\_RECEIVE\\_CLIENT\\_HTTP = 46 , LWS\\_CALLBACK\\_COMPLETED\\_CLIENT\\_HTTP = 47 , LWS\\_CALLBACK\\_CLIENT\\_HTTP\\_WRITEABLE = 57 , LWS\\_CALLBACK\\_CLIENT\\_HTTP\\_REDIRECT = 104 , LWS\\_CALLBACK\\_CLIENT\\_HTTP\\_BIND\\_PROTOCOL = 85 , LWS\\_CALLBACK\\_CLIENT\\_HTTP\\_DROP\\_PROTOCOL = 76 , LWS\\_CALLBACK\\_ESTABLISHED = 0 , LWS\\_CALLBACK\\_CLOSED = 4 , LWS\\_CALLBACK\\_SERVER\\_WRITEABLE = 11 , LWS\\_CALLBACK\\_RECEIVE = 6 , LWS\\_CALLBACK\\_RECEIVE\\_PONG = 7 , LWS\\_CALLBACK\\_WS\\_PEER\\_INITIATED\\_CLOSE = 38 , LWS\\_CALLBACK\\_FILTER\\_PROTOCOL\\_CONNECTION = 20 , LWS\\_CALLBACK\\_CONFIRM\\_EXTENSION\\_OKAY = 25 , LWS\\_CALLBACK\\_WS\\_SERVER\\_BIND\\_PROTOCOL = 77 , LWS\\_CALLBACK\\_WS\\_SERVER\\_DROP\\_PROTOCOL = 78 , LWS\\_CALLBACK\\_CLIENT\\_CONNECTION\\_ERROR = 1 , LWS\\_CALLBACK\\_CLIENT\\_FILTER\\_PRE\\_ESTABLISH = 2 , LWS\\_CALLBACK\\_CLIENT\\_ESTABLISHED = 3 , LWS\\_CALLBACK\\_CLIENT\\_CLOSED = 75 , LWS\\_CALLBACK\\_CLIENT\\_APPEND\\_HANDSHAKE\\_HEADER = 24 , LWS\\_CALLBACK\\_CLIENT\\_RECEIVE = 8 , LWS\\_CALLBACK\\_CLIENT\\_RECEIVE\\_PONG = 9 , LWS\\_CALLBACK\\_CLIENT\\_WRITEABLE = 10 , LWS\\_CALLBACK\\_CLIENT\\_CONFIRM\\_EXTENSION\\_SUPPORTED = 26 , LWS\\_CALLBACK\\_WS\\_EXT\\_DEFAULTS = 39 , LWS\\_CALLBACK\\_FILTER\\_NETWORK\\_CONNECTION = 17 , LWS\\_CALLBACK\\_WS\\_CLIENT\\_BIND\\_PROTOCOL = 79 , LWS\\_CALLBACK\\_WS\\_CLIENT\\_DROP\\_PROTOCOL = 80 , LWS\\_CALLBACK\\_GET\\_THREAD\\_ID = 31 , LWS\\_CALLBACK\\_ADD\\_POLL\\_FD = 32 , LWS\\_CALLBACK\\_DEL\\_POLL\\_FD = 33 , LWS\\_CALLBACK\\_CHANGE\\_MODE\\_POLL\\_FD = 34 , LWS\\_CALLBACK\\_LOCK\\_POLL = 35 , LWS\\_CALLBACK\\_UNLOCK\\_POLL = 36 , LWS\\_CALLBACK\\_CGI = 40 , LWS\\_CALLBACK\\_CGI\\_TERMINATED = 41 , LWS\\_CALLBACK\\_CGI\\_STDIN\\_DATA = 42 , LWS\\_CALLBACK\\_CGI\\_STDIN\\_COMPLETED = 43 , LWS\\_CALLBACK\\_CGI\\_PROCESS\\_ATTACH = 70 , LWS\\_CALLBACK\\_SESSION\\_INFO = 54 , LWS\\_CALLBACK\\_GS\\_EVENT = 55 , LWS\\_CALLBACK\\_HTTP\\_PMO = 56 , LWS\\_CALLBACK\\_RAW\\_PROXY\\_CLI\\_RX = 89 , LWS\\_CALLBACK\\_RAW\\_PROXY\\_SRV\\_RX = 90 , LWS\\_CALLBACK\\_RAW\\_PROXY\\_CLI\\_CLOSE = 91 , LWS\\_CALLBACK\\_RAW\\_PROXY\\_SRV\\_CLOSE = 92 , LWS\\_CALLBACK\\_RAW\\_PROXY\\_CLI\\_WRITEABLE = 93 , LWS\\_CALLBACK\\_RAW\\_PROXY\\_SRV\\_WRITEABLE = 94 , LWS\\_CALLBACK\\_RAW\\_PROXY\\_CLI\\_ADOPT = 95 , LWS\\_CALLBACK\\_RAW\\_PROXY\\_SRV\\_ADOPT = 96",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}

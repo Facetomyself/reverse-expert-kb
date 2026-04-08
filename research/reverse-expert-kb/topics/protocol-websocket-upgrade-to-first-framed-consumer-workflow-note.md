@@ -130,6 +130,7 @@ Prefer one earliest recurring frame family with:
 Practical stop rules:
 - do not flatten “first frame seen on wire” into “first meaningful consumer”
 - do not overread browser API `onopen` / client success callbacks as proof of application-level framed ownership
+- do not overread one library/framework receive callback as already-good application ownership if the real question is still which first framed parser/dispatcher/reducer changes behavior
 
 ### Step 4: preserve masking / direction truth
 From RFC 6455:
@@ -149,15 +150,25 @@ Among candidate consumers, prefer the one that:
 Typical minimal proofs include:
 - breakpoint/log on the first opcode/message-type dispatcher after unmasking/deframing
 - compare one connection that stops after handshake with one that receives the first real frame
+- compare a run that reaches `open` / `101 Switching Protocols` only with one that reaches the first `message` / receive callback carrying application payload
 - watch one state variable or consumer queue fed only after the first framed payload is accepted
 
 The aim is not full protocol recovery.
 It is one proof that links handshake acceptance to a first consequence-bearing framed consumer.
 
+A compact compare checklist for this seam is now worth keeping explicit:
+- did the run only prove **Upgrade accepted**?
+- did it prove **first framed traffic** but not yet the first parser/dispatcher that matters?
+- did it prove one framework/library **receive callback** but not yet the first behavior-changing consumer?
+- did it actually prove the first framed consumer that predicts later behavior?
+
+That checklist helps keep handshake success, frame arrival, receive-callback visibility, and first durable consumer truth separate.
+
 ## 6. Practical stop rules this note preserves
-- `Upgrade accepted != framed protocol ownership proved`
-- `wire frame seen != first application-owned framed consumer proved`
+- `Upgrade accepted != first framed traffic proved`
+- `first framed traffic != first application-owned framed consumer proved`
 - `browser/client open callback != first meaningful message consumer`
+- `framework/library receive callback != first behavior-changing framed consumer`
 - `one parseable frame != downstream effect ownership`
 
 ## 7. Sources
