@@ -67,4 +67,9 @@ Operational note:
 - Firewall caution:
   - do not broadly open `30001-30010` just because the VM owns that range; only keep the ports that are actually assigned to running services
   - if `frps` is deployed, explicitly remove obsolete `9090` exposure and the `30007 -> 9090` forward rule first so `30007` can be safely reclaimed
+  - 2026-04-08 implementation outcome on `:44005`: `9090` and `30007 -> 9090` were removed during rollout
+  - later same-day live validation showed active FRP-published listeners on `30002` and `30003`, so the effective current public opens are `30001`, `30002`, `30003`, `30008`, `30009`, `30010` plus baseline `22/80/443`
+  - active mapping confirmed on 2026-04-08:
+    - `30002/tcp` -> `home-macmini` SSH via FRP
+    - `30003/tcp` -> `home-nas` SSH via FRP
 - Final outbound model remains explicit rather than transparent: this VM keeps a local `dnsmasq` listener on `127.0.0.1:53`, forwards DNS to `106.15.239.221#1053`, and uses `ali-cloud` authenticated proxy ingress on `:2081` / `:2080` for shell and Docker egress; the short-lived transparent TUN experiment was removed after proving unstable for general HTTPS traffic.

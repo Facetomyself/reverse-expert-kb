@@ -36,11 +36,25 @@ Read-only check on 2026-04-08 found:
 - stale public open `9090/tcp`
 - stale forward-port rule `30007/tcp -> 9090/tcp`
 
-Before FRPS rollout:
-1. remove stale `9090` exposure
-2. remove stale `30007 -> 9090` forward rule
-3. keep only the actually-used FRP-related opens (`30009`, optional `30010`, and whichever of `30002-30007` are currently assigned)
-4. do not expose the dashboard publicly unless there is a real operator need
+Rollout result on 2026-04-08:
+- FRPS deployed at `/opt/frps-44005` with ports `30009` (bind) and `30010` (dashboard)
+- `9090/tcp` removed
+- `30007/tcp -> 9090/tcp` forward rule removed
+- initial post-rollout state had only `30001`, `30008`, `30009`, `30010` publicly opened plus baseline `22/80/443`
+
+Validated live state on 2026-04-08 later the same day:
+- `frps` process is actively listening on `30009` and `30010`
+- published proxy listeners are already active on:
+  - `30002/tcp` -> `home-macmini` SSH (`frpc` running from `/Users/mengma/frp/frpc.toml`)
+  - `30003/tcp` -> `home-nas` SSH (`frpc` running from `/usr/local/etc/frpc-nas.toml`)
+- from `ali-cloud`, public TCP connect checks to `211.144.221.229:30002`, `:30003`, `:30009`, and `:30010` all succeeded
+- `ssh-keyscan` via `ali-cloud` confirmed `30002` and `30003` are exposing real SSH daemons behind FRP rather than just open sockets
+- current `firewalld` public opens on `:44005` are therefore effectively: `22/80/443`, `30001`, `30002`, `30003`, `30008`, `30009`, `30010`
+
+Ongoing discipline:
+- treat `30002` and `30003` as now claimed by the active SSH mappings above
+- only re-open / reuse `30004-30007` when a specific additional home-side service mapping is decided
+- dashboard on `30010` is BasicAuth-protected, but still consider restricting exposure further if not needed
 
 ## Suggested exposure discipline
 Prefer explicit one-port-per-service mapping and document each one.
