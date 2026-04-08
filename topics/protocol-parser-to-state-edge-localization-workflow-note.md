@@ -84,6 +84,7 @@ Treat these as high-value consequence targets:
 
 Treat these as useful but often one layer too early:
 - raw byte capture alone
+- decrypted/plaintext transport visibility alone
 - parse function identification alone
 - parsed-struct construction alone
 - field labeling alone
@@ -118,7 +119,10 @@ Before chasing more semantics, mark these four boundaries:
 4. **proof-of-effect boundary**
    - later emitted reply, transition, retry, or peripheral effect that depends on the candidate edge
 
-This prevents “we found the parser” from being mistaken for “we found the cause.”
+A small but important pre-boundary question is now worth keeping explicit in framed-transport cases:
+- did you only prove **decrypted/plaintext frame visibility**, or did you prove the first local parser/dispatch consumer that actually owns behavior?
+
+This prevents “we found the parser” from being mistaken for “we found the cause,” and also prevents decrypted transport visibility from being overread as parse-consumer truth.
 
 ### Step 3: Prefer first stable fan-out over deepest semantics
 When multiple parser-adjacent regions exist, prioritize the earliest fan-out that is stable across compare runs:
@@ -193,6 +197,9 @@ If traces are noisy, anchor on:
 ### 1. Mistaking parser visibility for solved understanding
 A named parser is not yet leverage if the first behavior-changing state edge is still unknown.
 
+In framed-transport cases, the same warning applies one layer earlier:
+- decrypted TLS/plaintext HTTP/2/gRPC visibility is still weaker than proving which local parse/dispatch consumer actually turns that material into behavior
+
 ### 2. Overcollecting traffic after the representative pair already exists
 Once one good compare pair exists, more captures often add breadth without explaining the first decisive consequence.
 
@@ -213,6 +220,16 @@ The meaningful state may live in:
 
 ### 5. Chasing whole-protocol formalization too early
 A partial but proven consequence edge is often enough to unblock replay, mutation, fuzzing, or firmware rehosting work.
+
+### 6. Treating framed plaintext visibility as if it already proves the first consumer
+Likely cause:
+- TLS decryption, HTTP/2 stream visibility, or gRPC length-prefixed message extraction created a strong feeling of semantic completeness
+- one protobuf/grpc message can now be decoded, but the first local parser/dispatch/state edge is still unproven
+
+Next move:
+- separate **plaintext/frame visibility** from **first parse/dispatch consumer truth**
+- anchor the first local reduction after framing/decompression/parse, not the transport plaintext alone
+- if multiple local consumers can parse the same message family, choose the first one that predicts reply/state behavior rather than the first one that merely decodes bytes
 
 ## 8. Concrete scenario patterns
 
