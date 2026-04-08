@@ -1,0 +1,448 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "gRPC HTTP/2 frame data message compression length-prefixed docs",
+    "Wireshark TLS decryption HTTP2 plaintext frames docs",
+    "protobuf parseFrom framed message stream first consumer docs"
+  ],
+  "count": 24,
+  "results": [
+    {
+      "title": "Why does gRPC uses Length Prefixed Messages? - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/56711666/why-does-grpc-uses-length-prefixed-messages",
+      "snippet": "gRPC messages is a higher layer stream that works as payload for HTTP/2. It may be implemented in the way you described in the official gRPC libraries.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7125
+    },
+    {
+      "title": "how to unpack/decompress raw grpc data? - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/66727164/how-to-unpack-decompress-raw-grpc-data",
+      "snippet": "",
+      "published_date": "2021-03-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "Protobuf lacks framed stream of messages · Issue #54 - GitHub",
+      "url": "https://github.com/protocolbuffers/protobuf/issues/54",
+      "snippet": "",
+      "published_date": "2014-10-15T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.675
+    },
+    {
+      "title": "grpc/doc/PROTOCOL-HTTP2.md at master - GitHub",
+      "url": "https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6375
+    },
+    {
+      "title": "Deserializing messages without loading entire file into memory?",
+      "url": "https://stackoverflow.com/questions/58418809/deserializing-messages-without-loading-entire-file-into-memory",
+      "snippet": "",
+      "published_date": "2019-10-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6375
+    },
+    {
+      "title": "PROTOCOL-HTTP2.md - grpc - GitLab",
+      "url": "https://gitlab.uni-hannover.de/tci-gateway-module/grpc/-/blob/e66fb82495da076607eb27cc940714748d870762/doc/PROTOCOL-HTTP2.md",
+      "snippet": "The repeated sequence of Length-Prefixed-Message items is delivered in DATA frames. Length-Prefixed-Message → Compressed-Flag Message-Length",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4875
+    },
+    {
+      "title": "Compression | gRPC",
+      "url": "https://grpc.io/docs/guides/compression/",
+      "snippet": "# Compression. # Compression. A gRPC peer may choose to respond using a different compression method to that of the request, including not performing any compression, regardless of channel and RPC settings (for example, if compression would result in small or negative gains). If a client message is compressed by an algorithm that is not supported by a server, the message will result in an `UNIMPLEMENTED` error status on the server. If the client message is compressed using one of the algorithms from the `grpc-accept-encoding` header and an `UNIMPLEMENTED` error status is returned from the server, the cause of the error won’t be related to compression. However, if it receives a message compressed in an undisclosed but supported encoding, it will include said encoding in the response’s `grpc-accept-encoding` header. For every message a server is requested to compress using an algorithm it knows the client doesn’t support (as indicated by the last `grpc-accept-encoding` header received from the client), it will send the message uncompressed.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4125
+    },
+    {
+      "title": "Decrypting HTTPS/SSL/TLS Traffic with Wireshark | by Martin Omariba",
+      "url": "https://medium.com/@martinomar/decrypting-https-ssl-tls-traffic-with-wireshark-324567021794",
+      "snippet": "With the right decryption keys, Wireshark can peel back the SSL/TLS layer and let you inspect the underlying plaintext traffic — whether it's",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "How to Compress gRPC Messages for Reduced Bandwidth",
+      "url": "https://oneuptime.com/blog/post/2026-01-08-grpc-message-compression/view",
+      "snippet": "",
+      "published_date": "2026-01-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "Overview — grpclib documentation - Read the Docs",
+      "url": "https://grpclib.readthedocs.io/en/latest/overview.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "google.protobuf.message — Protocol Buffers 4.21.1 documentation",
+      "url": "https://googleapis.dev/python/protobuf/latest/google/protobuf/message.html",
+      "snippet": "Parse serialized protocol buffer data into this message. Like MergeFromString() , except we clear the object first. Raises: message.DecodeError if the input",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "gRPC deep dive: from service definition to wire format - Kreya",
+      "url": "https://kreya.app/blog/grpc-deep-dive/",
+      "snippet": "",
+      "published_date": "2026-02-09T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3375
+    },
+    {
+      "title": "Decrypting TLS, HTTP/2 and QUIC with Wireshark - YouTube",
+      "url": "https://www.youtube.com/watch?v=yodDbgoCnLM",
+      "snippet": "Learn how to decrypt HTTPS, TLS and the new QUIC protocol. Wireshark course: https://davidbombal.wiki/chriswireshark Nmap course:",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3375
+    },
+    {
+      "title": "Google.Protobuf.MessageParser Class Reference",
+      "url": "https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/message-parser.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3375
+    },
+    {
+      "title": "Parsing a stream of oneof messages - Google Groups",
+      "url": "https://groups.google.com/g/protobuf/c/gGAOZcfchMo",
+      "snippet": "",
+      "published_date": "2018-03-31T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3375
+    },
+    {
+      "title": "DynamicMessage (Protocol Buffers [Core] 3.5.1 API) - javadoc.io",
+      "url": "https://javadoc.io/doc/com.google.protobuf/protobuf-java/3.5.1/com/google/protobuf/DynamicMessage.html",
+      "snippet": "Parse a message of the given type from the given input stream. static DynamicMessage · parseFrom(Descriptors.Descriptor type, InputStream input). Parse a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3375
+    },
+    {
+      "title": "Parser<MessageType>",
+      "url": "https://protobuf.dev/reference/java/api-docs/com/google/protobuf/Parser.html",
+      "snippet": "| `MessageType` | `parsePartialFrom` Like [`parseFrom(byte[])`](../../../com/google/protobuf/Parser.html#parseFrom-byte:A-), but does not throw an exception if the message is missing required fields. | `MessageType` | `parsePartialFrom` Like [`parseFrom(byte[], ExtensionRegistryLite)`](../../../com/google/protobuf/Parser.html#parseFrom-byte:A-com.google.protobuf.ExtensionRegistryLite-), but does not throw an exception if the message is missing required fields. | `MessageType` | `parsePartialFrom` Like `parseFrom(ByteString, ExtensionRegistryLite)`, but does not throw an exception if the message is missing required fields. | `MessageType` | `parsePartialFrom` Like `parseFrom(ByteString, ExtensionRegistryLite)`, but does not throw an exception if the message is missing required fields. | `MessageType` | `parsePartialFrom` Like `parseFrom(CodedInputStream)`, but does not throw an exception if the message is missing required fields. | `MessageType` | `parsePartialFrom` Like `parseFrom(CodedInputStream input, ExtensionRegistryLite)`, but does not throw an exception if the message is missing required fields. | `MessageType` | `parsePartialFrom` Like `parseFrom(InputStream)`, but does not throw an exception if the message is missing required fields. | `MessageType` | `parsePartialFrom` Like `parseFrom(InputStream, ExtensionRegistryLite)`, but does not throw an exception if the message is missing required fields.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3375
+    },
+    {
+      "title": "How to Capture HTTPS Traffic and Decrypt TLS in Wireshark with ...",
+      "url": "https://oneuptime.com/blog/post/2026-03-20-decrypt-tls-wireshark-sslkeylogfile/view",
+      "snippet": "",
+      "published_date": "2026-03-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "8.23. HTTP2 - Wireshark",
+      "url": "https://www.wireshark.org/docs/wsug_html_chunked/ChStatHTTP2.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "TLS - Wireshark Wiki",
+      "url": "https://wiki.wireshark.org/TLS",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "HTTP2 - Wireshark Wiki",
+      "url": "https://wiki.wireshark.org/http2",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "The Ultimate Guide to HTTPS Decryption in Wireshark: Master Secrets, Key Logs & SNI Explained (With Real Examples) | by Mohamed Mostafa Sayed Saber Ali | Mar, 2026 | MeetCyber",
+      "url": "https://meetcyber.net/the-ultimate-guide-to-https-decryption-in-wireshark-master-secrets-key-logs-sni-explained-with-a796464837dd",
+      "snippet": "",
+      "published_date": "2026-03-19T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Decrypting HTTP2 TLS traffic in Wireshark - aligrant.com",
+      "url": "https://www.aligrant.com/web/blog/2017-09-18_decrypting_http2_tls_traffic_in_wireshark",
+      "snippet": "A plain-text protocol is very easy for us humans to interact with, you can easily open a telnet session to a server and type in your GET request",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Techniques | Protocol Buffers Documentation",
+      "url": "https://protobuf.dev/programming-guides/techniques/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "gRPC deep dive: from service definition to wire format - Kreya",
+        "url": "https://kreya.app/blog/grpc-deep-dive/",
+        "snippet": "",
+        "published_date": "2026-02-09T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3375
+      },
+      {
+        "title": "grpc/doc/PROTOCOL-HTTP2.md at master - GitHub",
+        "url": "https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6375
+      },
+      {
+        "title": "How to Compress gRPC Messages for Reduced Bandwidth",
+        "url": "https://oneuptime.com/blog/post/2026-01-08-grpc-message-compression/view",
+        "snippet": "",
+        "published_date": "2026-01-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "Overview — grpclib documentation - Read the Docs",
+        "url": "https://grpclib.readthedocs.io/en/latest/overview.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "how to unpack/decompress raw grpc data? - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/66727164/how-to-unpack-decompress-raw-grpc-data",
+        "snippet": "",
+        "published_date": "2021-03-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.675
+      },
+      {
+        "title": "How to Capture HTTPS Traffic and Decrypt TLS in Wireshark with ...",
+        "url": "https://oneuptime.com/blog/post/2026-03-20-decrypt-tls-wireshark-sslkeylogfile/view",
+        "snippet": "",
+        "published_date": "2026-03-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "8.23. HTTP2 - Wireshark",
+        "url": "https://www.wireshark.org/docs/wsug_html_chunked/ChStatHTTP2.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "TLS - Wireshark Wiki",
+        "url": "https://wiki.wireshark.org/TLS",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "HTTP2 - Wireshark Wiki",
+        "url": "https://wiki.wireshark.org/http2",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "The Ultimate Guide to HTTPS Decryption in Wireshark: Master Secrets, Key Logs & SNI Explained (With Real Examples) | by Mohamed Mostafa Sayed Saber Ali | Mar, 2026 | MeetCyber",
+        "url": "https://meetcyber.net/the-ultimate-guide-to-https-decryption-in-wireshark-master-secrets-key-logs-sni-explained-with-a796464837dd",
+        "snippet": "",
+        "published_date": "2026-03-19T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Google.Protobuf.MessageParser Class Reference",
+        "url": "https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/message-parser.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3375
+      },
+      {
+        "title": "Techniques | Protocol Buffers Documentation",
+        "url": "https://protobuf.dev/programming-guides/techniques/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Protobuf lacks framed stream of messages · Issue #54 - GitHub",
+        "url": "https://github.com/protocolbuffers/protobuf/issues/54",
+        "snippet": "",
+        "published_date": "2014-10-15T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.675
+      },
+      {
+        "title": "Parsing a stream of oneof messages - Google Groups",
+        "url": "https://groups.google.com/g/protobuf/c/gGAOZcfchMo",
+        "snippet": "",
+        "published_date": "2018-03-31T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3375
+      },
+      {
+        "title": "Deserializing messages without loading entire file into memory?",
+        "url": "https://stackoverflow.com/questions/58418809/deserializing-messages-without-loading-entire-file-into-memory",
+        "snippet": "",
+        "published_date": "2019-10-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6375
+      }
+    ],
+    "tavily": [
+      {
+        "title": "grpc/doc/PROTOCOL-HTTP2.md at master - GitHub",
+        "url": "https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md",
+        "snippet": "The repeated sequence of Length-Prefixed-Message items is delivered in DATA frames. Length-Prefixed-Message → Compressed-Flag Message-Length Message",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "PROTOCOL-HTTP2.md - grpc - GitLab",
+        "url": "https://gitlab.uni-hannover.de/tci-gateway-module/grpc/-/blob/e66fb82495da076607eb27cc940714748d870762/doc/PROTOCOL-HTTP2.md",
+        "snippet": "The repeated sequence of Length-Prefixed-Message items is delivered in DATA frames. Length-Prefixed-Message → Compressed-Flag Message-Length",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4875
+      },
+      {
+        "title": "gRPC deep dive: from service definition to wire format - Kreya",
+        "url": "https://kreya.app/blog/grpc-deep-dive/",
+        "snippet": "In this post, we’ll go beyond the basics and explore the full gRPC protocol stack: from the high-level service architecture and streaming models down to the low-level HTTP/2 framing and byte-level wire format. gRPC is built on top of HTTP/2,. A gRPC call typically consists of three stages, each mapping to HTTP/2 frames:. Since gRPC is built on HTTP/2, metadata is simply mapped to HTTP/2 headers. Inside the HTTP/2 `DATA` frame, gRPC wraps your protobuf message with a mechanism called length-prefixed framing. The final 15-byte gRPC message looks like this:. In gRPC, the HTTP status is almost always `200 OK`, even if the logic failed! Instead of just `grpc-status` and `grpc-message`,. the server returns a detailed protobuf message serialized as base64 into the `grpc-status-details-bin` trailer. Web browsers do not expose the low-level HTTP/2 framing controls required for gRPC (specifically, reading trailers and granular stream control).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Why does gRPC uses Length Prefixed Messages? - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/56711666/why-does-grpc-uses-length-prefixed-messages",
+        "snippet": "gRPC messages is a higher layer stream that works as payload for HTTP/2. It may be implemented in the way you described in the official gRPC libraries.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7125
+      },
+      {
+        "title": "Compression | gRPC",
+        "url": "https://grpc.io/docs/guides/compression/",
+        "snippet": "# Compression. # Compression. A gRPC peer may choose to respond using a different compression method to that of the request, including not performing any compression, regardless of channel and RPC settings (for example, if compression would result in small or negative gains). If a client message is compressed by an algorithm that is not supported by a server, the message will result in an `UNIMPLEMENTED` error status on the server. If the client message is compressed using one of the algorithms from the `grpc-accept-encoding` header and an `UNIMPLEMENTED` error status is returned from the server, the cause of the error won’t be related to compression. However, if it receives a message compressed in an undisclosed but supported encoding, it will include said encoding in the response’s `grpc-accept-encoding` header. For every message a server is requested to compress using an algorithm it knows the client doesn’t support (as indicated by the last `grpc-accept-encoding` header received from the client), it will send the message uncompressed.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4125
+      },
+      {
+        "title": "Decrypting TLS, HTTP/2 and QUIC with Wireshark - YouTube",
+        "url": "https://www.youtube.com/watch?v=yodDbgoCnLM",
+        "snippet": "Learn how to decrypt HTTPS, TLS and the new QUIC protocol. Wireshark course: https://davidbombal.wiki/chriswireshark Nmap course:",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3375
+      },
+      {
+        "title": "Decrypting HTTP2 TLS traffic in Wireshark - aligrant.com",
+        "url": "https://www.aligrant.com/web/blog/2017-09-18_decrypting_http2_tls_traffic_in_wireshark",
+        "snippet": "A plain-text protocol is very easy for us humans to interact with, you can easily open a telnet session to a server and type in your GET request",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "TLS - Wireshark Wiki",
+        "url": "https://wiki.wireshark.org/TLS",
+        "snippet": "* (Pre)-Master-Secret log filename (tls.keylog\\_file): path to read the TLS key log file for decryption. A Key Log File can be used to enable TLS decryption. The master secret enables TLS decryption in Wireshark and can be supplied via the Key Log File. Decryption secrets can be exported from within Wireshark with the \"Export TLS Session Keys\" Dialog, documented here. As of Wireshark 4.2, the secrets file exported with the \"Export TLS Session Keys\" dialog will only contain secrets actually referenced within the current packets. Since Wireshark 3.0 you can embed the TLS key log file in a **pcapng** file. To ensure that unnecessary keys are not leaked, you can use the `inject-tls-secrets.py` script from  to filter the key log file and add the required secrets to a capture file. If you can obtain the PSK, all you have to do is set it, in hex format, in the Pre-Shared-Key Preference, and Wireshark will decrypt the TLS session.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "8.23. HTTP2 - Wireshark",
+        "url": "https://www.wireshark.org/docs/wsug_html_chunked/ChStatHTTP2.html",
+        "snippet": "Hypertext Transfer Protocol version 2 (HTTP/2) allows multiplexing various HTTP requests and responses over a single connection. It uses a binary encoding which is consisting of frames. The HTTP/2 statistics window shows the total number of HTTP/2 frames and also provides a breakdown per frame types, such as `HEADERS`, `DATA`, and others. As HTTP/2 traffic is typically encrypted with TLS, you must configure decryption to observe HTTP/2 traffic. For more details, see the TLS wiki page. HTTP Statistics | Home | 8.24.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Decrypting HTTPS/SSL/TLS Traffic with Wireshark | by Martin Omariba",
+        "url": "https://medium.com/@martinomar/decrypting-https-ssl-tls-traffic-with-wireshark-324567021794",
+        "snippet": "With the right decryption keys, Wireshark can peel back the SSL/TLS layer and let you inspect the underlying plaintext traffic — whether it's",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Google.Protobuf.MessageParser Class Reference",
+        "url": "https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/message-parser.html",
+        "snippet": "Parses a length-delimited message from the given stream. The stream is expected to contain a length and then the data. Only the amount of data specified by",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "DynamicMessage (Protocol Buffers [Core] 3.5.1 API) - javadoc.io",
+        "url": "https://javadoc.io/doc/com.google.protobuf/protobuf-java/3.5.1/com/google/protobuf/DynamicMessage.html",
+        "snippet": "Parse a message of the given type from the given input stream. static DynamicMessage · parseFrom(Descriptors.Descriptor type, InputStream input). Parse a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3375
+      },
+      {
+        "title": "Parser<MessageType>",
+        "url": "https://protobuf.dev/reference/java/api-docs/com/google/protobuf/Parser.html",
+        "snippet": "| `MessageType` | `parsePartialFrom` Like [`parseFrom(byte[])`](../../../com/google/protobuf/Parser.html#parseFrom-byte:A-), but does not throw an exception if the message is missing required fields. | `MessageType` | `parsePartialFrom` Like [`parseFrom(byte[], ExtensionRegistryLite)`](../../../com/google/protobuf/Parser.html#parseFrom-byte:A-com.google.protobuf.ExtensionRegistryLite-), but does not throw an exception if the message is missing required fields. | `MessageType` | `parsePartialFrom` Like `parseFrom(ByteString, ExtensionRegistryLite)`, but does not throw an exception if the message is missing required fields. | `MessageType` | `parsePartialFrom` Like `parseFrom(ByteString, ExtensionRegistryLite)`, but does not throw an exception if the message is missing required fields. | `MessageType` | `parsePartialFrom` Like `parseFrom(CodedInputStream)`, but does not throw an exception if the message is missing required fields. | `MessageType` | `parsePartialFrom` Like `parseFrom(CodedInputStream input, ExtensionRegistryLite)`, but does not throw an exception if the message is missing required fields. | `MessageType` | `parsePartialFrom` Like `parseFrom(InputStream)`, but does not throw an exception if the message is missing required fields. | `MessageType` | `parsePartialFrom` Like `parseFrom(InputStream, ExtensionRegistryLite)`, but does not throw an exception if the message is missing required fields.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3375
+      },
+      {
+        "title": "Protobuf lacks framed stream of messages · Issue #54 - GitHub",
+        "url": "https://github.com/protocolbuffers/protobuf/issues/54",
+        "snippet": "To be clear, protobuf does support framed stream of messages. Are you talking specifically about protobuf in Python? In C++ and Java, you can",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "google.protobuf.message — Protocol Buffers 4.21.1 documentation",
+        "url": "https://googleapis.dev/python/protobuf/latest/google/protobuf/message.html",
+        "snippet": "Parse serialized protocol buffer data into this message. Like MergeFromString() , except we clear the object first. Raises: message.DecodeError if the input",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      }
+    ],
+    "grok": []
+  }
+}
