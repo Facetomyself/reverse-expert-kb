@@ -71,5 +71,5 @@ Operational note:
   - later same-day live validation showed active FRP-published listeners on `30002` and `30003`, so the effective current public opens are `30001`, `30002`, `30003`, `30008`, `30009`, `30010` plus baseline `22/80/443`
   - final active mapping corrected on 2026-04-08:
     - `30002/tcp` -> `home-macmini` ComfyUI via FRP (`127.0.0.1:8188`)
-    - `30003/tcp` -> `home-nas` DSM WebUI via FRP (`127.0.0.1:5000`)
+    - `30003/tcp` -> `home-nas` DSM WebUI via FRP (`127.0.0.1:5001`, HTTPS)
 - Final outbound model remains explicit rather than transparent: this VM keeps a local `dnsmasq` listener on `127.0.0.1:53`, forwards DNS to `106.15.239.221#1053`, and uses `ali-cloud` authenticated proxy ingress on `:2081` / `:2080` for shell and Docker egress; the short-lived transparent TUN experiment was removed after proving unstable for general HTTPS traffic.

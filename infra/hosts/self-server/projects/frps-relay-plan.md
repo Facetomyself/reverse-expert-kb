@@ -47,10 +47,11 @@ Validated live state on 2026-04-08 later the same day:
 - published proxy listeners were first brought up as temporary SSH mappings for validation, then repointed to the actual desired business services
 - final confirmed active mappings after correction:
   - `30002/tcp` -> `home-macmini` ComfyUI on local `127.0.0.1:8188` (`frpc` config at `/Users/mengma/frp/frpc.toml`)
-  - `30003/tcp` -> `home-nas` DSM WebUI on local `127.0.0.1:5000` (`frpc` config at `/usr/local/etc/frpc-nas.toml`)
+  - `30003/tcp` -> `home-nas` DSM WebUI on local `127.0.0.1:5001` (`frpc` config at `/usr/local/etc/frpc-nas.toml`)
 - from `ali-cloud`, public checks confirmed:
   - `http://211.144.221.229:30002/` returns the ComfyUI HTML entry page
-  - `http://211.144.221.229:30003/` returns the Synology HTTP entry page that redirects toward HTTPS
+  - `https://211.144.221.229:30003/` returns the Synology DSM HTTPS entry page
+  - plain `http://211.144.221.229:30003/` now fails / is not the intended access mode because this mapping is terminated directly against DSM HTTPS on `5001`
 - current `firewalld` public opens on `:44005` are therefore effectively: `22/80/443`, `30001`, `30002`, `30003`, `30008`, `30009`, `30010`
 
 Ongoing discipline:
