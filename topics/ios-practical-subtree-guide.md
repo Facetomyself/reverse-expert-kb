@@ -20,6 +20,7 @@ Related pages:
 - topics/ios-swift-concurrency-continuation-to-policy-workflow-note.md
 - topics/ios-result-callback-to-policy-state-workflow-note.md
 - topics/ios-xpc-proxy-to-service-consumer-workflow-note.md
+- topics/ios-xpc-reply-error-invalidation-reconnect-compare-workflow-note.md
 - topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
 
 ## 1. Why this guide exists
@@ -74,6 +75,7 @@ iOS practical work is easiest to navigate when the analyst first classifies the 
    - visible callbacks or result wrappers already exist, but the first behavior-changing consumer or local policy state is still unclear
 11. **Apple XPC proxy-to-service-consumer uncertainty**
    - one XPC / `NSXPCConnection` / Mach-service seam is already plausible, but client-side proxy or listener truth is still weaker than the service-side exported-object method or later durable consumer you actually need to prove
+   - once that exported-object method is already good enough, a narrower continuation may still be needed to separate reply/error, interruption, invalidation, reconnection, and same-request durable consequence truth
 
 Inside families 2 and 3, a recurring practical reminder now deserves to stay explicit: do not collapse all early iOS setup into one vague "jailbroken vs not" bucket. Installation/signing path, rootful vs rootless mode, Frida deployment coherence, and rewrite/repack stability can each change whether later evidence is trustworthy; some cases first need environment normalization before broader gate diagnosis is even meaningful.
 
@@ -107,7 +109,7 @@ The subtree is strongest when read as:
 - **land** one callback/block family on one truthful invoke boundary with one usable contract
 - **repair** one replay-close mitigation-aware path by isolating one smaller context/materialization/init gap
 - **consume** one callback/result into one local policy effect
-- **handoff** one client-side Apple XPC proxy route into one service-side exported-object consumer and one later durable effect
+- **handoff** one client-side Apple XPC proxy route into one service-side exported-object consumer and, when the service method is already good enough, separate reply/error, interruption, invalidation, reconnection, and same-request durable effect truth before widening again
 
 ## 3. How to choose the right entry note
 ### Start with `ios-traffic-topology-relocation-workflow-note`
@@ -280,11 +282,13 @@ A narrower stop rule now worth preserving at subtree-guide level is:
 - `accepted != replied != invalidated != reconnected != consumed`
 - in Apple XPC cases, accepted connection truth, reply/error truth, explicit invalidation truth, reconnection-after-restart truth, and durable service-owned consequence often need to stay separate
 - interruption truth and invalidation truth should also be kept distinguishable when possible, because Apple documents invalidation as a stronger end-of-life boundary than ordinary interruption-style drift and a later healthy-looking connection is still weaker than proving the same exported-object method or later reducer actually ran again
+- when exported-object method entry is already good enough but completion truth still lies, continue into `topics/ios-xpc-reply-error-invalidation-reconnect-compare-workflow-note.md` so method entry, local send/barrier truth, exact-one reply-or-error truth, interruption, invalidation, reconnection, and same-request consequence do not collapse together
 
 Do **not** start here when:
 - broad iOS setup/gate drift still dominates
 - callback/block landing or broad owner localization is still the real bottleneck
 - the service seam is already truthful enough and the real remaining gap is now the first app-local policy consumer after reply/result delivery
+- the service-side method is already good enough and the remaining liar is same-request completion across reply/error/interruption/invalidation/reconnect surfaces; in that case route to `topics/ios-xpc-reply-error-invalidation-reconnect-compare-workflow-note.md`
 - the landing/contract is already trustworthy enough that the callback family itself is no longer the main uncertainty
 - the current bottleneck is no longer visibility or broad owner search, but the first behavior-changing local policy state
 - you need to separate callback surface, normalization, policy mapping, and first consumer
@@ -297,7 +301,7 @@ Do **not** start here when:
 - the landing or signature contract is still too ambiguous to support policy claims
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as eleven common bottleneck families that often chain into one another.
+A useful way to read the branch is as twelve common bottleneck families that often chain into one another.
 
 ### A. Incomplete network picture -> truthful traffic surface
 Typical question:
@@ -447,6 +451,24 @@ Routing reminder:
 Possible next handoff:
 - challenge-loop, attestation, request-shaping, or native proof pages depending on the proved consumer
 
+### L. Plausible Apple XPC seam -> same-request completion or durable service-owned consequence
+Typical question:
+- is one Apple XPC service method already good enough, but the remaining lie now about reply/error, interruption, invalidation, reconnection, or whether the same request actually reached one durable consequence?
+
+Primary notes:
+- `topics/ios-xpc-proxy-to-service-consumer-workflow-note.md`
+- `topics/ios-xpc-reply-error-invalidation-reconnect-compare-workflow-note.md`
+
+Routing reminder:
+- enter the broader XPC note when the missing object is still the first service-side exported-object method or later durable service-owned consumer
+- enter the narrower compare continuation when method entry is already strong enough and the missing object is same-request completion truth
+- do not let local send/barrier progress, interruption, invalidation, or later healthy reconnection impersonate same-request reply or durable consequence
+- if stable reply/result delivery already exists and the real remaining gap is now app-local policy consequence, leave the XPC branch and continue into `topics/ios-result-callback-to-policy-state-workflow-note.md`
+
+Possible next handoff:
+- `topics/ios-result-callback-to-policy-state-workflow-note.md`
+- broader runtime-evidence compare/design notes when callback ordering or compare-pair design is still the real blocker
+
 ## 5. The branch’s practical routing rule
 When a case is clearly iOS-shaped, ask these in order:
 
@@ -480,6 +502,11 @@ When a case is clearly iOS-shaped, ask these in order:
    - if yes, continue into mitigation-aware replay-repair work
 15. **Are callbacks or result wrappers already visible, and is the landing already trustworthy enough, but the first behavior-changing policy state still hidden?**
    - if yes, continue into result/callback-to-policy-state work
+
+A branch-specific Apple-platform exception now worth keeping explicit is:
+- if the reachable path has already narrowed into an `NSXPCConnection` / Mach-service / helper seam, treat that as its own sub-ladder
+- first freeze one exported-object method or immediate reducer with `topics/ios-xpc-proxy-to-service-consumer-workflow-note.md`
+- then, if same-request completion still lies, continue into `topics/ios-xpc-reply-error-invalidation-reconnect-compare-workflow-note.md`
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
 That usually means:

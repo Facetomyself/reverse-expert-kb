@@ -6,11 +6,13 @@ Maturity: practical
 Related pages:
 - topics/ios-practical-subtree-guide.md
 - topics/ios-objc-swift-native-owner-localization-workflow-note.md
+- topics/ios-xpc-reply-error-invalidation-reconnect-compare-workflow-note.md
 - topics/ios-result-callback-to-policy-state-workflow-note.md
 - topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
 - topics/runtime-behavior-recovery.md
 Related source notes:
+- sources/ios/2026-04-10-ios-xpc-reply-error-reconnect-notes.md
 - sources/ios/2026-03-26-ios-xpc-proxy-vs-service-consumer-notes.md
 - sources/ios/2026-03-26-ios-xpc-lifecycle-consumer-notes.md
 - sources/ios/2026-03-26-ios-xpc-lifecycle-reconnection-notes.md
@@ -380,6 +382,7 @@ What usually helps:
 
 ## 6. Hand-off rules
 Route forward:
+- to `topics/ios-xpc-reply-error-invalidation-reconnect-compare-workflow-note.md` when one exported-object method or immediate service-side reducer is already good enough, but same-request completion truth still lies across reply/error/interruption/invalidation/reconnect surfaces
 - to `topics/ios-result-callback-to-policy-state-workflow-note.md` when the service seam is already truthful enough and the real remaining gap is the first app-local policy consumer of the service result
 - to `topics/ios-objc-swift-native-owner-localization-workflow-note.md` when the XPC seam turned out to be only one candidate among several ownership routes and you still need the first consequence-bearing owner
 - to `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md` when the case is really a broader desktop/macOS Cocoa/XPC/dispatch ownership problem rather than an iOS practical leaf
