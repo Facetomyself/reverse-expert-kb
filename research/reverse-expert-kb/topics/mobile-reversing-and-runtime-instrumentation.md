@@ -204,6 +204,7 @@ A newer Apple-platform practical reminder is also worth preserving canonically:
 - some iOS-shaped and private-framework-heavy cases narrow not into an ordinary in-process callback first, but into an `NSXPCConnection` / Mach-service / helper seam
 - in those cases, client-side proxy visibility, listener acceptance, or service lookup truth are still weaker than the service-side exported-object method or later durable effect the analyst actually needs
 - the practical stop rule is therefore not “XPC exists,” but “which service-side consumer first changes behavior?”
+- once one exported-object method is already good enough, local send/barrier progress, exact-one reply-vs-error truth, interruption, invalidation, reconnection, and same-request durable consequence should still remain separate proof objects rather than collapsing into one vague “XPC recovered” story
 
 ### E. Modern iOS reversing increasingly overlaps with mitigation-aware analysis
 
@@ -275,6 +276,8 @@ The iOS practical branch should now usually be read through `topics/ios-practica
 - `topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md`
 - `topics/ios-trust-path-and-pinning-localization-workflow-note.md` when the decisive request family is visible enough but routing-vs-trust-vs-post-trust diagnosis on iOS is still unresolved
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md`
+- `topics/ios-xpc-proxy-to-service-consumer-workflow-note.md` when the decisive owner path is clearly Apple-platform service / Mach-service / helper shaped rather than an ordinary in-process owner search
+- `topics/ios-xpc-reply-error-invalidation-reconnect-compare-workflow-note.md` when one Apple-platform service method is already good enough but same-request completion truth still lies across reply/error/interruption/invalidation/reconnect surfaces
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md` when the ownership problem is clearly Flutter/Dart-shaped
 - `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md` when one owner path is already plausible enough, broad owner-localization work should stop, and the real bottleneck is now minimal truthful replay rather than broader owner choice
 - `topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md` when one owner path is already plausible or partly callable, but the next question is still iOS-shaped: prove one last request-finalization boundary, move one hop earlier into preimage/state capture, or stop at one truthful black-box request path
@@ -289,6 +292,7 @@ At the parent-page layer, that iOS route is easier to remember as a compact oper
 - **stabilize** one real setup or gate family
 - **localize** one decisive trust path when routing-vs-trust remains the blocker
 - **own** one consequence-bearing ObjC / Swift / native path
+- **separate** one Apple-platform service-method entry from reply/error/invalidation/reconnect and same-request consequence when the case narrows into an XPC / Mach-service seam
 - **replay** one truthful callable owner path when broader owner search is no longer the cheapest next move
 - **reduce** one iOS-shaped signing/finalization boundary before flattening the case into generic preimage work
 - **repair** one narrower runtime-table or initialization obligation when replay is already close-but-wrong

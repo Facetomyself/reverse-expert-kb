@@ -1,0 +1,529 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Apple NSXPCConnection interruptionHandler invalidationHandler remoteObjectProxyWithErrorHandler documentation",
+    "Creating XPC Services service crashes while handling a message requires a response invalid until restart Apple",
+    "NSXPCConnection invalidation handler may not send messages over the connection documentation",
+    "NSXPCConnection interrupted invalidated reconnected same request reply Apple documentation"
+  ],
+  "count": 25,
+  "results": [
+    {
+      "title": "NSXPCConnection | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/Foundation/NSXPCConnection",
+      "snippet": "An interruption handler that is called if the remote process exits or crashes. var invalidationHandler: (() -> Void)?. An invalidation",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.8
+    },
+    {
+      "title": "interruptionHandler | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/interruptionhandler",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.75
+    },
+    {
+      "title": "NSXPCConnection | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.75
+    },
+    {
+      "title": "remoteObjectProxyWithErrorHandler(_:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcproxycreating/remoteobjectproxywitherrorhandler(_:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.75
+    },
+    {
+      "title": "invalidationHandler | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.75
+    },
+    {
+      "title": "invalidationHandler | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler?language=objc",
+      "snippet": "An invalidation handler that is called if the connection can not be formed or the connection has terminated and may not be re-established.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "NSXPCConnectionInterrupted | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnectioninterrupted-swift.var",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.75
+    },
+    {
+      "title": "Creating XPC services | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/xpc/creating-xpc-services",
+      "snippet": "8 of 24 symbols inside <root> containing 4 symbolsxpc_listener_t. 4 of 24 symbols inside <root>Creating XPC services. XPC services have two sides: a listener or server that receives incoming connections and performs tasks, and a client that initiates connections and makes requests. To perform tasks, the service creates an `XPCListener` with a service name and a closure to handle incoming session requests. After creating the listener and accepting an incoming request, the service is ready to perform its defined task. With the connection and request-handling code in place, `launchd` can now hand off client requests to your XPC service. When a client wants to use an XPC service, it creates a session with the service and then sends it a message. In response to this request, `launchd` locates the service, launching it if necessary, and establishes a connection between the client process and the listener’s process. After creating the session, the client can send its request to the service.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "xpc_connection_send_message_with_reply(_:_:_:_:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/xpc/xpc_connection_send_message_with_reply(_:_:_:_:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7
+    },
+    {
+      "title": "NSXPCConnection.h - iOS-SDKs - GitHub",
+      "url": "https://github.com/xybp888/iOS-SDKs/blob/master/iPhoneOS13.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXPCConnection.h",
+      "snippet": "// You may not send messages over the connection from within an invalidation handler block. // The invalidationHandler property is cleared after the connection",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "invalidate() | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidate()",
+      "snippet": "The connection must be invalidated before it is deallocated. After a connection is invalidated, no more messages may be sent or received. See Also",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.7
+    },
+    {
+      "title": "XPC_ERROR_CONNECTION_INTERRUPTED | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/xpc/xpc_error_connection_interrupted-swift.var",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7
+    },
+    {
+      "title": "remoteObjectProxyWithErrorHan...",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcproxycreating/remoteobjectproxywitherrorhandler(_:)?changes=latest_ma_10____6______8&language=objc",
+      "snippet": "remoteObjectProxyWithErrorHandler: Returns a proxy object that invokes the error handling block if an error occurs on the connection. iOS 2.0+",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "Faulty, hard-to-understand XPC beh… | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/thread/736816",
+      "snippet": "",
+      "published_date": "2025-03-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Issue #672 · apple/container - [Bug]: XPC Connection Error - GitHub",
+      "url": "https://github.com/apple/container/issues/672",
+      "snippet": "",
+      "published_date": "2025-09-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Xpc service, how to avoid restarti… | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/thread/676583",
+      "snippet": "",
+      "published_date": "2021-03-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "xpc connection event handler not b… | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/thread/657664",
+      "snippet": "",
+      "published_date": "2025-06-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "NSXPCConnection debugging interruption/invalidation",
+      "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+      "snippet": "I have heard that in case \"interruption\" you should try to reestablish the connection. This can be useful when your service is a launch agent which gets",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "remoteObjectProxyWithErrorHan...",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/remoteobjectproxywitherrorhandler(_:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How to debug communication between XPC service and client app in OSX",
+      "url": "https://stackoverflow.com/questions/42764618/how-to-debug-communication-between-xpc-service-and-client-app-in-osx",
+      "snippet": "",
+      "published_date": "2017-03-13T13:16:02.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "XPC Service Connection Invalidated Immediately on Launch",
+      "url": "https://stackoverflow.com/questions/77519923/xpc-service-connection-invalidated-immediately-on-launch",
+      "snippet": "I'm developing a macOS app with an accompanying XPC service and am encountering an issue where the XPC connection is immediately invalidated when trying to",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6
+    },
+    {
+      "title": "Creating XPC Services",
+      "url": "https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html",
+      "snippet": "Explains how to write background processes that perform work on behalf of applications or serve content over the network.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6
+    },
+    {
+      "title": "XPC Connection Not Invalidated on … | Apple Developer Forums",
+      "url": "https://origin-devforums.apple.com/forums/thread/719900",
+      "snippet": "You’ve stopped watching this thread and will no longer receive emails or web notifications when there’s activity. 1. Should I expect that NSXPCConnection.remoteObjectProxyWithErrorHandler to call the error handler if the associated NSXPCListenerDelegate returns false in its listener function? 4. Should I expect that NSXPCConnection.invalidate() and/or the connection's invalidationHandler to be called when the associated NSXPCListenerDelegate returns false in its listener function? import XCTest final class InvalidateTest: XCTestCase {   func testConnectionIsInvalidatedOnListenerRejection() {     //set up anonymous XPC Listener     let listener = NSXPCListener.anonymous()     let listenerDelegate = MockListenerDelegate()     listener.delegate = listenerDelegate     listener.resume()           //establish connection to service     let clientConnection = MockConnection(listenerEndpoint: listener.endpoint)     var interruptHandlerCalled = false     var invalidateHandlerCalled = false     let interruptionHandler = { interruptHandlerCalled = true }     let invalidationHandler = { invalidateHandlerCalled = true }     clientConnection.interruptionHandler = interruptionHandler     clientConnection.invalidationHandler = invalidationHandler     clientConnection.remoteObjectInterface = NSXPCInterface(with: XPCServDelegate.self)     clientConnection.exportedInterface = NSXPCInterface(with: XPCCliDelegate.self)     clientConnection.exportedObject = XPCCDelegate()     clientConnection.resume()           // get the proxy delegate to make the XPC pulse call     guard let proxy = clientConnection.remoteObjectProxy() as?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "XPC codesign requirement crashes application",
+      "url": "https://origin-devforums.apple.com/forums/thread/801478",
+      "snippet": "We have an application that sets a code signing requirement on a XPC connection between a File Provider extension and the main application.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "XPC connection was invalidated",
+      "url": "https://discussions.apple.com/thread/7255321",
+      "snippet": "I've done everything I can to fix... tried deleting spotlight indexes, rebuilding, adding disk to Privacy tab then removing etc etc. El Cap",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "interruptionHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/interruptionhandler",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.75
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.75
+      },
+      {
+        "title": "remoteObjectProxyWithErrorHan...",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/remoteobjectproxywitherrorhandler(_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "remoteObjectProxyWithErrorHandler(_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcproxycreating/remoteobjectproxywitherrorhandler(_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.75
+      },
+      {
+        "title": "invalidationHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.75
+      },
+      {
+        "title": "Faulty, hard-to-understand XPC beh… | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/736816",
+        "snippet": "",
+        "published_date": "2025-03-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "Issue #672 · apple/container - [Bug]: XPC Connection Error - GitHub",
+        "url": "https://github.com/apple/container/issues/672",
+        "snippet": "",
+        "published_date": "2025-09-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "Xpc service, how to avoid restarti… | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/676583",
+        "snippet": "",
+        "published_date": "2021-03-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "How to debug communication between XPC service and client app in OSX",
+        "url": "https://stackoverflow.com/questions/42764618/how-to-debug-communication-between-xpc-service-and-client-app-in-osx",
+        "snippet": "",
+        "published_date": "2017-03-13T13:16:02.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "xpc connection event handler not b… | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/657664",
+        "snippet": "",
+        "published_date": "2025-06-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "invalidationHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "XPC Service Connection Invalidated Immediately on Launch",
+        "url": "https://stackoverflow.com/questions/77519923/xpc-service-connection-invalidated-immediately-on-launch",
+        "snippet": "",
+        "published_date": "2023-11-21T02:11:42.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Creating XPC Services",
+        "url": "https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "xpc_connection_send_message_with_reply(_:_:_:_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/xpc/xpc_connection_send_message_with_reply(_:_:_:_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7
+      },
+      {
+        "title": "invalidate() | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidate()",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "NSXPCConnectionInterrupted | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnectioninterrupted-swift.var",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.75
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "xpc_connection_send_message_with_reply(_:_:_:_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/xpc/xpc_connection_send_message_with_reply(_:_:_:_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "XPC_ERROR_CONNECTION_INTERRUPTED | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/xpc/xpc_error_connection_interrupted-swift.var",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7
+      }
+    ],
+    "tavily": [
+      {
+        "title": "interruptionHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/interruptionhandler",
+        "snippet": "An invalidation handler that is called if the connection can not be formed or the connection has terminated and may not be re-established.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "invalidationHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler",
+        "snippet": "An invalidation handler that is called if the connection can not be formed or the connection has terminated and may not be re-established.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "invalidationHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler?language=objc",
+        "snippet": "An invalidation handler that is called if the connection can not be formed or the connection has terminated and may not be re-established.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/Foundation/NSXPCConnection",
+        "snippet": "An interruption handler that is called if the remote process exits or crashes. var invalidationHandler: (() -> Void)?. An invalidation",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.8
+      },
+      {
+        "title": "remoteObjectProxyWithErrorHan...",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcproxycreating/remoteobjectproxywitherrorhandler(_:)?changes=latest_ma_10____6______8&language=objc",
+        "snippet": "remoteObjectProxyWithErrorHandler: Returns a proxy object that invokes the error handling block if an error occurs on the connection. iOS 2.0+",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "Creating XPC services | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/xpc/creating-xpc-services",
+        "snippet": "8 of 24 symbols inside <root> containing 4 symbolsxpc_listener_t. 4 of 24 symbols inside <root>Creating XPC services. XPC services have two sides: a listener or server that receives incoming connections and performs tasks, and a client that initiates connections and makes requests. To perform tasks, the service creates an `XPCListener` with a service name and a closure to handle incoming session requests. After creating the listener and accepting an incoming request, the service is ready to perform its defined task. With the connection and request-handling code in place, `launchd` can now hand off client requests to your XPC service. When a client wants to use an XPC service, it creates a session with the service and then sends it a message. In response to this request, `launchd` locates the service, launching it if necessary, and establishes a connection between the client process and the listener’s process. After creating the session, the client can send its request to the service.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "XPC codesign requirement crashes application",
+        "url": "https://origin-devforums.apple.com/forums/thread/801478",
+        "snippet": "We have an application that sets a code signing requirement on a XPC connection between a File Provider extension and the main application.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "XPC connection was invalidated",
+        "url": "https://discussions.apple.com/thread/7255321",
+        "snippet": "I've done everything I can to fix... tried deleting spotlight indexes, rebuilding, adding disk to Privacy tab then removing etc etc. El Cap",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "XPC Service Connection Invalidated Immediately on Launch",
+        "url": "https://stackoverflow.com/questions/77519923/xpc-service-connection-invalidated-immediately-on-launch",
+        "snippet": "I'm developing a macOS app with an accompanying XPC service and am encountering an issue where the XPC connection is immediately invalidated when trying to",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6
+      },
+      {
+        "title": "Creating XPC Services",
+        "url": "https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html",
+        "snippet": "Explains how to write background processes that perform work on behalf of applications or serve content over the network.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6
+      },
+      {
+        "title": "invalidationHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler",
+        "snippet": "You may not send messages over the connection from within an invalidation handler block. ... To submit feedback on documentation, visit Feedback Assistant.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "XPC Connection Not Invalidated on … | Apple Developer Forums",
+        "url": "https://origin-devforums.apple.com/forums/thread/719900",
+        "snippet": "You’ve stopped watching this thread and will no longer receive emails or web notifications when there’s activity. 1. Should I expect that NSXPCConnection.remoteObjectProxyWithErrorHandler to call the error handler if the associated NSXPCListenerDelegate returns false in its listener function? 4. Should I expect that NSXPCConnection.invalidate() and/or the connection's invalidationHandler to be called when the associated NSXPCListenerDelegate returns false in its listener function? import XCTest final class InvalidateTest: XCTestCase {   func testConnectionIsInvalidatedOnListenerRejection() {     //set up anonymous XPC Listener     let listener = NSXPCListener.anonymous()     let listenerDelegate = MockListenerDelegate()     listener.delegate = listenerDelegate     listener.resume()           //establish connection to service     let clientConnection = MockConnection(listenerEndpoint: listener.endpoint)     var interruptHandlerCalled = false     var invalidateHandlerCalled = false     let interruptionHandler = { interruptHandlerCalled = true }     let invalidationHandler = { invalidateHandlerCalled = true }     clientConnection.interruptionHandler = interruptionHandler     clientConnection.invalidationHandler = invalidationHandler     clientConnection.remoteObjectInterface = NSXPCInterface(with: XPCServDelegate.self)     clientConnection.exportedInterface = NSXPCInterface(with: XPCCliDelegate.self)     clientConnection.exportedObject = XPCCDelegate()     clientConnection.resume()           // get the proxy delegate to make the XPC pulse call     guard let proxy = clientConnection.remoteObjectProxy() as?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "NSXPCConnection.h - iOS-SDKs - GitHub",
+        "url": "https://github.com/xybp888/iOS-SDKs/blob/master/iPhoneOS13.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXPCConnection.h",
+        "snippet": "// You may not send messages over the connection from within an invalidation handler block. // The invalidationHandler property is cleared after the connection",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "invalidate() | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidate()",
+        "snippet": "The connection must be invalidated before it is deallocated. After a connection is invalidated, no more messages may be sent or received. See Also",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.7
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/Foundation/NSXPCConnection",
+        "snippet": "An invalidation handler that is called if the connection can not be formed or the connection has terminated and may not be re-established. class func",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/Foundation/NSXPCConnection",
+        "snippet": "The XPC connection was interrupted. ... The XPC connection was invalid. ... The XPC connection reply was invalid. ... The lower bounds of XPC connection error code",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "invalidate() | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidate()",
+        "snippet": "When you call this method, all outstanding reply blocks, error handling blocks, and invalidation blocks are called on the message handling queue.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "invalidationHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/invalidationhandler",
+        "snippet": "An invalidation handler that is called if the connection can not be formed or the connection has terminated and may not be re-established.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSXPCConnection debugging interruption/invalidation",
+        "url": "https://stackoverflow.com/questions/47418944/nsxpcconnection-debugging-interruption-invalidation",
+        "snippet": "I have heard that in case \"interruption\" you should try to reestablish the connection. This can be useful when your service is a launch agent which gets",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "NSXPCConnection.h - iOS-SDKs - GitHub",
+        "url": "https://github.com/xybp888/iOS-SDKs/blob/master/iPhoneOS13.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXPCConnection.h",
+        "snippet": "The invalidation handler will also be called if a connection created with an NSXPCListenerEndpoint is invalidated from the remote side, or if the NSXPCListener",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}
