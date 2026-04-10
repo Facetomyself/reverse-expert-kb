@@ -1,0 +1,50 @@
+# Search-layer artifact — Qt event-filter vs signal-slot first-consumer seam
+
+Date: 2026-04-11 04:50 Asia/Shanghai / 2026-04-10 20:50 UTC
+
+Command:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py \
+  --source exa,tavily,grok \
+  --queries \
+    "Qt event filter installEventFilter eventFilter events and filters documentation" \
+    "Qt AutoConnection direct queued receiver thread affinity documentation" \
+    "Qt queued connection requires event loop documentation" \
+    "Qt event filter return true stops event documentation" \
+  --mode deep \
+  --intent exploratory \
+  --num 5 \
+  --domain-boost doc.qt.io,wiki.qt.io
+
+Observed source status:
+- exa: succeeded
+- tavily: succeeded
+- grok: failed
+
+Observed Grok errors:
+- [grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+- [grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+- [grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+- [grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+
+Queries:
+1. Qt event filter installEventFilter eventFilter events and filters documentation
+2. Qt AutoConnection direct queued receiver thread affinity documentation
+3. Qt queued connection requires event loop documentation
+4. Qt event filter return true stops event documentation
+
+Top retained results from the search pass:
+- exa,tavily: https://doc.qt.io/qt-6/eventsandfilters.html — The Event System | Qt Core
+- tavily: https://doc.qt.io/qt-6/threads-qobject.html — Threads and QObjects | Qt 6.11
+- exa: https://doc.qt.io/qt-6/qabstractnativeeventfilter.html — QAbstractNativeEventFilter Class | Qt Core | Qt 6.11.0
+- exa: https://doc.qt.io/qt-6.7/signalsandslots.html — Signals & Slots | Qt Core
+- tavily: https://doc.qt.io/qt-6/eventsandfilters.html — snippet confirming `eventFilter(...)` may stop further processing by returning `true`
+
+Representative returned snippets:
+- `The QObject::installEventFilter() function enables this by setting up an event filter ... An event filter gets to process events before the target object does`
+- `In this case, the filter handles the relevant events and returns true to stop them from being processed any further`
+- `Queued Connection The slot is invoked when control returns to the event loop of the receiver's thread`
+- `Auto Connection (default) If the signal is emitted in the thread which the receiving object has affinity then the behavior is the same as the Direct Connection. Otherwise, the behavior is the same as the Queued Connection.`
+
+Notes:
+- The retained canonical sources for the KB write-up were official Qt documentation pages fetched directly after this search pass.
+- Grok failure is recorded here because the run policy requires explicit degraded-mode recording rather than silently treating Exa/Tavily-only operation as normal.
