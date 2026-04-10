@@ -114,6 +114,39 @@ Before remote Docker orchestration on older hosts, explicitly detect whether the
 
 ---
 
+## [ERR-20260410-001] comfyui-ui-vs-api-workflow-format-mismatch
+
+**Logged**: 2026-04-10T14:03:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: comfyui
+
+### Summary
+A workflow JSON was written in ComfyUI API/prompt-dict format and placed into the `workflows/` directory, but the user expected it to display normally on the ComfyUI canvas UI.
+
+### Error
+```text
+Workflow file loads abnormally / does not display correctly in the WebUI canvas.
+```
+
+### Context
+- The generated file used the API prompt structure keyed by node ids like `{"1": {...}, "2": {...}}`.
+- ComfyUI canvas/UI workflow files instead use a graph-style structure with top-level keys like `nodes`, `links`, `groups`, `config`, `extra`, and `version`.
+- Result: the file was valid as an API prompt, but not appropriate as a normal WebUI workflow artifact inside `~/ai/ComfyUI/workflows`.
+
+### Suggested Fix
+- Distinguish clearly between:
+  - **API prompt JSON** for queue/API submission
+  - **UI workflow JSON** for direct WebUI canvas import/display
+- Before writing to `ComfyUI/workflows/`, validate that the JSON is a UI workflow (`nodes` + `links`) unless the goal is explicitly API-only.
+- Archive API-format examples outside the main `workflows/` list to avoid confusing WebUI imports.
+
+### Metadata
+- Reproducible: yes
+- Related Files: workflows/_archived/chenkinrf-wd14-reverse-helper.json
+
+---
+
 ## [ERR-20260407-001] ssh-batch-inline-quoting-breakage
 
 **Logged**: 2026-04-07T15:57:00+08:00
@@ -772,5 +805,33 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 - Reproducible: unknown
 - Related Files: /root/.openclaw/workspace/ops-assistant/checks/run_fleet_check.py, /root/.openclaw/workspace/ops-assistant/checks/docker_inventory.py, /root/.openclaw/workspace/.learnings/ERRORS.md
 - See Also: ERR-20260407-001
+
+---
+
+## [ERR-20260409-001] home-nas-ssh-timeout-during-hysteria-bootstrap
+
+**Logged**: 2026-04-09T22:57:00+08:00
+**Priority**: high
+**Status**: pending
+**Area**: infra
+
+### Summary
+`home-nas` became SSH-timeout-prone while bootstrapping a Hysteria client and polling status through multiple non-interactive SSH exec sessions.
+
+### Error
+```\nssh: connect to host 100.73.212.89 port 22: Connection timed out\n```
+
+### Context
+- Operation attempted: bootstrap Hysteria client on Synology NAS over SSH, then poll download/log status.
+- Environment: DSM 7.2.2 (`home-nas`), OpenClaw exec sessions on current host.
+- Several exec/process polls were active while a background curl download on NAS was being started.
+
+### Suggested Fix
+Prefer a single idempotent remote bootstrap script that backgrounds locally on NAS and minimizes repeated SSH polling. For flaky tailnet/NAS nodes, avoid stacking many short SSH status probes during long downloads.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: .learnings/ERRORS.md
+- Tags: nas, ssh, tailnet, hysteria, bootstrap
 
 ---
