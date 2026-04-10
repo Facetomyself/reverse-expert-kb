@@ -1,0 +1,294 @@
+{
+  "last_node_id": 13,
+  "last_link_id": 17,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [20, 40],
+      "size": [320, 310],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {"name": "IMAGE", "type": "IMAGE", "links": [1], "slot_index": 0},
+        {"name": "MASK", "type": "MASK", "links": null, "slot_index": 1}
+      ],
+      "title": "Reference Image",
+      "properties": {"Node name for S&R": "LoadImage"},
+      "widgets_values": ["example.png"]
+    },
+    {
+      "id": 2,
+      "type": "WD14Tagger|pysssss",
+      "pos": [380, 40],
+      "size": [390, 260],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {"name": "image", "type": "IMAGE", "link": 1}
+      ],
+      "outputs": [
+        {"name": "STRING", "type": "STRING", "links": null, "slot_index": 0}
+      ],
+      "title": "WD14 Reverse Tags — use as skeleton only",
+      "properties": {"Node name for S&R": "WD14Tagger|pysssss"},
+      "widgets_values": [
+        "wd-eva02-large-tagger-v3",
+        0.32,
+        0.85,
+        true,
+        false,
+        "english text, speech bubble, comic, monochrome, greyscale, simple background, multiple views, reference sheet, character sheet, chibi, sketch, rough sketch"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CheckpointLoaderSimple",
+      "pos": [20, 430],
+      "size": [340, 100],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {"name": "MODEL", "type": "MODEL", "links": [2], "slot_index": 0},
+        {"name": "CLIP", "type": "CLIP", "links": [3], "slot_index": 1},
+        {"name": "VAE", "type": "VAE", "links": [15], "slot_index": 2}
+      ],
+      "title": "Load Checkpoint",
+      "properties": {"Node name for S&R": "CheckpointLoaderSimple"},
+      "widgets_values": ["ChenkinNoob-XL-v0.2-Rectified-Flow.safetensors"]
+    },
+    {
+      "id": 4,
+      "type": "LoraLoader",
+      "pos": [410, 380],
+      "size": [340, 130],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {"name": "model", "type": "MODEL", "link": 2},
+        {"name": "clip", "type": "CLIP", "link": 3}
+      ],
+      "outputs": [
+        {"name": "MODEL", "type": "MODEL", "links": [4], "slot_index": 0},
+        {"name": "CLIP", "type": "CLIP", "links": [5], "slot_index": 1}
+      ],
+      "title": "LoRA 1 — Character / Identity",
+      "properties": {"Node name for S&R": "LoraLoader"},
+      "widgets_values": ["put_character_lora_here.safetensors", 0.85, 0.85]
+    },
+    {
+      "id": 5,
+      "type": "LoraLoader",
+      "pos": [800, 380],
+      "size": [340, 130],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {"name": "model", "type": "MODEL", "link": 4},
+        {"name": "clip", "type": "CLIP", "link": 5}
+      ],
+      "outputs": [
+        {"name": "MODEL", "type": "MODEL", "links": [6], "slot_index": 0},
+        {"name": "CLIP", "type": "CLIP", "links": [7], "slot_index": 1}
+      ],
+      "title": "LoRA 2 — Style / Artist",
+      "properties": {"Node name for S&R": "LoraLoader"},
+      "widgets_values": ["put_style_or_artist_lora_here.safetensors", 0.55, 0.45]
+    },
+    {
+      "id": 6,
+      "type": "LoraLoader",
+      "pos": [1190, 380],
+      "size": [340, 130],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {"name": "model", "type": "MODEL", "link": 6},
+        {"name": "clip", "type": "CLIP", "link": 7}
+      ],
+      "outputs": [
+        {"name": "MODEL", "type": "MODEL", "links": [8], "slot_index": 0},
+        {"name": "CLIP", "type": "CLIP", "links": [9, 10], "slot_index": 1}
+      ],
+      "title": "LoRA 3 — Detail / Render Boost (optional)",
+      "properties": {"Node name for S&R": "LoraLoader"},
+      "widgets_values": ["put_detail_lora_here.safetensors", 0.28, 0.20]
+    },
+    {
+      "id": 7,
+      "type": "ModelSamplingSD3",
+      "pos": [1580, 410],
+      "size": [260, 82],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {"name": "model", "type": "MODEL", "link": 8}
+      ],
+      "outputs": [
+        {"name": "MODEL", "type": "MODEL", "links": [11], "slot_index": 0}
+      ],
+      "properties": {"Node name for S&R": "ModelSamplingSD3"},
+      "widgets_values": [3.5]
+    },
+    {
+      "id": 8,
+      "type": "CLIPTextEncode",
+      "pos": [820, 600],
+      "size": [760, 320],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {"name": "clip", "type": "CLIP", "link": 9}
+      ],
+      "outputs": [
+        {"name": "CONDITIONING", "type": "CONDITIONING", "links": [12], "slot_index": 0}
+      ],
+      "title": "Positive Prompt — quality -> style -> character -> scene -> WD14 skeleton",
+      "properties": {"Node name for S&R": "CLIPTextEncode"},
+      "widgets_values": ["newest, year 2025, high resolution, aesthetic, excellent, masterpiece, best quality, amazing quality, absurdres, anime coloring, clean lineart, detailed eyes, detailed face, detailed hair, detailed clothing, polished shading, soft rim light, cinematic lighting, sharp focus,\n\n[STYLE BLOCK: artist names, style prompt, medium prompt, color mood, rendering taste]\n\n[CHARACTER BLOCK: character lora trigger words, character name, hairstyle, eye color, outfit anchors]\n\n[SCENE BLOCK: composition, camera shot, pose, background, atmosphere]\n\n[PASTE CLEANED WD14 TAGS HERE — keep only the useful skeleton tags, do not dump everything]"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "CLIPTextEncode",
+      "pos": [820, 960],
+      "size": [760, 220],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {"name": "clip", "type": "CLIP", "link": 10}
+      ],
+      "outputs": [
+        {"name": "CONDITIONING", "type": "CONDITIONING", "links": [13], "slot_index": 0}
+      ],
+      "title": "Negative Prompt",
+      "properties": {"Node name for S&R": "CLIPTextEncode"},
+      "widgets_values": ["low resolution, lowres, worst quality, low quality, normal quality, blurry, bad anatomy, bad hands, extra fingers, malformed hands, extra limbs, text, watermark, signature, logo, artist name, speech bubble, english text, korean text, cropped, jpeg artifacts, deformed eyes, messy lineart, multiple views, reference sheet, character sheet, chibi, comic, rough sketch"]
+    },
+    {
+      "id": 10,
+      "type": "EmptyLatentImage",
+      "pos": [820, 1240],
+      "size": [360, 110],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {"name": "LATENT", "type": "LATENT", "links": [14], "slot_index": 0}
+      ],
+      "title": "Canvas — portrait default",
+      "properties": {"Node name for S&R": "EmptyLatentImage"},
+      "widgets_values": [832, 1216, 1]
+    },
+    {
+      "id": 11,
+      "type": "KSampler",
+      "pos": [1880, 760],
+      "size": [340, 280],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {"name": "model", "type": "MODEL", "link": 11},
+        {"name": "positive", "type": "CONDITIONING", "link": 12},
+        {"name": "negative", "type": "CONDITIONING", "link": 13},
+        {"name": "latent_image", "type": "LATENT", "link": 14}
+      ],
+      "outputs": [
+        {"name": "LATENT", "type": "LATENT", "links": [16], "slot_index": 0}
+      ],
+      "properties": {"Node name for S&R": "KSampler"},
+      "widgets_values": [42, "randomize", 30, 4.9, "dpmpp_sde", "sgm_uniform", 1]
+    },
+    {
+      "id": 12,
+      "type": "VAEDecode",
+      "pos": [2270, 810],
+      "size": [220, 46],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {"name": "samples", "type": "LATENT", "link": 16},
+        {"name": "vae", "type": "VAE", "link": 15}
+      ],
+      "outputs": [
+        {"name": "IMAGE", "type": "IMAGE", "links": [17], "slot_index": 0}
+      ],
+      "properties": {"Node name for S&R": "VAEDecode"},
+      "widgets_values": []
+    },
+    {
+      "id": 13,
+      "type": "SaveImage",
+      "pos": [2520, 810],
+      "size": [370, 58],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {"name": "images", "type": "IMAGE", "link": 17}
+      ],
+      "outputs": [],
+      "title": "Save Image",
+      "properties": {"Node name for S&R": "SaveImage"},
+      "widgets_values": ["ChenkinRF/chenkinrf-pro-multilora"]
+    }
+  ],
+  "links": [
+    [1, 1, 0, 2, 0, "IMAGE"],
+    [2, 3, 0, 4, 0, "MODEL"],
+    [3, 3, 1, 4, 1, "CLIP"],
+    [4, 4, 0, 5, 0, "MODEL"],
+    [5, 4, 1, 5, 1, "CLIP"],
+    [6, 5, 0, 6, 0, "MODEL"],
+    [7, 5, 1, 6, 1, "CLIP"],
+    [8, 6, 0, 7, 0, "MODEL"],
+    [9, 6, 1, 8, 0, "CLIP"],
+    [10, 6, 1, 9, 0, "CLIP"],
+    [11, 7, 0, 11, 0, "MODEL"],
+    [12, 8, 0, 11, 1, "CONDITIONING"],
+    [13, 9, 0, 11, 2, "CONDITIONING"],
+    [14, 10, 0, 11, 3, "LATENT"],
+    [15, 3, 2, 12, 1, "VAE"],
+    [16, 11, 0, 12, 0, "LATENT"],
+    [17, 12, 0, 13, 0, "IMAGE"]
+  ],
+  "groups": [
+    {
+      "title": "Reverse analysis",
+      "bounding": [350, 10, 450, 320],
+      "color": "#3f789e"
+    },
+    {
+      "title": "Model + multi-LoRA stack",
+      "bounding": [0, 340, 1870, 230],
+      "color": "#7f5f3f"
+    },
+    {
+      "title": "Prompting + sampling",
+      "bounding": [760, 560, 2180, 820],
+      "color": "#4b7f52"
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.62,
+      "offset": [10, 18]
+    }
+  },
+  "version": 0.4
+}
