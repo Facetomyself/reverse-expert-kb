@@ -18,6 +18,7 @@ Related pages:
 - topics/native-timer-queue-and-threadpool-timer-first-consumer-workflow-note.md
 - topics/native-apc-alertable-wait-first-consumer-workflow-note.md
 - topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md
+- topics/native-qt-event-filter-vs-signal-slot-first-consumer-workflow-note.md
 - topics/runtime-behavior-recovery.md
 
 ## 1. Why this guide exists
@@ -262,9 +263,12 @@ Common thinner continuations:
   - preserve extra stop rules there: do not treat `QueueUserAPC` / `NtQueueApcThread` visibility as delivery proof, do not overread cross-process queueing as execution proof, prove one alertable wait or `NtTestAlert` boundary, and do not stop at `KiUserApcDispatcher` if the real owner lives in the callback body or one immediate downstream consumer
 - `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md` when the async-ownership break has already narrowed specifically into Win32 message-pump / subclass, Qt signal-slot ownership, or macOS Cocoa / XPC / dispatch delivery ownership and the real bottleneck is one per-instance, per-connection, or per-responder first consumer rather than broad callback-plumbing truth
   - preserve extra stop rules there: do not flatten shared subclass wrappers into one owner; in Win32 helper-based subclass cases recover the exact `HWND` plus callback+subclass-ID pair and instance-local reference data, and remember that `DefSubclassProc(...)` forwarding is chain-presence evidence rather than automatic owner proof; do not flatten Qt `AutoConnection` / queued delivery into generic “signal found” proof without proving receiver thread affinity, actual delivery mode, and when relevant receiver-loop liveness, and keep the smaller splits **signal found != queued truth != first behavior-changing consumer** and **connected != direct != queued != delivered != consumed** visible; do not flatten `installEventFilter(...)` / `eventFilter(...)` visibility into automatic first-consumer proof unless the filter actually suppresses, rewrites, or retargets the event, and treat application-global filters as earlier reduction boundaries rather than automatic owners; and do not flatten `NSApplication sendEvent:`, XPC proxy setup, or dispatch-source registration into automatic consumer proof
+- `topics/native-qt-event-filter-vs-signal-slot-first-consumer-workflow-note.md` when the broad GUI continuation has already narrowed specifically into Qt event-filter visibility versus later signal-slot delivery and the remaining bottleneck is whether fate lives at the filter, the receiver-side handler, the emit site, or one later direct/queued slot rather than broad GUI routing
+  - preserve extra stop rules there: do not flatten filter hit into filter-owned fate, do not flatten app-global filter visibility into object-local ownership, keep `signal emitted != connection exists != direct != queued != delivered != consumed` visible, and prove receiver affinity plus receiver-loop liveness before narrating queued-slot ownership
 
 Possible next handoff:
 - `topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md`
+- `topics/native-qt-event-filter-vs-signal-slot-first-consumer-workflow-note.md`
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
 - `topics/runtime-behavior-recovery.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`

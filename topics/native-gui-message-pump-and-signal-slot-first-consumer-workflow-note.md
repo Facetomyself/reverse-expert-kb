@@ -8,6 +8,7 @@ Related pages:
 - topics/native-binary-reversing-baseline.md
 - topics/native-callback-registration-to-event-loop-consumer-workflow-note.md
 - topics/native-interface-to-state-proof-workflow-note.md
+- topics/native-qt-event-filter-vs-signal-slot-first-consumer-workflow-note.md
 - topics/runtime-behavior-recovery.md
 - topics/causal-write-and-reverse-causality-localization-workflow-note.md
 
@@ -101,6 +102,11 @@ This note therefore biases toward:
 - one message family, not whole-window cataloging
 - one slot/consumer, not whole-signal graph inventory
 - one durable state or follow-on task, not framework narration
+
+A dedicated thinner continuation now exists for the most common Qt-only ambiguity:
+- `topics/native-qt-event-filter-vs-signal-slot-first-consumer-workflow-note.md`
+
+Use that leaf when both `eventFilter(...)` plumbing and later signal-slot routing are already visible, but the missing proof object is still whether fate lives at the filter, the receiver-side handler, the emit site, or one later direct/queued slot.
 
 ## 5. Practical source-backed reminders
 The current source pass supports several operator reminders.
