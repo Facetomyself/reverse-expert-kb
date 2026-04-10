@@ -37,11 +37,11 @@
       "properties": {"Node name for S&R": "WD14Tagger|pysssss"},
       "widgets_values": [
         "wd-eva02-large-tagger-v3",
-        0.35,
+        0.32,
         0.85,
         true,
         false,
-        "english text, speech bubble, comic, monochrome, greyscale, simple background"
+        "english text, speech bubble, comic, monochrome, greyscale, simple background, multiple views, reference sheet, character sheet, chibi, sketch, rough sketch"
       ]
     },
     {
@@ -95,7 +95,7 @@
       ],
       "title": "Positive Prompt — paste cleaned WD14 tags here",
       "properties": {"Node name for S&R": "CLIPTextEncode"},
-      "widgets_values": ["masterpiece, best quality, aesthetic, newest, 1girl, solo, anime illustration, detailed eyes, detailed face, clean lineart, soft shading, from above waist, looking at viewer, detailed clothing, detailed hair, [paste cleaned WD14 tags here]"]
+      "widgets_values": ["masterpiece, best quality, very aesthetic, newest, 1girl, solo, anime illustration, detailed eyes, detailed face, clean lineart, soft shading, sharp focus, detailed clothing, detailed hair, expressive pose, [paste cleaned WD14 tags here]"]
     },
     {
       "id": 6,
@@ -113,7 +113,7 @@
       ],
       "title": "Negative Prompt",
       "properties": {"Node name for S&R": "CLIPTextEncode"},
-      "widgets_values": ["worst quality, low quality, lowres, blurry, bad anatomy, extra fingers, malformed hands, text, watermark, signature, logo, cropped, jpeg artifacts"]
+      "widgets_values": ["worst quality, low quality, lowres, blurry, bad anatomy, bad hands, extra fingers, malformed hands, extra limbs, text, watermark, signature, logo, cropped, jpeg artifacts, deformed eyes, messy lineart"]
     },
     {
       "id": 7,
@@ -128,7 +128,7 @@
         {"name": "LATENT", "type": "LATENT", "links": [9], "slot_index": 0}
       ],
       "properties": {"Node name for S&R": "EmptyLatentImage"},
-      "widgets_values": [832, 1216, 1]
+      "widgets_values": [1024, 1024, 1]
     },
     {
       "id": 8,
@@ -148,7 +148,7 @@
         {"name": "LATENT", "type": "LATENT", "links": [10], "slot_index": 0}
       ],
       "properties": {"Node name for S&R": "KSampler"},
-      "widgets_values": [42, "fixed", 24, 4.5, "dpmpp_sde", "sgm_uniform", 1]
+      "widgets_values": [42, "randomize", 28, 4.2, "dpmpp_sde", "sgm_uniform", 1]
     },
     {
       "id": 9,
