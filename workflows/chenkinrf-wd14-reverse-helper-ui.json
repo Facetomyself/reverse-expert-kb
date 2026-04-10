@@ -1,0 +1,210 @@
+{
+  "last_node_id": 10,
+  "last_link_id": 10,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [20, 40],
+      "size": [320, 310],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {"name": "IMAGE", "type": "IMAGE", "links": [1], "slot_index": 0},
+        {"name": "MASK", "type": "MASK", "links": null, "slot_index": 1}
+      ],
+      "title": "Reference Image",
+      "properties": {"Node name for S&R": "LoadImage"},
+      "widgets_values": ["example.png"]
+    },
+    {
+      "id": 2,
+      "type": "WD14Tagger|pysssss",
+      "pos": [380, 40],
+      "size": [360, 250],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {"name": "image", "type": "IMAGE", "link": 1}
+      ],
+      "outputs": [
+        {"name": "STRING", "type": "STRING", "links": null, "slot_index": 0}
+      ],
+      "title": "WD14 Reverse Tags",
+      "properties": {"Node name for S&R": "WD14Tagger|pysssss"},
+      "widgets_values": [
+        "wd-eva02-large-tagger-v3",
+        0.35,
+        0.85,
+        true,
+        false,
+        "english text, speech bubble, comic, monochrome, greyscale, simple background"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CheckpointLoaderSimple",
+      "pos": [20, 420],
+      "size": [320, 100],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {"name": "MODEL", "type": "MODEL", "links": [2], "slot_index": 0},
+        {"name": "CLIP", "type": "CLIP", "links": [3, 4], "slot_index": 1},
+        {"name": "VAE", "type": "VAE", "links": [8], "slot_index": 2}
+      ],
+      "title": "Load Checkpoint",
+      "properties": {"Node name for S&R": "CheckpointLoaderSimple"},
+      "widgets_values": ["ChenkinNoob-XL-v0.2-Rectified-Flow.safetensors"]
+    },
+    {
+      "id": 4,
+      "type": "ModelSamplingSD3",
+      "pos": [380, 420],
+      "size": [260, 82],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {"name": "model", "type": "MODEL", "link": 2}
+      ],
+      "outputs": [
+        {"name": "MODEL", "type": "MODEL", "links": [5], "slot_index": 0}
+      ],
+      "properties": {"Node name for S&R": "ModelSamplingSD3"},
+      "widgets_values": [3.5]
+    },
+    {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": [700, 360],
+      "size": [470, 210],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {"name": "clip", "type": "CLIP", "link": 3}
+      ],
+      "outputs": [
+        {"name": "CONDITIONING", "type": "CONDITIONING", "links": [6], "slot_index": 0}
+      ],
+      "title": "Positive Prompt — paste cleaned WD14 tags here",
+      "properties": {"Node name for S&R": "CLIPTextEncode"},
+      "widgets_values": ["masterpiece, best quality, aesthetic, newest, 1girl, solo, anime illustration, detailed eyes, detailed face, clean lineart, soft shading, from above waist, looking at viewer, detailed clothing, detailed hair, [paste cleaned WD14 tags here]"]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [700, 610],
+      "size": [470, 170],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {"name": "clip", "type": "CLIP", "link": 4}
+      ],
+      "outputs": [
+        {"name": "CONDITIONING", "type": "CONDITIONING", "links": [7], "slot_index": 0}
+      ],
+      "title": "Negative Prompt",
+      "properties": {"Node name for S&R": "CLIPTextEncode"},
+      "widgets_values": ["worst quality, low quality, lowres, blurry, bad anatomy, extra fingers, malformed hands, text, watermark, signature, logo, cropped, jpeg artifacts"]
+    },
+    {
+      "id": 7,
+      "type": "EmptyLatentImage",
+      "pos": [700, 830],
+      "size": [315, 106],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {"name": "LATENT", "type": "LATENT", "links": [9], "slot_index": 0}
+      ],
+      "properties": {"Node name for S&R": "EmptyLatentImage"},
+      "widgets_values": [832, 1216, 1]
+    },
+    {
+      "id": 8,
+      "type": "KSampler",
+      "pos": [1230, 470],
+      "size": [315, 262],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {"name": "model", "type": "MODEL", "link": 5},
+        {"name": "positive", "type": "CONDITIONING", "link": 6},
+        {"name": "negative", "type": "CONDITIONING", "link": 7},
+        {"name": "latent_image", "type": "LATENT", "link": 9}
+      ],
+      "outputs": [
+        {"name": "LATENT", "type": "LATENT", "links": [10], "slot_index": 0}
+      ],
+      "properties": {"Node name for S&R": "KSampler"},
+      "widgets_values": [42, "fixed", 24, 4.5, "dpmpp_sde", "sgm_uniform", 1]
+    },
+    {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [1590, 500],
+      "size": [210, 46],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {"name": "samples", "type": "LATENT", "link": 10},
+        {"name": "vae", "type": "VAE", "link": 8}
+      ],
+      "outputs": [
+        {"name": "IMAGE", "type": "IMAGE", "links": [11], "slot_index": 0}
+      ],
+      "properties": {"Node name for S&R": "VAEDecode"},
+      "widgets_values": []
+    },
+    {
+      "id": 10,
+      "type": "SaveImage",
+      "pos": [1830, 500],
+      "size": [330, 58],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {"name": "images", "type": "IMAGE", "link": 11}
+      ],
+      "outputs": [],
+      "title": "Save Image",
+      "properties": {"Node name for S&R": "SaveImage"},
+      "widgets_values": ["ChenkinRF/chenkinrf-wd14-reverse-helper"]
+    }
+  ],
+  "links": [
+    [1, 1, 0, 2, 0, "IMAGE"],
+    [2, 3, 0, 4, 0, "MODEL"],
+    [3, 3, 1, 5, 0, "CLIP"],
+    [4, 3, 1, 6, 0, "CLIP"],
+    [5, 4, 0, 8, 0, "MODEL"],
+    [6, 5, 0, 8, 1, "CONDITIONING"],
+    [7, 6, 0, 8, 2, "CONDITIONING"],
+    [8, 3, 2, 9, 1, "VAE"],
+    [9, 7, 0, 8, 3, "LATENT"],
+    [10, 8, 0, 9, 0, "LATENT"],
+    [11, 9, 0, 10, 0, "IMAGE"]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.82,
+      "offset": [19, 43]
+    }
+  },
+  "version": 0.4
+}
