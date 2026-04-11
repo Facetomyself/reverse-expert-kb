@@ -15,5 +15,13 @@
   - removed stale `30007/tcp -> 9090/tcp` forward rule
   - removed stale public `9090/tcp` open
   - removed unused public opens `30003-30007/tcp` (can be re-enabled selectively when specific home services are mapped)
-  Resulting steady public opens on this VM: `22/tcp`, `80/tcp`, `443/tcp`, `30001/tcp`, `30008/tcp`, `30009/tcp`, `30010/tcp`.
+  Resulting steady public opens on this VM were intended as `22/tcp`, `80/tcp`, `443/tcp`, `30001/tcp`, `30008/tcp`, `30009/tcp`, `30010/tcp`, but later service additions changed the effective application-port occupancy.
   Credential note: FRPS uses token auth and dashboard BasicAuth; secrets are stored on-host in the FRP config and are intentionally not recorded in `infra/`.
+- 2026-04-11: Confirmed a new 1Panel-managed `AstrBot` deployment on `self-server-44005` (`host185`). Runtime details verified on-host:
+  - app path: `/opt/1panel/apps/astrbot/astrbot`
+  - image/container: `soulter/astrbot:v4.22.3` / `astrbot`
+  - compose mapping from `.env` + `docker-compose.yml`: host `30007 -> container 6185` for the WebUI, plus auxiliary mappings `10000 -> 6194`, `10001 -> 6195`, `30006 -> 6196`, `30005 -> 6199`, `10002 -> 11451`
+  - container logs showed AstrBot booted normally and the WebUI started on container `0.0.0.0:6185`
+  - host-local validation showed `curl http://127.0.0.1:30007/` returned `200 OK`, while `curl http://127.0.0.1:6185/` failed with connection refused because `6185` is container-internal only
+  - transit-side validation from `ali-cloud` confirmed public `211.144.221.229:30007` returned `200 OK`
+  Operational conclusion: if any 1Panel site / reverse proxy / upstream elsewhere is pointed at host `:6185`, it will return `502 Bad Gateway`; the correct host-side target is `127.0.0.1:30007` (or Docker-network target `astrbot:6185` when proxy and app share the same Docker network).

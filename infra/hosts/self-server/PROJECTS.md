@@ -74,6 +74,7 @@ Current shape is noticeably heavier and contains more development residue / oper
 - expected long-lived projects on this VM after repurpose:
   - `1Panel`
   - `prompt-optimizer-studio`
+  - `AstrBot`
   - `FRPS` relay for `home-macmini` and `home-nas`
 - future workloads should still be introduced intentionally from a low-noise baseline
 - if new projects are added later, document them explicitly rather than letting residue accumulate again
@@ -86,8 +87,8 @@ Current shape is noticeably heavier and contains more development residue / oper
   - reserve `30009/tcp` for the `frps` server port
   - reserve `30010/tcp` only if the dashboard is explicitly needed; prefer loopback-only or disabled
   - use `30002-30007/tcp` as the main externally published service pool for `frpc` clients from `home-macmini` / `home-nas`
-  - keep `30001/tcp` for `prompt-optimizer-studio` and `30008/tcp` for `1Panel`
-  - remove stale firewall exposure related to old `9090` / `30007 -> 9090` forwarding before reusing `30007`
+  - keep `30001/tcp` for `prompt-optimizer-studio`, `30007/tcp` for `AstrBot WebUI`, and `30008/tcp` for `1Panel`
+  - avoid reusing `30007` for FRP payloads unless AstrBot is retired or remapped first
 
 #### Active project added on 2026-04-06: Prompt Optimizer Studio
 - deployment path: `/opt/prompt-optimizer-studio`
@@ -99,3 +100,22 @@ Current shape is noticeably heavier and contains more development residue / oper
 - update path: refresh source tree on a better-connected host if needed, sync to `host185`, then `docker-compose up -d --build`
 - operational note: direct GitHub/GHCR shell access from this host was flaky during bootstrap, but Docker base-image pulls and local source-build deployment succeeded through the established explicit-proxy shape
 - detailed runbook: `infra/hosts/self-server/projects/prompt-optimizer-studio.md`
+
+#### Active project confirmed on 2026-04-11: AstrBot
+- deployment path: `/opt/1panel/apps/astrbot/astrbot`
+- runtime shape: 1Panel-managed Docker app, container name `astrbot`, image `soulter/astrbot:v4.22.3`
+- compose path: `/opt/1panel/apps/astrbot/astrbot/docker-compose.yml`
+- env path: `/opt/1panel/apps/astrbot/astrbot/.env`
+- confirmed host-port mapping from 1Panel app env/compose:
+  - `30007 -> container 6185` (`WebUI`)
+  - `10000 -> container 6194` (`微信官方`)
+  - `10001 -> container 6195` (`企微`)
+  - `30006 -> container 6196` (`QQ 官方`)
+  - `30005 -> container 6199` (`QQ 个人`)
+  - `10002 -> container 11451` (`微信个人`)
+- runtime logs on 2026-04-11 confirmed:
+  - AstrBot boot completed normally
+  - WebUI started on container `0.0.0.0:6185`
+  - host-side direct check `curl http://127.0.0.1:30007/` returned `200 OK`
+  - host-side direct check `curl http://127.0.0.1:6185/` returned connection refused, because `6185` is container-internal only
+- operational implication: any host-level reverse proxy should target `http://127.0.0.1:30007` (or Docker-network target `http://astrbot:6185` if sharing the same network), not host `:6185`; otherwise a `502 Bad Gateway` is expected.
