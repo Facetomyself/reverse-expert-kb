@@ -19,6 +19,7 @@ Related pages:
 - topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
 - topics/exception-handler-owned-control-transfer-workflow-note.md
 - topics/protected-runtime-observation-topology-selection-workflow-note.md
+- topics/protected-runtime-lower-surface-vs-user-space-uncertainty-reduction-workflow-note.md
 
 ## 1. Why this guide exists
 This guide exists because the KB’s protected / deobfuscation branch already has several strong practical notes, but until now it has been easier to read as a flat list of sibling pages than as a usable operator ladder.
@@ -335,6 +336,7 @@ Primary note:
 
 Possible next handoff:
 - `topics/protected-runtime-observation-topology-selection-workflow-note.md`
+- `topics/protected-runtime-lower-surface-vs-user-space-uncertainty-reduction-workflow-note.md` when lower-surface visibility already exists but the remaining decision is compare-heavy rather than topology-selection-heavy
 - `topics/integrity-check-to-tamper-consequence-workflow-note.md`
 - `topics/environment-differential-diagnosis-workflow-note.md`
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
@@ -347,6 +349,7 @@ Primary note:
 - `topics/protected-runtime-observation-topology-selection-workflow-note.md`
 
 Possible next handoff:
+- `topics/protected-runtime-lower-surface-vs-user-space-uncertainty-reduction-workflow-note.md` when one lower-surface boundary already exists and the remaining question is whether it actually reduced uncertainty more than one richer user-space posture would have while still preserving enough semantic carry-forward
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
