@@ -835,3 +835,184 @@ Prefer a single idempotent remote bootstrap script that backgrounds locally on N
 - Tags: nas, ssh, tailnet, hysteria, bootstrap
 
 ---
+
+## [ERR-20260411-001] smb-mounted-dataset-shape-mismatch
+
+**Logged**: 2026-04-11T17:09:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Role-LoRA筛选时，NAS 上经 SSH 直读统计到角色标签存在，但在 mac mini 的 SMB 挂载视图里首轮筛选结果为 0，不能假设两种读取路径下的数据形态完全一致。
+
+### Error
+```
+Expected chihaya_anon matches based on NAS-side metadata stats, but SMB-mounted first-pass selector returned total_matches=0.
+```
+
+### Context
+- NAS direct path: /volume1/homes/zhangxuemin/lyy
+- Mac SMB mount path: ~/mnt/home-nas-lyy/zhangxuemin/lyy
+- Operation: build first-pass character LoRA candidate subset for chihaya_anon
+
+### Suggested Fix
+Before running selection logic on mounted datasets, sample a few metadata files from the mounted path and confirm tag field structure/content matches the direct NAS-side path.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: .learnings/ERRORS.md
+
+---
+
+## [ERR-20260411-002] pip-macos-torch-timeout
+
+**Logged**: 2026-04-11T18:40:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+On home-macmini, `pip install torch torchvision torchaudio` inside the LoRA training venv timed out while downloading from files.pythonhosted.org using pip default settings.
+
+### Error
+```
+pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host=files.pythonhosted.org, port=443): Read timed out.
+```
+
+### Context
+- Host: home-macmini
+- Python: 3.9.6 venv under ~/ai/train/sd-scripts/.venv
+- Operation: bootstrap sd-scripts training environment
+
+### Suggested Fix
+Retry large wheel installs on macOS with `--default-timeout` and `--retries` instead of assuming a hard failure.
+
+### Metadata
+- Reproducible: yes
+- Related Files: .learnings/ERRORS.md
+
+---
+
+## [ERR-20260411-003] sd-scripts-python39-incompatible
+
+**Logged**: 2026-04-11T18:46:00+08:00
+**Priority**: high
+**Status**: pending
+**Area**: infra
+
+### Summary
+Current sd-scripts checkout on home-macmini is not runnable under Python 3.9 because imported modules use Python 3.10 union type syntax like `str | None`.
+
+### Error
+```
+TypeError: unsupported operand type(s) for |: type and NoneType
+```
+
+### Context
+- Host: home-macmini
+- Repo: ~/ai/train/sd-scripts @ 308a0cc
+- Interpreter: /Library/Developer/CommandLineTools Python 3.9.6
+- Failure surfaced before training start in both `sdxl_train_network.py` and `sd3_train_network.py`
+
+### Suggested Fix
+Use Python 3.10+ (prefer 3.11 on macOS arm64), recreate the venv, then reinstall training dependencies.
+
+### Metadata
+- Reproducible: yes
+- Related Files: .learnings/ERRORS.md
+
+---
+
+## [ERR-20260411-004] hf-tokenizer-download-timeout
+
+**Logged**: 2026-04-11T19:02:00+08:00
+**Priority**: high
+**Status**: pending
+**Area**: infra
+
+### Summary
+SDXL training startup on home-macmini failed because tokenizer initialization tried to reach huggingface.co and timed out.
+
+### Error
+```
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host=huggingface.co, port=443): Max retries exceeded ... openai/clip-vit-large-patch14 ...
+```
+
+### Context
+- Host: home-macmini
+- Operation: `sdxl_train_network.py` startup
+- Model: ChenkinNoob-XL-v0.2-Rectified-Flow.safetensors
+- Existing training env otherwise boots and reaches tokenizer load stage.
+
+### Suggested Fix
+Pre-cache required SDXL tokenizers locally or route Hugging Face access via a mirror / `HF_ENDPOINT`, then rerun training with `--tokenizer_cache_dir`.
+
+### Metadata
+- Reproducible: yes
+- Related Files: .learnings/ERRORS.md
+
+---
+
+## [ERR-20260411-005] sdxl-local-tokenizer-cache-workaround
+
+**Logged**: 2026-04-11T19:34:28+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: comfyui
+
+### Summary
+SDXL LoRA training on `home-macmini` was blocked by Hugging Face / hf-mirror tokenizer downloads timing out; training was recovered by providing a local tokenizer cache directory and avoiding network fetch during startup.
+
+### Error
+```text
+TimeoutError: [Errno 60] Operation timed out
+curl: (28) SSL connection timeout
+Error while downloading from https://hf-mirror.com/... Read timed out
+```
+
+### Context
+- `sdxl_train_network.py` attempted to resolve `openai/clip-vit-large-patch14` and `laion/CLIP-ViT-bigG-14-laion2B-39B-b160k` at startup.
+- Remote network to `huggingface.co` / `hf-mirror.com` was unreliable.
+- Recovery path: create local directories under `~/ai/tokenizers/<model_id with slash replaced by underscore>` and pass `--tokenizer_cache_dir=/Users/mengma/ai/tokenizers`.
+- For this setup, the borrowed tokenizer configs also needed `model_max_length=77`; the copied SD1 config defaulted to `8192`, which broke SDXL text encoding reshape.
+
+### Suggested Fix
+For unstable-network SDXL training hosts, pre-seed tokenizer cache locally and use `--tokenizer_cache_dir` before first launch. If tokenizers are assembled from fallback files, verify `tokenizer_config.json` fields such as `model_max_length` match SDXL expectations.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /Users/mengma/ai/train/scripts/run_chihaya_soyo_lora_v1.sh, /root/.openclaw/workspace/.learnings/ERRORS.md
+- See Also: ERR-20260411-004
+
+---
+
+## [ERR-20260411-006] apple-silicon-sdxl-mps-first-run-oom-at-1024
+
+**Logged**: 2026-04-11T19:34:28+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: comfyui
+
+### Summary
+On the mac mini MPS backend, an SDXL LoRA first run with 1024 resolution and text-encoder training enabled hit MPS memory limits after training began.
+
+### Error
+```text
+RuntimeError: MPS backend out of memory (MPS allocated: 17.03 GiB, other allocations: 988.03 MiB, max allowed: 18.13 GiB). Tried to allocate 494.00 MiB on private pool.
+```
+
+### Context
+- Training had already passed tokenizer loading, dataset prep, bucketing, model load, and entered the first optimization steps.
+- The first attempt reached `steps: 10%|█| 1/10` before OOM on the next step.
+- Stable workaround that completed training: `--network_train_unet_only --cache_latents --resolution=768,768` plus `PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0`.
+
+### Suggested Fix
+For first-pass SDXL LoRA bring-up on Apple Silicon / MPS, prefer a conservative launch profile: train U-Net only, cache latents, and start at 768 resolution. After artifact generation succeeds, scale parameters back up gradually.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /Users/mengma/ai/train/scripts/run_chihaya_soyo_lora_v1.sh, /root/.openclaw/workspace/.learnings/ERRORS.md
+- See Also: ERR-20260411-005
+
+---
