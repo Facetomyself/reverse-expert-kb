@@ -119,3 +119,10 @@ Current shape is noticeably heavier and contains more development residue / oper
   - host-side direct check `curl http://127.0.0.1:30007/` returned `200 OK`
   - host-side direct check `curl http://127.0.0.1:6185/` returned connection refused, because `6185` is container-internal only
 - operational implication: any host-level reverse proxy should target `http://127.0.0.1:30007` (or Docker-network target `http://astrbot:6185` if sharing the same network), not host `:6185`; otherwise a `502 Bad Gateway` is expected.
+- model/provider follow-up on the same day:
+  - AstrBot traffic for `爱丽丝` was not using the healthy default `cmd_config.json`; it was routed by `data/data_v4.db` (`preferences.key = umop_config_routing`) into a per-UMO config named `ForAlice`
+  - that routed file `data/config/abconf_dd547db0-c864-43a8-a0a7-46675d251c52.json` initially had empty `provider_sources` and `provider`, which explained the earlier provider-disabled / provider-not-found symptoms
+  - host and container both proved they could reach `proxy.zhangxuemin.work` directly, so the immediate issue was config routing rather than missing reachability to `oracle-proxy`
+  - minimal repair applied on 2026-04-11: copied `provider_sources` + `provider` from `cmd_config.json` into the routed `ForAlice` abconf and restarted `astrbot`
+  - post-restart logs confirmed provider adapters now load successfully for `openai/gpt-5.4`, `openai/gpt-5.4-mini`, and `openai/gpt-5.2`
+- detailed runbook: `infra/hosts/self-server/projects/astrbot.md`

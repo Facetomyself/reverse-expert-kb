@@ -25,3 +25,11 @@
   - host-local validation showed `curl http://127.0.0.1:30007/` returned `200 OK`, while `curl http://127.0.0.1:6185/` failed with connection refused because `6185` is container-internal only
   - transit-side validation from `ali-cloud` confirmed public `211.144.221.229:30007` returned `200 OK`
   Operational conclusion: if any 1Panel site / reverse proxy / upstream elsewhere is pointed at host `:6185`, it will return `502 Bad Gateway`; the correct host-side target is `127.0.0.1:30007` (or Docker-network target `astrbot:6185` when proxy and app share the same Docker network).
+- 2026-04-11: Follow-up diagnosis and repair for AstrBot model usage on `self-server-44005` (`host185`):
+  - direct connectivity to `proxy.zhangxuemin.work` was confirmed from both the host and the AstrBot container, so the immediate failure was not caused by missing reachability to `oracle-proxy`
+  - the actual root cause was AstrBot's per-UMO config routing in `data/data_v4.db`: `preferences.key = umop_config_routing` mapped `爱丽丝:*:*` (and one webchat route) to config id `dd547db0-c864-43a8-a0a7-46675d251c52`
+  - `preferences.key = abconf_mapping` showed that config id corresponds to `data/config/abconf_dd547db0-c864-43a8-a0a7-46675d251c52.json` (`ForAlice`)
+  - that routed abconf initially had empty `provider_sources` and `provider`, while still referencing `openai/gpt-5.4*` IDs, which explained the provider-disabled / provider-not-found behavior
+  - a minimal repair backed up the abconf, copied `provider_sources` and `provider` from `data/cmd_config.json` into the routed `ForAlice` config, and restarted container `astrbot`
+  - post-restart logs confirmed provider adapters now load successfully for `openai/gpt-5.4`, `openai/gpt-5.4-mini`, and `openai/gpt-5.2`
+  - proxy conclusion: container-level proxying is technically possible, but it was not required for this repair; if future egress trouble appears, prefer AstrBot's per-provider `proxy` field before broad container-wide `HTTP_PROXY` / `HTTPS_PROXY`
