@@ -9,6 +9,7 @@ Related pages:
 - topics/anti-frida-and-anti-instrumentation-practice-taxonomy.md
 - topics/android-observation-surface-selection-workflow-note.md
 - topics/android-linker-binder-ebpf-observation-surfaces.md
+- topics/protected-runtime-lower-surface-vs-user-space-uncertainty-reduction-workflow-note.md
 - topics/trace-guided-and-dbi-assisted-re.md
 - topics/observation-distortion-and-misleading-evidence.md
 - topics/runtime-behavior-recovery.md
@@ -272,6 +273,9 @@ A compact compare checklist for this branch is now worth keeping explicit:
 
 That checklist helps keep “better tooling comfort” separate from “better evidence.”
 
+If a lower-surface boundary already exists and the remaining uncertainty is now compare-heavy — whether that lower surface reduced uncertainty more than one richer user-space posture would have — continue with:
+- `topics/protected-runtime-lower-surface-vs-user-space-uncertainty-reduction-workflow-note.md`
+
 The workflow is not complete until the better topology has yielded one smaller actionable target.
 
 ## 7. Representative scenario families
@@ -409,6 +413,7 @@ Use this page when the bottleneck is:
 
 Then route outward based on what becomes clearer:
 - to `topics/android-observation-surface-selection-workflow-note.md` when the case is specifically Android-shaped and the real next decision is among linker / Binder / eBPF / trace surfaces
+- to `topics/protected-runtime-lower-surface-vs-user-space-uncertainty-reduction-workflow-note.md` when one lower surface already exists and the real next question is whether it reduced uncertainty more than one richer user-space posture would have while still preserving enough semantic carry-forward
 - to `topics/trace-guided-and-dbi-assisted-re.md` when the topology choice has already reduced into a trace/DBI granularity question
 - to `topics/observation-distortion-and-misleading-evidence.md` when the main issue is still evidence trust rather than topology choice itself
 - to `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when the new topology reveals that live/runtime artifacts are truer and the remaining task is one missing init obligation

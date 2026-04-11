@@ -1,0 +1,49 @@
+Search artifact for protected-runtime compare-heavy continuation
+Date: 2026-04-12 04:50 Asia/Shanghai / 2026-04-11 20:50 UTC
+Mode: deep
+Intent: exploratory
+Requested sources: exa,tavily,grok
+Command:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --queries "Frida Gadget Interceptor Stalker early instrumentation user space instrumentation official docs" "DynamoRIO instrumentation code cache overhead client interface official docs" "Linux uprobe tracing userspace function tracing kernel documentation" "Linux seccomp filter documentation official" --mode deep --intent exploratory --num 5 --domain-boost frida.re,dynamorio.org,docs.kernel.org,kernel.org
+
+Queries:
+1. Frida Gadget Interceptor Stalker early instrumentation user space instrumentation official docs
+2. DynamoRIO instrumentation code cache overhead client interface official docs
+3. Linux uprobe tracing userspace function tracing kernel documentation
+4. Linux seccomp filter documentation official
+
+Observed source outcome:
+- Exa: succeeded
+- Tavily: succeeded
+- Grok: invoked, failed with repeated 502 errors through configured proxy endpoint
+
+Grok endpoint surfaced by runtime errors:
+- http://proxy.zhangxuemin.work:8000/v1/chat/completions
+
+Top retained results:
+- https://frida.re/docs/gadget/
+- https://frida.re/docs/stalker/
+- https://dynamorio.org/API_BT.html
+- https://dynamorio.org/page_profiling.html
+- https://docs.kernel.org/trace/uprobetracer.html
+- https://docs.kernel.org/userspace-api/seccomp_filter.html
+
+Useful additional surfaced results:
+- https://github.com/DynamoRIO/dynamorio/blob/master/api/samples/instrcalls.c
+- https://kernel.org/doc/html/latest/trace/uprobetracer.html
+- https://kernel.org/doc/html/latest/userspace-api/seccomp_filter.html
+- https://man7.org/linux/man-pages/man2/seccomp.2.html
+
+Representative search-layer result signals:
+- Frida Gadget docs: constructor-time early instrumentation, configurable on_load behavior, renamed Gadget binary, code_signing=required disables Interceptor on jailed iOS
+- Frida Stalker docs: follows threads and can capture every function/block/instruction; tracing is inherently expensive
+- DynamoRIO Code Manipulation API: observes/modifies actual executing code stream through basic blocks/traces and code-cache machinery
+- DynamoRIO profiling page: profiling/instrumentation hotspots and code-cache overhead should be measured rather than assumed away
+- Linux uprobe tracer docs: narrow user-space function/event tracing at PATH:OFFSET with explicit fetch args and per-event hit counts
+- Linux seccomp filter docs: syscall-number/argument filtering, TRAP/TRACE/USER_NOTIF return actions, and explicit reminder that seccomp is not a full sandbox
+
+Raw error lines:
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions

@@ -439,6 +439,7 @@ Practical bridge pages now exist for recurring protected-runtime bottlenecks:
 - `topics/protected-runtime-practical-subtree-guide.md`
 - `topics/anti-instrumentation-gate-triage-workflow-note.md`
 - `topics/protected-runtime-observation-topology-selection-workflow-note.md`
+- `topics/protected-runtime-lower-surface-vs-user-space-uncertainty-reduction-workflow-note.md`
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 - `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
@@ -450,6 +451,8 @@ Practical bridge pages now exist for recurring protected-runtime bottlenecks:
 Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry surface when the case is clearly protected-runtime shaped, but the current operator bottleneck still needs to be classified as anti-instrumentation gate triage, observation-topology failure, trace-to-semantic-anchor churn, opaque-predicate / computed-next-state recovery, flattened-dispatcher-to-state-edge reduction, packed/bootstrap handoff, artifact-consumer proof, runtime-artifact / initialization-obligation recovery, integrity/tamper consequence proof, exception/signal-handler-owned control transfer, or one nearby ordinary post-protection continuation before choosing a narrower workflow note.
 
 Use the observation-topology note when direct attach, spawn, app-local hooks, or ordinary instrumentation are themselves unstable, detected, semantically late, or misleading and the analyst first needs one more truthful boundary before narrower protected-runtime work becomes trustworthy; leave broad observation-topology work there once one truer boundary is already good enough and the real bottleneck becomes trace reduction, packed/bootstrap handoff, artifact-consumer proof, runtime-obligation recovery, or integrity consequence proof.
+
+Use the lower-surface-vs-user-space uncertainty-reduction note when one lower-surface boundary already exists and the remaining question is compare-heavy rather than topology-selection-heavy: did that lower surface actually reduce the decisive uncertainty more than one richer user-space posture would have, and did it preserve enough semantic carry-forward to hand back one smaller next target?
 
 Use the VM-trace note when virtualization, flattening, handler churn, or repetitive protected execution is already visible and the missing next object is still one stable semantic anchor plus one consequence-bearing handler/state edge rather than another broad anti-tamper taxonomy; leave broad trace-to-semantic-anchor work there once one stable semantic anchor and one consequence-bearing handler/state edge are already good enough and the real bottleneck becomes dispatcher/state-edge reduction inside a recognizable flattened region, packed/bootstrap handoff, ordinary native follow-up, artifact-consumer proof, or another narrower post-protection continuation.
 

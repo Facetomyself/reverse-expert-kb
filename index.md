@@ -146,7 +146,6 @@ A top-level maintenance rule worth keeping visible here is:
 ## Candidate next topic pages
 Priority 2 candidates now worth watching include:
 - a narrower protocol timeout/cancel-cleanup continuation when current-owner realism is already known to be the main liar after request correlation looks superficially good
-- a narrower protected-runtime compare-heavy continuation around proving that a lower surface actually reduced uncertainty more than one improved user-space surface would have
 
 These are not all immediate must-create pages.
 They are the current honest shortlist of thinner, practical next directions if future external slots need bounded targets.
@@ -156,6 +155,7 @@ A top-level practical reading now worth preserving is that recent maintenance ha
 
 - `topics/analytic-provenance-and-evidence-management.md`
 - `topics/native-binary-reversing-baseline.md`
+- `topics/protected-runtime-lower-surface-vs-user-space-uncertainty-reduction-workflow-note.md`
 - `topics/protocol-state-and-message-recovery.md`
 - `topics/anti-tamper-and-protected-runtime-analysis.md`
 - `topics/trust-calibration-and-verification-burden.md`
@@ -356,6 +356,7 @@ This branch should now be read as a practical bridge from malware-overlap synthe
 - `topics/watchdog-heartbeat-to-enforcement-consumer-workflow-note.md`
 - `topics/kernel-callback-telemetry-to-enforcement-consumer-workflow-note.md`
 - `topics/protected-runtime-observation-topology-selection-workflow-note.md`
+- `topics/protected-runtime-lower-surface-vs-user-space-uncertainty-reduction-workflow-note.md`
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 - `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
@@ -372,6 +373,7 @@ This branch should now be read as a practical bridge from mature protected/deobf
 - watchdog / heartbeat enforcement reduction (`watchdog-heartbeat-to-enforcement-consumer-workflow-note`), which acts as the practical thinner continuation when the case is already clearly watchdog- or heartbeat-shaped and the analyst still needs to reduce one repeated monitor into the first reducer, queue handoff, or enforcement consumer that turns it into kill, stall, degrade, or decoy behavior
 - kernel-callback telemetry to enforcement-consumer reduction (`kernel-callback-telemetry-to-enforcement-consumer-workflow-note`), which acts as the practical thinner continuation when callback-heavy kernel telemetry is already visible and the analyst still needs to reduce one registration/trigger-side path into the first rights filter, reducer, queue handoff, service path, or policy object that actually makes the telemetry behaviorally relevant
 - observation-topology selection (`protected-runtime-observation-topology-selection-workflow-note`), which acts as the practical entry note when direct attach, spawn, app-local hooks, or ordinary instrumentation are themselves unstable, detected, semantically late, or misleading and the analyst first needs one more truthful boundary before narrower protected-runtime work becomes trustworthy
+- lower-surface vs richer user-space uncertainty-reduction comparison (`protected-runtime-lower-surface-vs-user-space-uncertainty-reduction-workflow-note`), which acts as the narrower compare-heavy continuation once one lower boundary already exists and the real next question is whether it reduced uncertainty more than one richer user-space posture would have while still preserving enough semantic carry-forward to hand back one smaller next target
 - trace-to-semantic-anchor reduction (`vm-trace-to-semantic-anchor-workflow-note`), which acts as the practical entry note when virtualization, flattening, or handler churn is already visible but the analyst still needs one stable semantic anchor plus one consequence-bearing handler/state edge before deeper static reconstruction becomes trustworthy; the branch should explicitly leave broad trace/semantic-anchor work here once one stable semantic anchor and one consequence-bearing handler/state edge are already good enough and the real bottleneck becomes dispatcher/state-edge reduction inside a still-recognizable flattened region, ordinary native follow-up in a quieter post-protection region, or a narrower packed/artifact continuation
 - dispatcher-to-state-edge reduction (`flattened-dispatcher-to-state-edge-workflow-note`), which acts as the practical entry note when the dispatcher or flattened region is already recognizable and the next bottleneck is identifying the first durable state object, reduction helper, or dispatcher-exit family that predicts later behavior and yields a trustworthy smaller static target; the branch should explicitly leave broad trace/dispatcher work here once one durable state object and one consequence-bearing state edge are already good enough and the real bottleneck becomes post-unpack handoff, ordinary route proof, or another narrower post-protection continuation
 - packed-stub-to-OEP handoff reduction (`packed-stub-to-oep-and-first-real-module-workflow-note`), which acts as the practical entry note when shelling, packing, or staged bootstrap is already visible but the next bottleneck is proving one trustworthy OEP-like boundary plus one downstream ordinary-code anchor that yields a reusable post-unpack dump or smaller static target; the branch should explicitly leave broad packed-startup work here once that handoff is already good enough and the real bottleneck becomes one narrower TLS/startup-owned continuation, post-unpack semantic-anchor work, artifact-consumer proof, or runtime-artifact / initialization-obligation recovery
