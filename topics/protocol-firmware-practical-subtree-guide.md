@@ -18,6 +18,7 @@ Related pages:
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
 - topics/protocol-pending-request-correlation-and-async-reply-workflow-note.md
 - topics/protocol-pending-request-generation-epoch-and-slot-reuse-workflow-note.md
+- topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
 - topics/protocol-reply-emission-and-transport-handoff-workflow-note.md
 - topics/mailbox-doorbell-command-completion-workflow-note.md
 - topics/descriptor-ownership-transfer-and-completion-visibility-workflow-note.md
@@ -291,6 +292,22 @@ Do **not** start here when:
 - the response/completion family is still speculative
 - the real missing edge is whether any reply/output is emitted at all rather than whether an arrival still belongs to the current live request
 
+### Start with `protocol-retired-owner-vs-callback-firing-workflow-note`
+Use:
+- `topics/protocol-retired-owner-vs-callback-firing-workflow-note.md`
+
+Start here when:
+- timeout/cancel cleanup already looks like the main liar
+- one pending handler/tag/callback still fires or remains deliverable near/after retirement
+- broad owner-match and broad generation/reuse realism are already good enough to name
+- the next useful output is one retire-vs-deliver compare rather than more generic lifetime narration
+
+Do **not** start here when:
+- the first owner-match check is still unknown
+- hidden generation/epoch/slot reuse is still the main lie
+- callback/tag delivery itself is still speculative
+- the real missing edge is whether any reply/output is emitted at all
+
 ### Start with `protocol-reply-emission-and-transport-handoff-workflow-note`
 Use:
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
@@ -551,6 +568,7 @@ Routing reminder:
 Possible next handoff:
 - `topics/protocol-pending-request-correlation-and-async-reply-workflow-note.md` when the broad replay gate has already collapsed to one outstanding-request owner, correlation-id match, async handle, pending slot, callback queue, or late-reply lifecycle problem deciding whether a response-like artifact is consumed at all
 - `topics/protocol-pending-request-generation-epoch-and-slot-reuse-workflow-note.md` when broad owner-match is already good enough and the remaining drift is specifically timeout/cancel cleanup, generation/epoch drift, phase/wrap mismatch, or slot/tag reuse realism
+- `topics/protocol-retired-owner-vs-callback-firing-workflow-note.md` when timeout/cancel cleanup already looks like the main liar and the remaining ambiguity is whether one pending handler/tag/callback still fires for a retired owner versus a live one
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
 - `topics/analytic-provenance-and-evidence-management.md` when one consequence-bearing parser/state edge is already good enough and the main remaining problem is preserving exactly which inputs, state assumptions, and reduced proof slices justified the claim
@@ -566,9 +584,10 @@ Primary note:
 Routing reminder:
 - stay here while the missing proof is specifically the live-vs-stale ownership contract after timeout, cancel, reconnect, wrap, or reuse
 - keep explicit branch memory that queue arrival, callback-path success, and stable slot/index visibility are all weaker than current-owner proof
-- leave this thinner ownership-lifecycle work once one generation/phase/liveness contract is already good enough and the real bottleneck becomes truthful output emission, descriptor trust/reclaim semantics, or evidence packaging
+- leave this thinner ownership-lifecycle work once one generation/phase/liveness contract is already good enough and the real bottleneck becomes retired-owner vs callback/tag delivery realism, truthful output emission, descriptor trust/reclaim semantics, or evidence packaging
 
 Possible next handoff:
+- `topics/protocol-retired-owner-vs-callback-firing-workflow-note.md`
 - `topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md`
 - `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
 - `topics/descriptor-ownership-transfer-and-completion-visibility-workflow-note.md`
