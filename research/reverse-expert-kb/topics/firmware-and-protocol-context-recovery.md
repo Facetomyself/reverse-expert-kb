@@ -15,6 +15,7 @@ Related pages:
 - topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
 - topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
 - topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md
+- topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 
 ## 1. Topic identity
@@ -412,6 +413,8 @@ Use the replay-precondition/state-gate note when parser visibility and some fiel
 Use the pending-request-correlation/async-reply note when that broad acceptance problem has already narrowed to one outstanding-request owner, correlation-id match, async handle, pending slot, callback queue, or completion-state association deciding whether an otherwise plausible response or completion is consumed at all.
 
 Use the pending-request-generation/epoch/slot-reuse note when broad owner-match is already good enough, but the remaining failure is specifically about owner lifetime realism: timeout/cancel cleanup, late replies after retire, reconnect, phase/wrap drift, generation/epoch mismatch, or slot/tag reuse deciding whether the same visible identifier still names the current live request. Preserve the smaller operator rule that stable outer identifier visibility is weaker than current live-owner truth: in practical queue/completion families this can surface as used-index movement vs wrap-owned truth in virtio-style rings, same-slot visibility vs current phase-owned entry in NVMe-style queues, or matching `user_data` vs current waiter/request-context truth in io_uring-style completion flows.
+
+If timeout/cancel cleanup already looks like the main liar and the remaining ambiguity is whether one pending handler/tag/callback still fires for a retired owner versus a live one, continue with `topics/protocol-retired-owner-vs-callback-firing-workflow-note.md`.
 
 Use the reply-emission/transport-handoff note when protocol/firmware handling is already locally understood far enough to show acceptance or reply-object creation, but the analyst still needs to prove where that accepted result is serialized, queued, committed, or handed to the transport/peripheral side as one real output behavior; leave broad output-side work there once one committed outbound path is already good enough and the real bottleneck becomes hardware-side effect proof, later interrupt/deferred consequence proof, or one narrower output-side continuation.
 

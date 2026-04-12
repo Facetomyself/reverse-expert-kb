@@ -7,6 +7,7 @@ Related pages:
 - topics/protocol-firmware-practical-subtree-guide.md
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
 - topics/protocol-pending-request-correlation-and-async-reply-workflow-note.md
+- topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
 - topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md
 - topics/protocol-reply-emission-and-transport-handoff-workflow-note.md
 - topics/descriptor-ownership-transfer-and-completion-visibility-workflow-note.md
@@ -317,6 +318,7 @@ Otherwise later analysts often reproduce the same “looks right but still ignor
 
 ### Step 7: Hand off narrowly
 Once the generation/epoch gate is localized, hand the case to one next task only:
+- retired-owner vs callback-firing compare work if timeout/cancel cleanup already looks right and the remaining lie is whether a pending handler/tag/callback still belongs to the live owner
 - replay fixture repair if the fixture lacks lifecycle realism
 - descriptor ownership/visibility modeling if the same issue is really a ring phase/reclaim contract
 - reply-emission work if the response was never actually emitted on the accepted path
@@ -417,6 +419,8 @@ Best move:
   - broader replay-gate parent when the case has not yet narrowed to pending-owner lifecycle realism
 - `topics/protocol-pending-request-correlation-and-async-reply-workflow-note.md`
   - immediate parent when the real unknown is still the first owner-match check rather than generation/reuse specifics
+- `topics/protocol-retired-owner-vs-callback-firing-workflow-note.md`
+  - use that when timeout/cancel cleanup already looks like the main liar and the remaining question is whether one pending handler/tag/callback still fires for a retired owner versus a live one
 - `topics/descriptor-ownership-transfer-and-completion-visibility-workflow-note.md`
   - use that when the same underlying problem is best modeled as ring phase / trust / reclaim semantics
 - `topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md`

@@ -1,0 +1,642 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Boost.Asio cancel handler operation_aborted timer async official docs",
+    "Python asyncio wait_for waits until cancelled timeout can exceed official docs",
+    "gRPC C++ ClientContext TryCancel completion queue async official docs",
+    "Tokio timeout cancellation future drop official docs"
+  ],
+  "count": 38,
+  "results": [
+    {
+      "title": "c++ - boost::asio async handlers invoked without error after cancellation - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/10718593/boostasio-async-handlers-invoked-without-error-after-cancellation",
+      "snippet": "### more stack exchange communities. # boost::asio async handlers invoked without error after cancellation. My code uses boost::asio and io\\_service in a single thread to perform various socket operations. All operations are asynchronous and every handler depends on the `boost::system::error_code` (particularly `boost::asio::error::operation_aborted`) to determine the result of the operation. That is, when the first `async_read_some` handler fires, I cancel other sockets (shutdown, close - everything) and proceed with the current one. In 95% of cases other sockets' read handlers are invoked with the operation\\_aborted error. cancelled operations will be passed the `boost::asio::error::operation_aborted` error. So, the questions: Can I really rely on the `operation_aborted` error in production code? If the timer has already expired when cancel() is called, then the handlers for asynchronous wait operations will:. Basically, I was wrong in assumption that if I use a single thread for io\\_service, then every operation will be blocked while some handler executes. socket cancel, causing its completion handler to be posted to the queue.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7875
+    },
+    {
+      "title": "C++ Client cancellation of async grpc call · Issue #7362 - GitHub",
+      "url": "https://github.com/grpc/grpc/issues/7362",
+      "snippet": "Hi, I just wanted to know how clients can cancel async grpc calls? Is this done by using grpc::ClientContext::TryCancel()?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "asyncio.wait_for does not propagate CancelledError, if waited on ...",
+      "url": "https://stackoverflow.com/questions/70305188/asyncio-wait-for-does-not-propagate-cancellederror-if-waited-on-future-is-done",
+      "snippet": "",
+      "published_date": "2021-12-10T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.675
+    },
+    {
+      "title": "asyncio.wait_for doesn't time out as expected",
+      "url": "https://stackoverflow.com/questions/74132015/asyncio-wait-for-doesnt-time-out-as-expected",
+      "snippet": "A possible explanation is that completion_event.wait() is raising an exception before the time delay has elapsed. A cancellation of the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "timeout in tokio::time - Rust - Docs.rs",
+      "url": "https://docs.rs/tokio/latest/tokio/time/fn.timeout.html",
+      "snippet": "Cancelling a timeout is done by dropping the future. No additional cleanup or other work is required. The original future may be obtained by calling Timeout::",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.675
+    },
+    {
+      "title": "Clarification needed for correct use of ClientContext::TryCancel()",
+      "url": "https://github.com/grpc/grpc/issues/22839",
+      "snippet": "Now suppose the client throws an exception while processing the response returned by the second Read() and therefore wants to cancel the RPC.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6375
+    },
+    {
+      "title": "src/cpp/client/client_context.cc at master · grpc/grpc",
+      "url": "https://github.com/grpc/grpc/blob/master/src/cpp/client/client_context.cc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Coroutines and tasks — Python 3.14.4 documentation",
+      "url": "https://docs.python.org/3/library/asyncio-task.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Coroutines and Tasks — Python 3.7.17 documentation",
+      "url": "https://docs.python.org/3.7/library/asyncio-task.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "timeout.rs - source",
+      "url": "https://docs.rs/tokio/latest/src/tokio/time/timeout.rs.html",
+      "snippet": "",
+      "published_date": "2024-05-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "tokio::time - Rust",
+      "url": "https://docs.rs/tokio/latest/tokio/time/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "[Boost-users] [Asio] Cancel an async timer from another timer's handler",
+      "url": "https://lists.boost.org/archives/list/boost-users@lists.boost.org/message/HF33VLITQHGHE4TEPUNIXEFVJJJQWPGL/",
+      "snippet": "Note that Timer1's handler doesn't get called at all before the new expiry time although it should be called with an operation_aborted error code. =summary",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5875
+    },
+    {
+      "title": "basic_deadline_timer::cancel (2 of 2 overloads) - Boost",
+      "url": "https://www.boost.org/doc/libs/latest/doc/html/boost_asio/reference/basic_deadline_timer/cancel/overload2.html",
+      "snippet": "This function forces the completion of any pending asynchronous wait operations against the timer. The handler for each cancelled operation will be invoked with",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "basic_deadline_timer::cancel (1 of 2 overloads) - Boost C++ Libraries",
+      "url": "https://beta.boost.org/doc/libs/1_38_0/doc/html/boost_asio/reference/basic_deadline_timer/cancel/overload1.html",
+      "snippet": "This function forces the completion of any pending asynchronous wait operations against the timer. The handler for each cancelled operation will be invoked with",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "gRPC c++ async server : r/cpp - Reddit",
+      "url": "https://www.reddit.com/r/cpp/comments/beh9dh/grpc_c_async_server/",
+      "snippet": "Specifically, they mention they use a CompletionQueue to handle some of the async behavior. There really isn't any documentation on",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5375
+    },
+    {
+      "title": "tokio::time::timeout - Rust - People @EECS",
+      "url": "https://people.eecs.berkeley.edu/~pschafhalter/pub/erdos/doc/tokio/time/fn.timeout.html",
+      "snippet": "Cancelling a timeout is done by dropping the future. No additional cleanup or other work is required. The original future may be obtained by calling Timeout::",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5375
+    },
+    {
+      "title": "timeout in tokio::time - Rust",
+      "url": "https://cseweb.ucsd.edu/classes/sp22/cse223B-a/tribbler/tokio/time/fn.timeout.html",
+      "snippet": "Cancelation. Cancelling a timeout is done by dropping the future. No additional cleanup or other work is required. The original future may be obtained by",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5375
+    },
+    {
+      "title": "GRPC C++: grpc::CompletionQueue Class Reference",
+      "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_completion_queue.html",
+      "snippet": "|  | CompletionQueue (grpc\\_completion\\_queue \\*take) |. | |  |  |  |  | | --- | --- | --- | --- | | NextStatus grpc::CompletionQueue::AsyncNext | ( | void \\*\\* | *tag*, | | bool \\* | *ok*, | | const T & | *deadline* | | ) | | inline |. | |  |  |  |  | | --- | --- | --- | --- | | NextStatus grpc::CompletionQueue::DoThenAsyncNext | ( | F && | *f*, | | void \\*\\* | *tag*, | | bool \\* | *ok*, | | const T & | *deadline* | | ) | | inline |. | |  | | --- | | friend class grpc::internal::BlockingUnaryCallImpl | | friend |. | |  | | --- | | friend class grpc::internal::ClientStreamingHandler | | friend |. | |  | | --- | | friend class grpc::internal::ServerReaderWriterBody | | friend |. | |  | | --- | | friend class grpc::internal::TemplatedBidiStreamingHandler | | friend |.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.525
+    },
+    {
+      "title": "GRPC C++: grpc::ClientContext Class Reference",
+      "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_client_context.html",
+      "snippet": "There is no guarantee the call will be cancelled. Note that TryCancel() does not change any of the tags that are pending on the completion queue. All pending",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4875
+    },
+    {
+      "title": "tokio::time::timeout - Rust",
+      "url": "https://durch.github.io/rust-goauth/tokio/time/fn.timeout.html",
+      "snippet": "Cancelling a timeout is done by dropping the future. No additional cleanup or other work is required. The original future may be obtained by calling [ Timeout::",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4875
+    },
+    {
+      "title": "basic_waitable_timer::cancel - Boost",
+      "url": "https://www.boost.org/doc/libs/latest/doc/html/boost_asio/reference/basic_waitable_timer/cancel.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.475
+    },
+    {
+      "title": "basic_waitable_timer::cancel",
+      "url": "https://www.boost.org/doc/libs/1_88_0/doc/html/boost_asio/reference/basic_waitable_timer/cancel.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.475
+    },
+    {
+      "title": "basic_waitable_timer::cancel",
+      "url": "https://www.boost.org/doc/libs/master/doc/html/boost_asio/reference/basic_waitable_timer/cancel.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.475
+    },
+    {
+      "title": "basic_waitable_timer::async_wait",
+      "url": "https://www.boost.org/doc/libs/latest/doc/html/boost_asio/reference/basic_waitable_timer/async_wait.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.475
+    },
+    {
+      "title": "basic_waitable_timer",
+      "url": "https://www.boost.org/doc/libs/latest/doc/html/boost_asio/reference/basic_waitable_timer.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4375
+    },
+    {
+      "title": "Asynchronous-API tutorial | C++ - gRPC",
+      "url": "https://grpc.io/docs/languages/cpp/async/",
+      "snippet": "",
+      "published_date": "2022-02-17T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4375
+    },
+    {
+      "title": "Cancellation | gRPC",
+      "url": "https://grpc.io/docs/guides/cancellation/",
+      "snippet": "",
+      "published_date": "2024-02-29T21:44:05.000Z",
+      "source": "exa",
+      "score": 0.4375
+    },
+    {
+      "title": "[asio-users] close and cancel async operation",
+      "url": "https://asio-users.narkive.com/Vvr027pm/close-and-cancel-async-operation",
+      "snippet": "[asio-users] close and cancel async operation. [asio-users] close and cancel async operation. Session(asio::io_service& srv, const char *sock_filename) : socket_(new asio::local::stream_protocol::socket(srv)). if (error == boost::asio::error::operation_aborted). boost::asio::error::operation_aborted) is only called after Session object. immediately, and will complete with the boost::asio::error::operation_aborted error. the boost::asio::error::operation_aborted error. with the boost::asio::error::operation_aborted error. The operation cancellation (as example, socket::close) may be between these 3 stages and You have to handle that in a. Subject: [asio-users] close and cancel async operation. if (error == boost::asio::error::operation_aborted). boost::asio::error::operation_aborted) is only called after Session object has been destroyed. with the boost::asio::error::operation_aborted error. The operation cancellation (as example, socket::close) may be between. Subject: Re: [asio-users] close and cancel async operation. The operation cancellation (as example, socket::close) may be between. Subject: Re: [asio-users] close and cancel async operation. The operation cancellation (as example, socket::close) may be between. //...may be error == boost::asio::operation_aborted. Subject: Re: [asio-users] close and cancel async operation. Subject: Re: [asio-users] close and cancel async operation. The operation cancellation (as example, socket::close) may be between.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4125
+    },
+    {
+      "title": "GRPC C++: grpc::ClientContext Class Reference",
+      "url": "https://grpc.io/grpc/cpp/classgrpc_1_1_client_context.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "GRPC C++: include/grpcpp/client_context.h Source File",
+      "url": "https://grpc.io/grpc/cpp/grpcpp_2client__context_8h_source.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Cancellation ignored by asyncio.wait_for can hang application",
+      "url": "https://bugs.python.org/issue43389",
+      "snippet": "",
+      "published_date": "2021-03-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "Issue 31556: asyncio.wait_for can cancel futures faster with timeout==0 - Python tracker",
+      "url": "https://bugs.python.org/issue31556",
+      "snippet": "fut = wait_for(something, 0) # some important code try: await fut except TimeoutError: # do something With your PR merged, the above asyncio code would be broken, because asyncio users can guard with try..except only the await expression. | ``` asyncio.wait_for is coroutine itself, to start executing code, no matter with this PR or not it needs to be awaited/yield from import asyncio @asyncio.coroutine def foo(): print(1) loop = asyncio.get_event_loop() fut = asyncio.wait_for(foo(), 0) print('it is not raised yet') try: loop.run_until_complete(fut) except asyncio.TimeoutError: print('raised here') will print it is not raised yet raised here ``` |. | 2017-09-22 23:26:44 | hellysmile | set | messages: + <msg302779> |. | 2017-09-22 21:18:46 | hellysmile | set | messages: + <msg302774> |. | 2017-09-22 21:00:04 | hellysmile | set | messages: + <msg302772> |. | 2017-09-22 20:51:42 | hellysmile | set | keywords: + patch stage: patch review pull\\_requests: + <pull_request3687> |.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Handling Task Timeouts in Python with asyncio.wait_for",
+      "url": "https://press.arashtad.com/wp-content/uploads/pdf/Python_Task_Timeouts_with_asynciowait_for.pdf",
+      "snippet": "Handling Task Timeouts in Python with asyncio.wait_for In asynchronous programming with Python's asyncio module, managing how long a task runs is essential to avoid hangs or unnecessary delays. The asyncio.wait_for function allows you to specify a timeout for an async operation, raising a TimeoutError if the task takes too long. Basic Example The following example shows a simple async task with a timeout set shorter than the task duration to demonstrate how the timeout works: import asyncio async def task(duration): print(f\"Task started, will run for {duration} seconds\") await asyncio.sleep(duration) print(\"Task completed\") async def main(): try: await asyncio.wait_for(task(5), timeout=3) except asyncio.TimeoutError: print(\"Task timed out!\") asyncio.run(main()) Arashtad Studio | Order Video Tutorials for Your Platform! Page 1 of 2 Here, the task coroutine runs for 5 seconds, but wait_for cancels it after 3 seconds, raising TimeoutError . Conclusion Using asyncio.wait_for provides fine control over task execution time, helping to build more robust and responsive asynchronous Python applications.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Python asyncio.wait_for(): Cancel a Task with a Timeout",
+      "url": "https://www.pythontutorial.net/python-concurrency/python-asyncio-wait_for/",
+      "snippet": "**Summary**: in this tutorial, you’ll learn how to use the `asyncio.wait_for()` function to wait for a coroutine to complete with a timeout. To wait for a task to complete with a timeout, you can use the `asyncio.wait_for()` function. The `asyncio.wait_for()` function waits for a single task to be completed with a timeout. When a timeout occurs, the `asyncio.wait_for()` function cancels the task and raises the `TimeoutError` exception. await asyncio.wait_for(task, timeout=MAX_TIMEOUT). print('The task was cancelled due to a timeout'). The task was cancelled due to a timeout`. Third, use the `asyncio.wait_for()` function to wait for the task to complete with a timeout of 3 seconds. Since the task takes 5 seconds to complete, a timeout will occur and a `TimeoutError` will be raised:. await asyncio.wait_for(task, timeout=MAX_TIMEOUT). To do that, you can wrap the task with the `asyncio.shield()` function. The `asyncio.shield()` prevents the cancellation of a task. await asyncio.wait_for(asyncio.shield(task), timeout=MAX_TIMEOUT). However, the task is not canceled due to the `asyncio.shield()` function.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Rust tokio task cancellation patterns - Cybernetist",
+      "url": "https://cybernetist.com/2024/04/19/rust-tokio-task-cancellation-patterns/",
+      "snippet": "The official tokio documentation lists something called a CancellationToken in the article about graceful shutdown. This isn't available in the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "13.4. AsyncIO Wait For — Python - from None to AI",
+      "url": "https://python3.info/advanced/async-asyncio/wait-for.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3375
+    },
+    {
+      "title": "Timers · Tokio",
+      "url": "https://v0-1--tokio.netlify.app/docs/going-deeper/timers/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3375
+    },
+    {
+      "title": "timeout in tokio::time::timeout - Rust",
+      "url": "https://doc.servo.org/tokio/time/timeout/fn.timeout.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "basic_waitable_timer::cancel - Boost",
+        "url": "https://www.boost.org/doc/libs/latest/doc/html/boost_asio/reference/basic_waitable_timer/cancel.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.475
+      },
+      {
+        "title": "basic_waitable_timer::cancel",
+        "url": "https://www.boost.org/doc/libs/1_88_0/doc/html/boost_asio/reference/basic_waitable_timer/cancel.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.475
+      },
+      {
+        "title": "basic_waitable_timer::cancel",
+        "url": "https://www.boost.org/doc/libs/master/doc/html/boost_asio/reference/basic_waitable_timer/cancel.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.475
+      },
+      {
+        "title": "basic_waitable_timer::async_wait",
+        "url": "https://www.boost.org/doc/libs/latest/doc/html/boost_asio/reference/basic_waitable_timer/async_wait.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.475
+      },
+      {
+        "title": "basic_waitable_timer",
+        "url": "https://www.boost.org/doc/libs/latest/doc/html/boost_asio/reference/basic_waitable_timer.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4375
+      },
+      {
+        "title": "Asynchronous-API tutorial | C++ - gRPC",
+        "url": "https://grpc.io/docs/languages/cpp/async/",
+        "snippet": "",
+        "published_date": "2022-02-17T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4375
+      },
+      {
+        "title": "Cancellation | gRPC",
+        "url": "https://grpc.io/docs/guides/cancellation/",
+        "snippet": "",
+        "published_date": "2024-02-29T21:44:05.000Z",
+        "source": "exa",
+        "score": 0.4375
+      },
+      {
+        "title": "GRPC C++: grpc::ClientContext Class Reference",
+        "url": "https://grpc.io/grpc/cpp/classgrpc_1_1_client_context.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "src/cpp/client/client_context.cc at master · grpc/grpc",
+        "url": "https://github.com/grpc/grpc/blob/master/src/cpp/client/client_context.cc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "GRPC C++: include/grpcpp/client_context.h Source File",
+        "url": "https://grpc.io/grpc/cpp/grpcpp_2client__context_8h_source.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Coroutines and tasks — Python 3.14.4 documentation",
+        "url": "https://docs.python.org/3/library/asyncio-task.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "asyncio.wait_for does not propagate CancelledError, if waited on ...",
+        "url": "https://stackoverflow.com/questions/70305188/asyncio-wait-for-does-not-propagate-cancellederror-if-waited-on-future-is-done",
+        "snippet": "",
+        "published_date": "2021-12-10T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.675
+      },
+      {
+        "title": "Coroutines and Tasks — Python 3.7.17 documentation",
+        "url": "https://docs.python.org/3.7/library/asyncio-task.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Cancellation ignored by asyncio.wait_for can hang application",
+        "url": "https://bugs.python.org/issue43389",
+        "snippet": "",
+        "published_date": "2021-03-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "13.4. AsyncIO Wait For — Python - from None to AI",
+        "url": "https://python3.info/advanced/async-asyncio/wait-for.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3375
+      },
+      {
+        "title": "timeout in tokio::time - Rust - Docs.rs",
+        "url": "https://docs.rs/tokio/latest/tokio/time/fn.timeout.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "timeout.rs - source",
+        "url": "https://docs.rs/tokio/latest/src/tokio/time/timeout.rs.html",
+        "snippet": "",
+        "published_date": "2024-05-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "tokio::time - Rust",
+        "url": "https://docs.rs/tokio/latest/tokio/time/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "timeout in tokio::time::timeout - Rust",
+        "url": "https://doc.servo.org/tokio/time/timeout/fn.timeout.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Timers · Tokio",
+        "url": "https://v0-1--tokio.netlify.app/docs/going-deeper/timers/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3375
+      }
+    ],
+    "tavily": [
+      {
+        "title": "[Boost-users] [Asio] Cancel an async timer from another timer's handler",
+        "url": "https://lists.boost.org/archives/list/boost-users@lists.boost.org/message/HF33VLITQHGHE4TEPUNIXEFVJJJQWPGL/",
+        "snippet": "Note that Timer1's handler doesn't get called at all before the new expiry time although it should be called with an operation_aborted error code. =summary",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5875
+      },
+      {
+        "title": "[asio-users] close and cancel async operation",
+        "url": "https://asio-users.narkive.com/Vvr027pm/close-and-cancel-async-operation",
+        "snippet": "[asio-users] close and cancel async operation. [asio-users] close and cancel async operation. Session(asio::io_service& srv, const char *sock_filename) : socket_(new asio::local::stream_protocol::socket(srv)). if (error == boost::asio::error::operation_aborted). boost::asio::error::operation_aborted) is only called after Session object. immediately, and will complete with the boost::asio::error::operation_aborted error. the boost::asio::error::operation_aborted error. with the boost::asio::error::operation_aborted error. The operation cancellation (as example, socket::close) may be between these 3 stages and You have to handle that in a. Subject: [asio-users] close and cancel async operation. if (error == boost::asio::error::operation_aborted). boost::asio::error::operation_aborted) is only called after Session object has been destroyed. with the boost::asio::error::operation_aborted error. The operation cancellation (as example, socket::close) may be between. Subject: Re: [asio-users] close and cancel async operation. The operation cancellation (as example, socket::close) may be between. Subject: Re: [asio-users] close and cancel async operation. The operation cancellation (as example, socket::close) may be between. //...may be error == boost::asio::operation_aborted. Subject: Re: [asio-users] close and cancel async operation. Subject: Re: [asio-users] close and cancel async operation. The operation cancellation (as example, socket::close) may be between.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4125
+      },
+      {
+        "title": "c++ - boost::asio async handlers invoked without error after cancellation - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/10718593/boostasio-async-handlers-invoked-without-error-after-cancellation",
+        "snippet": "### more stack exchange communities. # boost::asio async handlers invoked without error after cancellation. My code uses boost::asio and io\\_service in a single thread to perform various socket operations. All operations are asynchronous and every handler depends on the `boost::system::error_code` (particularly `boost::asio::error::operation_aborted`) to determine the result of the operation. That is, when the first `async_read_some` handler fires, I cancel other sockets (shutdown, close - everything) and proceed with the current one. In 95% of cases other sockets' read handlers are invoked with the operation\\_aborted error. cancelled operations will be passed the `boost::asio::error::operation_aborted` error. So, the questions: Can I really rely on the `operation_aborted` error in production code? If the timer has already expired when cancel() is called, then the handlers for asynchronous wait operations will:. Basically, I was wrong in assumption that if I use a single thread for io\\_service, then every operation will be blocked while some handler executes. socket cancel, causing its completion handler to be posted to the queue.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7875
+      },
+      {
+        "title": "basic_deadline_timer::cancel (2 of 2 overloads) - Boost",
+        "url": "https://www.boost.org/doc/libs/latest/doc/html/boost_asio/reference/basic_deadline_timer/cancel/overload2.html",
+        "snippet": "This function forces the completion of any pending asynchronous wait operations against the timer. The handler for each cancelled operation will be invoked with",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "basic_deadline_timer::cancel (1 of 2 overloads) - Boost C++ Libraries",
+        "url": "https://beta.boost.org/doc/libs/1_38_0/doc/html/boost_asio/reference/basic_deadline_timer/cancel/overload1.html",
+        "snippet": "This function forces the completion of any pending asynchronous wait operations against the timer. The handler for each cancelled operation will be invoked with",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "GRPC C++: grpc::ClientContext Class Reference",
+        "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_client_context.html",
+        "snippet": "There is no guarantee the call will be cancelled. Note that TryCancel() does not change any of the tags that are pending on the completion queue. All pending",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4875
+      },
+      {
+        "title": "GRPC C++: grpc::CompletionQueue Class Reference",
+        "url": "https://grpc.github.io/grpc/cpp/classgrpc_1_1_completion_queue.html",
+        "snippet": "|  | CompletionQueue (grpc\\_completion\\_queue \\*take) |. | |  |  |  |  | | --- | --- | --- | --- | | NextStatus grpc::CompletionQueue::AsyncNext | ( | void \\*\\* | *tag*, | | bool \\* | *ok*, | | const T & | *deadline* | | ) | | inline |. | |  |  |  |  | | --- | --- | --- | --- | | NextStatus grpc::CompletionQueue::DoThenAsyncNext | ( | F && | *f*, | | void \\*\\* | *tag*, | | bool \\* | *ok*, | | const T & | *deadline* | | ) | | inline |. | |  | | --- | | friend class grpc::internal::BlockingUnaryCallImpl | | friend |. | |  | | --- | | friend class grpc::internal::ClientStreamingHandler | | friend |. | |  | | --- | | friend class grpc::internal::ServerReaderWriterBody | | friend |. | |  | | --- | | friend class grpc::internal::TemplatedBidiStreamingHandler | | friend |.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.525
+      },
+      {
+        "title": "gRPC c++ async server : r/cpp - Reddit",
+        "url": "https://www.reddit.com/r/cpp/comments/beh9dh/grpc_c_async_server/",
+        "snippet": "Specifically, they mention they use a CompletionQueue to handle some of the async behavior. There really isn't any documentation on",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5375
+      },
+      {
+        "title": "C++ Client cancellation of async grpc call · Issue #7362 - GitHub",
+        "url": "https://github.com/grpc/grpc/issues/7362",
+        "snippet": "Hi, I just wanted to know how clients can cancel async grpc calls? Is this done by using grpc::ClientContext::TryCancel()?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "Clarification needed for correct use of ClientContext::TryCancel()",
+        "url": "https://github.com/grpc/grpc/issues/22839",
+        "snippet": "Now suppose the client throws an exception while processing the response returned by the second Read() and therefore wants to cancel the RPC.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6375
+      },
+      {
+        "title": "Issue 31556: asyncio.wait_for can cancel futures faster with timeout==0 - Python tracker",
+        "url": "https://bugs.python.org/issue31556",
+        "snippet": "fut = wait_for(something, 0) # some important code try: await fut except TimeoutError: # do something With your PR merged, the above asyncio code would be broken, because asyncio users can guard with try..except only the await expression. | ``` asyncio.wait_for is coroutine itself, to start executing code, no matter with this PR or not it needs to be awaited/yield from import asyncio @asyncio.coroutine def foo(): print(1) loop = asyncio.get_event_loop() fut = asyncio.wait_for(foo(), 0) print('it is not raised yet') try: loop.run_until_complete(fut) except asyncio.TimeoutError: print('raised here') will print it is not raised yet raised here ``` |. | 2017-09-22 23:26:44 | hellysmile | set | messages: + <msg302779> |. | 2017-09-22 21:18:46 | hellysmile | set | messages: + <msg302774> |. | 2017-09-22 21:00:04 | hellysmile | set | messages: + <msg302772> |. | 2017-09-22 20:51:42 | hellysmile | set | keywords: + patch stage: patch review pull\\_requests: + <pull_request3687> |.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Handling Task Timeouts in Python with asyncio.wait_for",
+        "url": "https://press.arashtad.com/wp-content/uploads/pdf/Python_Task_Timeouts_with_asynciowait_for.pdf",
+        "snippet": "Handling Task Timeouts in Python with asyncio.wait_for In asynchronous programming with Python's asyncio module, managing how long a task runs is essential to avoid hangs or unnecessary delays. The asyncio.wait_for function allows you to specify a timeout for an async operation, raising a TimeoutError if the task takes too long. Basic Example The following example shows a simple async task with a timeout set shorter than the task duration to demonstrate how the timeout works: import asyncio async def task(duration): print(f\"Task started, will run for {duration} seconds\") await asyncio.sleep(duration) print(\"Task completed\") async def main(): try: await asyncio.wait_for(task(5), timeout=3) except asyncio.TimeoutError: print(\"Task timed out!\") asyncio.run(main()) Arashtad Studio | Order Video Tutorials for Your Platform! Page 1 of 2 Here, the task coroutine runs for 5 seconds, but wait_for cancels it after 3 seconds, raising TimeoutError . Conclusion Using asyncio.wait_for provides fine control over task execution time, helping to build more robust and responsive asynchronous Python applications.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "asyncio.wait_for doesn't time out as expected",
+        "url": "https://stackoverflow.com/questions/74132015/asyncio-wait-for-doesnt-time-out-as-expected",
+        "snippet": "A possible explanation is that completion_event.wait() is raising an exception before the time delay has elapsed. A cancellation of the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "Python asyncio.wait_for(): Cancel a Task with a Timeout",
+        "url": "https://www.pythontutorial.net/python-concurrency/python-asyncio-wait_for/",
+        "snippet": "**Summary**: in this tutorial, you’ll learn how to use the `asyncio.wait_for()` function to wait for a coroutine to complete with a timeout. To wait for a task to complete with a timeout, you can use the `asyncio.wait_for()` function. The `asyncio.wait_for()` function waits for a single task to be completed with a timeout. When a timeout occurs, the `asyncio.wait_for()` function cancels the task and raises the `TimeoutError` exception. await asyncio.wait_for(task, timeout=MAX_TIMEOUT). print('The task was cancelled due to a timeout'). The task was cancelled due to a timeout`. Third, use the `asyncio.wait_for()` function to wait for the task to complete with a timeout of 3 seconds. Since the task takes 5 seconds to complete, a timeout will occur and a `TimeoutError` will be raised:. await asyncio.wait_for(task, timeout=MAX_TIMEOUT). To do that, you can wrap the task with the `asyncio.shield()` function. The `asyncio.shield()` prevents the cancellation of a task. await asyncio.wait_for(asyncio.shield(task), timeout=MAX_TIMEOUT). However, the task is not canceled due to the `asyncio.shield()` function.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "asyncio.wait_for does not propagate CancelledError, if ...",
+        "url": "https://stackoverflow.com/questions/70305188/asyncio-wait-for-does-not-propagate-cancellederror-if-waited-on-future-is-done",
+        "snippet": "It seems that the CancelledError gets swallowed within wait_for() if the future that is waited on is already done at the time of cancellation.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "timeout in tokio::time - Rust - Docs.rs",
+        "url": "https://docs.rs/tokio/latest/tokio/time/fn.timeout.html",
+        "snippet": "Cancelling a timeout is done by dropping the future. No additional cleanup or other work is required. The original future may be obtained by calling Timeout::",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.675
+      },
+      {
+        "title": "tokio::time::timeout - Rust - People @EECS",
+        "url": "https://people.eecs.berkeley.edu/~pschafhalter/pub/erdos/doc/tokio/time/fn.timeout.html",
+        "snippet": "Cancelling a timeout is done by dropping the future. No additional cleanup or other work is required. The original future may be obtained by calling Timeout::",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5375
+      },
+      {
+        "title": "timeout in tokio::time - Rust",
+        "url": "https://cseweb.ucsd.edu/classes/sp22/cse223B-a/tribbler/tokio/time/fn.timeout.html",
+        "snippet": "Cancelation. Cancelling a timeout is done by dropping the future. No additional cleanup or other work is required. The original future may be obtained by",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5375
+      },
+      {
+        "title": "tokio::time::timeout - Rust",
+        "url": "https://durch.github.io/rust-goauth/tokio/time/fn.timeout.html",
+        "snippet": "Cancelling a timeout is done by dropping the future. No additional cleanup or other work is required. The original future may be obtained by calling [ Timeout::",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4875
+      },
+      {
+        "title": "Rust tokio task cancellation patterns - Cybernetist",
+        "url": "https://cybernetist.com/2024/04/19/rust-tokio-task-cancellation-patterns/",
+        "snippet": "The official tokio documentation lists something called a CancellationToken in the article about graceful shutdown. This isn't available in the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      }
+    ],
+    "grok": []
+  }
+}

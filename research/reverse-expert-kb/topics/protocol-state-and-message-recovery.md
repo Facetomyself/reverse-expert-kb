@@ -17,6 +17,7 @@ Related pages:
 - topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
 - topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
 - topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md
+- topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 
 ## 1. Topic identity
@@ -392,6 +393,8 @@ Use the parser-to-state note when one message family, parser, or dispatch region
 Use the replay-precondition/state-gate note when parser visibility and some field roles already exist, but structurally plausible replay, mutation, or stateful experimentation still fails because the first local acceptance gate, session-phase reduction, freshness check, pending-request ownership check, or capability-state precondition is still unproved.
 
 Use the pending-request-correlation/async-reply note when the broad replay gate has already collapsed to one outstanding-request owner, correlation-id match, async handle, pending slot, callback queue, or completion-state association deciding whether an otherwise plausible response-like artifact is consumed at all.
+
+If timeout/cancel cleanup already looks like the main liar and the remaining ambiguity is whether one pending handler/tag/callback still fires for a retired owner versus a live one, continue with `topics/protocol-retired-owner-vs-callback-firing-workflow-note.md`.
 
 Use the reply-emission/transport-handoff note when parser/state work and even local acceptance are already partly visible, but the analyst still has not proved where the accepted path becomes one concrete emitted reply, serializer/framing path, queue/descriptor commit, or transport/peripheral send handoff.
 
