@@ -1,0 +1,105 @@
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "socks",
+      "tag": "socks-in",
+      "listen": "0.0.0.0",
+      "listen_port": 2080,
+      "users": [
+        {
+          "username": "gateway",
+          "password": "mIw3JsLfsnLFu1yw0mcElNPW"
+        }
+      ]
+    },
+    {
+      "type": "http",
+      "tag": "http-in",
+      "listen": "0.0.0.0",
+      "listen_port": 2081,
+      "users": [
+        {
+          "username": "gateway",
+          "password": "mIw3JsLfsnLFu1yw0mcElNPW"
+        }
+      ]
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "proxy",
+      "outbounds": [
+        "oracle-egress",
+        "hk-hy2",
+        "hk-reality",
+        "hk-socks",
+        "hk-http"
+      ],
+      "default": "oracle-egress"
+    },
+    {
+      "type": "socks",
+      "tag": "oracle-egress",
+      "server": "127.0.0.1",
+      "server_port": 18080,
+      "version": "5"
+    },
+    {
+      "type": "hysteria2",
+      "tag": "hk-hy2",
+      "server": "154.86.30.10",
+      "server_port": 8444,
+      "password": "db8cb0279a30e252754be058a7efe09f",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.apple.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "hk-reality",
+      "server": "154.86.30.10",
+      "server_port": 8443,
+      "uuid": "7d426249-1723-437e-8e17-70e9cca11a03",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "KFJNJ2wp9cnCSiDel7ur72xAFWUZ7wdHa356ORxAplQ",
+          "short_id": "3fbc4bb7d47e8fda"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "type": "socks",
+      "tag": "hk-socks",
+      "server": "154.86.30.10",
+      "server_port": 1080,
+      "version": "5",
+      "username": "zxmu",
+      "password": "3fbc4bb7d47e8fda"
+    },
+    {
+      "type": "http",
+      "tag": "hk-http",
+      "server": "154.86.30.10",
+      "server_port": 1081,
+      "username": "zxmu",
+      "password": "yqpCVgYXUL7yYgy22ovnlq44ZHJ5yeUq"
+    }
+  ],
+  "route": {
+    "final": "proxy"
+  }
+}

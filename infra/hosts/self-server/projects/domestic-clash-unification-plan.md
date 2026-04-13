@@ -204,6 +204,38 @@ Per machine, only after validation:
    - `home-macmini`
    - `home-nas`
 
+## 2026-04-13 implementation findings
+### Current domestic-server reality
+Runtime audit confirmed both `self-server(:44001)` and `self-server-44005` are still in the pre-unification transition state:
+- shell sessions inherit proxy env from `/etc/profile.d/ali-proxy.sh`
+- Docker inherits proxy env from `/etc/systemd/system/docker.service.d/proxy.conf`
+- `dnsmasq` is still running locally on both hosts
+- neither host currently has an active local `mihomo`, `clash-meta`, or `sing-box` client binary in place
+
+### Current ali-cloud gateway reality
+Runtime audit on `ali-cloud` confirmed that the existing authenticated proxy entry (`106.15.239.221:2080/:2081`) is implemented as:
+- sing-box public inbounds on `2080` / `2081`
+- a single sing-box final outbound `oracle-egress`
+- local SOCKS5 hop `127.0.0.1:18080`
+- Hysteria client dialing `backup.zhangxuemin.work:443`
+
+Practical meaning:
+- the current domestic default path is effectively a fixed `ali-cloud ingress -> local Hysteria -> oracle-gateway` chain
+- this is stable, but it is not yet the user-requested selectable multi-exit control plane
+
+### Recommended next cutover path
+Use `ali-cloud` as the first selector/control-plane insertion point before touching every domestic consumer host:
+1. keep `:2080` / `:2081` as the stable authenticated ingress already used by domestic servers
+2. expand `sing-box-gateway` from a single fixed outbound into a selector-style config that can target at least:
+   - current `oracle-gateway` Hysteria egress
+   - one `hk-*` path from `hk-relay`
+   - optional direct HK SOCKS/HTTP fallback from `hk-relay`
+   - status on 2026-04-13: this selector stage is now deployed on `ali-cloud`, with default still pinned to `oracle-egress`
+   - live switch test already passed: `hk-socks` changed observed egress to `154.86.30.10`, and switching back restored observed egress to `129.150.61.78`
+3. once `ali-cloud` can switch upstream exits cleanly, decide whether domestic consumers still need full local Mihomo, or whether some Linux servers can remain on the lighter explicit-proxy model with centrally managed upstream selection
+4. only after that, replace host-local `ali-proxy.sh` / Docker drop-ins on domestic consumers with the finalized managed layout
+5. operational switching on `ali-cloud` is now mediated by `/usr/local/bin/ali-cloud-proxy-select`, so future exit tests can change only the selector default instead of hand-editing JSON
+
 ## Notes
 - Missing local docs were noticed for `home-macmini` in the current `infra/hosts/` tree; add/refresh host docs during the implementation phase.
 - Overseas machines are also in scope for old-overlay removal; do not leave cloud hosts in a mixed state where Clash is the main path but the removed overlay client still lingers.

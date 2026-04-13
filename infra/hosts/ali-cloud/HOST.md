@@ -43,6 +43,20 @@ Current Camoufox exposure model:
 - 1Panel logs under `/opt/1panel/log/`
 - `camoufox-remote` appears manually deployed under `/opt/camoufox-remote`
 - preferred dependable foreign egress path on this host is now the local Hysteria SOCKS5 path at `127.0.0.1:18080`
+- 2026-04-13 runtime verification confirmed the domestic proxy gateway is currently implemented as a two-layer stack:
+  - `hysteria-egress.service` -> docker-compose in `/opt/hysteria-egress`
+  - `sing-box-gateway.service` -> docker-compose in `/opt/sing-box-gateway`
+- Current data path:
+  - authenticated public SOCKS5 `:2080` and HTTP `:2081` are exposed by sing-box
+  - sing-box now fronts a selector-style outbound tag `proxy`
+  - default selection remains `oracle-egress`
+  - `oracle-egress` points to local SOCKS5 `127.0.0.1:18080`
+  - `127.0.0.1:18080` is provided by the Hysteria client in `/opt/hysteria-egress/client.yaml`
+  - that Hysteria client currently dials `backup.zhangxuemin.work:443`
+  - additional candidate upstream exits are now staged inside the same sing-box gateway config: `hk-hy2`, `hk-reality`, `hk-socks`, `hk-http`
+- Operational helper installed on 2026-04-13:
+  - `/usr/local/bin/ali-cloud-proxy-select status`
+  - `/usr/local/bin/ali-cloud-proxy-select oracle-egress|hk-hy2|hk-reality|hk-socks|hk-http`
 
 ## 7. Documentation Scope
 This host should document:
@@ -50,3 +64,4 @@ This host should document:
 - EasyImages app deployment under 1Panel
 - standalone camoufox remote service
 - explicit-proxy gateway responsibilities for domestic hosts
+- the current sing-box -> local Hysteria -> `oracle-gateway` egress chain used by domestic servers
