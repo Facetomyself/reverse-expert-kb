@@ -88,6 +88,19 @@ hosts:
       network: infra/hosts/oracle-registry/NETWORK.md
       projects: infra/hosts/oracle-registry/PROJECTS.md
 
+  - name: hk-relay
+    ssh_alias: hk-relay
+    provider: unknown
+    role:
+      - hong-kong-relay
+      - transit-host
+      - bandwidth-capped-host
+    public_ip: 154.86.30.10
+    domains: []
+    docs:
+      host: infra/hosts/hk-relay/HOST.md
+      network: infra/hosts/hk-relay/NETWORK.md
+
   - name: oracle-reverse-dev
     ssh_alias: oracle-reverse-dev
     provider: oracle

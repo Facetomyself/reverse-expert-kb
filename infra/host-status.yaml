@@ -125,6 +125,24 @@ hosts:
       - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.96.23.110`
       - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
 
+  - name: hk-relay
+    provider: unknown
+    ssh_alias: hk-relay
+    ip: 154.86.30.10
+    lifecycle: active
+    reachability: reachable
+    importance: tier2
+    roles:
+      - hong-kong-relay
+      - transit-host
+      - bandwidth-capped-host
+    notes:
+      - user added this host on 2026-04-13 as a Hong Kong three-network-optimized relay machine
+      - user explicitly warned the host has a bidirectional monthly transfer cap of 800G, so traffic-heavy workloads should be treated cautiously
+      - bootstrap password auth succeeded on first contact; OpenClaw public key login was installed and validated the same day via `ssh hk-relay`
+      - baseline snapshot showed a clean Ubuntu 20.04 x86_64 KVM VM with only SSH publicly listening and healthy direct outbound access to Google and GitHub
+      - current hostname remains provider-generated (`019d8575-3c0b-778e-84a1-5a3332db9a56`) and no public application listener map is documented yet
+
   - name: oracle-reverse-dev
     provider: oracle
     ssh_alias: oracle-reverse-dev
