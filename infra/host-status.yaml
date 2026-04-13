@@ -168,24 +168,28 @@ hosts:
     ssh_alias: home-macmini
     ip: null
     lifecycle: active
-    reachability: pending-refresh
+    reachability: reachable_via_ali_cloud_frp
     importance: tier3
     roles:
       - mac-mini
       - home-lan-node
     notes:
-      - host documentation and direct access path need refresh under the new FRP + Clash-only direction
+      - stable maintenance path is now ali-cloud transit plus FRP SSH relay on `self-server(:44001)` `30017`
+      - durable reusable two-hop root access was established from `ali-cloud` using a host-local ED25519 key on 2026-04-13
+      - removed overlay client residuals were fully cleared on 2026-04-13 (`TS_REMOVED`)
 
   - name: home-nas
     provider: home
     ssh_alias: home-nas
     ip: null
     lifecycle: active
-    reachability: reachable
+    reachability: reachable_via_ali_cloud_frp
     importance: tier3
     roles:
       - nas
       - home-storage-node
     notes:
+      - stable maintenance path is now ali-cloud transit plus FRP SSH relay on `self-server(:44001)` `30018`
       - zhangxuemin has passwordless sudo on the NAS
+      - removed overlay client residuals were confirmed cleared earlier on 2026-04-13 (`TS_REMOVED`)
       - this host should now be documented around FRP publication and host-native outbound proxy shape only
