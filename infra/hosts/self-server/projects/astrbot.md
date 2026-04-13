@@ -121,15 +121,42 @@ Confirmed on `self-server-44005`:
 
 Current runtime state after container bootstrap:
 - NapCat starts successfully and exposes WebUI locally
-- NapCat generated a WebUI token and waits for QQ login via QR code
-- current blocker is no longer image distribution or container networking; it is user-side QQ authentication
+- NapCat generated a WebUI token and waited for QQ login via QR code
 - observed WebUI token at bootstrap time: `7bccbc3738e8`
 - observed local user panel URL at bootstrap time: `http://127.0.0.1:6099/webui?token=7bccbc3738e8`
 - NapCat log also saved the QR image path inside the container: `/app/napcat/cache/qrcode.png`
 
+Final activation state after 2026-04-13 follow-up:
+- QQ login was completed successfully in NapCat
+- `prompt-optimizer-studio` on public `30001` was intentionally retired; `30001/tcp` is now permanently repurposed for NapCat WebUI
+- NapCat runtime now publishes both:
+  - `127.0.0.1:6099 -> 6099/tcp`
+  - `0.0.0.0:30001 -> 6099/tcp`
+- public WebUI entrypoint is now:
+  - `http://211.144.221.229:30001/webui/`
+- NapCat OneBot v11 client config was confirmed present in:
+  - `/app/napcat/config/onebot11.json`
+  - `/app/napcat/config/onebot11_3366925614.json`
+- confirmed reverse WebSocket target from NapCat to AstrBot:
+  - `ws://astrbot:6199/ws`
+- AstrBot-side OneBot activation required editing **both** config layers, not just the routed per-UMO abconf:
+  - `/opt/1panel/apps/astrbot/astrbot/data/cmd_config.json`
+  - `/opt/1panel/apps/astrbot/astrbot/data/config/abconf_dd547db0-c864-43a8-a0a7-46675d251c52.json`
+- required AstrBot platform item shape that actually brought up the reverse-WS listener:
+  - `type = aiocqhttp`
+  - `id = napcat-onebot`
+  - `enable = true`
+  - `ws_reverse_host = 0.0.0.0`
+  - `ws_reverse_port = 6199`
+  - `ws_reverse_token = ""`
+- post-restart AstrBot logs confirmed full OneBot bring-up:
+  - `载入 aiocqhttp(napcat-onebot) 平台适配器 ...`
+  - `Running on http://0.0.0.0:6199`
+  - `aiocqhttp(OneBot v11) 适配器已连接。`
+
 Operational implication:
-- the original deployment goal of colocating NapCat with AstrBot on `1panel-network` and avoiding public exposure for the NapCat WebUI is now achieved
-- remaining work for full OneBot v11 activation is to complete QQ login and then finish/verify the AstrBot-side OneBot configuration against the running NapCat instance
+- the original deployment goal of colocating NapCat with AstrBot on `1panel-network` and avoiding public exposure for the original loopback-only NapCat WebUI was achieved first, then intentionally relaxed by user request so `30001` became the permanent public NapCat WebUI entrypoint
+- full OneBot v11 activation is now complete: QQ login done, AstrBot reverse WebSocket listener up, and NapCat ↔ AstrBot connection established
 
 ## Read-only maintenance checklist
 Useful recurring checks:
