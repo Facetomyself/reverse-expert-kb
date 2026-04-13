@@ -96,7 +96,8 @@ hosts:
       - transit-host
       - bandwidth-capped-host
     public_ip: 154.86.30.10
-    domains: []
+    domains:
+      - hk.zhangxuemin.work
     docs:
       host: infra/hosts/hk-relay/HOST.md
       network: infra/hosts/hk-relay/NETWORK.md

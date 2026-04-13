@@ -2,6 +2,7 @@
 
 ## 1. Public Network Identity
 - Public IP: `154.86.30.10`
+- Canonical domain: `hk.zhangxuemin.work`
 - Provider: unknown / user-added Hong Kong VPS
 - Intended role: 三网优化流量中转
 
@@ -23,6 +24,8 @@ After relay bootstrap on 2026-04-13, confirmed public listener map:
 - TCP `22` -> SSH
 - TCP `1080` -> sing-box authenticated mixed inbound (proxy/tools/general-purpose entry)
 - TCP `1081` -> sing-box authenticated HTTP proxy inbound
+- TCP `8080` -> authenticated Caddy browse/download entry
+- TCP `8088` -> authenticated `dufs` upload/download entry
 - TCP `8443` -> sing-box VLESS + Reality inbound
 - UDP `8444` -> sing-box Hysteria2 inbound
 
@@ -51,6 +54,8 @@ Confirmed on 2026-04-13 with `ufw` active:
 - allow `22/tcp`
 - allow `1080/tcp`
 - allow `1081/tcp`
+- allow `8080/tcp`
+- allow `8088/tcp`
 - allow `8443/tcp`
 - allow `8444/udp`
 

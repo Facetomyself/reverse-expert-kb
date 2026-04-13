@@ -6,6 +6,7 @@
 - Provider: unknown / user-added Hong Kong VPS
 - Primary role: 三网优化流量中转 / relay host with monthly transfer cap
 - SSH alias: `hk-relay`
+- Canonical domain (from 2026-04-13): `hk.zhangxuemin.work`
 - Main purpose: 作为香港中转节点使用，用户明确说明该机是“三网优化流量中转”的机器，但有**双向月流量 800G** 限制，因此后续应把它当作有带宽预算约束的转发/中继资产，而不是随便堆长期大流量任务的通用机器。
 
 ## 2. System Baseline
@@ -53,6 +54,8 @@ After first relay bootstrap on 2026-04-13:
   - TCP `1081` -> authenticated HTTP proxy inbound
   - TCP `8443` -> VLESS + Reality inbound
   - UDP `8444` -> Hysteria2 inbound
+  - TCP `8080` -> authenticated Caddy-based file browse/download surface
+  - TCP `8088` -> authenticated `dufs` upload/download surface for large-file transfer relay
 
 External connectivity smoke check on 2026-04-13:
 - `https://www.google.com` -> `HTTP/2 200`
@@ -72,8 +75,9 @@ Operational interpretation:
 - first deployed access pattern is intentionally multi-entry:
   - direct server/tool usage via authenticated HTTP/SOCKS-style proxy ports
   - Clash/sing-box client usage via VLESS Reality and Hysteria2
-- current firewall baseline uses `ufw` with explicit allows for `22/tcp`, `1080/tcp`, `1081/tcp`, `8443/tcp`, and `8444/udp`
+- current firewall baseline uses `ufw` with explicit allows for `22/tcp`, `1080/tcp`, `1081/tcp`, `8080/tcp`, `8088/tcp`, `8443/tcp`, and `8444/udp`
 - Hysteria2 currently uses a self-signed certificate generated on-host for initial bootstrap; if long-term client UX matters, replace this with a real certificate/domain later
+- canonical public hostname for this relay node is now `hk.zhangxuemin.work` (Cloudflare DNS-only A record -> `154.86.30.10` created on 2026-04-13)
 
 ## 7. Documentation Scope
 This host's docs should focus on:
