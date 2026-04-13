@@ -32,6 +32,39 @@ SyntaxError: invalid syntax
 
 ---
 
+## [ERR-20260413-001] nas-frpc-restart-and-pkill-assumptions
+
+**Logged**: 2026-04-13T11:50:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+FRP migration debugging on `home-nas` was prolonged by two wrong operator assumptions: treating the NAS helper script as if it supported `restart`, and using a broad `pkill -f` pattern that could kill the remote launcher path itself.
+
+### Error
+```text
+usage: /usr/local/etc/rc.d/S99frpc-nas.sh {start|stop}
+```
+
+### Context
+- During FRP migration from `:44005` to `:44001`, `home-nas` needed to reconnect `frpc` using `/usr/local/etc/frpc-nas.toml`.
+- The local helper script `/usr/local/etc/rc.d/S99frpc-nas.sh` only supports `start|stop`; `restart` silently failed the intended recovery path.
+- Some remote recovery attempts used `pkill -f "frpc.*frpc-nas.toml"`, which is risky because the current remote shell/launcher command line can also match and get killed, making the session look flaky and the daemon look non-persistent.
+- Frontground validation proved the config itself was correct: `frpc` could log in and register both `nas-webui` and `nas-drive` successfully once launched correctly.
+
+### Suggested Fix
+- Read small host helper scripts before assuming subcommands like `restart` exist.
+- Prefer exact process-name matching (`pkill -x frpc`) or PID-based management over broad `pkill -f` regexes in remote maintenance commands.
+- When recovering FRP clients on this NAS, use explicit `stop` then `start`, then confirm listeners appeared on the server side.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /usr/local/etc/rc.d/S99frpc-nas.sh, /usr/local/etc/frpc-nas.toml, infra/hosts/self-server/projects/frps-relay-plan.md
+- See Also: ERR-20260316-001
+
+---
+
 ## [ERR-20260316-001] git-status-cached-old-cli
 
 **Logged**: 2026-03-16T17:30:00+08:00
@@ -237,6 +270,48 @@ For domestic hosts with mixed proxy paths, prefer one of:
 - Reproducible: yes
 - Related Files: /root/.openclaw/workspace/.learnings/ERRORS.md
 - See Also: ERR-20260406-001
+
+---
+
+## [ERR-20260411-007] macmini-lora-train-stalled-with-stale-pgrep-signal
+
+**Logged**: 2026-04-11T22:33:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: training
+
+### Summary
+A long-running SDXL LoRA training on `home-macmini` appeared to still exist because an early `pgrep` check returned a bare PID, but the actual training process had already stopped and the log had stalled at step 105/120 for many minutes.
+
+### Error
+```text
+Log mtime stopped advancing at 2026-04-11 22:17:11 local time.
+No new `.safetensors` files appeared after `step00000080`.
+A follow-up precise `pgrep -af sdxl_train_network.py` returned no real matching process.
+```
+
+### Context
+- Command/operation attempted: watchdog-style remote monitoring of `chihaya_anon__nagasaki_soyo_v2_run1` on `home-macmini`
+- Initial quick checks combined `pgrep` and `ps`, which can be misleading when probing remotely and when the command wrapper itself influences matching or output interpretation.
+- The reliable indicators were instead:
+  - log file modification time stopped moving
+  - no new checkpoint or final weight appeared
+  - exact `pgrep -af` later returned empty
+- Training had progressed to about `105/120` with latest logged `avr_loss=0.491`, then stopped before final outputs were written.
+
+### Suggested Fix
+For remote training watchdogs, do not treat a single PID-like `pgrep` result as proof the job is healthy. Confirm liveness using at least two of:
+- exact `pgrep -af` command line match
+- advancing log file mtime
+- newly written checkpoint/final output files
+- `ps` state/%CPU for the matched PID
+
+If log mtime is stale and outputs stop advancing, treat the run as failed/stalled and restart from the known-good script.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: /root/.openclaw/workspace/tmp/run_chihaya_soyo_lora_v2.sh, /root/.openclaw/workspace/.learnings/ERRORS.md
+- See Also: ERR-20260411-005, ERR-20260411-006
 
 ---
 
@@ -1014,5 +1089,125 @@ For first-pass SDXL LoRA bring-up on Apple Silicon / MPS, prefer a conservative 
 - Reproducible: yes
 - Related Files: /Users/mengma/ai/train/scripts/run_chihaya_soyo_lora_v1.sh, /root/.openclaw/workspace/.learnings/ERRORS.md
 - See Also: ERR-20260411-005
+
+---
+## [ERR-20260412-001] reverse-kb-autosync-search-layer-exec-preflight-and-grok-502
+
+**Logged**: 2026-04-12T04:58:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: docs
+
+### Summary
+During reverse-KB autosync, an initial multi-line `python3 search.py ... > artifact` invocation was rejected by OpenClaw exec preflight, and the explicitly requested Grok search source again failed with repeated 502 errors through the configured proxy path.
+
+### Error
+```text
+exec preflight: complex interpreter invocation detected; refusing to run without script preflight validation. Use a direct `python <file>.py` or `node <file>.js` command.
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+```
+
+### Context
+- Task: recurring reverse KB autosync external-research pass
+- Attempted command shape: multi-line `python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py ... > artifact`
+- Successful workaround: rerun as a direct one-line `python3 search.py ...` invocation, capture output from the finished process, then write the artifact separately
+- Grok failure did not block the run because Exa and Tavily succeeded and the degraded source set was recorded in the run report
+
+### Suggested Fix
+For OpenClaw exec, prefer the simplest direct one-line `python3 <script>.py ...` invocation when using `search.py`, then persist artifacts in a separate step. Treat the configured Grok proxy as degraded until 502s stop recurring.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/skills/search-layer/scripts/search.py, /root/.openclaw/workspace/.learnings/ERRORS.md, /root/.openclaw/workspace/research/reverse-expert-kb/runs/2026-04-12-0450-run-report.md
+- See Also: ERR-20260411-004
+
+---
+
+## [ERR-20260412-002] comfyui-ui-json-direct-api-submit
+
+**Logged**: 2026-04-12T15:21:31+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: comfyui
+
+### Summary
+Tried to convert a ComfyUI canvas/UI workflow JSON directly into an API prompt dict and submit it to `/prompt`, but the generated structure was rejected with HTTP 400.
+
+### Error
+```text
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+```
+
+### Context
+- Operation attempted: reuse an existing UI workflow (`chenkinrf-pro-portrait-ui.json`) for automated same-seed baseline-vs-LoRA comparison generation.
+- The first pass hand-built an API prompt from `nodes` / `links` / `widgets_values` and posted it to `http://127.0.0.1:8188/prompt`.
+- This is brittle because UI workflow shape and API prompt shape are not 1:1; node inputs/order/hidden fields can diverge.
+
+### Suggested Fix
+- For automation, prefer a minimal native API prompt graph built explicitly from `object_info`, or use an existing known-good API example/script.
+- Do not assume a canvas workflow can be mechanically transformed into a valid API payload without validating node schemas and exact input wiring.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/.learnings/ERRORS.md
+- See Also: ERR-20260410-001
+
+---
+## [ERR-20260412-001] docker compose unavailable on self-server-44005
+
+**Logged**: 2026-04-12T21:26:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Tried to use `docker compose` on `self-server-44005`, but the host only supports legacy `docker-compose`.
+
+### Error
+```
+docker: unknown command: docker compose
+
+Run `docker --help` for more information
+```
+
+### Context
+- Operation: deploy NapCat alongside AstrBot on CentOS 7 host `self-server-44005`
+- Initial assumption used modern Docker Compose v2 subcommand
+- Host runtime is older 1Panel/CentOS-era Docker tooling
+
+### Suggested Fix
+Prefer detecting or defaulting to `docker-compose` on older CentOS/1Panel hosts unless `docker compose version` succeeds.
+
+### Metadata
+- Reproducible: yes
+- Related Files: TOOLS.md, infra/hosts/self-server/projects/astrbot.md
+
+---
+## [ERR-20260413-001] local-exec-default-shell-pipefail
+
+**Logged**: 2026-04-13T03:14:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: config
+
+### Summary
+A local diagnostic exec failed immediately because the default tool shell here is `/bin/sh`, so plain `set -o pipefail` is invalid unless the command explicitly invokes Bash.
+
+### Error
+```text
+/bin/sh: 1: set: Illegal option -o pipefail
+```
+
+### Context
+- Operation: run a read-only fleet snapshot helper command from `exec`
+- Initial command assumed Bash semantics directly in the `command` field
+- This OpenClaw host advertises `shell=sh`, so Bash-only flags need `bash -lc '...'`
+
+### Suggested Fix
+When a command needs `pipefail`, arrays, or more complex quoting, wrap it with `bash -lc` instead of assuming the default exec shell is Bash.
+
+### Metadata
+- Reproducible: yes
+- Related Files: TOOLS.md, /root/.openclaw/workspace/.learnings/ERRORS.md
 
 ---

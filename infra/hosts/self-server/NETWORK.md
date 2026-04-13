@@ -24,6 +24,14 @@ Observed listening TCP ports during same-day read-only inspection:
 Operational note:
 - The observed listeners fit inside the user-confirmed allowed allocation.
 - Intended steady-state role after 2026-04-04 cleanup: keep this VM as the `1Panel + FRPS` box for this shared-IP pair.
+- 2026-04-13 live validation after the FRP migration confirmed the active published payload listeners expanded to:
+  - `30014/tcp` -> `home-macmini` ComfyUI
+  - `30015/tcp` -> `home-nas` DSM HTTPS
+  - `30016/tcp` -> `home-nas` Synology Drive
+- External validation from `ali-cloud` confirmed:
+  - `http://211.144.221.229:30014/` served ComfyUI
+  - `https://211.144.221.229:30015/` returned `HTTP/2 200`
+  - `http://211.144.221.229:30015/` returned `400 Bad Request`, which is expected because the FRP target is DSM HTTPS on `5001`
 - Final same-day outbound model is explicit rather than transparent: this VM now keeps a local `dnsmasq` listener on `127.0.0.1:53`, forwards DNS to `106.15.239.221#1053`, and uses `ali-cloud` authenticated proxy ingress on `:2081` / `:2080` for shell and Docker egress.
 
 ### Target `:44005` (`host185`)

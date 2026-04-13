@@ -58,10 +58,27 @@ And these former FRPS ports on `:44005` should remain cleared unless there is a 
 - `30010/tcp`
 
 ## Operational caution
-During the cutover, `host185` showed evidence that the old `frps` process could be relaunched by local startup residue even after a manual stop. If FRPS listeners reappear on `:44005`, re-check:
-- stray `frps` process restarts
-- old startup hooks or service wrappers
-- residual firewall opens for `30002/30003/30004/30009/30010`
+During the cutover, `host185` showed evidence that the old `frps` process could be relaunched after a manual stop. The actual restart source was **not** a normal `frps.service`; it was a Docker Compose container:
+- container: `frps-44005`
+- image: `snowdreamtech/frps:0.64.0`
+- project dir: `/opt/frps-44005`
+- restart policy: `unless-stopped`
+
+So if FRPS listeners reappear on `:44005`, check Docker first, not just systemd. Effective removal required:
+- `docker update --restart=no frps-44005`
+- `docker stop frps-44005`
+- `docker rm frps-44005`
+
+On the NAS side, the migration also exposed two operator gotchas:
+- `/usr/local/etc/rc.d/S99frpc-nas.sh` supports only `start|stop`, not `restart`
+- overly broad remote `pkill -f "frpc.*frpc-nas.toml"` style commands can accidentally kill the current remote shell/launcher path and make it look like `frpc` "won't stay up"
+
+Final live validation after the NAS-side fix on 2026-04-13:
+- `:44001` listeners present: `30014`, `30015`, `30016`
+- external checks from `ali-cloud` confirmed:
+  - `http://211.144.221.229:30014/` -> ComfyUI reachable
+  - `https://211.144.221.229:30015/` -> DSM reachable (`HTTP/2 200`)
+  - plain `http://211.144.221.229:30015/` -> `400 Bad Request`, which is expected because this mapping targets DSM HTTPS on `5001`
 
 The design intent is now unambiguous:
 - `:44001` = FRPS relay
