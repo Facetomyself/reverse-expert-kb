@@ -19,7 +19,12 @@ First baseline snapshot showed only:
 - TCP `22` (`sshd`)
 - local-only stub resolver on `127.0.0.53:53`
 
-No public application listener map is documented yet.
+After relay bootstrap on 2026-04-13, confirmed public listener map:
+- TCP `22` -> SSH
+- TCP `1080` -> sing-box authenticated mixed inbound (proxy/tools/general-purpose entry)
+- TCP `1081` -> sing-box authenticated HTTP proxy inbound
+- TCP `8443` -> sing-box VLESS + Reality inbound
+- UDP `8444` -> sing-box Hysteria2 inbound
 
 ## 4. Egress validation
 Validated on 2026-04-13:
@@ -41,9 +46,22 @@ Operational implication:
   - sustained relay/proxy traffic
 - avoid undocumented large-image mirroring, package-cache hosting, or other silent high-egress roles here
 
-## 6. To Be Confirmed
+## 6. Firewall baseline
+Confirmed on 2026-04-13 with `ufw` active:
+- allow `22/tcp`
+- allow `1080/tcp`
+- allow `1081/tcp`
+- allow `8443/tcp`
+- allow `8444/udp`
+
+Interpretation:
+- current exposure is intentionally wider than a minimal host because the machine is being positioned as a self-use multi-role relay node
+- management surface is still relatively small because there is no public dashboard/admin panel exposed yet
+
+## 7. To Be Confirmed
 Still worth documenting once the host role is finalized:
-- whether this machine will front HTTP, SOCKS5, Hysteria, sing-box, FRP, or another relay stack
 - whether any domain names will be pointed here
+- whether a real TLS certificate should replace the initial self-signed Hysteria2 bootstrap certificate
 - whether traffic monitoring / accounting / caps should be enforced on-host
 - whether the provider offers a panel/API for monthly transfer inspection
+- whether a dedicated file-transfer ingress (Caddy/Nginx/SFTP landing area) should become part of the standard design
