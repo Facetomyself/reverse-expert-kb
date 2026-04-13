@@ -279,6 +279,7 @@ It means the branch is now best taught as a route for shrinking protection-shape
 A practical reminder worth preserving at the parent-page level is:
 - **dispatcher recognized != next-state carrier recovered != trustworthy successor relation != full deobfuscation required**
 - Tigress-style next-variable obfuscation and encoded-branch variants can keep the successor question narrow even after dispatcher discovery is already done
+- once one normalized next-carrier already exists, a thinner copied-code / question-opaque continuation should keep **copied arm visibility**, **dependency on the carrier family**, and **trustworthy successor split** separate before CFG repair
 - symbolic execution, IL repair, or opaque-predicate cleanup should usually be treated here as narrow successor-extraction or noise-reduction aids rather than as a requirement to solve the whole flattened function before progress is allowed
 
 A few anti-drift reminders follow from that ladder:
