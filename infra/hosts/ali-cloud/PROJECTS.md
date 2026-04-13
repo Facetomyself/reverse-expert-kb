@@ -113,6 +113,22 @@ Current role interpretation:
 - for Docker on this host, the primary dependable path is now official registries over the local Hysteria proxy, not the self-hosted Docker Hub mirror
 - current shape is still explicit-proxy ingress, not transparent routing / subnet routing / full gateway mode yet
 
+## 8. Temporary large-file distribution helper for `host185` NapCat bootstrap (2026-04-12)
+Confirmed on 2026-04-12:
+- purpose: serve `/root/napcat-transfer/napcat.tar` to `self-server-44005` during NapCat image bootstrap
+- initial ad-hoc Python `http.server` source on `:18081` worked for single-stream transfer but did not support the Range behavior needed for efficient `aria2` multi-connection downloading
+- stable final shape moved the tarball to `/srv/napcat-transfer/napcat.tar` and served it via:
+  - container: `napcat-http-nginx`
+  - image: `nginx:alpine`
+  - published port: `18082 -> 80`
+- validated behavior from `self-server-44005`:
+  - `HEAD /napcat.tar` -> `200 OK`
+  - `Range: bytes=0-1023` -> `206 Partial Content`
+  - `Accept-Ranges: bytes`
+
+Operational implication:
+- for future large one-off transfers from `ali-cloud` to domestic hosts, prefer a proper static file server with Range support (for example `nginx`) over Python `http.server` when `aria2` multi-connection resume/splitting is desired.
+
 ## Next operational step
 - inspect 1Panel status/routes/config further
 - inspect EasyImages compose and health model

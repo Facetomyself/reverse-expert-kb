@@ -106,6 +106,31 @@ If a future network regression appears, the least-invasive fallback is:
    - `docker restart astrbot`
 6. Verify startup logs show provider adapters loading successfully.
 
+## NapCat / OneBot v11 sidecar bootstrap (2026-04-13)
+Confirmed on `self-server-44005`:
+- deployment root: `/opt/napcat-astrbot`
+- compose file: `/opt/napcat-astrbot/docker-compose.yml`
+- image: `mlikiowa/napcat-docker:latest`
+- container name: `napcat`
+- WebUI bind: `127.0.0.1:6099 -> 6099/tcp` (loopback-only, no public exposure)
+- network attachment: `1panel-network`
+- live container IP: `172.22.0.3`
+- AstrBot container IP on same network: `172.22.0.2`
+- container-side DNS resolution of `astrbot` from `napcat` succeeded
+- host-local WebUI probe: `http://127.0.0.1:6099/` returned `200 OK`
+
+Current runtime state after container bootstrap:
+- NapCat starts successfully and exposes WebUI locally
+- NapCat generated a WebUI token and waits for QQ login via QR code
+- current blocker is no longer image distribution or container networking; it is user-side QQ authentication
+- observed WebUI token at bootstrap time: `7bccbc3738e8`
+- observed local user panel URL at bootstrap time: `http://127.0.0.1:6099/webui?token=7bccbc3738e8`
+- NapCat log also saved the QR image path inside the container: `/app/napcat/cache/qrcode.png`
+
+Operational implication:
+- the original deployment goal of colocating NapCat with AstrBot on `1panel-network` and avoiding public exposure for the NapCat WebUI is now achieved
+- remaining work for full OneBot v11 activation is to complete QQ login and then finish/verify the AstrBot-side OneBot configuration against the running NapCat instance
+
 ## Read-only maintenance checklist
 Useful recurring checks:
 - `docker ps` shows `astrbot` running
@@ -114,3 +139,6 @@ Useful recurring checks:
 - `data/data_v4.db` routing entries still point where expected
 - routed `abconf` files still contain non-empty `provider_sources` / `provider`
 - startup logs still show the expected OpenAI-compatible providers loading
+- `docker ps` shows `napcat` running
+- `curl http://127.0.0.1:6099/` returns `200`
+- both `astrbot` and `napcat` remain attached to `1panel-network`
