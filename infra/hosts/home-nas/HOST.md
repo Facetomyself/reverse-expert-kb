@@ -20,6 +20,7 @@
 - DSM should be published through FRP on `self-server(:44001)`
 - Synology Drive should be published through FRP on `self-server(:44001)`
 - This host is also in scope for local Clash/Mihomo outbound capability
+- 2026-04-13 policy clarification: even though the domestic Linux servers can currently inherit centralized upstream switching from `ali-cloud`, `home-nas` should still move toward a real host-local Clash/Mihomo install because the user explicitly wants local Clash on the home endpoints
 
 ## Access
 - Confirmed working maintenance path on 2026-04-13: Oracle/OpenClaw side should reach this host via `ali-cloud` jump + FRP SSH relay on `self-server(:44001)` rather than any old direct/overlay path

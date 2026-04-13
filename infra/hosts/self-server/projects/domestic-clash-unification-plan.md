@@ -44,6 +44,10 @@ Unify outbound access around Clash/Mihomo-style explicit proxy switching, while 
 - `home-nas`
 - optionally other domestic desktops/servers later
 
+#### D. Deployment policy split (confirmed 2026-04-13)
+- `self-server(:44001)` and `self-server-44005` should preferentially use the lighter centralized explicit-proxy model backed by `ali-cloud`'s selector gateway unless a host-local runtime requirement later proves that insufficient.
+- `home-macmini` and `home-nas` are different: they should still be planned around host-local Clash/Mihomo installation in addition to FRP publication, because the user explicitly wants local outbound switching capability on the home endpoints themselves.
+
 #### C. Home-service publish path
 - Keep FRP only for inbound publication of selected home services
 - Current intended FRP home-service map on `:44001`:
@@ -98,6 +102,8 @@ Unify outbound access around Clash/Mihomo-style explicit proxy switching, while 
 - Desired UX:
   - normal outbound browsing/downloads/model pulls can use local Clash
   - published service exposure still goes through FRP
+- Policy clarification on 2026-04-13:
+  - unlike the domestic Linux servers, this host should continue toward a real host-local Clash/Mihomo install rather than relying only on centralized selector inheritance
 
 ### home-nas
 - Keep:
@@ -108,6 +114,8 @@ Unify outbound access around Clash/Mihomo-style explicit proxy switching, while 
 - Important caution:
   - Synology package/runtime management is non-standard; any Clash deployment must respect DSM/Synology service conventions
   - do not trust DSM package UI state alone as service truth
+- Policy clarification on 2026-04-13:
+  - unlike the domestic Linux servers, this host should continue toward a real host-local Clash/Mihomo install rather than relying only on centralized selector inheritance
 
 ## Subscription / policy design
 
@@ -235,6 +243,7 @@ Use `ali-cloud` as the first selector/control-plane insertion point before touch
    - live switch test already passed: `hk-socks` changed observed egress to `154.86.30.10`, and switching back restored observed egress to `129.150.61.78`
 3. once `ali-cloud` can switch upstream exits cleanly, decide whether domestic consumers still need full local Mihomo, or whether some Linux servers can remain on the lighter explicit-proxy model with centrally managed upstream selection
    - current evidence strongly favors the lighter centralized model for `self-server(:44001)` and `self-server-44005`, because both already followed selector changes without any per-host software rollout
+   - this lighter-model conclusion does **not** override the explicit requirement that `home-macmini` and `home-nas` should still receive host-local Clash/Mihomo planning and installation
 4. only after that, replace host-local `ali-proxy.sh` / Docker drop-ins on domestic consumers with the finalized managed layout
 5. operational switching on `ali-cloud` is now mediated by `/usr/local/bin/ali-cloud-proxy-select`, so future exit tests can change only the selector default instead of hand-editing JSON
 
