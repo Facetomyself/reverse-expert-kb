@@ -74,6 +74,7 @@ Recorded on 2026-04-04 because public IP / forwarding resources are limited on t
   - keep local resolver pointed at `127.0.0.1`
   - keep `dnsmasq` forwarding to `ali-cloud:1053`
   - keep shell/Docker on explicit proxy mode through `ali-cloud`
+  - as of 2026-04-13, this explicit-proxy model already inherits centralized upstream exit switching from `ali-cloud` without host-local Mihomo deployment
   - do not reintroduce the same-day abandoned transparent TUN experiment unless the remote ingress protocol is redesigned
 - Cleanup rule:
   - keep `1Panel`, `FRPS`, and SSH
@@ -99,6 +100,7 @@ Recorded on 2026-04-04 because public IP / forwarding resources are limited on t
   - keep local resolver pointed at `127.0.0.1`
   - keep `dnsmasq` forwarding to `ali-cloud:1053`
   - keep shell/Docker on explicit proxy mode through `ali-cloud`
+  - as of 2026-04-13, this explicit-proxy model already inherits centralized upstream exit switching from `ali-cloud` without host-local Mihomo deployment
   - do not restore the removed transparent `sing-box-global` experiment from 2026-04-04; it was intentionally abandoned after TUN->remote-SOCKS proved unstable for general HTTPS traffic
 
 ## Operator guidance
