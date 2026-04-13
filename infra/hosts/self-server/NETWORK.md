@@ -71,28 +71,25 @@ Live validation on 2026-04-11 after AstrBot deployment:
 Operational note:
 - `30008/tcp`, `30001/tcp`, and now `30007/tcp` fit inside the user-confirmed allowed allocation.
 - historical listeners `5837`, `9090`, `1053`, and `111` were removed from active service during the same-day cleanup pass to bring this VM closer to a true 1Panel-only shape, but the later 2026-04-08 firewall check showed residual allow/forward rules still remain and should be normalized during FRPS rollout.
-- Updated intended steady-state role on 2026-04-08 kept this VM focused on the `FRPS` relay function, but 2026-04-11 live checks confirmed `AstrBot` is now also using part of the same public TCP budget.
-- Effective public TCP allocation after the AstrBot confirmation:
-  - `30001` -> existing `prompt-optimizer-studio`
-  - `30007` -> `AstrBot WebUI` (host port published by Docker; upstream inside container is `6185`)
-  - `30008` -> existing `1panel-core`
-  - `30009` -> `frps` bind/control port
-  - `30010` -> optional `frps` dashboard (prefer disabled or restricted)
-  - `30002-30006` -> remaining application-facing proxy ports published by `frps` for home services unless later repurposed
+- 2026-04-13 migration decision moved the active FRPS relay role off `:44005` and back onto `:44001`, so this VM should no longer be treated as the long-term FRP relay host.
+- Effective application-focused public TCP allocation after the migration is intended to be:
+  - `30001/tcp` -> `NapCat WebUI`
+  - `30005/tcp` -> `AstrBot` / QQ personal / OneBot v11 host publish
+  - `30006/tcp` -> `AstrBot` auxiliary publish
+  - `30007/tcp` -> `AstrBot WebUI`
+  - `30008/tcp` -> `1panel-core`
+- Former FRPS-related ports on `:44005` that should now stay free unless explicitly redesigned:
+  - `30002/tcp`
+  - `30003/tcp`
+  - `30004/tcp`
+  - `30009/tcp`
+  - `30010/tcp`
+- Historical note:
+  - `:44005` did temporarily host the live FRPS relay and business-service mappings on 2026-04-08 through 2026-04-12
+  - those mappings were migrated on 2026-04-13 to the cleaner `:44001` FRPS layout using `30012` control and payload ports beginning at `30014`
 - Protocol caution:
-  - the documented forwarding allocation for `:44005` is currently TCP-only; do not assume extra UDP budget for FRP features such as KCP/QUIC without separate confirmation
+  - the documented forwarding allocation for this VM is currently TCP-only; do not assume extra UDP budget for FRP features such as KCP/QUIC without separate confirmation
 - Firewall caution:
   - do not broadly open `30001-30010` just because the VM owns that range; only keep the ports that are actually assigned to running services
-  - if `frps` is deployed, explicitly remove obsolete `9090` exposure and the `30007 -> 9090` forward rule first so `30007` can be safely reclaimed
-  - 2026-04-08 implementation outcome on `:44005`: `9090` and `30007 -> 9090` were removed during rollout
-  - later same-day live validation showed active FRP-published listeners on `30002` and `30003`
-  - 2026-04-11 live validation then confirmed `30007/tcp` is no longer free FRP budget; it is occupied by AstrBot WebUI
-  - final active mapping currently documented:
-    - `30001/tcp` -> `prompt-optimizer-studio`
-    - `30002/tcp` -> `home-macmini` ComfyUI via FRP (`127.0.0.1:8188`)
-    - `30003/tcp` -> `home-nas` DSM WebUI via FRP (`127.0.0.1:5001`, HTTPS)
-    - `30007/tcp` -> `AstrBot WebUI`
-    - `30008/tcp` -> `1panel-core`
-    - `30009/tcp` -> `frps`
-    - `30010/tcp` -> `frps` dashboard / admin UI when enabled
+  - after FRPS removal, normalize any residual public opens for `30002/30003/30004/30009/30010` so the rule set matches the new application-focused reality
 - Final outbound model remains explicit rather than transparent: this VM keeps a local `dnsmasq` listener on `127.0.0.1:53`, forwards DNS to `106.15.239.221#1053`, and uses `ali-cloud` authenticated proxy ingress on `:2081` / `:2080` for shell and Docker egress; the short-lived transparent TUN experiment was removed after proving unstable for general HTTPS traffic.

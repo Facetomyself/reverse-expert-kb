@@ -1,83 +1,68 @@
-# self-server `:44005` / `host185` — FRPS relay plan
+# self-server FRP relay migration note
 
-## Purpose
-Repurpose `self-server-44005` (`host185`) into the dedicated `frps` relay for exposing selected services from:
-- `home-macmini`
-- `home-nas`
+## Current decision
+FRP relay responsibilities were migrated away from `self-server-44005` (`host185`) and consolidated onto `self-server` / `:44001` (`181`).
 
-The relay uses the shared public IP `211.144.221.229` but must stay inside the user-confirmed `:44005` TCP allocation: `30001-30010`.
+The reason is simple:
+- `:44001` has the cleaner long-term role as `1Panel + FRPS`
+- `:44005` has the tighter `30001-30010` public-port budget and is now needed mainly for application traffic (`NapCat`, `AstrBot`, `1Panel`)
+- keeping FRPS on `:44005` created avoidable contention with the application ports
 
-## Current public-port occupancy
-- `30001/tcp` — `prompt-optimizer-studio`
-- `30008/tcp` — `1panel-core`
+## Historical note
+`host185` / `:44005` did previously run `frps` and served active home-lab mappings such as:
+- `30002/tcp` -> `home-macmini` ComfyUI (`127.0.0.1:8188`)
+- `30003/tcp` -> `home-nas` DSM WebUI (`127.0.0.1:5001`, HTTPS)
+- `30004/tcp` -> `home-nas` Synology Drive Server (`127.0.0.1:6690`)
+- `30009/tcp` -> `frps` control port
+- `30010/tcp` -> `frps` dashboard
 
-## Recommended FRP allocation
-- `30009/tcp` — `frps` bind/control port
-- `30010/tcp` — optional `frps` dashboard (prefer disabled, loopback-only, or tightly restricted)
-- `30002-30007/tcp` — service exposure pool for `frpc` clients
+That was a real intermediate state, but it is no longer the intended steady-state design.
 
-This leaves the port plan as:
-- `30001` -> Prompt Optimizer Studio
-- `30002-30007` -> home-service proxy ports via `frps`
-- `30008` -> 1Panel
-- `30009` -> `frps`
-- `30010` -> optional dashboard
+## New steady-state relay layout (`:44001` / `181`)
+- `30011/tcp` -> `1panel-core`
+- `30012/tcp` -> `frps` bind/control port
+- `30013/tcp` -> `frps` dashboard
+- `30014/tcp` -> `home-macmini` ComfyUI (`127.0.0.1:8188`)
+- `30015/tcp` -> `home-nas` DSM WebUI (`127.0.0.1:5001`, HTTPS)
+- `30016/tcp` -> `home-nas` Synology Drive Server (`127.0.0.1:6690`)
+- `30017-30025/tcp` -> reserved spare FRP payload capacity for future home-service exposure
 
-## Why this map
-- avoids conflict with already-running services on `30001` and `30008`
-- keeps `frps` control separate from published business/service ports
-- preserves a small contiguous pool for future `home-macmini` / `home-nas` exposures
-- fits the known forwarding budget without assuming undocumented extra ports
+## Corresponding `frpc` migration
+### `home-macmini`
+`/Users/mengma/frp/frpc.toml`
+- `serverAddr = "211.144.221.229"`
+- `serverPort = 30012`
+- `remotePort = 30014`
 
-## Firewall / network notes
-Read-only check on 2026-04-08 found:
-- `firewalld` active
-- existing public opens included `30003`, `30004`, `30005`, `30006`, `30007`, `30009`, `30010`
-- stale public open `9090/tcp`
-- stale forward-port rule `30007/tcp -> 9090/tcp`
+### `home-nas`
+`/usr/local/etc/frpc-nas.toml`
+- `serverAddr = "211.144.221.229"`
+- `serverPort = 30012`
+- `nas-webui.remotePort = 30015`
+- `nas-drive.remotePort = 30016`
 
-Rollout result on 2026-04-08:
-- FRPS deployed at `/opt/frps-44005` with ports `30009` (bind) and `30010` (dashboard)
-- `9090/tcp` removed
-- `30007/tcp -> 9090/tcp` forward rule removed
-- initial post-rollout state had only `30001`, `30008`, `30009`, `30010` publicly opened plus baseline `22/80/443`
+## `:44005` target steady state after migration
+`host185` should no longer carry FRPS responsibilities.
+Its intended public-port occupancy should instead stay focused on application traffic:
+- `30001/tcp` -> NapCat WebUI
+- `30005/tcp` -> AstrBot / QQ personal / OneBot v11 reverse WS host publish
+- `30006/tcp` -> AstrBot auxiliary publish
+- `30007/tcp` -> AstrBot WebUI
+- `30008/tcp` -> `1panel-core`
 
-Validated live state on 2026-04-08 later the same day:
-- `frps` process is actively listening on `30009` and `30010`
-- published proxy listeners were first brought up as temporary SSH mappings for validation, then repointed to the actual desired business services
-- final confirmed active mappings after correction:
-  - `30002/tcp` -> `home-macmini` ComfyUI on local `127.0.0.1:8188` (`frpc` config at `/Users/mengma/frp/frpc.toml`)
-  - `30003/tcp` -> `home-nas` DSM WebUI (HTTPS) on local `127.0.0.1:5001` (`frpc` config at `/usr/local/etc/frpc-nas.toml`)
-  - `30004/tcp` -> `home-nas` Synology Drive Server (sync) on local `127.0.0.1:6690` (`frpc` config at `/usr/local/etc/frpc-nas.toml`)
-- from `ali-cloud`, public checks confirmed:
-  - `http://211.144.221.229:30002/` returns the ComfyUI HTML entry page
-  - `https://211.144.221.229:30003/` returns the Synology DSM HTTPS entry page
-  - plain `http://211.144.221.229:30003/` now fails / is not the intended access mode because this mapping is terminated directly against DSM HTTPS on `5001`
-- current `firewalld` public opens on `:44005` are therefore effectively: `22/80/443`, `30001`, `30002`, `30003`, `30008`, `30009`, `30010`
+And these former FRPS ports on `:44005` should remain cleared unless there is a future explicit redesign:
+- `30002/tcp`
+- `30003/tcp`
+- `30004/tcp`
+- `30009/tcp`
+- `30010/tcp`
 
-Ongoing discipline:
-- treat `30002` and `30003` as now claimed by the active business-service mappings above
-- only re-open / reuse `30004-30007` when a specific additional home-side service mapping is decided
-- dashboard on `30010` is BasicAuth-protected, but still consider restricting exposure further if not needed
+## Operational caution
+During the cutover, `host185` showed evidence that the old `frps` process could be relaunched by local startup residue even after a manual stop. If FRPS listeners reappear on `:44005`, re-check:
+- stray `frps` process restarts
+- old startup hooks or service wrappers
+- residual firewall opens for `30002/30003/30004/30009/30010`
 
-## Suggested exposure discipline
-Prefer explicit one-port-per-service mapping and document each one.
-Example planning shape:
-- `30002` -> `home-macmini` SSH / admin endpoint
-- `30003` -> `home-nas` SSH or SFTP
-- `30004` -> `home-nas` web app A
-- `30005` -> `home-macmini` web app B
-- `30006-30007` -> future spare capacity
-
-Actual assignment should be chosen only after confirming which services really need public exposure.
-
-## FRP protocol caution
-The documented forwarding budget for this VM is currently TCP-only.
-Do not assume UDP/KCP/QUIC exposure is available for FRP without separate confirmation from the virtualization/provider side.
-
-## Security posture
-- Prefer token-authenticated `frps` / `frpc`
-- Prefer dashboard disabled; if enabled, bind to loopback or protect it strongly
-- Expose only the minimum necessary service ports
-- Re-check `firewalld` after deployment so the rule set matches the real listeners
-- Keep a written mapping between public port and home-side target in this `infra/` tree
+The design intent is now unambiguous:
+- `:44001` = FRPS relay
+- `:44005` = application host
