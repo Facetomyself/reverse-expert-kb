@@ -19,16 +19,16 @@ dns:
 proxies:
   - name: hk-hy2
     type: hysteria2
-    server: hk.zhangxuemin.work
+    server: 154.86.30.10
     port: 8444
     password: "db8cb0279a30e252754be058a7efe09f"
-    sni: hk.zhangxuemin.work
+    sni: www.apple.com
     skip-cert-verify: true
     udp: true
 
   - name: hk-reality
     type: vless
-    server: hk.zhangxuemin.work
+    server: 154.86.30.10
     port: 8443
     uuid: 7d426249-1723-437e-8e17-70e9cca11a03
     network: tcp
@@ -43,7 +43,7 @@ proxies:
 
   - name: hk-socks
     type: socks5
-    server: hk.zhangxuemin.work
+    server: 154.86.30.10
     port: 1080
     username: zxmu
     password: 3fbc4bb7d47e8fda
@@ -51,7 +51,7 @@ proxies:
 
   - name: hk-http
     type: http
-    server: hk.zhangxuemin.work
+    server: 154.86.30.10
     port: 1081
     username: zxmu
     password: yqpCVgYXUL7yYgy22ovnlq44ZHJ5yeUq

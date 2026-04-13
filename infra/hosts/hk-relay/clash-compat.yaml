@@ -1,0 +1,50 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: true
+
+proxies:
+  - name: hk-socks
+    type: socks5
+    server: 154.86.30.10
+    port: 1080
+    username: zxmu
+    password: 3fbc4bb7d47e8fda
+    udp: true
+
+  - name: hk-http
+    type: http
+    server: 154.86.30.10
+    port: 1081
+    username: zxmu
+    password: yqpCVgYXUL7yYgy22ovnlq44ZHJ5yeUq
+
+  - name: ali-socks-oracle-egress
+    type: socks5
+    server: 106.15.239.221
+    port: 2080
+    username: gateway
+    password: mIw3JsLfsnLFu1yw0mcElNPW
+    udp: true
+
+  - name: ali-http-oracle-egress
+    type: http
+    server: 106.15.239.221
+    port: 2081
+    username: gateway
+    password: mIw3JsLfsnLFu1yw0mcElNPW
+
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - hk-socks
+      - hk-http
+      - ali-socks-oracle-egress
+      - ali-http-oracle-egress
+      - DIRECT
+
+rules:
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy

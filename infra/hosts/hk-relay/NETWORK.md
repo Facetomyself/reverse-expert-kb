@@ -86,6 +86,11 @@ The published Clash config intentionally aggregates both newly deployed HK relay
 - `ali-socks-oracle-egress`
 - `ali-http-oracle-egress`
 
+Runtime note confirmed on 2026-04-13:
+- the HK relay services themselves were healthy (HTTP/SOCKS direct tests via `1080/1081` succeeded), but Clash-side HK node runtime only stabilized after the subscription was changed to use the bare server IP `154.86.30.10` for all HK node entries instead of `hk.zhangxuemin.work`
+- keep `hk.zhangxuemin.work`, `drop.hk.zhangxuemin.work`, and `clash.hk.zhangxuemin.work` for web/file/distribution use
+- for published proxy node definitions on this host, prefer IP literals over the hostname unless/until a specific client population proves domain-form entries are equally reliable
+
 ## 8. To Be Confirmed
 Still worth documenting once the host role is finalized:
 - whether the initial Hysteria2 self-signed certificate should later be replaced with a domain-valid certificate for better client UX

@@ -81,6 +81,7 @@ Operational interpretation:
 - additional public helper domains created on 2026-04-13:
   - `drop.hk.zhangxuemin.work` -> HTTPS upload/download entry proxied to local `dufs:8088`
   - `clash.hk.zhangxuemin.work` -> public Clash config distribution endpoint serving `/clash-meta.yaml`
+- operational subscription gotcha confirmed on 2026-04-13: for client proxy nodes on this host, Clash import/runtime was reliable only after publishing HK node `server` fields as the bare IP `154.86.30.10` instead of `hk.zhangxuemin.work`; keep the domains for file/distribution surfaces, but prefer IP literals inside proxy subscription entries for this relay.
 
 ## 7. Documentation Scope
 This host's docs should focus on:
