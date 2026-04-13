@@ -39,3 +39,5 @@
   - `/usr/local/etc/rc.d/` custom startup scripts are active in practice
   - existing NAS FRP launcher lives at `/usr/local/etc/rc.d/S99frpc-nas.sh`
   - `zhangxuemin` has passwordless sudo, which makes root-owned deployment and service management practical over SSH
+- Planning doc for the first host-local Mihomo rollout now lives at:
+  - `infra/hosts/home-nas/projects/local-mihomo-plan.md`
