@@ -33,8 +33,9 @@ Observed on 2026-04-04:
 
 ## Operational interpretation
 - Treat `ali-cloud` as the preferred China-side transit point when testing or using this host from the current environment
+- Durable operator rule: from Oracle/OpenClaw-side environments, SSH access to domestic servers should default to `ProxyJump ali-cloud` rather than attempting direct connections to `211.144.221.229`-side targets
 - The local SSH config now reflects that preference by making `self-server` use `ProxyJump ali-cloud`
-- `self-server-direct` is preserved for direct-path diagnostics
+- `self-server-direct` is preserved for direct-path diagnostics only
 
 ## System baseline snapshot (2026-04-04)
 ### `:44001` / hostname `181`

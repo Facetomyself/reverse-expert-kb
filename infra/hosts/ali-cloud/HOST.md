@@ -24,8 +24,6 @@
 - Main SSH alias: `ali-cloud`
 - Expected user: `root`
 - SSH auth: key-based login via local SSH config entry using `IdentityFile ~/.ssh/ali-cloud`
-- Tailnet IPv4: `100.98.184.19` (joined 2026-03-25)
-- Quick mental shortcut: machine-to-machine calls can now target `ali-cloud` directly over Tailnet instead of defaulting to public IP `106.15.239.221`
 
 ## 5. High-Level Service Map
 Current observed runtime:
@@ -33,15 +31,6 @@ Current observed runtime:
 - `easyimage` container active on `10086`
 - `camoufox-remote` container active on `39222`
 - host port `80` is owned by `1panel`
-
-2026-03-21 stability note:
-- the host became SSH-unreachable before a manual reboot; post-reboot inspection showed repeated prior-boot global OOM events and watchdog fallout
-- strongest working theory is memory exhaustion on this 1.6 GiB / no-swap host, with browser-side `WebExtensions` processes inside the Camoufox container family as the main pressure source
-- low-risk mitigation applied:
-  - enabled 2 GiB swap at `/swapfile`
-  - set `vm.swappiness=10`
-  - applied a Docker memory guardrail to `camoufox-remote`: `--memory 768m --memory-swap 1536m`
-  - removed leftover local-only test container `camoufox-test`
 
 Current Camoufox exposure model:
 - public websocket endpoint: `ws://106.15.239.221:39222/camoufox`
@@ -53,15 +42,11 @@ Current Camoufox exposure model:
 - 1Panel database present at `/opt/1panel/db/1Panel.db`
 - 1Panel logs under `/opt/1panel/log/`
 - `camoufox-remote` appears manually deployed under `/opt/camoufox-remote`
+- preferred dependable foreign egress path on this host is now the local Hysteria SOCKS5 path at `127.0.0.1:18080`
 
 ## 7. Documentation Scope
 This host should document:
 - 1Panel itself as the machine control plane
 - EasyImages app deployment under 1Panel
 - standalone camoufox remote service
-
-## 8. Operational posture update (2026-04-04)
-- `hub.zhangxuemin.work` still exists as a self-hosted Docker Hub proxy front door, but it should no longer be treated as a life-support dependency for Docker pulls.
-- Same-day deep-dive confirmed selected Docker Hub blobs could still fail with `blob unknown` even when the mirror returned healthy `/v2/` and manifest responses, and even after isolating Docker Hub onto a fresh dedicated cache directory.
-- Preferred dependable path on this host is now: official registries over the local Hysteria SOCKS5 proxy at `127.0.0.1:18080`.
-- Treat the self-hosted Docker Hub mirror as optional acceleration only.
+- explicit-proxy gateway responsibilities for domestic hosts

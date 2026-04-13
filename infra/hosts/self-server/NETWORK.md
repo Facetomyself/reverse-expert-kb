@@ -6,7 +6,7 @@ Same public IP hosts two separate SSH-reachable targets behind different forward
 - `211.144.221.229:44001` -> machine currently observed as hostname `181`
 - `211.144.221.229:44005` -> machine currently observed as hostname `host185`
 
-Preferred operator access from OpenClaw is via `ali-cloud` transit rather than direct access from the current OpenClaw host.
+Preferred operator access from OpenClaw is via `ali-cloud` transit rather than direct access from the current OpenClaw host. Treat this as a durable routing rule for Oracle/OpenClaw-side administration of domestic servers and FRP-forwarded home endpoints.
 
 ## User-confirmed port constraints (2026-04-04)
 Because public-IP resources are limited on this virtualization side, each machine only has a small TCP allocation:
@@ -28,10 +28,14 @@ Operational note:
   - `30014/tcp` -> `home-macmini` ComfyUI
   - `30015/tcp` -> `home-nas` DSM HTTPS
   - `30016/tcp` -> `home-nas` Synology Drive
+  - `30017/tcp` -> temporary `home-macmini` SSH maintenance relay
+  - `30018/tcp` -> temporary `home-nas` SSH maintenance relay
 - External validation from `ali-cloud` confirmed:
   - `http://211.144.221.229:30014/` served ComfyUI
   - `https://211.144.221.229:30015/` returned `HTTP/2 200`
   - `http://211.144.221.229:30015/` returned `400 Bad Request`, which is expected because the FRP target is DSM HTTPS on `5001`
+  - `211.144.221.229:30017` exposed the `home-macmini` SSH banner once the corrected `frpc.toml` was launched on the Mac mini
+  - `211.144.221.229:30018` became the validated `home-nas` maintenance SSH relay used from Oracle/OpenClaw via `ali-cloud`
 - Final same-day outbound model is explicit rather than transparent: this VM now keeps a local `dnsmasq` listener on `127.0.0.1:53`, forwards DNS to `106.15.239.221#1053`, and uses `ali-cloud` authenticated proxy ingress on `:2081` / `:2080` for shell and Docker egress.
 
 ### Target `:44005` (`host185`)

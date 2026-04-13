@@ -1,5 +1,9 @@
 # oracle-proxy / Change Log
 
+## 2026-04-11
+- Recurring Oracle-scoped read-only check reconfirmed `oracle-proxy` remained reachable and otherwise broadly consistent with the documented proxy/utility role (`45G total / 23G used / 23G free`, `51%` used; memory still comfortable; expected long-lived containers still up).
+- One meaningful runtime delta only: the host is currently exposing an additional public temporary HTTP listener on `0.0.0.0:18734` via `python3 -m http.server 18734 --bind 0.0.0.0` running from `/root/tmp-models` (process start observed as `Apr 09`). The served directory now appears nearly empty (`http.log`, `http.pid`, `serve-models.sh` only), so this is tracked as stale temporary transfer/distribution residue rather than part of the documented baseline service map.
+
 ## 2026-04-08
 - Per user instruction, removed Tavily registration from active infra and ops tracking. The standalone registration stack (`tavily-scheduler`, `tavily-camoufox`, `tavily-camoufox-adapter`) is no longer treated as a documented project or maintenance target; only the active Tavily proxy surface remains in current docs.
 

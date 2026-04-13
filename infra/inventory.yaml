@@ -5,7 +5,6 @@ hosts:
     role:
       - current-openclaw-host
       - local-maintenance-target
-      - tailnet-member
     public_ip: 64.110.106.11
     domains:
       - dev.zhangxuemin.work
@@ -35,12 +34,10 @@ hosts:
     role:
       - gateway-host
       - hysteria-relay
-      - derp-host
       - fallback-legacy-registry-host
     public_ip: 129.150.61.78
     domains:
       - backup.zhangxuemin.work
-      - derp.zhangxuemin.work
     docs:
       host: infra/hosts/oracle-gateway/HOST.md
       network: infra/hosts/oracle-gateway/NETWORK.md
@@ -67,6 +64,8 @@ hosts:
       - 1panel-managed-host
       - image-hosting
       - remote-browser-endpoint
+      - explicit-proxy-gateway
+      - dns-forwarder-gateway
     public_ip: 106.15.239.221
     domains: []
     docs:
@@ -80,7 +79,6 @@ hosts:
     role:
       - registry-front-door-host
       - ubuntu-arm-host
-      - tailnet-member
     public_ip: 140.245.33.114
     domains: []
     docs:
@@ -109,7 +107,6 @@ hosts:
       - utility-worker-host
       - reverse-development-host
       - ubuntu-arm-host
-      - tailnet-member
     public_ip: 140.245.61.236
     domains: []
     docs:
@@ -134,11 +131,10 @@ hosts:
 
   - name: home
     ssh_alias: home
-    provider: home-tailnet
+    provider: home
     role:
       - windows-workstation
       - frequent-home-lan-entrypoint
-      - tailnet-member
     public_ip: null
     domains: []
     docs:
@@ -146,11 +142,10 @@ hosts:
 
   - name: company
     ssh_alias: company
-    provider: home-tailnet
+    provider: company
     role:
       - windows-workstation
       - frequent-company-lan-entrypoint
-      - tailnet-member
     public_ip: null
     domains: []
     docs:
@@ -158,11 +153,10 @@ hosts:
 
   - name: home-macmini
     ssh_alias: home-macmini
-    provider: home-tailnet
+    provider: home
     role:
       - mac-mini
       - home-lan-node
-      - tailnet-member
     public_ip: null
     domains: []
     docs:
@@ -170,14 +164,12 @@ hosts:
 
   - name: home-nas
     ssh_alias: home-nas
-    provider: home-tailnet
+    provider: home
     role:
       - nas
       - home-storage-node
-      - tailnet-member
     public_ip: null
-    domains:
-      - nas.tail646ee3.ts.net
+    domains: []
     docs:
       host: infra/hosts/home-nas/HOST.md
       network: infra/hosts/home-nas/NETWORK.md

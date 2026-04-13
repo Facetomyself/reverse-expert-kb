@@ -4,9 +4,9 @@
 - Host label: `oracle-gateway`
 - Static hostname: `24-7-10-2055`
 - Provider: Oracle Cloud
-- Primary role: gateway / relay / custom DERP host
+- Primary role: gateway / relay / Hysteria host
 - SSH alias: `oracle-gateway`
-- Main purpose: 当前承担 Hysteria 网关 + 自建 Tailscale DERP 角色；历史上的 docker/registry proxy 职能已退役，旧 registry/Harbor 残留也已按用户要求永久删除
+- Main purpose: 当前承担 Hysteria 网关角色；历史上的 docker/registry proxy 职能已退役，旧 registry/Harbor 残留也已按用户要求永久删除
 
 ## 2. System Baseline
 - OS: Ubuntu 20.04.6 LTS (Focal)
@@ -24,13 +24,10 @@
 ## 4. Access Notes
 - Main SSH alias: `oracle-gateway`
 - Expected user: `root`
-- Tailnet IPv4: `100.116.171.76` (joined 2026-03-25)
-- Tailscale-visible raw hostname currently remains `24-7-10-2055`; operationally this host should be treated as semantic identity `oracle-gateway`
 - Useful first checks:
   ```bash
   ssh oracle-gateway
   hostnamectl
-  tailscale ip -4
   docker ps
   ss -ltnp
   caddy validate --config /etc/caddy/Caddyfile
@@ -39,17 +36,14 @@
 ## 5. High-Level Service Map
 Current observed runtime:
 - `hysteria` — Hysteria 2 gateway service on UDP `443`
-- `derper` — Tailscale custom DERP server on TCP `80/443` and UDP `3478` for `derp.zhangxuemin.work` (deployed 2026-04-03)
-- `caddy` — retained locally for the legacy `backup.zhangxuemin.work` content path, but no longer on public `80/443`; now shifted to alternate local ports with admin API on `127.0.0.1:2019`
+- `caddy` — retained locally for the legacy `backup.zhangxuemin.work` content path, no longer used as a broad public front door; currently shifted to alternate local ports with admin API on `127.0.0.1:2019`
 
 Historical / inactive footprints:
 - old registry proxy containers were removed on 2026-03-25 after migration to `oracle-registry`
 - old registry and Harbor residual files were permanently deleted on 2026-03-25 per user instruction
 
 ## 6. Machine-Level Infrastructure Notes
-- as of 2026-04-03, the public listener set is intentionally split by protocol/function:
-  - TCP `80/443` -> `derper`
-  - UDP `3478` -> `derper` STUN
+- as of the current documented shape, the public listener set should be treated as gateway-focused:
   - UDP `443` -> `hysteria`
   - TCP `8080/8443` -> local `caddy` fallback content path for legacy `backup.zhangxuemin.work` handling
   - Caddy admin remains on `127.0.0.1:2019`
@@ -61,7 +55,6 @@ Historical / inactive footprints:
 ## 7. Documentation Scope
 This host's docs should focus on:
 - the live Hysteria gateway runtime
-- the live custom DERP runtime on `derp.zhangxuemin.work`
 - the reduced/local-only retained Caddy behavior around `backup.zhangxuemin.work`
 - low-memory operational constraints
 - the distinction between the current gateway role and the now-retired docker/registry/Harbor history
