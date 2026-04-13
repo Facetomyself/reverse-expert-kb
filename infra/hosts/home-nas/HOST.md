@@ -4,6 +4,9 @@
 - Name: `home-nas`
 - Provider: home
 - OS: Synology DSM / Linux-based NAS
+- Runtime snapshot revalidated on 2026-04-13:
+  - DSM `7.2.2-72806 Update 8`
+  - architecture: `x86_64`
 
 ## Role
 - Home storage node
@@ -31,3 +34,8 @@
 - Synology package/runtime management is non-standard; prefer real process/listener validation over package UI assumptions
 - This NAS remains a key home-side service source and should be documented around FRP publishing + host-native outbound proxy shape, not around any removed overlay network
 - 2026-04-13 host-side cleanup confirmed the removed overlay client no longer remained present (`TS_REMOVED`) before the new FRP SSH maintenance path was revalidated.
+- 2026-04-13 implementation audit found no pre-existing `clash` / `mihomo` / `sing-box` runtime or package artifacts on the NAS.
+- Host-native persistent launch patterns currently available and worth reusing:
+  - `/usr/local/etc/rc.d/` custom startup scripts are active in practice
+  - existing NAS FRP launcher lives at `/usr/local/etc/rc.d/S99frpc-nas.sh`
+  - `zhangxuemin` has passwordless sudo, which makes root-owned deployment and service management practical over SSH

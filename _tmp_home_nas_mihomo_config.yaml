@@ -1,0 +1,28 @@
+# First-stage home-nas Mihomo config skeleton
+# Goal: explicit proxy mode only; do not take over system routing yet.
+
+mixed-port: 7890
+allow-lan: false
+bind-address: 127.0.0.1
+mode: rule
+log-level: info
+ipv6: true
+unified-delay: true
+external-controller: 127.0.0.1:9090
+
+# First deployment should use a locally staged/curated proxy list.
+# One practical source is the managed fleet subscription:
+#   https://clash.hk.zhangxuemin.work/clash-meta.yaml
+# For initial deployment, keep the config simple and preserve the same
+# alias ordering already validated elsewhere in the fleet.
+
+proxies: []
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - DIRECT
+
+rules:
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy
