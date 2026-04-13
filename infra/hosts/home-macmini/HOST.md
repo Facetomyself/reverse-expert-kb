@@ -27,5 +27,5 @@
 - Access path and runtime docs are being refreshed under the new FRP + explicit-proxy-only direction.
 - Do not depend on any removed overlay-network path for future operator access.
 - 2026-04-13 confirmed that the FRP SSH path is viable.
-- Same-day remote verification over `ssh -J ali-cloud -p 30017 mengma@211.144.221.229` still observed root-owned residuals from the removed overlay client (`/Applications/Tailscale.app`, `/Library/Tailscale`, `/usr/local/bin/tailscale`, launchd items).
-- `mengma` is in `admin` and can log in over SSH, but does not currently have passwordless `sudo`, so final deletion of those root-owned residual paths still requires host-side root execution or a sudo-capable remote path.
+- Same-day follow-up initially observed root-owned residuals from the removed overlay client (`/Applications/Tailscale.app`, `/Library/Tailscale`, `/usr/local/bin/tailscale`, launchd items).
+- Access hardening then established a reusable `ali-cloud`-local root maintenance path over FRP, and final cleanup verification returned `TS_REMOVED`; the root-owned Tailscale residuals on `home-macmini` are now cleared.
