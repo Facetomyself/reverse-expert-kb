@@ -1,0 +1,136 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: true
+unified-delay: true
+
+dns:
+  enable: true
+  ipv6: true
+  enhanced-mode: fake-ip
+  nameserver:
+    - 223.5.5.5
+    - 1.1.1.1
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+
+proxies:
+  - name: hk-hy2
+    type: hysteria2
+    server: hk.zhangxuemin.work
+    port: 8444
+    password: "db8cb0279a30e252754be058a7efe09f"
+    sni: hk.zhangxuemin.work
+    skip-cert-verify: true
+    udp: true
+
+  - name: hk-reality
+    type: vless
+    server: hk.zhangxuemin.work
+    port: 8443
+    uuid: 7d426249-1723-437e-8e17-70e9cca11a03
+    network: tcp
+    udp: true
+    tls: true
+    servername: www.cloudflare.com
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: KFJNJ2wp9cnCSiDel7ur72xAFWUZ7wdHa356ORxAplQ
+      short-id: 3fbc4bb7d47e8fda
+    client-fingerprint: chrome
+
+  - name: hk-socks
+    type: socks5
+    server: hk.zhangxuemin.work
+    port: 1080
+    username: zxmu
+    password: 3fbc4bb7d47e8fda
+    udp: true
+
+  - name: hk-http
+    type: http
+    server: hk.zhangxuemin.work
+    port: 1081
+    username: zxmu
+    password: yqpCVgYXUL7yYgy22ovnlq44ZHJ5yeUq
+    tls: false
+    udp: false
+
+  - name: oracle-gateway-hy2-backup
+    type: hysteria2
+    server: backup.zhangxuemin.work
+    port: 443
+    password: "Ol*yhh5Ic!#3lMHizocQ90c*x2-d41_A"
+    sni: backup.zhangxuemin.work
+    skip-cert-verify: false
+    obfs: salamander
+    obfs-password: "CFhqou0E2%lNAiXmlJ1MqntwzXyI2C7z"
+    udp: true
+
+  - name: ali-http-oracle-egress
+    type: http
+    server: 106.15.239.221
+    port: 2081
+    username: gateway
+    password: mIw3JsLfsnLFu1yw0mcElNPW
+    tls: false
+    udp: false
+
+  - name: ali-socks-oracle-egress
+    type: socks5
+    server: 106.15.239.221
+    port: 2080
+    username: gateway
+    password: mIw3JsLfsnLFu1yw0mcElNPW
+    udp: true
+
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - hk-hy2
+      - hk-reality
+      - oracle-gateway-hy2-backup
+      - ali-socks-oracle-egress
+      - ali-http-oracle-egress
+      - hk-socks
+      - hk-http
+      - DIRECT
+
+  - name: HK
+    type: select
+    proxies:
+      - hk-hy2
+      - hk-reality
+      - hk-socks
+      - hk-http
+
+  - name: Fallback
+    type: select
+    proxies:
+      - oracle-gateway-hy2-backup
+      - ali-socks-oracle-egress
+      - ali-http-oracle-egress
+      - DIRECT
+
+  - name: Big-Transfer
+    type: select
+    proxies:
+      - hk-socks
+      - hk-http
+      - ali-socks-oracle-egress
+      - ali-http-oracle-egress
+      - DIRECT
+
+rules:
+  - DOMAIN-SUFFIX,openai.com,Proxy
+  - DOMAIN-SUFFIX,anthropic.com,Proxy
+  - DOMAIN-SUFFIX,x.ai,Proxy
+  - DOMAIN-SUFFIX,github.com,Proxy
+  - DOMAIN-SUFFIX,githubusercontent.com,Proxy
+  - DOMAIN-SUFFIX,huggingface.co,Big-Transfer
+  - DOMAIN-SUFFIX,hf.co,Big-Transfer
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy

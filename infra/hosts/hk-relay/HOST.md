@@ -78,6 +78,9 @@ Operational interpretation:
 - current firewall baseline uses `ufw` with explicit allows for `22/tcp`, `1080/tcp`, `1081/tcp`, `8080/tcp`, `8088/tcp`, `8443/tcp`, and `8444/udp`
 - Hysteria2 currently uses a self-signed certificate generated on-host for initial bootstrap; if long-term client UX matters, replace this with a real certificate/domain later
 - canonical public hostname for this relay node is now `hk.zhangxuemin.work` (Cloudflare DNS-only A record -> `154.86.30.10` created on 2026-04-13)
+- additional public helper domains created on 2026-04-13:
+  - `drop.hk.zhangxuemin.work` -> HTTPS upload/download entry proxied to local `dufs:8088`
+  - `clash.hk.zhangxuemin.work` -> public Clash config distribution endpoint serving `/clash-meta.yaml`
 
 ## 7. Documentation Scope
 This host's docs should focus on:
@@ -85,4 +88,5 @@ This host's docs should focus on:
 - relay / proxy / transit role design
 - transfer-budget-aware operational rules
 - public listener map and protocol inventory
+- Clash / sing-box client distribution artifacts and download URLs
 - any future file-transfer ingress and traffic-accounting notes

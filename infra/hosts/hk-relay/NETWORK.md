@@ -3,6 +3,9 @@
 ## 1. Public Network Identity
 - Public IP: `154.86.30.10`
 - Canonical domain: `hk.zhangxuemin.work`
+- Additional domains:
+  - `drop.hk.zhangxuemin.work`
+  - `clash.hk.zhangxuemin.work`
 - Provider: unknown / user-added Hong Kong VPS
 - Intended role: 三网优化流量中转
 
@@ -24,10 +27,15 @@ After relay bootstrap on 2026-04-13, confirmed public listener map:
 - TCP `22` -> SSH
 - TCP `1080` -> sing-box authenticated mixed inbound (proxy/tools/general-purpose entry)
 - TCP `1081` -> sing-box authenticated HTTP proxy inbound
-- TCP `8080` -> authenticated Caddy browse/download entry
-- TCP `8088` -> authenticated `dufs` upload/download entry
+- TCP `8080` -> authenticated Caddy browse/download entry for `hk.zhangxuemin.work`
+- TCP `8088` -> local `dufs` upload/download backend (publicly surfaced via `drop.hk.zhangxuemin.work` through Caddy reverse proxy)
 - TCP `8443` -> sing-box VLESS + Reality inbound
 - UDP `8444` -> sing-box Hysteria2 inbound
+- TCP `443` -> Caddy HTTPS front door serving:
+  - `hk.zhangxuemin.work` (browse/download with Basic Auth)
+  - `drop.hk.zhangxuemin.work` (HTTPS upload/download front door)
+  - `clash.hk.zhangxuemin.work` (public Clash config download endpoint)
+- TCP `80` -> ACME / HTTP redirect handling for the above hostnames
 
 ## 4. Egress validation
 Validated on 2026-04-13:
@@ -63,10 +71,24 @@ Interpretation:
 - current exposure is intentionally wider than a minimal host because the machine is being positioned as a self-use multi-role relay node
 - management surface is still relatively small because there is no public dashboard/admin panel exposed yet
 
-## 7. To Be Confirmed
+## 7. Current distribution endpoints
+Validated on 2026-04-13:
+- `https://hk.zhangxuemin.work/` -> authenticated browse/download entry
+- `https://drop.hk.zhangxuemin.work/` -> HTTPS upload/download entry backed by local `dufs`
+- `https://clash.hk.zhangxuemin.work/clash-meta.yaml` -> public Clash Meta / Verge YAML download URL
+
+The published Clash config intentionally aggregates both newly deployed HK relay entries and pre-existing usable proxy entries, currently including:
+- `hk-hy2`
+- `hk-reality`
+- `hk-socks`
+- `hk-http`
+- `oracle-gateway-hy2-backup`
+- `ali-socks-oracle-egress`
+- `ali-http-oracle-egress`
+
+## 8. To Be Confirmed
 Still worth documenting once the host role is finalized:
-- whether any domain names will be pointed here
-- whether a real TLS certificate should replace the initial self-signed Hysteria2 bootstrap certificate
+- whether the initial Hysteria2 self-signed certificate should later be replaced with a domain-valid certificate for better client UX
 - whether traffic monitoring / accounting / caps should be enforced on-host
 - whether the provider offers a panel/API for monthly transfer inspection
 - whether a dedicated file-transfer ingress (Caddy/Nginx/SFTP landing area) should become part of the standard design
