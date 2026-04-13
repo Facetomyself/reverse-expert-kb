@@ -7,6 +7,7 @@ Related pages:
 - topics/obfuscation-deobfuscation-and-packed-binaries.md
 - topics/protected-runtime-practical-subtree-guide.md
 - topics/vm-trace-to-semantic-anchor-workflow-note.md
+- topics/copied-code-branch-inflation-to-trustworthy-successor-split-workflow-note.md
 - topics/flattened-dispatcher-to-state-edge-workflow-note.md
 - topics/record-replay-and-omniscient-debugging.md
 - topics/native-semantic-anchor-stabilization-workflow-note.md
@@ -445,9 +446,10 @@ then you are not done yet.
 
 ## 12. Relationship to neighboring pages
 - Use `vm-trace-to-semantic-anchor-workflow-note` when the main problem is still finding the first stable semantic anchor inside noisy protected execution.
+- Use `copied-code-branch-inflation-to-trustworthy-successor-split-workflow-note` when one normalized next-carrier already exists, but copied-code / question-opaque branch inflation still hides which visible branch family actually owns the trustworthy successor split.
 - Use `flattened-dispatcher-to-state-edge-workflow-note` when the anchor is already good enough and the remaining problem is a more ordinary state-edge / dispatcher-exit reduction.
 - Use this page **between** them when the flattened region is already recognizable, but the next-state relation is still obscured by opaque predicates, helper-mediated writes, computed-next-state structure, or encoded-branch / obfuscated-next variants.
-- Leave this page once one trustworthy successor relation already exists and the real next task becomes outer-consumer proof, CFG repair, or downstream consequence localization.
+- Leave this page once one trustworthy successor relation already exists and the real next task becomes outer-consumer proof, CFG repair, downstream consequence localization, or the narrower copied-code / successor-split comparison handled by the continuation note above.
 
 ## 13. Sources
 - `sources/protected-runtime/2026-04-05-opaque-next-state-recovery-notes.md`

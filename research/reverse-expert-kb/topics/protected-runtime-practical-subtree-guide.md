@@ -11,6 +11,7 @@ Related pages:
 - topics/kernel-callback-telemetry-to-enforcement-consumer-workflow-note.md
 - topics/vm-trace-to-semantic-anchor-workflow-note.md
 - topics/opaque-predicate-and-computed-next-state-recovery-workflow-note.md
+- topics/copied-code-branch-inflation-to-trustworthy-successor-split-workflow-note.md
 - topics/input-invariant-opaque-predicate-to-valid-input-constraint-recovery-workflow-note.md
 - topics/flattened-dispatcher-to-state-edge-workflow-note.md
 - topics/packed-stub-to-oep-and-first-real-module-workflow-note.md
@@ -204,6 +205,7 @@ Do **not** start here when:
 - the dominant uncertainty is still packed/bootstrap handoff rather than successor-state recovery inside an already recognizable flattened region
 
 Possible next handoff:
+- `topics/copied-code-branch-inflation-to-trustworthy-successor-split-workflow-note.md` when one normalized next-carrier already exists, but copied-code / question-opaque branch inflation still hides which visible branch family really owns the successor split
 - `topics/input-invariant-opaque-predicate-to-valid-input-constraint-recovery-workflow-note.md` when the remaining ambiguity is no longer broad successor recovery but the smaller question of which valid-input invariant makes one suspicious predicate effectively fixed for accepted executions
 - `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
 - `topics/native-interface-to-state-proof-workflow-note.md`

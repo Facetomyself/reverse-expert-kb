@@ -269,10 +269,12 @@ High-signal findings:
 - flattening diversity matters operationally: `switch`, `goto`, `indirect`, and `call` dispatch shapes do not leave the same stable recovery objects
 - `FlattenObfuscateNext`, flag-based branch encoding, and AddOpaque-style copied-code / bogus-branch inflation often obscure next-state recovery even after the dispatcher is obvious
 - practical progress often comes from recovering one trustworthy successor relation, OBB/state mapping, helper-output anchor, table-index/target-family relation, or branch-normalized split before broader CFG beautification
+- once one normalized next-carrier already exists, copied-code / question-opaque branch inflation can still lie about which visible branch family actually owns the real successor split
 - symbolic execution and IL-level repair are often used as narrow bridge tools for this middle stage, not as all-or-nothing whole-function recovery demands
 
 Why it matters:
 - the KB should preserve a thinner continuation for opaque-predicate / computed-next-state recovery instead of collapsing directly from VM/trace anchoring into broader flattened-dispatcher state-edge reduction
+- and once one normalized next-carrier already exists, it should preserve a second thinner continuation for copied-code branch inflation -> trustworthy successor split rather than flattening copied arms, carrier recovery, and split ownership into one vague step
 
 ## 6. Emerging internal structure of the topic
 A stable internal decomposition is emerging.
@@ -420,6 +422,8 @@ Practical bridge pages now exist for recurring operator bottlenecks:
 - `topics/protected-runtime-practical-subtree-guide.md`
 - `topics/protected-runtime-observation-topology-selection-workflow-note.md`
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
+- `topics/opaque-predicate-and-computed-next-state-recovery-workflow-note.md`
+- `topics/copied-code-branch-inflation-to-trustworthy-successor-split-workflow-note.md`
 - `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`

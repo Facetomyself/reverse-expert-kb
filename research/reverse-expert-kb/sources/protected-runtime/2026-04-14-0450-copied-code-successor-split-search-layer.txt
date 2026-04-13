@@ -1,0 +1,49 @@
+Search artifact for protected-runtime copied-code branch inflation continuation
+Date: 2026-04-14 04:50 Asia/Shanghai / 2026-04-13 20:50 UTC
+Mode: deep
+Intent: exploratory
+Requested sources: exa,tavily,grok
+Command:
+python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --queries "Tigress FlattenObfuscateNext FlattenConditionalKinds compute flag AddOpaque documentation" "Binary Ninja control flow flattening unflattening opaque predicates branch fix blog" "angr control flow deobfuscation flatten symbolic execution state variable documentation" "Miasm MODeflattener OLLVM unflatten symbolic execution github" --mode deep --intent exploratory --num 5 --domain-boost tigress.wtf,binary.ninja,docs.angr.io,angr.io,github.com
+
+Queries:
+1. Tigress FlattenObfuscateNext FlattenConditionalKinds compute flag AddOpaque documentation
+2. Binary Ninja control flow flattening unflattening opaque predicates branch fix blog
+3. angr control flow deobfuscation flatten symbolic execution state variable documentation
+4. Miasm MODeflattener OLLVM unflatten symbolic execution github
+
+Observed source outcome:
+- Exa: succeeded
+- Tavily: succeeded
+- Grok: invoked, failed with repeated 502 errors through configured proxy endpoint
+
+Grok endpoint surfaced by runtime errors:
+- http://proxy.zhangxuemin.work:8000/v1/chat/completions
+
+Top retained results:
+- https://tigress.cs.arizona.edu/transformPage/docs/flatten/index.html
+- https://tigress.cs.arizona.edu/transformPage/docs/addOpaque/index.html
+- https://binary.ninja/2017/10/01/automated-opaque-predicate-removal.html
+- https://d0minik.me/posts/cff/
+- https://mrt4ntr4.github.io/MODeflattener/
+- https://docs.angr.io/en/latest/core-concepts/symbolic.html
+
+Useful additional surfaced results:
+- https://www.lodsb.com/removing-control-flow-flattening-with-binary-ninja
+- https://research.openanalysis.net/angr/symbolic%20execution/deobfuscation/research/2022/03/26/angr_notes.html
+- https://github.com/cdong1012/ollvm-unflattener
+- https://github.com/mrT4ntr4/MODeflattener
+
+Representative search-layer result signals:
+- Tigress Flatten docs make dispatch form, next-variable obfuscation, and conditional-branch encoding separate transform knobs
+- Tigress AddOpaque docs make the `question` predicate explicit as original statement versus copied/obfuscated statement, with split kinds and optional copied-code obfuscation
+- Binary Ninja’s MLIL/data-flow opaque-predicate workflow supports iterative removal of constant branches, but its own limitations note warns about loops, writable segments, and unmodeled data sources
+- d0minik’s Binary Ninja unflattening workflow distinguishes state-carrier recovery from the later step of keeping only control-flow that really depends on the state-variable dependency family
+- MODeflattener’s Miasm/SSA workflow shows conditional relevant blocks as true_next/false_next recovery problems, often via phi/cmov-style reduction and later backbone mapping
+- angr symbolic-execution docs support using symbolic constraints to answer one bounded A-to-B branch question rather than demanding whole-function cleanup first
+
+Raw error lines:
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
