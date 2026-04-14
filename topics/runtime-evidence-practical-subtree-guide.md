@@ -10,6 +10,8 @@ Related pages:
 - topics/representative-execution-selection-and-trace-anchor-workflow-note.md
 - topics/compare-run-design-and-divergence-isolation-workflow-note.md
 - topics/causal-write-and-reverse-causality-localization-workflow-note.md
+- topics/first-bad-write-and-decisive-reducer-localization-workflow-note.md
+- topics/watchpoint-location-vs-object-incarnation-workflow-note.md
 - topics/runtime-evidence-package-and-handoff-workflow-note.md
 - topics/analytic-provenance-and-evidence-management.md
 - topics/notebook-and-memory-augmented-re.md
@@ -286,6 +288,7 @@ Primary note:
 - `topics/first-bad-write-and-decisive-reducer-localization-workflow-note.md`
 
 Possible next handoff:
+- `topics/watchpoint-location-vs-object-incarnation-workflow-note.md` when one watched address or range is already good enough to query, but allocation/copy/rebinding/reuse still makes `same address != same object != same consequence-bearing incarnation` the main liar
 - `topics/runtime-evidence-package-and-handoff-workflow-note.md` when one useful watched-object boundary is already proved and the real remaining need is preserving the result for reuse
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md` when the case broadens back out from one watched object into a larger causal window or neighboring upstream proof boundary
 - branch-specific practical notes when the localized write/reducer now clearly belongs to one narrower native, protocol, malware, mobile, or protected-runtime proof target
@@ -293,6 +296,7 @@ Possible next handoff:
 
 Routing reminder:
 - this note is often the immediate handoff once compare-run work has already isolated a trustworthy divergence but the next move is turning that divergence into one watchable field / slot / slice / reducer output
+- if the watched location is already good enough but object identity / incarnation truth is now the main liar, hand off into `topics/watchpoint-location-vs-object-incarnation-workflow-note.md` instead of forcing one continuous watchpoint story across realloc/copy/rebind/reuse drift
 - leave broad watchpoint or first-bad-write work once one watched object, one useful write/reducer boundary, and one downstream dependency already make the next task obvious
 - if the write/reducer boundary is still too local to explain who operationalizes it, carry the case one more hop to the first downstream consumer/consequence edge and then hand off
 - at that point, prefer the narrowest downstream consumer/consequence proof question over more generic replay browsing

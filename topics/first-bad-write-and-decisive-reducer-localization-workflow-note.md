@@ -9,6 +9,7 @@ Related pages:
 - topics/record-replay-and-omniscient-debugging.md
 - topics/compare-run-design-and-divergence-isolation-workflow-note.md
 - topics/causal-write-and-reverse-causality-localization-workflow-note.md
+- topics/watchpoint-location-vs-object-incarnation-workflow-note.md
 - topics/runtime-evidence-package-and-handoff-workflow-note.md
 - topics/analytic-provenance-and-evidence-management.md
 - sources/runtime-evidence/2026-03-22-first-bad-write-watchpoint-and-time-travel-workflows-notes.md
@@ -66,6 +67,8 @@ Do **not** use this note when:
   - use `topics/record-replay-and-omniscient-debugging.md` or `topics/representative-execution-selection-and-trace-anchor-workflow-note.md`
 - the compare pair itself is still too noisy or undesigned
   - use `topics/compare-run-design-and-divergence-isolation-workflow-note.md`
+- the watched location is already good enough, but the main remaining liar is now whether the same address/range still belongs to the same current semantic object/incarnation
+  - use `topics/watchpoint-location-vs-object-incarnation-workflow-note.md`
 - you already know the useful causal boundary and mainly need packaging/handoff
   - use `topics/runtime-evidence-package-and-handoff-workflow-note.md`
 
@@ -215,6 +218,7 @@ Practical rule:
 - if the object changes owner or storage class mid-path, it is often better to stop at the first rebinding / copy / ownership-transfer boundary and then walk one more hop on the new incarnation than to narrate a single continuous watchpoint story across both objects
 - keep debugger limitations and KB truth claims separate: tool-specific quirks in reverse execution or architecture support may explain why a watchpoint does not behave ideally, but they do not remove the broader need to distinguish address stability from object-identity truth
 - use trace features that preserve lifetime better than raw thread ID or raw address alone when available; for example, TTD's `UniqueThreadId` is more trustworthy than plain OS thread ID across reuse, and `PinObjectPosition(...)` exists specifically because object/time identity can otherwise drift inside trace queries
+- if the watched object itself is already chosen well but location-vs-incarnation drift is now the real blocker, hand off into `topics/watchpoint-location-vs-object-incarnation-workflow-note.md` instead of forcing one continuous first-bad-write story across both old and current storage
 
 The output should be phrased as:
 
@@ -339,6 +343,7 @@ Stay on this page while the missing proof is still:
 
 Leave this page once one useful boundary is already good enough and the real bottleneck becomes narrower.
 Typical next moves are:
+- `topics/watchpoint-location-vs-object-incarnation-workflow-note.md` when one watched address/range is already good enough to query, but the remaining lie is whether the same location still belongs to the same current meaningful incarnation
 - `topics/causal-write-and-reverse-causality-localization-workflow-note.md` when the case broadens back into a larger causal-window question beyond one watched object
 - `topics/runtime-evidence-package-and-handoff-workflow-note.md` when the proof is already technically good enough and now needs preservation
 - a narrower native/protocol/mobile/malware/protected-runtime note when the localized boundary clearly belongs to one branch-specific next proof target
@@ -361,6 +366,8 @@ Route outward when the bottleneck is instead:
   - `topics/representative-execution-selection-and-trace-anchor-workflow-note.md`
 - compare-pair design and first divergence isolation:
   - `topics/compare-run-design-and-divergence-isolation-workflow-note.md`
+- thinner location-vs-object-incarnation drift once the watched object is already good enough but address stability may still be lying:
+  - `topics/watchpoint-location-vs-object-incarnation-workflow-note.md`
 - broader reverse-causality once one watched object is no longer the main issue:
   - `topics/causal-write-and-reverse-causality-localization-workflow-note.md`
 - package/handoff or provenance preservation:
@@ -374,6 +381,7 @@ Grounding for this page comes from:
 - `sources/runtime-evidence/2026-03-22-first-bad-write-watchpoint-and-time-travel-workflows-notes.md`
 - `sources/runtime-evidence/2026-03-24-first-bad-write-tool-patterns-notes.md`
 - `sources/runtime-evidence/2026-03-25-first-bad-write-vs-first-consumer-notes.md`
+- `sources/runtime-evidence/2026-04-15-watchpoint-location-vs-object-incarnation-notes.md`
 - rr reverse-watchpoint material and rr project guidance
 - Microsoft TTD overview and walkthrough material
 - Binary Ninja debugger/TTD documentation
