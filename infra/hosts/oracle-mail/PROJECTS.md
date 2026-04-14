@@ -78,6 +78,6 @@ This host has been repurposed from a dormant/retired mail-stack machine into an 
 
 ## Next operational step
 - if Outlook OAuth is needed in production, verify the Microsoft app registration uses the exact redirect URI configured in `/opt/outlook-email-plus/.env`
-- decide later whether `autoconfig` / `autodiscover` should remain Cloudflare-only or be realigned to the host
+- decide later whether `autoconfig` / `autodiscover` should be reintroduced for this host or remain absent from the live zone
 - if Cloudflare temp-mail management is revisited later, prefer a small GPTMail-compatible adapter instead of patching Outlook Email Plus directly
 - keep archived mail-stack directories for rollback/reference only; do not assume mail protocols are active
