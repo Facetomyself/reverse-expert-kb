@@ -88,7 +88,7 @@ Process exited with signal SIGTERM.
 ### Context
 - On 2026-04-13, exploratory SSH commands against `ali-cloud` were killed because wide searches over `/opt` matched large 1Panel resource trees and generated far more output than needed.
 - The useful signal there was small (`sing-box-gateway.service`, `hysteria-egress.service`, `/opt/sing-box-gateway/config.json`, `/opt/hysteria-egress/client.yaml`), but broad scans pulled bulky unrelated content.
-- On 2026-04-14, a similar pattern recurred while reconciling DNS / DKIM history on `oracle-mail`: wide searches through archived `moemail` trees produced excessive output from app/component and bundled dependency content, and one exec session was terminated before completion.
+- On 2026-04-14, the same pattern recurred multiple times while reconciling DNS / DKIM history on `oracle-mail`: wide searches through archived `moemail` trees and related local Wrangler/pnpm caches produced excessive output from app/component and bundled dependency content, and multiple exec sessions were terminated before completion.
 
 ### Suggested Fix
 - For infra/codebase audits, prefer narrow path targets and exact filenames once likely locations are known.
