@@ -101,4 +101,5 @@ infra/
 - `infra/host-status.yaml` — 结构化主机状态表
 - `infra/dns-reconciliation.md` — DNS / 主机 / 服务对账
 - `infra/dns-cleanup-plan.md` — DNS 清理执行计划
-- `infra/dns-first-wave.md` — 第一波 DNS 变更清单
+- `infra/dns-first-wave.md` — 第一波 DNS 变更清单 / 当前剩余低风险动作
+- `infra/cloudflare-dns/dkim-reconciliation.md` — DKIM 记录归属与清理判断

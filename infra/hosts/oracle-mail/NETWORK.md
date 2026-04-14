@@ -34,3 +34,4 @@ This host is no longer a dormant mail-stack candidate: runtime now clearly match
 ## 5. To Be Confirmed
 - whether `autoconfig` / `autodiscover` should later be reintroduced with explicit app-aware handling or redirects
 - whether this host will remain a web-app-only mail-adjacent host or later regain classic mail services under a separate plan
+- whether any remaining root-domain DKIM records should continue to exist independently of the archived Mailu footprint

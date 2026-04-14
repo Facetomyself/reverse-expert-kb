@@ -61,6 +61,8 @@ Observed characteristics:
 - DB migration scripts
 - email worker scripts
 - local `.env` present
+- project documentation/code path indicates temporary-address sending via **Resend**
+- archived `.env` snapshot had `CUSTOM_DOMAIN=""`, so the saved checkout itself does not prove which custom domain was last bound in production
 - retained only as historical project context, not active public service
 
 ### 4. Deferred Cloudflare temp-mail integration note

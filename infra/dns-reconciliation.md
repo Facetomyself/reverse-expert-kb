@@ -67,9 +67,9 @@
 | `zhangxuemin.work` SPF | `v=spf1 include:_spf.mx.cloudflare.net ~all` | **匹配** | 与根域 Cloudflare Email Routing 路径一致 |
 | `send.zhangxuemin.work` SPF | `v=spf1 include:amazonses.com ~all` | **匹配** | 与 `send` 子域 SES 路径一致 |
 | `_dmarc.zhangxuemin.work` | 根域 DMARC 策略当前仍在 live zone | **匹配** | 当前为 `p=reject`，并保留 Cloudflare DMARC 报告收件路径 |
-| `cf2024-1._domainkey.zhangxuemin.work` | live zone 中保留的 DKIM key | **未核实** | 未发现与当前服务冲突，但发送方归属尚未在 `infra/` 中重新落文档 |
-| `dkim._domainkey.zhangxuemin.work` | live zone 中保留的 DKIM key | **未核实** | 未发现与当前服务冲突，但发送方归属尚未在 `infra/` 中重新落文档 |
-| `resend._domainkey.zhangxuemin.work` | live zone 中保留的 DKIM key | **未核实** | 看起来像特定外部发送链路残留/保留项；当前不应贸然删除 |
+| `cf2024-1._domainkey.zhangxuemin.work` | 更像 provider-side / Cloudflare-side 根域邮件策略 key | **未核实（中置信度）** | 当前更像 provider-side key，而非本机自建服务残留；见 `infra/cloudflare-dns/dkim-reconciliation.md` |
+| `dkim._domainkey.zhangxuemin.work` | 高概率历史 Mailu 根域 DKIM | **部分匹配（高置信度历史归属）** | `oracle-mail` 上仍可见 Mailu DKIM 持久化文件；当前先保留，不盲删；见 `infra/cloudflare-dns/dkim-reconciliation.md` |
+| `resend._domainkey.zhangxuemin.work` | 中概率历史/外部 Resend 发件路径 DKIM | **未核实（中置信度）** | 与归档 `moemail` 的 Resend 发件能力高度相关，但未证明今天仍在用；见 `infra/cloudflare-dns/dkim-reconciliation.md` |
 
 ---
 
@@ -94,7 +94,8 @@
 - 当前 live zone 与提交的 baseline **一致**，没有即时 drift。
 - 当前核心活跃基础设施域名与主机文档 **整体一致**。
 - 新纳入当前事实的域名组包括：`derp.*` 与 `hk-relay` 相关的三条记录（`hk` / `drop.hk` / `clash.hk`）。
-- 当前 DNS 主要未闭环点不是主机映射，而是 **若干 DKIM 记录的发送方归属文档化不足**。
+- 当前 DNS 主要未闭环点不是主机映射，而是 **DKIM 记录的发送方归属与历史/现役边界还需继续收口**。
+- 已新增 `infra/cloudflare-dns/dkim-reconciliation.md` 作为 DKIM 归属说明页，后续优先在那一页继续推进而不是在各处零散猜测。
 - `mail.zhangxuemin.work` 当前应被视为 **活跃 web-app front door**；后续若要删改，需基于新应用路径单独评估，而不是沿用旧“退役 mail host”判断。
 
 ---

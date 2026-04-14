@@ -1,11 +1,14 @@
 # DNS Cleanup Plan
 
-这份计划不是直接动 DNS，而是把对账结果转成**可执行动作清单**。
+这份计划不是直接动 DNS，而是把当前对账结果转成**可执行动作清单**。
+
+本版已按 **2026-04-14 live Cloudflare zone** 更新。
 
 原则：
 - 先保守，不误删现役记录
-- 先清明显漂移，再碰历史兼容记录
-- 对邮件相关记录尤其谨慎，先确认 Cloudflare 临时邮箱当前依赖
+- 先承认哪些历史清理已经完成，不重复规划已经不存在的记录
+- 优先清理“文档漂移”，再决定是否需要继续清理 live DNS
+- 对 DKIM / 发件链路相关记录尤其谨慎，先确认归属再动
 
 ---
 
@@ -13,212 +16,181 @@
 
 这些记录当前与现实基本一致，暂时不要改：
 
-### Core active infra
+### Core active infra / delivery surfaces
 - `proxy.zhangxuemin.work`
+- `backup.zhangxuemin.work`
+- `derp.zhangxuemin.work`
+- `dev.zhangxuemin.work`
 - `hub.zhangxuemin.work`
 - `ghcr.zhangxuemin.work`
-- `gcr.zhangxuemin.work`
-- `quay.zhangxuemin.work`
-- `k8sgcr.zhangxuemin.work`
+- `k8s.zhangxuemin.work`
 - `mcr.zhangxuemin.work`
-- `nvcr.zhangxuemin.work`
-- `elastic.zhangxuemin.work`
-- `hubcmd.zhangxuemin.work`
+- `mail.zhangxuemin.work`
+- `hk.zhangxuemin.work`
+- `drop.hk.zhangxuemin.work`
+- `clash.hk.zhangxuemin.work`
+- `tmail.zhangxuemin.work`
+- `tmail-front.zhangxuemin.work`
 
-### Likely still valid policy records
+### Current policy / mail-path records
 - `zhangxuemin.work MX -> route*.mx.cloudflare.net`
 - `send.zhangxuemin.work MX -> feedback-smtp.ap-northeast-1.amazonses.com`
 - `zhangxuemin.work TXT SPF include:_spf.mx.cloudflare.net`
 - `send.zhangxuemin.work TXT SPF include:amazonses.com`
+- `_dmarc.zhangxuemin.work`
 
 Reason:
-- these are either directly verified against active hosts
-- or they align with the current Cloudflare/SES mail direction and should not be changed casually
+- 这些记录要么已与活跃主机/服务对齐
+- 要么与当前 Cloudflare / SES mail path 相符
+- 要么是当前 live zone 的核心 front door / 分发面
 
 ---
 
 ## 2. Keep but monitor
 
-### `ui.zhangxuemin.work`
-- **Action**: keep
-- **Reason**: host mapping is correct; problem is service health, not DNS
-- **Follow-up**: only revisit DNS if the registry UI is intentionally retired or replaced
-
-### `dev.zhangxuemin.work`
-- **Action**: keep the A record for now
-- **Reason**: it points to the correct machine (the current local host)
-- **Cleanup needed**: remove/update the stale Cloudflare comment `n8n`
-
----
-
-## 3. Confirm before changing
-
-These are likely stale or uncertain, but should be explicitly confirmed before editing DNS.
-
 ### `backup.zhangxuemin.work`
-- **Current status**: points to `oracle-gateway`; treat this host as the canonical gateway identity in current docs
-- **Action**: confirm whether it still has any real use
-- **If no known use**: mark for deletion
-
-### `pend.zhangxuemin.work`
-- **Current status**: unresolved host (`217.142.242.113`), not yet audited
-- **Action**: verify whether the host/service still exists
-- **If dead/abandoned**: mark for deletion
+- **Action**: keep for now
+- **Reason**: 仍指向 `oracle-gateway`，且仍保留 gateway / Hysteria 语义
+- **Follow-up**: 未来可单独判断是否继续保留为历史兼容入口，或与 `derp`/新网关命名体系做收口
 
 ### DKIM records
 - `cf2024-1._domainkey.zhangxuemin.work`
 - `dkim._domainkey.zhangxuemin.work`
 - `resend._domainkey.zhangxuemin.work`
-- **Action**: map each one to the currently active sending path
-- **If tied to retired mail flows**: remove later in a controlled phase
-
-### `zhangxuemin.work TLSA`
-- **Action**: verify what service it is meant to authenticate today
-- **Do not remove blindly** without understanding present usage
+- **Action**: keep first, document ownership before any deletion
+- **Reason**: 当前最大的不确定点不是 A 记录映射，而是这几条 DKIM 与历史/现役发送路径的关系
+- **Reference**: `infra/cloudflare-dns/dkim-reconciliation.md`
 
 ---
 
-## 4. Strong cleanup candidates
+## 3. Historical cleanup already completed
 
-These are the clearest drift candidates.
+以下项目曾经属于合理清理目标，但**现在已经不在 live zone**：
 
-### Mail host A/CNAME records
-- `mail.zhangxuemin.work`
+### Old mail compatibility names
 - `autoconfig.zhangxuemin.work`
 - `autodiscover.zhangxuemin.work`
 
-**Why they are candidates:**
-- they point to `oracle-mail`
-- local Mailu/moemail stacks on that host have been retired
-- current temporary mail is handled by another Cloudflare-based deployment
-- external probes already show failed behavior (`443 refused` / `521`)
-
-**Recommended action:**
-1. confirm the Cloudflare temporary mail setup does not rely on these names
-2. then either:
-   - repoint them to the new active mail frontend, or
-   - delete them if no longer needed
-
-### Mail SRV records pointing to old host semantics
+### Old mail discovery SRV records
 - `_autodiscover._tcp.zhangxuemin.work`
 - `_imaps._tcp.zhangxuemin.work`
 - `_pop3s._tcp.zhangxuemin.work`
 - `_submissions._tcp.zhangxuemin.work`
 
-**Why they are candidates:**
-- they still advertise client protocols on the retired `mail.zhangxuemin.work` path
-- runtime reality no longer matches
+### Old mail TLSA records
+- `_25._tcp.mail.zhangxuemin.work` TLSA x2
 
-**Recommended action:**
-- if the Cloudflare temporary mail solution does not use classic IMAP/POP3/SMTP submission on these names, retire these records
+### Old uncertain host record
+- `pend.zhangxuemin.work`
 
-### TLSA records bound to old mail host path
-- `_25._tcp.mail.zhangxuemin.work` TLSA records
-
-**Why they are candidates:**
-- they imply SMTP service semantics on the old local mail host path
-- local mail service on `oracle-mail` is retired
-
-**Recommended action:**
-- confirm whether inbound/outbound SMTP still terminates there
-- if not, remove with the mail cleanup wave
+结论：
+这些不应该再出现在“待删第一波”的动作列表里；正确说法应是：
+**live DNS 已经没有它们了，剩下的问题是文档是否同步。**
 
 ---
 
-## 5. Suggested execution order
+## 4. Current strongest documentation fixes
 
-### Phase 0 — Metadata cleanup only (safe)
-1. Update/remove stale Cloudflare comment for `dev.zhangxuemin.work` (`n8n`)
-2. Add admin notes/tags to records that are known active vs known stale
+这些不是 live DNS 变更，而是应优先确保文档不再误导：
 
-### Phase 1 — Confirm old mail path is unused
-Before changing records, answer:
-- Does current Cloudflare temporary mail use `mail.zhangxuemin.work`?
-- Does any client still rely on `autoconfig` / `autodiscover`?
-- Are IMAP/POP3/SMTP submission protocols still supposed to exist for this domain?
+1. 不再把 `mail.zhangxuemin.work` 写成“退役 mail host 待删除”
+   - 当前它是 `oracle-mail` 上的 `Outlook Email Plus` 活跃 web-app 域名
 
-### Phase 2 — Mail drift cleanup
-If Phase 1 confirms the old path is unused:
-1. repoint or remove:
-   - `mail.zhangxuemin.work`
-   - `autoconfig.zhangxuemin.work`
-   - `autodiscover.zhangxuemin.work`
-2. retire old SRV records
-3. retire old mail TLSA records
+2. 不再把 `autoconfig` / `autodiscover` / old SRV / old TLSA 写成“仍存在的 live 记录”
+   - 它们已经不在 2026-04-14 live zone
 
-### Phase 3 — Unused service-name cleanup
-1. decide fate of `backup.zhangxuemin.work`
-2. verify or remove `pend.zhangxuemin.work`
-3. prune DKIM/TLSA leftovers that no longer map to active senders
+3. 把 DKIM 记录从“模糊 leftovers”推进到“有来源说明的历史/现役发送路径候选”
 
 ---
 
-## 6. Fast decision matrix
+## 5. Remaining cleanup decisions
+
+### A. DKIM ownership consolidation
+对每条记录回答：
+- 它更像当前 provider-side key，还是历史自建/历史外部发送器残留？
+- 是否有仍在用的发送路径依赖它？
+- 如果未来删除，应该在哪个更大的邮件/发件切换窗口里做？
+
+### B. `backup.zhangxuemin.work` role decision
+需要回答：
+- 它是长期保留的 gateway 兼容入口吗？
+- 还是会在未来被 `derp` / 新网关命名替代？
+
+### C. Optional comment/tag cleanup
+如果未来还要做轻量整理：
+- 优先补活跃记录的 comment/tag
+- 不要把 comment 当唯一事实来源
+
+---
+
+## 6. Suggested execution order
+
+### Phase 0 — Already done
+- `dev` comment 已纠正
+- old mail compatibility CNAME/SRV/TLSA 已从 live zone 消失
+- `pend` 已移除
+
+### Phase 1 — Finish DKIM reconciliation
+- 完成 `infra/cloudflare-dns/dkim-reconciliation.md`
+- 同步 `infra/dns-reconciliation.md` 中 DKIM 的判断与状态
+
+### Phase 2 — Review `backup`
+- 明确 `backup.zhangxuemin.work` 的长期角色
+
+### Phase 3 — Metadata-only cleanup
+- comment / tag 级整理（如果值得）
+
+### Phase 4 — Future mail-front-door review only if role changes
+- 仅当 `mail.zhangxuemin.work` 的应用角色再次迁移时，才重新评估其 A 记录
+
+---
+
+## 7. Fast decision matrix
 
 ### Safe to keep now
 - `proxy`
+- `backup`
+- `derp`
+- `dev`
 - `hub`
 - `ghcr`
-- `gcr`
-- `quay`
-- `k8sgcr`
+- `k8s`
 - `mcr`
-- `nvcr`
-- `elastic`
-- `hubcmd`
-- Cloudflare MX
-- SES MX/SPF
-
-### Keep but fix metadata
-- `dev`
-- `ui`
-
-### Likely remove or repoint after confirmation
 - `mail`
+- `hk`
+- `drop.hk`
+- `clash.hk`
+- `tmail`
+- `tmail-front`
+- Cloudflare MX
+- root SPF
+- `_dmarc`
+- `send` SES MX/SPF
+
+### Investigate / document before touching
+- `cf2024-1._domainkey`
+- `dkim._domainkey`
+- `resend._domainkey`
+- long-term role of `backup`
+
+### No longer active cleanup targets because already gone
 - `autoconfig`
 - `autodiscover`
 - old mail SRV
 - old mail TLSA
-
-### Investigate first
-- `backup`
 - `pend`
-- DKIM set overlap
-- root TLSA
 
 ---
 
-## 7. Most probable first cleanup wave
+## 8. Practical recommendation right now
 
-If you want the **lowest-risk first wave**, do this order:
+基于当前 live zone 与主机文档：
 
-1. Fix stale record comments/notes (`dev`)
-2. Confirm old mail path is unused
-3. Remove/repoint `mail` / `autoconfig` / `autodiscover`
-4. Remove matching stale SRV/TLSA records
-5. Audit `backup` and `pend`
+### 现在最值得做的
+- 完成 DKIM 归属文档化
+- 让 DNS 计划文档与 live zone 保持一致
 
-That gives the best ratio of cleanup value to breakage risk.
-
-### Practical recommendation right now
-Based on current host audit + Cloudflare Email Routing docs:
-
-#### Safe to preserve
-- Cloudflare MX records for `zhangxuemin.work`
-- SPF records supporting current Cloudflare / SES paths
-- current active infra hostnames (`proxy`, `hub`, `ghcr`, `gcr`, `quay`, `k8sgcr`, `mcr`, `nvcr`, `elastic`, `hubcmd`)
-
-#### Very likely first deletion/repoint candidates
-- `mail.zhangxuemin.work`
-- `autoconfig.zhangxuemin.work`
-- `autodiscover.zhangxuemin.work`
-- `_autodiscover._tcp.zhangxuemin.work`
-- `_imaps._tcp.zhangxuemin.work`
-- `_pop3s._tcp.zhangxuemin.work`
-- `_submissions._tcp.zhangxuemin.work`
-- `_25._tcp.mail.zhangxuemin.work` TLSA records
-
-#### Only keep the old mail-family records if ALL are true
-- you still have real mail clients configured against your own IMAP/POP3/SMTP hostnames
-- those clients still need autoconfiguration/discovery
-- you intend to revive or maintain a self-hosted mail stack instead of relying only on Cloudflare-side routing/forwarding
+### 现在最不值得做的
+- 重复规划已经不在 live zone 的旧 mail 兼容记录
+- 在没有发件链路归属证据前贸然删 DKIM
+- 把 `mail.zhangxuemin.work` 当作明显清理候选
