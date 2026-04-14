@@ -37,6 +37,19 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 ---
 
+## Shell / exec on This Host
+
+- Default `exec` shell here is `/bin/sh`, not Bash.
+- Do **not** assume `set -o pipefail`, Bash arrays, or other Bash-only syntax will work directly in the raw `command` field.
+- When a command needs Bash semantics or safer complex quoting, wrap it explicitly as:
+  - `bash -lc '...'`
+- In exec-event flows, avoid broad recursive `grep` / `find` over large trees (`node_modules`, `.next`, `.git`, archived app bundles, 1Panel-managed directories) when you only need a few config hits.
+- Prefer staged discovery + narrow reads:
+  - first identify likely paths/files
+  - then grep/read only those targets
+  - cap output early with `head`, `sed -n`, or tighter `rg` patterns
+- Otherwise large-output commands may get cut off by exec-event with `SIGTERM` / `SIGKILL` before the useful lines come back.
+
 ## GitHub / gh on This Host
 
 - Installed GitHub CLI is relatively old: `/usr/bin/gh 2.4.0+dfsg1`.

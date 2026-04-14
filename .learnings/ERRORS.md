@@ -32,6 +32,77 @@ SyntaxError: invalid syntax
 
 ---
 
+## [ERR-20260413-002] easyai-deploy-aliyun-registry-timeouts
+
+**Logged**: 2026-04-13T12:20:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Deploying `easyai` on `self-server-44005` was blocked by unstable pulls from `registry.cn-shanghai.aliyuncs.com`; repeated Docker image downloads hit `TLS handshake timeout`, and some long-running pull sessions were later cut off by exec-event `SIGKILL`.
+
+### Error
+```text
+Error response from daemon: Head "https://registry.cn-shanghai.aliyuncs.com/v2/...": net/http: TLS handshake timeout
+Process exited with signal SIGKILL.
+```
+
+### Context
+- Target host: `self-server-44005` (`211.144.221.229:44005`, hostname `host185`).
+- Project source upload and port planning succeeded, but image acquisition failed before full stack startup.
+- Current Docker daemon on `:44005` already uses the documented `ali-cloud` HTTP/HTTPS proxy.
+- Direct `curl` to `https://registry.cn-shanghai.aliyuncs.com/v2/` from `:44005` timed out, while proxied `curl` could at least reach the registry and return `401 Unauthorized`.
+- The same registry family also showed handshake instability from the local OpenClaw host, suggesting the failure is not unique to the target VM.
+- Long foreground pull sessions are a poor fit for this environment because they can also be interrupted by exec-event process kills, obscuring whether the underlying issue is network or tooling timeout.
+
+### Suggested Fix
+- Treat this as registry/network instability first, not a compose/application misconfiguration.
+- Prefer shorter, resumable pull steps or a staging path: pull on a more stable host, then `docker save | ssh ... docker load` into `:44005`.
+- When possible, use background/detached execution or task/session continuation for long image pulls instead of a single long foreground exec.
+- If this registry remains flaky, look for alternate mirrors or preloaded images before retrying full-stack deployment.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /opt/easyai, infra/hosts/self-server/HOST.md, /root/.openclaw/workspace/.learnings/ERRORS.md
+- See Also: ERR-20260319-001
+
+---
+
+## [ERR-20260413-003] wide-grep-output-signal-kill
+
+**Logged**: 2026-04-13T16:55:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+Broad recursive `grep` / `find` scans against large remote or local trees can be terminated by exec-event (`SIGKILL` / `SIGTERM`) before the useful signal is returned.
+
+### Error
+```text
+Process exited with signal SIGKILL.
+Process exited with signal SIGTERM.
+```
+
+### Context
+- On 2026-04-13, exploratory SSH commands against `ali-cloud` were killed because wide searches over `/opt` matched large 1Panel resource trees and generated far more output than needed.
+- The useful signal there was small (`sing-box-gateway.service`, `hysteria-egress.service`, `/opt/sing-box-gateway/config.json`, `/opt/hysteria-egress/client.yaml`), but broad scans pulled bulky unrelated content.
+- On 2026-04-14, a similar pattern recurred while reconciling DNS / DKIM history on `oracle-mail`: wide searches through archived `moemail` trees produced excessive output from app/component and bundled dependency content, and one exec session was terminated before completion.
+
+### Suggested Fix
+- For infra/codebase audits, prefer narrow path targets and exact filenames once likely locations are known.
+- Exclude bulky trees early (`node_modules`, `.next`, `.git`, large control-panel directories, archived bundles) instead of grepping everything and trimming later.
+- Use staged discovery: first identify candidate config files/directories, then read the exact files.
+- When only a few hits are needed, cap output early with `head`, `sed -n`, or tighter `rg` patterns.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/.learnings/ERRORS.md, /root/.openclaw/workspace/TOOLS.md
+- See Also: ERR-20260413-002
+
+---
+
 ## [ERR-20260413-001] nas-frpc-restart-and-pkill-assumptions
 
 **Logged**: 2026-04-13T11:50:00+08:00
@@ -1211,3 +1282,83 @@ When a command needs `pipefail`, arrays, or more complex quoting, wrap it with `
 - Related Files: TOOLS.md, /root/.openclaw/workspace/.learnings/ERRORS.md
 
 ---
+
+## [ERR-20260413-003] remote-mihomo-validation-long-chain-instability
+
+**Logged**: 2026-04-13T15:34:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Real domestic-host Clash subscription validation was obscured by long chained remote exec workflows; SSH/SCP transfer and bundled one-shot commands failed before `mihomo -t` could return a parser verdict.
+
+### Error
+```text
+Observed failures included signal SIGKILL during long-running remote download/transfer and SSH/SCP exit code 255 during bundled transfer + fetch + parse flows.
+```
+
+### Context
+- Goal: validate `clash-meta.yaml` / `clash-compat.yaml` on an actual domestic machine instead of guessing from local parsing.
+- Attempts on `ali-cloud` and `self-server` bundled several steps together: fetch/download mihomo binary, copy to remote, fetch subscriptions, then run `mihomo -t`.
+- Result: transport/process instability produced misleading failures unrelated to the YAML itself.
+- Confirmed separately: the domestic machine `self-server(:44001)` could fetch both subscription URLs successfully with HTTP 200, so reachability/cert/content serving was not the immediate issue.
+
+### Suggested Fix
+- Use short, falsifiable steps for remote validation:
+  1. verify subscription fetch independently
+  2. verify parser binary presence independently
+  3. run parser-only validation as its own short command
+- Avoid bundling binary transfer + subscription fetch + parser execution into one long SSH command.
+- When possible, prefer a host that already has an appropriate parser installed.
+
+### Metadata
+- Reproducible: yes
+- Related Files: infra/hosts/hk-relay/clash-meta.yaml, infra/hosts/hk-relay/clash-compat.yaml, .ssh/config
+- See Also: ERR-20260413-002
+
+---
+
+## [ERR-20260413-001] nested-ssh-python-heredoc-quoting
+
+**Logged**: 2026-04-13T22:52:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+A nested ssh + python heredoc probe failed because /bin/sh quoting broke before the remote Python block executed.
+
+### Error
+```
+/bin/sh: 5: Syntax error: (" unexpected
+```
+
+### Context
+- Attempted a one-off file-stat probe against home-macmini through ali-cloud transit.
+- Used bash -lc locally, then nested ssh commands, then embedded Python with a heredoc.
+- The shell stack was too quote-fragile for this pattern.
+
+### Suggested Fix
+Prefer simpler remote primitives for this path, such as remote stat/ls commands, or upload/run a tiny temporary script instead of nesting a Python heredoc through multiple ssh layers.
+
+### Metadata
+- Reproducible: yes
+- Related Files: .learnings/ERRORS.md
+- See Also: none
+
+---
+## [ERR-20260413-001] nested-ssh-quoting-home-macmini-probe
+
+**Logged**: 2026-04-13T22:53:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+A nested ssh probe against home-macmini failed because multi-layer shell quoting broke before the remote stat/python command executed.
+
+### Error
+```
+/bin/sh: 5: Syntax error: (" unexpected
+bash: -c: line 1: unexpected EOF while looking for matching `"
