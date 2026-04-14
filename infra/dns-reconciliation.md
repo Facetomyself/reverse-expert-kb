@@ -67,7 +67,7 @@
 | `zhangxuemin.work` SPF | `v=spf1 include:_spf.mx.cloudflare.net ~all` | **匹配** | 与根域 Cloudflare Email Routing 路径一致 |
 | `send.zhangxuemin.work` SPF | `v=spf1 include:amazonses.com ~all` | **匹配** | 与 `send` 子域 SES 路径一致 |
 | `_dmarc.zhangxuemin.work` | 根域 DMARC 策略当前仍在 live zone | **匹配** | 当前为 `p=reject`，并保留 Cloudflare DMARC 报告收件路径 |
-| `cf2024-1._domainkey.zhangxuemin.work` | 更像 provider-side / Cloudflare-side 根域邮件策略 key | **未核实（中置信度）** | 当前更像 provider-side key，而非本机自建服务残留；见 `infra/cloudflare-dns/dkim-reconciliation.md` |
+| `cf2024-1._domainkey.zhangxuemin.work` | 更像 provider-side / Cloudflare-side 根域邮件策略 key | **未核实（中高置信度）** | 当前 zone 的 Email Routing / worker 接收规则仍在用，且现有证据更支持 provider-side mail-policy key 而非本机残留；见 `infra/cloudflare-dns/dkim-reconciliation.md` |
 
 ---
 

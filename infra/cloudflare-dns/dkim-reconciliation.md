@@ -105,6 +105,7 @@
   - root MX -> `route*.mx.cloudflare.net`
   - root SPF -> `include:_spf.mx.cloudflare.net`
   - `_dmarc` 记录中也包含 Cloudflare DMARC 报告收件路径
+- 2026-04-14 API probe with the current zone token confirmed Email Routing rules are active and route mail into the `temp-mail` worker (`tmail@zhangxuemin.work` plus an all-match worker rule), but the Cloudflare Email Routing DNS docs only explicitly require MX/SPF records rather than exposing a user-managed DKIM requirement at this layer.
 - 当前已文档化的活跃主机/应用中，没有找到与 `cf2024-1` 对应的本机/容器内 DKIM 产物或自建发送器配置
 - 当前 `Outlook Email Plus` 活跃部署未发现 DKIM / SMTP provider 线索，说明它不是 owner
 
@@ -112,7 +113,8 @@
 **中等**
 
 #### Operational interpretation
-- 这条记录更像**当前根域邮件策略链路中的 provider-side key**，而不是历史自建 Mailu 的直接遗留。
+- 这条记录更像**当前根域邮件策略链路中的 provider-side key**，而不是历史自建 Mailu / moemail 的直接遗留。
+- 已有证据表明 zone 的 Email Routing / worker 接收链路仍在用，但现有证据还不足以把 `cf2024-1` 精确钉成某个单一 Cloudflare 子产品内部生成的 key。
 - 在没有 Cloudflare 控制台侧进一步确认前，不应把它当成可随手删除的历史垃圾。
 
 #### Recommended action
@@ -140,6 +142,7 @@
 
 ### Keep now
 - `cf2024-1._domainkey.zhangxuemin.work`
+  - 当前更像 provider-side / Cloudflare-side mail-policy key，且 zone 的 Email Routing / worker 接收链路仍处于启用状态
 
 ### Already cleaned up
 - `dkim._domainkey.zhangxuemin.work`
