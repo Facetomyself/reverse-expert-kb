@@ -1362,3 +1362,43 @@ A nested ssh probe against home-macmini failed because multi-layer shell quoting
 ```
 /bin/sh: 5: Syntax error: (" unexpected
 bash: -c: line 1: unexpected EOF while looking for matching `"
+## [ERR-20260414-001] easyai-background-orchestrator-timeout
+
+**Logged**: 2026-04-14T18:30:00+08:00
+**Priority**: high
+**Status**: pending
+**Area**: infra
+
+### Summary
+A recurring cron orchestrator for EasyAI image import kept running into network-transfer stalls and then hit its per-run 900s timeout instead of cleanly stopping itself after reaching a clearly blocked state.
+
+### Error
+```text
+cron: job execution timed out
+```
+
+### Context
+- Job: `easyai-background-orchestrator` (`06e218c1-ab98-42da-8cab-4644672a5f03`)
+- Intended behavior: serially move missing EasyAI images from `ali-cloud` to `self-server-44005`, clean `ali-cloud` cache after each success, and disable itself on clear long-term blockage.
+- Observed behavior:
+  - repeated intermittent SSH failures between controller / `ali-cloud` / `self-server-44005`
+  - temporary HTTP staging on `ali-cloud:18083` was not reliably re-established
+  - the run kept retrying inside one cron turn until the 900s limit expired
+  - subsequent scheduled runs re-fired even after the workflow had already concluded it was in a long-term blocked state
+- Last useful state during diagnosis:
+  - `agent-governance` had already been imported successfully
+  - `dozzle.tar` was produced on `ali-cloud`, and `dozzle` eventually showed as loaded on `self-server-44005`
+  - remaining missing images were reduced, but the cron design was still wrong for the link quality
+
+### Suggested Fix
+For long-running remote import workflows on unstable links, do not use one broad recurring cron turn that performs multi-step orchestration and retries until timeout. Prefer a smaller watchdog/job design, for example:
+1. one image or one sub-step per run,
+2. explicit stop/disable as soon as a long-term block is detected,
+3. short re-check cron or detached task for transfer follow-up instead of a 900s retry loop.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/cron/jobs.json, /root/.openclaw/cron/runs/06e218c1-ab98-42da-8cab-4644672a5f03.jsonl, /root/.openclaw/workspace/.learnings/ERRORS.md
+- See Also: none
+
+---
