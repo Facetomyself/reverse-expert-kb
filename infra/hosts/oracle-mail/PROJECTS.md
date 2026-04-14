@@ -52,9 +52,11 @@ Cleanup outcome on 2026-04-14 after explicit user request to clean moemail resid
 - deleted archived moemail copy: `/root/retired-services/2026-03-15/moemail`
 - deleted 3 moemail-specific Wrangler logs under `/root/.config/.wrangler/logs/`
 - removed historical moemail / Resend DKIM record from Cloudflare live zone: `resend._domainkey.zhangxuemin.work`
+- checked Cloudflare account scope with the moemail token: Pages project `moemail` = not found, D1 database `moemail` = not found
 
 Current reality:
 - no moemail files should be treated as part of the live host state anymore
+- no moemail Pages/D1 artifact was found at Cloudflare account scope with the project token
 - moemail should now be treated as historical context only, not a retained local fallback
 
 ### 4. Deferred Cloudflare temp-mail integration note
