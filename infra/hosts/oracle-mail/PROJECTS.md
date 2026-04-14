@@ -24,32 +24,20 @@ Operational notes:
 - Outlook OAuth can be postponed until actual import time
 - Cloudflare temporary mailbox integration was evaluated on 2026-03-20 and intentionally deferred
 
-### 2. Mailu deployment footprint
-Located at:
-- `/root/mailu/docker-compose.yml`
-- `/root/mailu/mailu.env`
+### 2. Historical Mailu note
+Previously observed Mailu facts before final deletion:
+- root domain: `zhangxuemin.work`
+- historical hostname: `mail.zhangxuemin.work`
+- the old stack was capable of owning classic mail ports (`25/465/587/110/995/143/993/4190`) if started
 
-Mailu configuration indicates:
-- `DOMAIN=zhangxuemin.work`
-- `HOSTNAMES=mail.zhangxuemin.work`
-- `TLS_FLAVOR=letsencrypt`
-- `ADMIN=true`
-- `WEBMAIL=none`
-- `API=true`
-- `WEBDAV=radicale`
-- `ANTIVIRUS=clamav`
-- `FETCHMAIL_ENABLED=true`
-
-Mailu compose exposes, if started:
-- `80`, `443`
-- `25`, `465`, `587`
-- `110`, `995`
-- `143`, `993`
-- `4190`
+Cleanup outcome on 2026-04-14 after explicit user confirmation that Mailu is no longer used:
+- deleted host-side Mailu persistent data directory: `/mailu`
+- deleted archived Mailu copy: `/root/retired-services/2026-03-15/mailu`
+- removed historical Mailu DKIM record from Cloudflare live zone: `dkim._domainkey.zhangxuemin.work`
 
 Current reality:
-- this stack remains archived / inactive
-- do not assume Mailu is serving traffic on the host
+- no Mailu files should be treated as part of the live host state anymore
+- do not assume Mailu is available for rollback unless it is reintroduced later from a fresh deployment path
 
 ### 3. moemail repository
 Located at:
@@ -76,10 +64,10 @@ Conclusion:
 - integration is feasible later via a compatibility adapter layer, but is explicitly deferred for now
 
 ## Current operational conclusion
-This host has been repurposed from a dormant/retired mail-stack machine into an active web-app host for `Outlook Email Plus`. Historical Mailu/moemail assets still matter as archived context, but the live public service on this host is now the containerized Outlook/IMAP management UI at `mail.zhangxuemin.work`.
+This host has been repurposed from a dormant/retired mail-stack machine into an active web-app host for `Outlook Email Plus`. Historical `moemail` context still matters for understanding older temp-mail / Resend experiments, but Mailu itself should now be treated as fully retired and removed from the host. The live public service on this host is the containerized Outlook/IMAP management UI at `mail.zhangxuemin.work`.
 
 ## Next operational step
 - if Outlook OAuth is needed in production, verify the Microsoft app registration uses the exact redirect URI configured in `/opt/outlook-email-plus/.env`
 - decide later whether `autoconfig` / `autodiscover` should be reintroduced for this host or remain absent from the live zone
 - if Cloudflare temp-mail management is revisited later, prefer a small GPTMail-compatible adapter instead of patching Outlook Email Plus directly
-- keep archived mail-stack directories for rollback/reference only; do not assume mail protocols are active
+- keep only non-Mailu historical context that still matters; do not assume mail protocols are active

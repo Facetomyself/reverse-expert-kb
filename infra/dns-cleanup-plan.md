@@ -53,12 +53,11 @@ Reason:
 - **Reason**: 仍指向 `oracle-gateway`，且仍保留 gateway / Hysteria 语义
 - **Follow-up**: 未来可单独判断是否继续保留为历史兼容入口，或与 `derp`/新网关命名体系做收口
 
-### DKIM records
+### Remaining DKIM records
 - `cf2024-1._domainkey.zhangxuemin.work`
-- `dkim._domainkey.zhangxuemin.work`
 - `resend._domainkey.zhangxuemin.work`
-- **Action**: keep first, document ownership before any deletion
-- **Reason**: 当前最大的不确定点不是 A 记录映射，而是这几条 DKIM 与历史/现役发送路径的关系
+- **Action**: keep first, document ownership before any further deletion
+- **Reason**: 当前最大的不确定点不是 A 记录映射，而是这两条剩余 DKIM 与历史/现役发送路径的关系
 - **Reference**: `infra/cloudflare-dns/dkim-reconciliation.md`
 
 ---
@@ -83,6 +82,10 @@ Reason:
 ### Old uncertain host record
 - `pend.zhangxuemin.work`
 
+### Historical Mailu DKIM
+- `dkim._domainkey.zhangxuemin.work`
+- 已于 2026-04-14 在用户确认 Mailu 不再使用后删除
+
 结论：
 这些不应该再出现在“待删第一波”的动作列表里；正确说法应是：
 **live DNS 已经没有它们了，剩下的问题是文档是否同步。**
@@ -99,15 +102,15 @@ Reason:
 2. 不再把 `autoconfig` / `autodiscover` / old SRV / old TLSA 写成“仍存在的 live 记录”
    - 它们已经不在 2026-04-14 live zone
 
-3. 把 DKIM 记录从“模糊 leftovers”推进到“有来源说明的历史/现役发送路径候选”
+3. 把剩余 DKIM 记录从“模糊 leftovers”推进到“有来源说明的历史/现役发送路径候选”
 
 ---
 
 ## 5. Remaining cleanup decisions
 
-### A. DKIM ownership consolidation
-对每条记录回答：
-- 它更像当前 provider-side key，还是历史自建/历史外部发送器残留？
+### A. Remaining DKIM ownership consolidation
+对每条剩余记录回答：
+- 它更像当前 provider-side key，还是历史外部发送器残留？
 - 是否有仍在用的发送路径依赖它？
 - 如果未来删除，应该在哪个更大的邮件/发件切换窗口里做？
 
@@ -129,10 +132,11 @@ Reason:
 - `dev` comment 已纠正
 - old mail compatibility CNAME/SRV/TLSA 已从 live zone 消失
 - `pend` 已移除
+- `dkim._domainkey` 已随 Mailu 退场完成删除
 
 ### Phase 1 — Finish DKIM reconciliation
 - 完成 `infra/cloudflare-dns/dkim-reconciliation.md`
-- 同步 `infra/dns-reconciliation.md` 中 DKIM 的判断与状态
+- 同步 `infra/dns-reconciliation.md` 中剩余 DKIM 的判断与状态
 
 ### Phase 2 — Review `backup`
 - 明确 `backup.zhangxuemin.work` 的长期角色
@@ -169,7 +173,6 @@ Reason:
 
 ### Investigate / document before touching
 - `cf2024-1._domainkey`
-- `dkim._domainkey`
 - `resend._domainkey`
 - long-term role of `backup`
 
@@ -187,10 +190,10 @@ Reason:
 基于当前 live zone 与主机文档：
 
 ### 现在最值得做的
-- 完成 DKIM 归属文档化
+- 完成剩余 DKIM 归属文档化
 - 让 DNS 计划文档与 live zone 保持一致
 
 ### 现在最不值得做的
 - 重复规划已经不在 live zone 的旧 mail 兼容记录
-- 在没有发件链路归属证据前贸然删 DKIM
+- 在没有发件链路归属证据前贸然删剩余 DKIM
 - 把 `mail.zhangxuemin.work` 当作明显清理候选

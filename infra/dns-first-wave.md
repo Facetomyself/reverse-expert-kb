@@ -22,6 +22,7 @@
 - 旧 `_25._tcp.mail.zhangxuemin.work` TLSA 已不在 live zone
 - `dev.zhangxuemin.work` 的注释已与当前主机事实对齐（`openclaw-host`）
 - `pend.zhangxuemin.work` 已不在当前 live zone
+- 历史 Mailu 根域 DKIM `dkim._domainkey.zhangxuemin.work` 已于 2026-04-14 删除
 
 结论：
 **最典型的“旧 mail 兼容记录清理”这波，DNS 层面其实已经基本做完。**
@@ -53,7 +54,7 @@
 - `zhangxuemin.work` root SPF
 - `_dmarc.zhangxuemin.work`
 - `send.zhangxuemin.work` MX / SPF (SES path)
-- DKIM records (`cf2024-1._domainkey`, `dkim._domainkey`, `resend._domainkey`) — 先做归属文档化，不先删
+- DKIM records (`cf2024-1._domainkey`, `resend._domainkey`) — 先做归属文档化，不先删
 
 ---
 
@@ -118,7 +119,7 @@
 - `pend` 已移除
 
 ### 当前该继续做的
-- DKIM 归属收口
+- 剩余 DKIM（`cf2024-1` / `resend`）归属收口
 - `backup` 价值复核
 - 活跃记录元数据整理
 
@@ -129,4 +130,4 @@
 - `tmail` / `tmail-front`
 - root MX / SPF / DMARC
 - `send` SES 路径
-- DKIM 记录
+- 剩余 DKIM 记录（`cf2024-1` / `resend`）

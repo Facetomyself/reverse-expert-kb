@@ -1,12 +1,12 @@
 # Cloudflare DNS Snapshot
 
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- record_count: 24
+- record_count: 23
 - type_counts:
   - A: 12
   - AAAA: 2
   - MX: 4
-  - TXT: 6
+  - TXT: 5
 
 ## Records
 
@@ -16,7 +16,6 @@
 - A clash.hk.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1
 - A derp.zhangxuemin.work -> 129.150.61.78 proxied=false ttl=1
 - A dev.zhangxuemin.work -> 64.110.106.11 proxied=false ttl=1 comment=openclaw-host
-- TXT dkim._domainkey.zhangxuemin.work -> "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq7g3SiXvUIPemirDgkgYiCP3gYBt9UOQbqgWtt5Obz7W+2y0BwuhXTLEfuFcQ+s/iPJvMuvoJqT9REUgCmDmoAkg9QQ3i1ZGFCjFjDQW/SntNfEZ8Ex//FeMsCLgft84V9N8np3Z6fB8EikOMLT2Ye0ZWqMdpS12CtVj2rNjXnGmgKneO1AM7URb2bAX88Kf3" "c8hBnVou9F7qt6c2fgmmSQt/y497LqOOuqa7P+/68pw3t6YDxe1zcIqTv9vA3QBJCMjnVxX7Bt0GlqVqBqOUiUcsll6bIGFA28TA/xN4EvP/gBAvDdCF/4nzgzws5u/S1i2k8mOgxOo0+k7gdyMNwIDAQAB" proxied=false ttl=1 comment=DKIM
 - A drop.hk.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1
 - A ghcr.zhangxuemin.work -> 140.245.33.114 proxied=false ttl=1 comment=oracle-registry
 - A hk.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1

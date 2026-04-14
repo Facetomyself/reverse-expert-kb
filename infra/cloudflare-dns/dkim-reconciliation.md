@@ -1,6 +1,6 @@
 # DKIM Reconciliation Notes
 
-本文件记录 **2026-04-14** 对当前 live zone 中 DKIM 相关记录的归属判断。
+本文件记录 **2026-04-14** 对当前 live zone 中 DKIM 相关记录的归属判断，以及同日执行的 Mailu 退场清理结果。
 
 目标：
 - 不把 DKIM 当作“看不懂就删”的残留项
@@ -12,7 +12,6 @@
 ## Current live DKIM-related records
 
 - `cf2024-1._domainkey.zhangxuemin.work`
-- `dkim._domainkey.zhangxuemin.work`
 - `resend._domainkey.zhangxuemin.work`
 
 同时可见的相关邮件策略记录：
@@ -24,41 +23,44 @@
 
 ---
 
-## Record-by-record mapping
+## Removed on 2026-04-14
 
-### 1. `dkim._domainkey.zhangxuemin.work`
+### `dkim._domainkey.zhangxuemin.work`
 
-#### Best current mapping
+#### Best mapping before deletion
 **高概率对应历史 `oracle-mail` 上的自建 Mailu 邮件栈。**
 
-#### Evidence
-- `oracle-mail` 归档 Mailu 配置仍保留：
+#### Evidence used for the decision
+- `oracle-mail` 归档 Mailu 配置曾保留：
   - `/root/retired-services/2026-03-15/mailu/mailu.env`
   - 其中明确：
     - `DOMAIN=zhangxuemin.work`
     - `HOSTNAMES=mail.zhangxuemin.work`
-- `oracle-mail` 主机上仍存在 Mailu 持久化 DKIM 实体文件：
+- `oracle-mail` 主机上当时仍存在 Mailu 持久化 DKIM 实体文件：
   - `/mailu/dkim/zhangxuemin.work.dkim.key`
 - 该记录名本身是最常见、最朴素的通用 selector：`dkim`
 - 当前活跃的 `Outlook Email Plus` 部署中未发现任何 DKIM / SMTP provider 配置线索，说明活跃 web app 本身不是这条记录的直接 owner
 
+#### Action taken
+- 用户明确确认：**Mailu 已不再使用，可以删除**
+- 已删除 `oracle-mail` 主机上的 Mailu 相关残留：
+  - `/mailu`
+  - `/root/retired-services/2026-03-15/mailu`
+- 已从 Cloudflare live zone 删除：
+  - `dkim._domainkey.zhangxuemin.work`
+
 #### Confidence
-**较高**
+**高**
 
-#### Operational interpretation
-- 这条记录更像是**历史自建 Mailu 发送路径遗留**，而不是当前活跃 web app 的必需依赖。
-- 但因为 Mailu 持久化状态仍在主机上保留，不应在未做更大邮件路径确认前直接删除。
-
-#### Recommended action
-- 当前先保留
-- 若未来明确确认：
-  - 根域不再依赖历史 Mailu 发信
-  - 且没有任何补偿/回滚需求
-  再将其作为较优先的历史 DKIM 清理候选
+#### Current status
+- 该记录已不在当前 live zone
+- 这条线现在应视为：**已完成的历史 Mailu DKIM 清理**
 
 ---
 
-### 2. `resend._domainkey.zhangxuemin.work`
+## Record-by-record mapping
+
+### 1. `resend._domainkey.zhangxuemin.work`
 
 #### Best current mapping
 **较大概率对应历史/外部 Resend 发件路径。**
@@ -86,7 +88,7 @@
 
 ---
 
-### 3. `cf2024-1._domainkey.zhangxuemin.work`
+### 2. `cf2024-1._domainkey.zhangxuemin.work`
 
 #### Best current mapping
 **更像 provider-side / Cloudflare-side 的当前根域邮件策略相关 DKIM，而不是任何本机自建服务残留。**
@@ -132,13 +134,11 @@
 
 ### Keep now
 - `cf2024-1._domainkey.zhangxuemin.work`
-- `dkim._domainkey.zhangxuemin.work`
 - `resend._domainkey.zhangxuemin.work`
 
-### Stronger future cleanup candidate
+### Already cleaned up
 - `dkim._domainkey.zhangxuemin.work`
-  - 因为它最像历史 Mailu 根域 DKIM
-  - 但仍需在更大邮件路径确认窗口里再决定
+  - 已在 2026-04-14 随 Mailu 退场一起删除
 
 ### Not safe to delete blindly
 - `cf2024-1._domainkey.zhangxuemin.work`
@@ -148,9 +148,9 @@
 
 ## Summary
 
-- `dkim._domainkey`：**高概率历史 Mailu**
+- `dkim._domainkey`：**高概率历史 Mailu，已于 2026-04-14 删除**
 - `resend._domainkey`：**中概率历史/外部 Resend 发件路径**
 - `cf2024-1._domainkey`：**中概率当前 provider-side / Cloudflare-side 根域邮件策略 key**
 
-当前最合理动作不是删，而是：
-**先把归属说明写清，再把删除动作留到未来更大的邮件/发件路径收口窗口。**
+当前最合理动作不再是继续讨论 Mailu DKIM 是否保留，而是：
+**把 Mailu 视为已完成退场，把后续注意力留给剩余两条 DKIM 的归属与长期去留。**
