@@ -1402,3 +1402,34 @@ For long-running remote import workflows on unstable links, do not use one broad
 - See Also: none
 
 ---
+
+## [ERR-20260415-001] search-layer-grok-proxy-502
+
+**Logged**: 2026-04-15T04:58:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+`search-layer` tri-source runs can degrade because the configured Grok completions proxy intermittently returns repeated HTTP 502 responses even when Exa and Tavily succeed.
+
+### Error
+```text
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+```
+
+### Context
+- Operation attempted: reverse KB autosync external research via `search.py --source exa,tavily,grok`
+- Queries involved runtime-evidence watchpoint / object-incarnation research
+- Exa and Tavily returned usable results in the same run
+- Grok failure was degraded-source behavior, not a total search failure
+
+### Suggested Fix
+Treat Grok proxy 502s as degraded multi-source mode, not full search failure. Preserve explicit `requested/succeeded/failed` source accounting in run reports and continue conservatively with Exa/Tavily when they are healthy.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/research/reverse-expert-kb/sources/runtime-evidence/2026-04-15-0450-object-incarnation-search-layer.txt, /root/.openclaw/workspace/research/reverse-expert-kb/runs/2026-04-15-0450-run-report.md, /root/.openclaw/workspace/.learnings/ERRORS.md
+- See Also: none
+
+---

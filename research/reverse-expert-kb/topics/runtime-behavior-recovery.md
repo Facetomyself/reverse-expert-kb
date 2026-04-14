@@ -17,6 +17,8 @@ Related pages:
 - topics/record-replay-and-omniscient-debugging.md
 - topics/representative-execution-selection-and-trace-anchor-workflow-note.md
 - topics/causal-write-and-reverse-causality-localization-workflow-note.md
+- topics/first-bad-write-and-decisive-reducer-localization-workflow-note.md
+- topics/watchpoint-location-vs-object-incarnation-workflow-note.md
 - topics/runtime-evidence-package-and-handoff-workflow-note.md
 
 ## 1. Topic identity
@@ -239,7 +241,7 @@ Includes:
 - future native-baseline dynamic workflows
 
 ### 6. Runtime-evidence practical branch routing
-The runtime-evidence branch should now be read not only as a broad concept page, but also as a practical five-family ladder that routes analysts toward the next smaller trustworthy proof boundary.
+The runtime-evidence branch should now be read not only as a broad concept page, but also as a practical runtime ladder that routes analysts toward the next smaller trustworthy proof boundary.
 
 The branch is now best entered through these recurring bottlenecks:
 - **observability / layer-selection uncertainty** when the analyst still does not know what to observe or at which layer the next trustworthy object will appear
@@ -248,6 +250,7 @@ The branch is now best entered through these recurring bottlenecks:
 - **representative-execution / trace-anchor selection** when replay already looks attractive, but the analyst still needs to choose which execution window is worth preserving and which first event family should partition the trace before broader reverse-causality work begins
 - **compare-run design / divergence isolation** when one representative execution and one first anchor are already good enough to support comparison, but the analyst still needs to design a useful near-neighbor compare pair, classify noisy early mismatches, and isolate the first behavior-bearing divergence before backward causal work becomes trustworthy
 - **late-effect to causal-boundary localization** when one suspicious late effect is already visible and revisitable enough, but the first earlier write, branch, queue edge, reducer, or state slot that predicts it is still unknown
+- **visible bad late object -> first-bad-write / decisive-reducer localization** when one bad field, slot, buffer, handle, policy bucket, or delayed consequence is already visible and the real next move is choosing the narrowest watched object and the first causally useful write/reducer behind it
 - **evidence package / handoff continuation** when one representative execution, compare-run result, or causal claim is already technically good enough, but still too scattered, assumption-heavy, or analyst-private to survive delay, handoff, or narrower branch reuse cleanly
 
 A compact operator ladder for this branch is:
@@ -260,13 +263,15 @@ choose the current runtime-evidence bottleneck
 ```
 
 Read the branch in this order when helpful:
-- subtree routing and bottleneck selection (`topics/runtime-evidence-practical-subtree-guide.md`), which acts as the branch entry surface when the analyst first needs to decide whether the case is still dominated by broad observability uncertainty, smaller truth-boundary choice, replay-worthiness, compare-run alignment/divergence isolation, backward causal localization, or package/handoff continuation
+- subtree routing and bottleneck selection (`topics/runtime-evidence-practical-subtree-guide.md`), which acts as the branch entry surface when the analyst first needs to decide whether the case is still dominated by broad observability uncertainty, smaller truth-boundary choice, replay-worthiness, compare-run alignment/divergence isolation, backward causal localization, watched-object / first-bad-write reduction, thinner location-vs-object-incarnation drift, or package/handoff continuation
 - broad runtime answerability and observability framing (`topics/runtime-behavior-recovery.md`)
 - hook-placement and truthful observation-surface reduction (`topics/hook-placement-and-observability-workflow-note.md`)
 - execution-history / replay stabilization (`topics/record-replay-and-omniscient-debugging.md`)
 - representative-execution / trace-anchor selection (`topics/representative-execution-selection-and-trace-anchor-workflow-note.md`)
 - compare-run design / first-divergence isolation (`topics/compare-run-design-and-divergence-isolation-workflow-note.md`)
 - reverse-causality / first-causal-boundary reduction (`topics/causal-write-and-reverse-causality-localization-workflow-note.md`)
+- watched-object / first-bad-write reduction (`topics/first-bad-write-and-decisive-reducer-localization-workflow-note.md`)
+- thinner location-vs-current-incarnation continuation (`topics/watchpoint-location-vs-object-incarnation-workflow-note.md`)
 - runtime-evidence package / handoff continuation (`topics/runtime-evidence-package-and-handoff-workflow-note.md`)
 
 ## 7. Analyst workflow implications
@@ -301,6 +306,7 @@ A practical routing rule worth preserving here is:
 - if the first raw mismatches are dominated by timing, scheduler, checksum, handle, or bookkeeping churn, repair the compare boundary or compare level before widening into explanation
 - in async queue/callback-heavy cases, do not stop at broad event-loop/queue-family entry or raw mixed-thread delivery order; first align on one delivered callback family, dequeued work item, reducer output, or other consumer-bearing boundary that still preserves semantic continuity across the pair
 - when the next move becomes watchpoint/query-heavy, preserve a second stop rule explicitly: a watchpoint hit is often a location fact before it is an object-lifetime fact, so `same address != same object != same consequence-bearing incarnation` should stay visible whenever allocation, copy, rebinding, reuse, or ownership transfer can drift the semantic object behind the observed bytes
+- if the watched object is already good enough but the main remaining lie is now location-vs-incarnation drift, hand off into `topics/watchpoint-location-vs-object-incarnation-workflow-note.md` rather than narrating one continuous address-stable watchpoint story across realloc/copy/rebind/reuse boundaries
 - leave broad reverse-causality work once one causal boundary is already good enough and the real bottleneck has become narrower native, protocol, malware, mobile, protected-runtime, or provenance work
 
 Practitioner-community casework adds several concrete patterns here:

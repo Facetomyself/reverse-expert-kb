@@ -1,0 +1,624 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "GDB watch -location expression pointer dynamic memory watchpoint docs",
+    "LLDB watchpoint set expression variable memory location docs",
+    "WinDbg ba break on access address range docs data breakpoint",
+    "Time Travel Debugging PinObjectPosition MemoryForPositionRange object lifetime docs"
+  ],
+  "count": 36,
+  "results": [
+    {
+      "title": "GDB and LLDB Command Examples - Apple Developer",
+      "url": "https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-command-examples.html",
+      "snippet": "Set a watchpoint on a memory location when it is written to. (gdb) watch -location g_char_ptr. (lldb) watchpoint set expression -- my_ptr.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.8
+    },
+    {
+      "title": "Watchpoint on memory writes for a local static? - gdb",
+      "url": "https://stackoverflow.com/questions/21288938/watchpoint-on-memory-writes-for-a-local-static",
+      "snippet": "It seems that you need to dereference the address of s_db variable with * operator. See Setting Watchpoints in documentation.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7333
+    },
+    {
+      "title": "Watchpoint in LLDB - GitHub Gist",
+      "url": "https://gist.github.com/rais38/6ecead686af9291da542",
+      "snippet": "Set a watchpoint on a memory location when it is written into. The size of ... (lldb) watchpoint set expression -w write -- my_ptr. (lldb) watch set exp",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7333
+    },
+    {
+      "title": "Project Configuration - ESP32-S2 - — ESP-IDF ...",
+      "url": "https://docs.espressif.com/projects/esp-idf/en/v4.3.6/esp32s2/api-reference/kconfig.html",
+      "snippet": "This option will use the last debug memory watchpoint ... Please note that enabling this with default values saves 12KB of dynamic memory per TLS connection.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6833
+    },
+    {
+      "title": "Debugging with GDB",
+      "url": "https://news.ycombinator.com/item?id=30737509",
+      "snippet": "Reverse execution + watchpoints is so powerful it can speed up the diagnosis of memory ... The GDB Documentation is really nice (as GNU project",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "Windbg Break on Memory Range",
+      "url": "https://stackoverflow.com/questions/20168228/windbg-break-on-memory-range",
+      "snippet": "",
+      "published_date": "2013-11-23T21:39:31.000Z",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "Artem-Malyi/windbg-cheat-sheet - GitHub",
+      "url": "https://github.com/Artem-Malyi/windbg-cheat-sheet",
+      "snippet": "On access breakpoit a.k.a. data breakpoint. This breakpoint is triggered when the specified memory is accessed (for read, write or execute operation). This",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "Time Travel Debugging - Introduction to Time Travel Debugging objects - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-object-model",
+      "snippet": "SendMessageA\")] Memory [Returns memory access information for specified address range: TTD.Memory(startAddress, endAddress [, \"rwec\"])] MemoryForPositionRange [Returns memory access information for specified address range and position range: TTD.MemoryForPositionRange(startAddress, endAddress [, \"rwec\"], minPosition, maxPosition)] PinObjectPosition [Pins an object to the given time position: TTD.PinObjectPosition(obj, pos)] AsyncQueryEnabled : false RichQueryTypesEnabled : true DefaultParameterCount : 0x4 Data : Normalized data sources based on the contents of the time travel trace Utility : Methods that can be useful when analyzing time travel traces Analyzers : Methods that perform code analysis on the time travel trace Bookmarks : Bookmark collection Checkers : Checkers (scripts for detection of common issues recorded in a time travel trace). GetLastError\").Where(c => c.ReturnValue != 0).Select(c => new { Time = c.TimeStart, Error = c.ReturnValue }).GroupBy(x => x.Error) @$s = @$cursession.TTD.Calls(\"kernelbase! 0:000> dx -g @$curprocess.TTD.Events ================================================================================================================================================================================================== = = (+) Type = (+) Position = (+) Module = (+) Thread = ================================================================================================================================================================================================== = [0x0] : Module Loaded at position: 2:0 - ModuleLoaded - 2:0 - Module C:\\Users\\USER1\\Documents\\Visual Studio 2015\\Proje...",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6333
+    },
+    {
+      "title": "windows-driver-docs-pr/debuggercmds/time-travel-debugging-object-model.md at staging · MicrosoftDocs/windows-driver-docs",
+      "url": "https://github.com/MicrosoftDocs/windows-driver-docs/blob/staging/windows-driver-docs-pr/debuggercmds/time-travel-debugging-object-model.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "Managing Breakpoints",
+      "url": "https://developer.apple.com/library/archive/documentation/General/Conceptual/lldb-guide/chapters/C3-Breakpoints.html",
+      "snippet": "",
+      "published_date": "2016-09-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "ba (Break on Access) - Windows drivers",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/ba--break-on-access-",
+      "snippet": "",
+      "published_date": "2024-02-12T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Methods of Controlling Breakpoints - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/methods-of-controlling-breakpoints",
+      "snippet": "",
+      "published_date": "2025-08-04T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How to use the ba command (Break on Access) in WinDbg?",
+      "url": "https://stackoverflow.com/questions/51221203/how-to-use-the-ba-command-break-on-access-in-windbg",
+      "snippet": "",
+      "published_date": "2019-04-14T20:53:08.600Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Special Command—Using Breakpoints: bp, bm, ba, bu | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/archive/blogs/debuggingtoolbox/special-commandusing-breakpoints-bp-bm-ba-bu",
+      "snippet": "",
+      "published_date": "2008-01-05T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "TTD Range Objects - Windows drivers",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-range-objects",
+      "snippet": "TTD Range objects are used to give information about a range of time in a trace. These are generally used to describe the lifetime of a TTD",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6
+    },
+    {
+      "title": "time-travel-debugging-thread-objects.md",
+      "url": "https://github.com/MicrosoftDocs/windows-driver-docs/blob/staging/windows-driver-docs-pr/debuggercmds/time-travel-debugging-thread-objects.md",
+      "snippet": "A TTD range object that describes the lifetime of the thread. ActiveTime, A TTD range object that describes the time the thread was active. Example Usage.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "TTDQueries/tutorial-instructions.md at master · microsoft/WinDbg-Samples",
+      "url": "https://github.com/microsoft/WinDbg-Samples/blob/master/TTDQueries/tutorial-instructions.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "TTD Position Objects",
+      "url": "https://learn.microsoft.com/nb-no/windows-hardware/drivers/debuggercmds/time-travel-debugging-position-objects",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Time Travel Debugging (Windows) - Binary Ninja User Documentation",
+      "url": "https://docs.binary.ninja/guide/debugger/dbgeng-ttd.html",
+      "snippet": "Binary Ninja's TTD integration includes powerful analysis widgets that leverage WinDbg's TTD.Calls and TTD.Memory queries to help you understand program behavior during the recorded trace. The TTD Memory widget allows you to query memory access events from your TTD trace. 1. Click the TTD Memory button in the sidebar (hover over the icons to see its name), type in the address and check the memory access type, and click the `Query Memory Events` button. 2. Select a range of code or data, right-click, then select `Debugger` -> `TTD Memory Access`, and choose the specific memory access type you are interested in (Read, Write, Execute, or combinations). function combinations instead of wildcards like `*!*` - For TTD Memory: Limit address ranges to the specific regions you need - For memory queries, be especially careful with large address ranges - querying an entire module can be very slow - Use execute access queries for code coverage analysis - Test with small ranges first, then expand as needed.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5833
+    },
+    {
+      "title": "GDB to LLDB command map",
+      "url": "https://lldb.llvm.org/use/map.html",
+      "snippet": "Set a watchpoint on a variable when it is written to# · Set a watchpoint on a memory location when it is written into# · Set a condition on a watchpoint# · List",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5333
+    },
+    {
+      "title": "The LLDB Debugger - Part 3: Watchpoint - kyryl horbushko",
+      "url": "https://khorbushko.github.io/article/2021/05/27/the-lldb-debugger-part3-watchpoint.html",
+      "snippet": "",
+      "published_date": "2021-05-27T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5167
+    },
+    {
+      "title": "Set Watchpoints (Debugging with GDB)",
+      "url": "https://www.sourceware.org/gdb/onlinedocs/gdb/Set-Watchpoints.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "Set Watchpoints (Debugging with GDB)",
+      "url": "https://sourceware.org/gdb/current/onlinedocs/gdb/Set-Watchpoints.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "SBWatchpoint - 🐛 LLDB",
+      "url": "https://lldb.llvm.org/python_api/lldb.SBWatchpoint.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4667
+    },
+    {
+      "title": "Debugging with GDB",
+      "url": "https://sourceware.org/gdb/current/onlinedocs/gdb",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4333
+    },
+    {
+      "title": "Compilers and Debuggers",
+      "url": "https://events.prace-ri.eu/event/792/sessions/2370/attachments/762/1071/compilers_debuggers.pdf",
+      "snippet": "(gdb) watch <var>. Set a watchpoint for an expression. Stops execution whenever the value changes. (gdb) list. Display (default 10) lines of source surrounding",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4333
+    },
+    {
+      "title": "GDB to LLDB command map - 🐛 LLDB",
+      "url": "https://lldb.llvm.org/use/map.html?highlight=breakpoint",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4333
+    },
+    {
+      "title": "LLDB - Watch point commands - Practical Debugging with LLDB",
+      "url": "http://debugging-with-lldb.blogspot.com/2013/07/lldb-watch-point-commands.html",
+      "snippet": "Set a watchpoint on a memory location when it is written into. (lldb) watchpoint set expression -- my_ptr (lldb) wa s e -- my_ptr. Set a condition on a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4333
+    },
+    {
+      "title": "Set Watchpoints - Debugging with GDB",
+      "url": "https://www-zeuthen.desy.de/unix/unixguide/infohtml/gdb/Set-Watchpoints.html",
+      "snippet": "",
+      "published_date": "2005-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Set Watchpoints - Debugging with GDB",
+      "url": "https://www-zeuthen.desy.de/dv/documentation/unixguide/infohtml/gdb/Set-Watchpoints.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Debugging with GDB - Index",
+      "url": "https://ftp.gnu.org/old-gnu/Manuals/gdb/html_node/gdb_268.html",
+      "snippet": "direct memory access (DMA) on MS-DOS · directories for source files · directory ... pointer, finding referent · possible-completions (M-?) · post-commands · post",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "LLDB Watchpoint Commands",
+      "url": "https://rohinibarla.com/posts/lldb-watchpoint-commands/",
+      "snippet": "",
+      "published_date": "2025-12-08T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "memory breakpoint on access - WINDBG - OSR Developer Community",
+      "url": "https://community.osr.com/t/memory-breakpoint-on-access/28374",
+      "snippet": "No. “ba” is implemented by using the x86 hardware breakpoint registers. Those registers can only set a 1, 2, or 4-byte range.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "WinDbg usage guide - wtrace.net",
+      "url": "https://wtrace.net/guides/windbg/",
+      "snippet": "-v -r1# Debugger.Sessions[0].Processes[15416].Threads[12796] [Switch To]# Id : 0x31fc# Index : 0x0 # Stack # Registers # SwitchTo [SwitchTo() - Switch to this thread as the default context] # Environment # TTD # ToDisplayString [ToDisplayString([FormatSpecifier]) - Method which converts the object to its display string representation according to an optional format specifier]. SendMessageA\")]# Memory [Returns memory access information for specified address range: TTD.Memory(startAddress, endAddress [, \"rwec\"])]# MemoryForPositionRange [Returns memory access information for specified address range and position range: TTD.MemoryForPositionRange(startAddress, endAddress [, \"rwec\"], minPosition, maxPosition)]# PinObjectPosition [Pins an object to the given time position: TTD.PinObjectPosition(obj, pos)]# AsyncQueryEnabled : false# Data : Normalized data sources based on the contents of the time travel trace# Utility : Methods that can be useful when analyzing time travel traces# ToDisplayString [ToDisplayString([FormatSpecifier]) - Method which converts the object to its display string representation according to an optional format specifier] -v $curprocess# @$curprocess.TTD # Index # Threads # Events # DebugOutput # Lifetime : [66:0, 118A2:0]# DefaultMemoryPolicy : GloballyAggressive# SetPosition [Sets the debugger to point to the given position on this process.]# GatherMemoryUse [0] # RecordClients.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3333
+    },
+    {
+      "title": "setting break points over a range - WINDBG",
+      "url": "https://community.osr.com/t/setting-break-points-over-a-range/22965",
+      "snippet": "Hello everybody, I want to set a breakpoint over an address range. I know that a module loads itself from location 804de000 to 806de000",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Common WinDbg Commands (Thematically Grouped)",
+      "url": "http://windbg.info/doc/1-common-cmds.html",
+      "snippet": "Breakpoints with commands: The command will be executed when the breakpoint is hit. Produce a log every time the breakpoint is hit. ba w4 81a578a8 \"k;g\". Create",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Set Watchpoints (Debugging with GDB)",
+        "url": "https://www.sourceware.org/gdb/onlinedocs/gdb/Set-Watchpoints.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5
+      },
+      {
+        "title": "Set Watchpoints (Debugging with GDB)",
+        "url": "https://sourceware.org/gdb/current/onlinedocs/gdb/Set-Watchpoints.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5
+      },
+      {
+        "title": "Set Watchpoints - Debugging with GDB",
+        "url": "https://www-zeuthen.desy.de/unix/unixguide/infohtml/gdb/Set-Watchpoints.html",
+        "snippet": "",
+        "published_date": "2005-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Debugging with GDB",
+        "url": "https://sourceware.org/gdb/current/onlinedocs/gdb",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4333
+      },
+      {
+        "title": "Set Watchpoints - Debugging with GDB",
+        "url": "https://www-zeuthen.desy.de/dv/documentation/unixguide/infohtml/gdb/Set-Watchpoints.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "LLDB Watchpoint Commands",
+        "url": "https://rohinibarla.com/posts/lldb-watchpoint-commands/",
+        "snippet": "",
+        "published_date": "2025-12-08T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "The LLDB Debugger - Part 3: Watchpoint - kyryl horbushko",
+        "url": "https://khorbushko.github.io/article/2021/05/27/the-lldb-debugger-part3-watchpoint.html",
+        "snippet": "",
+        "published_date": "2021-05-27T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5167
+      },
+      {
+        "title": "Managing Breakpoints",
+        "url": "https://developer.apple.com/library/archive/documentation/General/Conceptual/lldb-guide/chapters/C3-Breakpoints.html",
+        "snippet": "",
+        "published_date": "2016-09-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "GDB to LLDB command map - 🐛 LLDB",
+        "url": "https://lldb.llvm.org/use/map.html?highlight=breakpoint",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4333
+      },
+      {
+        "title": "SBWatchpoint - 🐛 LLDB",
+        "url": "https://lldb.llvm.org/python_api/lldb.SBWatchpoint.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4667
+      },
+      {
+        "title": "ba (Break on Access) - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/ba--break-on-access-",
+        "snippet": "",
+        "published_date": "2024-02-12T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Methods of Controlling Breakpoints - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/methods-of-controlling-breakpoints",
+        "snippet": "",
+        "published_date": "2025-08-04T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Windbg Break on Memory Range",
+        "url": "https://stackoverflow.com/questions/20168228/windbg-break-on-memory-range",
+        "snippet": "",
+        "published_date": "2013-11-23T21:39:31.000Z",
+        "source": "exa",
+        "score": 0.6333
+      },
+      {
+        "title": "How to use the ba command (Break on Access) in WinDbg?",
+        "url": "https://stackoverflow.com/questions/51221203/how-to-use-the-ba-command-break-on-access-in-windbg",
+        "snippet": "",
+        "published_date": "2019-04-14T20:53:08.600Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Special Command—Using Breakpoints: bp, bm, ba, bu | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/archive/blogs/debuggingtoolbox/special-commandusing-breakpoints-bp-bm-ba-bu",
+        "snippet": "",
+        "published_date": "2008-01-05T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Introduction to Time Travel Debugging objects - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-object-model",
+        "snippet": "",
+        "published_date": "2024-11-20T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "TTD Range Objects - Windows drivers - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-range-objects",
+        "snippet": "",
+        "published_date": "2024-11-21T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "windows-driver-docs-pr/debuggercmds/time-travel-debugging-object-model.md at staging · MicrosoftDocs/windows-driver-docs",
+        "url": "https://github.com/MicrosoftDocs/windows-driver-docs/blob/staging/windows-driver-docs-pr/debuggercmds/time-travel-debugging-object-model.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6333
+      },
+      {
+        "title": "TTDQueries/tutorial-instructions.md at master · microsoft/WinDbg-Samples",
+        "url": "https://github.com/microsoft/WinDbg-Samples/blob/master/TTDQueries/tutorial-instructions.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "TTD Position Objects",
+        "url": "https://learn.microsoft.com/nb-no/windows-hardware/drivers/debuggercmds/time-travel-debugging-position-objects",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Compilers and Debuggers",
+        "url": "https://events.prace-ri.eu/event/792/sessions/2370/attachments/762/1071/compilers_debuggers.pdf",
+        "snippet": "(gdb) watch <var>. Set a watchpoint for an expression. Stops execution whenever the value changes. (gdb) list. Display (default 10) lines of source surrounding",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4333
+      },
+      {
+        "title": "Watchpoint on memory writes for a local static? - gdb",
+        "url": "https://stackoverflow.com/questions/21288938/watchpoint-on-memory-writes-for-a-local-static",
+        "snippet": "It seems that you need to dereference the address of s_db variable with * operator. See Setting Watchpoints in documentation.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7333
+      },
+      {
+        "title": "Project Configuration - ESP32-S2 - — ESP-IDF ...",
+        "url": "https://docs.espressif.com/projects/esp-idf/en/v4.3.6/esp32s2/api-reference/kconfig.html",
+        "snippet": "This option will use the last debug memory watchpoint ... Please note that enabling this with default values saves 12KB of dynamic memory per TLS connection.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6833
+      },
+      {
+        "title": "Debugging with GDB",
+        "url": "https://news.ycombinator.com/item?id=30737509",
+        "snippet": "Reverse execution + watchpoints is so powerful it can speed up the diagnosis of memory ... The GDB Documentation is really nice (as GNU project",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "Debugging with GDB - Index",
+        "url": "https://ftp.gnu.org/old-gnu/Manuals/gdb/html_node/gdb_268.html",
+        "snippet": "direct memory access (DMA) on MS-DOS · directories for source files · directory ... pointer, finding referent · possible-completions (M-?) · post-commands · post",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "GDB and LLDB Command Examples - Apple Developer",
+        "url": "https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-command-examples.html",
+        "snippet": "Set a watchpoint on a memory location when it is written to. (gdb) watch -location g_char_ptr. (lldb) watchpoint set expression -- my_ptr.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.8
+      },
+      {
+        "title": "LLDB - Watch point commands - Practical Debugging with LLDB",
+        "url": "http://debugging-with-lldb.blogspot.com/2013/07/lldb-watch-point-commands.html",
+        "snippet": "Set a watchpoint on a memory location when it is written into. (lldb) watchpoint set expression -- my_ptr (lldb) wa s e -- my_ptr. Set a condition on a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4333
+      },
+      {
+        "title": "Watchpoint in LLDB - GitHub Gist",
+        "url": "https://gist.github.com/rais38/6ecead686af9291da542",
+        "snippet": "Set a watchpoint on a memory location when it is written into. The size of ... (lldb) watchpoint set expression -w write -- my_ptr. (lldb) watch set exp",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7333
+      },
+      {
+        "title": "LLDB Watchpoint Commands",
+        "url": "https://rohinibarla.com/posts/lldb-watchpoint-commands/",
+        "snippet": "# Set watchpoint on memory address (write) watchpoint set expression -w write -- 0xADDRESS # → Replace 0xADDRESS with actual memory address.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "GDB to LLDB command map",
+        "url": "https://lldb.llvm.org/use/map.html",
+        "snippet": "Set a watchpoint on a variable when it is written to# · Set a watchpoint on a memory location when it is written into# · Set a condition on a watchpoint# · List",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5333
+      },
+      {
+        "title": "memory breakpoint on access - WINDBG - OSR Developer Community",
+        "url": "https://community.osr.com/t/memory-breakpoint-on-access/28374",
+        "snippet": "No. “ba” is implemented by using the x86 hardware breakpoint registers. Those registers can only set a 1, 2, or 4-byte range.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "Artem-Malyi/windbg-cheat-sheet - GitHub",
+        "url": "https://github.com/Artem-Malyi/windbg-cheat-sheet",
+        "snippet": "On access breakpoit a.k.a. data breakpoint. This breakpoint is triggered when the specified memory is accessed (for read, write or execute operation). This",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "ba (Break on Access) - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/ba--break-on-access-",
+        "snippet": "Each processor supports only a limited number of processor breakpoints, but there is no restriction on the value of the *ID* number. For example, a **w** (write) processor breakpoint could be set at the address 0x70001008 with a size of four bytes. Similarly, if an **e** (execute) breakpoint is set on the address 0x00401003, and then a two-byte instruction spanning the addresses 0x00401002 and 0x00401003 is executed, the result is processor-dependent. For example, if the current processor is 3 and you use the command `ba e1 MyAddress` to put a breakpoint at MyAddress, any processor -- not only processor 3 -- that executes at that address triggers the breakpoint. You cannot create multiple processor breakpoints at the same address that differ only in their *CommandString* values. The following command sets a breakpoint for read access on 4 bytes of the variable myVar. 0:000> ba r4 myVar. The following command adds a breakpoint on all serial ports with addresses from 0x3F8 through 0x3FB.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "setting break points over a range - WINDBG",
+        "url": "https://community.osr.com/t/setting-break-points-over-a-range/22965",
+        "snippet": "Hello everybody, I want to set a breakpoint over an address range. I know that a module loads itself from location 804de000 to 806de000",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Common WinDbg Commands (Thematically Grouped)",
+        "url": "http://windbg.info/doc/1-common-cmds.html",
+        "snippet": "Breakpoints with commands: The command will be executed when the breakpoint is hit. Produce a log every time the breakpoint is hit. ba w4 81a578a8 \"k;g\". Create",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "WinDbg usage guide - wtrace.net",
+        "url": "https://wtrace.net/guides/windbg/",
+        "snippet": "-v -r1# Debugger.Sessions[0].Processes[15416].Threads[12796] [Switch To]# Id : 0x31fc# Index : 0x0 # Stack # Registers # SwitchTo [SwitchTo() - Switch to this thread as the default context] # Environment # TTD # ToDisplayString [ToDisplayString([FormatSpecifier]) - Method which converts the object to its display string representation according to an optional format specifier]. SendMessageA\")]# Memory [Returns memory access information for specified address range: TTD.Memory(startAddress, endAddress [, \"rwec\"])]# MemoryForPositionRange [Returns memory access information for specified address range and position range: TTD.MemoryForPositionRange(startAddress, endAddress [, \"rwec\"], minPosition, maxPosition)]# PinObjectPosition [Pins an object to the given time position: TTD.PinObjectPosition(obj, pos)]# AsyncQueryEnabled : false# Data : Normalized data sources based on the contents of the time travel trace# Utility : Methods that can be useful when analyzing time travel traces# ToDisplayString [ToDisplayString([FormatSpecifier]) - Method which converts the object to its display string representation according to an optional format specifier] -v $curprocess# @$curprocess.TTD # Index # Threads # Events # DebugOutput # Lifetime : [66:0, 118A2:0]# DefaultMemoryPolicy : GloballyAggressive# SetPosition [Sets the debugger to point to the given position on this process.]# GatherMemoryUse [0] # RecordClients.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3333
+      },
+      {
+        "title": "Time Travel Debugging - Introduction to Time Travel Debugging objects - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-object-model",
+        "snippet": "SendMessageA\")] Memory [Returns memory access information for specified address range: TTD.Memory(startAddress, endAddress [, \"rwec\"])] MemoryForPositionRange [Returns memory access information for specified address range and position range: TTD.MemoryForPositionRange(startAddress, endAddress [, \"rwec\"], minPosition, maxPosition)] PinObjectPosition [Pins an object to the given time position: TTD.PinObjectPosition(obj, pos)] AsyncQueryEnabled : false RichQueryTypesEnabled : true DefaultParameterCount : 0x4 Data : Normalized data sources based on the contents of the time travel trace Utility : Methods that can be useful when analyzing time travel traces Analyzers : Methods that perform code analysis on the time travel trace Bookmarks : Bookmark collection Checkers : Checkers (scripts for detection of common issues recorded in a time travel trace). GetLastError\").Where(c => c.ReturnValue != 0).Select(c => new { Time = c.TimeStart, Error = c.ReturnValue }).GroupBy(x => x.Error) @$s = @$cursession.TTD.Calls(\"kernelbase! 0:000> dx -g @$curprocess.TTD.Events ================================================================================================================================================================================================== = = (+) Type = (+) Position = (+) Module = (+) Thread = ================================================================================================================================================================================================== = [0x0] : Module Loaded at position: 2:0 - ModuleLoaded - 2:0 - Module C:\\Users\\USER1\\Documents\\Visual Studio 2015\\Proje...",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6333
+      },
+      {
+        "title": "TTD Range Objects - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-range-objects",
+        "snippet": "TTD Range objects are used to give information about a range of time in a trace. These are generally used to describe the lifetime of a TTD",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6
+      },
+      {
+        "title": "time-travel-debugging-thread-objects.md",
+        "url": "https://github.com/MicrosoftDocs/windows-driver-docs/blob/staging/windows-driver-docs-pr/debuggercmds/time-travel-debugging-thread-objects.md",
+        "snippet": "A TTD range object that describes the lifetime of the thread. ActiveTime, A TTD range object that describes the time the thread was active. Example Usage.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Time Travel Debugging (Windows) - Binary Ninja User Documentation",
+        "url": "https://docs.binary.ninja/guide/debugger/dbgeng-ttd.html",
+        "snippet": "Binary Ninja's TTD integration includes powerful analysis widgets that leverage WinDbg's TTD.Calls and TTD.Memory queries to help you understand program behavior during the recorded trace. The TTD Memory widget allows you to query memory access events from your TTD trace. 1. Click the TTD Memory button in the sidebar (hover over the icons to see its name), type in the address and check the memory access type, and click the `Query Memory Events` button. 2. Select a range of code or data, right-click, then select `Debugger` -> `TTD Memory Access`, and choose the specific memory access type you are interested in (Read, Write, Execute, or combinations). function combinations instead of wildcards like `*!*` - For TTD Memory: Limit address ranges to the specific regions you need - For memory queries, be especially careful with large address ranges - querying an entire module can be very slow - Use execute access queries for code coverage analysis - Test with small ranges first, then expand as needed.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5833
+      }
+    ],
+    "grok": []
+  }
+}
