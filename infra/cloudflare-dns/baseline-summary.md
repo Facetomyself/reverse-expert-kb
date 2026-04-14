@@ -1,12 +1,12 @@
 # Cloudflare DNS Snapshot
 
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- record_count: 23
+- record_count: 22
 - type_counts:
   - A: 12
   - AAAA: 2
   - MX: 4
-  - TXT: 5
+  - TXT: 4
 
 ## Records
 
@@ -24,7 +24,6 @@
 - A mail.zhangxuemin.work -> 140.83.52.216 proxied=false ttl=1 comment=oracle-mail web-app host
 - A mcr.zhangxuemin.work -> 140.245.33.114 proxied=false ttl=1
 - A proxy.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=1 comment=oracle-proxy
-- TXT resend._domainkey.zhangxuemin.work -> "p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC9felGPWZikf51CuY9MhwC/5AWucfeOer9FJqnnsOneXey5zjULlubEb9bT3D/8G4/Em5ddoCjFHc+keeTF7rA/VwOjUUAAIVZiK92hkfYmXn2IpVEdu7LjeyRt881ca/E8cgfc5LJIvU6V8ZLP4oor13pOeVsTY9Wh0UtVMvA+wIDAQAB" proxied=false ttl=3600
 - MX send.zhangxuemin.work -> feedback-smtp.ap-northeast-1.amazonses.com priority=10 proxied=false ttl=3600
 - TXT send.zhangxuemin.work -> "v=spf1 include:amazonses.com ~all" proxied=false ttl=3600
 - AAAA tmail-front.zhangxuemin.work -> 100:: proxied=true ttl=1

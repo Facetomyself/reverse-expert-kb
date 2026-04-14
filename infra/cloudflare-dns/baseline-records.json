@@ -1,11 +1,11 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 23,
+  "record_count": 22,
   "type_counts": {
     "A": 12,
     "AAAA": 2,
     "MX": 4,
-    "TXT": 5
+    "TXT": 4
   },
   "records": [
     {
@@ -113,13 +113,6 @@
       "ttl": 1,
       "proxied": false,
       "comment": "oracle-proxy"
-    },
-    {
-      "name": "resend._domainkey.zhangxuemin.work",
-      "type": "TXT",
-      "content": "\"p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC9felGPWZikf51CuY9MhwC/5AWucfeOer9FJqnnsOneXey5zjULlubEb9bT3D/8G4/Em5ddoCjFHc+keeTF7rA/VwOjUUAAIVZiK92hkfYmXn2IpVEdu7LjeyRt881ca/E8cgfc5LJIvU6V8ZLP4oor13pOeVsTY9Wh0UtVMvA+wIDAQAB\"",
-      "ttl": 3600,
-      "proxied": false
     },
     {
       "name": "send.zhangxuemin.work",

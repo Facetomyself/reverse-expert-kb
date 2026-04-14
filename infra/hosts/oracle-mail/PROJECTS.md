@@ -39,19 +39,23 @@ Current reality:
 - no Mailu files should be treated as part of the live host state anymore
 - do not assume Mailu is available for rollback unless it is reintroduced later from a fresh deployment path
 
-### 3. moemail repository
-Located at:
-- `/root/moemail`
-
-Observed characteristics:
+### 3. Historical moemail note
+Previously observed before final cleanup:
 - Next.js app (`next 15.x`)
 - Cloudflare/Wrangler deployment tooling
 - DB migration scripts
 - email worker scripts
-- local `.env` present
-- project documentation/code path indicates temporary-address sending via **Resend**
-- archived `.env` snapshot had `CUSTOM_DOMAIN=""`, so the saved checkout itself does not prove which custom domain was last bound in production
-- retained only as historical project context, not active public service
+- project documentation/code path indicated temporary-address sending via **Resend**
+- archived `.env` snapshot had `CUSTOM_DOMAIN=""`, so the saved checkout itself did not prove which custom domain was last bound in production
+
+Cleanup outcome on 2026-04-14 after explicit user request to clean moemail residuals:
+- deleted archived moemail copy: `/root/retired-services/2026-03-15/moemail`
+- deleted 3 moemail-specific Wrangler logs under `/root/.config/.wrangler/logs/`
+- removed historical moemail / Resend DKIM record from Cloudflare live zone: `resend._domainkey.zhangxuemin.work`
+
+Current reality:
+- no moemail files should be treated as part of the live host state anymore
+- moemail should now be treated as historical context only, not a retained local fallback
 
 ### 4. Deferred Cloudflare temp-mail integration note
 Evaluated target:
@@ -64,10 +68,10 @@ Conclusion:
 - integration is feasible later via a compatibility adapter layer, but is explicitly deferred for now
 
 ## Current operational conclusion
-This host has been repurposed from a dormant/retired mail-stack machine into an active web-app host for `Outlook Email Plus`. Historical `moemail` context still matters for understanding older temp-mail / Resend experiments, but Mailu itself should now be treated as fully retired and removed from the host. The live public service on this host is the containerized Outlook/IMAP management UI at `mail.zhangxuemin.work`.
+This host has been repurposed from a dormant/retired mail-stack machine into an active web-app host for `Outlook Email Plus`. Both Mailu and moemail should now be treated as removed local history rather than retained host components. The live public service on this host is the containerized Outlook/IMAP management UI at `mail.zhangxuemin.work`.
 
 ## Next operational step
 - if Outlook OAuth is needed in production, verify the Microsoft app registration uses the exact redirect URI configured in `/opt/outlook-email-plus/.env`
 - decide later whether `autoconfig` / `autodiscover` should be reintroduced for this host or remain absent from the live zone
 - if Cloudflare temp-mail management is revisited later, prefer a small GPTMail-compatible adapter instead of patching Outlook Email Plus directly
-- keep only non-Mailu historical context that still matters; do not assume mail protocols are active
+- keep only high-level historical context that still matters; do not assume mail protocols are active

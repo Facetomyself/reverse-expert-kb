@@ -20,12 +20,12 @@
 
 - zone: `zhangxuemin.work`
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- current live record count: **23**
+- current live record count: **22**
 - type counts:
   - `A`: 12
   - `AAAA`: 2
   - `MX`: 4
-  - `TXT`: 5
+  - `TXT`: 4
 - current live snapshot vs committed baseline: **no diff**
 
 ---
@@ -68,7 +68,6 @@
 | `send.zhangxuemin.work` SPF | `v=spf1 include:amazonses.com ~all` | **匹配** | 与 `send` 子域 SES 路径一致 |
 | `_dmarc.zhangxuemin.work` | 根域 DMARC 策略当前仍在 live zone | **匹配** | 当前为 `p=reject`，并保留 Cloudflare DMARC 报告收件路径 |
 | `cf2024-1._domainkey.zhangxuemin.work` | 更像 provider-side / Cloudflare-side 根域邮件策略 key | **未核实（中置信度）** | 当前更像 provider-side key，而非本机自建服务残留；见 `infra/cloudflare-dns/dkim-reconciliation.md` |
-| `resend._domainkey.zhangxuemin.work` | 中概率历史/外部 Resend 发件路径 DKIM | **未核实（中置信度）** | 与归档 `moemail` 的 Resend 发件能力高度相关，但未证明今天仍在用；见 `infra/cloudflare-dns/dkim-reconciliation.md` |
 
 ---
 
@@ -84,6 +83,7 @@
 - 旧 mail client discovery (`_autodiscover._tcp` / `_imaps._tcp` / `_pop3s._tcp` / `_submissions._tcp`) 已不在当前 live zone
 - 旧 `_25._tcp.mail...` TLSA 记录已不在当前 live zone
 - 历史 Mailu 根域 DKIM `dkim._domainkey.zhangxuemin.work` 已于 2026-04-14 在用户确认 Mailu 不再使用后删除
+- 历史 moemail / Resend DKIM `resend._domainkey.zhangxuemin.work` 已于 2026-04-14 在用户要求清理 moemail 残留后删除
 
 因此，任何仍声称这些记录“当前还存在”的文档都应视为**文档漂移**，而不是 live DNS 事实。
 
@@ -94,7 +94,7 @@
 - 当前 live zone 与提交的 baseline **一致**，没有即时 drift。
 - 当前核心活跃基础设施域名与主机文档 **整体一致**。
 - 新纳入当前事实的域名组包括：`derp.*` 与 `hk-relay` 相关的三条记录（`hk` / `drop.hk` / `clash.hk`）。
-- 当前 DNS 主要未闭环点不是主机映射，而是 **剩余两条 DKIM（`cf2024-1` / `resend`）的发送方归属与长期去留还需继续收口**。
+- 当前 DNS 主要未闭环点不是主机映射，而是 **剩余唯一一条 DKIM（`cf2024-1`）的发送方归属与长期去留还需继续收口**。
 - 已新增 `infra/cloudflare-dns/dkim-reconciliation.md` 作为 DKIM 归属说明页，后续优先在那一页继续推进而不是在各处零散猜测。
 - 历史 Mailu 相关主机残留与其对应 `dkim._domainkey` 记录已在 2026-04-14 按用户确认完成删除。
 - `mail.zhangxuemin.work` 当前应被视为 **活跃 web-app front door**；后续若要删改，需基于新应用路径单独评估，而不是沿用旧“退役 mail host”判断。

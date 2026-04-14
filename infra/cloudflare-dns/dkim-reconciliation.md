@@ -1,6 +1,6 @@
 # DKIM Reconciliation Notes
 
-本文件记录 **2026-04-14** 对当前 live zone 中 DKIM 相关记录的归属判断，以及同日执行的 Mailu 退场清理结果。
+本文件记录 **2026-04-14** 对当前 live zone 中 DKIM 相关记录的归属判断，以及同日执行的 Mailu / moemail 残留清理结果。
 
 目标：
 - 不把 DKIM 当作“看不懂就删”的残留项
@@ -12,7 +12,6 @@
 ## Current live DKIM-related records
 
 - `cf2024-1._domainkey.zhangxuemin.work`
-- `resend._domainkey.zhangxuemin.work`
 
 同时可见的相关邮件策略记录：
 - root MX -> `route*.mx.cloudflare.net`
@@ -58,37 +57,44 @@
 
 ---
 
-## Record-by-record mapping
+### `resend._domainkey.zhangxuemin.work`
 
-### 1. `resend._domainkey.zhangxuemin.work`
+#### Best mapping before deletion
+**较大概率对应历史/外部 Resend 发件路径，也就是 moemail 相关残留。**
 
-#### Best current mapping
-**较大概率对应历史/外部 Resend 发件路径。**
-
-#### Evidence
+#### Evidence used for the decision
 - `oracle-mail` 归档 `moemail` 项目 README 明确写明：
   - 发件能力基于 **Resend**
   - 自定义域名发件需要在 **Resend** 中验证域名
   - 代码中存在对 `https://api.resend.com/emails` 的调用
 - 记录名本身直接包含供应商语义：`resend._domainkey`
-- 归档 `moemail/.env` 中 `CUSTOM_DOMAIN=""`，说明保存在仓库里的样例/本地配置并未把自定义域名硬编码死；因此这条 live 记录可能是：
-  - 某次实际 Resend 域名验证后保留的记录
-  - 或另一个未完整保存在该归档 `.env` 中的 Resend 发件链路
+- `oracle-mail` 上唯一仍保留的 moemail 主体残留是：
+  - `/root/retired-services/2026-03-15/moemail`（约 1.9G，已删除）
+- 主机上还可见 3 个明确带 `moemail` 内容的 Wrangler 日志（已删除）
+
+#### Action taken
+- 用户明确要求：**删/清理 moemail 相关残留**
+- 已删除 `oracle-mail` 主机上的 moemail 归档目录：
+  - `/root/retired-services/2026-03-15/moemail`
+- 已删除 `oracle-mail` 主机上的 3 个 moemail Wrangler 日志：
+  - `/root/.config/.wrangler/logs/wrangler-2026-02-26_02-35-54_337.log`
+  - `/root/.config/.wrangler/logs/wrangler-2026-02-36-27_330.log`
+  - `/root/.config/.wrangler/logs/wrangler-2026-02-36-42_948.log`
+- 已从 Cloudflare live zone 删除：
+  - `resend._domainkey.zhangxuemin.work`
 
 #### Confidence
-**中等**
+**高（作为 moemail 残留）**
 
-#### Operational interpretation
-- 这条记录非常像 **Resend 相关 DKIM**，但仅凭当前仓库/归档不能证明它今天一定仍在用。
-- 它不是当前 `Outlook Email Plus` 活跃 web app 的直接配置产物。
-
-#### Recommended action
-- 当前先保留
-- 未来若要清理，需先确认是否仍存在任何 Resend-based 发件或历史依赖
+#### Current status
+- 该记录已不在当前 live zone
+- 这条线现在应视为：**已完成的历史 moemail / Resend DKIM 清理**
 
 ---
 
-### 2. `cf2024-1._domainkey.zhangxuemin.work`
+## Record-by-record mapping
+
+### 1. `cf2024-1._domainkey.zhangxuemin.work`
 
 #### Best current mapping
 **更像 provider-side / Cloudflare-side 的当前根域邮件策略相关 DKIM，而不是任何本机自建服务残留。**
@@ -125,8 +131,8 @@
 这说明 **SES 发送路径是存在的**。
 
 但在当前 live snapshot 中，没有看到一个显式以 `send` 为 selector/owner 命名的 DKIM 记录，因此：
-- 不能简单把现有 3 条 DKIM 中任意一条武断归到 SES
-- 也不能因为没看到明显 SES selector，就倒推出其它 DKIM 一定没用
+- 不能简单把当前仅剩的 `cf2024-1` 武断归到 SES
+- 也不能因为没看到明显 SES selector，就倒推出当前 provider-side key 一定没用
 
 ---
 
@@ -134,23 +140,23 @@
 
 ### Keep now
 - `cf2024-1._domainkey.zhangxuemin.work`
-- `resend._domainkey.zhangxuemin.work`
 
 ### Already cleaned up
 - `dkim._domainkey.zhangxuemin.work`
   - 已在 2026-04-14 随 Mailu 退场一起删除
+- `resend._domainkey.zhangxuemin.work`
+  - 已在 2026-04-14 随 moemail 残留清理一起删除
 
 ### Not safe to delete blindly
 - `cf2024-1._domainkey.zhangxuemin.work`
-- `resend._domainkey.zhangxuemin.work`
 
 ---
 
 ## Summary
 
 - `dkim._domainkey`：**高概率历史 Mailu，已于 2026-04-14 删除**
-- `resend._domainkey`：**中概率历史/外部 Resend 发件路径**
+- `resend._domainkey`：**高概率 moemail / Resend 残留，已于 2026-04-14 删除**
 - `cf2024-1._domainkey`：**中概率当前 provider-side / Cloudflare-side 根域邮件策略 key**
 
-当前最合理动作不再是继续讨论 Mailu DKIM 是否保留，而是：
-**把 Mailu 视为已完成退场，把后续注意力留给剩余两条 DKIM 的归属与长期去留。**
+当前最合理动作不再是继续讨论 Mailu / moemail 残留是否保留，而是：
+**把这两条已完成退场，把后续注意力只留给剩下的 `cf2024-1`。**

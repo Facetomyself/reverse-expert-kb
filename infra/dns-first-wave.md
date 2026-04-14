@@ -54,7 +54,7 @@
 - `zhangxuemin.work` root SPF
 - `_dmarc.zhangxuemin.work`
 - `send.zhangxuemin.work` MX / SPF (SES path)
-- DKIM records (`cf2024-1._domainkey`, `resend._domainkey`) — 先做归属文档化，不先删
+- DKIM record (`cf2024-1._domainkey`) — 先做归属文档化，不先删
 
 ---
 
@@ -81,11 +81,9 @@
 ### A. Finish DKIM ownership reconciliation
 目标记录：
 - `cf2024-1._domainkey.zhangxuemin.work`
-- `dkim._domainkey.zhangxuemin.work`
-- `resend._domainkey.zhangxuemin.work`
 
 动作：
-- 把它们分别映射到当前或历史的发送路径
+- 把它映射到当前 provider-side / 根域邮件策略
 - 用“证据 + 置信度 + 处置建议”记录，而不是直接删除
 - 参考：`infra/cloudflare-dns/dkim-reconciliation.md`
 
@@ -119,7 +117,7 @@
 - `pend` 已移除
 
 ### 当前该继续做的
-- 剩余 DKIM（`cf2024-1` / `resend`）归属收口
+- 剩余 DKIM（`cf2024-1`）归属收口
 - `backup` 价值复核
 - 活跃记录元数据整理
 
@@ -130,4 +128,4 @@
 - `tmail` / `tmail-front`
 - root MX / SPF / DMARC
 - `send` SES 路径
-- 剩余 DKIM 记录（`cf2024-1` / `resend`）
+- 剩余 DKIM 记录（`cf2024-1`）
