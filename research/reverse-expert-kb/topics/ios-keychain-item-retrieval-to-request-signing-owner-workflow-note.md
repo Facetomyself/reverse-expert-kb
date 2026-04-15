@@ -6,6 +6,7 @@ Maturity: practical
 Related pages:
 - topics/ios-practical-subtree-guide.md
 - topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md
+- topics/ios-keychain-auth-context-to-seckey-signature-consumer-workflow-note.md
 - topics/ios-objc-swift-native-owner-localization-workflow-note.md
 - topics/mobile-signature-location-and-preimage-recovery-workflow-note.md
 - topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
@@ -70,7 +71,7 @@ Operator goal: record status + whether an output object was returned.
 Keychain APIs can return:
 - data bytes (`kSecReturnData`-style behavior)
 - attributes dict
-- a reference (persistent ref / item ref)
+- a reference (persistent ref / item ref / `SecKeyRef`-shaped handle)
 
 Operator goal: prove what kind of object was returned in your target.
 
@@ -116,6 +117,10 @@ Once you have return-shape truth:
 
 The operator goal is not “full keychain taxonomy.”
 It is: **one consumer**.
+
+A narrower continuation reminder is now also worth preserving:
+- if the representative match returns a ref, persistent ref, or `SecKeyRef`-shaped handle and the remaining liar is no longer raw data decoding but auth-gated key use, continue into `topics/ios-keychain-auth-context-to-seckey-signature-consumer-workflow-note.md`
+- there, keep query/ref truth, access-control/auth-context truth, actual `SecKeyCreateSignature` truth, and request-field consumption truth separate instead of flattening them into one vague “Face ID/keychain signing happened” story
 
 ### Step 5: prove keychain material actually influences request/signing
 Build a compare pair:

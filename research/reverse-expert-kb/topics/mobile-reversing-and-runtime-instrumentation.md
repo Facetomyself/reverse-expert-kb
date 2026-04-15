@@ -206,6 +206,11 @@ A newer Apple-platform practical reminder is also worth preserving canonically:
 - the practical stop rule is therefore not “XPC exists,” but “which service-side consumer first changes behavior?”
 - once one exported-object method is already good enough, local send/barrier progress, exact-one reply-vs-error truth, interruption, invalidation, reconnection, and same-request durable consequence should still remain separate proof objects rather than collapsing into one vague “XPC recovered” story
 
+A second narrower iOS reminder is now also worth preserving canonically:
+- some iOS signing/auth cases narrow not into broader request-finalization first, but into a keychain/auth-context/`SecKey` seam
+- in those cases, keychain query/ref truth, access-control policy truth, reusable `LAContext` / prompt truth, actual private-key operation truth, returned signature bytes truth, and request-field consumption truth are different proof objects
+- the practical stop rule is therefore not “Face ID/keychain signing happened,” but “which auth-gated key-use boundary first turns this plausible item/ref/key handle into one current request-owned signature?”
+
 ### E. Modern iOS reversing increasingly overlaps with mitigation-aware analysis
 
 #### Technical analysis of CVE-2025-31201
@@ -265,6 +270,7 @@ Includes:
 Includes:
 - Objective-C/Swift/runtime-layer observation
 - Apple-platform service/daemon seams where `NSXPCConnection`, Mach-service routing, exported-object ownership, and launchd-managed lifecycle all affect what runtime evidence is actually behavior-bearing
+- Apple-platform keychain/auth-context/key-operation seams where `SecItemCopyMatching`, `SecAccessControl`, `LAContext`, Secure Enclave key handles, and `SecKeyCreateSignature(...)` can each become separate proof objects during signing/auth reversing
 - an ordered practical ladder from environment-gate diagnosis to post-gate owner localization to callback/result-to-policy consequence localization
 - code-signing and entitlement constraints
 - jailbreak vs virtualized workflow differences
@@ -281,6 +287,7 @@ The iOS practical branch should now usually be read through `topics/ios-practica
 - `topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md` when the ownership problem is clearly Flutter/Dart-shaped
 - `topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md` when one owner path is already plausible enough, broad owner-localization work should stop, and the real bottleneck is now minimal truthful replay rather than broader owner choice
 - `topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md` when one owner path is already plausible or partly callable, but the next question is still iOS-shaped: prove one last request-finalization boundary, move one hop earlier into preimage/state capture, or stop at one truthful black-box request path
+- `topics/ios-keychain-auth-context-to-seckey-signature-consumer-workflow-note.md` when one keychain item, `SecKeyRef`, or Secure Enclave-backed key handle is already plausible but the remaining lie is auth-context/access-control vs actual `SecKeyCreateSignature(...)` use and request-field consumption
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when replay is already close-but-wrong and the remaining gap has narrowed into one runtime table family, initialized-image boundary, or minimal init/context obligation
 - `topics/ios-block-callback-landing-and-signature-recovery-workflow-note.md` when one callback/block family is already plausible but the truthful invoke landing and usable runtime contract still need to be proved under PAC/callback ambiguity before stronger owner, replay, or policy claims are safe
 - `topics/ios-swift-concurrency-continuation-to-policy-workflow-note.md` when callback/delegate truth is already good enough or one imported-async owner path is already plausible, but the real remaining gap is the first continuation-owned, stream-owned, or iterator-consumption consequence boundary inside Swift task logic
@@ -295,6 +302,7 @@ At the parent-page layer, that iOS route is easier to remember as a compact oper
 - **separate** one Apple-platform service-method entry from reply/error/invalidation/reconnect and same-request consequence when the case narrows into an XPC / Mach-service seam
 - **replay** one truthful callable owner path when broader owner search is no longer the cheapest next move
 - **reduce** one iOS-shaped signing/finalization boundary before flattening the case into generic preimage work
+- **authenticate/use** one keychain-backed item or key handle before calling it the request-owned signer when the case narrows into auth-gated key use
 - **repair** one narrower runtime-table or initialization obligation when replay is already close-but-wrong
 - **land** one callback/block family on one truthful invoke boundary with one usable contract when callback visibility still outruns confidence
 - **consume** one callback/result into one local policy effect
