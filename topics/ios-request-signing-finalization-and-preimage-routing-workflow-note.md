@@ -8,6 +8,7 @@ Related pages:
 - topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md
 - topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
 - topics/mobile-signature-location-and-preimage-recovery-workflow-note.md
+- topics/ios-keychain-auth-context-to-seckey-signature-consumer-workflow-note.md
 - topics/ios-objc-swift-native-owner-localization-workflow-note.md
 - topics/mobile-signing-and-parameter-generation-workflows.md
 - topics/ios-result-callback-to-policy-state-workflow-note.md
@@ -55,6 +56,7 @@ That decision is valuable because many iOS signing cases are dominated less by t
 - Objective-C / Swift wrapper canonicalization before the native helper
 - request/body/header normalization immediately before `NSMutableURLRequest` or task creation
 - one nonce/timestamp/session seed pulled from local state or keychain-backed context (see also: `topics/ios-keychain-item-retrieval-to-request-signing-owner-workflow-note.md`)
+- one narrower auth-gated key-use seam where a plausible keychain item, `SecKeyRef`, or Secure Enclave key handle still needs to be separated into query/ref truth, access-control/auth-context truth, actual `SecKeyCreateSignature` truth, and request-field consumption truth (see also: `topics/ios-keychain-auth-context-to-seckey-signature-consumer-workflow-note.md`)
 - one init/runtime-table/image-local artifact needed to make a nearly-correct helper truthful
 - one request family where in-app black-box replay is already cheaper than extracting a standalone signer
 
@@ -152,6 +154,7 @@ This is usually more valuable than tracing ten extra helper layers.
 - one argument changes with login/session/challenge state even when body/path stay fixed
 - nonce/timestamp/device-state values dominate divergence
 - final-output capture explains nothing without earlier state provenance
+- a plausible keychain item, `SecKeyRef`, or Secure Enclave key handle already exists, but the remaining liar is whether auth-context/access-control truth and the first real `SecKeyCreateSignature(...)` boundary were flattened together too early
 
 #### Signs a truthful black-box path is already enough
 - the in-app path already returns accepted or almost-accepted traffic
@@ -166,6 +169,7 @@ If wrapper/finalization dominates:
 
 If preimage/state dominates:
 - continue into `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md`
+- if one keychain item, ref, or Secure Enclave-backed key handle is already plausible and the remaining liar is now auth-gated key use rather than broader preimage structure, continue first into `topics/ios-keychain-auth-context-to-seckey-signature-consumer-workflow-note.md`
 - carry forward the iOS-specific owner/finalization context so the generic signing page does not flatten the case into pure algorithm work
 
 If truthful black-box invocation already dominates:
@@ -179,6 +183,7 @@ Useful iOS-shaped boundaries to test before deeper static cleanup:
 - Swift wrappers that normalize body/path/header material before a native signer call
 - native helper entry points when arguments are still structured enough to compare across runs
 - keychain/session/token accessors when the suspected missing input is session-scoped rather than algorithmic
+- `SecItemCopyMatching`, `SecAccessControlCreateWithFlags(...)`, caller-provided `LAContext`, and `SecKeyCreateSignature(...)` when the case has already narrowed into one auth-gated key-use seam rather than broader request shaping
 
 A practical reminder from the source pass and existing branch:
 - if a request-dump tool already proves the final emitted request shape while a live owner path is callable, do not assume the next step is standalone signer extraction
