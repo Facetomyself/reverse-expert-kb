@@ -1433,3 +1433,35 @@ Treat Grok proxy 502s as degraded multi-source mode, not full search failure. Pr
 - See Also: none
 
 ---
+
+
+## [ERR-20260415-001] git-commit-identity-missing-in-new-repo
+
+**Logged**: 2026-04-15T17:25:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: config
+
+### Summary
+Initial commit in a newly created public research repo failed because git `user.name` / `user.email` were not configured for fresh repositories on this host.
+
+### Error
+```text
+Author identity unknown
+fatal: unable to auto-detect email address (got 'root@instance-20250911-1634.(none)')
+```
+
+### Context
+- Command/operation attempted: initialize and commit `/root/.openclaw/workspace/projects/linuxdo-yalaoshi-ai-manju-research`
+- Environment details: nested repo inside OpenClaw workspace on a host without preconfigured git author identity for this new repository
+- The repository itself was fine; the first commit failed at author detection.
+
+### Suggested Fix
+Set repository-local git identity before the first commit, ideally using the GitHub account login plus a noreply email if no verified public email is available.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/projects/linuxdo-yalaoshi-ai-manju-research/.git/config
+- See Also: none
+
+---
