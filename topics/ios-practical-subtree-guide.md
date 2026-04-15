@@ -15,6 +15,7 @@ Related pages:
 - topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md
 - topics/ios-request-signing-finalization-and-preimage-routing-workflow-note.md
 - topics/ios-keychain-item-retrieval-to-request-signing-owner-workflow-note.md
+- topics/ios-keychain-auth-context-to-seckey-signature-consumer-workflow-note.md
 - topics/ios-block-callback-landing-and-signature-recovery-workflow-note.md
 - topics/ios-mitigation-aware-replay-repair-workflow-note.md
 - topics/ios-swift-concurrency-continuation-to-policy-workflow-note.md
@@ -35,6 +36,7 @@ The branch already had practical entry surfaces for:
 - Flutter/Dart cross-runtime owner localization when iOS shell, engine routing, and Dart ownership all compete
 - execution-assisted owner replay when the owner path is already plausible and the next bottleneck is minimal truthful invocation
 - iOS request-signing finalization / preimage routing when one owner path is already plausible and the next question is whether to prove one last iOS request-finalization boundary, move earlier into preimage/state capture, or keep one truthful black-box path
+- a narrower keychain/auth-context/`SecKey` signing-use continuation once one keychain item, `SecKeyRef`, or Secure Enclave-backed key handle already looks plausible but the remaining liar is still whether auth-gated key use really produced the current request-owned signature
 - callback/block landing and signature-recovery proof once one callback family is already plausible but the truthful landing and parameter contract still need to be proved under modern iOS conditions
 - callback/result-to-policy consequence proof once visible result material exists but the first behavior-changing consumer is still unclear
 
@@ -69,6 +71,7 @@ iOS practical work is easiest to navigate when the analyst first classifies the 
    - one owner path is already plausible enough to target, but the next bottleneck is reconstructing minimal init/context obligations until one truthful callable path exists
 8. **iOS signing-finalization / preimage-routing uncertainty**
    - one owner path is already plausible and maybe even callable, but it is still unclear whether the cheapest next reduction is one last iOS request-finalization boundary, one earlier preimage/state capture point, or stopping at a truthful black-box request path
+   - once one keychain item or key handle is already plausible, a narrower continuation may still be needed to separate query/ref truth, access-control/auth-context truth, actual `SecKeyCreateSignature(...)` truth, and request-field consumption truth
 9. **callback/block landing and signature-contract uncertainty**
    - one callback/block family is already plausible, but the truthful invoke landing and usable runtime contract are still not proven strongly enough to trust owner, replay, or policy claims
 10. **callback/result-to-policy consequence uncertainty**
@@ -106,6 +109,7 @@ The subtree is strongest when read as:
 - **own** one consequence-bearing path
 - **replay** one truthful callable owner path when static cleanup is no longer the cheapest next move
 - **reduce** one iOS-shaped signing/finalization boundary before flattening the case into generic preimage work
+- **authenticate/use** one keychain-backed item or key handle before calling it the request-owned signer when the case narrows into auth-gated key use
 - **land** one callback/block family on one truthful invoke boundary with one usable contract
 - **repair** one replay-close mitigation-aware path by isolating one smaller context/materialization/init gap
 - **consume** one callback/result into one local policy effect
@@ -228,6 +232,7 @@ Start here when:
 Do **not** start here when:
 - the owner is still unclear
 - the case still primarily needs broad controlled replay / init-obligation repair before any request-shaping conclusion is trustworthy
+- one keychain item, `SecKeyRef`, or Secure Enclave-backed key handle is already plausible and the remaining liar is now auth-context/access-control vs actual sign-operation truth; in that case route to `topics/ios-keychain-auth-context-to-seckey-signature-consumer-workflow-note.md`
 - the remaining gap is already clearly result/callback-to-policy consequence rather than request shaping
 
 ### Start with `ios-block-callback-landing-and-signature-recovery-workflow-note`
@@ -397,6 +402,7 @@ Primary note:
 
 Possible next handoff:
 - `topics/mobile-signature-location-and-preimage-recovery-workflow-note.md` when one earlier input/preimage family is now the true bottleneck
+- `topics/ios-keychain-auth-context-to-seckey-signature-consumer-workflow-note.md` when one keychain item, `SecKeyRef`, or Secure Enclave-backed key handle is already plausible but the remaining lie is auth-gated key use rather than broader preimage structure
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md` when outputs are close-but-wrong because one runtime artifact or init chain is still missing
 - `topics/ios-result-callback-to-policy-state-workflow-note.md` when truthful result material already exists and the real gap has shifted into consequence proof
 
@@ -488,6 +494,7 @@ When a case is clearly iOS-shaped, ask these in order:
    - if yes, stop broad owner-localization work and continue into controlled replay / black-box invocation
 8. **Is the owner already plausible/callable enough, but it is still unclear whether one last iOS request-finalization boundary or one earlier preimage/state capture point is the cheaper next reduction?**
    - if yes, continue into iOS request-signing finalization / preimage routing
+   - if one keychain item, `SecKeyRef`, or Secure Enclave-backed key handle is already plausible and the remaining lie is auth-context/access-control vs actual sign-operation truth, branch next into `topics/ios-keychain-auth-context-to-seckey-signature-consumer-workflow-note.md`
 9. **Is replay already good enough, but the remaining gap has narrowed into one runtime table family, initialized-image boundary, side-condition, or minimal init/context obligation?**
    - if yes, leave broad replay work and continue into runtime-table / initialization-obligation recovery
 10. **Is one callback/block family already plausible, but the landing or signature contract still too ambiguous to trust?**
