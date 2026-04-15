@@ -1439,7 +1439,7 @@ Treat Grok proxy 502s as degraded multi-source mode, not full search failure. Pr
 
 **Logged**: 2026-04-15T17:25:00+08:00
 **Priority**: medium
-**Status**: pending
+**Status**: resolved
 **Area**: config
 
 ### Summary
@@ -1463,5 +1463,10 @@ Set repository-local git identity before the first commit, ideally using the Git
 - Reproducible: yes
 - Related Files: /root/.openclaw/workspace/projects/linuxdo-yalaoshi-ai-manju-research/.git/config
 - See Also: none
+
+### Resolution
+- **Resolved**: 2026-04-15T17:27:00+08:00
+- **Commit/PR**: workspace `6a3438a`; nested repo `966cdaf`
+- **Notes**: Set repository-local git identity using `Facetomyself` + GitHub noreply email, then completed the initial commit successfully.
 
 ---
