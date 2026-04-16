@@ -42,6 +42,11 @@ Operational note:
 Allowed public TCP range:
 - `30001-30010`
 
+Important path-shape note confirmed again on 2026-04-16:
+- the VM itself only has private address `10.10.21.185/24` on `ens192`
+- it does **not** own the public address directly inside the guest
+- therefore public reachability of `211.144.221.229:30001-30010` depends on an upstream shared-IP forwarding layer outside the VM, not only on guest Docker/firewalld state
+
 Observed listening TCP ports during initial same-day read-only inspection:
 - `22/tcp` - sshd
 - `5837/tcp` - sshd additional listener
@@ -111,7 +116,14 @@ Operational note:
     - `easyai-wsgateway` itself appeared healthy
     - local host TCP connect to `127.0.0.1:30004` succeeded before the endpoint reset non-HTTP traffic
     - host `ss` showed Docker proxy listening on `*:30004`
+    - firewalld public zone explicitly allowed `30004/tcp`
     - practical conclusion: the remaining problem is on the **public exposure path** for `211.144.221.229:30004`, likely upstream/shared-IP forwarding or equivalent external-path configuration, not absence of the inner service
+  - same-day public-port snapshot from `ali-cloud` against the shared public IP showed the currently effective external-open subset on `:44005` is:
+    - open: `30001`, `30002`, `30003`, `30005`, `30007`, `30008`
+    - closed/refused: `30004`, `30006`, `30009`, `30010`
+  - operator interpretation of that snapshot:
+    - guest firewalld state alone does **not** determine actual public exposure on this VM
+    - `30004` matches the same pattern as historically flaky/unmapped `30006`: local bind may exist while the upstream shared-IP forward is absent or inactive
 - Firewall caution:
   - do not broadly open `30001-30010` just because the VM owns that range; only keep the ports that are actually assigned to running services
   - after the EasyAI reassignment, only residual FRPS-era public opens for `30009/30010` should still be treated as cleanup candidates unless a future redesign explicitly reuses them

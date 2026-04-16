@@ -53,10 +53,12 @@ Deeper 30004 diagnosis on 2026-04-16:
   - `easyai-wsgateway` logs showed normal Nest/PM2 startup
   - host `ss -ltnp` showed Docker proxy listening on `*:30004`
   - local `curl http://127.0.0.1:30004/` completed TCP connect and then got `connection reset by peer`, which is consistent with a non-plain-HTTP WS endpoint rather than an unopened local port
+  - guest firewalld public zone explicitly allowed `30004/tcp`
 - however, the same port from `ali-cloud` still failed at TCP connect time with `connection refused`
 - practical interpretation:
   - the blocker is on the **public exposure path** for `211.144.221.229:30004` rather than the inner EasyAI wsgateway container being absent
   - most likely remaining gap is upstream/shared-IP forwarding or equivalent external path configuration for `30004`, not image staging or local Docker bring-up
+  - this is consistent with the broader same-day public-port snapshot on the shared public IP, where `30001`, `30002`, `30003`, `30005`, `30007`, and `30008` were externally open, while `30004`, `30006`, `30009`, and `30010` were externally closed/refused
 - operator rule:
   - treat `30004` as **locally bound but externally unvalidated/broken** until the public path is fixed and rechecked
 
