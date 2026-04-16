@@ -38,6 +38,7 @@ hosts:
     public_ip: 129.150.61.78
     domains:
       - backup.zhangxuemin.work
+      - derp.zhangxuemin.work
     docs:
       host: infra/hosts/oracle-gateway/HOST.md
       network: infra/hosts/oracle-gateway/NETWORK.md
@@ -80,7 +81,11 @@ hosts:
       - registry-front-door-host
       - ubuntu-arm-host
     public_ip: 140.245.33.114
-    domains: []
+    domains:
+      - hub.zhangxuemin.work
+      - ghcr.zhangxuemin.work
+      - k8s.zhangxuemin.work
+      - mcr.zhangxuemin.work
     docs:
       host: infra/hosts/oracle-registry/HOST.md
       network: infra/hosts/oracle-registry/NETWORK.md
@@ -96,6 +101,8 @@ hosts:
     public_ip: 154.86.30.10
     domains:
       - hk.zhangxuemin.work
+      - drop.hk.zhangxuemin.work
+      - clash.hk.zhangxuemin.work
     docs:
       host: infra/hosts/hk-relay/HOST.md
       network: infra/hosts/hk-relay/NETWORK.md
