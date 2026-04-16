@@ -48,6 +48,18 @@ Transit-side validation from `ali-cloud`:
 - `http://211.144.221.229:30003/` -> reachable (`200 OK`)
 - `30004/tcp` -> still returned connection refused during probe, so external WS access is not yet considered validated
 
+Deeper 30004 diagnosis on 2026-04-16:
+- local host state is healthy enough that this is **not** primarily a container-absent problem:
+  - `easyai-wsgateway` logs showed normal Nest/PM2 startup
+  - host `ss -ltnp` showed Docker proxy listening on `*:30004`
+  - local `curl http://127.0.0.1:30004/` completed TCP connect and then got `connection reset by peer`, which is consistent with a non-plain-HTTP WS endpoint rather than an unopened local port
+- however, the same port from `ali-cloud` still failed at TCP connect time with `connection refused`
+- practical interpretation:
+  - the blocker is on the **public exposure path** for `211.144.221.229:30004` rather than the inner EasyAI wsgateway container being absent
+  - most likely remaining gap is upstream/shared-IP forwarding or equivalent external path configuration for `30004`, not image staging or local Docker bring-up
+- operator rule:
+  - treat `30004` as **locally bound but externally unvalidated/broken** until the public path is fixed and rechecked
+
 ## Recovery note: first startup blocker
 The blocked startup was initially misattributed to image verification after a long offline image-sync run, but the real final blocker was Docker network overlap during `docker-compose up -d`.
 

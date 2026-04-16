@@ -107,6 +107,11 @@ Operational note:
     - `30002/tcp` reachable and returning `302 -> /home`
     - `30003/tcp` reachable and returning `200 OK`
     - `30004/tcp` still returned connection refused even though Docker bound the port locally, so treat external WS exposure as not yet validated
+  - deeper same-day check narrowed `30004` further:
+    - `easyai-wsgateway` itself appeared healthy
+    - local host TCP connect to `127.0.0.1:30004` succeeded before the endpoint reset non-HTTP traffic
+    - host `ss` showed Docker proxy listening on `*:30004`
+    - practical conclusion: the remaining problem is on the **public exposure path** for `211.144.221.229:30004`, likely upstream/shared-IP forwarding or equivalent external-path configuration, not absence of the inner service
 - Firewall caution:
   - do not broadly open `30001-30010` just because the VM owns that range; only keep the ports that are actually assigned to running services
   - after the EasyAI reassignment, only residual FRPS-era public opens for `30009/30010` should still be treated as cleanup candidates unless a future redesign explicitly reuses them
