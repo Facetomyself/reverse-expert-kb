@@ -98,32 +98,30 @@ Operational note:
   - `30006/tcp` -> `AstrBot` auxiliary publish
   - `30007/tcp` -> `AstrBot WebUI`
   - `30008/tcp` -> `1panel-core`
+  - `30009/tcp` -> `EasyAI ASG / governance API`
 - Former FRPS-related ports on `:44005` that should now stay free unless explicitly redesigned:
-  - `30009/tcp`
   - `30010/tcp`
 - Historical note:
   - `:44005` did temporarily host the live FRPS relay and business-service mappings on 2026-04-08 through 2026-04-12
   - those mappings were migrated on 2026-04-13 to the cleaner `:44001` FRPS layout using `30012` control and payload ports beginning at `30014`
 - Protocol caution:
   - the documented forwarding allocation for this VM is currently TCP-only; do not assume extra UDP budget for FRP features such as KCP/QUIC without separate confirmation
-- Live validation on 2026-04-16 after EasyAI bring-up:
-  - Docker now binds host ports `30002/tcp`, `30003/tcp`, and `30004/tcp` for the EasyAI stack under `/opt/easyai`
+- Live validation on 2026-04-16 after EasyAI bring-up and runtime cleanup:
+  - Docker now binds host ports `30002/tcp`, `30003/tcp`, `30004/tcp`, and `30009/tcp` for the EasyAI stack under `/opt/easyai`
+  - concrete runtime mismatch fixes were applied:
+    - `ws-gateway`: keep host `30004`, but force container-internal `CONFIG_WS_PORT=3002`
+    - `easyai-asg`: keep host `30009`, but force container-internal `ASG_PORT=3003`
   - transit-side probe from `ali-cloud` confirmed:
     - `30002/tcp` reachable and returning `302 -> /home`
     - `30003/tcp` reachable and returning `200 OK`
-    - `30004/tcp` still returned connection refused even though Docker bound the port locally, so treat external WS exposure as not yet validated
-  - deeper same-day check narrowed `30004` further:
-    - `easyai-wsgateway` itself appeared healthy
-    - local host TCP connect to `127.0.0.1:30004` succeeded before the endpoint reset non-HTTP traffic
-    - host `ss` showed Docker proxy listening on `*:30004`
-    - firewalld public zone explicitly allowed `30004/tcp`
-    - practical conclusion: the remaining problem is on the **public exposure path** for `211.144.221.229:30004`, likely upstream/shared-IP forwarding or equivalent external-path configuration, not absence of the inner service
-  - same-day public-port snapshot from `ali-cloud` against the shared public IP showed the currently effective external-open subset on `:44005` is:
-    - open: `30001`, `30002`, `30003`, `30005`, `30007`, `30008`
-    - closed/refused: `30004`, `30006`, `30009`, `30010`
-  - operator interpretation of that snapshot:
-    - guest firewalld state alone does **not** determine actual public exposure on this VM
-    - `30004` matches the same pattern as historically flaky/unmapped `30006`: local bind may exist while the upstream shared-IP forward is absent or inactive
+    - `30004/tcp` reachable and returning `426 Upgrade Required` on a plain HTTP probe
+    - `30009/tcp` reachable and returning `200 OK` from `/health`
+  - practical interpretation:
+    - the earlier `30004` failure was caused by local container-port/config mismatch, not a durable upstream forwarding defect
+    - `30004` is now externally reachable but should still be treated as a real WebSocket endpoint, not a normal HTTP page
+  - same-day public-port snapshot from `ali-cloud` against the shared public IP after the fix showed the currently effective external-open subset on `:44005` is at least:
+    - open: `30001`, `30002`, `30003`, `30004`, `30005`, `30007`, `30008`, `30009`
+    - closed/refused: `30006`, `30010`
 - Firewall caution:
   - do not broadly open `30001-30010` just because the VM owns that range; only keep the ports that are actually assigned to running services
   - after the EasyAI reassignment, only residual FRPS-era public opens for `30009/30010` should still be treated as cleanup candidates unless a future redesign explicitly reuses them

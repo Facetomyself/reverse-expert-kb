@@ -13,6 +13,7 @@ EasyAI deployment on `host185` (`self-server-44005`) using a Docker Compose stac
 - `30002/tcp` -> `EasyAI WebUI`
 - `30003/tcp` -> `EasyAI API`
 - `30004/tcp` -> `EasyAI WS gateway`
+- `30009/tcp` -> `EasyAI ASG / governance API`
 
 ## Additional host-bound helper/runtime ports currently present from the shipped compose
 These are host listeners created by the compose stack and should be reviewed before treating them as intended public surface:
@@ -41,26 +42,36 @@ Containers up after recovery:
 Host-local validation:
 - `curl -I http://127.0.0.1:30002/` -> `302 Found` with redirect to `/home`
 - `curl -I http://127.0.0.1:30003/` -> `200 OK`
-- local TCP open check showed `30004` was listening on the host
+- `curl http://127.0.0.1:30009/health` -> `200 OK`
+- `curl http://127.0.0.1:30004/` -> `426 Upgrade Required`
 
 Transit-side validation from `ali-cloud`:
 - `http://211.144.221.229:30002/` -> reachable (`302 -> /home`)
 - `http://211.144.221.229:30003/` -> reachable (`200 OK`)
-- `30004/tcp` -> still returned connection refused during probe, so external WS access is not yet considered validated
+- `http://211.144.221.229:30009/health` -> reachable (`200 OK`)
+- `http://211.144.221.229:30004/` -> reachable and returns `426 Upgrade Required`
 
-Deeper 30004 diagnosis on 2026-04-16:
-- local host state is healthy enough that this is **not** primarily a container-absent problem:
-  - `easyai-wsgateway` logs showed normal Nest/PM2 startup
-  - host `ss -ltnp` showed Docker proxy listening on `*:30004`
-  - local `curl http://127.0.0.1:30004/` completed TCP connect and then got `connection reset by peer`, which is consistent with a non-plain-HTTP WS endpoint rather than an unopened local port
-  - guest firewalld public zone explicitly allowed `30004/tcp`
-- however, the same port from `ali-cloud` still failed at TCP connect time with `connection refused`
-- practical interpretation:
-  - the blocker is on the **public exposure path** for `211.144.221.229:30004` rather than the inner EasyAI wsgateway container being absent
-  - most likely remaining gap is upstream/shared-IP forwarding or equivalent external path configuration for `30004`, not image staging or local Docker bring-up
-  - this is consistent with the broader same-day public-port snapshot on the shared public IP, where `30001`, `30002`, `30003`, `30005`, `30007`, and `30008` were externally open, while `30004`, `30006`, `30009`, and `30010` were externally closed/refused
-- operator rule:
-  - treat `30004` as **locally bound but externally unvalidated/broken** until the public path is fixed and rechecked
+Practical meaning of the `30004` probe:
+- `30004` is now externally reachable, so the earlier connection-refused state was not a permanent upstream/shared-IP limitation
+- `426 Upgrade Required` is the expected shape for a plain HTTP probe against the current ws-gateway implementation, which requires a real WebSocket upgrade rather than normal HTTP
+
+## Runtime config gotchas confirmed on 2026-04-16
+- `ws-gateway` is **not** a Socket.IO service in the current image; the container code uses the Node `ws` library and starts a raw WebSocket server.
+- The current gateway code requires WebSocket query parameters `channel` and `client_id`, then expects a session protocol (`session.initialize`, optional `session.authenticate`) after connection.
+- This means `30004` is not a general HTTP health endpoint and not a raw "anything goes" WebSocket target.
+- A concrete local misconfiguration was identified and fixed in the compose/runtime wiring for `ws-gateway`:
+  - compose published `host ${CONFIG_WS_PORT}:container 3002`
+  - but the `easyai-wsgateway` container inherited `CONFIG_WS_PORT=30004` from `.env`
+  - so the process listened on `30004` **inside** the container while Docker forwarded the host port to container `3002`
+  - fix applied: keep host publish on `30004`, but override the container-internal `CONFIG_WS_PORT=3002` in the `ws-gateway` service so Docker forwards to the actual listening port again
+- A second config split-brain was identified and fixed for ASG:
+  - front-end config used `NUXT_PUBLIC_SG_APIURL=http://211.144.221.229:30009`
+  - `.env.ASG` set `ASG_PORT=30009`
+  - but compose host-port substitution still defaulted to `3003` because `ASG_PORT` was not present in the main `.env`
+  - fix applied: add `ASG_PORT=30009` to the main `.env` for compose substitution, while overriding the `easyai-asg` container runtime back to `ASG_PORT=3003` internally so host `30009` maps correctly to container `3003`
+- Result after those two fixes:
+  - `30004` became externally reachable and now returns `426 Upgrade Required` on a plain HTTP probe
+  - `30009/health` became externally reachable and returns `200 OK`
 
 ## Recovery note: first startup blocker
 The blocked startup was initially misattributed to image verification after a long offline image-sync run, but the real final blocker was Docker network overlap during `docker-compose up -d`.
@@ -92,4 +103,4 @@ By the time of the final manual recovery:
 ## Operator cautions
 - If startup fails again with `invalid pool request: Pool overlaps with other one on this address space`, inspect stale Docker networks before blaming image transfer.
 - Do not assume the extra helper/runtime ports (`8080`, `8888`, `8000`, `5672`, `15672`, `27017`) are desirable public exposure just because the compose binds them.
-- Do not assume `30004` is externally usable until it is revalidated from a transit/public path.
+- Do not test `30004` with plain HTTP and conclude the gateway is broken just because it does not return a normal page; for this service, `426 Upgrade Required` on `/` is the healthy indicator that a real WebSocket upgrade is required.
