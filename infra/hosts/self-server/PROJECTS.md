@@ -70,12 +70,14 @@ Current shape is noticeably heavier and contains more development residue / oper
 - validated after cutover: `docker pull hello-world` and `docker pull coredns/coredns:latest` both succeeded
 
 ### `host185` / `:44005`
-- updated intent on 2026-04-08: promote this VM from a cleaner `1Panel` rebuild machine into the dedicated `FRPS` relay box for home-lab exposure
-- expected long-lived projects on this VM after repurpose:
+- current intent after the 2026-04-13 migration is application-focused rather than FRPS-focused
+- expected long-lived projects on this VM now are:
   - `1Panel`
-  - `prompt-optimizer-studio`
   - `AstrBot`
-  - `FRPS` relay for `home-macmini` and `home-nas`
+  - `NapCat`
+  - `EasyAI`
+- `prompt-optimizer-studio` was intentionally retired and its former `30001/tcp` slot was repurposed for `NapCat WebUI`
+- the temporary FRPS role that briefly lived on this VM was moved away; do not treat `host185` as the steady FRP relay box anymore
 - future workloads should still be introduced intentionally from a low-noise baseline
 - if new projects are added later, document them explicitly rather than letting residue accumulate again
 - keep the same-day stable outbound helper shape in place:
@@ -83,12 +85,11 @@ Current shape is noticeably heavier and contains more development residue / oper
   - upstream DNS to `106.15.239.221#1053`
   - shell/Docker explicit proxying via `ali-cloud`
 - validated after cutover: `docker pull hello-world` and `docker pull coredns/coredns:latest` both succeeded; the discarded transparent `sing-box-global` experiment should not be treated as an active project
-- rollout guidance for the new FRPS role:
-  - reserve `30009/tcp` for the `frps` server port
-  - reserve `30010/tcp` only if the dashboard is explicitly needed; prefer loopback-only or disabled
-  - use `30002-30007/tcp` as the main externally published service pool for `frpc` clients from `home-macmini` / `home-nas`
-  - keep `30001/tcp` for `prompt-optimizer-studio`, `30007/tcp` for `AstrBot WebUI`, and `30008/tcp` for `1Panel`
-  - avoid reusing `30007` for FRP payloads unless AstrBot is retired or remapped first
+- current intended externally published application slots on this VM are primarily:
+  - `30001/tcp` for `NapCat WebUI`
+  - `30002-30004/tcp` for `EasyAI`
+  - `30005-30007/tcp` for `AstrBot`
+  - `30008/tcp` for `1Panel`
 
 #### Active project added on 2026-04-06: Prompt Optimizer Studio
 - deployment path: `/opt/prompt-optimizer-studio`
@@ -126,3 +127,31 @@ Current shape is noticeably heavier and contains more development residue / oper
   - minimal repair applied on 2026-04-11: copied `provider_sources` + `provider` from `cmd_config.json` into the routed `ForAlice` abconf and restarted `astrbot`
   - post-restart logs confirmed provider adapters now load successfully for `openai/gpt-5.4`, `openai/gpt-5.4-mini`, and `openai/gpt-5.2`
 - detailed runbook: `infra/hosts/self-server/projects/astrbot.md`
+
+#### Active project confirmed on 2026-04-16: EasyAI
+- deployment path: `/opt/easyai`
+- runtime shape: Docker Compose application on `host185`, started successfully after offline image staging from `ali-cloud`
+- main intended published ports:
+  - `30002 -> EasyAI WebUI`
+  - `30003 -> EasyAI API`
+  - `30004 -> EasyAI WS gateway`
+- notable host-bound helper/runtime ports currently present from the shipped compose:
+  - `8080` (`dozzle`)
+  - `8888` (`sandbox`)
+  - `8000` (`video-edit`)
+  - `5672` / `15672` (`rabbitmq`)
+  - `27017` (`mongo`)
+- recovery note from the first successful bring-up:
+  - compose initially failed because its custom network wanted `172.21.0.0/16`
+  - the real overlap was a stale Docker network `one-mcp_default` from an abandoned compose project `one-mcp`
+  - verification before cleanup showed `one-mcp_default` had no attached containers and `/opt/1panel/mcp` was empty
+  - removing that stale network allowed `docker-compose up -d` to complete successfully
+- offline-transfer note:
+  - all required images were confirmed present on `host185`
+  - temporary `.tar.gz` bundles were cleaned from both `host185:/data` and `ali-cloud:/tmp/easyai-image-cache/http-root` after import
+- current runtime verification on 2026-04-16:
+  - local probe: `30002` returned `302 -> /home`
+  - local probe: `30003` returned `200 OK`
+  - external probe from `ali-cloud`: `30002` and `30003` were reachable
+  - external probe from `ali-cloud`: `30004` still returned connection refused even though Docker bound the port locally, so verify whether external WS exposure is actually required before depending on it
+- detailed runbook: `infra/hosts/self-server/projects/easyai.md`

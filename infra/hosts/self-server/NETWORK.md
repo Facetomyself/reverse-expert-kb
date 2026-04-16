@@ -84,16 +84,16 @@ Operational note:
 - `30008/tcp`, `30001/tcp`, and now `30007/tcp` fit inside the user-confirmed allowed allocation.
 - historical listeners `5837`, `9090`, `1053`, and `111` were removed from active service during the same-day cleanup pass to bring this VM closer to a true 1Panel-only shape, but the later 2026-04-08 firewall check showed residual allow/forward rules still remain and should be normalized during FRPS rollout.
 - 2026-04-13 migration decision moved the active FRPS relay role off `:44005` and back onto `:44001`, so this VM should no longer be treated as the long-term FRP relay host.
-- Effective application-focused public TCP allocation after the migration is intended to be:
+- Effective application-focused public TCP allocation after the later EasyAI bring-up is now intended to be:
   - `30001/tcp` -> `NapCat WebUI`
+  - `30002/tcp` -> `EasyAI WebUI`
+  - `30003/tcp` -> `EasyAI API`
+  - `30004/tcp` -> `EasyAI WS gateway`
   - `30005/tcp` -> `AstrBot` / QQ personal / OneBot v11 host publish
   - `30006/tcp` -> `AstrBot` auxiliary publish
   - `30007/tcp` -> `AstrBot WebUI`
   - `30008/tcp` -> `1panel-core`
 - Former FRPS-related ports on `:44005` that should now stay free unless explicitly redesigned:
-  - `30002/tcp`
-  - `30003/tcp`
-  - `30004/tcp`
   - `30009/tcp`
   - `30010/tcp`
 - Historical note:
@@ -101,7 +101,13 @@ Operational note:
   - those mappings were migrated on 2026-04-13 to the cleaner `:44001` FRPS layout using `30012` control and payload ports beginning at `30014`
 - Protocol caution:
   - the documented forwarding allocation for this VM is currently TCP-only; do not assume extra UDP budget for FRP features such as KCP/QUIC without separate confirmation
+- Live validation on 2026-04-16 after EasyAI bring-up:
+  - Docker now binds host ports `30002/tcp`, `30003/tcp`, and `30004/tcp` for the EasyAI stack under `/opt/easyai`
+  - transit-side probe from `ali-cloud` confirmed:
+    - `30002/tcp` reachable and returning `302 -> /home`
+    - `30003/tcp` reachable and returning `200 OK`
+    - `30004/tcp` still returned connection refused even though Docker bound the port locally, so treat external WS exposure as not yet validated
 - Firewall caution:
   - do not broadly open `30001-30010` just because the VM owns that range; only keep the ports that are actually assigned to running services
-  - after FRPS removal, normalize any residual public opens for `30002/30003/30004/30009/30010` so the rule set matches the new application-focused reality
+  - after the EasyAI reassignment, only residual FRPS-era public opens for `30009/30010` should still be treated as cleanup candidates unless a future redesign explicitly reuses them
 - Final outbound model remains explicit rather than transparent: this VM keeps a local `dnsmasq` listener on `127.0.0.1:53`, forwards DNS to `106.15.239.221#1053`, and uses `ali-cloud` authenticated proxy ingress on `:2081` / `:2080` for shell and Docker egress; the short-lived transparent TUN experiment was removed after proving unstable for general HTTPS traffic.
