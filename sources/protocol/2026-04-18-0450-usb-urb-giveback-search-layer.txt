@@ -1,0 +1,574 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Linux usb_submit_urb usb_unlink_urb usb_kill_urb completion handler documentation",
+    "Linux usbmon completion status actual_length documentation",
+    "libusb asynchronous transfer callback cancel transfer status documentation",
+    "Linux USB URB completion callback interrupt context documentation"
+  ],
+  "count": 31,
+  "results": [
+    {
+      "title": "USB core callbacks - The Linux Kernel documentation",
+      "url": "https://docs.kernel.org/6.2/driver-api/usb/callbacks.html",
+      "snippet": "Information on the completion callback can be found in USB Request Block (URB). The callbacks defined in the driver structure are: Hotplugging callbacks:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7286
+    },
+    {
+      "title": "usbmon - The Linux Kernel documentation",
+      "url": "https://docs.kernel.org/usb/usbmon.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6857
+    },
+    {
+      "title": "usbmon — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/5.17/usb/usbmon.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6857
+    },
+    {
+      "title": "USB Request Block (URB) — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/6.17/driver-api/usb/URB.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6857
+    },
+    {
+      "title": "drivers/usb/core/urb.c at master · torvalds/linux",
+      "url": "https://github.com/torvalds/linux/blob/master/drivers/usb/core/urb.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "Aborting async. transfers and safely closing devices is too complex",
+      "url": "https://github.com/libusb/libusb/issues/700",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "libusb: libusb_transfer Struct Reference",
+      "url": "https://www.cs.unm.edu/~hjelmn/libusb_hotplug_api/structlibusb__transfer.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "struct libusb_transfer — LibUSB Documentation",
+      "url": "https://vovkos.github.io/doxyrest/samples/libusb/struct_libusb_transfer.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4929
+    },
+    {
+      "title": "usbmon — The Linux Kernel  documentation",
+      "url": "https://kernel.org/doc/html/latest/usb/usbmon.html",
+      "snippet": "",
+      "published_date": "2023-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4857
+    },
+    {
+      "title": "USB Request Block (URB) — The Linux Kernel  documentation",
+      "url": "https://kernel.org/doc/html/latest/driver-api/usb/URB.html",
+      "snippet": "",
+      "published_date": "2017-03-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4857
+    },
+    {
+      "title": "USB Request Block (URB) — The Linux Kernel  documentation",
+      "url": "https://www.kernel.org/doc/html/v5.5/driver-api/usb/URB.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4857
+    },
+    {
+      "title": "USB core callbacks — The Linux Kernel  documentation",
+      "url": "https://kernel.org/doc/html/v6.0/driver-api/usb/callbacks.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4857
+    },
+    {
+      "title": "The Linux-USB Host Side API — The Linux Kernel  documentation",
+      "url": "https://www.kernel.org/doc/html/v5.15/driver-api/usb/usb.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4857
+    },
+    {
+      "title": "The Linux-USB Host Side API — The Linux Kernel  documentation",
+      "url": "https://www.kernel.org/doc/html/v5.14/driver-api/usb/usb.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4857
+    },
+    {
+      "title": "The Linux-USB Host Side API",
+      "url": "https://dri.freedesktop.org/docs/drm/driver-api/usb/usb.html",
+      "snippet": "URBs are submitted using usb_submit_urb() , and pending requests may be canceled using usb_unlink_urb() or usb_kill_urb() . Data Transfer Buffers: Normally",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4714
+    },
+    {
+      "title": "struct_urb: USB Request Block - Linux Manuals (9) - SysTutorials",
+      "url": "https://www.systutorials.com/docs/linux/man/9-struct_urb/",
+      "snippet": "URBs are submitted using usb_submit_urb, and pending requests may be canceled using usb_unlink_urb or usb_kill_urb. Data Transfer Buffers: Normally drivers",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4714
+    },
+    {
+      "title": "URB.txt - The Linux Kernel Archives",
+      "url": "https://www.kernel.org/doc/Documentation/usb/URB.txt",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.4429
+    },
+    {
+      "title": "Linux Kernel Documentation :: usb : URB.txt",
+      "url": "https://mjmwired.net/kernel/Documentation/usb/URB.txt",
+      "snippet": "234 After completion, actual_length contains the actual transferred length and 235 status contains the resulting status for the ISO transfer",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4286
+    },
+    {
+      "title": "Documentation/usb/URB.txt - kernel/common - Git at Google",
+      "url": "https://android.googlesource.com/kernel/common/+/bcmdhd-3.10/Documentation/usb/URB.txt",
+      "snippet": "| called USB Request Block, or URB for short. | - Transfers for one URB can be canceled with usb_unlink_urb(urb) at any time. | - Each URB has a completion handler, which is called after the action |. | // (IN) all urbs need completion routines |. How to get an URB? | struct urb \*usb_alloc_urb(int isoframes, int mem_flags) |. | For ASAP set URB_ISO_ASAP in transfer_flags. | int usb_submit_urb(struct urb \*urb, int mem_flags) |. | URBs to the same endpoint with the ISO_ASAP flag, using multi-buffering, |. | int usb_unlink_urb(struct urb \*urb) |. | until after the URB has been returned and the completion handler |. An URB may complete at any |. | time, and the completion handler may free the URB. | when usb_unlink_urb is invoked. | typedef void (\*usb_complete_t)(struct urb \*, struct pt_regs \*) |. | In the completion handler, you should have a look at urb->status to |. | ISO_ASAP scheduling is used, urb->start_frame is also updated.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4286
+    },
+    {
+      "title": "usb_submit_urb(9) — linux-manual-4.8 - Debian Manpages",
+      "url": "https://manpages.debian.org/testing/linux-manual-4.8/usb_submit_urb.9.en.html",
+      "snippet": "This submits a transfer request, and transfers control of the URB describing that request to the USB subsystem. Request completion will be indicated later,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4286
+    },
+    {
+      "title": "usbmon.txt",
+      "url": "https://kernel.org/doc/Documentation/usb/usbmon.txt",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "libusb: libusb_transfer Struct Reference",
+      "url": "https://libusb.sourceforge.io/api-1.0/structlibusb__transfer.html",
+      "snippet": "|  | A bitwise OR combination of libusb_transfer_flags. |  | Type of the transfer from libusb_transfer_type. |  | Timeout for this transfer in milliseconds. | enum libusb_transfer_status | status |. |  | The status of the transfer. |  | Actual length of data that was transferred. | libusb_transfer_cb_fn | callback |. |  | Isochronous packet descriptors, for isochronous transfers only. | unsigned int libusb_transfer::timeout |. Timeout for this transfer in milliseconds. | enum libusb_transfer_status libusb_transfer::status |. The status of the transfer. Read-only, and only for use within transfer callback function. If this is an isochronous transfer, this field may read COMPLETED even if there were errors in the frames. | int libusb_transfer::actual_length |. Actual length of data that was transferred. Not valid for isochronous endpoint transfers. | libusb_transfer_cb_fn libusb_transfer::callback |. | void* libusb_transfer::user_data |. Useful for associating specific data to a transfer that can be accessed from within the callback function. * libusb_fill_bulk_stream_transfer(). | int libusb_transfer::num_iso_packets |.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "USB Request Block (URB) — The Linux Kernel 5.10.0-rc1+ ...",
+      "url": "https://www.infradead.org/~mchehab/kernel_docs/driver-api/usb/URB.html",
+      "snippet": "After completion, actual_length contains the actual transferred length and status contains the resulting status for the ISO transfer for this frame. It is",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3857
+    },
+    {
+      "title": "Documentation/usb/usbmon.txt - pub/scm/linux/kernel/git/stable/linux ...",
+      "url": "https://kernel.googlesource.com/pub/scm/linux/kernel/git/stable/linux-stable/+/v2.6.16.47/Documentation/usb/usbmon.txt",
+      "snippet": "This is the actual length in the URB. - Data tag. The usbmon may not always capture data, even if length is nonzero. Only if",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3857
+    },
+    {
+      "title": "Documentation/usb/usbmon.txt [LWN.net]",
+      "url": "https://lwn.net/Articles/309302/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "A USB Monitor",
+      "url": "http://www.linux-usb.org/USBMon/dissertation/USB-dissertation.htm",
+      "snippet": "The values from the URB structure that are passed over are: device number, endpoint number, pipe, status, size, transfer flags, actual length, and error count.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "libusb_cancel_transfer(3) manual page",
+      "url": "https://nxmnpg.lemoda.net/3/libusb_cancel_transfer",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    },
+    {
+      "title": "libusb: Asynchronous device I/O",
+      "url": "http://libusb.sourceforge.net/api-1.0/group__libusb__asyncio.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Thread: [libusb] Asynchronous device I/O - SourceForge",
+      "url": "https://sourceforge.net/p/libusb/mailman/libusb-devel/thread/6762a4f0-c0f7-d0fc-4497-bc38d1b785ac@probo.com/",
+      "snippet": "When libusb_cancel_transfer returns, that just means cancellation has been REQUESTED. The request is still live until you get the canceled request back in your",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "platform/external/libusb - Git at Google - Android GoogleSource",
+      "url": "https://android.googlesource.com/platform/external/libusb/+/HEAD/libusb/io.c",
+      "snippet": "* Asynchronously cancel a previously submitted transfer. * This function returns immediately, but this does not indicate cancellation. * is complete. Your",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "usbmon - The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/usb/usbmon.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6857
+      },
+      {
+        "title": "usbmon — The Linux Kernel  documentation",
+        "url": "https://kernel.org/doc/html/latest/usb/usbmon.html",
+        "snippet": "",
+        "published_date": "2023-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4857
+      },
+      {
+        "title": "usbmon.txt",
+        "url": "https://kernel.org/doc/Documentation/usb/usbmon.txt",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Documentation/usb/usbmon.txt [LWN.net]",
+        "url": "https://lwn.net/Articles/309302/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "usbmon — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/5.17/usb/usbmon.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6857
+      },
+      {
+        "title": "URB.txt - The Linux Kernel Archives",
+        "url": "https://www.kernel.org/doc/Documentation/usb/URB.txt",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.4429
+      },
+      {
+        "title": "USB Request Block (URB) — The Linux Kernel  documentation",
+        "url": "https://kernel.org/doc/html/latest/driver-api/usb/URB.html",
+        "snippet": "",
+        "published_date": "2017-03-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4857
+      },
+      {
+        "title": "drivers/usb/core/urb.c at master · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/master/drivers/usb/core/urb.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "USB Request Block (URB) — The Linux Kernel  documentation",
+        "url": "https://www.kernel.org/doc/html/v5.5/driver-api/usb/URB.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4857
+      },
+      {
+        "title": "USB core callbacks — The Linux Kernel  documentation",
+        "url": "https://kernel.org/doc/html/v6.0/driver-api/usb/callbacks.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4857
+      },
+      {
+        "title": "Aborting async. transfers and safely closing devices is too complex",
+        "url": "https://github.com/libusb/libusb/issues/700",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "libusb_cancel_transfer(3) manual page",
+        "url": "https://nxmnpg.lemoda.net/3/libusb_cancel_transfer",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      },
+      {
+        "title": "struct libusb_transfer — LibUSB Documentation",
+        "url": "https://vovkos.github.io/doxyrest/samples/libusb/struct_libusb_transfer.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4929
+      },
+      {
+        "title": "libusb: Asynchronous device I/O",
+        "url": "http://libusb.sourceforge.net/api-1.0/group__libusb__asyncio.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "libusb: libusb_transfer Struct Reference",
+        "url": "https://www.cs.unm.edu/~hjelmn/libusb_hotplug_api/structlibusb__transfer.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5
+      },
+      {
+        "title": "URB.txt - The Linux Kernel Archives",
+        "url": "https://www.kernel.org/doc/Documentation/usb/URB.txt",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "USB Request Block (URB) — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/6.17/driver-api/usb/URB.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6857
+      },
+      {
+        "title": "USB Request Block (URB) — The Linux Kernel  documentation",
+        "url": "https://www.kernel.org/doc/html/v5.5/driver-api/usb/URB.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "The Linux-USB Host Side API — The Linux Kernel  documentation",
+        "url": "https://www.kernel.org/doc/html/v5.15/driver-api/usb/usb.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4857
+      },
+      {
+        "title": "The Linux-USB Host Side API — The Linux Kernel  documentation",
+        "url": "https://www.kernel.org/doc/html/v5.14/driver-api/usb/usb.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4857
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Linux Kernel Documentation :: usb : URB.txt",
+        "url": "https://mjmwired.net/kernel/Documentation/usb/URB.txt",
+        "snippet": "234 After completion, actual_length contains the actual transferred length and 235 status contains the resulting status for the ISO transfer",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4286
+      },
+      {
+        "title": "USB Request Block (URB) — The Linux Kernel 5.10.0-rc1+ ...",
+        "url": "https://www.infradead.org/~mchehab/kernel_docs/driver-api/usb/URB.html",
+        "snippet": "After completion, actual_length contains the actual transferred length and status contains the resulting status for the ISO transfer for this frame. It is",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3857
+      },
+      {
+        "title": "Documentation/usb/usbmon.txt - pub/scm/linux/kernel/git/stable/linux ...",
+        "url": "https://kernel.googlesource.com/pub/scm/linux/kernel/git/stable/linux-stable/+/v2.6.16.47/Documentation/usb/usbmon.txt",
+        "snippet": "This is the actual length in the URB. - Data tag. The usbmon may not always capture data, even if length is nonzero. Only if",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3857
+      },
+      {
+        "title": "usbmon - The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/usb/usbmon.html",
+        "snippet": "The status field is a decimal number, sometimes negative, which represents a “status” field of the URB. This field makes no sense for submissions, but is",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "A USB Monitor",
+        "url": "http://www.linux-usb.org/USBMon/dissertation/USB-dissertation.htm",
+        "snippet": "The values from the URB structure that are passed over are: device number, endpoint number, pipe, status, size, transfer flags, actual length, and error count.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "URB.txt - The Linux Kernel Archives",
+        "url": "https://www.kernel.org/doc/Documentation/usb/URB.txt",
+        "snippet": "An URB may complete at any time, and the completion handler may free the URB. If this happens while usb_unlink_urb or usb_kill_urb is running, it will cause",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "The Linux-USB Host Side API",
+        "url": "https://dri.freedesktop.org/docs/drm/driver-api/usb/usb.html",
+        "snippet": "URBs are submitted using usb_submit_urb() , and pending requests may be canceled using usb_unlink_urb() or usb_kill_urb() . Data Transfer Buffers: Normally",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4714
+      },
+      {
+        "title": "Documentation/usb/URB.txt - kernel/common - Git at Google",
+        "url": "https://android.googlesource.com/kernel/common/+/bcmdhd-3.10/Documentation/usb/URB.txt",
+        "snippet": "| called USB Request Block, or URB for short. | - Transfers for one URB can be canceled with usb_unlink_urb(urb) at any time. | - Each URB has a completion handler, which is called after the action |. | // (IN) all urbs need completion routines |. How to get an URB? | struct urb \*usb_alloc_urb(int isoframes, int mem_flags) |. | For ASAP set URB_ISO_ASAP in transfer_flags. | int usb_submit_urb(struct urb \*urb, int mem_flags) |. | URBs to the same endpoint with the ISO_ASAP flag, using multi-buffering, |. | int usb_unlink_urb(struct urb \*urb) |. | until after the URB has been returned and the completion handler |. An URB may complete at any |. | time, and the completion handler may free the URB. | when usb_unlink_urb is invoked. | typedef void (\*usb_complete_t)(struct urb \*, struct pt_regs \*) |. | In the completion handler, you should have a look at urb->status to |. | ISO_ASAP scheduling is used, urb->start_frame is also updated.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "struct_urb: USB Request Block - Linux Manuals (9) - SysTutorials",
+        "url": "https://www.systutorials.com/docs/linux/man/9-struct_urb/",
+        "snippet": "URBs are submitted using usb_submit_urb, and pending requests may be canceled using usb_unlink_urb or usb_kill_urb. Data Transfer Buffers: Normally drivers",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4714
+      },
+      {
+        "title": "usb_submit_urb(9) — linux-manual-4.8 - Debian Manpages",
+        "url": "https://manpages.debian.org/testing/linux-manual-4.8/usb_submit_urb.9.en.html",
+        "snippet": "This submits a transfer request, and transfers control of the URB describing that request to the USB subsystem. Request completion will be indicated later,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4286
+      },
+      {
+        "title": "Thread: [libusb] Asynchronous device I/O - SourceForge",
+        "url": "https://sourceforge.net/p/libusb/mailman/libusb-devel/thread/6762a4f0-c0f7-d0fc-4497-bc38d1b785ac@probo.com/",
+        "snippet": "When libusb_cancel_transfer returns, that just means cancellation has been REQUESTED. The request is still live until you get the canceled request back in your",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "libusb_cancel_transfer(3) manual page",
+        "url": "https://nxmnpg.lemoda.net/3/libusb_cancel_transfer",
+        "snippet": "int libusb_cancel_transfer(struct libusb_transfer *tr) This function asynchronously cancels a transfer. Returns 0 on success and a LIBUSB_ERROR code on failure.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "platform/external/libusb - Git at Google - Android GoogleSource",
+        "url": "https://android.googlesource.com/platform/external/libusb/+/HEAD/libusb/io.c",
+        "snippet": "* Asynchronously cancel a previously submitted transfer. * This function returns immediately, but this does not indicate cancellation. * is complete. Your",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Aborting async. transfers and safely closing devices is too complex",
+        "url": "https://github.com/libusb/libusb/issues/700",
+        "snippet": "keep a list of all transfers · call libusb_cancel_transfer() on each of it · wait until their completion callbacks have been called · call libusb_close.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "libusb: libusb_transfer Struct Reference",
+        "url": "https://libusb.sourceforge.io/api-1.0/structlibusb__transfer.html",
+        "snippet": "|  | A bitwise OR combination of libusb_transfer_flags. |  | Type of the transfer from libusb_transfer_type. |  | Timeout for this transfer in milliseconds. | enum libusb_transfer_status | status |. |  | The status of the transfer. |  | Actual length of data that was transferred. | libusb_transfer_cb_fn | callback |. |  | Isochronous packet descriptors, for isochronous transfers only. | unsigned int libusb_transfer::timeout |. Timeout for this transfer in milliseconds. | enum libusb_transfer_status libusb_transfer::status |. The status of the transfer. Read-only, and only for use within transfer callback function. If this is an isochronous transfer, this field may read COMPLETED even if there were errors in the frames. | int libusb_transfer::actual_length |. Actual length of data that was transferred. Not valid for isochronous endpoint transfers. | libusb_transfer_cb_fn libusb_transfer::callback |. | void* libusb_transfer::user_data |. Useful for associating specific data to a transfer that can be accessed from within the callback function. * libusb_fill_bulk_stream_transfer(). | int libusb_transfer::num_iso_packets |.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "USB core callbacks - The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/6.2/driver-api/usb/callbacks.html",
+        "snippet": "Information on the completion callback can be found in USB Request Block (URB). The callbacks defined in the driver structure are: Hotplugging callbacks:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7286
+      },
+      {
+        "title": "The Linux-USB Host Side API",
+        "url": "https://dri.freedesktop.org/docs/drm/driver-api/usb/usb.html",
+        "snippet": "The context field is normally used to link URBs back to the relevant driver or request state. When the completion callback is invoked for non-isochronous URBs,",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "URB.txt - The Linux Kernel Archives",
+        "url": "https://www.kernel.org/doc/Documentation/usb/URB.txt",
+        "snippet": "They end when the completion handler is called, just like other URBs. If you want an interrupt URB to be restarted, your completion handler must resubmit it.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Documentation/usb/URB.txt - kernel/common - Git at Google",
+        "url": "https://android.googlesource.com/kernel/common/+/bcmdhd-3.10/Documentation/usb/URB.txt",
+        "snippet": "| called USB Request Block, or URB for short. | - Transfers for one URB can be canceled with usb_unlink_urb(urb) at any time. | - Each URB has a completion handler, which is called after the action |. | // (IN) all urbs need completion routines |. How to get an URB? | struct urb \*usb_alloc_urb(int isoframes, int mem_flags) |. | For ASAP set URB_ISO_ASAP in transfer_flags. | int usb_submit_urb(struct urb \*urb, int mem_flags) |. | URBs to the same endpoint with the ISO_ASAP flag, using multi-buffering, |. | int usb_unlink_urb(struct urb \*urb) |. | until after the URB has been returned and the completion handler |. An URB may complete at any |. | time, and the completion handler may free the URB. | when usb_unlink_urb is invoked. | typedef void (\*usb_complete_t)(struct urb \*, struct pt_regs \*) |. | In the completion handler, you should have a look at urb->status to |. | ISO_ASAP scheduling is used, urb->start_frame is also updated.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "URB.txt - mb-linux-msli - GitLab",
+        "url": "https://spacegit.unibe.ch/bela/mb-linux-msli/-/blob/af914d8585ac81ad7724505b606329ed06a4020a/uClinux-dist/linux-2.6.x/Documentation/usb/URB.txt",
+        "snippet": "In the completion handler, you should have a look at urb->status to detect any USB errors. Since the context parameter is included in the URB, you can pass",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4286
+      }
+    ],
+    "grok": []
+  }
+}
