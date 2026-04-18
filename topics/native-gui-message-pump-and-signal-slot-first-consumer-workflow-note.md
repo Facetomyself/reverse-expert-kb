@@ -9,6 +9,7 @@ Related pages:
 - topics/native-callback-registration-to-event-loop-consumer-workflow-note.md
 - topics/native-interface-to-state-proof-workflow-note.md
 - topics/native-qt-event-filter-vs-signal-slot-first-consumer-workflow-note.md
+- topics/native-cocoa-responder-chain-and-target-action-first-consumer-workflow-note.md
 - topics/runtime-behavior-recovery.md
 - topics/causal-write-and-reverse-causality-localization-workflow-note.md
 
@@ -107,6 +108,11 @@ A dedicated thinner continuation now exists for the most common Qt-only ambiguit
 - `topics/native-qt-event-filter-vs-signal-slot-first-consumer-workflow-note.md`
 
 Use that leaf when both `eventFilter(...)` plumbing and later signal-slot routing are already visible, but the missing proof object is still whether fate lives at the filter, the receiver-side handler, the emit site, or one later direct/queued slot.
+
+A second dedicated thinner continuation now exists for a common macOS/AppKit-only ambiguity:
+- `topics/native-cocoa-responder-chain-and-target-action-first-consumer-workflow-note.md`
+
+Use that leaf when `sendEvent:` is already reduced enough, one control/menu action family is already plausible, and the remaining liar is whether the first real boundary is action emission, nil-target responder-chain resolution, one exact receiver, or one first durable consumer behind that receiver.
 
 ## 5. Practical source-backed reminders
 The current source pass supports several operator reminders.
@@ -406,6 +412,7 @@ Best move:
 Leave this note once the main uncertainty is no longer “which GUI message/slot consumer first matters?”
 
 Common next steps:
+- move to `topics/native-cocoa-responder-chain-and-target-action-first-consumer-workflow-note.md` when the broad GUI/event-delivery question is already reduced and the remaining lie is now specifically AppKit target/action or responder-chain receiver resolution
 - move to `topics/causal-write-and-reverse-causality-localization-workflow-note.md` when one GUI consumer is already known and the remaining bottleneck is the first decisive write/reducer behind a later effect
 - move to `topics/runtime-behavior-recovery.md` when broader observability or compare-run design becomes the real need
 - move back outward to `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md` when the case stops being specifically GUI-shaped and becomes a broader async-ownership problem again
