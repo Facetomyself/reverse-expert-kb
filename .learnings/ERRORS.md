@@ -1543,3 +1543,45 @@ exec host not allowed (requested sandbox; configured host is gateway; set tools.
 - See Also: none
 
 ---
+
+## [ERR-20260418-002] git-commit-missing-author-identity
+
+**Logged**: 2026-04-18T20:15:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: config
+
+### Summary
+A repository-local `git commit` failed because this host currently has no configured `user.name` / `user.email`, so cloned repos cannot create commits until identity is set.
+
+### Error
+```text
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+...
+
+fatal: unable to auto-detect email address
+```
+
+### Context
+- Command/operation attempted: commit runtime-fix changes in `/root/.openclaw/workspace/tmp/astrbot_plugin_novel_rank`
+- The host has no global git author identity configured.
+- This is separate from GitHub auth; local commit creation fails before any push step.
+
+### Suggested Fix
+- For temporary/cloned repos, set a repo-local identity before committing instead of assuming a global identity exists.
+- Document this as a host-specific git gotcha in `TOOLS.md`.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/.learnings/ERRORS.md, /root/.openclaw/workspace/TOOLS.md
+- See Also: none
+
+---

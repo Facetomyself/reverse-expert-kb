@@ -86,6 +86,8 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - If GitHub private-repo `fetch` / `push` starts failing again, first inspect:
   - `git config --global --get-regexp '^(credential|credential\..*)'`
   - and verify the helper still has execute permission.
+- This host may still have **no default git author identity** configured (`user.name` / `user.email`).
+  - If `git commit` fails with `Author identity unknown`, set a **repo-local** identity first for the working repo instead of assuming a global identity exists.
 - Default init branch is now set globally to `main`.
 
 ## Search / Fetch Reality on This Host
