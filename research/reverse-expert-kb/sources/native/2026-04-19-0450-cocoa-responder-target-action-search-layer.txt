@@ -1,0 +1,529 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "NSApplication sendEvent responder chain target action developer documentation",
+    "NSResponder responder chain target action nil target developer documentation",
+    "NSApplication sendAction to from NSControl action developer documentation",
+    "Cocoa event handling main event loop sendEvent developer documentation"
+  ],
+  "count": 25,
+  "results": [
+    {
+      "title": "NSResponder | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/appkit/nsresponder",
+      "snippet": "The responder model uses three components: event messages, action messages, and the responder chain. NSResponder also plays an important role in the",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.7875
+    },
+    {
+      "title": "Target-Action and the Responder Chain on iOS",
+      "url": "https://github.com/sammeadley/responder-chain",
+      "snippet": "If nil, it is forwarded to the First Responder, and passed down the Responder Chain until handled. Discussion. Actions are added",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Responding to control-based events using target-action",
+      "url": "https://developer.apple.com/documentation/uikit/responding-to-control-based-events-using-target-action",
+      "snippet": "When the object hosting the control isn't the one you want handling the event, invoke the responder chain by passing in nil as the target. This causes the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Responder Chain in Swift (nil target in UIButton target)",
+      "url": "https://stackoverflow.com/questions/29815240/responder-chain-in-swift-nil-target-in-uibutton-target",
+      "snippet": "The action will be send up the responder chain until the action is handled in the controller. So far so good :-) But I want to intercept the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "sendAction:to: | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/appkit/nscontrol/sendaction(_:to:)?language=objc",
+      "snippet": "This method uses the sendAction:to:from: method of NSApplication to invoke the specified method on an object. The receiver is passed as the parameter to the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "sendAction(_:to:from:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/appkit/nsapplication/sendaction(_:to:from:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7125
+    },
+    {
+      "title": "NSApplication | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/appkit/nsapplication",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7125
+    },
+    {
+      "title": "NSApplication | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/appkit/nsapplication?language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7125
+    },
+    {
+      "title": "sendEvent: | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/appkit/nsapplication/sendevent(_:)?language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7125
+    },
+    {
+      "title": "sendAction(_:to:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/appkit/nscontrol/sendaction(_:to:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7125
+    },
+    {
+      "title": "Target-Action",
+      "url": "https://developer.apple.com/library/archive/documentation/General/Conceptual/CocoaEncyclopedia/Target-Action/Target-Action.html",
+      "snippet": "",
+      "published_date": "2012-01-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "Main event loop - Apple Developer",
+      "url": "https://developer.apple.com/library/archive/documentation/General/Devpedia-CocoaApp-MOSX/MainEventLoop.html",
+      "snippet": "Main event loop. In the main event loop, an application continuously routes incoming events to objects for handling and, as a result of that",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6375
+    },
+    {
+      "title": "Cocoa Event Handling Guide - Apple Developer",
+      "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/Introduction/Introduction.html",
+      "snippet": "Introduces event mechanisms and the types of events in Cocoa and describes how to handle events of each type.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6375
+    },
+    {
+      "title": "Event Handling Basics",
+      "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventHandlingBasics/EventHandlingBasics.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Event Architecture",
+      "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html",
+      "snippet": "",
+      "published_date": "2016-09-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How to make a custom event loop in Cocoa? - c++ - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/78132893/how-to-make-a-custom-event-loop-in-cocoa",
+      "snippet": "",
+      "published_date": "2024-03-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Event Objects and Types",
+      "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventObjectsTypes/EventObjectsTypes.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Utilize The Responder Chain For Target-Action - Swift And Painless",
+      "url": "http://swiftandpainless.com/utilize-the-responder-chain-for-target-action/",
+      "snippet": "# Utilize The Responder Chain For Target-Action. In iOS, events (for example touch events) are delivered using the responder chain. When the user taps a view in the view hierarchy, iOS uses hit testing to figure out which responder object should get the touch event first. If that view does not respond to the touch event, the event is passed to the next responder in the responder chain. The target-action mechanism can be set up that is also uses the responder chain by setting the target to `nil`. We could set up the view controller as the target for the button in `viewDidLoad` like this `subview.button.addTarget(self, action: \"onButtonTap:\", forControlEvents: .TouchUpInside)`. But we can also set the target to `nil` and use the responder chain. Even though, we do not set the target explicitly, the `onButtonTap(_:)` method of the view controller gets called when the button is tapped because it is the first responder object implementing a method with that signature.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "NSResponder",
+      "url": "https://preterhuman.net/macstuff/techpubs/macosx/System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSResponder.html",
+      "snippet": "Event and Action Messages in the Responder Chain. The main purpose of the responder chain is to route events and action messages to an appropriate target.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "NSControl - GNUstep.org",
+      "url": "https://www.gnustep.org/resources/documentation/Developer/Gui/Reference/NSControl.html",
+      "snippet": "Asks the NSApplication to send an action theAction with theTarget as target to NSControl. Returns NO if theAction is nil or if NSApplication can not send the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4125
+    },
+    {
+      "title": "NSControl",
+      "url": "https://preterhuman.net/macstuff/techpubs/macosx/System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSControl.html",
+      "snippet": "NSControl's sendAction:to: asks the NSApplication object, NSApp , to send an action message to the control's target object. NSControl provides methods for",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4125
+    },
+    {
+      "title": "How iOS Handles Events When You Touch the Screen",
+      "url": "https://medium.com/@dimaswisodewo98/how-ios-handles-events-when-you-touch-the-screen-%EF%B8%8F-responder-chain-95395fe501ca",
+      "snippet": "",
+      "published_date": "2026-01-18T20:52:35.746Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Action Messages: Targets and Actions",
+      "url": "https://leopard-adc.pepas.com/documentation/Cocoa/Conceptual/ActionMessages/Concepts/TargetsAndActions.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "The Event Loop - Building Cocoa Applications: A Step by ... - OReilly",
+      "url": "https://www.oreilly.com/library/view/building-cocoa-applications/0596002351/ch08s03.html",
+      "snippet": "When the NSApplication object called NSApp receives the run message, it starts the object's main event loop. The event loop is a section of code that reads",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3375
+    },
+    {
+      "title": "Chapter 11. Cocoa Events - apeth.com",
+      "url": "http://www.apeth.com/iOSBook/ch11.html",
+      "snippet": "Your code runs only because Cocoa sends an event and you had previously set up a method ready to receive it. Cocoa has the potential to send lots of events,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Target-Action and the Responder Chain on iOS",
+        "url": "https://github.com/sammeadley/responder-chain",
+        "snippet": "If nil, it is forwarded to the First Responder, and passed down the Responder Chain until handled. Discussion. Actions are added",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "NSResponder | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nsresponder",
+        "snippet": "The responder model uses three components: event messages, action messages, and the responder chain. NSResponder also plays an important role in the",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.7875
+      },
+      {
+        "title": "Responding to control-based events using target-action",
+        "url": "https://developer.apple.com/documentation/uikit/responding-to-control-based-events-using-target-action",
+        "snippet": "When the object hosting the control isn't the one you want handling the event, invoke the responder chain by passing in nil as the target. This causes the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "Utilize The Responder Chain For Target-Action - Swift And Painless",
+        "url": "http://swiftandpainless.com/utilize-the-responder-chain-for-target-action/",
+        "snippet": "# Utilize The Responder Chain For Target-Action. In iOS, events (for example touch events) are delivered using the responder chain. When the user taps a view in the view hierarchy, iOS uses hit testing to figure out which responder object should get the touch event first. If that view does not respond to the touch event, the event is passed to the next responder in the responder chain. The target-action mechanism can be set up that is also uses the responder chain by setting the target to `nil`. We could set up the view controller as the target for the button in `viewDidLoad` like this `subview.button.addTarget(self, action: \"onButtonTap:\", forControlEvents: .TouchUpInside)`. But we can also set the target to `nil` and use the responder chain. Even though, we do not set the target explicitly, the `onButtonTap(_:)` method of the view controller gets called when the button is tapped because it is the first responder object implementing a method with that signature.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Responder Chain in Swift (nil target in UIButton target)",
+        "url": "https://stackoverflow.com/questions/29815240/responder-chain-in-swift-nil-target-in-uibutton-target",
+        "snippet": "The action will be send up the responder chain until the action is handled in the controller. So far so good :-) But I want to intercept the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "sendEvent: | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nsapplication/sendevent(_:)?language=objc",
+        "snippet": "sendEvent: is the method that dispatches events to the appropriate responders— NSApp handles app events, the NSWindow object indicated in the event record",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSResponder | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nsresponder",
+        "snippet": "The responder model uses three components: event messages, action messages, and the responder chain. NSResponder also plays an important role in the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSResponder",
+        "url": "https://preterhuman.net/macstuff/techpubs/macosx/System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSResponder.html",
+        "snippet": "Event and Action Messages in the Responder Chain. The main purpose of the responder chain is to route events and action messages to an appropriate target.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "sendAction(_:to:from:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nsapplication/sendaction(_:to:from:)",
+        "snippet": "## Explore Platforms. ## Explore Documentation. ## Explore Support. 28 of 120 symbols inside -1817745663 func deactivate()). 27 of 120 symbols inside -1817745663 func activate()). 25 of 120 symbols inside -1817745663. 23 of 120 symbols inside -1817745663 func terminate(Any?)). 22 of 120 symbols inside -1817745663. 21 of 120 symbols inside -1817745663 func target(forAction: Selector, to: Any?, from: Any?) -> Any?). 20 of 120 symbols inside -1817745663 func target(forAction: Selector) -> Any?). 19 of 120 symbols inside -1817745663 func sendAction(Selector, to: Any?, from: Any?) -> Bool). 18 of 120 symbols inside -1817745663 func tryToPerform(Selector, with: Any?) -> Bool). 17 of 120 symbols inside -1817745663. 13 of 120 symbols inside -1817745663 func finishLaunching()). 7 of 120 symbols inside -1817745663. 4 of 120 symbols inside -1817745663. 1 of 120 symbols inside -1817745663. 1 of 26 symbols inside -1174573736. 5 of 46 symbols inside <root>Porting your macOS apps to Apple silicon. Sends the specified message to each of the app’s window objects until one returns a non-`nil` value.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Target-Action and the Responder Chain on iOS - GitHub",
+        "url": "https://github.com/sammeadley/responder-chain",
+        "snippet": "Target-Action and the Responder Chain on iOS. Contribute to sammeadley/responder-chain development by creating an account on GitHub.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "sendAction:to: | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nscontrol/sendaction(_:to:)?language=objc",
+        "snippet": "This method uses the sendAction:to:from: method of NSApplication to invoke the specified method on an object. The receiver is passed as the parameter to the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "sendAction(_:to:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nscontrol/sendaction(_:to:)",
+        "snippet": "This method uses the sendAction(_:to:from:) method of NSApplication to invoke the specified method on an object. The receiver is passed as the parameter to the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSControl - GNUstep.org",
+        "url": "https://www.gnustep.org/resources/documentation/Developer/Gui/Reference/NSControl.html",
+        "snippet": "Asks the NSApplication to send an action theAction with theTarget as target to NSControl. Returns NO if theAction is nil or if NSApplication can not send the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4125
+      },
+      {
+        "title": "NSControl",
+        "url": "https://preterhuman.net/macstuff/techpubs/macosx/System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSControl.html",
+        "snippet": "NSControl's sendAction:to: asks the NSApplication object, NSApp , to send an action message to the control's target object. NSControl provides methods for",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4125
+      },
+      {
+        "title": "sendAction(_:to:from:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nsapplication/sendaction(_:to:from:)",
+        "snippet": "## Explore Platforms. ## Explore Documentation. ## Explore Support. 28 of 120 symbols inside -1817745663 func deactivate()). 27 of 120 symbols inside -1817745663 func activate()). 25 of 120 symbols inside -1817745663. 23 of 120 symbols inside -1817745663 func terminate(Any?)). 22 of 120 symbols inside -1817745663. 21 of 120 symbols inside -1817745663 func target(forAction: Selector, to: Any?, from: Any?) -> Any?). 20 of 120 symbols inside -1817745663 func target(forAction: Selector) -> Any?). 19 of 120 symbols inside -1817745663 func sendAction(Selector, to: Any?, from: Any?) -> Bool). 18 of 120 symbols inside -1817745663 func tryToPerform(Selector, with: Any?) -> Bool). 17 of 120 symbols inside -1817745663. 13 of 120 symbols inside -1817745663 func finishLaunching()). 7 of 120 symbols inside -1817745663. 4 of 120 symbols inside -1817745663. 1 of 120 symbols inside -1817745663. 1 of 26 symbols inside -1174573736. 5 of 46 symbols inside <root>Porting your macOS apps to Apple silicon. Sends the specified message to each of the app’s window objects until one returns a non-`nil` value.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Main event loop - Apple Developer",
+        "url": "https://developer.apple.com/library/archive/documentation/General/Devpedia-CocoaApp-MOSX/MainEventLoop.html",
+        "snippet": "Main event loop. In the main event loop, an application continuously routes incoming events to objects for handling and, as a result of that",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6375
+      },
+      {
+        "title": "Cocoa Event Handling Guide - Apple Developer",
+        "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/Introduction/Introduction.html",
+        "snippet": "Introduces event mechanisms and the types of events in Cocoa and describes how to handle events of each type.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6375
+      },
+      {
+        "title": "Event Handling Basics - Apple Developer",
+        "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventHandlingBasics/EventHandlingBasics.html",
+        "snippet": "Introduces event mechanisms and the types of events in Cocoa and describes how to handle events of each type.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "The Event Loop - Building Cocoa Applications: A Step by ... - OReilly",
+        "url": "https://www.oreilly.com/library/view/building-cocoa-applications/0596002351/ch08s03.html",
+        "snippet": "When the NSApplication object called NSApp receives the run message, it starts the object's main event loop. The event loop is a section of code that reads",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3375
+      },
+      {
+        "title": "Chapter 11. Cocoa Events - apeth.com",
+        "url": "http://www.apeth.com/iOSBook/ch11.html",
+        "snippet": "Your code runs only because Cocoa sends an event and you had previously set up a method ready to receive it. Cocoa has the potential to send lots of events,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      }
+    ],
+    "exa": [
+      {
+        "title": "NSResponder | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nsresponder",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "How iOS Handles Events When You Touch the Screen",
+        "url": "https://medium.com/@dimaswisodewo98/how-ios-handles-events-when-you-touch-the-screen-%EF%B8%8F-responder-chain-95395fe501ca",
+        "snippet": "",
+        "published_date": "2026-01-18T20:52:35.746Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Target-Action",
+        "url": "https://developer.apple.com/library/archive/documentation/General/Conceptual/CocoaEncyclopedia/Target-Action/Target-Action.html",
+        "snippet": "",
+        "published_date": "2012-01-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.675
+      },
+      {
+        "title": "Event Handling Basics",
+        "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventHandlingBasics/EventHandlingBasics.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Event Architecture",
+        "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html",
+        "snippet": "",
+        "published_date": "2016-09-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "sendAction(_:to:from:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nsapplication/sendaction(_:to:from:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7125
+      },
+      {
+        "title": "NSApplication | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nsapplication",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7125
+      },
+      {
+        "title": "NSApplication | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nsapplication?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7125
+      },
+      {
+        "title": "Event Architecture",
+        "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html",
+        "snippet": "",
+        "published_date": "2016-09-13T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "sendEvent: | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nsapplication/sendevent(_:)?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7125
+      },
+      {
+        "title": "sendAction(_:to:from:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nsapplication/sendaction(_:to:from:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "sendAction(_:to:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nscontrol/sendaction(_:to:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7125
+      },
+      {
+        "title": "NSApplication | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nsapplication",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "NSApplication | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nsapplication?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Action Messages: Targets and Actions",
+        "url": "https://leopard-adc.pepas.com/documentation/Cocoa/Conceptual/ActionMessages/Concepts/TargetsAndActions.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "Main event loop - Apple Developer",
+        "url": "https://developer.apple.com/library/archive/documentation/General/Devpedia-CocoaApp-MOSX/MainEventLoop.html",
+        "snippet": "",
+        "published_date": "2018-04-06T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "How to make a custom event loop in Cocoa? - c++ - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/78132893/how-to-make-a-custom-event-loop-in-cocoa",
+        "snippet": "",
+        "published_date": "2024-03-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Event Architecture",
+        "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html",
+        "snippet": "",
+        "published_date": "2016-09-13T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Event Objects and Types",
+        "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventObjectsTypes/EventObjectsTypes.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "NSApplication | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/appkit/nsapplication",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "grok": []
+  }
+}
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
