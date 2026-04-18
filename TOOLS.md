@@ -43,6 +43,9 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - Do **not** assume `set -o pipefail`, Bash arrays, or other Bash-only syntax will work directly in the raw `command` field.
 - When a command needs Bash semantics or safer complex quoting, wrap it explicitly as:
   - `bash -lc '...'`
+- Do **not** force `exec.host = sandbox` on this deployment unless policy has explicitly enabled that override.
+  - The normal configured exec host here is the gateway.
+  - For routine commands, omit `host` or use the default/`auto`; otherwise the call can fail before the command even starts with `exec host not allowed`.
 - In exec-event flows, avoid broad recursive `grep` / `find` over large trees (`node_modules`, `.next`, `.git`, archived app bundles, 1Panel-managed directories) when you only need a few config hits.
 - Prefer staged discovery + narrow reads:
   - first identify likely paths/files

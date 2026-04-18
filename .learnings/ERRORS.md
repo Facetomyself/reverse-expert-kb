@@ -1470,3 +1470,37 @@ Set repository-local git identity before the first commit, ideally using the Git
 - **Notes**: Set repository-local git identity using `Facetomyself` + GitHub noreply email, then completed the initial commit successfully.
 
 ---
+2026-04-16 04:50 Asia/Shanghai | reverse-kb-autosync | search-layer degraded: grok 502 on iOS keychain auth-context / SecKey signature run; exa+tavily succeeded
+
+## [ERR-20260418-001] exec-host-override-not-allowed
+
+**Logged**: 2026-04-18T13:04:07+08:00
+**Priority**: low
+**Status**: pending
+**Area**: config
+
+### Summary
+An `exec` call failed before running because this deployment does not allow forcing `host: sandbox`; the configured exec host is the gateway unless `host` is omitted or `auto` is allowed.
+
+### Error
+```text
+exec host not allowed (requested sandbox; configured host is gateway; set tools.exec.host=sandbox or auto to allow this override).
+```
+
+### Context
+- Command/operation attempted: `openclaw doctor --non-interactive`
+- Tool call included an explicit `host: "sandbox"` override.
+- This OpenClaw deployment is configured to run exec on the gateway by default.
+- Retrying the same command without the sandbox override succeeded immediately.
+
+### Suggested Fix
+- Do not force `host: sandbox` on this host unless the tool policy explicitly allows it.
+- Prefer omitting `host` entirely or using the deployment default / `auto` when running routine workspace commands here.
+- Treat this as an environment-specific exec-routing constraint, not a failure of the underlying command.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/.learnings/ERRORS.md, /root/.openclaw/workspace/TOOLS.md
+- See Also: none
+
+---
