@@ -1472,6 +1472,45 @@ Set repository-local git identity before the first commit, ideally using the Git
 ---
 2026-04-16 04:50 Asia/Shanghai | reverse-kb-autosync | search-layer degraded: grok 502 on iOS keychain auth-context / SecKey signature run; exa+tavily succeeded
 
+## [ERR-20260418-002] doctor-local-memory-probe-timeout-after-working-setup
+
+**Logged**: 2026-04-18T14:48:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: config
+
+### Summary
+After successfully enabling local memory embeddings on this host, `openclaw doctor --non-interactive` still warned that local embeddings were not ready because the gateway-side doctor memory probe timed out, even though direct memory status and an explicit gateway call both showed embeddings working.
+
+### Error
+```text
+Memory search provider is set to "local" and a model path is configured, but the gateway reports local embeddings are not ready.
+Gateway probe: gateway memory probe unavailable: gateway timeout after 3000ms
+```
+
+### Context
+- Host setup was changed to use `agents.defaults.memorySearch.provider = "local"`.
+- Dependencies installed locally: `cmake` and global npm package `node-llama-cpp`.
+- Default embedding model was downloaded to `~/.cache/node-llama-cpp/` and both agents validated with:
+  - `openclaw memory status --deep --agent main` → `Embeddings: ready`
+  - `openclaw memory status --deep --agent reverse` → `Embeddings: ready`
+- Explicit gateway method call also succeeded:
+  - `openclaw gateway call doctor.memory.status --json --timeout 60000`
+  - returned `embedding.ok = true`
+- Despite that, repeated `openclaw doctor --non-interactive` runs still warned because the shorter gateway doctor probe path timed out.
+
+### Suggested Fix
+- Treat this specific pattern as a gateway doctor-probe timeout / warmup inconsistency, not immediate proof that local embeddings are broken.
+- Verify with `openclaw memory status --deep` and `openclaw gateway call doctor.memory.status --json --timeout 60000` before disabling local memory search.
+- If this becomes common, prefer a product-side fix: increase doctor memory probe timeout or warm the local embedding provider before probe.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/.learnings/ERRORS.md, /root/.openclaw/workspace/TOOLS.md
+- See Also: none
+
+---
+
 ## [ERR-20260418-001] exec-host-override-not-allowed
 
 **Logged**: 2026-04-18T13:04:07+08:00

@@ -112,4 +112,21 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
   - some Chinese content platforms (for example Zhihu/CSDN) may fail or degrade
 - When readable extraction matters, prefer HTML landing pages, abstracts, GitHub pages, and open-source documentation before direct PDF/article fetches.
 
+## OpenClaw Local Memory Embeddings on This Host
+
+- As of 2026-04-18, local memory embeddings are workable here via:
+  - global package: `node-llama-cpp`
+  - default local model: `hf:ggml-org/embeddinggemma-300m-qat-q8_0-GGUF/embeddinggemma-300m-qat-Q8_0.gguf`
+  - cache dir: `/root/.cache/node-llama-cpp`
+- Practical setup shape that worked:
+  - install `cmake`
+  - install global npm package `node-llama-cpp`
+  - set `agents.defaults.memorySearch.provider = "local"`
+- Validation commands:
+  - `openclaw memory status --deep --agent main`
+  - `openclaw memory status --deep --agent reverse`
+- Known gotcha:
+  - `openclaw doctor --non-interactive` may still warn that local embeddings are "not ready" because the **gateway doctor probe** can time out, even when `openclaw memory status --deep` shows `Embeddings: ready` and `openclaw gateway call doctor.memory.status --json --timeout 60000` returns `embedding.ok = true`.
+  - Treat that specific combination as a **probe-timeout inconsistency**, not immediate proof that local memory embeddings are broken.
+
 Add whatever helps you do your job. This is your cheat sheet.
