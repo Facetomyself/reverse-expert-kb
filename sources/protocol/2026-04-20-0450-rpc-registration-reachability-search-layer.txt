@@ -1,0 +1,574 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "RpcServerRegisterIfEx RpcEpRegister RpcMgmtEpEltInqBegin endpoint mapper documentation",
+    "Windows RPC interface registration endpoint publication client reachability documentation",
+    "RpcMgmtInqIfIds RpcMgmtEpEltInqBegin RpcEpRegister interface endpoint mapper documentation",
+    "RpcServerUseProtseqEp RpcStringBindingCompose RpcBindingFromStringBinding RPC endpoint reachability documentation"
+  ],
+  "count": 30,
+  "results": [
+    {
+      "title": "finding-endpoints.md - MicrosoftDocs/win32 - GitHub",
+      "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Rpc/finding-endpoints.md",
+      "snippet": "If more specific control over endpoint selection is required, clients can search the endpoint map one entry at a time by calling the RpcMgmtEpEltInqBegin,",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.7
+    },
+    {
+      "title": "nf-rpcdce-rpcmgmtepeltinqdone.md - sdk-api-src - GitHub",
+      "url": "https://github.com/MicrosoftDocs/sdk-api/blob/docs/sdk-api-src/content/rpcdce/nf-rpcdce-rpcmgmtepeltinqdone.md",
+      "snippet": "The RpcMgmtEpEltInqDone function deletes an inquiry context created by RpcMgmtEpEltInqBegin. An application calls this function after viewing local endpoint-map",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "Registering Endpoints - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/registering-endpoints",
+      "snippet": "",
+      "published_date": "2019-08-23T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.65
+    },
+    {
+      "title": "RpcEpRegister function (rpcdce.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcepregister",
+      "snippet": "",
+      "published_date": "2022-08-19T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.65
+    },
+    {
+      "title": "RpcMgmtEpEltInqBegin function (rpcdce.h) - Win32 - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcmgmtepeltinqbegin",
+      "snippet": "",
+      "published_date": "2021-04-01T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.65
+    },
+    {
+      "title": "RpcEpRegisterW function (rpcdce.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcepregisterw",
+      "snippet": "",
+      "published_date": "2023-08-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "RPCMappedEndpoints - SpecterOps Open Source",
+      "url": "https://docs.specterops.io/ghostpack-docs/Seatbelt-mdx/commands/rpcmappedendpoints",
+      "snippet": "The RPCMappedEndpoints command enumerates all currently mapped Remote Procedure Call (RPC) endpoints on the system. ====== RPCMappedEndpoints ====== ====== RPCMappedEndpoints ======  Interface : 12345678-1234-ABCD-EF00-0123456789AB Interface : 12345678-1234-ABCD-EF00-0123456789AB Version : 1.0 Version : 1.0 Protocol : ncacn_ip_tcp Protocol : ncacn_ip_tcp Endpoint : 49152 Endpoint : 49152 Address : 0.0.0.0 Address : 0.0.0.0 Process : svchost.exe Process : svchost.exe Annotation: Task Scheduler Service Annotation: Task Scheduler Service  Interface : 367ABB81-9844-35F1-AD32-98F038001003 Interface : 367ABB81-9844-35F1-AD32-98F038001003 Version : 2.0 Version : 2.0 Protocol : ncacn_np Protocol : ncacn_np Endpoint : \\pipe\\svcctl Endpoint : \\pipe\\svcctl Address : \\\\WORKSTATION01 Address : \\\\WORKSTATION01 Process : services.exe Process : services.exe Annotation: Service Control Manager Annotation: Service Control Manager  Interface : 86D35949-83C9-4044-B424-DB363231FD0C Interface : 86D35949-83C9-4044-B424-DB363231FD0C Version : 1.0 Version : 1.0 Protocol : ncalrpc Protocol : ncalrpc Endpoint : LRPC-1234567890abcdef Endpoint : LRPC-1234567890abcdef Process : lsass.exe Process : lsass.exe Annotation: Local Security Authority Annotation: Local Security Authority  Interface : 3C4728C5-F0AB-448B-BDA1-6CE01EB0A6D5 Interface : 3C4728C5-F0AB-448B-BDA1-6CE01EB0A6D5 Version : 1.0 Version : 1.0 Protocol : ncacn_ip_tcp Protocol : ncacn_ip_tcp Endpoint : 135 Endpoint : 135 Process : svchost.exe Process : svchost.exe Annotation: RPC Endpoint Mapper Annotation: RPC Endpoint Mapper  Interface : 6B5BDD1E-528C-422C-AF8C-A4079BE4FE48 Interface : 6B5BDD1E-528C-422C-AF8C-A4079BE4FE48 Version : 1.0 Version : 1.0 Protocol : ncacn_np Protocol : ncacn_np Endpoint : \\pipe\\wkssvc Endpoint : \\pipe\\wkssvc Process : svchost.exe Process : svchost.exe Annotation: Workstation Service Annotation: Workstation Service. However, RPC endpoints themselves may be accessible remotely depending on their configuration. * Unusual processes enumerating RPC endpoints.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "RpcServerRegisterIfEx function (rpcdce.h) - Win32 - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcserverregisterifex",
+      "snippet": "",
+      "published_date": "2021-04-01T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.65
+    },
+    {
+      "title": "RpcServerUseProtseqEpW function (rpcdce.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcserveruseprotseqepw",
+      "snippet": "The RpcServerUseProtseqEp function tells the RPC run-time library to use the specified protocol sequence combined with the specified endpoint for receiving",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "RpcServerUseProtseqEpEx function (rpcdce.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcserveruseprotseqepex",
+      "snippet": "The RpcServerUseProtseqEpEx function tells the RPC run-time library to use the specified protocol sequence combined with the specified endpoint",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "Publishing with the RPC Name Service - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/ad/publishing-with-the-rpc-name-service-rpcns",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How the Server Prepares for a Connection - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/how-the-server-prepares-for-a-connection",
+      "snippet": "",
+      "published_date": "2019-08-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "RPC Interface Restriction for Windows Server | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-server/security/rpc-interface-restrict",
+      "snippet": "To allow RPC client calls using connectionless protocols, keep `RestrictRemoteClients` value set to **disabled**. When an interface is registered using `RpcServerRegisterIf`, RPC allows the server application to restrict access to the interface through a security callback. 2. To enable the equivalent of `RestrictRemoteClients` settings, navigate to **Computer Configuration\\Administrative Templates\\System\\Remote Procedure Call\\Restrictions for Unauthenticated RPC Clients**, then select one of the following:. * **Authenticated** - Corresponds to the value *RPC\\_RESTRICT\\_REMOTE\\_CLIENT\\_DEFAULT* in rpcdce.h. Allows only authenticated RPC Clients to connect to RPC Servers running on the machine on which the policy setting is applied. If an interface registers a security callback and provides the *RPC\\_IF\\_ALLOW\\_CALLBACKS\\_WITH\\_NO\\_AUTH* flag, then this restriction doesn't apply to that interface. * **Authenticated without exceptions**1 - Corresponds to the value *RPC\\_RESTRICT\\_REMOTE\\_CLIENT\\_HIGH* in rpcdce.h. Allows only authenticated RPC Clients to connect to RPC Servers running on the machine on which the policy setting is applied. When an interface is registered with this flag, RPC does reject calls made by remote RPC clients.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "RpcMgmtInqIfIds function (rpcdce.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcmgmtinqifids",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Remote Procedure Call (RPC) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/_rpc/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "RPC Functions - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/rpc-functions",
+      "snippet": "",
+      "published_date": "2020-08-19T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "RpcServerRegisterIf function (rpcdce.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcserverregisterif",
+      "snippet": "",
+      "published_date": "2024-02-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "RpcServerUseProtseqEp function (rpcdce.h) - Win32 - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcserveruseprotseqep",
+      "snippet": "",
+      "published_date": "2022-08-18T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "RpcBindingFromStringBinding function (rpcdce.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcbindingfromstringbinding",
+      "snippet": "",
+      "published_date": "2022-08-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "The Client Application - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/the-client-application",
+      "snippet": "",
+      "published_date": "2021-06-19T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "RpcStringBindingCompose function (rpcdce.h)",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcstringbindingcompose?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2022-08-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "RpcBindingFromStringBinding function (rpcdce.h)",
+      "url": "https://learn.microsoft.com/sk-sk/windows/win32/api/rpcdce/nf-rpcdce-rpcbindingfromstringbinding",
+      "snippet": "The RpcBindingFromStringBinding function creates a server binding handle from a string representation of a binding handle. The StringBinding parameter does not",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "RpcServerUseProtseq function (rpcdce.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcserveruseprotseq",
+      "snippet": "The RpcServerUseProtseq function tells the RPC run-time library to use the specified protocol sequence for receiving remote procedure calls.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Tyranid's Lair: Finding Running RPC Server Information with NtObjectManager",
+      "url": "https://www.tiraniddo.dev/2022/06/finding-running-rpc-server-information.html",
+      "snippet": "When an RPC server is started the service can register an RPC interface with the function RpcEpRegister specifying the interface UUID and version along with the binding information with the RPC endpoint mapper service running in RPCSS. You can use this information to find what process is likely to be hosting the RPC server by querying for the service PID if it's running. * It doesn't ensure the RPC servers are running if they're not registered in the endpoint mapper. For example the WinHTTP DLL has a built-in RPC server which is only loaded when running the WinHTTP proxy service, but the DLL could be loaded in any process which uses the APIs. To simplify things I expose this approach through the Get-RpcServer function with the *ProcessId* parameter. For example, you could first get a list of potential interfaces by enumerating the modules and parsing the RPC servers, then filter that list to only the ones which are running by querying the endpoint directly.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Enable RPC Endpoint Mapper Client Authentication - vsociety",
+      "url": "https://www.vicarius.io/vsociety/posts/enable-rpc-endpoint-mapper-client-authentication",
+      "snippet": "",
+      "published_date": "2026-02-18T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.4
+    },
+    {
+      "title": "[PDF] [MS-RPCE-Diff]: Remote Procedure Call Protocol Extensions",
+      "url": "https://winprotocoldoc.z19.web.core.windows.net/MS-RPCE/%5BMS-RPCE%5D-170601-diff.pdf",
+      "snippet": "RPC over IPX MUST use an endpoint mapper well-known endpoint of 34280. ... endpoint mapper to resolve the endpoint for an interface. These.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "RPC Client & Server | Step-by-Step Windows RPC Guide",
+      "url": "https://trainsec.net/library/windows-internals/building-a-simple-rpc-client-and-server-a-step-by-step-guide/",
+      "snippet": "Windows Research with WINDBG with Pavel Yosifovich. Join Pavel Yosifovich for a live 4 hour masterclass on researching Windows using WinDbg. Learn how to configure WinDbg, investigate. In this video, I demonstrate how to perform a file scan using Windows AMSI directly from C#. Inside Windows Sessions: A Deep Dive with Pavel. Pavel Yosifovich explains Session 0, window stations, and more in. How to Capture a Process Snapshot in Windows. How to Build a Process Tree in Windows with Code. In this video we walk through how process trees are built in Windows, starting with what tools like Process Explorer. Starting with Windows Vista, Microsoft introduced protected processes—special executables the kernel shields from injection, memory reads/writes and handle duplication. In this video, Pavel walks through how to implement a basic keylogger in Windows using GetKeyState, handling character normalization (Shift,. In this video, we dive into two powerful Windows API functions—CreateProcessAsUser and CreateProcessWithTokenW—that allow you to start a new process. writing a simple windows service. A Windows service is a.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "TrustedSec | RPC Programming for the Aspiring Windows Developer",
+      "url": "https://trustedsec.com/blog/rpc-programming-for-the-aspiring-windows-developer",
+      "snippet": "All these tools should be installed on a Windows-based host or VM since we will need the Windows toolchains later to generate some of the backing code required by RPC. ## Coding Against an RPC Interface. This is especially true when dealing with RPC interfaces since we need to deal with a potentially high amount of generated code. For our use case, we can adopt the definition of those two (2) files from the reactos project’s lsa.c. At this point, we can finally code against the actual RPC interface. At this point, we have working code for interacting directly with an RPC interface. The main item to notice is coding against an RPC interface is not much different than making any other function call after you have worked out fixing up the converted IDL and figured out what the general workflow of the protocol is. My main purpose for writing this post was to show what an average developer's experience might look like for coding against a raw RPC interface.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "DCE 1.1: Remote Procedure Call - rpc_mgmt_inq_if_ids",
+      "url": "http://www.opengroup.org/onlinepubs/9629399/rpc_mgmt_inq_if_ids.htm",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "DCE 1.1: Remote Procedure Call - rpc_mgmt_ep_elt_inq_begin",
+      "url": "http://www.opengroup.org/onlinepubs/9629399/rpc_mgmt_ep_elt_inq_begin.htm",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Enable RPC Endpoint Mapper Client Authentication - vsociety",
+        "url": "https://www.vicarius.io/vsociety/posts/enable-rpc-endpoint-mapper-client-authentication",
+        "snippet": "",
+        "published_date": "2026-02-18T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Registering Endpoints - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/registering-endpoints",
+        "snippet": "",
+        "published_date": "2019-08-23T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.65
+      },
+      {
+        "title": "Publishing with the RPC Name Service - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/ad/publishing-with-the-rpc-name-service-rpcns",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "How the Server Prepares for a Connection - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/how-the-server-prepares-for-a-connection",
+        "snippet": "",
+        "published_date": "2019-08-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "RpcEpRegister function (rpcdce.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcepregister",
+        "snippet": "",
+        "published_date": "2022-08-19T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.65
+      },
+      {
+        "title": "RpcMgmtInqIfIds function (rpcdce.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcmgmtinqifids",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "RpcMgmtEpEltInqBegin function (rpcdce.h) - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcmgmtepeltinqbegin",
+        "snippet": "",
+        "published_date": "2021-04-01T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.65
+      },
+      {
+        "title": "DCE 1.1: Remote Procedure Call - rpc_mgmt_inq_if_ids",
+        "url": "http://www.opengroup.org/onlinepubs/9629399/rpc_mgmt_inq_if_ids.htm",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Remote Procedure Call (RPC) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/_rpc/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "RpcEpRegisterW function (rpcdce.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcepregisterw",
+        "snippet": "",
+        "published_date": "2023-08-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "RpcServerRegisterIfEx function (rpcdce.h) - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcserverregisterifex",
+        "snippet": "",
+        "published_date": "2021-04-01T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.65
+      },
+      {
+        "title": "RpcMgmtEpEltInqBegin function (rpcdce.h) - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcmgmtepeltinqbegin",
+        "snippet": "",
+        "published_date": "2021-04-01T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "RPC Functions - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/rpc-functions",
+        "snippet": "",
+        "published_date": "2020-08-19T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "RpcServerRegisterIf function (rpcdce.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcserverregisterif",
+        "snippet": "",
+        "published_date": "2024-02-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "DCE 1.1: Remote Procedure Call - rpc_mgmt_ep_elt_inq_begin",
+        "url": "http://www.opengroup.org/onlinepubs/9629399/rpc_mgmt_ep_elt_inq_begin.htm",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "RpcServerUseProtseqEp function (rpcdce.h) - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcserveruseprotseqep",
+        "snippet": "",
+        "published_date": "2022-08-18T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "RpcBindingFromStringBinding function (rpcdce.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcbindingfromstringbinding",
+        "snippet": "",
+        "published_date": "2022-08-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "The Client Application - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/the-client-application",
+        "snippet": "",
+        "published_date": "2021-06-19T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "desktop-src/Rpc/finding-endpoints.md at docs · MicrosoftDocs/win32",
+        "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Rpc/finding-endpoints.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "RpcStringBindingCompose function (rpcdce.h)",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcstringbindingcompose?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2022-08-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      }
+    ],
+    "tavily": [
+      {
+        "title": "RPC Interface Restriction for Windows Server | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-server/security/rpc-interface-restrict",
+        "snippet": "To allow RPC client calls using connectionless protocols, keep `RestrictRemoteClients` value set to **disabled**. When an interface is registered using `RpcServerRegisterIf`, RPC allows the server application to restrict access to the interface through a security callback. 2. To enable the equivalent of `RestrictRemoteClients` settings, navigate to **Computer Configuration\\Administrative Templates\\System\\Remote Procedure Call\\Restrictions for Unauthenticated RPC Clients**, then select one of the following:. * **Authenticated** - Corresponds to the value *RPC\\_RESTRICT\\_REMOTE\\_CLIENT\\_DEFAULT* in rpcdce.h. Allows only authenticated RPC Clients to connect to RPC Servers running on the machine on which the policy setting is applied. If an interface registers a security callback and provides the *RPC\\_IF\\_ALLOW\\_CALLBACKS\\_WITH\\_NO\\_AUTH* flag, then this restriction doesn't apply to that interface. * **Authenticated without exceptions**1 - Corresponds to the value *RPC\\_RESTRICT\\_REMOTE\\_CLIENT\\_HIGH* in rpcdce.h. Allows only authenticated RPC Clients to connect to RPC Servers running on the machine on which the policy setting is applied. When an interface is registered with this flag, RPC does reject calls made by remote RPC clients.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Registering Endpoints - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/rpc/registering-endpoints",
+        "snippet": "To register itself in the server host system's endpoint map, a server program calls the RpcEpRegister function as shown in the following code fragment.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Enable RPC Endpoint Mapper Client Authentication - vsociety",
+        "url": "https://www.vicarius.io/vsociety/posts/enable-rpc-endpoint-mapper-client-authentication",
+        "snippet": "# Enable RPC Endpoint Mapper Client Authentication. # Enable RPC Endpoint Mapper Client Authentication. Enables RPC Endpoint Mapper client authentication on Windows for security hardening. Configures Windows RPC clients to authenticate with the Endpoint Mapper Service when. - RPC clients will not be able to communicate with Windows NT4 Endpoint Mapper Service. ✅ This PowerShell script **enables RPC Endpoint Mapper client authentication on Windows** according to CIS benchmark 18.9.36.1 (L1), forcing RPC clients to authenticate when contacting the Endpoint Mapper Service to prevent anonymous service enumeration and accidental information disclosure to unauthenticated users. * Configures `EnableAuthEpResolution` registry value to require RPC client authentication with Endpoint Mapper. * **Automatic verification** - confirms that RPC authentication requirement was successfully enabled after configuration. + **Anonymous enumeration prevention:** Blocks unauthenticated users from querying the RPC Endpoint Mapper to discover available services and their network locations. * **Server infrastructure protection:** Configure on application and database servers to limit RPC service visibility to authenticated clients only.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RPC Client & Server | Step-by-Step Windows RPC Guide",
+        "url": "https://trainsec.net/library/windows-internals/building-a-simple-rpc-client-and-server-a-step-by-step-guide/",
+        "snippet": "Windows Research with WINDBG with Pavel Yosifovich. Join Pavel Yosifovich for a live 4 hour masterclass on researching Windows using WinDbg. Learn how to configure WinDbg, investigate. In this video, I demonstrate how to perform a file scan using Windows AMSI directly from C#. Inside Windows Sessions: A Deep Dive with Pavel. Pavel Yosifovich explains Session 0, window stations, and more in. How to Capture a Process Snapshot in Windows. How to Build a Process Tree in Windows with Code. In this video we walk through how process trees are built in Windows, starting with what tools like Process Explorer. Starting with Windows Vista, Microsoft introduced protected processes—special executables the kernel shields from injection, memory reads/writes and handle duplication. In this video, Pavel walks through how to implement a basic keylogger in Windows using GetKeyState, handling character normalization (Shift,. In this video, we dive into two powerful Windows API functions—CreateProcessAsUser and CreateProcessWithTokenW—that allow you to start a new process. writing a simple windows service. A Windows service is a.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "TrustedSec | RPC Programming for the Aspiring Windows Developer",
+        "url": "https://trustedsec.com/blog/rpc-programming-for-the-aspiring-windows-developer",
+        "snippet": "All these tools should be installed on a Windows-based host or VM since we will need the Windows toolchains later to generate some of the backing code required by RPC. ## Coding Against an RPC Interface. This is especially true when dealing with RPC interfaces since we need to deal with a potentially high amount of generated code. For our use case, we can adopt the definition of those two (2) files from the reactos project’s lsa.c. At this point, we can finally code against the actual RPC interface. At this point, we have working code for interacting directly with an RPC interface. The main item to notice is coding against an RPC interface is not much different than making any other function call after you have worked out fixing up the converted IDL and figured out what the general workflow of the protocol is. My main purpose for writing this post was to show what an average developer's experience might look like for coding against a raw RPC interface.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "RpcMgmtEpEltInqBegin function (rpcdce.h) - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcmgmtepeltinqbegin",
+        "snippet": "The RpcMgmtEpEltInqBegin function creates an inquiry context for viewing the elements in an endpoint map.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "finding-endpoints.md - MicrosoftDocs/win32 - GitHub",
+        "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Rpc/finding-endpoints.md",
+        "snippet": "If more specific control over endpoint selection is required, clients can search the endpoint map one entry at a time by calling the RpcMgmtEpEltInqBegin,",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.7
+      },
+      {
+        "title": "[PDF] [MS-RPCE-Diff]: Remote Procedure Call Protocol Extensions",
+        "url": "https://winprotocoldoc.z19.web.core.windows.net/MS-RPCE/%5BMS-RPCE%5D-170601-diff.pdf",
+        "snippet": "RPC over IPX MUST use an endpoint mapper well-known endpoint of 34280. ... endpoint mapper to resolve the endpoint for an interface. These.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "RPCMappedEndpoints - SpecterOps Open Source",
+        "url": "https://docs.specterops.io/ghostpack-docs/Seatbelt-mdx/commands/rpcmappedendpoints",
+        "snippet": "The RPCMappedEndpoints command enumerates all currently mapped Remote Procedure Call (RPC) endpoints on the system. ====== RPCMappedEndpoints ====== ====== RPCMappedEndpoints ======  Interface : 12345678-1234-ABCD-EF00-0123456789AB Interface : 12345678-1234-ABCD-EF00-0123456789AB Version : 1.0 Version : 1.0 Protocol : ncacn_ip_tcp Protocol : ncacn_ip_tcp Endpoint : 49152 Endpoint : 49152 Address : 0.0.0.0 Address : 0.0.0.0 Process : svchost.exe Process : svchost.exe Annotation: Task Scheduler Service Annotation: Task Scheduler Service  Interface : 367ABB81-9844-35F1-AD32-98F038001003 Interface : 367ABB81-9844-35F1-AD32-98F038001003 Version : 2.0 Version : 2.0 Protocol : ncacn_np Protocol : ncacn_np Endpoint : \\pipe\\svcctl Endpoint : \\pipe\\svcctl Address : \\\\WORKSTATION01 Address : \\\\WORKSTATION01 Process : services.exe Process : services.exe Annotation: Service Control Manager Annotation: Service Control Manager  Interface : 86D35949-83C9-4044-B424-DB363231FD0C Interface : 86D35949-83C9-4044-B424-DB363231FD0C Version : 1.0 Version : 1.0 Protocol : ncalrpc Protocol : ncalrpc Endpoint : LRPC-1234567890abcdef Endpoint : LRPC-1234567890abcdef Process : lsass.exe Process : lsass.exe Annotation: Local Security Authority Annotation: Local Security Authority  Interface : 3C4728C5-F0AB-448B-BDA1-6CE01EB0A6D5 Interface : 3C4728C5-F0AB-448B-BDA1-6CE01EB0A6D5 Version : 1.0 Version : 1.0 Protocol : ncacn_ip_tcp Protocol : ncacn_ip_tcp Endpoint : 135 Endpoint : 135 Process : svchost.exe Process : svchost.exe Annotation: RPC Endpoint Mapper Annotation: RPC Endpoint Mapper  Interface : 6B5BDD1E-528C-422C-AF8C-A4079BE4FE48 Interface : 6B5BDD1E-528C-422C-AF8C-A4079BE4FE48 Version : 1.0 Version : 1.0 Protocol : ncacn_np Protocol : ncacn_np Endpoint : \\pipe\\wkssvc Endpoint : \\pipe\\wkssvc Process : svchost.exe Process : svchost.exe Annotation: Workstation Service Annotation: Workstation Service. However, RPC endpoints themselves may be accessible remotely depending on their configuration. * Unusual processes enumerating RPC endpoints.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "RpcEpRegister function (rpcdce.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcepregister",
+        "snippet": "The RpcEpRegister function (rpcdce.h) adds to or replaces server address information in the local endpoint-map database.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RpcMgmtEpEltInqBegin function (rpcdce.h) - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcmgmtepeltinqbegin",
+        "snippet": "The RpcMgmtEpEltInqBegin function creates an inquiry context for viewing server-address information stored in the endpoint map.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RpcEpRegister function (rpcdce.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcepregister",
+        "snippet": "The RpcEpRegister function (rpcdce.h) adds to or replaces server address information in the local endpoint-map database.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Tyranid's Lair: Finding Running RPC Server Information with NtObjectManager",
+        "url": "https://www.tiraniddo.dev/2022/06/finding-running-rpc-server-information.html",
+        "snippet": "When an RPC server is started the service can register an RPC interface with the function RpcEpRegister specifying the interface UUID and version along with the binding information with the RPC endpoint mapper service running in RPCSS. You can use this information to find what process is likely to be hosting the RPC server by querying for the service PID if it's running. * It doesn't ensure the RPC servers are running if they're not registered in the endpoint mapper. For example the WinHTTP DLL has a built-in RPC server which is only loaded when running the WinHTTP proxy service, but the DLL could be loaded in any process which uses the APIs. To simplify things I expose this approach through the Get-RpcServer function with the *ProcessId* parameter. For example, you could first get a list of potential interfaces by enumerating the modules and parsing the RPC servers, then filter that list to only the ones which are running by querying the endpoint directly.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "RpcServerRegisterIfEx function (rpcdce.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcserverregisterifex",
+        "snippet": "The **RpcServerRegisterIfEx** function registers an interface with the RPC run-time library. The parameters and effects of **RpcServerRegisterIfEx** subsume those of RpcServerRegisterIf. The difference is the ability to register an auto-listen interface and to specify a security-callback function. Specifying a security-callback function allows the server application to restrict access to its interfaces on a per-client basis. If the server wants to accept only authenticated clients, an interface callback function must call the RpcBindingInqAuthClient or RpcGetAuthorizationContextForClient function to retrieve the security level, or attempt to impersonate the client with RpcImpersonateClient. When a server application specifies a security-callback function for its interface(s), the RPC run time automatically rejects unauthenticated calls to that interface. When a client makes an RPC to an interface that it has not used during the current communication session, the RPC run-time library will call the interface's security-callback function. The callback function should return RPC\\_S\\_OK if the client is allowed to call methods in this interface. In some cases, the RPC run time may call the security-callback function more than once per client–per interface.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "nf-rpcdce-rpcmgmtepeltinqdone.md - sdk-api-src - GitHub",
+        "url": "https://github.com/MicrosoftDocs/sdk-api/blob/docs/sdk-api-src/content/rpcdce/nf-rpcdce-rpcmgmtepeltinqdone.md",
+        "snippet": "The RpcMgmtEpEltInqDone function deletes an inquiry context created by RpcMgmtEpEltInqBegin. An application calls this function after viewing local endpoint-map",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "RpcServerUseProtseqEp function (rpcdce.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcserveruseprotseqep",
+        "snippet": "The RpcServerUseProtseqEp function tells the RPC run-time library to use the specified protocol sequence combined with the specified endpoint for receiving",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RpcServerUseProtseqEpW function (rpcdce.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcserveruseprotseqepw",
+        "snippet": "The RpcServerUseProtseqEp function tells the RPC run-time library to use the specified protocol sequence combined with the specified endpoint for receiving",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "RpcServerUseProtseqEpEx function (rpcdce.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcserveruseprotseqepex",
+        "snippet": "The RpcServerUseProtseqEpEx function tells the RPC run-time library to use the specified protocol sequence combined with the specified endpoint",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "RpcBindingFromStringBinding function (rpcdce.h)",
+        "url": "https://learn.microsoft.com/sk-sk/windows/win32/api/rpcdce/nf-rpcdce-rpcbindingfromstringbinding",
+        "snippet": "The RpcBindingFromStringBinding function creates a server binding handle from a string representation of a binding handle. The StringBinding parameter does not",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "RpcServerUseProtseq function (rpcdce.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-rpcserveruseprotseq",
+        "snippet": "The RpcServerUseProtseq function tells the RPC run-time library to use the specified protocol sequence for receiving remote procedure calls.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      }
+    ],
+    "grok": []
+  }
+}

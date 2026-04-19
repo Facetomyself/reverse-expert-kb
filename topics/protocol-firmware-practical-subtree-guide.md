@@ -73,7 +73,7 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - one representative method-bearing contract is already externalized, but the analyst still has not frozen one truthful request/response, request/completion, stream-slice, or opnum-level representative call bundle plus one smallest constructor path
    - keep explicit branch memory that some families also require separate **call-context truth**: deadline/metadata/authority/credential posture for gRPC-like calls, or binding/authn/context-handle posture for Windows RPC-like calls, rather than pretending the serialized body or argument bundle alone is the whole replay object
    - preserve the narrower practical compare label **body-identical but call-context-different** when official transport/runtime docs already show that behavior can diverge outside the serialized body itself
-   - also preserve the earlier service-contract stop rule **described != registered != reachable**, so descriptor/reflection-visible service rosters are not silently overread as already-proven live callable surfaces
+   - also preserve the earlier service-contract stop rule **described != registered != listening != published != bindable/reachable**, so descriptor/reflection-visible service rosters, runtime registration, endpoint-map publication, and easy client-side binding-object construction are not silently overread as already-proven live callable surfaces
 7. **content-pipeline continuation uncertainty**
    - the first authenticated API family is visible, but the real analyst object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder
 8. **ingress ownership uncertainty**
@@ -497,6 +497,7 @@ Primary note:
 
 Routing reminder:
 - stay here while the missing proof is specifically whether one binding-handle auth-info tuple or one live context-handle lineage still decides comparability
+- do not enter this thinner Windows RPC continuation while the real liar is still earlier service-contract realism such as runtime registration, endpoint-map publication, or easy client-side binding-object construction versus live reachability
 - leave this thinner Windows RPC continuation once the auth-info/context-lineage mismatch is already good enough and the real bottleneck becomes broader replay acceptance, parser/state consequence, or later output handoff
 
 Possible next handoff:

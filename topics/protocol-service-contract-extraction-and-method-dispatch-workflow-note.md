@@ -10,6 +10,7 @@ Related pages:
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
 - topics/protocol-reply-emission-and-transport-handoff-workflow-note.md
+- topics/protocol-windows-rpc-binding-authinfo-and-context-lineage-workflow-note.md
 - topics/protocol-firmware-practical-subtree-guide.md
 
 ## 1. When to use this note
@@ -46,19 +47,42 @@ A practical stop rule worth preserving more sharply for RPC/service-contract-sha
 ```text
 interface described
   != server registered
+  != transport/endpoint listening
   != endpoint published
-  != client reachable/bindable
+  != client binding object constructed or endpoint resolved
+  != live client reachability on the path that matters
   != meaningful method dispatch or later consequence
 ```
 
 Treat these as different proof objects until one is actually frozen:
 - IDL/stub/proxy visibility or recovered service/interface roster
 - runtime server registration
+- server-side transport/endpoint listen truth
 - endpoint publication / mapper visibility
+- client-side binding-object construction or endpoint-resolution truth
 - actual client binding/reachability in the run that matters
 - later method dispatch or consequence that answers the analyst’s real question
 
-This keeps service-contract work from silently overreading recovered interface descriptions, registration helpers, or endpoint visibility as already-good call reality.
+This keeps service-contract work from silently overreading recovered interface descriptions, registration helpers, endpoint visibility, or easy client-side binding-object construction as already-good call reality.
+
+### Windows RPC seam worth preserving explicitly
+For Windows RPC-shaped cases, a practical smaller ladder now worth keeping visible is:
+
+```text
+MIDL/generated IfSpec or recovered interface UUID
+  != RpcServerRegisterIf* runtime registration
+  != RpcServerUseProtseq* / RpcServerInqBindings receive-side binding truth
+  != RpcEpRegister endpoint-map publication
+  != RpcStringBindingCompose / RpcBindingFromStringBinding binding-object truth
+  != same server/path currently reachable for the client that matters
+```
+
+Use that ladder because the official Microsoft docs now ground each rung cleanly:
+- `RpcServerRegisterIf*` registers the interface with the RPC run time and ties interface/object UUIDs to manager EPVs
+- `RpcServerUseProtseq*` and `RpcServerInqBindings` freeze where the server can actually receive RPCs
+- `RpcEpRegister` and `RpcMgmtEpEltInqBegin` freeze what is published into and visible from the local endpoint mapper
+- `RpcStringBindingCompose` and `RpcBindingFromStringBinding` can still succeed before any real server contact or availability proof exists
+- `RpcMgmtInqIfIds` is stronger than a static roster, but still requires the server to be listening and still does not by itself prove your exact later client path or auth/context posture
 
 A recurring protocol RE bottleneck appears after the analyst can already say:
 - this family is service-oriented
@@ -81,7 +105,6 @@ It is:
 - one representative method family
 - one registration or dispatch anchor
 - one explicit note about what still blocks live replay or consequence proof
-
 ## 3. Target pattern
 The recurring pattern is:
 
@@ -131,15 +154,18 @@ Good early anchors include:
 - interface-registration APIs
 - generated service constructors
 - endpoint-binding helpers
+- server-side binding enumeration helpers
+- endpoint-map publication / inquiry helpers
 - dispatch-table installation paths
 
 Strong rule:
 - if the target explicitly registers the callable surface, extract that first
 - do not start by individually chasing deep handlers if the service shell is still implicit
 - do not stop at descriptor-bearing or reflection-visible service/method metadata alone when the live registration or bound dispatch surface is still unproved
+- do not flatten runtime registration, server-side listening, endpoint-map publication, and client-side binding-object construction into one vague “callable” story
 
 Useful shorthand for this stage:
-- described != registered != reachable
+- described != registered != listening != published != bindable/reachable
 
 ### Step 3: Externalize one service shell conservatively
 Useful service-shell outputs include:
@@ -233,6 +259,9 @@ Useful anchors for this stage:
 - dispatch tables and method arrays
 - generated stub/skeleton classes
 - endpoint-binding code
+- server-side binding enumeration helpers such as `RpcServerInqBindings`
+- endpoint-map publication / inquiry helpers such as `RpcEpRegister` and `RpcMgmtEpEltInqBegin`
+- client-side binding helpers such as `RpcStringBindingCompose` and `RpcBindingFromStringBinding` when the current liar is “binding object exists” versus “server is actually reachable”
 - serializer constructors attached to one method family
 - handler-entry trampolines that still preserve slot identity
 
@@ -301,6 +330,23 @@ Best move:
 - tie one opcode family to one request/response contract
 - leave broader consequence work for the next note
 
+### Scenario D: Windows RPC target with static UUIDs or roster tooling already in hand
+Pattern:
+
+```text
+MIDL/generated interface material or RpcView-style roster is already visible
+  -> maybe one RpcServerRegisterIf* path is visible
+  -> maybe one endpoint-map entry is visible
+  -> yet it is still unclear whether the same server/path is currently reachable
+```
+
+Best move:
+- freeze `RpcServerRegisterIf*` or equivalent runtime-registration truth first
+- then freeze one transport/endpoint truth with `RpcServerUseProtseq*` or `RpcServerInqBindings`
+- then freeze endpoint-map publication with `RpcEpRegister` / `RpcMgmtEpEltInqBegin` if dynamic discovery is part of the case
+- do **not** treat `RpcStringBindingCompose` / `RpcBindingFromStringBinding` success as server availability or comparable-call truth
+- if the only remaining liar is auth-info posture or context-handle lineage, hand off to `topics/protocol-windows-rpc-binding-authinfo-and-context-lineage-workflow-note.md`
+
 ## 9. What good output looks like
 A strong result from this workflow usually contains:
 - one service shell or interface summary
@@ -333,15 +379,19 @@ see the right boundary
 Primary source notes for this page:
 - `sources/firmware-protocol/2026-03-21-service-contract-extraction-and-method-dispatch-notes.md`
 - `sources/firmware-protocol/2026-03-21-schema-externalization-and-replay-harness-notes.md`
+- `sources/protocol/2026-03-27-service-contract-registration-vs-reachability-notes.md`
+- `sources/protocol/2026-04-20-windows-rpc-registration-publication-and-reachability-notes.md`
 
 This note is grounded in:
 - gRPC registration and service-implementation anchors from the IOActive write-up
 - Windows RPC interface / dispatch extraction practice from XPN and RpcView-style traversal
 - API-wrapper-to-structure recovery discipline reinforced by the SpecterOps walkthrough
 - schema-to-endpoint / replay bridge practice from `pbtk`
-- the additional registration-vs-reachability stop rule captured in `sources/protocol/2026-03-27-service-contract-registration-vs-reachability-notes.md`
+- the earlier registration-vs-reachability stop rule captured in `sources/protocol/2026-03-27-service-contract-registration-vs-reachability-notes.md`
+- the newer official Microsoft documentation pass around `RpcServerRegisterIf*`, `RpcServerUseProtseq*`, `RpcServerInqBindings`, `RpcEpRegister`, `RpcMgmtInqIfIds`, `RpcMgmtEpEltInqBegin`, `RpcStringBindingCompose`, and `RpcBindingFromStringBinding` captured in `sources/protocol/2026-04-20-windows-rpc-registration-publication-and-reachability-notes.md`
 
 Confidence note:
 - strong for the workflow shape and stop rules
+- now stronger for the Windows RPC registration / publication / reachability seam specifically because official docs ground each rung more explicitly
 - intentionally conservative about naming quality and framework universality
 - does not claim that one recovered service shell alone proves semantics or replay success

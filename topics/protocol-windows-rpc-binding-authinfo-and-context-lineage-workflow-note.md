@@ -5,6 +5,7 @@ Ontology layers: protocol / firmware practical workflow, Windows RPC call compar
 Maturity: practical
 Related pages:
 - topics/protocol-firmware-practical-subtree-guide.md
+- topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
 - topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
 - topics/protocol-pending-request-generation-epoch-and-slot-reuse-workflow-note.md
