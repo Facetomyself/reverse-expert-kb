@@ -106,6 +106,31 @@ If a future network regression appears, the least-invasive fallback is:
    - `docker restart astrbot`
 6. Verify startup logs show provider adapters loading successfully.
 
+## Novel rank plugin note (2026-04-19)
+Confirmed on `self-server-44005` / container `astrbot`:
+- plugin path: `/opt/1panel/apps/astrbot/astrbot/data/plugins/astrbot_plugin_novel_rank`
+- plugin config path: `/opt/1panel/apps/astrbot/astrbot/data/config/astrbot_plugin_novel_rank_config.json`
+- plugin data path: `/opt/1panel/apps/astrbot/astrbot/data/plugin_data/astrbot_plugin_novel_rank/`
+
+Runtime verification on 2026-04-19 showed:
+- plugin loads successfully during AstrBot startup
+- real smoke runs for `小说榜单` (`qidian 月票榜`) and `跨站榜单对比 hot` both returned valid text results
+- current Qidian desktop rank route can still return a challenge-style `202 Accepted` response, but the plugin's mobile fallback path succeeded and returned real榜单数据
+
+Current operational issue was **not** plugin import or crawler failure. The failing component was AstrBot's HTML-to-image render path:
+- live warning observed in `astrbot` logs: `HTML 渲染图片失败，已降级为文本输出: All endpoints failed: HTTP 502`
+- the failing upstream shown by the host logs was `https://t2i.soulter.top/text2img`
+
+Stability fix applied on 2026-04-19:
+- backed up `astrbot_plugin_novel_rank_config.json`
+- changed `basic.output_format` from `image` to `text`
+- restarted container `astrbot`
+- post-restart smoke confirmed the plugin returned stable plain-text results without depending on the broken image-render endpoint
+
+Operational implication:
+- if future work wants image cards again, repair the AstrBot HTML/T2I rendering dependency first
+- until that render path is healthy again, prefer `output_format = text` for this plugin on this host
+
 ## NapCat / OneBot v11 sidecar bootstrap (2026-04-13)
 Confirmed on `self-server-44005`:
 - deployment root: `/opt/napcat-astrbot`
