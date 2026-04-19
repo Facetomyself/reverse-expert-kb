@@ -1,0 +1,14 @@
+[Unit]
+Description=Host185 TCP relay exposing loopback renderer tunnel to Docker containers
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 /opt/astrbot-t2i-renderer/host185_tcp_relay.py
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

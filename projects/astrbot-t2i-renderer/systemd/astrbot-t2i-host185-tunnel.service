@@ -1,0 +1,14 @@
+[Unit]
+Description=Reverse tunnel exposing local AstrBot renderer to host185 loopback
+After=network-online.target astrbot-t2i-renderer.service
+Wants=network-online.target astrbot-t2i-renderer.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/ssh -o ExitOnForwardFailure=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -NT -R 127.0.0.1:18781:127.0.0.1:18781 self-server-44005
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

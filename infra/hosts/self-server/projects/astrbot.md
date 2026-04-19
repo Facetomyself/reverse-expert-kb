@@ -121,15 +121,54 @@ Current operational issue was **not** plugin import or crawler failure. The fail
 - live warning observed in `astrbot` logs: `HTML 渲染图片失败，已降级为文本输出: All endpoints failed: HTTP 502`
 - the failing upstream shown by the host logs was `https://t2i.soulter.top/text2img`
 
-Stability fix applied on 2026-04-19:
-- backed up `astrbot_plugin_novel_rank_config.json`
-- changed `basic.output_format` from `image` to `text`
-- restarted container `astrbot`
-- post-restart smoke confirmed the plugin returned stable plain-text results without depending on the broken image-render endpoint
+Stability fix sequence on 2026-04-19:
+- first confirmed the immediate failure mode by live smoke and host logs:
+  - AstrBot `html_render()` for this plugin depended on the remote endpoint behind `https://t2i.soulter.top/text2img`
+  - that upstream was returning Cloudflare-side `HTTP 502`
+- temporary stop-loss:
+  - backed up `astrbot_plugin_novel_rank_config.json`
+  - changed `basic.output_format` from `image` to `text`
+  - restarted container `astrbot`
+  - this restored stable plugin output immediately while the render chain was still broken
+- final same-session repair, phase 1:
+  - patched plugin `main.py` so custom HTML image rendering failure no longer falls straight back to plain text
+  - new fallback chain is:
+    - try plugin HTML card via `html_render()`
+    - if that remote-only path fails, fall back to AstrBot `text_to_image()`
+    - if AstrBot remote T2I also fails, let AstrBot's own built-in local renderer generate a local image
+  - after deploying that patch to the live plugin directory and restarting `astrbot`, the config was switched back to `basic.output_format = image`
+  - live smoke then returned a real `image_result` again, with logs confirming this path:
+    - plugin HTML render failed on `HTTP 502`
+    - AstrBot remote T2I also failed on `HTTP 502`
+    - AstrBot renderer then fell back to local rendering successfully and produced a local temp image path
+- final same-session repair, phase 2 (restored rich HTML-card path):
+  - built a self-hosted AstrBot-compatible custom HTML renderer on the current OpenClaw host
+  - compatible API shape:
+    - `POST /text2img/generate`
+    - `GET /text2img/<id>`
+  - current OpenClaw host runs systemd service:
+    - `astrbot-t2i-renderer.service`
+    - listens on local `127.0.0.1:18781`
+  - current OpenClaw host also runs a reverse tunnel service into `host185`:
+    - `astrbot-t2i-host185-tunnel.service`
+    - exposes the renderer on `host185` loopback `127.0.0.1:18781`
+  - `host185` runs a local relay service for Docker/container reachability:
+    - `astrbot-t2i-host185-relay.service`
+    - binds `0.0.0.0:18783` and forwards to `127.0.0.1:18781`
+  - AstrBot-side `t2i_endpoint` was updated in both:
+    - `data/cmd_config.json`
+    - `data/config/abconf_dd547db0-c864-43a8-a0a7-46675d251c52.json`
+    - current value: `http://10.10.21.185:18783/text2img`
+  - post-restart smoke on 2026-04-19 then returned image URLs directly from the self-hosted renderer, for example:
+    - `http://10.10.21.185:18783/text2img/<id>.png`
+  - local renderer journal on the OpenClaw host confirmed real request flow:
+    - `GET /text2img/health`
+    - `POST /text2img/generate`
 
 Operational implication:
-- if future work wants image cards again, repair the AstrBot HTML/T2I rendering dependency first
-- until that render path is healthy again, prefer `output_format = text` for this plugin on this host
+- image mode is now usable again for this plugin on this host
+- richer HTML card output has been restored through a self-hosted replacement endpoint rather than recovery of the upstream `t2i.soulter.top` service
+- the plugin-local fallback patch remains valuable as a second safety net if the custom endpoint chain breaks later
 
 ## NapCat / OneBot v11 sidecar bootstrap (2026-04-13)
 Confirmed on `self-server-44005`:

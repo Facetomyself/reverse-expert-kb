@@ -1,0 +1,15 @@
+[Unit]
+Description=AstrBot custom HTML-to-image renderer
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/.openclaw/workspace/projects/astrbot-t2i-renderer
+ExecStart=/usr/bin/python3 /root/.openclaw/workspace/projects/astrbot-t2i-renderer/server.py --bind 127.0.0.1 --port 18781
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
