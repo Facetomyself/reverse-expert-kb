@@ -150,3 +150,58 @@ For future AstrBot platform migrations on this host, always treat `cmd_config.js
 - Pattern-Key: harden.astrbot.dual-config-platform
 
 ---
+## [LRN-20260420-001] best_practice
+
+**Logged**: 
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+For `host185` Playwright-based sidecars, split network strategy by stage instead of using one proxy policy for everything.
+
+### Details
+During `astrbot-t2i-renderer` deployment on `self-server-44005`, the reliable build pattern was:
+- `apt-get` inside Docker build: use the hosts
+## [LRN-20260420-001] best_practice
+
+**Logged**: 2026-04-20T11:28:52+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+For host185 Playwright-based sidecars, split network strategy by stage instead of using one proxy policy for everything.
+
+### Details
+During astrbot-t2i-renderer deployment on self-server-44005, the reliable build pattern was:
+- apt-get inside Docker build: use the host\s
+
+## [LRN-20260420-001] best_practice
+
+**Logged**: 2026-04-20T11:29:12.801014+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+For host185 Playwright-based sidecars, split network strategy by stage instead of using one proxy policy for everything.
+
+### Details
+During astrbot-t2i-renderer deployment on self-server-44005, the reliable build pattern was:
+- apt-get inside Docker build: use the host's ali-cloud HTTP proxy
+- pip install: use Tsinghua PyPI mirror (https://pypi.tuna.tsinghua.edu.cn/simple)
+- python -m playwright install chromium: direct download without the ali-cloud proxy
+- --no-shell: required when we only want full Chromium and do not want Playwright's extra headless-shell artifact
+
+Proxying the Playwright browser download caused ICP/403 blocks, while direct download of the main Chromium archive succeeded.
+
+### Suggested Action
+Keep this pattern in the renderer README/Dockerfile and prefer multi-stage network policy notes for future browser-sidecar deploys on domestic hosts.
+
+### Metadata
+- Source: conversation
+- Related Files: projects/astrbot-t2i-renderer/Dockerfile, infra/hosts/self-server/projects/astrbot.md
+- Tags: playwright, proxy, domestic-host, docker, astrbot
+
+---

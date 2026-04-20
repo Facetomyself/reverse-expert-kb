@@ -60,6 +60,18 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - Do **not** assume helper subcommands like `gh auth token` exist here.
 - `gh auth status` being OK does **not** guarantee raw `git push` over HTTPS will work; if needed, prefer `gh`-managed flows or run `gh auth setup-git` first.
 
+## Docker Compose Gotcha on `self-server-44005` / `host185`
+
+- On this CentOS 7 AstrBot host, prefer the explicit binary:
+  - `/usr/local/bin/docker-compose`
+- Do **not** assume `docker compose ...` will behave the same in non-interactive SSH runs here.
+- Observed on 2026-04-20 during remote renderer deployment:
+  - `docker compose version` looked superficially available in one probe,
+  - but the reliable remote build path was still `docker-compose -f ... build`
+  - and `docker compose -f ...` could fail with parsing/command-shape errors in SSH execution.
+- Practical rule for this host:
+  - if running compose remotely through `ssh self-server-44005`, use `docker-compose` explicitly.
+
 ## Docker / Redeploy Gotcha on oracle-proxy
 
 - For `oracle-proxy:/root/grok2api`, do **not** assume `docker compose up -d --build grok2api` can safely replace the running service.

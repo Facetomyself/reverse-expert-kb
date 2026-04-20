@@ -1,0 +1,26 @@
+services:
+  astrbot-t2i-renderer:
+    build:
+      context: .
+      args:
+        HTTP_PROXY: ${HTTP_PROXY:-}
+        HTTPS_PROXY: ${HTTPS_PROXY:-}
+        ALL_PROXY: ${ALL_PROXY:-}
+        http_proxy: ${http_proxy:-}
+        https_proxy: ${https_proxy:-}
+        all_proxy: ${all_proxy:-}
+    container_name: astrbot-t2i-renderer
+    restart: unless-stopped
+    user: root
+    shm_size: 1gb
+    ports:
+      - "18783:18781"
+    networks:
+      - 1panel-network
+    volumes:
+      - ./data:/data
+      - /usr/share/fonts:/usr/local/share/fonts/host:ro
+
+networks:
+  1panel-network:
+    external: true

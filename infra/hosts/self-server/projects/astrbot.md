@@ -141,34 +141,39 @@ Stability fix sequence on 2026-04-19:
     - plugin HTML render failed on `HTTP 502`
     - AstrBot remote T2I also failed on `HTTP 502`
     - AstrBot renderer then fell back to local rendering successfully and produced a local temp image path
-- final same-session repair, phase 2 (restored rich HTML-card path):
-  - built a self-hosted AstrBot-compatible custom HTML renderer on the current OpenClaw host
-  - compatible API shape:
+- final same-session repair, phase 2 on 2026-04-19 first restored the rich HTML-card path through an OpenClaw-hosted replacement endpoint, but that was later superseded on 2026-04-20 by a **host185-local renderer deployment** to remove the OpenClaw-host tunnel hop and fix Chinese font rendering more cleanly.
+- current renderer shape as of 2026-04-20:
+  - deployment root: `/opt/astrbot-t2i-renderer`
+  - compose file: `/opt/astrbot-t2i-renderer/docker-compose.host185.yml`
+  - container name: `astrbot-t2i-renderer`
+  - image base: `soulter/astrbot:v4.22.3` with Playwright + Chromium added during local build
+  - host bind: `0.0.0.0:18783 -> 18781/tcp`
+  - renderer API shape remains:
     - `POST /text2img/generate`
     - `GET /text2img/<id>`
-  - current OpenClaw host runs systemd service:
-    - `astrbot-t2i-renderer.service`
-    - listens on local `127.0.0.1:18781`
-  - current OpenClaw host also runs a reverse tunnel service into `host185`:
-    - `astrbot-t2i-host185-tunnel.service`
-    - exposes the renderer on `host185` loopback `127.0.0.1:18781`
-  - `host185` runs a local relay service for Docker/container reachability:
-    - `astrbot-t2i-host185-relay.service`
-    - binds `0.0.0.0:18783` and forwards to `127.0.0.1:18781`
-  - AstrBot-side `t2i_endpoint` was updated in both:
-    - `data/cmd_config.json`
-    - `data/config/abconf_dd547db0-c864-43a8-a0a7-46675d251c52.json`
-    - current value: `http://10.10.21.185:18783/text2img`
-  - post-restart smoke on 2026-04-19 then returned image URLs directly from the self-hosted renderer, for example:
-    - `http://10.10.21.185:18783/text2img/<id>.png`
-  - local renderer journal on the OpenClaw host confirmed real request flow:
     - `GET /text2img/health`
-    - `POST /text2img/generate`
+- AstrBot-side `t2i_endpoint` remained unchanged and still points at the local host185 address in both:
+  - `data/cmd_config.json`
+  - `data/config/abconf_dd547db0-c864-43a8-a0a7-46675d251c52.json`
+  - current value: `http://10.10.21.185:18783/text2img`
+- migration/behavior notes from 2026-04-20:
+  - old OpenClaw-host services `astrbot-t2i-renderer.service` and `astrbot-t2i-host185-tunnel.service` were stopped and disabled after host185-local cutover
+  - old host185 relay service `astrbot-t2i-host185-relay.service` was stopped and disabled
+  - standalone local smoke against `http://127.0.0.1:18783/text2img/health` returned `{"ok": true, "service": "astrbot-t2i-renderer"}`
+  - a direct Chinese HTML render smoke on host185 succeeded and returned a real PNG id
+- template-side hardening also landed on 2026-04-20:
+  - plugin template font stacks were expanded beyond `"Microsoft YaHei", "PingFang SC", sans-serif`
+  - current live templates now include Linux-side CJK fallbacks such as:
+    - `Noto Sans CJK SC`
+    - `Noto Sans SC`
+    - `WenQuanYi Micro Hei`
+    - `AR PL UKai CN`
+    - `AR PL UMing CN`
 
 Operational implication:
-- image mode is now usable again for this plugin on this host
-- richer HTML card output has been restored through a self-hosted replacement endpoint rather than recovery of the upstream `t2i.soulter.top` service
-- the plugin-local fallback patch remains valuable as a second safety net if the custom endpoint chain breaks later
+- image mode is now backed by a renderer that actually runs on the AstrBot machine itself (`host185`), not a remote tunnel chain through the current OpenClaw host
+- richer HTML card output remains available through the custom renderer endpoint
+- the plugin-local fallback patch still provides a second safety net if the custom renderer breaks later
 
 ## NapCat / OneBot v11 sidecar bootstrap (2026-04-13)
 Confirmed on `self-server-44005`:

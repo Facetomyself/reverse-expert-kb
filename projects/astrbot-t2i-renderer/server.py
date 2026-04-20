@@ -26,6 +26,25 @@ class Renderer:
         self.storage_dir.mkdir(parents=True, exist_ok=True)
         self._lock = threading.Lock()
 
+    def _resolve_chromium_executable(self) -> str | None:
+        env_path = os.environ.get("PLAYWRIGHT_CHROMIUM_EXECUTABLE")
+        if env_path and Path(env_path).is_file():
+            return env_path
+
+        cache_root = Path.home() / ".cache" / "ms-playwright"
+        candidates = []
+        for browser_dir in sorted(cache_root.glob("chromium-*"), reverse=True):
+            candidates.extend(
+                [
+                    browser_dir / "chrome-linux" / "chrome",
+                    browser_dir / "chrome-linux64" / "chrome",
+                ]
+            )
+        for candidate in candidates:
+            if candidate.is_file():
+                return str(candidate)
+        return None
+
     async def render(self, tmpl: str, tmpl_data: dict, options: dict | None = None) -> tuple[str, Path]:
         options = options or {}
         image_type = str(options.get("type") or "png").lower()
@@ -48,8 +67,13 @@ class Renderer:
         html_path.write_text(rendered_html, encoding="utf-8")
 
         launch_args = ["--no-sandbox", "--disable-dev-shm-usage"]
+        executable_path = self._resolve_chromium_executable()
+        launch_kwargs = {"headless": True, "args": launch_args}
+        if executable_path:
+            launch_kwargs["executable_path"] = executable_path
+            LOG.info("using explicit chromium executable: %s", executable_path)
         async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True, args=launch_args)
+            browser = await p.chromium.launch(**launch_kwargs)
             try:
                 page = await browser.new_page(viewport={"width": width, "height": height}, device_scale_factor=2 if scale == "device" else 1)
                 await page.goto(html_path.resolve().as_uri(), wait_until="networkidle")

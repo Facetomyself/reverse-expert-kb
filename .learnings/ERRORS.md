@@ -1,3 +1,34 @@
+## [ERR-20260419-001] skill-relative-script-path-resolution
+
+**Logged**: 2026-04-19T04:27:01+08:00
+**Priority**: low
+**Status**: pending
+**Area**: docs
+
+### Summary
+A Cloudflare DNS maintenance run initially tried to read `scripts/cloudflare_zone_snapshot.py` from the workspace root instead of resolving the relative script path against the selected skill directory.
+
+### Error
+```text
+ENOENT: no such file or directory, access '/root/.openclaw/workspace/scripts/cloudflare_zone_snapshot.py'
+```
+
+### Context
+- Task: recurring `cloudflare-dns-maintenance` audit for `zhangxuemin.work`.
+- The skill file references `scripts/cloudflare_zone_snapshot.py` as a relative path.
+- OpenClaw skill instructions require resolving relative paths against the skill directory (parent of `SKILL.md`), not against the workspace root.
+- The correct script path for this skill is `/root/.openclaw/workspace/skills/cloudflare-dns-maintenance/scripts/cloudflare_zone_snapshot.py`.
+
+### Suggested Fix
+When a skill references a relative helper script, always resolve it from the skill directory before calling `read`/`exec`.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/skills/cloudflare-dns-maintenance/SKILL.md, /root/.openclaw/workspace/skills/cloudflare-dns-maintenance/scripts/cloudflare_zone_snapshot.py, /root/.openclaw/workspace/.learnings/ERRORS.md
+- See Also: none
+
+---
+
 ## [ERR-20260316-001] remote-heredoc-config-patching
 
 **Logged**: 2026-03-16T17:22:47+08:00
@@ -1583,5 +1614,33 @@ fatal: unable to auto-detect email address
 - Reproducible: yes
 - Related Files: /root/.openclaw/workspace/.learnings/ERRORS.md, /root/.openclaw/workspace/TOOLS.md
 - See Also: none
+
+---
+## [ERR-20260420-001] remote_docker_compose_noninteractive
+
+**Logged**: 
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+On `self-server-44005`, `docker compose ...` worked for `version` in one probe but failed in the non-interactive SSH deployment path; the reliable remote invocation for this host was `/usr/local/bin/docker-compose`.
+
+### Error
+```
+unknown shorthand flag: f in -f
+```
+
+### Context
+- Operation: build staged `astrbot-t2i-renderer` deployment on `self-server-44005`
+- Failing shape: `docker compose -f docker-compose.host185.yml build`
+- Working shape: `docker-compose -f docker-compose.host185.yml build`
+
+### Suggested Fix
+Prefer `docker-compose` explicitly for remote non-interactive SSH runs on this CentOS 7 host instead of assuming `docker compose` subcommand behavior is stable there.
+
+### Metadata
+- Reproducible: yes
+- Related Files: TOOLS.md, projects/astrbot-t2i-renderer/docker-compose.host185.yml
 
 ---
