@@ -105,6 +105,9 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - This host may still have **no default git author identity** configured (`user.name` / `user.email`).
   - If `git commit` fails with `Author identity unknown`, set a **repo-local** identity first for the working repo instead of assuming a global identity exists.
 - Default init branch is now set globally to `main`.
+- `infra/` on this host may auto-push through repository-side hooks / automation after local commits.
+  - Practical gotcha observed on 2026-04-21: an immediate manual `git push origin main` after commit returned a remote ref-lock / expected-old-SHA rejection, but `git ls-remote` showed the just-created commit was **already on remote**.
+  - So for `infra/`, if a push fails right after commit, verify remote HEAD before retrying; it may already be synced.
 
 ## Search / Fetch Reality on This Host
 

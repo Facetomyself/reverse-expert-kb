@@ -1675,3 +1675,32 @@ For remote config writes containing `$`-heavy hashes/secrets or large multiline 
 - See Also: none
 
 ---
+## [ERR-20260421-002] infra_push_false_negative_after_autosync
+
+**Logged**: 2026-04-21T10:18:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+A manual `git push origin main` for the separate `infra/` repo failed with a remote ref-lock / expected-old-SHA rejection, but the remote branch had already advanced to the just-created local commit.
+
+### Error
+```
+! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at <new-sha> but expected <old-sha>)
+```
+
+### Context
+- Operation: push `infra/` doc updates after committing verified proxy inventory changes
+- Repository: `/root/.openclaw/workspace/infra`
+- Follow-up verification with `git ls-remote` showed remote `refs/heads/main` already matched local `HEAD`
+
+### Suggested Fix
+For `infra/`, if a push fails immediately after commit with an expected-old-SHA mismatch, check remote HEAD first before retrying. Local hooks/automation may have already pushed successfully.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: TOOLS.md, .learnings/ERRORS.md
+- See Also: none
+
+---
