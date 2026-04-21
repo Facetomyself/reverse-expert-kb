@@ -81,6 +81,8 @@ Subscription hardening on 2026-04-21:
 - legacy public paths `/clash-meta.yaml`, `/clash-compat.yaml`, and `/clash-classic.yaml` were disabled and now return 404
 - active subscription files are served only from randomized private paths on the same host
 - the exact secret path is intentionally not stored in repo-tracked docs; treat it as a credential
+- the private Clash.Meta subscription was also expanded to support a chained home-exit pattern, where a `Home-Egress` group can land on a user-controlled HTTP proxy while using `HK-Transit` as the `dialer-proxy` upstream
+- the same private Clash.Meta track now also carries at least one extra verified non-HK datacenter fallback candidate from `oracle-proxy` (`hysteria2`), while keeping compatibility variants simpler
 
 The published Clash config intentionally aggregates both newly deployed HK relay entries and pre-existing usable proxy entries, currently including:
 - `hk-hy2`
@@ -90,6 +92,7 @@ The published Clash config intentionally aggregates both newly deployed HK relay
 - `oracle-gateway-hy2-backup`
 - `ali-socks-oracle-egress`
 - `ali-http-oracle-egress`
+- additional private-track-only entries such as `Home-Egress` / `HK-Transit` chaining and verified supplemental fallback nodes
 
 Runtime note confirmed on 2026-04-13:
 - the HK relay services themselves were healthy (HTTP/SOCKS direct tests via `1080/1081` succeeded), but Clash-side HK node runtime only stabilized after the subscription was changed to use the bare server IP `154.86.30.10` for all HK node entries instead of `hk.zhangxuemin.work`

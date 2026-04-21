@@ -2,6 +2,11 @@
 
 Updated: 2026-04-13
 
+## Status
+- Planning only
+- Deferred by user on 2026-04-13
+- Do not execute this rollout unless the user explicitly reopens it
+
 ## Goal
 Install a host-local Mihomo/Clash.Meta core on `home-nas` so the NAS itself has direct outbound proxy capability, while keeping FRP-published DSM/Drive services unchanged.
 
@@ -43,11 +48,11 @@ Start in explicit-proxy mode only.
 
 ## Upstream policy
 Use the same managed subscription family already documented for the fleet:
-- primary source: `https://clash.hk.zhangxuemin.work/clash-meta.yaml`
+- primary source: a **private randomized** `clash.hk.zhangxuemin.work/.../clash-meta.yaml` path distributed out-of-band
 
 Recommended first-stage local policy on the NAS:
-- keep `ali-oracle`-style path as the default everyday choice
-- allow manual switching to HK paths for foreign downloads when needed
+- treat `Home-Egress` as the preferred path for AI / login-sensitive sites when the managed subscription provides it
+- keep ordinary HK / ali / oracle choices available for manual fallback or bulk transfer scenarios
 - keep `oracle-gateway` as fallback if retained by the subscription
 
 ## Safety constraints
@@ -79,3 +84,6 @@ Do not decide these until after explicit-proxy mode is stable:
 - whether to move DNS resolution through Mihomo fake-ip/redir mode
 - whether to make package downloads or Docker-like workloads use the local proxy automatically
 - whether to expose controller or dashboard beyond loopback
+
+## Hold note
+On 2026-04-13 the user explicitly asked to keep this as a retained option but not proceed because it felt non-essential and potentially risky right now. Treat this document as a parked implementation plan, not an active rollout checklist.

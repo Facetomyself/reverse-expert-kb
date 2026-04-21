@@ -1644,3 +1644,34 @@ Prefer `docker-compose` explicitly for remote non-interactive SSH runs on this C
 - Related Files: TOOLS.md, projects/astrbot-t2i-renderer/docker-compose.host185.yml
 
 ---
+## [ERR-20260421-001] exec_ssh_inline_payload_quoting
+
+**Logged**: 2026-04-21T09:58:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Large inline config payloads sent through `exec` + `ssh` were mangled by shell interpolation / remote command joining, breaking both Caddyfile updates and multiline YAML generation.
+
+### Error
+```
+- Caddy bcrypt hash `$2a$...` was unintentionally collapsed to `a4`
+- nested here-doc / f-string remote update attempts produced shell parse errors and invalid generated files
+- `exec` preflight also rejected some complex inline interpreter invocations
+```
+
+### Context
+- Operation: harden `hk-relay` private subscription path and then update its private `clash-meta.yaml`
+- Failing shape: nested shell here-docs and inline Python bodies embedded directly in `exec` / `ssh` command strings
+- Working shape: stage a local script/file first, then run it directly and feed the remote script body via SSH stdin (`ssh host python3 -`)
+
+### Suggested Fix
+For remote config writes containing `$`-heavy hashes/secrets or large multiline YAML, avoid nested inline shell generation. Prefer local script staging plus SSH stdin delivery, and document the pattern in `TOOLS.md`.
+
+### Metadata
+- Reproducible: yes
+- Related Files: TOOLS.md, .learnings/ERRORS.md
+- See Also: none
+
+---

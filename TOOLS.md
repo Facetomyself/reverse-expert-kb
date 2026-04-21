@@ -52,6 +52,10 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
   - then grep/read only those targets
   - cap output early with `head`, `sed -n`, or tighter `rg` patterns
 - Otherwise large-output commands may get cut off by exec-event with `SIGTERM` / `SIGKILL` before the useful lines come back.
+- When writing remote config files through `exec` + `ssh`, avoid fragile nested here-doc / inline-shell generation if the payload contains `$`-heavy secrets or hashes (for example Caddy bcrypt strings like `$2a$...`) or large multiline YAML.
+  - On this host, `/bin/sh` interpolation plus SSH remote-shell joining can silently mangle those payloads.
+  - Safer pattern: use `write` to stage a local script/file, then run it directly (`python3 /path/to/script.py`) and feed the final remote script/body via SSH stdin (`ssh host python3 -`).
+  - This also avoids `exec` preflight refusing complex inline interpreter invocations.
 
 ## GitHub / gh on This Host
 

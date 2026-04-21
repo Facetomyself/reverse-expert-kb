@@ -121,7 +121,7 @@ Unify outbound access around Clash/Mihomo-style explicit proxy switching, while 
 
 ### 1. Subscription variants
 Maintain one main Mihomo/Clash.Meta subscription as the primary distribution artifact:
-- `https://clash.hk.zhangxuemin.work/clash-meta.yaml`
+- a **private randomized** `https://clash.hk.zhangxuemin.work/.../clash-meta.yaml` path distributed out-of-band
 
 Keep reduced variants only for compatibility/debug:
 - `clash-compat.yaml`
@@ -131,13 +131,16 @@ Keep reduced variants only for compatibility/debug:
 Recommended default groups:
 - `Proxy` -> main manual select group
 - `HK` -> Hong Kong-only group
+- `HK-Transit` -> HK relay selector used as a `dialer-proxy` upstream when the subscription carries chained home-exit nodes
+- `Home-Egress` -> chained home-exit / sensitive-site group when present
 - `Fallback` -> ali/oracle fallback group
 - `Big-Transfer` -> HF/GitHub/large-transfer-biased group
 
 ### 3. Routing policy direction
 Recommended practical policy:
 - CN direct
-- common foreign AI/dev sites through `Proxy`
+- common foreign AI / login-sensitive sites through `Home-Egress` when that group exists
+- other foreign dev sites through `Proxy`
 - large model/file sources through `Big-Transfer`
 - leave room for machine-specific overrides if one host has unique workload patterns
 
@@ -151,7 +154,7 @@ Default recommendation:
 
 ### Phase 1 — lock the node/control plane
 1. Freeze the upstream node inventory and keep subscriptions stable
-2. Treat `clash.hk.../clash-meta.yaml` as the main managed config
+2. Treat the private randomized `clash.hk.../clash-meta.yaml` path as the main managed config
 3. Keep HK nodes on bare IPs in published subscriptions
 
 ### Phase 2 — domestic server cutover first
@@ -170,6 +173,7 @@ Reason:
 Reason:
 - both need coexistence of FRP + local outbound Clash
 - NAS especially needs a careful host-native deployment shape
+- 2026-04-13 audit outcome for `home-nas`: DSM `7.2.2-72806 Update 8`, `x86_64`, no existing Clash/Mihomo runtime found, and `/usr/local/etc/rc.d/` is the most concrete already-proven persistent launcher surface (currently used by `S99frpc-nas.sh`)
 
 ### Phase 4 — cleanup
 Per machine, only after validation:
