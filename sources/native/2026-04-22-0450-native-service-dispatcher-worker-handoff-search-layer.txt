@@ -1,0 +1,516 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "StartServiceCtrlDispatcher ServiceMain RegisterServiceCtrlHandlerEx SetServiceStatus service control handler return quickly official docs",
+    "Writing a ServiceMain function handler function should return quickly worker thread official docs Windows service",
+    "service control handler function lengthy processing secondary thread SetServiceStatus official docs",
+    "Windows service dispatcher worker thread ownership ServiceMain control handler documentation"
+  ],
+  "count": 24,
+  "results": [
+    {
+      "title": "RegisterServiceCtrlHandlerExA function (winsvc.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-registerservicectrlhandlerexa",
+      "snippet": "The ServiceMain function of a new service should immediately call the RegisterServiceCtrlHandlerEx function to register a control handler",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7364
+    },
+    {
+      "title": "Writing a Service Programs main Function - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/services/writing-a-service-program-s-main-function",
+      "snippet": "# Writing a Service Program's main Function. The **main** function of a service program calls the **StartServiceCtrlDispatcher** function to connect to the service control manager (SCM) and start the control dispatcher thread. This thread returns when there is an error or when all of the services in the process have terminated. When all services in the process have terminated, the SCM sends a control request to the dispatcher thread telling it to exit. The following example can be used as the entry point for a service program that supports a single service. If your service program supports multiple services, add the names of the additional services to the dispatch table so they can be monitored by the dispatcher thread. The SvcReportEvent function writes informational messages and errors to the event log. For more information about the SvcInstall function, see Installing a Service. // TO_DO: Add any additional services for the process to this table. // |Sev|C|R| Facility | Code |.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7091
+    },
+    {
+      "title": "RegisterServiceCtrlHandlerW function (winsvc.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-registerservicectrlhandlerw",
+      "snippet": "Registers a function to handle service control requests. This function has been superseded by the RegisterServiceCtrlHandlerEx function.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7091
+    },
+    {
+      "title": "win32/desktop-src/Services/service-servicemain-function.md at docs",
+      "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Services/service-servicemain-function.md",
+      "snippet": "If your service's initialization code performs tasks that are expected to take longer than the initial wait hint value, your code must call the SetServiceStatus",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7091
+    },
+    {
+      "title": "desktop-src/Services/service-control-handler-function.md at docs · MicrosoftDocs/win32",
+      "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Services/service-control-handler-function.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7091
+    },
+    {
+      "title": "Writing a Control Handler Function - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/services/writing-a-control-handler-function",
+      "snippet": "You can try signing in or changing directories. You can try changing directories. # Writing a Control Handler Function. When a **Handler** function is called by the dispatcher thread, it handles the control code passed in the *Opcode* parameter and then calls the ReportSvcStatus function to update the service status. When a **Handler** function receives a control code, it should report the service status only if handling the control code causes the service status to change. If the service does not act on the control, it should not report status to the service control manager. For the source code for ReportSvcStatus, see Writing a ServiceMain Function. In the following example, the SvcCtrlHandler function is an example of a **Handler** function. // Called by SCM whenever a control code is sent to the service. // Handle the requested control code. Want to try using Ask Learn to clarify or guide you through this topic? Want to try using Ask Learn to clarify or guide you through this topic?",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.7091
+    },
+    {
+      "title": "Service Control Handler Function - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/services/service-control-handler-function",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "Service ServiceMain Function - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/nb-no/windows/win32/services/service-servicemain-function",
+      "snippet": "The ServiceMain function should perform the following tasks: Initialize all global variables. Call the RegisterServiceCtrlHandler function",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "RegisterServiceCtrlHandlerExA function (winsvc.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-registerservicectrlhandlerexa?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2023-09-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6818
+    },
+    {
+      "title": "StartServiceCtrlDispatcher return false - Microsoft Q&A",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/698067/startservicectrldispatcher-return-false",
+      "snippet": "This call returns when the service has stopped. The process should simply terminate when the call returns.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "Service Control Handler Function - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/services/service-control-handler-function?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2021-07-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6818
+    },
+    {
+      "title": "Writing a ServiceMain Function - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/services/writing-a-servicemain-function",
+      "snippet": "",
+      "published_date": "2021-01-07T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "Writing a ServiceMain Function - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/services/writing-a-servicemain-function?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2021-07-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6545
+    },
+    {
+      "title": "SetServiceStatus function (winsvc.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-setservicestatus",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "LPSERVICE_MAIN_FUNCTIONA (winsvc.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nc-winsvc-lpservice_main_functiona",
+      "snippet": "The LPSERVICE_MAIN_FUNCTION type defines a pointer to this callback function. ServiceMain is a placeholder for an application-defined function name.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "StartServiceCtrlDispatcherA function (winsvc.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-startservicectrldispatchera",
+      "snippet": "",
+      "published_date": "2023-02-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6545
+    },
+    {
+      "title": "LPHANDLER_FUNCTION (winsvc.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nc-winsvc-lphandler_function",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "LPHANDLER_FUNCTION_EX (winsvc.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nc-winsvc-lphandler_function_ex",
+      "snippet": "",
+      "published_date": "2021-12-10T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6273
+    },
+    {
+      "title": "Service State Transitions - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/services/service-status-transitions",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "Svc.cpp - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/services/svc-cpp",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Writing a Windows Service in C++ — Jakub Jabůrek",
+      "url": "https://www.jaburjak.cz/posts/cpp-windows-service/",
+      "snippet": "Within `Service­Main`, you then have to register a `Service­Ctrl­Handler` function, which is responsible for handling commands from the SCM (such as stopping the service). The SCM will then start `Service­Main` in a new thread, while the main thread remains blocked at the call to `Start­Service­Ctrl­Dispatcher` until the service stops. Then it must inform the SCM that the service has started and actually begin executing the service logic. VOID WINAPI ServiceMain(DWORD argc, LPTSTR* argv){// register handler for commands from SCM SvcStatusHandle = RegisterServiceCtrlHandler(ServiceName), ServiceCtrlHandler); if(SvcStatusHandle == NULL) return;// inform SCM the service is starting ServiceStatus. dwCurrentState = SERVICE_START_PENDING; SetServiceStatus(SvcStatusHandle, & ServiceStatus);// start service logic int exitCode = 0; std:: thread worker(ServiceWorker, std:: ref(exitCode));// inform SCM the service has started ServiceStatus. join();// inform SCM the service has stopped ServiceStatus. The service control handler receives and handles commands from the SCM. VOID WINAPI ServiceCtrlHandler(DWORD ctrlCode){switch(ctrlCode){case SERVICE_CONTROL_STOP: if(ServiceStatus. dwCurrentState!= SERVICE_RUNNING) break;// inform SCM the service has received the stop command// and signal to the program it should stop ServiceStatus.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4636
+    },
+    {
+      "title": "windows services & process - Tenouk",
+      "url": "https://www.tenouk.com/cddeefunction1.html",
+      "snippet": "When a service receives a control request, the service's Handler()function must call SetServiceStatus(),even if the service's status did not change. A service",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "StartServiceCtrlDispatcher",
+      "url": "https://pic.hallikainen.org/techref/os/win/api/win32/func/src/f87_5.htm",
+      "snippet": "The StartServiceCtrlDispatcher function connects the main thread of a service process to the service control manager, which causes the thread to be the service",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Writing a Control Handler Function Example",
+      "url": "https://www.installsetupconfig.com/win32programming/windowsservicesapis5_11.html",
+      "snippet": "When a Handler function is called by the dispatcher thread, it handles the control code passed in the Opcode parameter and then calls the ReportSvcStatus",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Writing a ServiceMain Function - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/writing-a-servicemain-function",
+        "snippet": "",
+        "published_date": "2021-01-07T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "Writing a ServiceMain Function - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/writing-a-servicemain-function?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2021-07-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6545
+      },
+      {
+        "title": "Service Control Handler Function - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/service-control-handler-function",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "LPHANDLER_FUNCTION (winsvc.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nc-winsvc-lphandler_function",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "SetServiceStatus function (winsvc.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-setservicestatus",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "StartServiceCtrlDispatcherA function (winsvc.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-startservicectrldispatchera",
+        "snippet": "",
+        "published_date": "2023-02-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6545
+      },
+      {
+        "title": "SetServiceStatus function (winsvc.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-setservicestatus",
+        "snippet": "",
+        "published_date": "2021-10-12T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "RegisterServiceCtrlHandlerExA function (winsvc.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-registerservicectrlhandlerexa?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2023-09-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6818
+      },
+      {
+        "title": "Service Control Handler Function - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/service-control-handler-function",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "LPHANDLER_FUNCTION_EX (winsvc.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nc-winsvc-lphandler_function_ex",
+        "snippet": "",
+        "published_date": "2021-12-10T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6273
+      },
+      {
+        "title": "Service Control Handler Function - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/service-control-handler-function",
+        "snippet": "",
+        "published_date": "2021-01-07T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "SetServiceStatus function (winsvc.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-setservicestatus",
+        "snippet": "",
+        "published_date": "2021-10-12T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Service Control Handler Function - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/service-control-handler-function?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2021-07-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6818
+      },
+      {
+        "title": "desktop-src/Services/service-control-handler-function.md at docs · MicrosoftDocs/win32",
+        "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Services/service-control-handler-function.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7091
+      },
+      {
+        "title": "Service State Transitions - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/service-status-transitions",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "Writing a Control Handler Function - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/writing-a-control-handler-function",
+        "snippet": "",
+        "published_date": "2021-01-07T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Service Control Handler Function - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/service-control-handler-function",
+        "snippet": "",
+        "published_date": "2021-01-07T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Writing a ServiceMain Function - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/writing-a-servicemain-function",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Writing a ServiceMain Function - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/writing-a-servicemain-function?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2021-07-01T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Svc.cpp - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/svc-cpp",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Writing a Service Programs main Function - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/writing-a-service-program-s-main-function",
+        "snippet": "# Writing a Service Program's main Function. The **main** function of a service program calls the **StartServiceCtrlDispatcher** function to connect to the service control manager (SCM) and start the control dispatcher thread. This thread returns when there is an error or when all of the services in the process have terminated. When all services in the process have terminated, the SCM sends a control request to the dispatcher thread telling it to exit. The following example can be used as the entry point for a service program that supports a single service. If your service program supports multiple services, add the names of the additional services to the dispatch table so they can be monitored by the dispatcher thread. The SvcReportEvent function writes informational messages and errors to the event log. For more information about the SvcInstall function, see Installing a Service. // TO_DO: Add any additional services for the process to this table. // |Sev|C|R| Facility | Code |.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7091
+      },
+      {
+        "title": "Service ServiceMain Function - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/nb-no/windows/win32/services/service-servicemain-function",
+        "snippet": "The ServiceMain function should perform the following tasks: Initialize all global variables. Call the RegisterServiceCtrlHandler function",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "Writing a ServiceMain Function - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/writing-a-servicemain-function",
+        "snippet": "The SvcMain function first calls the RegisterServiceCtrlHandler function to register the SvcCtrlHandler function as the service's Handler",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "LPSERVICE_MAIN_FUNCTIONA (winsvc.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nc-winsvc-lpservice_main_functiona",
+        "snippet": "The LPSERVICE_MAIN_FUNCTION type defines a pointer to this callback function. ServiceMain is a placeholder for an application-defined function name.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "Writing a Windows Service in C++ — Jakub Jabůrek",
+        "url": "https://www.jaburjak.cz/posts/cpp-windows-service/",
+        "snippet": "Within `Service­Main`, you then have to register a `Service­Ctrl­Handler` function, which is responsible for handling commands from the SCM (such as stopping the service). The SCM will then start `Service­Main` in a new thread, while the main thread remains blocked at the call to `Start­Service­Ctrl­Dispatcher` until the service stops. Then it must inform the SCM that the service has started and actually begin executing the service logic. VOID WINAPI ServiceMain(DWORD argc, LPTSTR* argv){// register handler for commands from SCM SvcStatusHandle = RegisterServiceCtrlHandler(ServiceName), ServiceCtrlHandler); if(SvcStatusHandle == NULL) return;// inform SCM the service is starting ServiceStatus. dwCurrentState = SERVICE_START_PENDING; SetServiceStatus(SvcStatusHandle, & ServiceStatus);// start service logic int exitCode = 0; std:: thread worker(ServiceWorker, std:: ref(exitCode));// inform SCM the service has started ServiceStatus. join();// inform SCM the service has stopped ServiceStatus. The service control handler receives and handles commands from the SCM. VOID WINAPI ServiceCtrlHandler(DWORD ctrlCode){switch(ctrlCode){case SERVICE_CONTROL_STOP: if(ServiceStatus. dwCurrentState!= SERVICE_RUNNING) break;// inform SCM the service has received the stop command// and signal to the program it should stop ServiceStatus.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4636
+      },
+      {
+        "title": "RegisterServiceCtrlHandlerExA function (winsvc.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-registerservicectrlhandlerexa",
+        "snippet": "The ServiceMain function of a new service should immediately call the RegisterServiceCtrlHandlerEx function to register a control handler",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7364
+      },
+      {
+        "title": "SetServiceStatus function (winsvc.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-setservicestatus",
+        "snippet": "Updates the service control manager's status information for the calling service. A handle to the status information structure for the current service. SERVICE\\_STATUS structure the contains the latest status information for the calling service. The following error codes can be set by the service control manager. Other error codes can be set by the registry functions that are called by the service control manager. | **ERROR\\_INVALID\\_DATA** | The specified service status structure is invalid. RegisterServiceCtrlHandlerEx function to get the service's SERVICE\\_STATUS\\_HANDLE. **SetServiceStatus** function to notify the service control manager that its status is SERVICE\\_START\\_PENDING. **SetServiceStatus** if the service status changes to report its new status to the service control manager. A service can also use this function at any time from any thread of the service to notify the service control manager of state changes, such as when the service must stop due to a recoverable error. A service can call this function only after it has called. RegisterServiceCtrlHandlerEx to get a service status handle.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "StartServiceCtrlDispatcher return false - Microsoft Q&A",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/698067/startservicectrldispatcher-return-false",
+        "snippet": "This call returns when the service has stopped. The process should simply terminate when the call returns.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "Service Control Handler Function - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/service-control-handler-function",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. # Service Control Handler Function. When the service control handler is invoked, the service must call the **SetServiceStatus** function to report its status to the SCM only if handling the control code causes the service status to change. This control code should be used only in special circumstances, because a service that handles this notification blocks system shutdown until the service stops or the preshutdown time-out interval expires. After the preshutdown notifications have been completed, all control handlers that have called **SetServiceStatus** with the **SERVICE\\_ACCEPT\\_SHUTDOWN** control code receive the **SERVICE\\_CONTROL\\_SHUTDOWN** control code. If the service requires more time to cleanup, it sends **STOP\\_PENDING** status messages, along with a wait hint, so the service controller knows how long to wait before reporting to the system that service shutdown is complete. The SCM sends **SERVICE\\_CONTROL\\_SHUTDOWN** notifications when its control handler is called and waits for the services to exit before returning from its control handler.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "RegisterServiceCtrlHandlerW function (winsvc.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-registerservicectrlhandlerw",
+        "snippet": "Registers a function to handle service control requests. This function has been superseded by the RegisterServiceCtrlHandlerEx function.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7091
+      },
+      {
+        "title": "Service Control Handler Function - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/service-control-handler-function",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. # Service Control Handler Function. When the service control handler is invoked, the service must call the **SetServiceStatus** function to report its status to the SCM only if handling the control code causes the service status to change. This control code should be used only in special circumstances, because a service that handles this notification blocks system shutdown until the service stops or the preshutdown time-out interval expires. After the preshutdown notifications have been completed, all control handlers that have called **SetServiceStatus** with the **SERVICE\\_ACCEPT\\_SHUTDOWN** control code receive the **SERVICE\\_CONTROL\\_SHUTDOWN** control code. If the service requires more time to cleanup, it sends **STOP\\_PENDING** status messages, along with a wait hint, so the service controller knows how long to wait before reporting to the system that service shutdown is complete. The SCM sends **SERVICE\\_CONTROL\\_SHUTDOWN** notifications when its control handler is called and waits for the services to exit before returning from its control handler.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "SetServiceStatus function (winsvc.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-setservicestatus",
+        "snippet": "Updates the service control manager's status information for the calling service. A handle to the status information structure for the current service. SERVICE\\_STATUS structure the contains the latest status information for the calling service. The following error codes can be set by the service control manager. Other error codes can be set by the registry functions that are called by the service control manager. | **ERROR\\_INVALID\\_DATA** | The specified service status structure is invalid. RegisterServiceCtrlHandlerEx function to get the service's SERVICE\\_STATUS\\_HANDLE. **SetServiceStatus** function to notify the service control manager that its status is SERVICE\\_START\\_PENDING. **SetServiceStatus** if the service status changes to report its new status to the service control manager. A service can also use this function at any time from any thread of the service to notify the service control manager of state changes, such as when the service must stop due to a recoverable error. A service can call this function only after it has called. RegisterServiceCtrlHandlerEx to get a service status handle.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "LPHANDLER_FUNCTION_EX (winsvc.h) - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nc-winsvc-lphandler_function_ex",
+        "snippet": "If a service must do lengthy processing when the service is executing the control handler, it should create a secondary thread to perform",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "windows services & process - Tenouk",
+        "url": "https://www.tenouk.com/cddeefunction1.html",
+        "snippet": "When a service receives a control request, the service's Handler()function must call SetServiceStatus(),even if the service's status did not change. A service",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "win32/desktop-src/Services/service-servicemain-function.md at docs",
+        "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Services/service-servicemain-function.md",
+        "snippet": "If your service's initialization code performs tasks that are expected to take longer than the initial wait hint value, your code must call the SetServiceStatus",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7091
+      },
+      {
+        "title": "Service ServiceMain Function",
+        "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/Services/service-servicemain-function.md",
+        "snippet": "The control dispatcher creates a new thread to execute the ServiceMain function for the service. ... Handler function to handle control requests for the service.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "windows services & process: a supplementary note",
+        "url": "https://www.tenouk.com/cddeefunction1.html",
+        "snippet": "The control dispatcher in the main thread of aservice process invokes the control handler function for the specified servicewhenever it receives a control",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Writing a Control Handler Function - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/services/writing-a-control-handler-function",
+        "snippet": "You can try signing in or changing directories. You can try changing directories. # Writing a Control Handler Function. When a **Handler** function is called by the dispatcher thread, it handles the control code passed in the *Opcode* parameter and then calls the ReportSvcStatus function to update the service status. When a **Handler** function receives a control code, it should report the service status only if handling the control code causes the service status to change. If the service does not act on the control, it should not report status to the service control manager. For the source code for ReportSvcStatus, see Writing a ServiceMain Function. In the following example, the SvcCtrlHandler function is an example of a **Handler** function. // Called by SCM whenever a control code is sent to the service. // Handle the requested control code. Want to try using Ask Learn to clarify or guide you through this topic? Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.7091
+      },
+      {
+        "title": "Writing a Control Handler Function Example",
+        "url": "https://www.installsetupconfig.com/win32programming/windowsservicesapis5_11.html",
+        "snippet": "When a Handler function is called by the dispatcher thread, it handles the control code passed in the Opcode parameter and then calls the ReportSvcStatus",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "StartServiceCtrlDispatcher",
+        "url": "https://pic.hallikainen.org/techref/os/win/api/win32/func/src/f87_5.htm",
+        "snippet": "The StartServiceCtrlDispatcher function connects the main thread of a service process to the service control manager, which causes the thread to be the service",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      }
+    ],
+    "grok": []
+  }
+}

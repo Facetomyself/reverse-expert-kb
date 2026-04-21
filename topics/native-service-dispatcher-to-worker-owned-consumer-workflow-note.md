@@ -67,6 +67,24 @@ Which service-owned thread, queued callback, worker routine, or retained task
 first changes behavior in a way that makes the service path trustworthy?
 ```
 
+A thinner Windows-heavy reminder now worth preserving before widening into broad async work is:
+
+```text
+dispatcher connected
+  != ServiceMain entered
+  != handler registered / accepted-controls truth
+  != control-handler invocation
+  != worker handoff / retained task truth
+  != first worker-owned consumer
+  != later effect
+```
+
+That ladder matters because ordinary Windows service shells make the early rungs easy to see:
+- `StartServiceCtrlDispatcher*` is strong orientation truth, but it is still dispatcher-connection truth
+- `ServiceMain` entry and `RegisterServiceCtrlHandlerEx` / `SetServiceStatus` posture are still weaker than proving one worker-owned path
+- control-handler entry is often only a reduction boundary because lengthy work is expected to move to a secondary thread or thread-pool worker
+- SCM-visible `SERVICE_START_PENDING`, `SERVICE_RUNNING`, or `SERVICE_STOP_PENDING` posture is still interaction truth, not automatic consumer truth
+
 ## 4. The five boundaries to mark explicitly
 
 ### A. Service/bootstrap eligibility boundary
@@ -275,21 +293,72 @@ A compact practical rule is:
 
 ## 9. Failure modes this note helps prevent
 - treating service registration or `ServiceMain` discovery as if it already proved operational ownership
+- over-crediting `SetServiceStatus(...SERVICE_RUNNING...)` or another SCM-visible state transition as if it already proved worker ownership
 - over-crediting control handlers that mainly update status and return
 - cataloging all service threads before proving one worker-owned path
 - confusing generic worker-thread start addresses with true service ownership
 - stopping at command dispatch visibility instead of the first worker-owned consumer
 - broadening to sibling commands or services before one service-control-to-effect chain is grounded
 
-## 10. Compact operator checklist
+## 10. Practical source-backed reminders
+A bounded Windows service source pass is enough to preserve a sharper middle ladder here.
+
+### A. `StartServiceCtrlDispatcher*` is dispatcher-connection truth, not worker-consumer truth
+Microsoft's `StartServiceCtrlDispatcherW` documentation preserves that:
+- the main thread connects to the SCM and becomes the service control dispatcher
+- the call does not return until all running services in the process have entered `SERVICE_STOPPED`
+- the dispatcher invokes control handlers or creates a new thread to execute the appropriate `ServiceMain`
+
+For reversing, this means:
+- `StartServiceCtrlDispatcher*` is a strong orientation anchor
+- but it is still weaker than proving the worker-owned path that actually changes behavior
+- dispatcher-visible control flow and later service-owned worker ownership can diverge immediately
+
+### B. `ServiceMain` entry, handler registration, and accepted-controls posture are separate proof objects
+Microsoft's `RegisterServiceCtrlHandlerEx`, `Writing a ServiceMain Function`, and `SetServiceStatus` guidance preserves that:
+- `ServiceMain` should register the control handler immediately
+- registration must occur before the first `SetServiceStatus` call because it yields the status handle and puts the handler in place before accepted controls are advertised
+- `SERVICE_START_PENDING` is initialization posture and control acceptance is usually delayed until initialization completes
+- `SERVICE_RUNNING` is the SCM-visible state transition that says the service is ready, not automatic proof that the decisive worker-owned consumer is already reduced
+
+For reversing, this means:
+- `ServiceMain` entry does not yet prove the handler exists
+- handler registration does not yet prove which controls are live or which worker path matters
+- one visible `SetServiceStatus(...SERVICE_RUNNING...)` call is still weaker than one proved worker/task/callback path
+
+### C. Control-handler entry is often a reduction boundary because long work should move elsewhere
+Microsoft's `Service Control Handler Function` and `Service State Transitions` pages preserve that:
+- the handler runs in the context of the control dispatcher
+- the handler must return within 30 seconds
+- lengthy processing should move to a secondary thread; Vista and later guidance explicitly prefers a thread-pool worker for long control handling
+- stop/pause/continue-style state transitions commonly use pending states while the real work completes later
+
+For reversing, this means:
+- do not stop at handler entry or one status update when the target behavior still depends on a later task/thread/callback path
+- the next useful proof object is often the retained task, queue insertion, secondary thread, or thread-pool callback created because the handler must return quickly
+- preserve the split **control-handler invocation != worker handoff != first worker-owned consumer**
+
+### D. SCM-visible state transitions are interaction truth, not ownership truth
+Microsoft's `Service State Transitions` and `SetServiceStatus` guidance preserves that:
+- the SCM only knows service state through `SetServiceStatus`
+- pending states and accepted-controls posture determine how the SCM interacts with the service
+- status can be updated from any service thread to reflect real state changes
+- `SERVICE_STOPPED` is terminal in practice: cleanup should be complete and no further work should be assumed after that state is reported
+
+For reversing, this means:
+- `SERVICE_START_PENDING`, `SERVICE_RUNNING`, `SERVICE_STOP_PENDING`, and `SERVICE_STOPPED` are useful proof objects, but still not the same thing as behavior ownership
+- treat visible status calls as SCM interaction truth first
+- keep reducing until one worker-owned routine, callback, retained task, or downstream effect makes the path behaviorally real
+
+## 11. Compact operator checklist
 - Pick one service-owned question, not the whole host.
-- Separate entry, dispatch, handoff, consumer, and effect.
-- Prefer retained task objects and worker routines over ceremonial service registration.
+- Separate dispatcher connection, `ServiceMain`, handler-registration/status posture, handler entry, worker handoff, consumer, and effect.
+- Prefer retained task objects and worker routines over ceremonial service registration or SCM-visible status alone.
 - Use one narrow service-control-to-worker proof, not a full service-thread inventory.
 - Rewrite the subsystem map only after one worker-owned chain is proved.
 
-## 11. Topic summary
+## 12. Topic summary
 In native baseline reversing, service and daemon targets often stall not because service scaffolding is invisible, but because visible bootstrap and control structure still do not reveal which worker-owned path actually owns the behavior.
 
-The practical cure is to reduce service entry and command/control scaffolding into one dispatcher reduction, one worker handoff, one first consequence-bearing worker-owned consumer, and one downstream effect.
+The practical cure is to reduce dispatcher connection, `ServiceMain` entry, handler-registration/status posture, handler invocation, worker handoff, and service-owned work into one smaller chain that reaches one first consequence-bearing worker-owned consumer and one downstream effect.
 That single proof usually turns sprawling service logic into a smaller trustworthy working map.
