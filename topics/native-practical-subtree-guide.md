@@ -63,6 +63,11 @@ A thinner Windows-heavy reminder now worth preserving inside family 4 before jum
 - but the branch should separate **resolution truth** from **consumer truth** and keep reducing until one caller-side retained use, table slot, provider object, or later dispatch edge first makes the resolved target behaviorally relevant
 - even when helper hooks can override DLL/proc selection, or the first returned address lands outside the originally named image, that is still weaker than one proved caller-side retained consumer and should not be overread as behavior ownership yet
 
+A second thinner Windows-heavy reminder now worth preserving inside family 5 before jumping ahead to async work:
+- `StartServiceCtrlDispatcher*`, `ServiceMain`, handler registration / accepted-controls posture, control-handler entry, worker handoff, and first worker-owned consumer are different proof objects
+- visible `SetServiceStatus(...SERVICE_RUNNING...)` or another SCM-visible state transition is still weaker than one proved worker-owned task/thread/callback path
+- because long control-handler work is explicitly expected to move to a secondary thread or thread-pool worker, handler entry is often only a reduction boundary rather than the behavior-owning consumer
+
 A compact operator ladder for this branch is:
 
 ```text
@@ -234,6 +239,10 @@ Typical question:
 
 Primary note:
 - `topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md`
+
+Routing reminder:
+- when the case is Windows-service-shaped, keep **dispatcher connection**, **`ServiceMain` entry**, **handler-registration / accepted-controls truth**, **control-handler entry**, **worker handoff**, and **first worker-owned consumer** separate instead of flattening them into one vague service path
+- if long control handling is visible, ask first which retained task, queue insertion, secondary thread, or thread-pool callback carries the work after the handler returns
 
 Possible next handoff:
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
