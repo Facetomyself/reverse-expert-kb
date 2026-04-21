@@ -72,10 +72,15 @@ Interpretation:
 - management surface is still relatively small because there is no public dashboard/admin panel exposed yet
 
 ## 7. Current distribution endpoints
-Validated on 2026-04-13:
+Validated on 2026-04-13, then hardened on 2026-04-21:
 - `https://hk.zhangxuemin.work/` -> authenticated browse/download entry
 - `https://drop.hk.zhangxuemin.work/` -> HTTPS upload/download entry backed by local `dufs`
-- `https://clash.hk.zhangxuemin.work/clash-meta.yaml` -> public Clash Meta / Verge YAML download URL
+- `https://clash.hk.zhangxuemin.work/` -> Clash distribution hostname, but YAML download now requires a randomized private path segment rather than the old public `/clash-meta.yaml`
+
+Subscription hardening on 2026-04-21:
+- legacy public paths `/clash-meta.yaml`, `/clash-compat.yaml`, and `/clash-classic.yaml` were disabled and now return 404
+- active subscription files are served only from randomized private paths on the same host
+- the exact secret path is intentionally not stored in repo-tracked docs; treat it as a credential
 
 The published Clash config intentionally aggregates both newly deployed HK relay entries and pre-existing usable proxy entries, currently including:
 - `hk-hy2`
@@ -90,6 +95,7 @@ Runtime note confirmed on 2026-04-13:
 - the HK relay services themselves were healthy (HTTP/SOCKS direct tests via `1080/1081` succeeded), but Clash-side HK node runtime only stabilized after the subscription was changed to use the bare server IP `154.86.30.10` for all HK node entries instead of `hk.zhangxuemin.work`
 - keep `hk.zhangxuemin.work`, `drop.hk.zhangxuemin.work`, and `clash.hk.zhangxuemin.work` for web/file/distribution use
 - for published proxy node definitions on this host, prefer IP literals over the hostname unless/until a specific client population proves domain-form entries are equally reliable
+- for subscription sharing, do not publish repo-visible docs or public messages containing the randomized private path; rotate the path if it is ever widely exposed
 
 ## 8. To Be Confirmed
 Still worth documenting once the host role is finalized:
