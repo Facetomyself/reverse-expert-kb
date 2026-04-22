@@ -10,6 +10,7 @@ Related pages:
 - topics/ios-environment-normalization-and-deployment-coherence-workflow-note.md
 - topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md
 - topics/ios-trust-path-and-pinning-localization-workflow-note.md
+- topics/ios-url-loading-interception-and-first-consumer-workflow-note.md
 - topics/ios-objc-swift-native-owner-localization-workflow-note.md
 - topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md
 - topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md
@@ -32,6 +33,7 @@ The branch already had practical entry surfaces for:
 - environment normalization and deployment-coherence repair when install/signing path, rootful-vs-rootless mode, Frida recipe, or repack-vs-live-runtime choice still make runs incomparable
 - packaging / jailbreak / runtime-gate diagnosis when the app still diverges before later analysis is trustworthy
 - trust-path and pinning localization once traffic topology is truthful enough and the remaining bottleneck is routing-vs-trust-vs-post-trust diagnosis on iOS
+- URL-loading interception / first-consumer proof once a custom `URLProtocol`, session-local `protocolClasses`, or `WKURLSchemeHandler` is already visible but current session/webview ownership and the first interception consumer still lie
 - ObjC / Swift / native owner localization once the target flow is reachable enough to study
 - Flutter/Dart cross-runtime owner localization when iOS shell, engine routing, and Dart ownership all compete
 - execution-assisted owner replay when the owner path is already plausible and the next bottleneck is minimal truthful invocation
@@ -53,7 +55,7 @@ This page makes the iOS branch read more like the KB’s stronger practical subt
 A newer practical reminder is also now worth preserving canonically: before broad iOS gate diagnosis, some cases first need a narrower environment-normalization pass so install/signing path, rootful-vs-rootless differences, Frida deployment recipe, and repack-vs-live-runtime choice stop contaminating later comparisons.
 
 ## 2. Core claim
-iOS practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of eight recurring families:
+iOS practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of the branch’s recurring families:
 
 1. **traffic-topology uncertainty**
    - the user-visible action clearly performs network work, but the current observation surface is still too partial or misleading to trust
@@ -63,6 +65,7 @@ iOS practical work is easiest to navigate when the analyst first classifies the 
    - the case is iOS-shaped, but packaging, signing, jailbreak environment, instrumentation visibility, or realism drift still dominates even after basic normalization
 4. **trust-path / pinning uncertainty**
    - traffic topology is truthful enough and the run is comparable enough, but the decisive request family is still blocked by routing-vs-trust-vs-post-trust uncertainty on iOS
+   - once broad trust-path work is already good enough and a custom `URLProtocol`, session-local `protocolClasses`, or `WKURLSchemeHandler` is now the visible family, a narrower URL-loading interception / first-consumer continuation may be the right next route instead of jumping straight into broad owner localization
 5. **post-gate owner uncertainty**
    - the flow is reachable enough to study, yet several ObjC / Swift / native boundaries still compete and the first consequence-bearing owner is unclear
 6. **cross-runtime owner uncertainty**
@@ -106,6 +109,7 @@ The subtree is strongest when read as:
 - **normalize** one comparable environment/deployment recipe
 - **stabilize** one trustworthy runtime/setup state
 - **localize** one decisive trust path when routing-vs-trust remains the blocker
+- **intercept** one current URL-loading-owned consumer when custom `URLProtocol` / `protocolClasses` / `WKURLSchemeHandler` visibility is now the real missing proof
 - **own** one consequence-bearing path
 - **replay** one truthful callable owner path when static cleanup is no longer the cheapest next move
 - **reduce** one iOS-shaped signing/finalization boundary before flattening the case into generic preimage work
@@ -172,7 +176,22 @@ Start here when:
 Do **not** start here when:
 - the current problem is still primarily traffic-topology blindness
 - compared runs are still too operationally incomparable to trust the diagnosis
-- the real bottleneck has clearly shifted into post-gate owner localization rather than trust-path localization
+- the real bottleneck has clearly shifted into a narrower URL-loading interception / first-consumer question or into broader post-gate owner localization rather than trust-path localization
+
+### Start with `ios-url-loading-interception-and-first-consumer-workflow-note`
+Use:
+- `topics/ios-url-loading-interception-and-first-consumer-workflow-note.md`
+
+Start here when:
+- broad iOS trust-path work is already good enough that one custom `URLProtocol`, session-local `protocolClasses`, or `WKURLSchemeHandler` is now the visible family that still lies
+- the current bottleneck is whether the current session or webview really owns that family, whether the request was actually selected into it, or which first interception consumer actually supplied the request/response consequence
+- compare pairs still overread global registration, configuration membership, or handler existence as if they already proved current-request ownership
+- the next useful output is one smaller chain such as configuration ownership -> `canInit(with:)` -> `startLoading()` or current webview configuration -> `webView(_:start:)` -> page-visible resource consequence
+
+Do **not** start here when:
+- the broad problem is still traffic-topology or setup/gate shaped
+- the remaining question is still the earlier iOS trust-path / pinning boundary rather than interception ownership
+- interception selection and the first interception consumer are already good enough and the real missing step is now broader ObjC / Swift / native owner localization or later policy consequence
 
 ### Start with `ios-objc-swift-native-owner-localization-workflow-note`
 Use:
@@ -349,6 +368,7 @@ Primary note:
 - `topics/ios-trust-path-and-pinning-localization-workflow-note.md`
 
 Possible next handoff:
+- `topics/ios-url-loading-interception-and-first-consumer-workflow-note.md` when broad trust-path work is already good enough but a custom `URLProtocol`, session-local `protocolClasses`, or `WKURLSchemeHandler` now looks like the real lying ownership surface
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md` when trust is no longer the earliest blocker and the remaining gap is consequence ownership
 - `topics/ios-result-callback-to-policy-state-workflow-note.md` when trust appears to pass and the remaining failure is later policy logic
 - request/signature or native proof pages when the localized trust path narrows the case further
@@ -486,6 +506,7 @@ When a case is clearly iOS-shaped, ask these in order:
    - if yes, start with packaging / jailbreak / runtime-gate diagnosis
 4. **Is the decisive request family reachable enough, but the remaining blocker is still routing-vs-trust-vs-post-trust diagnosis on iOS?**
    - if yes, start with trust-path / pinning localization
+   - if broad trust-path work is already good enough and one custom `URLProtocol`, session-local `protocolClasses`, or `WKURLSchemeHandler` is now the visible liar, route next into `topics/ios-url-loading-interception-and-first-consumer-workflow-note.md` before broad owner localization
 5. **Is the flow now reachable enough, but the first consequence-bearing owner still unclear?**
    - if yes, start with broad ObjC / Swift / native owner localization
 6. **Is that ownership problem clearly Flutter/Dart cross-runtime shaped?**
@@ -521,6 +542,7 @@ That usually means:
 - normalize one comparable environment/deployment recipe before diagnosing deeper gate logic
 - prove one broad gate family before deep trust-path or owner work
 - localize one decisive trust path before broadening into consequence ownership when routing-vs-trust is still unresolved
+- if a custom `URLProtocol`, session-local `protocolClasses`, or `WKURLSchemeHandler` now looks like the real lying surface, freeze current session/webview ownership and the first interception consumer before widening into broader owner work
 - prove one owner before building a replay harness
 - prove one truthful callable path before cataloging many setup helpers
 - leave broad replay/harness work once one truthful callable path is already good enough and the real bottleneck has shifted
@@ -535,6 +557,7 @@ That usually means:
 This branch is currently strongest at practical guidance for:
 - separating traffic-topology problems from broader iOS gate problems
 - separating setup/gate uncertainty from trust-path localization and then from post-gate owner localization
+- separating broad iOS trust-path work from narrower URL-loading interception ownership when custom `URLProtocol`, `protocolClasses`, or `WKURLSchemeHandler` visibility becomes the real liar
 - separating ordinary ObjC / Swift / native owner problems from Flutter/Dart cross-runtime owner problems
 - treating execution-assisted replay as a continuation of owner recovery rather than tool tourism
 - separating callback/block landing truth from later owner or policy claims
@@ -562,6 +585,7 @@ This guide is meant to prevent several recurring branch-level mistakes:
 - jumping into owner or callback work while the observation surface is still untrustworthy
 - widening into replay harness work before one owner is narrowed enough to target
 - confusing Flutter/bridge visibility with actual Dart/object ownership
+- treating visible `URLProtocol` / `protocolClasses` / `WKURLSchemeHandler` scaffolding as if it already proved current-request ownership or first interception consumer truth
 - treating plausible callback/block presence as proof of a truthful landing
 - treating visible callback or result wrappers as behavioral ownership by default
 - reopening broad owner or callback-family work when the case is already replay-close and really needs one smaller mitigation-aware repair target

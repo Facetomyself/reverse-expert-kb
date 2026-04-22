@@ -9,6 +9,7 @@ Related pages:
 - topics/mobile-protected-runtime-subtree-guide.md
 - topics/ios-traffic-topology-relocation-workflow-note.md
 - topics/ios-environment-normalization-and-deployment-coherence-workflow-note.md
+- topics/ios-url-loading-interception-and-first-consumer-workflow-note.md
 - topics/ios-objc-swift-native-owner-localization-workflow-note.md
 - topics/environment-differential-diagnosis-workflow-note.md
 - topics/observation-distortion-and-misleading-evidence.md
@@ -153,6 +154,7 @@ Look for:
 #### Why this matters
 If the target family is not actually Foundation-owned, piling on more `NSURLSession` hooks is usually not the best next move.
 If the target clearly is Foundation-owned, jumping immediately into broad native patching may be premature.
+If the current evidence instead narrows into a custom `URLProtocol`, session-local `protocolClasses`, or `WKURLSchemeHandler` family whose ownership still lies, hand off next to `topics/ios-url-loading-interception-and-first-consumer-workflow-note.md` rather than widening into generic trust folklore or broad owner search.
 
 ### Step 3: separate routing/path failure from trust failure from post-trust failure
 A lot of iOS trust work goes wrong because analysts collapse these together:
@@ -173,6 +175,7 @@ Most likely next questions:
 - is the decisive path Foundation delegate handling?
 - where is `SecTrust` evaluated or wrapped?
 - is a lower-native or framework-specific validator actually deciding the failure?
+- or is the visible liar now a narrower URL-loading interception family, where global registration, session-local `protocolClasses`, or `WKURLSchemeHandler` presence still has to be reduced into one current request-owned consumer before the trust conclusion is honest?
 
 #### Case C: trust bypass appears to help, but the case still fails later
 Most likely next questions:

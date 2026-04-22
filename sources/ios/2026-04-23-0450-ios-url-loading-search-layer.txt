@@ -1,0 +1,525 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Apple URLProtocol registerClass protocolClasses canInit canonicalRequest startLoading developer documentation",
+    "Apple URLSessionConfiguration protocolClasses custom URLProtocol developer documentation",
+    "Apple WKWebViewConfiguration setURLSchemeHandler forURLScheme startURLSchemeTask stopURLSchemeTask developer documentation",
+    "Apple WKURLSchemeHandler custom schemes only developer documentation"
+  ],
+  "count": 25,
+  "results": [
+    {
+      "title": "protocolClasses | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration/protocolclasses",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7333
+    },
+    {
+      "title": "protocolClasses | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration/protocolclasses?changes=_2",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7333
+    },
+    {
+      "title": "URLProtocol | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlprotocol",
+      "snippet": "Overview. Don't instantiate a URLProtocol subclass directly. Instead, create subclasses for any custom protocols or URL schemes that your app supports.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.7333
+    },
+    {
+      "title": "protocolClasses | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration/protocolclasses?changes=_6_2&language=objc",
+      "snippet": "URL session objects support a number of common networking protocols by default. Use this array to extend the default set of common networking protocols",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7333
+    },
+    {
+      "title": "registerClass(_:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlprotocol/registerclass(_:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7333
+    },
+    {
+      "title": "startLoading() | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlprotocol/startloading()",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7333
+    },
+    {
+      "title": "URLProtocol | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlprotocol?changes=_2",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7333
+    },
+    {
+      "title": "registerClass: | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlprotocol/registerclass(_:)?language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7333
+    },
+    {
+      "title": "swift - URLProtocol doesn't get initialized",
+      "url": "https://stackoverflow.com/questions/46414215/urlprotocol-doesnt-get-initialized",
+      "snippet": "Although canInit(with request: URLRequest) always returns true, neither init(…) nor canonicalRequest(…) nor startLoading() get called.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7333
+    },
+    {
+      "title": "canonicalRequest(for:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlprotocol/canonicalrequest(for:)",
+      "snippet": "The canonical form of a request is used to lookup objects in the URL cache, a process which performs equality checks between URLRequest instances.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7333
+    },
+    {
+      "title": "URLSessionConfiguration | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7
+    },
+    {
+      "title": "URLSessionConfiguration | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration?changes=_3",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7
+    },
+    {
+      "title": "URLSessionConfiguration | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/Foundation/URLSessionConfiguration?changes=_6",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7
+    },
+    {
+      "title": "httpAdditionalHeaders | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration/httpadditionalheaders",
+      "snippet": "An URLSession object is designed to handle various aspects of the HTTP protocol for you. As a result, you should not modify the following headers: Authorization.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "WKURLSchemeTask | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/webkit/wkurlschemetask",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7
+    },
+    {
+      "title": "webView:startURLSchemeTask: | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/webkit/wkurlschemehandler/webview(_:start:)?language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.7
+    },
+    {
+      "title": "WKURLSchemeHandler | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/webkit/wkurlschemehandler",
+      "snippet": "Custom schemes let you integrate custom resource types into your web content, and you may define custom schemes for resources that your app requires. For",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.7
+    },
+    {
+      "title": "WKURLSchemeHandler | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/webkit/wkurlschemehandler?language=objc&language=objc",
+      "snippet": "A protocol for loading resources with URL schemes that WebKit doesn't handle.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.7
+    },
+    {
+      "title": "WKWebViewConfiguration | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7
+    },
+    {
+      "title": "setURLSchemeHandler(_:forURLScheme:) - Apple Developer",
+      "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/seturlschemehandler(_:forurlscheme:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "setURLSchemeHandler:forURLScheme - Apple Developer",
+      "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/seturlschemehandler(_:forurlscheme:)?language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "urlSchemeHandler(forURLScheme:) - Apple Developer",
+      "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/urlschemehandler(forurlscheme:)",
+      "snippet": "urlSchemeHandler(forURLScheme:) Returns the currently registered handler object for the specified URL scheme.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "Tools/TestWebKitAPI/Tests/WebKitCocoa/WKURLSchemeHandler-1.mm at ba2a851809a33013068ec8511883055cabd239be · WebKit/WebKit",
+      "url": "https://github.com/WebKit/WebKit/blob/ba2a851809a33013068ec8511883055cabd239be/Tools/TestWebKitAPI/Tests/WebKitCocoa/WKURLSchemeHandler-1.mm",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "urlSchemeHandlerForURLSche...",
+      "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/urlschemehandler(forurlscheme:)?language=objc",
+      "snippet": "Adding handlers for custom URL schemes ... - setURLSchemeHandler:forURLScheme: Registers an object to load resources associated with the specified URL scheme.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Custom scheme handling and WKWebview in iOS 11 | by Thomas Ricouard | Glose Engineering | Medium",
+      "url": "https://medium.com/glose-team/custom-scheme-handling-and-wkwebview-in-ios-11-72bc5113e344",
+      "snippet": "",
+      "published_date": "2017-08-24T15:09:52.000Z",
+      "source": "exa",
+      "score": 0.4
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "protocolClasses | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration/protocolclasses",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7333
+      },
+      {
+        "title": "URLSessionConfiguration | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7
+      },
+      {
+        "title": "protocolClasses | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration/protocolclasses?changes=_2",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7333
+      },
+      {
+        "title": "URLSessionConfiguration | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration?changes=_3",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7
+      },
+      {
+        "title": "URLSessionConfiguration | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/Foundation/URLSessionConfiguration?changes=_6",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7
+      },
+      {
+        "title": "URLProtocol | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlprotocol",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "registerClass(_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlprotocol/registerclass(_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7333
+      },
+      {
+        "title": "startLoading() | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlprotocol/startloading()",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7333
+      },
+      {
+        "title": "URLProtocol | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlprotocol?changes=_2",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7333
+      },
+      {
+        "title": "registerClass: | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlprotocol/registerclass(_:)?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7333
+      },
+      {
+        "title": "setURLSchemeHandler(_:forURLScheme:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/seturlschemehandler(_:forurlscheme:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "setURLSchemeHandler:forURLScheme - Apple Developer",
+        "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/seturlschemehandler(_:forurlscheme:)?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "WKURLSchemeTask | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/webkit/wkurlschemetask",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7
+      },
+      {
+        "title": "webView:startURLSchemeTask: | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/webkit/wkurlschemehandler/webview(_:start:)?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.7
+      },
+      {
+        "title": "Tools/TestWebKitAPI/Tests/WebKitCocoa/WKURLSchemeHandler-1.mm at ba2a851809a33013068ec8511883055cabd239be · WebKit/WebKit",
+        "url": "https://github.com/WebKit/WebKit/blob/ba2a851809a33013068ec8511883055cabd239be/Tools/TestWebKitAPI/Tests/WebKitCocoa/WKURLSchemeHandler-1.mm",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "WKURLSchemeHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/webkit/wkurlschemehandler",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "WKURLSchemeHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/webkit/wkurlschemehandler?language=objc&language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "WKWebViewConfiguration | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7
+      },
+      {
+        "title": "webView(_:start:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/webkit/wkurlschemehandler/webview(_:start:)?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Custom scheme handling and WKWebview in iOS 11 | by Thomas Ricouard | Glose Engineering | Medium",
+        "url": "https://medium.com/glose-team/custom-scheme-handling-and-wkwebview-in-ios-11-72bc5113e344",
+        "snippet": "",
+        "published_date": "2017-08-24T15:09:52.000Z",
+        "source": "exa",
+        "score": 0.4
+      }
+    ],
+    "tavily": [
+      {
+        "title": "protocolClasses | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration/protocolclasses",
+        "snippet": "Use this array to extend the default set of common networking protocols available for use by a session with one or more custom protocols that you define.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "URLProtocol | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlprotocol",
+        "snippet": "Overview. Don't instantiate a URLProtocol subclass directly. Instead, create subclasses for any custom protocols or URL schemes that your app supports.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.7333
+      },
+      {
+        "title": "protocolClasses | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration/protocolclasses?changes=_6_2&language=objc",
+        "snippet": "URL session objects support a number of common networking protocols by default. Use this array to extend the default set of common networking protocols",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7333
+      },
+      {
+        "title": "URLSessionConfiguration | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration",
+        "snippet": "Overview. An URLSessionConfiguration object defines the behavior and policies to use when uploading and downloading data using an URLSession object.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "httpAdditionalHeaders | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration/httpadditionalheaders",
+        "snippet": "An URLSession object is designed to handle various aspects of the HTTP protocol for you. As a result, you should not modify the following headers: Authorization.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "registerClass(_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlprotocol/registerclass(_:)",
+        "snippet": "Register any custom URLProtocol subclasses prior to making URL requests. When the URL loading system begins to load a request, it tries to initialize each",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "protocolClasses | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlsessionconfiguration/protocolclasses",
+        "snippet": "Supporting custom protocols · class URLProtocol. An abstract class that handles the loading of protocol-specific URL data. Current page is protocolClasses.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "URLProtocol | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlprotocol",
+        "snippet": "You define your protocol class and call the registerClass(_:) class method during your app's launch time so that the system is aware of your protocol. Note. You",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "swift - URLProtocol doesn't get initialized",
+        "url": "https://stackoverflow.com/questions/46414215/urlprotocol-doesnt-get-initialized",
+        "snippet": "Although canInit(with request: URLRequest) always returns true, neither init(…) nor canonicalRequest(…) nor startLoading() get called.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7333
+      },
+      {
+        "title": "canonicalRequest(for:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/urlprotocol/canonicalrequest(for:)",
+        "snippet": "The canonical form of a request is used to lookup objects in the URL cache, a process which performs equality checks between URLRequest instances.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7333
+      },
+      {
+        "title": "setURLSchemeHandler(_:forURLScheme:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/seturlschemehandler(_:forurlscheme:)",
+        "snippet": "setURLSchemeHandler(_:forURLScheme:) Registers an object to load resources associated with the specified URL scheme.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "urlSchemeHandlerForURLSche...",
+        "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/urlschemehandler(forurlscheme:)?language=objc",
+        "snippet": "Adding handlers for custom URL schemes ... - setURLSchemeHandler:forURLScheme: Registers an object to load resources associated with the specified URL scheme.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "setURLSchemeHandler:forURLScheme - Apple Developer",
+        "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/seturlschemehandler(_:forurlscheme:)?language=objc",
+        "snippet": "setURLSchemeHandler:forURLScheme: Registers an object to load resources associated with the specified URL scheme.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "webView:startURLSchemeTask: | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/webkit/wkurlschemehandler/webview(_:start:)?language=objc",
+        "snippet": "Discussion. When a web view encounters a resource with your custom URL scheme, it calls this method on the appropriate handler object.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "urlSchemeHandler(forURLScheme:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/urlschemehandler(forurlscheme:)",
+        "snippet": "urlSchemeHandler(forURLScheme:) Returns the currently registered handler object for the specified URL scheme.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "WKURLSchemeHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/webkit/wkurlschemehandler",
+        "snippet": "Custom schemes let you integrate custom resource types into your web content, and you may define custom schemes for resources that your app requires. For",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.7
+      },
+      {
+        "title": "urlSchemeHandler(forURLScheme:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/urlschemehandler(forurlscheme:)",
+        "snippet": "Scheme names are case sensitive, must start with an ASCII letter, and may contain only ASCII letters, numbers, the “ + ” character, the “ - ” character, and the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "urlSchemeHandlerForURLSche...",
+        "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/urlschemehandler(forurlscheme:)?language=objc",
+        "snippet": "Scheme names are case sensitive, must start with an ASCII letter, and may contain only ASCII letters, numbers, the “ + ” character, the “ - ” character, and the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "setURLSchemeHandler(_:forURLScheme:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/seturlschemehandler(_:forurlscheme:)",
+        "snippet": "Use this method to register any custom resource types that your web content uses. For example, you might register a custom URL scheme for resources that you",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "WKURLSchemeHandler | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/webkit/wkurlschemehandler?language=objc&language=objc",
+        "snippet": "A protocol for loading resources with URL schemes that WebKit doesn't handle.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.7
+      }
+    ],
+    "grok": []
+  }
+}
