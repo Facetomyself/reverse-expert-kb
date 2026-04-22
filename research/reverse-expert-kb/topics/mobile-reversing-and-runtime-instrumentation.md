@@ -211,6 +211,12 @@ A second narrower iOS reminder is now also worth preserving canonically:
 - in those cases, keychain query/ref truth, access-control policy truth, reusable `LAContext` / prompt truth, actual private-key operation truth, returned signature bytes truth, and request-field consumption truth are different proof objects
 - the practical stop rule is therefore not “Face ID/keychain signing happened,” but “which auth-gated key-use boundary first turns this plausible item/ref/key handle into one current request-owned signature?”
 
+A third narrower iOS reminder is now also worth preserving canonically:
+- some iOS/network cases narrow not from broad trust-path work straight into broad owner search, but into a URL-loading interception seam around `URLProtocol.registerClass(...)`, session-local `URLSessionConfiguration.protocolClasses`, or `WKURLSchemeHandler`
+- in those cases, registration truth, current session or webview ownership truth, request-selection truth, first interception consumer truth, and later visible consequence truth are different proof objects
+- the practical stop rule is therefore not “custom protocol/scheme handler exists,” but “which current request or resource actually reached one first interception consumer under the current session or webview configuration?”
+- a sharper WebKit-specific reminder also belongs here: `webView(_:start:)` is stronger than registration, but still weaker than resource-still-needed truth or later page-visible consequence when `webView(_:stop:)` can still cancel the task
+
 ### E. Modern iOS reversing increasingly overlaps with mitigation-aware analysis
 
 #### Technical analysis of CVE-2025-31201
