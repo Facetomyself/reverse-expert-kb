@@ -256,7 +256,7 @@ It should also preserve where the analyst is supposed to enter and leave the bra
 - reduce noisy protected execution into one stable semantic anchor before broadening the case again
 - normalize one opaque-predicate / computed-next-state bottleneck into one trustworthy successor relation when flattening is recognizable but successor truth is still blocked by helper-mediated writes, computed indices, dispatcher-local mechanics, or encoded-branch / obfuscated-next variants
 - reduce a recognizable flattened dispatcher or protected state machine into one durable state edge once successor recovery is already trustworthy enough
-- hand off out of staged bootstrap into one trustworthy post-protection target, while keeping Windows/native startup-normalization reality explicit when TLS callbacks, CRT/runtime startup, or constructor/init-table work still separate raw PE entry, startup-owned pre-entry truth, raw post-unpack transfer, and the first payload-bearing post-startup handoff
+- hand off out of staged bootstrap into one trustworthy post-protection target, while keeping Windows/native startup-normalization reality explicit when TLS callbacks, CRT/runtime startup, or constructor/init-table work still separate raw PE entry, startup-owned pre-entry truth, raw post-unpack transfer, and the first payload-bearing post-startup handoff; inside that seam, also preserve the thinner callback rule `listed != replayed != DLL_PROCESS_ATTACH replay != startup-owned work != first payload-bearing consumer`, so one callback array or one early breakpoint hit is not overread as the same thing as first payload proof
 - prove the first ordinary consumer of one recovered artifact
 - recover the smallest runtime artifact or init obligation that explains close-but-wrong replay
 - reduce visible checks into one first consequence-bearing tripwire
@@ -267,7 +267,7 @@ A compact parent-page memory worth preserving is that the protected-runtime bran
 - then stabilize one semantic anchor if protected execution is still mostly noisy churn
 - then normalize one blocked successor relation if flattening is recognizable but next-state truth is still obscured by opaque predicates, helper-mediated writes, computed indices, dispatcher-contract ambiguity, or encoded-branch / obfuscated-next variants
 - then reduce one recognizable dispatcher or protected state machine into one durable state edge
-- then hand off from packed/bootstrap churn into one trustworthy post-protection region
+- then hand off from packed/bootstrap churn into one trustworthy post-protection region, and when the remaining lie is specifically TLS-callback-shaped, keep callback listing, replay, replay reason, startup-owned work, and first payload-bearing consumer as separate proof objects rather than flattening them back into one vague pre-entry story
 - then prove the first ordinary consumer of one recovered artifact
 - then recover the one runtime artifact or init obligation that explains close-but-wrong replay
 - then reduce visible integrity logic into one first consequence-bearing tripwire

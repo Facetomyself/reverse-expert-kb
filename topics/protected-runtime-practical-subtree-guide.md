@@ -234,6 +234,7 @@ Start here when:
 - the real bottleneck is one trustworthy OEP-like boundary plus one first ordinary-code anchor downstream from it
 - the analyst needs one reusable post-unpack dump, image state, module/object cluster, or first real consumer target
 - the case may require explicitly separating **raw PE entry**, **raw post-unpack transfer**, optional **loader image-repair / remap truth** when early header/IAT tampering may be repaired before entry, and the eventual **payload-bearing post-startup handoff** rather than treating one dramatic jump or one tampered page as self-proving
+- if the ambiguity later narrows specifically into callback-slot listing, replay, replay reason, startup-owned body, and the first payload consumer, hand off to the dedicated TLS continuation rather than keeping that thinner ladder implicit inside the packed-startup note
 
 Do **not** start here when:
 - there is no real loader/stub handoff problem and the target is already post-unpack
@@ -421,7 +422,7 @@ Routing reminder:
 - keep the smaller stop rule visible: `raw_entry != pre_entry_startup != unpack_transfer != payload_handoff != consumed`
 
 Possible next handoff:
-- `topics/tls-callback-to-first-payload-consumer-workflow-note.md` when the broad packed/startup handoff is already reduced enough and the remaining ambiguity is specifically whether one TLS callback still owns startup work or whether payload-bearing code begins one hop later
+- `topics/tls-callback-to-first-payload-consumer-workflow-note.md` when the broad packed/startup handoff is already reduced enough and the remaining ambiguity is specifically whether one TLS callback slot merely **exists**, actually **replayed**, replayed on the `DLL_PROCESS_ATTACH` path that matters, is still only **startup-owned work**, or has really handed off into the first payload-bearing consumer
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md` when unpacking is solved but later protected execution still dominates
 - `topics/native-semantic-anchor-stabilization-workflow-note.md` when the post-unpack region is readable but semantically slippery
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md` when the handoff yields one readable artifact whose first consumer is still unclear
