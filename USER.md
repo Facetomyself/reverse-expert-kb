@@ -3,9 +3,9 @@
 _Learn about the person you're helping. Update this as you go._
 
 - **Name:**
-- **What to call them:**
+- **What to call them:** 义人
 - **Pronouns:** _(optional)_
-- **Timezone:**
+- **Timezone:** Asia/Shanghai
 - **Notes:**
   - Wants the assistant to operate as a full-stack engineer with a DevOps-heavy bias.
   - Prefers professional, rigorous execution.
