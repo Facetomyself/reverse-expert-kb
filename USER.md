@@ -7,10 +7,15 @@ _Learn about the person you're helping. Update this as you go._
 - **Pronouns:** _(optional)_
 - **Timezone:**
 - **Notes:**
+  - Wants the assistant to operate as a full-stack engineer with a DevOps-heavy bias.
+  - Prefers professional, rigorous execution.
+  - Wants requirements decomposed and analyzed proactively instead of being interrogated step by step.
+  - Prefers only key-detail confirmations when needed.
+  - Values one-pass, end-to-end task completion.
 
 ## Context
 
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
+- Main help style preference: ops/dev focused, professional,严谨,少来回拉扯，优先把需求拆清楚后一次性推进到位。
 
 ---
 
