@@ -1,0 +1,588 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Microsoft PE format TLS callback AddressOfCallbacks documentation",
+    "Microsoft DLL_PROCESS_ATTACH DLL_THREAD_ATTACH TLS callback loader order documentation",
+    "Windows TLS callback process attach thread attach startup loader lock documentation",
+    "TLS callback malware unpacking startup payload consumer blog"
+  ],
+  "count": 32,
+  "results": [
+    {
+      "title": "/TLS | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/cpp/build/reference/tls?view=msvc-170",
+      "snippet": "/TLS displays the fields of the TLS structure as well as the addresses of the TLS callback functions.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Using Thread Local Storage in a Dynamic-Link Library - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/dlls/using-thread-local-storage-in-a-dynamic-link-library",
+      "snippet": "This section shows the use of a DLL entry-point function to set up a thread local storage (TLS) index to provide private storage for each thread of a multithreaded process. The entry-point function uses the **TlsAlloc** function to allocate a TLS index whenever a process loads the DLL. The entry-point function then allocates a block of memory for the new thread and stores a pointer to it by using the TLS index. When a process uses load-time linking with this DLL, the entry-point function is sufficient to manage the thread local storage. Problems can occur with a process that uses run-time linking because the entry-point function is not called for threads that exist before the **LoadLibrary** function is called, so TLS memory is not allocated for these threads. When a process terminates, the entry-point function is called with the DLL\\_PROCESS\\_DETACH value and the memory referenced by the pointer in the TLS index is freed.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.7
+    },
+    {
+      "title": "PE Format - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-gb/windows/win32/debug/pe-format",
+      "snippet": "",
+      "published_date": "2024-02-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.7
+    },
+    {
+      "title": "docs/PE/PE.md at master · corkami/docs - GitHub",
+      "url": "https://github.com/corkami/docs/blob/master/PE/PE.md",
+      "snippet": "TLS callbacks are not executed on thread start if no DLL importing kernel32 is imported. Thus, only execution on thread stop if kernel32 is the only import.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "How can I set up Thread-Local Storage (TLS) callbacks on Windows ...",
+      "url": "https://stackoverflow.com/questions/79804173/how-can-i-set-up-thread-local-storage-tls-callbacks-on-windows-without-crt",
+      "snippet": "OS: Windows 11. I expected my TLS callback ( TlsCallback_0 ) to be called automatically by the Windows loader during thread initialization.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.7
+    },
+    {
+      "title": "TLS Callback in Windows",
+      "url": "https://stackoverflow.com/questions/14538159/tls-callback-in-windows",
+      "snippet": "",
+      "published_date": "2013-01-26T15:03:26.000Z",
+      "source": "exa",
+      "score": 0.7
+    },
+    {
+      "title": "DllMain entry point (Process.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-gb/windows/win32/dlls/dllmain",
+      "snippet": "",
+      "published_date": "2022-09-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "The NT DLL Loader: DLL callouts (DllMain) - DLL_PROCESS_ATTACH deadlocks | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/archive/blogs/mgrier/the-nt-dll-loader-dll-callouts-dllmain-dll_process_attach-deadlocks",
+      "snippet": "",
+      "published_date": "2005-06-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "thread | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/cpp/cpp/thread?view=msvc-170",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Dynamic-Link Library Best Practices - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-best-practices",
+      "snippet": "This document provides guidelines for DLL developers to help in building more robust, portable, and extensible DLLs. Improper synchronization within **DllMain** can cause an application to deadlock or access data or code in an uninitialized DLL. You cannot call any function in **DllMain** that directly or indirectly tries to acquire the loader lock. Exiting a thread during DLL detach can cause the loader lock to be acquired again, causing a deadlock or a crash. The main thread creates synchronization objects A, B, and G to serialize access to its data structures and then tries to acquire lock G. To prevent deadlocks that are caused by lock order inversion, all threads should attempt to acquire synchronization objects in the defined load order at all times. Thread T exits and the loader tries to acquire the loader lock to call into DLL A’s **DllMain** with DLL\\_THREAD\\_DETACH.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "DllMain (Windows CE 3.0) - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/previous-versions/ms939455(v=msdn.10)",
+      "snippet": "Indicates that the current process is creating a new thread. When this occurs, the system calls the entry-point function of all DLLs currently attached to the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "DllMain entry point (Process.h) - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/dlls/dllmain",
+      "snippet": "",
+      "published_date": "2022-09-02T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "DLLs & TLS Callbacks",
+      "url": "https://isc.sans.edu/diary/32580",
+      "snippet": "",
+      "published_date": "2025-12-19T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "GitHub - Fatmike-GH/PELoader at 8b657f723c7a07cb54d305998a5127aff5bddb07 · GitHub",
+      "url": "https://github.com/Fatmike-GH/PELoader/tree/8b657f723c7a07cb54d305998a5127aff5bddb07",
+      "snippet": "",
+      "published_date": "2025-05-29T19:07:41.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Fatmike-GH/PELoader",
+      "url": "https://github.com/fatmike-gh/peloader",
+      "snippet": "",
+      "published_date": "2025-05-29T19:07:41.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Newly Observed Ursnif Variant Employs Malicious TLS Callback ...",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/newly-observed-ursnif-variant-employs-malicious-tls-callback-technique-achieve-process-injection/",
+      "snippet": "We recently came across a Ursnif/Gozi-ISFB sample that manipulated TLS callbacks while injecting to child process.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "TLS callbacks in a real malware sample (Rust runtime initialization)",
+      "url": "https://www.reddit.com/r/MalwareAnalysis/comments/1s8pc09/quick_writeup_tls_callbacks_in_a_real_malware/",
+      "snippet": "Just a quick write up with a brief explanation of what TLS callbacks are, how they can be abused and what this real world sample used the",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6
+    },
+    {
+      "title": "[PDF] TLS (Thread Local Storage) Callback Function and Advanced Anti-De",
+      "url": "https://www.cs.wcupa.edu/SCHEN/malware2022/slides/ch17.pdf",
+      "snippet": "CSC 471 Modern Malware Analysis Anti-Debugging Techniques (3): TLS (Thread Local Storage) Callback Function and Advanced Anti-Debugging Techniques Si Chen (schen@wcupa.edu) Class17 Page § 2 Advanced Anti-Debugging Techniques § Advanced Anti-Debugging Techniques: – Thread Local Storage (TLS) Callback Function – Garbage Code – Break Code Alignment – Encryption/Decryption – Stolen Bytes (Remove OEP) – API Redirection – Self Debugging Page § 3 TLS Callback Function Example1: HelloTls.exe Double Click Use OllyDBG to load it Page § 4 Process and Thread § Process is the execution of a program that allows you to perform the appropriate actions specified in a program. Page § 8 Thread Local Storage Page § 9 Thread Local Storage § Thread Local Storage (TLS) is the mechanism by which each thread in a given multithreaded process allocates storage for thread-specific data.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "How Malware Defends Itself Using TLS Callback Functions",
+      "url": "http://isc.sans.edu/diary.html?storyid=6655",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How Malware Executes Before Entry Point: TLS Callbacks | Under the Hood: Adventures in Security Research",
+      "url": "https://mja-reversing.github.io/blog/How-Malware-Executes-Before-Entry-Point-TLS-Callbacks/",
+      "snippet": "",
+      "published_date": "2026-03-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.55
+    },
+    {
+      "title": "Class IMAGE_TLS_DIRECTORY",
+      "url": "https://secana.github.io/PeNet/api/PeNet.Structures.IMAGE_TLS_DIRECTORY.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5
+    },
+    {
+      "title": "Developing PE file packer step-by-step. Step 6. TLS - Misc",
+      "url": "https://kaimi.io/en/2012/09/developing-pe-file-packer-step-by-step-step-6-tls/",
+      "snippet": "The AddressOfCallBacks field of IMAGE_TLS_DIRECTORY structure points to an array of absolute virtual addresses (i.e. to addresses following one",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Part 4: Entry Points and TLS Callbacks - YouTube",
+      "url": "https://www.youtube.com/watch?v=9K8WaZ53oOs",
+      "snippet": "In Part 4, we focus on the PE+ file format's entry points, specifically the AddressOfEntryPoint and TLS callbacks. The video covers how to",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Analyzing TLS Callbacks - Ring Zero Labs",
+      "url": "https://www.ringzerolabs.com/2019/08/analyzing-tls-callbacks.html",
+      "snippet": "Thread Local Storage (TLS) callbacks are stored within the Portable Executable (PE) header. Originally designed by Microsoft to support the initialization",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "LIEF: Library to Instrument Executable Formats: LIEF::PE::TLS Class Reference",
+      "url": "https://lief.re/doc/latest/doxygen/classLIEF_1_1PE_1_1TLS.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "TLS Callback - Unprotect Project",
+      "url": "https://unprotect.it/technique/tls-callback/",
+      "snippet": "TLS (Thread Local Storage) callbacks are a mechanism in Windows that allows a program to define a function that will be called when a thread is created.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "TLS callbacks - Hex-Rays",
+      "url": "https://hex-rays.com/blog/tls-callbacks",
+      "snippet": "A TLS (thread-local-storage) callback is used by the application. Such a callback is called by the system before the application entry point.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "MITRE ATT&CK T1055.005 Process Injection: Thread Local Storage",
+      "url": "https://www.picussecurity.com/resource/blog/t1055-005-thread-local-storage",
+      "snippet": "# MITRE ATT&CK T1055.005 Process Injection: Thread Local Storage. Thread Local Storage (TLS) Callback Injection is a stealthy process injection technique that adversaries use to execute malicious code before the main entry point of a program runs. By injecting malicious code into a process' TLS callback, attackers can achieve early execution, often before security solutions start monitoring the process. In this blog post, we explain the T1055.005 Thread Local Storage technique of the MITRE ATT&CK® framework and explore how adversaries employ Thread Local Storage (TLS) Callback Injection with real-world attack examples in detail. Attackers use TLS callbacks to inject and execute malicious code at the start of a program's execution or whenever a new thread is created. Execute Target Application: Upon execution of the target application, the Windows Loader processes the PE file and executes all TLS callbacks before reaching the main entry point of the application or whenever a new thread that uses TLS is created. ### What is Thread Local Storage (TLS) Callback Injection? MITRE ATT&CK T1055.005 Process Injection: Thread Local Storage.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Debugging TLS callbacks - Infosec",
+      "url": "https://www.infosecinstitute.com/resources/reverse-engineering/debugging-tls-callbacks/",
+      "snippet": "When a particular malware employed with TLS callbacks is loaded into a debugger, the malware finishes its work before the debugger stops at the entry point.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Unpacking StrelaStealer - Kyle Cucci's Cyber Ramblings",
+      "url": "https://securityliterate.com/unpacking-strela-stealer/",
+      "snippet": "This malware is unpacking its payload in multiple stages. If we walk backwards to identify the “parent” function of all this decryption code",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "TangleCrypt: a sophisticated but buggy malware packer | WithSecure™ Labs",
+      "url": "https://labs.withsecure.com/publications/tanglecrypt.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "TTMDebugger64 - 64-bit Unpacker | Hendi48/Magicmida | DeepWiki",
+      "url": "https://deepwiki.com/Hendi48/Magicmida/4.4-ttmdebugger64-64-bit-unpacker",
+      "snippet": "",
+      "published_date": "2026-03-06T06:29:52.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "DllMain entry point (Process.h) - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/dlls/dllmain",
+        "snippet": "",
+        "published_date": "2022-09-02T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "DLLs & TLS Callbacks",
+        "url": "https://isc.sans.edu/diary/32580",
+        "snippet": "",
+        "published_date": "2025-12-19T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "DllMain entry point (Process.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-gb/windows/win32/dlls/dllmain",
+        "snippet": "",
+        "published_date": "2022-09-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "The NT DLL Loader: DLL callouts (DllMain) - DLL_PROCESS_ATTACH deadlocks | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/archive/blogs/mgrier/the-nt-dll-loader-dll-callouts-dllmain-dll_process_attach-deadlocks",
+        "snippet": "",
+        "published_date": "2005-06-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "thread | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/cpp/cpp/thread?view=msvc-170",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "PE Format - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-gb/windows/win32/debug/pe-format",
+        "snippet": "",
+        "published_date": "2024-02-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.7
+      },
+      {
+        "title": "LIEF: Library to Instrument Executable Formats: LIEF::PE::TLS Class Reference",
+        "url": "https://lief.re/doc/latest/doxygen/classLIEF_1_1PE_1_1TLS.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Class IMAGE_TLS_DIRECTORY",
+        "url": "https://secana.github.io/PeNet/api/PeNet.Structures.IMAGE_TLS_DIRECTORY.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5
+      },
+      {
+        "title": "GitHub - Fatmike-GH/PELoader at 8b657f723c7a07cb54d305998a5127aff5bddb07 · GitHub",
+        "url": "https://github.com/Fatmike-GH/PELoader/tree/8b657f723c7a07cb54d305998a5127aff5bddb07",
+        "snippet": "",
+        "published_date": "2025-05-29T19:07:41.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Fatmike-GH/PELoader",
+        "url": "https://github.com/fatmike-gh/peloader",
+        "snippet": "",
+        "published_date": "2025-05-29T19:07:41.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "How can I set up Thread-Local Storage (TLS) callbacks on ...",
+        "url": "https://stackoverflow.com/questions/79804173/how-can-i-set-up-thread-local-storage-tls-callbacks-on-windows-without-crt",
+        "snippet": "",
+        "published_date": "2025-11-23T20:56:30.189Z",
+        "source": "exa"
+      },
+      {
+        "title": "How Malware Executes Before Entry Point: TLS Callbacks | Under the Hood: Adventures in Security Research",
+        "url": "https://mja-reversing.github.io/blog/How-Malware-Executes-Before-Entry-Point-TLS-Callbacks/",
+        "snippet": "",
+        "published_date": "2026-03-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.55
+      },
+      {
+        "title": "Using Thread Local Storage in a Dynamic-Link Library - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/dlls/using-thread-local-storage-in-a-dynamic-link-library",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "TLS Callback in Windows",
+        "url": "https://stackoverflow.com/questions/14538159/tls-callback-in-windows",
+        "snippet": "",
+        "published_date": "2013-01-26T15:03:26.000Z",
+        "source": "exa",
+        "score": 0.7
+      },
+      {
+        "title": "GitHub - Fatmike-GH/PELoader at 8b657f723c7a07cb54d305998a5127aff5bddb07 · GitHub",
+        "url": "https://github.com/Fatmike-GH/PELoader/tree/8b657f723c7a07cb54d305998a5127aff5bddb07",
+        "snippet": "",
+        "published_date": "2025-05-29T19:07:41.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "How Malware Executes Before Entry Point: TLS Callbacks | Under the Hood: Adventures in Security Research",
+        "url": "https://mja-reversing.github.io/blog/How-Malware-Executes-Before-Entry-Point-TLS-Callbacks/",
+        "snippet": "",
+        "published_date": "2026-03-30T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "TLS callbacks in a real malware sample (Rust runtime initialization)",
+        "url": "https://www.reddit.com/r/MalwareAnalysis/comments/1s8pc09/quick_writeup_tls_callbacks_in_a_real_malware/",
+        "snippet": "",
+        "published_date": "2026-03-31T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "How Malware Defends Itself Using TLS Callback Functions",
+        "url": "http://isc.sans.edu/diary.html?storyid=6655",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "TangleCrypt: a sophisticated but buggy malware packer | WithSecure™ Labs",
+        "url": "https://labs.withsecure.com/publications/tanglecrypt.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "TTMDebugger64 - 64-bit Unpacker | Hendi48/Magicmida | DeepWiki",
+        "url": "https://deepwiki.com/Hendi48/Magicmida/4.4-ttmdebugger64-64-bit-unpacker",
+        "snippet": "",
+        "published_date": "2026-03-06T06:29:52.000Z",
+        "source": "exa",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Using Thread Local Storage in a Dynamic-Link Library - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/dlls/using-thread-local-storage-in-a-dynamic-link-library",
+        "snippet": "This section shows the use of a DLL entry-point function to set up a thread local storage (TLS) index to provide private storage for each thread of a multithreaded process. The entry-point function uses the **TlsAlloc** function to allocate a TLS index whenever a process loads the DLL. The entry-point function then allocates a block of memory for the new thread and stores a pointer to it by using the TLS index. When a process uses load-time linking with this DLL, the entry-point function is sufficient to manage the thread local storage. Problems can occur with a process that uses run-time linking because the entry-point function is not called for threads that exist before the **LoadLibrary** function is called, so TLS memory is not allocated for these threads. When a process terminates, the entry-point function is called with the DLL\\_PROCESS\\_DETACH value and the memory referenced by the pointer in the TLS index is freed.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.7
+      },
+      {
+        "title": "DllMain entry point (Process.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/dlls/dllmain",
+        "snippet": "When the system starts or terminates a process or thread, it calls the entry-point function for each loaded DLL using the first thread of the process. Note that a DLL's entry-point function is called with this value only by threads created after the DLL is loaded by the process. (The system immediately calls your entry-point function with **DLL\\_PROCESS\\_DETACH** and unloads the DLL.) If the return value is **FALSE** when **DllMain** is called during process initialization, the process terminates with an error. * The thread was the initial thread in the process, so the system called the entry-point function with the **DLL\\_PROCESS\\_ATTACH** value. When a DLL is unloaded from a process as a result of an unsuccessful load of the DLL, termination of the process, or a call to **FreeLibrary**, the system does not call the DLL's entry-point function with the **DLL\\_THREAD\\_DETACH** value for the individual threads of the process.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "DLLs & TLS Callbacks - SANS Internet Storm Center",
+        "url": "https://isc.sans.edu/diary/32580",
+        "snippet": "TLS Callbacks are an execution mechanism in Windows PE files that lets code run automatically when a process or thread starts, before the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Dynamic-Link Library Best Practices - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-best-practices",
+        "snippet": "This document provides guidelines for DLL developers to help in building more robust, portable, and extensible DLLs. Improper synchronization within **DllMain** can cause an application to deadlock or access data or code in an uninitialized DLL. You cannot call any function in **DllMain** that directly or indirectly tries to acquire the loader lock. Exiting a thread during DLL detach can cause the loader lock to be acquired again, causing a deadlock or a crash. The main thread creates synchronization objects A, B, and G to serialize access to its data structures and then tries to acquire lock G. To prevent deadlocks that are caused by lock order inversion, all threads should attempt to acquire synchronization objects in the defined load order at all times. Thread T exits and the loader tries to acquire the loader lock to call into DLL A’s **DllMain** with DLL\\_THREAD\\_DETACH.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "DllMain (Windows CE 3.0) - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/previous-versions/ms939455(v=msdn.10)",
+        "snippet": "Indicates that the current process is creating a new thread. When this occurs, the system calls the entry-point function of all DLLs currently attached to the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "Developing PE file packer step-by-step. Step 6. TLS - Misc",
+        "url": "https://kaimi.io/en/2012/09/developing-pe-file-packer-step-by-step-step-6-tls/",
+        "snippet": "The AddressOfCallBacks field of IMAGE_TLS_DIRECTORY structure points to an array of absolute virtual addresses (i.e. to addresses following one",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Part 4: Entry Points and TLS Callbacks - YouTube",
+        "url": "https://www.youtube.com/watch?v=9K8WaZ53oOs",
+        "snippet": "In Part 4, we focus on the PE+ file format's entry points, specifically the AddressOfEntryPoint and TLS callbacks. The video covers how to",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "docs/PE/PE.md at master · corkami/docs - GitHub",
+        "url": "https://github.com/corkami/docs/blob/master/PE/PE.md",
+        "snippet": "TLS callbacks are not executed on thread start if no DLL importing kernel32 is imported. Thus, only execution on thread stop if kernel32 is the only import.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "/TLS | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/cpp/build/reference/tls?view=msvc-170",
+        "snippet": "/TLS displays the fields of the TLS structure as well as the addresses of the TLS callback functions.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "Analyzing TLS Callbacks - Ring Zero Labs",
+        "url": "https://www.ringzerolabs.com/2019/08/analyzing-tls-callbacks.html",
+        "snippet": "Thread Local Storage (TLS) callbacks are stored within the Portable Executable (PE) header. Originally designed by Microsoft to support the initialization",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "How can I set up Thread-Local Storage (TLS) callbacks on Windows ...",
+        "url": "https://stackoverflow.com/questions/79804173/how-can-i-set-up-thread-local-storage-tls-callbacks-on-windows-without-crt",
+        "snippet": "OS: Windows 11. I expected my TLS callback ( TlsCallback_0 ) to be called automatically by the Windows loader during thread initialization.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.7
+      },
+      {
+        "title": "TLS Callback - Unprotect Project",
+        "url": "https://unprotect.it/technique/tls-callback/",
+        "snippet": "TLS (Thread Local Storage) callbacks are a mechanism in Windows that allows a program to define a function that will be called when a thread is created.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "DLLs & TLS Callbacks - SANS Internet Storm Center",
+        "url": "https://isc.sans.edu/diary/32580",
+        "snippet": "TLS Callbacks are an execution mechanism in Windows PE files that lets code run automatically when a process or thread starts, before the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "TLS callbacks - Hex-Rays",
+        "url": "https://hex-rays.com/blog/tls-callbacks",
+        "snippet": "A TLS (thread-local-storage) callback is used by the application. Such a callback is called by the system before the application entry point.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "MITRE ATT&CK T1055.005 Process Injection: Thread Local Storage",
+        "url": "https://www.picussecurity.com/resource/blog/t1055-005-thread-local-storage",
+        "snippet": "# MITRE ATT&CK T1055.005 Process Injection: Thread Local Storage. Thread Local Storage (TLS) Callback Injection is a stealthy process injection technique that adversaries use to execute malicious code before the main entry point of a program runs. By injecting malicious code into a process' TLS callback, attackers can achieve early execution, often before security solutions start monitoring the process. In this blog post, we explain the T1055.005 Thread Local Storage technique of the MITRE ATT&CK® framework and explore how adversaries employ Thread Local Storage (TLS) Callback Injection with real-world attack examples in detail. Attackers use TLS callbacks to inject and execute malicious code at the start of a program's execution or whenever a new thread is created. Execute Target Application: Upon execution of the target application, the Windows Loader processes the PE file and executes all TLS callbacks before reaching the main entry point of the application or whenever a new thread that uses TLS is created. ### What is Thread Local Storage (TLS) Callback Injection? MITRE ATT&CK T1055.005 Process Injection: Thread Local Storage.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Newly Observed Ursnif Variant Employs Malicious TLS Callback ...",
+        "url": "https://cloud.google.com/blog/topics/threat-intelligence/newly-observed-ursnif-variant-employs-malicious-tls-callback-technique-achieve-process-injection/",
+        "snippet": "We recently came across a Ursnif/Gozi-ISFB sample that manipulated TLS callbacks while injecting to child process.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "TLS callbacks in a real malware sample (Rust runtime initialization)",
+        "url": "https://www.reddit.com/r/MalwareAnalysis/comments/1s8pc09/quick_writeup_tls_callbacks_in_a_real_malware/",
+        "snippet": "Just a quick write up with a brief explanation of what TLS callbacks are, how they can be abused and what this real world sample used the",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6
+      },
+      {
+        "title": "Debugging TLS callbacks - Infosec",
+        "url": "https://www.infosecinstitute.com/resources/reverse-engineering/debugging-tls-callbacks/",
+        "snippet": "When a particular malware employed with TLS callbacks is loaded into a debugger, the malware finishes its work before the debugger stops at the entry point.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "[PDF] TLS (Thread Local Storage) Callback Function and Advanced Anti-De",
+        "url": "https://www.cs.wcupa.edu/SCHEN/malware2022/slides/ch17.pdf",
+        "snippet": "CSC 471 Modern Malware Analysis Anti-Debugging Techniques (3): TLS (Thread Local Storage) Callback Function and Advanced Anti-Debugging Techniques Si Chen (schen@wcupa.edu) Class17 Page § 2 Advanced Anti-Debugging Techniques § Advanced Anti-Debugging Techniques: – Thread Local Storage (TLS) Callback Function – Garbage Code – Break Code Alignment – Encryption/Decryption – Stolen Bytes (Remove OEP) – API Redirection – Self Debugging Page § 3 TLS Callback Function Example1: HelloTls.exe Double Click Use OllyDBG to load it Page § 4 Process and Thread § Process is the execution of a program that allows you to perform the appropriate actions specified in a program. Page § 8 Thread Local Storage Page § 9 Thread Local Storage § Thread Local Storage (TLS) is the mechanism by which each thread in a given multithreaded process allocates storage for thread-specific data.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Unpacking StrelaStealer - Kyle Cucci's Cyber Ramblings",
+        "url": "https://securityliterate.com/unpacking-strela-stealer/",
+        "snippet": "This malware is unpacking its payload in multiple stages. If we walk backwards to identify the “parent” function of all this decryption code",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      }
+    ],
+    "grok": []
+  }
+}

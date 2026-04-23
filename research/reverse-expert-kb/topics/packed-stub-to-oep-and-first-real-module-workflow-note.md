@@ -11,6 +11,7 @@ Related pages:
 - topics/native-semantic-anchor-stabilization-workflow-note.md
 - topics/native-interface-to-state-proof-workflow-note.md
 - topics/record-replay-and-omniscient-debugging.md
+- topics/tls-callback-to-first-payload-consumer-workflow-note.md
 
 ## 1. Why this page exists
 This page exists because the KB still had a practical gap inside the deobfuscation / protected-runtime branch.
@@ -116,6 +117,8 @@ In other words:
 - and pre-entry startup activity is not just anti-debug color; it may be the real boundary explaining why raw entry naming alone is still weaker than a later payload-bearing handoff
 
 A conservative source-backed anchor for this reminder is that PE images expose `.tls` / TLS-related startup surfaces and TLS callbacks can execute before the program's nominal main-entry path, so startup-owned pre-entry truth must stay separate from both raw entry naming and later payload proof.
+
+When the ambiguity is no longer broad startup normalization but specifically **which TLS callback slot replayed on which reason and whether that replay is still only startup-owned work**, hand off to `topics/tls-callback-to-first-payload-consumer-workflow-note.md` rather than keeping that thinner ladder buried here.
 
 ## 5. What counts as a trustworthy OEP candidate
 A trustworthy OEP candidate is the smallest boundary that predicts ordinary post-loader analysis better than raw stub churn does.
@@ -305,6 +308,7 @@ Fast practical check:
 - if the region is still dominated by TLS callback replay, CRT/language startup, security-cookie/runtime normalization, constructor/init-table dispatch, or callback-array repair, treat it as **startup proof**, not yet **payload proof**
 - if the clearest current evidence is that startup-owned work runs before the analyst's nominal entry-path expectation, keep that as **pre-entry startup truth** rather than flattening it into vague anti-debug color or raw-entry naming
 - if a dump becomes readable but later imports/object use still look startup-shaped, rename the current result as only a **raw post-unpack transfer candidate**
+- if the remaining uncertainty has narrowed specifically to callback-slot listing vs replay vs replay reason vs startup-owned body vs first payload consumer, switch to `topics/tls-callback-to-first-payload-consumer-workflow-note.md`
 - only stop when one downstream import/module/object/consumer anchor remains useful after those startup obligations stop dominating
 
 ## 8. Representative scratch schemas
