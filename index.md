@@ -134,6 +134,7 @@ A top-level maintenance rule worth keeping visible here is:
 - when choosing new work, bias toward thinner-but-valuable practical continuations rather than the easiest dense micro-branch
 - inside the protocol/firmware branch, preserve a sharper ownership language around descriptor-driven cases: published work, notified peer, trustworthy consumer visibility, consumed completion, and reclaimed/reusable slots are often different proof objects rather than one vague queue event; keep the thinner practical rule `completion-visible != consumed != reclaimed/reusable` available at top level so completion sighting is not silently overread as slot-return truth
 - inside the protocol/service-contract seam, also preserve the stop rule **described != registered != listening != published != bindable/reachable**, so embedded descriptors, reflection-visible rosters, runtime registration, endpoint-map publication, easy client-side binding construction, and live callable surfaces do not silently collapse into one proof claim
+- inside the firmware hardware-acquisition seam, preserve the stop rule **interface found != session stable != bytes acquired != partition/memory mapped != current boot selected != trigger path executed != first behavior-bearing consumer**, so UART/JTAG/SWD/SPI visibility, vendor OTA images, and flash dumps do not silently become current executed-image truth
 
 ## Open structural questions
 - Which mature pages or branch summaries are now strong enough to be promoted from `mature` / `structured` to `canonical`?
@@ -158,6 +159,7 @@ A top-level practical reading now worth preserving is that recent maintenance ha
 - `topics/protected-runtime-lower-surface-vs-user-space-uncertainty-reduction-workflow-note.md`
 - `topics/protocol-retired-owner-vs-callback-firing-workflow-note.md`
 - `topics/protocol-state-and-message-recovery.md`
+- `topics/firmware-hardware-observation-to-executed-image-workflow-note.md`
 - `topics/anti-tamper-and-protected-runtime-analysis.md`
 - `topics/trust-calibration-and-verification-burden.md`
 - `topics/collaborative-malware-analysis-and-role-differentiation.md`

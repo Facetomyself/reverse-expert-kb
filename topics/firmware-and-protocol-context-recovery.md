@@ -17,6 +17,7 @@ Related pages:
 - topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md
 - topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
+- topics/firmware-hardware-observation-to-executed-image-workflow-note.md
 
 ## 1. Topic identity
 
@@ -97,6 +98,7 @@ Context-heavy firmware analysis often requires reasoning about environment assum
 This branch should now also be remembered not only as a firmware/embedded domain page, but as a practical protocol/firmware reduction ladder for turning environment-heavy uncertainty into one smaller trustworthy replay, rehosting, fuzzing, or static-analysis target.
 
 A compact reading worth preserving is:
+- before choosing protocol semantics, prove image-lineage when the case starts at hardware access: physical interface, stable session, acquired bytes, partition/memory mapping, current boot selection, trigger-linked execution, and first behavior-bearing consumer are separate proof objects
 - choose the right boundary before overcommitting to protocol semantics
 - surface the first truthful socket-boundary, serializer-adjacent, parser-adjacent, or hardware-adjacent object
 - peel one visible layered object into one smaller trustworthy contract
@@ -109,6 +111,7 @@ This ladder is narrower than the whole domain and does not imply every case trav
 But it is the practical memory the parent page should preserve when the branch is no longer just “firmware context matters.”
 
 Compact anti-drift reminders worth preserving here:
+- do not treat pads found, flash dumped, UART visible, or JTAG attached as equivalent to current executed-image truth; hardware surfaces first need image-lineage correlation and trigger-linked execution evidence before deep static claims are stable
 - do not keep broad packet or register collection going when the real blocker is still selecting the first truthful boundary
 - do not keep naming protocol or peripheral families once one smaller trustworthy contract is already available and the real bottleneck has shifted to ownership, consequence, acceptance, or handoff proof
 - in descriptor/ring-heavy firmware cases, do not mistake visible completion bytes for solved understanding when ownership transfer, freshness rules, notify/doorbell scope, or non-coherent cache visibility still decide whether the peer or CPU may trust them
