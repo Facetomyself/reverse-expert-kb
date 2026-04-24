@@ -1,0 +1,421 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "firmware reverse engineering UART JTAG SPI flash extraction bootloader root shell workflow",
+    "embedded device firmware reversing UART console JTAG SWD SPI flash dump workflow",
+    "hardware IoT firmware reverse engineering UART boot log SPI flash dump validate image"
+  ],
+  "count": 21,
+  "results": [
+    {
+      "title": "sop-firmware-reverse-engineering.md - intel-codex - GitHub",
+      "url": "https://github.com/gl0bal01/intel-codex/blob/main/Security/Pentesting/sop-firmware-reverse-engineering.md",
+      "snippet": "Firmware Reverse Engineering. Purpose: Comprehensive guide to extracting, analyzing, and exploiting firmware from embedded devices (routers, IoT devices,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "IssamSayyaf/tplink-firmware-reversing",
+      "url": "https://github.com/IssamSayyaf/tplink-firmware-reversing",
+      "snippet": "",
+      "published_date": "2026-03-04T09:57:29.000Z",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "varungor365/firmwareforge",
+      "url": "https://github.com/varungor365/firmwareforge",
+      "snippet": "",
+      "published_date": "2026-01-06T19:15:39.000Z",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "Router Analysis Part 1: UART Discovery and SPI Flash Extraction",
+      "url": "https://wrongbaud.github.io/posts/router-teardown/",
+      "snippet": "This looks promising, the SPI flash contains two U-Boot images, a Linux Kernel as well as a SquashFS filesystem, this is all fairly standard when looking at platform like this so at this point we can assume we’ve successfully dumped the flash, but as most of you probably know, these firmware images are typically obtainable online which we will discuss next.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.575
+    },
+    {
+      "title": "Hardware hacking tutorial: Dumping and reversing firmware",
+      "url": "https://ivanorsolic.github.io/post/hardwarehacking1/",
+      "snippet": "(SparkFun, n.d.) It will be used for recovering SPI flash data from a router (firmware dumping) and for UART serial communication. Speaking of which, a Winbond 25Q128FVSG Serial Peripheral Interface (SPI) Flash Memory chip can be seen, which is most likely the memory in which the firmware and all the device data are stored. It can be connected to the legs of the SPI SMD chip using Saleae probes and then some software can be used to tell the BusPirate to copy all the data from the chip to the computer. After identifying all the pins needed to interface the BusPirate to the SPI chip, all that remains is to connect them using jumper cables and Saleae probes. The flag -p in the command stands for programmer, and it can be used to specify that a BusPirate is connected to a SPI chip, and that it is accessible through /dev/ttyUSB0.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "Extracting a UART Password via SPI Flash Instruction Tracing | Dominik Zürner",
+      "url": "https://zuernerd.github.io/blog/2026/01/07/switch-password.html",
+      "snippet": "",
+      "published_date": "2026-01-07T15:09:00.000Z",
+      "source": "exa",
+      "score": 0.525
+    },
+    {
+      "title": "Ghidra Skills: Finding Logic Bombs in MIPS-based Router Firmware",
+      "url": "https://dev.to/numbpill3d/ghidra-skills-finding-logic-bombs-in-mips-based-router-firmware-389g",
+      "snippet": "",
+      "published_date": "2026-04-15T07:02:20.000Z",
+      "source": "exa",
+      "score": 0.525
+    },
+    {
+      "title": "Offensive IoT Firmware Reversing and Analysis Training - 8kSec",
+      "url": "https://8ksec.io/offensive-iot-firmware-reversing-and-analysis/",
+      "snippet": "Learn mobile & AI security at your own pace with self-paced video courses, hands-on labs, and certifications. Learn to extract, analyze, and exploit IoT firmware using industry-standard reverse engineering tools. This hands-on course covers hardware-level firmware acquisition, static and dynamic analysis with IDA Pro / Ghidra / Binary Ninja, and practical vulnerability discovery across ARM64 and MIPS targets. The firmware running on these devices is often the weakest link in the security chain, yet analyzing it requires a unique blend of hardware knowledge, reverse engineering skills, and embedded systems expertise. You will learn the complete firmware analysis lifecycle: acquiring firmware through hardware interfaces (UART, JTAG, SPI flash) and software channels (OTA interception, vendor downloads), unpacking and extracting filesystems, reverse engineering binaries compiled for ARM64 and MIPS architectures using IDA Pro / Ghidra / Binary Ninja, and discovering real vulnerabilities in production IoT firmware. Security researchers, penetration testers, embedded systems engineers, vulnerability analysts, and reverse engineers who want to build practical skills in IoT firmware security assessment.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.475
+    },
+    {
+      "title": "One Tool to Rule Them All: Dumping SPI Flash with J-Link ...",
+      "url": "https://medium.com/@CipherX1802/one-tool-to-rule-them-all-dumping-spi-flash-with-j-link-ultra-2834cde88acd",
+      "snippet": "",
+      "published_date": "2026-04-10T20:51:00.177Z",
+      "source": "exa, tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Embedded Systems Hacking Roadmap - VoidStar Security LLC",
+      "url": "https://voidstarsec.com/roadmap/",
+      "snippet": "SPI Flash Extraction with Flashrom SWD Firmware ... Intensive hands-on training covering UART, SPI, JTAG, SWD, fault injection, and firmware analysis.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Reverse Engineering IoT: Firmware Extraction - West Side Electronics",
+      "url": "https://westsideelectronics.com/reverse-engineering-firmware/",
+      "snippet": "U-Boot 2013.10.0-AK_V3.0.07 (Jan 22 2021 - 14:16:01) DRAM: 64 MiB 8 MiB ANYKA SDHC/MMC4.0: 0 PPS:Jan 22 2021 14:16:03 anyka_c3: 0 magic err magic err command:setenv bootargs mem=64M console=ttySAK0,115200n8 loglevel=10 mtdparts=spi0.0:256k(bld),64k(env),64k(enc),64k(sysflg),3m(sys),4032k(app),640k(cfg) ppsAppParts=5 ip=192.168.1.99:::255.255.255.0 eth=00:55:7b:b5:7d:f7 ## Booting kernel from Legacy Image at 81c08000 ... U-Boot 2013.10.0-AK_V3.0.07 (Jan 22 2021 - 14:16:01) DRAM: 64 MiB 8 MiB ANYKA SDHC/MMC4.0: 0 PPS:Jan 22 2021 14:16:03 anyka_c3: 2 5343 0 please input password::***** password err resetting ... Based off the UART output, I expected the binary file to start with U-Boot image, but instead all `binwalk` was able to recognise were some strings before the kernel image. I carved that section out from the firmware image by running `dd if=firmware_dump.bin of=uboot.bin count=$((458752-0)) bs=1` and opened in VSCode's hex editor to examine the U-Boot file manually. After patching the instruction and reflashing the device, I obtained access to the console environment of the U-Boot bootloader!",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.44
+    },
+    {
+      "title": "Guide on IoT Firmware Reverse Engineering [Complete Process] | Apriorit",
+      "url": "https://www.apriorit.com/dev-blog/reverse-reverse-engineer-iot-firmware",
+      "snippet": "> * Reverse engineering is one of the most effective methods for uncovering these hidden risks, as it allows security experts to analyze the actual firmware code, identify insecure implementations, and detect vulnerabilities that standard testing often overlooks. * How to reverse engineer IoT firmware the right way: A practical example from Apriorit engineers. Let’s take a look at how Apriorit experts recommend reverse engineering IoT firmware. To perform reverse engineering of IoT firmware correctly, it’s best to use a mix of hardware and software analysis. The first question to ask before reverse engineering IoT devices is how you can know the architecture of the firmware you need to reverse engineer. To be able to properly mark the code in IDA, we need to learn the typical instruction sequences common to Xtensa firmware. We found an interesting **bootloader\\_utility\\_load\\_partition\\_table()** function in the bootloader\\_utility.c source code file within ESP IDF, which means the firmware must contain a partition table.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "ECU Firmware Extraction Methods: JTAG, BDM, SWD & Boot Mode Compared - ReverseEngineer.net",
+      "url": "https://reverseengineer.net/ecu-firmware-extraction-methods/",
+      "snippet": "",
+      "published_date": "2026-03-06T11:32:01.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Firmware reverse engineering for embedded systems and security research 🔍🔧",
+      "url": "https://bugprove.com/firmware-reverse-engineering/",
+      "snippet": "This guide is for security researchers, embedded systems engineers, and tech hobbyists who want to understand how to analyze device firmware. Binary analysis forms the foundation of Firmware Reverse Engineering, requiring analysts to understand various file formats and their structural characteristics. Firmware reverse engineering is the process of analyzing embedded software in devices to understand its functionality, structure, and behavior without access to the original source code. The main steps in reverse engineering firmware include extracting the firmware image from the device, identifying its file format and architecture, disassembling the binary code into readable assembly, and analyzing the logic and functions. Common software for firmware reverse engineering includes Ghidra and IDA Pro for disassembly and analysis, Binwalk for extracting firmware components, and Radare2 for multi-architecture support. Security researchers and embedded engineers typically use a combination of analysis and protection tools when working with firmware binaries. 2. […] isn’t just for debugging—it’s essential for firmware reverse engineering and security audits, where hardware access enables binary extraction and […].",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "SPI flash content analysis and firmware reconstruction | William Durand",
+      "url": "https://williamdurand.fr/2022/03/10/spi-flash-content-analysis-and-firmware-reconstruction/",
+      "snippet": "",
+      "published_date": "2022-03-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "What is the best way to reverse engineering firmware of IoT devices?",
+      "url": "https://www.quora.com/What-is-the-best-way-to-reverse-engineering-firmware-of-IoT-devices",
+      "snippet": "The question needs more details, i.e what is your current point of access, do you have the firmware dumped and want to reverse it?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Extracting Firmware from Embedded Devices (SPI NOR Flash)",
+      "url": "https://www.youtube.com/watch?v=nruUuDalNR0",
+      "snippet": "... flash chip with the SPI protocol to dump the firmware and find your vulns, even if off the shelf tools don't work! 00:00 Intro 00:40",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Extracting router firmware via UART using the JTAGulator | hacked.codes",
+      "url": "https://hacked.codes/2022/extracting-router-firmware-uart-jtagulator/",
+      "snippet": "",
+      "published_date": "2022-12-11T09:07:47.000Z",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "Firmware reverse engineering: A step-by-step guide - Infosec",
+      "url": "https://www.infosecinstitute.com/resources/iot-security/iot-security-fundamentals-reverse-engineering-firmware/",
+      "snippet": "Firmware reverse engineering: A step-by-step guide · 1. Getting a copy of the firmware · 2. Extracting firmware · 3. Creating kernel images from scratch · 4.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Extract Firmware using JTAG/SWD",
+      "url": "https://www.hardbreak.wiki/hardware-hacking/interface-interaction/jtag-swd/extract-firmware-using-jtag-swd",
+      "snippet": "",
+      "published_date": "2025-01-19T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "Firmware Analysis - Hackers Manifest | Hackers Manifest",
+      "url": "https://hackersmanifest.com/iot-pentesting/03-firmware",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.325
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Extracting a UART Password via SPI Flash Instruction Tracing | Dominik Zürner",
+        "url": "https://zuernerd.github.io/blog/2026/01/07/switch-password.html",
+        "snippet": "",
+        "published_date": "2026-01-07T15:09:00.000Z",
+        "source": "exa",
+        "score": 0.525
+      },
+      {
+        "title": "Ghidra Skills: Finding Logic Bombs in MIPS-based Router Firmware",
+        "url": "https://dev.to/numbpill3d/ghidra-skills-finding-logic-bombs-in-mips-based-router-firmware-389g",
+        "snippet": "",
+        "published_date": "2026-04-15T07:02:20.000Z",
+        "source": "exa",
+        "score": 0.525
+      },
+      {
+        "title": "IssamSayyaf/tplink-firmware-reversing",
+        "url": "https://github.com/IssamSayyaf/tplink-firmware-reversing",
+        "snippet": "",
+        "published_date": "2026-03-04T09:57:29.000Z",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "varungor365/firmwareforge",
+        "url": "https://github.com/varungor365/firmwareforge",
+        "snippet": "",
+        "published_date": "2026-01-06T19:15:39.000Z",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "SPI flash content analysis and firmware reconstruction | William Durand",
+        "url": "https://williamdurand.fr/2022/03/10/spi-flash-content-analysis-and-firmware-reconstruction/",
+        "snippet": "",
+        "published_date": "2022-03-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "One Tool to Rule Them All: Dumping SPI Flash with J-Link ...",
+        "url": "https://medium.com/@CipherX1802/one-tool-to-rule-them-all-dumping-spi-flash-with-j-link-ultra-2834cde88acd",
+        "snippet": "",
+        "published_date": "2026-04-10T20:51:00.177Z",
+        "source": "exa, tavily",
+        "score": 0.45
+      },
+      {
+        "title": "ECU Firmware Extraction Methods: JTAG, BDM, SWD & Boot Mode Compared - ReverseEngineer.net",
+        "url": "https://reverseengineer.net/ecu-firmware-extraction-methods/",
+        "snippet": "",
+        "published_date": "2026-03-06T11:32:01.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "Extract Firmware using JTAG/SWD",
+        "url": "https://www.hardbreak.wiki/hardware-hacking/interface-interaction/jtag-swd/extract-firmware-using-jtag-swd",
+        "snippet": "",
+        "published_date": "2025-01-19T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "Router Analysis Part 1: UART Discovery and SPI Flash Extraction | Wrongbaud's Blog",
+        "url": "https://wrongbaud.github.io/posts/router-teardown/",
+        "snippet": "",
+        "published_date": "2019-10-07T00:06:31.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Extracting a UART Password via SPI Flash Instruction Tracing | Dominik Zürner",
+        "url": "https://zuernerd.github.io/blog/2026/01/07/switch-password.html",
+        "snippet": "",
+        "published_date": "2026-01-07T15:09:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Router Analysis Part 1: UART Discovery and SPI Flash Extraction",
+        "url": "https://wrongbaud.github.io/posts/router-teardown/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Ghidra Skills: Finding Logic Bombs in MIPS-based Router Firmware",
+        "url": "https://dev.to/numbpill3d/ghidra-skills-finding-logic-bombs-in-mips-based-router-firmware-389g",
+        "snippet": "",
+        "published_date": "2026-04-15T07:02:20.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Firmware Analysis - Hackers Manifest | Hackers Manifest",
+        "url": "https://hackersmanifest.com/iot-pentesting/03-firmware",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "Extracting router firmware via UART using the JTAGulator | hacked.codes",
+        "url": "https://hacked.codes/2022/extracting-router-firmware-uart-jtagulator/",
+        "snippet": "",
+        "published_date": "2022-12-11T09:07:47.000Z",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "varungor365/firmwareforge",
+        "url": "https://github.com/varungor365/firmwareforge",
+        "snippet": "",
+        "published_date": "2026-01-06T19:15:39.000Z",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Reverse Engineering IoT: Firmware Extraction - West Side Electronics",
+        "url": "https://westsideelectronics.com/reverse-engineering-firmware/",
+        "snippet": "U-Boot 2013.10.0-AK_V3.0.07 (Jan 22 2021 - 14:16:01) DRAM: 64 MiB 8 MiB ANYKA SDHC/MMC4.0: 0 PPS:Jan 22 2021 14:16:03 anyka_c3: 0 magic err magic err command:setenv bootargs mem=64M console=ttySAK0,115200n8 loglevel=10 mtdparts=spi0.0:256k(bld),64k(env),64k(enc),64k(sysflg),3m(sys),4032k(app),640k(cfg) ppsAppParts=5 ip=192.168.1.99:::255.255.255.0 eth=00:55:7b:b5:7d:f7 ## Booting kernel from Legacy Image at 81c08000 ... U-Boot 2013.10.0-AK_V3.0.07 (Jan 22 2021 - 14:16:01) DRAM: 64 MiB 8 MiB ANYKA SDHC/MMC4.0: 0 PPS:Jan 22 2021 14:16:03 anyka_c3: 2 5343 0 please input password::***** password err resetting ... Based off the UART output, I expected the binary file to start with U-Boot image, but instead all `binwalk` was able to recognise were some strings before the kernel image. I carved that section out from the firmware image by running `dd if=firmware_dump.bin of=uboot.bin count=$((458752-0)) bs=1` and opened in VSCode's hex editor to examine the U-Boot file manually. After patching the instruction and reflashing the device, I obtained access to the console environment of the U-Boot bootloader!",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.44
+      },
+      {
+        "title": "Guide on IoT Firmware Reverse Engineering [Complete Process] | Apriorit",
+        "url": "https://www.apriorit.com/dev-blog/reverse-reverse-engineer-iot-firmware",
+        "snippet": "> * Reverse engineering is one of the most effective methods for uncovering these hidden risks, as it allows security experts to analyze the actual firmware code, identify insecure implementations, and detect vulnerabilities that standard testing often overlooks. * How to reverse engineer IoT firmware the right way: A practical example from Apriorit engineers. Let’s take a look at how Apriorit experts recommend reverse engineering IoT firmware. To perform reverse engineering of IoT firmware correctly, it’s best to use a mix of hardware and software analysis. The first question to ask before reverse engineering IoT devices is how you can know the architecture of the firmware you need to reverse engineer. To be able to properly mark the code in IDA, we need to learn the typical instruction sequences common to Xtensa firmware. We found an interesting **bootloader\\_utility\\_load\\_partition\\_table()** function in the bootloader\\_utility.c source code file within ESP IDF, which means the firmware must contain a partition table.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Router Analysis Part 1: UART Discovery and SPI Flash Extraction",
+        "url": "https://wrongbaud.github.io/posts/router-teardown/",
+        "snippet": "This looks promising, the SPI flash contains two U-Boot images, a Linux Kernel as well as a SquashFS filesystem, this is all fairly standard when looking at platform like this so at this point we can assume we’ve successfully dumped the flash, but as most of you probably know, these firmware images are typically obtainable online which we will discuss next.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.575
+      },
+      {
+        "title": "sop-firmware-reverse-engineering.md - intel-codex - GitHub",
+        "url": "https://github.com/gl0bal01/intel-codex/blob/main/Security/Pentesting/sop-firmware-reverse-engineering.md",
+        "snippet": "Firmware Reverse Engineering. Purpose: Comprehensive guide to extracting, analyzing, and exploiting firmware from embedded devices (routers, IoT devices,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "What is the best way to reverse engineering firmware of IoT devices?",
+        "url": "https://www.quora.com/What-is-the-best-way-to-reverse-engineering-firmware-of-IoT-devices",
+        "snippet": "The question needs more details, i.e what is your current point of access, do you have the firmware dumped and want to reverse it?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Offensive IoT Firmware Reversing and Analysis Training - 8kSec",
+        "url": "https://8ksec.io/offensive-iot-firmware-reversing-and-analysis/",
+        "snippet": "Learn mobile & AI security at your own pace with self-paced video courses, hands-on labs, and certifications. Learn to extract, analyze, and exploit IoT firmware using industry-standard reverse engineering tools. This hands-on course covers hardware-level firmware acquisition, static and dynamic analysis with IDA Pro / Ghidra / Binary Ninja, and practical vulnerability discovery across ARM64 and MIPS targets. The firmware running on these devices is often the weakest link in the security chain, yet analyzing it requires a unique blend of hardware knowledge, reverse engineering skills, and embedded systems expertise. You will learn the complete firmware analysis lifecycle: acquiring firmware through hardware interfaces (UART, JTAG, SPI flash) and software channels (OTA interception, vendor downloads), unpacking and extracting filesystems, reverse engineering binaries compiled for ARM64 and MIPS architectures using IDA Pro / Ghidra / Binary Ninja, and discovering real vulnerabilities in production IoT firmware. Security researchers, penetration testers, embedded systems engineers, vulnerability analysts, and reverse engineers who want to build practical skills in IoT firmware security assessment.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.475
+      },
+      {
+        "title": "Embedded Systems Hacking Roadmap - VoidStar Security LLC",
+        "url": "https://voidstarsec.com/roadmap/",
+        "snippet": "SPI Flash Extraction with Flashrom SWD Firmware ... Intensive hands-on training covering UART, SPI, JTAG, SWD, fault injection, and firmware analysis.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "One Tool to Rule Them All: Dumping SPI Flash with J-Link Ultra",
+        "url": "https://medium.com/@CipherX1802/one-tool-to-rule-them-all-dumping-spi-flash-with-j-link-ultra-2834cde88acd",
+        "snippet": "Reading SPI flash directly is a powerful technique used in: Firmware analysis; Reverse engineering; Security research; Embedded debugging. But",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Hardware hacking tutorial: Dumping and reversing firmware",
+        "url": "https://ivanorsolic.github.io/post/hardwarehacking1/",
+        "snippet": "(SparkFun, n.d.) It will be used for recovering SPI flash data from a router (firmware dumping) and for UART serial communication. Speaking of which, a Winbond 25Q128FVSG Serial Peripheral Interface (SPI) Flash Memory chip can be seen, which is most likely the memory in which the firmware and all the device data are stored. It can be connected to the legs of the SPI SMD chip using Saleae probes and then some software can be used to tell the BusPirate to copy all the data from the chip to the computer. After identifying all the pins needed to interface the BusPirate to the SPI chip, all that remains is to connect them using jumper cables and Saleae probes. The flag -p in the command stands for programmer, and it can be used to specify that a BusPirate is connected to a SPI chip, and that it is accessible through /dev/ttyUSB0.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "Extracting Firmware from Embedded Devices (SPI NOR Flash)",
+        "url": "https://www.youtube.com/watch?v=nruUuDalNR0",
+        "snippet": "... flash chip with the SPI protocol to dump the firmware and find your vulns, even if off the shelf tools don't work! 00:00 Intro 00:40",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Offensive IoT Firmware Reversing and Analysis Training | 8kSec",
+        "url": "https://8ksec.io/offensive-iot-firmware-reversing-and-analysis/",
+        "snippet": "Learn mobile & AI security at your own pace with self-paced video courses, hands-on labs, and certifications. Learn to extract, analyze, and exploit IoT firmware using industry-standard reverse engineering tools. This hands-on course covers hardware-level firmware acquisition, static and dynamic analysis with IDA Pro / Ghidra / Binary Ninja, and practical vulnerability discovery across ARM64 and MIPS targets. The firmware running on these devices is often the weakest link in the security chain, yet analyzing it requires a unique blend of hardware knowledge, reverse engineering skills, and embedded systems expertise. You will learn the complete firmware analysis lifecycle: acquiring firmware through hardware interfaces (UART, JTAG, SPI flash) and software channels (OTA interception, vendor downloads), unpacking and extracting filesystems, reverse engineering binaries compiled for ARM64 and MIPS architectures using IDA Pro / Ghidra / Binary Ninja, and discovering real vulnerabilities in production IoT firmware. Security researchers, penetration testers, embedded systems engineers, vulnerability analysts, and reverse engineers who want to build practical skills in IoT firmware security assessment.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Reverse Engineering IoT: Firmware Extraction",
+        "url": "https://westsideelectronics.com/reverse-engineering-firmware/",
+        "snippet": "U-Boot 2013.10.0-AK_V3.0.07 (Jan 22 2021 - 14:16:01) DRAM: 64 MiB 8 MiB ANYKA SDHC/MMC4.0: 0 PPS:Jan 22 2021 14:16:03 anyka_c3: 0 magic err magic err command:setenv bootargs mem=64M console=ttySAK0,115200n8 loglevel=10 mtdparts=spi0.0:256k(bld),64k(env),64k(enc),64k(sysflg),3m(sys),4032k(app),640k(cfg) ppsAppParts=5 ip=192.168.1.99:::255.255.255.0 eth=00:55:7b:b5:7d:f7 ## Booting kernel from Legacy Image at 81c08000 ... U-Boot 2013.10.0-AK_V3.0.07 (Jan 22 2021 - 14:16:01) DRAM: 64 MiB 8 MiB ANYKA SDHC/MMC4.0: 0 PPS:Jan 22 2021 14:16:03 anyka_c3: 2 5343 0 please input password::***** password err resetting ... Based off the UART output, I expected the binary file to start with U-Boot image, but instead all `binwalk` was able to recognise were some strings before the kernel image. I carved that section out from the firmware image by running `dd if=firmware_dump.bin of=uboot.bin count=$((458752-0)) bs=1` and opened in VSCode's hex editor to examine the U-Boot file manually. After patching the instruction and reflashing the device, I obtained access to the console environment of the U-Boot bootloader!",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Firmware reverse engineering: A step-by-step guide - Infosec",
+        "url": "https://www.infosecinstitute.com/resources/iot-security/iot-security-fundamentals-reverse-engineering-firmware/",
+        "snippet": "Firmware reverse engineering: A step-by-step guide · 1. Getting a copy of the firmware · 2. Extracting firmware · 3. Creating kernel images from scratch · 4.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Firmware reverse engineering for embedded systems and security research 🔍🔧",
+        "url": "https://bugprove.com/firmware-reverse-engineering/",
+        "snippet": "This guide is for security researchers, embedded systems engineers, and tech hobbyists who want to understand how to analyze device firmware. Binary analysis forms the foundation of Firmware Reverse Engineering, requiring analysts to understand various file formats and their structural characteristics. Firmware reverse engineering is the process of analyzing embedded software in devices to understand its functionality, structure, and behavior without access to the original source code. The main steps in reverse engineering firmware include extracting the firmware image from the device, identifying its file format and architecture, disassembling the binary code into readable assembly, and analyzing the logic and functions. Common software for firmware reverse engineering includes Ghidra and IDA Pro for disassembly and analysis, Binwalk for extracting firmware components, and Radare2 for multi-architecture support. Security researchers and embedded engineers typically use a combination of analysis and protection tools when working with firmware binaries. 2. […] isn’t just for debugging—it’s essential for firmware reverse engineering and security audits, where hardware access enables binary extraction and […].",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Router Analysis Part 1: UART Discovery and SPI Flash Extraction | Wrongbaud's Blog",
+        "url": "https://wrongbaud.github.io/posts/router-teardown/",
+        "snippet": "This looks promising, the SPI flash contains two U-Boot images, a Linux Kernel as well as a SquashFS filesystem, this is all fairly standard when looking at platform like this so at this point we can assume we’ve successfully dumped the flash, but as most of you probably know, these firmware images are typically obtainable online which we will discuss next.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}

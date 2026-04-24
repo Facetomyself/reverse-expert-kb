@@ -5,6 +5,7 @@ Ontology layers: firmware/protocol practice branch, workflow routing, operator l
 Maturity: structured-practical
 Related pages:
 - topics/firmware-and-protocol-context-recovery.md
+- topics/firmware-hardware-observation-to-executed-image-workflow-note.md
 - topics/protocol-state-and-message-recovery.md
 - topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md
 - topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md
@@ -57,8 +58,11 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of fifteen recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of seventeen recurring families:
 
+
+0. **hardware observation / image-lineage uncertainty**
+   - the analyst has a board, pads, UART/JTAG/SWD/SPI surface, vendor update, flash dump, or bus trace, but has not yet proved that the bytes and observations map to the image actually selected and executed under the trigger of interest
 1. **context / object-of-recovery framing uncertainty**
    - the analyst still needs to decide whether the real object is environment recovery, protocol structure, peripheral context, or downstream rehosting/fuzzing utility
 2. **capture-failure / boundary-selection uncertainty**
@@ -98,7 +102,8 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
 A compact operator ladder for this branch is:
 
 ```text
-choose the current firmware/protocol bottleneck
+physical surface -> artifact bytes -> image lineage -> current boot selection -> executed trigger path
+  -> choose the current firmware/protocol bottleneck
   -> secure the nearest trustworthy protocol or hardware-side object
   -> prove one ownership, consequence, gate, or handoff edge
   -> hand back one smaller replay, rehosting, fuzzing, or static target
@@ -121,6 +126,19 @@ The subtree is strongest when read as:
 - **prove** one peripheral or interrupt-side consequence
 
 ## 3. How to choose the right entry note
+### Start with `firmware-hardware-observation-to-executed-image-workflow-note`
+Use:
+- `topics/firmware-hardware-observation-to-executed-image-workflow-note.md`
+
+Start here when:
+- the case begins with board-level access, UART/JTAG/SWD/SPI, a vendor update, a flash dump, or an external bus trace
+- the main uncertainty is whether the acquired bytes and logs describe the image currently selected and executed
+- the analyst needs an image-lineage map or trigger-linked executed-code slice before protocol/parser/rehosting work is worth deepening
+
+Do **not** start here when:
+- the firmware image and executed path are already trustworthy and the real bottleneck is protocol layer peeling, receive ownership, parser/state consequence, replay gating, output handoff, descriptor ownership, or hardware-side effect proof
+- the task is purely a soldering/pinout/electronics problem rather than reverse-analysis proof selection
+
 ### Start with `firmware-and-protocol-context-recovery`
 Use:
 - `topics/firmware-and-protocol-context-recovery.md`
