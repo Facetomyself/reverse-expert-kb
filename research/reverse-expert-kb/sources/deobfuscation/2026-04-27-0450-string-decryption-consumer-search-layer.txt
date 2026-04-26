@@ -1,0 +1,436 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "malware reverse engineering encrypted strings string decryption configuration extraction workflow",
+    "reverse engineering string decryption malware config extractor FLOSS dynamic analysis",
+    "deobfuscation encrypted strings malware reverse engineering first use consumer"
+  ],
+  "count": 23,
+  "results": [
+    {
+      "title": "flare-floss/doc/theory.md at master - GitHub",
+      "url": "https://github.com/mandiant/flare-floss/blob/master/doc/theory.md",
+      "snippet": "As a reverse engineer, it takes significant effort to extract obfuscated strings from a malware sample. This is because there are a huge number of possible",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.72
+    },
+    {
+      "title": "doc/theory.md at 12459b0130002c176f3e19697621da9814ff95be · mandiant/flare-floss",
+      "url": "https://github.com/mandiant/flare-floss/blob/12459b0130002c176f3e19697621da9814ff95be/doc/theory.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "doc/usage.md at master · mandiant/flare-floss",
+      "url": "https://github.com/mandiant/flare-floss/blob/master/doc/usage.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "mandiant/flare-floss",
+      "url": "https://github.com/mandiant/flare-floss/",
+      "snippet": "",
+      "published_date": "2016-03-02T20:16:10.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "doc/theory.md at master · mandiant/flare-floss",
+      "url": "https://github.com/fireeye/flare-floss/blob/master/doc/theory.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Automatically Extracting Obfuscated Strings from Malware using the ...",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/automatically-extracting-obfuscated-strings/",
+      "snippet": "Learn how to automatically extract obfuscated strings from malware using the FireEye labs obfuscated string solver (floss). Read more.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.59
+    },
+    {
+      "title": "[PDF] AUTOMATIC DEOBFUSCATION AND REVERSE ENGINEERING ...",
+      "url": "https://repository.arizona.edu/bitstream/handle/10150/613135/azu_etd_14572_sip1_m.pdf?sequence=1",
+      "snippet": "On the other hand, malware writers adapt their malicious codes to new security measurements to protect them from being exposed and detected.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.59
+    },
+    {
+      "title": "[PDF] Automated Detection and Extraction of String Deobfuscation ...",
+      "url": "https://cs.brown.edu/media/filer_public/08/40/0840711d-28da-4dd5-a133-e73009f70769/ediekelsie.pdf",
+      "snippet": "Automated Detection and Extraction of String Deobfuscation Functions in Malware Binaries via Static and Dynamic Analysis Kelsie A. This paper presents a novel automated pipeline, combining comprehensive static analysis heuristics with statistical feature ranking to systematically detect and extract candidate string de-obfuscation functions from malware binaries across multiple executable formats (PE, ELF, Mach-O). It explores the question: How can the automated identification and extraction of deobfuscation functions within malware binaries 2 be improved using static and dynamic analysis to facilitate string deobfuscation? This work provides two key deliverables: • a Pyhidra-based static analysis script that outputs a list of outlier functions likely to perform string deobfuscation, along with JSON-formatted results that facilitate further integration and automated tooling1; • a small, labeled dataset of malware binaries from various families with ground-truth annotations identifying known or suspected deobfuscation functions2. Analysts typically rely on three primary methodologies: 1https://github.com/KelsieEdie/Static-String-Deobfuscation-Function-Detection/tree/main/v.1.0 2https://github.com/KelsieEdie/Static-String-Deobfuscation-Function-Detection/blob/main/Malware-Dataset.zip 3 • Static analysis examines a binary without execution.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.59
+    },
+    {
+      "title": "Reverse engineering & Malware analysis | by Hydra - Medium",
+      "url": "https://medium.com/@afarahat726/reverse-engineering-malware-analysis-3ba40a4381f0",
+      "snippet": "floss (FireEye Labs Obfuscated String Solver). A more powerful tool than strings, it can decrypt encrypted or obfuscated strings in malware.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.58
+    },
+    {
+      "title": "[Reverse Engineering Tips] — Strings Deobfuscation with FLOSS",
+      "url": "https://blog.securitybreak.io/reverse-engineering-tips-strings-deobfuscation-with-floss-9424417e285d",
+      "snippet": "Deobfuscation is an important part of malware analysis. Many malware currently uses obfuscation to hide from analysts but also to avoid",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "Automating String Decoding in Malware: Analysing StealC V1 with IDAPython",
+      "url": "https://blog.reveng.ai/automating-string-decoding-in-malware-analysing-stealc-v1-with-idapython/",
+      "snippet": "# Automating String Decoding in Malware: Analysing StealC V1 with IDAPython. Automating String Decoding in Malware: Analysing StealC V1 with IDAPython. Firstly, we will demonstrate how to build an IDAPython script that automatically decodes obfuscated strings and renames associated variables using StealC V1 (the predecessor to StealC V2) as our case study. Before diving into the technical details, let's understand why automating string decoding is crucial for efficient malware analysis:. /* The function stealc_decodeString performs a XOR encryption on a given input string using a key. Automating string decoding transforms malware analysis from a tedious manual process into an efficient, scalable workflow. rule RevEng_StealC_1 { meta: author = \"lloyd@reveng.ai\" source = \"RevEng\" description = \"Identifies both StealC V1 and V2 samples\" version = \"1.0\" category = \"MALWARE\" malware = \"STEALC\" malware_type = \"STEALER\" strings: $v1_0 = \"app_bound_encrypted_key\" $v1_1 = \"%08lX-%04hX-%04hX-%02hhX%02hhX-%02hhX%02hhX%02hhX%02hhX%02hhX%02hhX\" $v1_2 = \"\\\\Google\\\\Chrome\\\\User Data\\\\Local State\" $v1_3 = \"\\\\\\\\.\\\\pipe\\\\\" $v1_4 = \"0123456789abcdef\" // NOTE: https://github.com/RussianPanda95/Yara-Rules/blob/main/StealC/win_mal_StealC_v2.yar $v2_0 = {48 8d ??",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "[Case Study: Latrodectus] Analyzing and Implementing String Decryption Algorithms - 0x0d4y Malware Research",
+      "url": "https://0x0d4y.blog/case-study-analyzing-and-implementing-string-decryption-algorithms-latrodectus/",
+      "snippet": "# [Case Study: Latrodectus] Analyzing and Implementing String Decryption Algorithms. The objective is to study how to identify a string decryption algorithm when reverse engineering a malware, and how we can implement it in *Python* to statically decrypt them. Specifically, we will cover how to identify whether malware is using a custom decryption algorithm to obfuscate strings. Now that we understand why adversaries implement this obfuscation technique, let’s understand how we can identify the use of a decryption algorithm in malware. To validate where we are, below we can see the content of the encrypted data block that the xor\\_decrypt function (renamed by me, for documentation purposes) receives as an argument. Next, the algorithm will perform an **XOR** operation with the byte appended to *1* (**0x7f**) and with byte **0x0d**, which is the *seventh byte of the encrypted data block*. We can validate this information in our Disassembler, where it is possible to observe that the algorithm skips the initial *6 bytes* of the encrypted data block.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.51
+    },
+    {
+      "title": "Reverse-Engineering the String Decryption Algorithm of Mekotio – RME-DisCo Research Group",
+      "url": "https://reversea.me/index.php/reverse-engineering-the-string-decryption-algorithm-of-mekotio/",
+      "snippet": "As introduced in the report of INCIBE, the algorithm that decrypts the strings is the function located at `0x94E2D0`. The first instructions of this block perform a similar behavior as the loop header: it gets two chars of the cipher string, indicated by `r13`, moves them to a temporal buffer, and converts them to ther corresponding integer value. Finally, it checks if `esi` (cleared in the loop header block, hence in the first iteration its value is zero) is greater than or equal to `ebx` (which contains the length of the decryption key, read again the previous paragraph!). Finally, `edi` is updated with the value of `r14` and `r13` (the index used to access the cipher string in the first block of the loop body) is incremented by two units. Now we can use one of the (long) strings given in the report of INCIBE of this sample to get the decryption key.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Automation in Reverse Engineering: String Decryption | Tim Blazytko",
+      "url": "https://synthesis.to/2021/06/30/automating_string_decryption.html",
+      "snippet": "# Automation in Reverse Engineering: String Decryption. Afterward, it walks over the copied string and decrypts it bytewise by xoring each byte with `0x22`. After we manually analyzed how strings can be decrypted, we will now automate this with Binary Ninja. To automate the decryption, we first have to find a way to identify all encoded strings. If so, we access its first two parameters (the pointers to the encoded strings) and pass them to the decryption function. Taking the string’s start address as input, we sequentially walk over the string until we reach a byte that terminates the string or that was already decrypted. Finally, we have all parts together: We walk over all function calls of the string decryption function, parse the parameters for each call and decrypt all the strings in Binary Ninja’s database. By using Binary Ninja’s decompiler API, we walked over all relevant function calls, parsed the parameters and decrypted the strings.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "StealC Infostealer: Loader Internals, Config Decryption, and Chrome ABE Targeting | by Dominik Tracz | Apr, 2026 | Medium",
+      "url": "https://medium.com/@tracz/stealc-infostealer-loader-internals-config-decryption-and-chrome-abe-targeting-353dc456e8c9",
+      "snippet": "",
+      "published_date": "2026-04-20T19:06:09.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "FLOSS Every Day: Automatically Extracting Obfuscated Strings from ...",
+      "url": "https://www.youtube.com/watch?v=i2gDruusO3I",
+      "snippet": "... reverse engineer on the FLARE team that enjoystackling malware and developing forensic analysis techniques. Willi's favorite beer is La Chouffe.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "flare-floss: Automatically extract obfuscated strings from malware",
+      "url": "https://meterpreter.org/flare-floss-automatically-extract-obfuscated-strings-from-malware/",
+      "snippet": "",
+      "published_date": "2024-11-07T01:29:07.000Z",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "Automatically Extracting Obfuscated Strings from Malware using the FireEye Labs Obfuscated String Solver (FLOSS) | Mandiant | Google Cloud Blog",
+      "url": "https://www.fireeye.com/blog/threat-research/2016/06/automatically-extracting-obfuscated-strings.html",
+      "snippet": "",
+      "published_date": "2016-06-23T08:22:04.000Z",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "Reverse Engineering 2/4 - Cybersecurity SOC Analyst - YouTube",
+      "url": "https://www.youtube.com/watch?v=4sHDJLXdvRM",
+      "snippet": "... deobfuscation techniques and ... Defeating Packed Malware - Manual Unpacking & Memory Dumping Techniques - Reverse Engineering 4 of 4.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "Resolving Stack Strings with Emulation | 0ffset Training Solutions",
+      "url": "https://www.0ffset.net/reverse-engineering/capstone-resolving-stack-strings/",
+      "snippet": "",
+      "published_date": "2024-04-10T14:20:09.000Z",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "Automating Pikabot's String Deobfuscation | ThreatLabz - Zscaler, Inc.",
+      "url": "https://www.zscaler.com/blogs/security-research/automating-pikabot-s-string-deobfuscation",
+      "snippet": "Pikabot is a malware loader that was first observed in early 2023 and became very active following the takedown of Qakbot in August 2023.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.34
+    },
+    {
+      "title": "Unraveling the Secrets of Encryption in Malware",
+      "url": "https://malware.news/t/malware-reverse-engineering-unraveling-the-secrets-of-encryption-in-malware/72071",
+      "snippet": "Block Cipher Use in Malware. AES is one of the most popular symmetric block encryption algorithms. It is used by many ransomware to quickly and",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "JavaScript String-Array Deobfuscation: Accessors, Rotation, and RC4 Chain Patterns | KlaroSkope Learn",
+      "url": "https://klaroskope.com/learn/javascript-string-array-deobfuscation",
+      "snippet": "",
+      "published_date": "2026-04-17T13:23:02.000Z",
+      "source": "exa",
+      "score": 0.33
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Reverse engineering & Malware analysis | by Hydra - Medium",
+        "url": "https://medium.com/@afarahat726/reverse-engineering-malware-analysis-3ba40a4381f0",
+        "snippet": "floss (FireEye Labs Obfuscated String Solver). A more powerful tool than strings, it can decrypt encrypted or obfuscated strings in malware.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.58
+      },
+      {
+        "title": "FLOSS Every Day: Automatically Extracting Obfuscated Strings from ...",
+        "url": "https://www.youtube.com/watch?v=i2gDruusO3I",
+        "snippet": "... reverse engineer on the FLARE team that enjoystackling malware and developing forensic analysis techniques. Willi's favorite beer is La Chouffe.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "[Reverse Engineering Tips] — Strings Deobfuscation with FLOSS",
+        "url": "https://blog.securitybreak.io/reverse-engineering-tips-strings-deobfuscation-with-floss-9424417e285d",
+        "snippet": "Deobfuscation is an important part of malware analysis. Many malware currently uses obfuscation to hide from analysts but also to avoid",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "flare-floss/doc/theory.md at master - GitHub",
+        "url": "https://github.com/mandiant/flare-floss/blob/master/doc/theory.md",
+        "snippet": "As a reverse engineer, it takes significant effort to extract obfuscated strings from a malware sample. This is because there are a huge number of possible",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.72
+      },
+      {
+        "title": "Automatically Extracting Obfuscated Strings from Malware using the ...",
+        "url": "https://cloud.google.com/blog/topics/threat-intelligence/automatically-extracting-obfuscated-strings/",
+        "snippet": "Learn how to automatically extract obfuscated strings from malware using the FireEye labs obfuscated string solver (floss). Read more.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.59
+      },
+      {
+        "title": "[Case Study: Latrodectus] Analyzing and Implementing String Decryption Algorithms - 0x0d4y Malware Research",
+        "url": "https://0x0d4y.blog/case-study-analyzing-and-implementing-string-decryption-algorithms-latrodectus/",
+        "snippet": "# [Case Study: Latrodectus] Analyzing and Implementing String Decryption Algorithms. The objective is to study how to identify a string decryption algorithm when reverse engineering a malware, and how we can implement it in *Python* to statically decrypt them. Specifically, we will cover how to identify whether malware is using a custom decryption algorithm to obfuscate strings. Now that we understand why adversaries implement this obfuscation technique, let’s understand how we can identify the use of a decryption algorithm in malware. To validate where we are, below we can see the content of the encrypted data block that the xor\\_decrypt function (renamed by me, for documentation purposes) receives as an argument. Next, the algorithm will perform an **XOR** operation with the byte appended to *1* (**0x7f**) and with byte **0x0d**, which is the *seventh byte of the encrypted data block*. We can validate this information in our Disassembler, where it is possible to observe that the algorithm skips the initial *6 bytes* of the encrypted data block.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.51
+      },
+      {
+        "title": "Automating String Decoding in Malware: Analysing StealC V1 with IDAPython",
+        "url": "https://blog.reveng.ai/automating-string-decoding-in-malware-analysing-stealc-v1-with-idapython/",
+        "snippet": "# Automating String Decoding in Malware: Analysing StealC V1 with IDAPython. Automating String Decoding in Malware: Analysing StealC V1 with IDAPython. Firstly, we will demonstrate how to build an IDAPython script that automatically decodes obfuscated strings and renames associated variables using StealC V1 (the predecessor to StealC V2) as our case study. Before diving into the technical details, let's understand why automating string decoding is crucial for efficient malware analysis:. /* The function stealc_decodeString performs a XOR encryption on a given input string using a key. Automating string decoding transforms malware analysis from a tedious manual process into an efficient, scalable workflow. rule RevEng_StealC_1 { meta: author = \"lloyd@reveng.ai\" source = \"RevEng\" description = \"Identifies both StealC V1 and V2 samples\" version = \"1.0\" category = \"MALWARE\" malware = \"STEALC\" malware_type = \"STEALER\" strings: $v1_0 = \"app_bound_encrypted_key\" $v1_1 = \"%08lX-%04hX-%04hX-%02hhX%02hhX-%02hhX%02hhX%02hhX%02hhX%02hhX%02hhX\" $v1_2 = \"\\\\Google\\\\Chrome\\\\User Data\\\\Local State\" $v1_3 = \"\\\\\\\\.\\\\pipe\\\\\" $v1_4 = \"0123456789abcdef\" // NOTE: https://github.com/RussianPanda95/Yara-Rules/blob/main/StealC/win_mal_StealC_v2.yar $v2_0 = {48 8d ??",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "Reverse-Engineering the String Decryption Algorithm of Mekotio – RME-DisCo Research Group",
+        "url": "https://reversea.me/index.php/reverse-engineering-the-string-decryption-algorithm-of-mekotio/",
+        "snippet": "As introduced in the report of INCIBE, the algorithm that decrypts the strings is the function located at `0x94E2D0`. The first instructions of this block perform a similar behavior as the loop header: it gets two chars of the cipher string, indicated by `r13`, moves them to a temporal buffer, and converts them to ther corresponding integer value. Finally, it checks if `esi` (cleared in the loop header block, hence in the first iteration its value is zero) is greater than or equal to `ebx` (which contains the length of the decryption key, read again the previous paragraph!). Finally, `edi` is updated with the value of `r14` and `r13` (the index used to access the cipher string in the first block of the loop body) is incremented by two units. Now we can use one of the (long) strings given in the report of INCIBE of this sample to get the decryption key.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Automation in Reverse Engineering: String Decryption | Tim Blazytko",
+        "url": "https://synthesis.to/2021/06/30/automating_string_decryption.html",
+        "snippet": "# Automation in Reverse Engineering: String Decryption. Afterward, it walks over the copied string and decrypts it bytewise by xoring each byte with `0x22`. After we manually analyzed how strings can be decrypted, we will now automate this with Binary Ninja. To automate the decryption, we first have to find a way to identify all encoded strings. If so, we access its first two parameters (the pointers to the encoded strings) and pass them to the decryption function. Taking the string’s start address as input, we sequentially walk over the string until we reach a byte that terminates the string or that was already decrypted. Finally, we have all parts together: We walk over all function calls of the string decryption function, parse the parameters for each call and decrypt all the strings in Binary Ninja’s database. By using Binary Ninja’s decompiler API, we walked over all relevant function calls, parsed the parameters and decrypted the strings.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Unraveling the Secrets of Encryption in Malware",
+        "url": "https://malware.news/t/malware-reverse-engineering-unraveling-the-secrets-of-encryption-in-malware/72071",
+        "snippet": "Block Cipher Use in Malware. AES is one of the most popular symmetric block encryption algorithms. It is used by many ransomware to quickly and",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      },
+      {
+        "title": "[Reverse Engineering Tips] — Strings Deobfuscation with FLOSS",
+        "url": "https://blog.securitybreak.io/reverse-engineering-tips-strings-deobfuscation-with-floss-9424417e285d",
+        "snippet": "Deobfuscation is an important part of malware analysis. Many malware currently uses obfuscation to hide from analysts but also to avoid",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Automating Pikabot's String Deobfuscation | ThreatLabz - Zscaler, Inc.",
+        "url": "https://www.zscaler.com/blogs/security-research/automating-pikabot-s-string-deobfuscation",
+        "snippet": "Pikabot is a malware loader that was first observed in early 2023 and became very active following the takedown of Qakbot in August 2023.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.34
+      },
+      {
+        "title": "Reverse Engineering 2/4 - Cybersecurity SOC Analyst - YouTube",
+        "url": "https://www.youtube.com/watch?v=4sHDJLXdvRM",
+        "snippet": "... deobfuscation techniques and ... Defeating Packed Malware - Manual Unpacking & Memory Dumping Techniques - Reverse Engineering 4 of 4.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      },
+      {
+        "title": "[PDF] AUTOMATIC DEOBFUSCATION AND REVERSE ENGINEERING ...",
+        "url": "https://repository.arizona.edu/bitstream/handle/10150/613135/azu_etd_14572_sip1_m.pdf?sequence=1",
+        "snippet": "On the other hand, malware writers adapt their malicious codes to new security measurements to protect them from being exposed and detected.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.59
+      },
+      {
+        "title": "[PDF] Automated Detection and Extraction of String Deobfuscation ...",
+        "url": "https://cs.brown.edu/media/filer_public/08/40/0840711d-28da-4dd5-a133-e73009f70769/ediekelsie.pdf",
+        "snippet": "Automated Detection and Extraction of String Deobfuscation Functions in Malware Binaries via Static and Dynamic Analysis Kelsie A. This paper presents a novel automated pipeline, combining comprehensive static analysis heuristics with statistical feature ranking to systematically detect and extract candidate string de-obfuscation functions from malware binaries across multiple executable formats (PE, ELF, Mach-O). It explores the question: How can the automated identification and extraction of deobfuscation functions within malware binaries 2 be improved using static and dynamic analysis to facilitate string deobfuscation? This work provides two key deliverables: • a Pyhidra-based static analysis script that outputs a list of outlier functions likely to perform string deobfuscation, along with JSON-formatted results that facilitate further integration and automated tooling1; • a small, labeled dataset of malware binaries from various families with ground-truth annotations identifying known or suspected deobfuscation functions2. Analysts typically rely on three primary methodologies: 1https://github.com/KelsieEdie/Static-String-Deobfuscation-Function-Detection/tree/main/v.1.0 2https://github.com/KelsieEdie/Static-String-Deobfuscation-Function-Detection/blob/main/Malware-Dataset.zip 3 • Static analysis examines a binary without execution.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.59
+      }
+    ],
+    "exa": [
+      {
+        "title": "flare-floss/doc/theory.md at master - GitHub",
+        "url": "https://github.com/mandiant/flare-floss/blob/master/doc/theory.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "flare-floss: Automatically extract obfuscated strings from malware",
+        "url": "https://meterpreter.org/flare-floss-automatically-extract-obfuscated-strings-from-malware/",
+        "snippet": "",
+        "published_date": "2024-11-07T01:29:07.000Z",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "doc/theory.md at 12459b0130002c176f3e19697621da9814ff95be · mandiant/flare-floss",
+        "url": "https://github.com/mandiant/flare-floss/blob/12459b0130002c176f3e19697621da9814ff95be/doc/theory.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Automatically Extracting Obfuscated Strings from Malware using the FireEye Labs Obfuscated String Solver (FLOSS) | Mandiant | Google Cloud Blog",
+        "url": "https://www.fireeye.com/blog/threat-research/2016/06/automatically-extracting-obfuscated-strings.html",
+        "snippet": "",
+        "published_date": "2016-06-23T08:22:04.000Z",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "doc/usage.md at master · mandiant/flare-floss",
+        "url": "https://github.com/mandiant/flare-floss/blob/master/doc/usage.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "StealC Infostealer: Loader Internals, Config Decryption, and Chrome ABE Targeting | by Dominik Tracz | Apr, 2026 | Medium",
+        "url": "https://medium.com/@tracz/stealc-infostealer-loader-internals-config-decryption-and-chrome-abe-targeting-353dc456e8c9",
+        "snippet": "",
+        "published_date": "2026-04-20T19:06:09.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "Automatically Extracting Obfuscated Strings from Malware using the FireEye Labs Obfuscated String Solver (FLOSS) | Mandiant | Google Cloud Blog",
+        "url": "https://cloud.google.com/blog/topics/threat-intelligence/automatically-extracting-obfuscated-strings/",
+        "snippet": "",
+        "published_date": "2016-06-23T08:22:03.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "mandiant/flare-floss",
+        "url": "https://github.com/mandiant/flare-floss/",
+        "snippet": "",
+        "published_date": "2016-03-02T20:16:10.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "doc/theory.md at master · mandiant/flare-floss",
+        "url": "https://github.com/fireeye/flare-floss/blob/master/doc/theory.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Resolving Stack Strings with Emulation | 0ffset Training Solutions",
+        "url": "https://www.0ffset.net/reverse-engineering/capstone-resolving-stack-strings/",
+        "snippet": "",
+        "published_date": "2024-04-10T14:20:09.000Z",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "JavaScript String-Array Deobfuscation: Accessors, Rotation, and RC4 Chain Patterns | KlaroSkope Learn",
+        "url": "https://klaroskope.com/learn/javascript-string-array-deobfuscation",
+        "snippet": "",
+        "published_date": "2026-04-17T13:23:02.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Automating Pikabot's String Deobfuscation | ThreatLabz - Zscaler, Inc.",
+        "url": "https://www.zscaler.com/blogs/security-research/automating-pikabot-s-string-deobfuscation",
+        "snippet": "",
+        "published_date": "2024-04-08T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "mandiant/flare-floss",
+        "url": "https://github.com/mandiant/flare-floss/",
+        "snippet": "",
+        "published_date": "2016-03-02T20:16:10.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "doc/theory.md at master · mandiant/flare-floss",
+        "url": "https://github.com/fireeye/flare-floss/blob/master/doc/theory.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "flare-floss: Automatically extract obfuscated strings from malware",
+        "url": "https://meterpreter.org/flare-floss-automatically-extract-obfuscated-strings-from-malware/",
+        "snippet": "",
+        "published_date": "2024-11-07T01:29:07.000Z",
+        "source": "exa"
+      }
+    ],
+    "grok": []
+  }
+}
