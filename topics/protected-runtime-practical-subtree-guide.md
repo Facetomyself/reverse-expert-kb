@@ -15,6 +15,7 @@ Related pages:
 - topics/input-invariant-opaque-predicate-to-valid-input-constraint-recovery-workflow-note.md
 - topics/flattened-dispatcher-to-state-edge-workflow-note.md
 - topics/packed-stub-to-oep-and-first-real-module-workflow-note.md
+- topics/string-decryption-origin-to-artifact-provenance-workflow-note.md
 - topics/decrypted-artifact-to-first-consumer-workflow-note.md
 - topics/integrity-check-to-tamper-consequence-workflow-note.md
 - topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
@@ -46,7 +47,7 @@ This page makes that branch read more like the malware, protocol, and mobile pra
 - a compact ladder for moving from protected churn toward one smaller trustworthy target
 
 ## 2. Core claim
-Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twelve recurring families:
+Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of thirteen recurring families:
 
 1. **anti-instrumentation gate triage**
    - some anti-instrumentation effect is already visible, but the first decisive gate family and its first consequence-bearing effect are still unclear
@@ -65,13 +66,15 @@ Protected-runtime practical work is easiest to navigate when the analyst first c
    - a dispatcher or flattened protected region is already recognizable enough that one trustworthy successor relation already exists, but the first durable state object, reducer helper, or dispatcher-exit edge is still unclear
 8. **packed / staged bootstrap handoff**
    - a stub, shell, decrypt/copy/fixup loop, or staged loader is already visible, but the first trustworthy post-unpack handoff is still unclear
-9. **artifact-to-consumer proof**
+9. **string-decryption origin / artifact-provenance proof**
+   - encoded or encrypted strings are clearly present and decoders, stack builders, or emulator outputs are visible, but decoder callsite truth, origin bytes, key/constant pairing, decoded-output validation, and consumer-ready provenance are still not separated
+10. **artifact-to-consumer proof**
    - strings, config, tables, bytecode, or normalized buffers are already readable enough to inspect, but the first ordinary consumer is still missing
-10. **runtime-artifact / initialization-obligation recovery**
+11. **runtime-artifact / initialization-obligation recovery**
    - static dumps, repaired artifacts, or offline reconstructions look damaged, under-initialized, or close-but-wrong, while live/runtime state appears truer
-11. **integrity / tamper consequence proof**
+12. **integrity / tamper consequence proof**
    - checks are visible, but the first reduced result or consequence-bearing tripwire is still unclear
-12. **exception-handler-owned control transfer**
+13. **exception-handler-owned control transfer**
    - visible direct control flow stays incomplete or misleading because handler registration, dispatcher-side landing, unwind lookup, signal delivery, or trap-resume logic owns the meaningful branch
    - keep a thinner guard-page / fault-owned continuation reminder inside this family: **guard configured != first fault != re-armed mechanism != resumed consequence**, because one `PAGE_GUARD` hit or one fault delivery is often only landing truth rather than sustained ownership or behavior truth
 
@@ -93,6 +96,7 @@ The subtree is strongest when read as:
 - **normalize** one opaque-predicate or computed-next-state bottleneck into one trustworthy successor relation, often by anchoring on one helper output, normalized compare family, table index, or other smaller recovery object instead of the whole flattened block
 - **reduce** one recognizable flattened dispatcher or protected state machine into one durable state edge
 - **handoff** out of staged startup when packing/bootstrap dominates
+- **preserve provenance** for recovered strings when decoder identity, callsite/slice truth, origin bytes, key/constant pairing, and decoded-output validation are still shaky
 - **consume** recovered artifacts when readable material exists but ordinary use is still unproved
 - **stabilize** one truthful runtime artifact plus one minimal init obligation when static views are still lying
 - **tripwire** the first behavior-changing integrity consequence when checks are already visible
@@ -241,12 +245,26 @@ Do **not** start here when:
 - unpacking is solved enough, but later VM/flattened execution still dominates
 - the readable object already exists and the real bottleneck is its consumer
 
+### Start with `string-decryption-origin-to-artifact-provenance-workflow-note`
+Use:
+- `topics/string-decryption-origin-to-artifact-provenance-workflow-note.md`
+
+Start here when:
+- encoded, encrypted, or stack-built strings are clearly present, but the recovered plaintext still lacks trustworthy origin / decoder / key / callsite provenance
+- one decoder helper, local transform slice, or emulator output exists, but the analyst cannot yet map decoded output back to a concrete origin address, stack-construction site, argument set, key/IV/constant source, and output buffer
+- the next useful output is one consumer-ready decoded string family with provenance, not a flat IOC list
+
+Do **not** start here when:
+- strings, config, bytecode, tables, or normalized blobs are already readable **and** provenance is good enough; then start with artifact-to-consumer proof
+- the bottleneck is still broader unpacking, trace churn, or runtime-table initialization rather than string recovery
+- the decoded artifact has already reduced into an ordinary malware config, protocol parser, request-builder, or route-to-state question
+
 ### Start with `decrypted-artifact-to-first-consumer-workflow-note`
 Use:
 - `topics/decrypted-artifact-to-first-consumer-workflow-note.md`
 
 Start here when:
-- strings, config, bytecode, tables, decrypted buffers, normalized blobs, or recovered code artifacts are already readable enough to inspect
+- strings, config, bytecode, tables, decrypted buffers, normalized blobs, or recovered code artifacts are already readable enough to inspect, and any string-specific origin / decoder / key provenance is already stable enough to trust
 - the analyst still does not know which ordinary parser, policy, scheduler, request builder, or payload consumer first makes them behaviorally relevant
 - the next useful output is one first consumer routine, state write, or downstream operational edge
 
@@ -508,7 +526,7 @@ When a case is clearly protected-runtime shaped, ask these in order:
 6. **Am I still stuck proving the post-unpack handoff?**
    - if yes, start with packed-stub -> OEP
 7. **Do I already have a readable recovered artifact, but no ordinary consumer?**
-   - if yes, start with decrypted-artifact -> first consumer
+   - if yes but string provenance is still weak, start with string-decryption origin -> artifact provenance; if provenance is already stable, start with decrypted-artifact -> first consumer
 8. **Are static artifacts or offline replay close-but-wrong because one runtime artifact or init obligation is still missing?**
    - if yes, start with runtime-table / initialization-obligation recovery
 9. **Are checks already visible, but the first behavior-changing consequence is still hidden?**
