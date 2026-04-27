@@ -1,0 +1,421 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "D-Bus service activation reverse engineering method call handler bus name object path interface workflow",
+    "Linux D-Bus activation system bus service file object path interface introspection method handler reverse engineering",
+    "DBus reverse engineering service activation bus name introspection method call handler consumer"
+  ],
+  "count": 21,
+  "results": [
+    {
+      "title": "dbus - Allow introspection on my D-Bus system service",
+      "url": "https://stackoverflow.com/questions/16089438/allow-introspection-on-my-d-bus-system-service",
+      "snippet": "",
+      "published_date": "2013-04-27T20:51:03.295Z",
+      "source": "exa, tavily",
+      "score": 0.6643
+    },
+    {
+      "title": "dbus-mcp/DBUS_MCP_INTROSPECTION_COMPLETE.md at master",
+      "url": "https://github.com/repr0bated/dbus-mcp/blob/master/DBUS_MCP_INTROSPECTION_COMPLETE.md",
+      "snippet": "This document provides a comprehensive overview of the D-Bus MCP (Model Context Protocol) introspection system that automatically discovers and exposes Linux D-",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6643
+    },
+    {
+      "title": "how to activate a dbus daemon service located on my user .local? - Ask Ubuntu",
+      "url": "https://askubuntu.com/questions/1511748/how-to-activate-a-dbus-daemon-service-located-on-my-user-local",
+      "snippet": "# how to activate a dbus daemon service located on my user .local? I was following this answer but I couldn't make my dbus service work, here my dbus service. ~/.local/share/dbus-1/services/conf.behavior.lid.service [D-BUS Service] Name=conf.behavior.lid.service # For direct (non-systemd) start; required but may be /bin/false to require systemd Exec=/home/[my_user]/.local/bin/lid-behavior-conf.sh. gdbus call --session \\ --dest org.freedesktop.DBus \\ --object-path /org/freedesktop/DBus \\ --method org.freedesktop.DBus.StartServiceByName conf.behavior.lid 1. Error: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name is not activatable. ## 1 Answer 1. The correctly command is: `gdbus call --session --dest org.freedesktop.DBus --object-path /org/freedesktop/DBus --method org.freedesktop.DBus.StartServiceByName 'conf.behavior.lid.service' '1'`. answered Apr 26, 2024 at 13:37. ## You must log in to answer this question. Start asking to get answers. Find the answer to your question by asking. 4\") How does a Python DBus session service know the user is logging out? 1\") Whats is user 102 which is accessing dbus-daemon. What program starts dbus-daemon? 0\") dbus-daemon is crashing. How to find what executable provides a dbus service?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6514
+    },
+    {
+      "title": "How to enable introspection · Issue #23 · death/dbus - GitHub",
+      "url": "https://github.com/death/dbus/issues/23",
+      "snippet": "When I run D-Feet to introspect the object, it appears in the object list on the session. When I click on it however, I get the following",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6429
+    },
+    {
+      "title": "lisp/net/dbus.el at master · emacs-mirror/emacs",
+      "url": "https://github.com/emacs-mirror/emacs/blob/master/lisp/net/dbus.el",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6214
+    },
+    {
+      "title": "How to list all object paths under a dbus service?",
+      "url": "https://unix.stackexchange.com/questions/203410/how-to-list-all-object-paths-under-a-dbus-service",
+      "snippet": "",
+      "published_date": "2015-05-14T15:04:37.000Z",
+      "source": "exa",
+      "score": 0.5857
+    },
+    {
+      "title": "Using D-Bus Introspection",
+      "url": "https://blog.mafr.de/using-dbus-introspection/",
+      "snippet": "# Matthias Friedrich's Blog. # Using D-Bus Introspection. To control a D-Bus-enabled application, you need the interface definition to find out which methods are offered and which parameters they expect. Of course, you can get the relevant interface definition from the application's source distribution. But there's an easier way: Ask the object in question via D-Bus to give you the interface description. All objects implementing the org.freedesktop.DBus.Introspectable interface offer an Introspect() method that returns an XML document describing the methods and their signatures. Instead of python, we'll use the dbus-send command line utility this time. The following command dumps the definition of rhythmbox' /org/gnome/Rhythmbox/Player object:. dbus-send --session --type=method_call --print-reply --dest=org.gnome.Rhythmbox /org/gnome/Rhythmbox/Player org.freedesktop.DBus.Introspectable.Introspect. The service to query is org.gnome.Rhythmbox and the object's interface is org.freedesktop.DBus.Introspectable. Note that for dbus-send, the method's name (Introspect here) has to be appended to the interface. See the dbus-send manpage for more information, like calling methods with parameters. ## social.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5714
+    },
+    {
+      "title": "Exposing a D-Bus Interface in Linux — Part 2 - Medium",
+      "url": "https://medium.com/cesar-update/exposing-a-d-bus-interface-in-linux-part-2-90374a9e381b",
+      "snippet": "Object Path: Client uses the object path to reference an object exposed by the Service. For example, org/bluez/hci0 is the path of a remote",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5286
+    },
+    {
+      "title": "Introspection (Using of D-Bus) - GNU",
+      "url": "https://www.gnu.org/software/emacs/manual/html_node/dbus/Introspection.html",
+      "snippet": "The root introspection element is always a node element. It might have a name attribute, which denotes the (absolute) object path an interface is introspected.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4286
+    },
+    {
+      "title": "DbusExamples",
+      "url": "https://wiki.python.org/python/DbusExamples.html",
+      "snippet": "<interface name=\"org.freedesktop.DBus.Introspectable\">. Introspection returns an XML string containing information about interfaces, methods, properties and signals of the remote object. 24     print('Remote property: ', await example_object.hello_world). <interface name=\"org.freedesktop.DBus.Introspectable\">. Introspection returns an XML string containing information about interfaces, methods, properties and signals of the remote object. 24     print('Remote property: ', await example_object.hello_world). <interface name=\"org.freedesktop.DBus.Introspectable\">. Introspection returns an XML string containing information about interfaces, methods, properties and signals of the remote object. 24     print('Remote property: ', await example_object.hello_world). <interface name=\"org.freedesktop.DBus.Introspectable\">. Introspection returns an XML string containing information about interfaces, methods, properties and signals of the remote object. 24     print('Remote property: ', await example_object.hello_world). <interface name=\"org.freedesktop.DBus.Introspectable\">. Introspection returns an XML string containing information about interfaces, methods, properties and signals of the remote object. 24     print('Remote property: ', await example_object.hello_world). <interface name=\"org.freedesktop.DBus.Introspectable\">. Introspection returns an XML string containing information about interfaces, methods, properties and signals of the remote object. 24     print('Remote property: ', await example_object.hello_world). <interface name=\"org.freedesktop.DBus.Introspectable\">. 24     print('Remote property: ', await example_object.hello_world).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4071
+    },
+    {
+      "title": "How to Use systemd Bus Activation on Ubuntu - OneUptime",
+      "url": "https://oneuptime.com/blog/post/2026-03-02-how-to-use-systemd-bus-activation-on-ubuntu/view",
+      "snippet": "# Monitor service activation in real time sudo journalctl -u dbus-file-processor.service -f & # Send the D-Bus message dbus-send --system --print-reply \\ --dest=com.example.FileProcessor \\ /com/example/FileProcessor \\ com.example.FileProcessor.GetVersion. # Watch D-Bus messages in real time (requires dbus-monitor) sudo dbus-monitor --system \"destination=com.example.FileProcessor\" # Check D-Bus socket and activation status systemctl status dbus # List systemd services with BusName set systemctl show --property=BusName $(systemctl list-units --type=service -o json | python3 -c \"import sys,json; [print(u['unit']) for u in json.load(sys.stdin) if u['unit'].startswith('dbus-')]\").",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4071
+    },
+    {
+      "title": "Using of D-Bus: Receiving Method Calls",
+      "url": "https://gnu.huihoo.com/emacs/manual/dbus/Receiving-Method-Calls.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3857
+    },
+    {
+      "title": "D-Bus Tutorial - YouTube",
+      "url": "https://www.youtube.com/watch?v=3ZwzfZgU598",
+      "snippet": "https://www.softprayog.in/programming/d-bus-tutorial 0:00 Introduction 1:03 D-Bus daemon 2:09 Connection names 2:47 Object 3:28 Message 4.29",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3857
+    },
+    {
+      "title": "Accessing D-Bus interfaces | Developer",
+      "url": "https://develop.kde.org/docs/features/d-bus/accessing_dbus_interfaces",
+      "snippet": "",
+      "published_date": "2026-01-21T20:13:20.000Z",
+      "source": "exa",
+      "score": 0.3643
+    },
+    {
+      "title": "DBus Activation Tutorial - RaphaÃ«l Slinckx",
+      "url": "https://raphael.slinckx.net/blog/documents/dbus-tutorial",
+      "snippet": "The DBus missing tutorial – DBus Activation. I'll explain the activation part of dbus, that's how you can request the dbus daemon to automatically",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "gdbus - Tool for working with D-Bus objects at Linux.org",
+      "url": "https://linux.org/docs/man1/gdbus.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3643
+    },
+    {
+      "title": "D-Bus Tutorial",
+      "url": "https://dbus.freedesktop.org/doc/dbus-tutorial.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "Linux D-Bus Internals: What Happens When We Send a Message",
+      "url": "https://www.linkedin.com/pulse/linux-d-bus-internals-what-happens-when-we-send-message-santhosh-ohhwc",
+      "snippet": "",
+      "published_date": "2026-04-26T20:51:03.963Z",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "Understanding D-Bus and libdbus: How Linux Applications Communicate - sudowheel.com",
+      "url": "https://sudowheel.com/dbus-libdbus.html",
+      "snippet": "",
+      "published_date": "2026-04-11T23:41:31.000Z",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "Ubuntu Manpage:\n\n       busctl - Introspect the bus",
+      "url": "https://manpages.ubuntu.com/manpages/jammy/man1/busctl.1.html",
+      "snippet": "",
+      "published_date": "2025-01-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "busctl",
+      "url": "https://www.freedesktop.org/software/systemd/man/latest/busctl.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3214
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "dbus - Allow introspection on my D-Bus system service",
+        "url": "https://stackoverflow.com/questions/16089438/allow-introspection-on-my-d-bus-system-service",
+        "snippet": "",
+        "published_date": "2013-04-27T20:51:03.295Z",
+        "source": "exa, tavily",
+        "score": 0.6643
+      },
+      {
+        "title": "Ubuntu Manpage:\n\n       busctl - Introspect the bus",
+        "url": "https://manpages.ubuntu.com/manpages/jammy/man1/busctl.1.html",
+        "snippet": "",
+        "published_date": "2025-01-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "D-Bus Tutorial",
+        "url": "https://dbus.freedesktop.org/doc/dbus-tutorial.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "busctl",
+        "url": "https://www.freedesktop.org/software/systemd/man/latest/busctl.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "lisp/net/dbus.el at master · emacs-mirror/emacs",
+        "url": "https://github.com/emacs-mirror/emacs/blob/master/lisp/net/dbus.el",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6214
+      },
+      {
+        "title": "D-Bus Tutorial",
+        "url": "https://dbus.freedesktop.org/doc/dbus-tutorial.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Linux D-Bus Internals: What Happens When We Send a Message",
+        "url": "https://www.linkedin.com/pulse/linux-d-bus-internals-what-happens-when-we-send-message-santhosh-ohhwc",
+        "snippet": "",
+        "published_date": "2026-04-26T20:51:03.963Z",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "Accessing D-Bus interfaces | Developer",
+        "url": "https://develop.kde.org/docs/features/d-bus/accessing_dbus_interfaces",
+        "snippet": "",
+        "published_date": "2026-01-21T20:13:20.000Z",
+        "source": "exa",
+        "score": 0.3643
+      },
+      {
+        "title": "Understanding D-Bus and libdbus: How Linux Applications Communicate - sudowheel.com",
+        "url": "https://sudowheel.com/dbus-libdbus.html",
+        "snippet": "",
+        "published_date": "2026-04-11T23:41:31.000Z",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "Using of D-Bus: Receiving Method Calls",
+        "url": "https://gnu.huihoo.com/emacs/manual/dbus/Receiving-Method-Calls.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3857
+      },
+      {
+        "title": "Linux D-Bus Internals: What Happens When We Send a ...",
+        "url": "https://www.linkedin.com/pulse/linux-d-bus-internals-what-happens-when-we-send-message-santhosh-ohhwc",
+        "snippet": "",
+        "published_date": "2026-04-26T20:51:03.532Z",
+        "source": "exa"
+      },
+      {
+        "title": "How to Use systemd Bus Activation on Ubuntu",
+        "url": "https://oneuptime.com/blog/post/2026-03-02-how-to-use-systemd-bus-activation-on-ubuntu/view",
+        "snippet": "",
+        "published_date": "2026-03-02T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "gdbus - Tool for working with D-Bus objects at Linux.org",
+        "url": "https://linux.org/docs/man1/gdbus.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3643
+      },
+      {
+        "title": "How to list all object paths under a dbus service?",
+        "url": "https://unix.stackexchange.com/questions/203410/how-to-list-all-object-paths-under-a-dbus-service",
+        "snippet": "",
+        "published_date": "2015-05-14T15:04:37.000Z",
+        "source": "exa",
+        "score": 0.5857
+      },
+      {
+        "title": "D-Bus Tutorial",
+        "url": "https://dbus.freedesktop.org/doc/dbus-tutorial.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Using D-Bus Introspection",
+        "url": "https://blog.mafr.de/using-dbus-introspection/",
+        "snippet": "# Matthias Friedrich's Blog. # Using D-Bus Introspection. To control a D-Bus-enabled application, you need the interface definition to find out which methods are offered and which parameters they expect. Of course, you can get the relevant interface definition from the application's source distribution. But there's an easier way: Ask the object in question via D-Bus to give you the interface description. All objects implementing the org.freedesktop.DBus.Introspectable interface offer an Introspect() method that returns an XML document describing the methods and their signatures. Instead of python, we'll use the dbus-send command line utility this time. The following command dumps the definition of rhythmbox' /org/gnome/Rhythmbox/Player object:. dbus-send --session --type=method_call --print-reply --dest=org.gnome.Rhythmbox /org/gnome/Rhythmbox/Player org.freedesktop.DBus.Introspectable.Introspect. The service to query is org.gnome.Rhythmbox and the object's interface is org.freedesktop.DBus.Introspectable. Note that for dbus-send, the method's name (Introspect here) has to be appended to the interface. See the dbus-send manpage for more information, like calling methods with parameters. ## social.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5714
+      },
+      {
+        "title": "dbus - Allow introspection on my D-Bus system service - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/16089438/allow-introspection-on-my-d-bus-system-service",
+        "snippet": "### your communities. ### more stack exchange communities. ##### Collectives™ on Stack Overflow. # Allow introspection on my D-Bus system service. After having spend a bit time on understanding how D-Bus Session and System buses are working, I'm now focusing on allowing people to use and introspect my service in order to allow anyone to implement easily features using my service. `/etc/dbus-1/system.d/`. \"http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd\">. <allow send_destination=\"org.zedroot.Test\" />. <allow send_destination=\"org.zedroot.Test\". <allow send_destination=\"org.zedroot.Test\". send_interface=\"org.freedesktop.DBus.Introspectable\" />. <allow send_destination=\"org.zedroot.Test\". send_interface=\"org.freedesktop.DBus.Properties\" />. But using d-feet I can see my service but not introspect it (I don't see anything inside my service: no methods, signals or properties). ## 2 Answers 2. The following should be enough to allow introspection of your service:. <allow send_destination=\"org.zedroot.Test\"/>. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. # Subscribe to RSS. To subscribe to this RSS feed, copy and paste this URL into your RSS reader. ##### Stack Overflow. ##### Stack Exchange Network.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Introspection (Using of D-Bus) - GNU",
+        "url": "https://www.gnu.org/software/emacs/manual/html_node/dbus/Introspection.html",
+        "snippet": "The root introspection element is always a node element. It might have a name attribute, which denotes the (absolute) object path an interface is introspected.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4286
+      },
+      {
+        "title": "DbusExamples",
+        "url": "https://wiki.python.org/python/DbusExamples.html",
+        "snippet": "<interface name=\"org.freedesktop.DBus.Introspectable\">. Introspection returns an XML string containing information about interfaces, methods, properties and signals of the remote object. 24     print('Remote property: ', await example_object.hello_world). <interface name=\"org.freedesktop.DBus.Introspectable\">. Introspection returns an XML string containing information about interfaces, methods, properties and signals of the remote object. 24     print('Remote property: ', await example_object.hello_world). <interface name=\"org.freedesktop.DBus.Introspectable\">. Introspection returns an XML string containing information about interfaces, methods, properties and signals of the remote object. 24     print('Remote property: ', await example_object.hello_world). <interface name=\"org.freedesktop.DBus.Introspectable\">. Introspection returns an XML string containing information about interfaces, methods, properties and signals of the remote object. 24     print('Remote property: ', await example_object.hello_world). <interface name=\"org.freedesktop.DBus.Introspectable\">. Introspection returns an XML string containing information about interfaces, methods, properties and signals of the remote object. 24     print('Remote property: ', await example_object.hello_world). <interface name=\"org.freedesktop.DBus.Introspectable\">. Introspection returns an XML string containing information about interfaces, methods, properties and signals of the remote object. 24     print('Remote property: ', await example_object.hello_world). <interface name=\"org.freedesktop.DBus.Introspectable\">. 24     print('Remote property: ', await example_object.hello_world).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4071
+      },
+      {
+        "title": "How to enable introspection · Issue #23 · death/dbus - GitHub",
+        "url": "https://github.com/death/dbus/issues/23",
+        "snippet": "When I run D-Feet to introspect the object, it appears in the object list on the session. When I click on it however, I get the following",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6429
+      },
+      {
+        "title": "D-Bus Tutorial",
+        "url": "https://dbus.freedesktop.org/doc/dbus-tutorial.html",
+        "snippet": "* A *message bus daemon* executable, built on libdbus, that multiple applications can connect to. Applications could then send messages to this bus name, object, and interface to execute method calls. * In either case, the method call message contains: a bus name belonging to the remote process; the name of the method; the arguments to the method; an object path inside the remote process; and optionally the name of the interface that specifies the method. * The method call message is sent to the bus daemon. Otherwise, the bus daemon creates an error message and sends it back as the reply to the method call message. In a simple low-level API situation, it may immediately run the method and send a method reply message to the bus daemon. * The bus daemon receives the method reply message and sends it to the process that made the method call.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to Use systemd Bus Activation on Ubuntu - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-03-02-how-to-use-systemd-bus-activation-on-ubuntu/view",
+        "snippet": "# Monitor service activation in real time sudo journalctl -u dbus-file-processor.service -f & # Send the D-Bus message dbus-send --system --print-reply \\ --dest=com.example.FileProcessor \\ /com/example/FileProcessor \\ com.example.FileProcessor.GetVersion. # Watch D-Bus messages in real time (requires dbus-monitor) sudo dbus-monitor --system \"destination=com.example.FileProcessor\" # Check D-Bus socket and activation status systemctl status dbus # List systemd services with BusName set systemctl show --property=BusName $(systemctl list-units --type=service -o json | python3 -c \"import sys,json; [print(u['unit']) for u in json.load(sys.stdin) if u['unit'].startswith('dbus-')]\").",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4071
+      },
+      {
+        "title": "how to activate a dbus daemon service located on my user .local? - Ask Ubuntu",
+        "url": "https://askubuntu.com/questions/1511748/how-to-activate-a-dbus-daemon-service-located-on-my-user-local",
+        "snippet": "# how to activate a dbus daemon service located on my user .local? I was following this answer but I couldn't make my dbus service work, here my dbus service. ~/.local/share/dbus-1/services/conf.behavior.lid.service [D-BUS Service] Name=conf.behavior.lid.service # For direct (non-systemd) start; required but may be /bin/false to require systemd Exec=/home/[my_user]/.local/bin/lid-behavior-conf.sh. gdbus call --session \\ --dest org.freedesktop.DBus \\ --object-path /org/freedesktop/DBus \\ --method org.freedesktop.DBus.StartServiceByName conf.behavior.lid 1. Error: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name is not activatable. ## 1 Answer 1. The correctly command is: `gdbus call --session --dest org.freedesktop.DBus --object-path /org/freedesktop/DBus --method org.freedesktop.DBus.StartServiceByName 'conf.behavior.lid.service' '1'`. answered Apr 26, 2024 at 13:37. ## You must log in to answer this question. Start asking to get answers. Find the answer to your question by asking. 4\") How does a Python DBus session service know the user is logging out? 1\") Whats is user 102 which is accessing dbus-daemon. What program starts dbus-daemon? 0\") dbus-daemon is crashing. How to find what executable provides a dbus service?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6514
+      },
+      {
+        "title": "DBus Activation Tutorial - RaphaÃ«l Slinckx",
+        "url": "https://raphael.slinckx.net/blog/documents/dbus-tutorial",
+        "snippet": "The DBus missing tutorial – DBus Activation. I'll explain the activation part of dbus, that's how you can request the dbus daemon to automatically",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "D-Bus Tutorial - YouTube",
+        "url": "https://www.youtube.com/watch?v=3ZwzfZgU598",
+        "snippet": "https://www.softprayog.in/programming/d-bus-tutorial 0:00 Introduction 1:03 D-Bus daemon 2:09 Connection names 2:47 Object 3:28 Message 4.29",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3857
+      },
+      {
+        "title": "Allow introspection on my D-Bus system service - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/16089438/allow-introspection-on-my-d-bus-system-service",
+        "snippet": "### your communities. ### more stack exchange communities. ##### Collectives™ on Stack Overflow. # Allow introspection on my D-Bus system service. After having spend a bit time on understanding how D-Bus Session and System buses are working, I'm now focusing on allowing people to use and introspect my service in order to allow anyone to implement easily features using my service. `/etc/dbus-1/system.d/`. \"http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd\">. <allow send_destination=\"org.zedroot.Test\" />. <allow send_destination=\"org.zedroot.Test\". <allow send_destination=\"org.zedroot.Test\". send_interface=\"org.freedesktop.DBus.Introspectable\" />. <allow send_destination=\"org.zedroot.Test\". send_interface=\"org.freedesktop.DBus.Properties\" />. But using d-feet I can see my service but not introspect it (I don't see anything inside my service: no methods, signals or properties). ## 2 Answers 2. The following should be enough to allow introspection of your service:. <allow send_destination=\"org.zedroot.Test\"/>. ## Your Answer. Thanks for contributing an answer to Stack Overflow! Find the answer to your question by asking. # Subscribe to RSS. To subscribe to this RSS feed, copy and paste this URL into your RSS reader. ##### Stack Overflow. ##### Stack Exchange Network.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Exposing a D-Bus Interface in Linux — Part 2 - Medium",
+        "url": "https://medium.com/cesar-update/exposing-a-d-bus-interface-in-linux-part-2-90374a9e381b",
+        "snippet": "Object Path: Client uses the object path to reference an object exposed by the Service. For example, org/bluez/hci0 is the path of a remote",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5286
+      },
+      {
+        "title": "dbus-mcp/DBUS_MCP_INTROSPECTION_COMPLETE.md at master",
+        "url": "https://github.com/repr0bated/dbus-mcp/blob/master/DBUS_MCP_INTROSPECTION_COMPLETE.md",
+        "snippet": "This document provides a comprehensive overview of the D-Bus MCP (Model Context Protocol) introspection system that automatically discovers and exposes Linux D-",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6643
+      },
+      {
+        "title": "D-Bus Tutorial",
+        "url": "https://dbus.freedesktop.org/doc/dbus-tutorial.html",
+        "snippet": "* A *message bus daemon* executable, built on libdbus, that multiple applications can connect to. Applications could then send messages to this bus name, object, and interface to execute method calls. * In either case, the method call message contains: a bus name belonging to the remote process; the name of the method; the arguments to the method; an object path inside the remote process; and optionally the name of the interface that specifies the method. * The method call message is sent to the bus daemon. Otherwise, the bus daemon creates an error message and sends it back as the reply to the method call message. In a simple low-level API situation, it may immediately run the method and send a method reply message to the bus daemon. * The bus daemon receives the method reply message and sends it to the process that made the method call.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "D-Bus Tutorial - YouTube",
+        "url": "https://www.youtube.com/watch?v=3ZwzfZgU598",
+        "snippet": "D-Bus is a mechanism for interprocess communication under Linux and other Unix-like systems.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}
