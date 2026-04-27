@@ -10,6 +10,7 @@ Related pages:
 - topics/native-virtual-dispatch-slot-to-concrete-implementation-workflow-note.md
 - topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md
 - topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md
+- topics/native-dbus-service-activation-to-method-consumer-workflow-note.md
 - topics/native-callback-registration-to-event-loop-consumer-workflow-note.md
 - topics/native-completion-port-and-thread-pool-first-consumer-workflow-note.md
 - topics/native-window-creation-and-subclass-first-consumer-workflow-note.md
@@ -54,7 +55,7 @@ Native practical work is easiest to navigate when the analyst first classifies t
 4. **module-owner uncertainty**
    - one route or implementation family is plausible enough, but plugin/module loaders, export resolution, factory registration, or provider installation still leave several loaded components competing and the first real module consumer is still unclear
 5. **service-owned worker uncertainty**
-   - service/daemon entry, control handlers, command dispatchers, or worker launchers are visible enough to read, but the first worker-owned consumer that actually changes behavior is still unclear
+   - service/daemon entry, control handlers, command dispatchers, D-Bus service activation / method ingress, or worker launchers are visible enough to read, but the first worker-owned consumer that actually changes behavior is still unclear
 6. **async ownership break**
    - one route or owner is already plausible, but direct call-graph reading breaks at registration, queue, completion, callback, or event-loop delivery boundaries and the first consequence-bearing consumer is still unclear
 
@@ -67,6 +68,11 @@ A second thinner Windows-heavy reminder now worth preserving inside family 5 bef
 - `StartServiceCtrlDispatcher*`, `ServiceMain`, handler registration / accepted-controls posture, control-handler entry, worker handoff, and first worker-owned consumer are different proof objects
 - visible `SetServiceStatus(...SERVICE_RUNNING...)` or another SCM-visible state transition is still weaker than one proved worker-owned task/thread/callback path
 - because long control-handler work is explicitly expected to move to a secondary thread or thread-pool worker, handler entry is often only a reduction boundary rather than the behavior-owning consumer
+
+A Linux service/desktop reminder now worth preserving inside family 5 before widening into generic event-loop work:
+- D-Bus-shaped services add one extra ownership seam between service metadata and worker proof
+- keep `.service` / `SystemdService=` activation metadata, current unique-name owner, object/interface/member contract, bus-level method delivery, binding dispatch, and first handler-owned consumer separate
+- use `topics/native-dbus-service-activation-to-method-consumer-workflow-note.md` when the visible API is a D-Bus name/object/interface/method and the current liar is whether listed / activatable / owned / delivered / dispatched / consumed were flattened into one claim
 
 A compact operator ladder for this branch is:
 
@@ -204,6 +210,7 @@ Primary note:
 - `topics/native-interface-to-state-proof-workflow-note.md`
 
 Possible next handoff:
+- `topics/native-dbus-service-activation-to-method-consumer-workflow-note.md` if the service-owned question narrows specifically into D-Bus activation, name-owner, object/interface/member, and method-dispatch truth
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/malware-reporting-and-handoff-evidence-packaging-workflow-note.md`
@@ -237,8 +244,9 @@ Possible next handoff:
 Typical question:
 - which service-owned thread, queued task, worker routine, or retained task object first changes later behavior in a way that makes the route, implementation family, or module owner trustworthy?
 
-Primary note:
+Primary notes:
 - `topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md`
+- `topics/native-dbus-service-activation-to-method-consumer-workflow-note.md` when the service ingress is D-Bus-shaped and the main uncertainty is bus instance / activation / current owner / method delivery / binding dispatch before one handler-owned consumer
 
 Routing reminder:
 - when the case is Windows-service-shaped, keep **dispatcher connection**, **`ServiceMain` entry**, **handler-registration / accepted-controls truth**, **control-handler entry**, **worker handoff**, and **first worker-owned consumer** separate instead of flattening them into one vague service path
