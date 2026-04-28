@@ -1,3 +1,35 @@
+## [ERR-20260429-001] nested-ssh-heredoc-quoting
+
+**Logged**: 2026-04-29T03:04:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+A nightly Oracle fleet check initially failed because a nested `bash -lc` + SSH heredoc command lost quoting around the remote Docker format and heredoc terminator.
+
+### Error
+```text
+warning: here-document at line 5 delimited by end-of-file (wanted `REMOTE')
+syntax error: unexpected end of file
+```
+
+### Context
+- Task: cron-triggered Oracle-scoped nightly maintenance pass.
+- Attempted to inline a multi-host SSH loop and remote script in one `exec` command.
+- The nested quoting mangled `docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'` and the heredoc terminator.
+- Writing a small temporary local script under `tmp/` and piping the remote script to `ssh host 'bash -s'` worked reliably.
+
+### Suggested Fix
+For recurring SSH fleet checks with multiline remote commands, stage a small local helper script (or use a checked-in helper) instead of packing nested heredocs into one quoted shell command.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/.learnings/ERRORS.md, /root/.openclaw/workspace/TOOLS.md
+- See Also: ERR-20260316-001
+
+---
+
 ## [ERR-20260419-001] skill-relative-script-path-resolution
 
 **Logged**: 2026-04-19T04:27:01+08:00
