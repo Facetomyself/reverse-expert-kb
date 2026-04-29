@@ -1,0 +1,436 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Bluetooth LE GATT notification characteristic reverse engineering protocol state machine consumer proof",
+    "BLE GATT notification indication characteristic CCCD reverse engineering firmware protocol parser state consumer",
+    "Bluetooth Low Energy ATT GATT notifications indications characteristic value handle CCCD documentation"
+  ],
+  "count": 25,
+  "results": [
+    {
+      "title": "BLE GATT Design - Discreet or generic characteristics",
+      "url": "https://stackoverflow.com/questions/70582605/ble-gatt-design-discreet-or-generic-characteristics",
+      "snippet": "You can use two characteristics. One for sending data on and one for receiving (notifications). Then encode whatever you need in the raw bytes",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "Characteristics Value Types | GATT Protocol | Bluetooth LE | v11.0.1",
+      "url": "https://docs.silabs.com/bluetooth/11.0.1/bluetooth-gatt/characteristics-value-types",
+      "snippet": "When a write request is received, the stack will modify the characteristic value and send the write response to the peer device, then generate a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6591
+    },
+    {
+      "title": "Characteristics Value Types | GATT Protocol | Bluetooth LE | v8.3.0 | Silicon Labs",
+      "url": "https://docs.silabs.com/bluetooth/8.3.0/bluetooth-gatt/characteristics-value-types",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6591
+    },
+    {
+      "title": "Intro to Bluetooth Generic Attribute Profile (GATT)",
+      "url": "https://www.bluetooth.com/bluetooth-resources/intro-to-bluetooth-gap-gatt/",
+      "snippet": "Missing: notification reverse engineering protocol state machine consumer proof 29/04/2026",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6527
+    },
+    {
+      "title": "06 Attribute Protocol Att | Bluetooth LE Fundamentals | Bluetooth LE | latest | Silicon Labs",
+      "url": "https://docs.silabs.com/bluetooth/latest/bluetooth-le-fundamentals/06-attribute-protocol-att",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6045
+    },
+    {
+      "title": "Ble characteristic enable indication - MIT App Inventor Community",
+      "url": "https://community.appinventor.mit.edu/t/ble-characteristic-enable-indication/73858",
+      "snippet": "At the moment the BLE extension does not support indications. If you register for a characteristic it immediately switches into notification mode.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5545
+    },
+    {
+      "title": "For those that have reverse engineered a BLE device, any idea what ...",
+      "url": "https://www.reddit.com/r/homeautomation/comments/1i7f978/for_those_that_have_reverse_engineered_a_ble/",
+      "snippet": "For those that have reverse engineered a BLE device, any idea what I'm doing wrong? Using gatttool to write a value, says it's written...nothing",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5545
+    },
+    {
+      "title": "Android BLE Interview Questions and Answers | by Kiran Dhiyad",
+      "url": "https://medium.com/@KiranDhiyad/android-ble-interview-questions-and-answers-99eb7d6e8274",
+      "snippet": "Then write the Client Characteristic Configuration Descriptor (CCCD) to enable notify/indicate. descriptor.value = BluetoothGattDescriptor.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4818
+    },
+    {
+      "title": "Bluetooth Low Energy (BLE): The Complete Technical Guide from PHY to Mesh in 2026 - IoT Digital Twin PLM",
+      "url": "https://iotdigitaltwinplm.com/bluetooth-low-energy-ble-complete-technical-guide/",
+      "snippet": "BLE’s layered architecture, from radio physics to application-level GATT profiles, hides sophisticated mechanisms for power efficiency, mesh networking, and secure bonding. This guide dives from physical-layer encoding through Bluetooth 5.4 innovations including Channel Sounding, LE Audio’s LC3 codec, and managed-flood mesh architectures, with working code patterns and real deployment trade-offs. Bluetooth Low Energy uses a multilayered stack: a physical layer offering 1M/2M/Coded PHYs on 37–39 MHz channels, a link layer managing advertising and connection state machines, and an application layer (GATT) exposing services and characteristics. Connection data uses 37 channels (0–36) hopping pseudo-randomly; hop interval is 2 ms minimum. – **Connection state:** Master and Slave synchronize to connection events, exchange data or Ack/Nack PDUs, hop channels. | **Connection Interval** | 7.5–4000 ms | ↓ Wider = lower power | ↑ Wider = higher latency |. Nordic nRF Connect SDK and TI BLE Stack support `LL_LENGTH_REQ` (BLE 4.2) negotiating Data Length Extension: max 251 bytes payload per LL packet (vs.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4364
+    },
+    {
+      "title": "Sniff Protocol | Reverse Engineering a Bluetooth Low Energy Light Bulb | Adafruit Learning System",
+      "url": "https://learn.adafruit.com/reverse-engineering-a-bluetooth-low-energy-light-bulb/sniff-protocol",
+      "snippet": "",
+      "published_date": "2015-03-01T21:26:46.000Z",
+      "source": "exa",
+      "score": 0.4091
+    },
+    {
+      "title": "Explore GATT | Reverse Engineering a Bluetooth Low Energy Light Bulb | Adafruit Learning System",
+      "url": "https://learn.adafruit.com/reverse-engineering-a-bluetooth-low-energy-light-bulb/explore-gatt",
+      "snippet": "",
+      "published_date": "2015-03-01T21:26:46.000Z",
+      "source": "exa",
+      "score": 0.4091
+    },
+    {
+      "title": "Bluetooth Low Energy: A Primer | Interrupt",
+      "url": "https://interrupt.memfault.com/blog/bluetooth-low-energy-a-primer",
+      "snippet": "This includes functions for: initialization, the BLE event handler (which is needed by the Nordic SoftDevice), and the function for updating the Characteristic value (called when Button 1 is pressed or released:. evt_type = BLE_BUTTON_1_PRESS_EVT_NOTIFICATION_DISABLED; button_notifications_enabled = false;} if(p_simple_service -> evt_handler!= NULL){// CCCD written, call application event handler. static uint32_t button_1_press_char_add(ble_simple_service_t* p_simple_service){ble_gatts_char_md_t char_md; ble_gatts_attr_md_t cccd_md; ble_gatts_attr_t attr_char_value; ble_uuid_t ble_uuid; ble_gatts_attr_md_t attr_md; uint8_t init_value = 0; memset(& char_md, 0, sizeof(char_md)); memset(& cccd_md, 0, sizeof(cccd_md)); memset(& attr_md, 0, sizeof(attr_md)); memset(& attr_char_value, 0, sizeof(attr_char_value));// Set permissions on the CCCD and Characteristic value BLE_GAP_CONN_SEC_MODE_SET_OPEN(& cccd_md. p_value = & init_value; return sd_ble_gatts_characteristic_add(p_simple_service -> service_handle, & char_md, & attr_char_value, & p_simple_service -> button_1_press_char_handles);}. uuid = BLE_UUID_SIMPLE_SERVICE_UUID;// Set up and add the service err_code = sd_ble_gatts_service_add(BLE_GATTS_SRVC_TYPE_PRIMARY, & ble_uuid, & p_simple_service -> service_handle); if(err_code!= NRF_SUCCESS){return err_code;}// Add the different characteristics in the service:// Button 1 press characteristic: E54B0002-67F5-479E-8711-B3B99198CE6C err_code = button_1_press_char_add(p_simple_service); if(err_code!= NRF_SUCCESS){return err_code;} return NRF_SUCCESS;}. void button_1_characteristic_update(ble_simple_service_t* p_simple_service, uint8_t* button_action){uint32_t err_code = NRF_SUCCESS; ble_gatts_value_t gatts_value; if(p_simple_service -> conn_handle!= BLE_CONN_HANDLE_INVALID){// Initialize value struct. err_code = sd_ble_gatts_value_set(p_simple_service -> conn_handle, p_simple_service -> button_1_press_char_handles.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "2. Application Protocol Reverse Engineering — Reverse Engineering BLE Devices  documentation",
+      "url": "https://reverse-engineering-ble-devices.readthedocs.io/en/latest/protocol_reveng/00_protocol_reveng.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "3. Protocol Description — Reverse Engineering BLE Devices  documentation",
+      "url": "https://reverse-engineering-ble-devices.readthedocs.io/en/latest/protocol_description/00_protocol_description.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Solved: BLE Enable a custom characteristic's notification ... - Infineon Developer Community",
+      "url": "https://community.infineon.com/t5/PSOC-6/BLE-Enable-a-custom-characteristic-s-notification-in-code-CCCD/td-p/74624",
+      "snippet": "* Float this Topic for Current User. # BLE Enable a custom characteristic's notification in code (CCCD). I'm trying to enable the notifications on a custom characteristic via code (not through the schematic UI). I'm using the BLE Navigation sample project for a PSoC6 Pioneer Kit and PSoC Creator  4.2 (4.2.0.641). I create this function to update CCCD values.. static void updateCccdValue(cy\\_ble\\_gatt\\_db\\_attr\\_handle\\_t attrHandle, uint8\\_t val). cy\\_stc\\_ble\\_gatt\\_handle\\_value\\_pair\\_t handle;. cy\\_en\\_ble\\_gatt\\_err\\_code\\_t errCode;. handle.value.len = sizeof(uint8);. errCode = Cy\\_BLE\\_GATTS\\_WriteAttributeValueLocal(&handle);. DBG\\_PRINTF(\"updateCCCDValue ERROR: %d, attrHandle: 0x%x, value: %d\\r\\n\", errCode, handle.attrHandle, \\*handle.value.val);. I call updateCccdValue() from the CY\\_BLE\\_EVT\\_GATTS\\_INDICATION\\_ENABLED stack handler... case CY\\_BLE\\_EVT\\_GATTS\\_INDICATION\\_ENABLED:. DBG\\_PRINTF(\"CY\\_BLE\\_EVT\\_GATTS\\_INDICATION\\_ENABLED \\r\\n\");. updateCccdValue(CY\\_BLE\\_CUSTOM\\_SERVICE\\_CUSTOM\\_CHARACTERISTIC\\_CLIENT\\_CHARACTERISTIC\\_CONFIGURATION\\_DESC\\_HANDLE, 1);. When updateCccdValue() executes, it prints out the following:. updateCCCDValue error: 1, attrHandle: 0x2a, value: 1. I believe error code 1 is CY\\_BLE\\_GATT\\_ERR\\_INVALID\\_HANDLE. However, the attrHandle of 0x2a does match the CY\\_BLE\\_CUSTOM\\_SERVICE\\_CUSTOM\\_CHARACTERISTIC\\_CLIENT\\_CHARACTERISTIC\\_CONFIGURATION\\_DESC\\_HANDLE definitions. I've also attached a screenshot of the CUSTOM\\_CHARACTERISTIC's configuration. Any ideas if this is the right approach? To update a CCCD value, you have to use **Cy\\_BLE\\_GATTS\\_WriteAttributeValuePeer().**.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "[PDF] Lab 2 Bluetooth LE GATT Profile - NXP Community",
+      "url": "https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/FRDM-Training/26/1/Lab%202.%20Bluetooth%20LE%20GATT%20Profile.pdf",
+      "snippet": "[Pixel 5:/service0086/char008c]# back [Pixel 5:/service0086/char008c]# back Menu main: Available commands: ------------------- advertise Advertise Options Submenu monitor Advertisement Monitor Options Submenu scan Scan Options Submenu gatt Generic Attribute Submenu admin Admin Policy Submenu player Media Player Submenu endpoint Media Endpoint Submenu transport Media Transport Submenu mgmt Management Submenu monitor Advertisement Monitor Submenu list List available controllers show [ctrl] Controller information select <ctrl> Select default controller devices [Paired/Bonded/Trusted/Connected] List available devices, with an optional property as the filter system-alias <name> Set controller alias reset-alias Reset controller alias power <on/off> Set controller power pairable <on/off> Set controller pairable mode discoverable <on/off> Set controller discoverable mode discoverable-timeout [value] Set discoverable timeout agent <on/off/auto/capability> Enable/disable agent with given capability default-agent Set agent as the default one advertise <on/off/type> Enable/disable advertising with given type set-alias <alias> Set device alias scan <on/off/bredr/le> Scan for devices info [dev/set] Device/Set information pair [dev] Pair with device 64 of 65 cancel-pairing [dev] Cancel pairing with device trust [dev] Trust device untrust [dev] Untrust device block [dev] Block device unblock [dev] Unblock device remove <dev> Remove device connect <dev> Connect device disconnect [dev] Disconnect device menu <name> Select submenu version Display version quit Quit program exit Quit program help Display help about this program export Print environment variables → Disconnect the remote Bluetooth LE GATT server and exit from bluetoothctl command line interface: [Pixel 5:/service0086/char008c]# disconnect [bluetooth]# quit root@imx91evk:~# [Pixel 5:/service0086/char008c]# disconnect Attempting to disconnect from 79:C6:07:26:59:FE hci0 79:C6:07:26:59:FE type LE Random disconnected with reason 2 [CHG] Device 79:C6:07:26:59:FE ServicesResolved: no Successful disconnectedhar008c]# [CHG] Device 79:C6:07:26:59:FE Connected: no [DEL] Characteristic (Handle 0x0000) /org/bluez/hci0/dev_61_5F_DB_78_C2_43/service0001/char0002 00002a05-0000-1000-8000-00805f9b34fb Service Changed [DEL] Characteristic (Handle 0x0000) /org/bluez/hci0/dev_61_5F_DB_78_C2_43/service0001/char0004 00002b3a-0000-1000-8000-00805f9b34fb Server Supported Features [DEL] Characteristic (Handle 0x0000) /org/bluez/hci0/dev_61_5F_DB_78_C2_43/service0001/char0006 00002b29-0000-1000-8000-00805f9b34fb Client Supported Features [DEL] Characteristic (Handle 0x0000) /org/bluez/hci0/dev_61_5F_DB_78_C2_43/service0001/char0008 00002b2a-0000-1000-8000-00805f9b34fb Database Hash [DEL] Primary Service (Handle 0x0000) /org/bluez/hci0/dev_61_5F_DB_78_C2_43/service0001 65 of 65 00001801-0000-1000-8000-00805f9b34fb Generic Attribute Profile [DEL] Descriptor (Handle 0x0000) /org/bluez/hci0/dev_61_5F_DB_78_C2_43/service0086/char0087/desc0089 00002902-0000-1000-8000-00805f9b34fb Client Characteristic Configuration [DEL] Characteristic (Handle 0x0000) /org/bluez/hci0/dev_61_5F_DB_78_C2_43/service0086/char0087 00002a37-0000-1000-8000-00805f9b34fb Heart",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Bluetooth Low Energy Characteristic Indications (not Notifications)",
+      "url": "https://forum.qt.io/topic/65196/bluetooth-low-energy-characteristic-indications-not-notifications",
+      "snippet": "Set Bit 1 of the CCC to enable indicates by writing \"0200\" instead of \"0100\" (the descriptor is little-endian according to the BLE documentation",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Mbed OS Reference | DiscoveredCharacteristic Class Reference",
+      "url": "https://os.mbed.com/docs/mbed-os/v6.5/feature-i2c-doxy/class_discovered_characteristic.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "blatann.gatt.gattc module — Blatann v0.6.0 documentation",
+      "url": "https://blatann.readthedocs.io/en/latest/blatann.gatt.gattc.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "Reversing Treadmill Bluetooth - Sending Data // ${CLEVER_NAME}",
+      "url": "https://taylorbowland.com/posts/treadmill-sending-data/",
+      "snippet": "",
+      "published_date": "2021-06-01T06:23:20.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "Part F Attribute Protocol (ATT)",
+      "url": "https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core-62/out/en/host/attribute-protocol--att-.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "BLE GATT Server Implementation Guide — BLEFYI",
+      "url": "https://blefyi.com/guide/gatt-server-implementation/",
+      "snippet": "",
+      "published_date": "2021-10-08T02:12:17.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "CCCD — BLE Glossary — BLEFYI",
+      "url": "https://blefyi.com/id/glossary/cccd/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Liberating BLE data - Nick Gregorich",
+      "url": "https://nickgregorich.com/posts/liberating-ble-data/",
+      "snippet": "",
+      "published_date": "2024-02-19T17:01:08.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "CCCD — BLE Glossary — BLEFYI",
+      "url": "https://blefyi.com/glossary/cccd/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "2. Application Protocol Reverse Engineering — Reverse Engineering BLE Devices  documentation",
+        "url": "https://reverse-engineering-ble-devices.readthedocs.io/en/latest/protocol_reveng/00_protocol_reveng.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Mbed OS Reference | DiscoveredCharacteristic Class Reference",
+        "url": "https://os.mbed.com/docs/mbed-os/v6.5/feature-i2c-doxy/class_discovered_characteristic.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "3. Protocol Description — Reverse Engineering BLE Devices  documentation",
+        "url": "https://reverse-engineering-ble-devices.readthedocs.io/en/latest/protocol_description/00_protocol_description.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "blatann.gatt.gattc module — Blatann v0.6.0 documentation",
+        "url": "https://blatann.readthedocs.io/en/latest/blatann.gatt.gattc.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "CCCD — BLE Glossary — BLEFYI",
+        "url": "https://blefyi.com/id/glossary/cccd/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "3. Protocol Description — Reverse Engineering BLE Devices  documentation",
+        "url": "https://reverse-engineering-ble-devices.readthedocs.io/en/latest/protocol_description/00_protocol_description.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Liberating BLE data - Nick Gregorich",
+        "url": "https://nickgregorich.com/posts/liberating-ble-data/",
+        "snippet": "",
+        "published_date": "2024-02-19T17:01:08.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Reversing Treadmill Bluetooth - Sending Data // ${CLEVER_NAME}",
+        "url": "https://taylorbowland.com/posts/treadmill-sending-data/",
+        "snippet": "",
+        "published_date": "2021-06-01T06:23:20.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "Sniff Protocol | Reverse Engineering a Bluetooth Low Energy Light Bulb | Adafruit Learning System",
+        "url": "https://learn.adafruit.com/reverse-engineering-a-bluetooth-low-energy-light-bulb/sniff-protocol",
+        "snippet": "",
+        "published_date": "2015-03-01T21:26:46.000Z",
+        "source": "exa",
+        "score": 0.4091
+      },
+      {
+        "title": "Explore GATT | Reverse Engineering a Bluetooth Low Energy Light Bulb | Adafruit Learning System",
+        "url": "https://learn.adafruit.com/reverse-engineering-a-bluetooth-low-energy-light-bulb/explore-gatt",
+        "snippet": "",
+        "published_date": "2015-03-01T21:26:46.000Z",
+        "source": "exa",
+        "score": 0.4091
+      },
+      {
+        "title": "06 Attribute Protocol Att | Bluetooth LE Fundamentals | Bluetooth LE | latest | Silicon Labs",
+        "url": "https://docs.silabs.com/bluetooth/latest/bluetooth-le-fundamentals/06-attribute-protocol-att",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6045
+      },
+      {
+        "title": "Part F Attribute Protocol (ATT)",
+        "url": "https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core-62/out/en/host/attribute-protocol--att-.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "Characteristics Value Types | GATT Protocol | Bluetooth LE | v8.3.0 | Silicon Labs",
+        "url": "https://docs.silabs.com/bluetooth/8.3.0/bluetooth-gatt/characteristics-value-types",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6591
+      },
+      {
+        "title": "CCCD — BLE Glossary — BLEFYI",
+        "url": "https://blefyi.com/glossary/cccd/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "BLE GATT Server Implementation Guide — BLEFYI",
+        "url": "https://blefyi.com/guide/gatt-server-implementation/",
+        "snippet": "",
+        "published_date": "2021-10-08T02:12:17.000Z",
+        "source": "exa",
+        "score": 0.3273
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Solved: BLE Enable a custom characteristic's notification ... - Infineon Developer Community",
+        "url": "https://community.infineon.com/t5/PSOC-6/BLE-Enable-a-custom-characteristic-s-notification-in-code-CCCD/td-p/74624",
+        "snippet": "* Float this Topic for Current User. # BLE Enable a custom characteristic's notification in code (CCCD). I'm trying to enable the notifications on a custom characteristic via code (not through the schematic UI). I'm using the BLE Navigation sample project for a PSoC6 Pioneer Kit and PSoC Creator  4.2 (4.2.0.641). I create this function to update CCCD values.. static void updateCccdValue(cy\\_ble\\_gatt\\_db\\_attr\\_handle\\_t attrHandle, uint8\\_t val). cy\\_stc\\_ble\\_gatt\\_handle\\_value\\_pair\\_t handle;. cy\\_en\\_ble\\_gatt\\_err\\_code\\_t errCode;. handle.value.len = sizeof(uint8);. errCode = Cy\\_BLE\\_GATTS\\_WriteAttributeValueLocal(&handle);. DBG\\_PRINTF(\"updateCCCDValue ERROR: %d, attrHandle: 0x%x, value: %d\\r\\n\", errCode, handle.attrHandle, \\*handle.value.val);. I call updateCccdValue() from the CY\\_BLE\\_EVT\\_GATTS\\_INDICATION\\_ENABLED stack handler... case CY\\_BLE\\_EVT\\_GATTS\\_INDICATION\\_ENABLED:. DBG\\_PRINTF(\"CY\\_BLE\\_EVT\\_GATTS\\_INDICATION\\_ENABLED \\r\\n\");. updateCccdValue(CY\\_BLE\\_CUSTOM\\_SERVICE\\_CUSTOM\\_CHARACTERISTIC\\_CLIENT\\_CHARACTERISTIC\\_CONFIGURATION\\_DESC\\_HANDLE, 1);. When updateCccdValue() executes, it prints out the following:. updateCCCDValue error: 1, attrHandle: 0x2a, value: 1. I believe error code 1 is CY\\_BLE\\_GATT\\_ERR\\_INVALID\\_HANDLE. However, the attrHandle of 0x2a does match the CY\\_BLE\\_CUSTOM\\_SERVICE\\_CUSTOM\\_CHARACTERISTIC\\_CLIENT\\_CHARACTERISTIC\\_CONFIGURATION\\_DESC\\_HANDLE definitions. I've also attached a screenshot of the CUSTOM\\_CHARACTERISTIC's configuration. Any ideas if this is the right approach? To update a CCCD value, you have to use **Cy\\_BLE\\_GATTS\\_WriteAttributeValuePeer().**.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Ble characteristic enable indication - MIT App Inventor Community",
+        "url": "https://community.appinventor.mit.edu/t/ble-characteristic-enable-indication/73858",
+        "snippet": "At the moment the BLE extension does not support indications. If you register for a characteristic it immediately switches into notification mode.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5545
+      },
+      {
+        "title": "Intro to Bluetooth Generic Attribute Profile (GATT)",
+        "url": "https://www.bluetooth.com/bluetooth-resources/intro-to-bluetooth-gap-gatt/",
+        "snippet": "Missing: notification reverse engineering protocol state machine consumer proof 29/04/2026",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6527
+      },
+      {
+        "title": "[PDF] Lab 2 Bluetooth LE GATT Profile - NXP Community",
+        "url": "https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/FRDM-Training/26/1/Lab%202.%20Bluetooth%20LE%20GATT%20Profile.pdf",
+        "snippet": "[Pixel 5:/service0086/char008c]# back [Pixel 5:/service0086/char008c]# back Menu main: Available commands: ------------------- advertise Advertise Options Submenu monitor Advertisement Monitor Options Submenu scan Scan Options Submenu gatt Generic Attribute Submenu admin Admin Policy Submenu player Media Player Submenu endpoint Media Endpoint Submenu transport Media Transport Submenu mgmt Management Submenu monitor Advertisement Monitor Submenu list List available controllers show [ctrl] Controller information select <ctrl> Select default controller devices [Paired/Bonded/Trusted/Connected] List available devices, with an optional property as the filter system-alias <name> Set controller alias reset-alias Reset controller alias power <on/off> Set controller power pairable <on/off> Set controller pairable mode discoverable <on/off> Set controller discoverable mode discoverable-timeout [value] Set discoverable timeout agent <on/off/auto/capability> Enable/disable agent with given capability default-agent Set agent as the default one advertise <on/off/type> Enable/disable advertising with given type set-alias <alias> Set device alias scan <on/off/bredr/le> Scan for devices info [dev/set] Device/Set information pair [dev] Pair with device 64 of 65 cancel-pairing [dev] Cancel pairing with device trust [dev] Trust device untrust [dev] Untrust device block [dev] Block device unblock [dev] Unblock device remove <dev> Remove device connect <dev> Connect device disconnect [dev] Disconnect device menu <name> Select submenu version Display version quit Quit program exit Quit program help Display help about this program export Print environment variables → Disconnect the remote Bluetooth LE GATT server and exit from bluetoothctl command line interface: [Pixel 5:/service0086/char008c]# disconnect [bluetooth]# quit root@imx91evk:~# [Pixel 5:/service0086/char008c]# disconnect Attempting to disconnect from 79:C6:07:26:59:FE hci0 79:C6:07:26:59:FE type LE Random disconnected with reason 2 [CHG] Device 79:C6:07:26:59:FE ServicesResolved: no Successful disconnectedhar008c]# [CHG] Device 79:C6:07:26:59:FE Connected: no [DEL] Characteristic (Handle 0x0000) /org/bluez/hci0/dev_61_5F_DB_78_C2_43/service0001/char0002 00002a05-0000-1000-8000-00805f9b34fb Service Changed [DEL] Characteristic (Handle 0x0000) /org/bluez/hci0/dev_61_5F_DB_78_C2_43/service0001/char0004 00002b3a-0000-1000-8000-00805f9b34fb Server Supported Features [DEL] Characteristic (Handle 0x0000) /org/bluez/hci0/dev_61_5F_DB_78_C2_43/service0001/char0006 00002b29-0000-1000-8000-00805f9b34fb Client Supported Features [DEL] Characteristic (Handle 0x0000) /org/bluez/hci0/dev_61_5F_DB_78_C2_43/service0001/char0008 00002b2a-0000-1000-8000-00805f9b34fb Database Hash [DEL] Primary Service (Handle 0x0000) /org/bluez/hci0/dev_61_5F_DB_78_C2_43/service0001 65 of 65 00001801-0000-1000-8000-00805f9b34fb Generic Attribute Profile [DEL] Descriptor (Handle 0x0000) /org/bluez/hci0/dev_61_5F_DB_78_C2_43/service0086/char0087/desc0089 00002902-0000-1000-8000-00805f9b34fb Client Characteristic Configuration [DEL] Characteristic (Handle 0x0000) /org/bluez/hci0/dev_61_5F_DB_78_C2_43/service0086/char0087 00002a37-0000-1000-8000-00805f9b34fb Heart",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "2. Application Protocol Reverse Engineering — Reverse Engineering BLE Devices documentation",
+        "url": "https://reverse-engineering-ble-devices.readthedocs.io/en/latest/protocol_reveng/00_protocol_reveng.html",
+        "snippet": "This section wants to give a guideline and provide some reference examples about: \\* which services to use to decompile an Android application \\* how to analyze the aspects of communication and data transmission via Bluetooth. In general, to get the source code you need the **APK package** of the application, which is basically an archive that contains all the data that Android needs to manage the installation of the app. Also the *File Manager* applications often allow to extract the APK packages from the applications on the device. If you want to find Java classes that deals with the act of Bluetooth connection, you can identify useful keywords (such as `BluetoothAdapter`, `startLeScan`, `LeScanCallback`, `BluetoothGatt`) by referring to the Android BLE API page. Finally, it is interesting to note how the code inside the package `de.eq3.ble.android.api.command` and the content of the files concerning the management of notifications do not involve parameters related to the mode in which the radiator valve is.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "For those that have reverse engineered a BLE device, any idea what ...",
+        "url": "https://www.reddit.com/r/homeautomation/comments/1i7f978/for_those_that_have_reverse_engineered_a_ble/",
+        "snippet": "For those that have reverse engineered a BLE device, any idea what I'm doing wrong? Using gatttool to write a value, says it's written...nothing",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5545
+      },
+      {
+        "title": "BLE GATT Design - Discreet or generic characteristics",
+        "url": "https://stackoverflow.com/questions/70582605/ble-gatt-design-discreet-or-generic-characteristics",
+        "snippet": "You can use two characteristics. One for sending data on and one for receiving (notifications). Then encode whatever you need in the raw bytes",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "Bluetooth Low Energy: A Primer | Interrupt",
+        "url": "https://interrupt.memfault.com/blog/bluetooth-low-energy-a-primer",
+        "snippet": "This includes functions for: initialization, the BLE event handler (which is needed by the Nordic SoftDevice), and the function for updating the Characteristic value (called when Button 1 is pressed or released:. evt_type = BLE_BUTTON_1_PRESS_EVT_NOTIFICATION_DISABLED; button_notifications_enabled = false;} if(p_simple_service -> evt_handler!= NULL){// CCCD written, call application event handler. static uint32_t button_1_press_char_add(ble_simple_service_t* p_simple_service){ble_gatts_char_md_t char_md; ble_gatts_attr_md_t cccd_md; ble_gatts_attr_t attr_char_value; ble_uuid_t ble_uuid; ble_gatts_attr_md_t attr_md; uint8_t init_value = 0; memset(& char_md, 0, sizeof(char_md)); memset(& cccd_md, 0, sizeof(cccd_md)); memset(& attr_md, 0, sizeof(attr_md)); memset(& attr_char_value, 0, sizeof(attr_char_value));// Set permissions on the CCCD and Characteristic value BLE_GAP_CONN_SEC_MODE_SET_OPEN(& cccd_md. p_value = & init_value; return sd_ble_gatts_characteristic_add(p_simple_service -> service_handle, & char_md, & attr_char_value, & p_simple_service -> button_1_press_char_handles);}. uuid = BLE_UUID_SIMPLE_SERVICE_UUID;// Set up and add the service err_code = sd_ble_gatts_service_add(BLE_GATTS_SRVC_TYPE_PRIMARY, & ble_uuid, & p_simple_service -> service_handle); if(err_code!= NRF_SUCCESS){return err_code;}// Add the different characteristics in the service:// Button 1 press characteristic: E54B0002-67F5-479E-8711-B3B99198CE6C err_code = button_1_press_char_add(p_simple_service); if(err_code!= NRF_SUCCESS){return err_code;} return NRF_SUCCESS;}. void button_1_characteristic_update(ble_simple_service_t* p_simple_service, uint8_t* button_action){uint32_t err_code = NRF_SUCCESS; ble_gatts_value_t gatts_value; if(p_simple_service -> conn_handle!= BLE_CONN_HANDLE_INVALID){// Initialize value struct. err_code = sd_ble_gatts_value_set(p_simple_service -> conn_handle, p_simple_service -> button_1_press_char_handles.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "Bluetooth Low Energy Characteristic Indications (not Notifications)",
+        "url": "https://forum.qt.io/topic/65196/bluetooth-low-energy-characteristic-indications-not-notifications",
+        "snippet": "Set Bit 1 of the CCC to enable indicates by writing \"0200\" instead of \"0100\" (the descriptor is little-endian according to the BLE documentation",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Android BLE Interview Questions and Answers | by Kiran Dhiyad",
+        "url": "https://medium.com/@KiranDhiyad/android-ble-interview-questions-and-answers-99eb7d6e8274",
+        "snippet": "Then write the Client Characteristic Configuration Descriptor (CCCD) to enable notify/indicate. descriptor.value = BluetoothGattDescriptor.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4818
+      },
+      {
+        "title": "Bluetooth Low Energy (BLE): The Complete Technical Guide from PHY to Mesh in 2026 - IoT Digital Twin PLM",
+        "url": "https://iotdigitaltwinplm.com/bluetooth-low-energy-ble-complete-technical-guide/",
+        "snippet": "BLE’s layered architecture, from radio physics to application-level GATT profiles, hides sophisticated mechanisms for power efficiency, mesh networking, and secure bonding. This guide dives from physical-layer encoding through Bluetooth 5.4 innovations including Channel Sounding, LE Audio’s LC3 codec, and managed-flood mesh architectures, with working code patterns and real deployment trade-offs. Bluetooth Low Energy uses a multilayered stack: a physical layer offering 1M/2M/Coded PHYs on 37–39 MHz channels, a link layer managing advertising and connection state machines, and an application layer (GATT) exposing services and characteristics. Connection data uses 37 channels (0–36) hopping pseudo-randomly; hop interval is 2 ms minimum. – **Connection state:** Master and Slave synchronize to connection events, exchange data or Ack/Nack PDUs, hop channels. | **Connection Interval** | 7.5–4000 ms | ↓ Wider = lower power | ↑ Wider = higher latency |. Nordic nRF Connect SDK and TI BLE Stack support `LL_LENGTH_REQ` (BLE 4.2) negotiating Data Length Extension: max 251 bytes payload per LL packet (vs.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4364
+      },
+      {
+        "title": "Characteristics Value Types | GATT Protocol | Bluetooth LE | v11.0.1",
+        "url": "https://docs.silabs.com/bluetooth/11.0.1/bluetooth-gatt/characteristics-value-types",
+        "snippet": "When a write request is received, the stack will modify the characteristic value and send the write response to the peer device, then generate a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6591
+      }
+    ],
+    "grok": []
+  }
+}

@@ -13,6 +13,7 @@ Related pages:
 - topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
 - topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
 - topics/protocol-windows-rpc-binding-authinfo-and-context-lineage-workflow-note.md
+- topics/protocol-ble-gatt-notification-to-state-consumer-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 - topics/protocol-ingress-ownership-and-receive-path-workflow-note.md
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
@@ -44,6 +45,7 @@ The branch already had practical entry surfaces for:
 - reply-emission / transport-handoff proof
 - mailbox/doorbell command publish / completion proof
 - descriptor ownership-transfer / completion-visibility proof
+- BLE GATT notification / indication consumer proof
 - peripheral/MMIO effect proof
 - ISR/deferred-worker consequence proof
 
@@ -58,7 +60,7 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of seventeen recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of nineteen recurring families:
 
 
 0. **hardware observation / image-lineage uncertainty**
@@ -123,6 +125,7 @@ The subtree is strongest when read as:
 - **emit** one real output
 - **publish** one mailbox/doorbell command when that narrower seam is the true bottleneck
 - **stabilize** one descriptor ownership-transfer / completion-visibility contract when publication is visible but publish-vs-notify-vs-trust/reclaim semantics still drift, especially when the case still has to be classified as coherent shared descriptor memory versus streaming/non-coherent DMA-backed visibility and freshness bits, explicit CPU/device trust transfer, or reclaim proof still decide whether completion bytes are actually trustworthy, when notify/doorbell edges still risk being overread as full trust proof, and when later work actually depends on preserving the thinner rule `completion-visible != consumed != reclaimed/reusable` rather than stopping at visible completion alone
+- **prove** one BLE GATT notification/indication path when UUID/CCCD/sniffer/callback truth is visible but delivered/parsed/consumed state truth is still unclear
 - **prove** one peripheral or interrupt-side consequence
 
 ## 3. How to choose the right entry note
@@ -251,6 +254,20 @@ Do **not** start here when:
 - the service shell or representative method contract is still implicit
 - the visible object is still too layered and contract externalization is not yet complete
 - structurally plausible replay already exists and the real missing edge is now acceptance gating or later output handoff
+
+### Start with `protocol-ble-gatt-notification-to-state-consumer-workflow-note`
+Use:
+- `topics/protocol-ble-gatt-notification-to-state-consumer-workflow-note.md`
+
+Start here when:
+- the case is BLE / GATT shaped and the visible objects are services, characteristics, descriptors, CCCD writes, or ATT notifications / indications
+- the main liar is whether UUID discovery, notify/indicate property, subscription setup, sniffer-visible event, host/mobile callback, parser decode, and first behavior-bearing consumer were silently collapsed
+- the analyst needs to prove one selected characteristic value handle was subscribed, emitted, delivered, parsed, and consumed under the current connection/security/session assumptions
+
+Do **not** start here when:
+- the BLE path is still invisible and the real bottleneck is broad capture failure or boundary relocation
+- callback delivery is already proven and the only remaining question is a general parser-to-state edge with no BLE-specific subscription or delivery ambiguity
+- the decisive consequence is already below the BLE stack in peripheral/MMIO/interrupt territory
 
 ### Start with `protocol-ingress-ownership-and-receive-path-workflow-note`
 Use:

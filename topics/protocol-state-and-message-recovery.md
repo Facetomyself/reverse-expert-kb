@@ -17,6 +17,7 @@ Related pages:
 - topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
 - topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
 - topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md
+- topics/protocol-ble-gatt-notification-to-state-consumer-workflow-note.md
 - topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 
@@ -106,7 +107,7 @@ A compact reading worth preserving is:
 - choose the first trustworthy protocol object before overcommitting to packet folklore or broad state taxonomy
 - peel one visible layered object into one smaller contract when the raw bytes still mix framing, wrappers, crypto, or content continuation
 - externalize that recovered contract into one reusable schema, service-contract artifact, or representative harness target when the next bottleneck is no longer visibility but still not yet narrow replay-gate debugging
-- prove one receive owner, parser/state consequence, acceptance gate, or reply/output handoff rather than widening protocol narration too early
+- prove one receive owner, BLE GATT subscription/delivery/consumer chain when asynchronous characteristic values are the boundary, parser/state consequence, acceptance gate, or reply/output handoff rather than widening protocol narration too early
 - continue into hardware-side consequence when the decisive edge has already moved below transport/output proof
 - preserve one parser/state, replay, output, or hardware-side claim as reusable evidence once the technical proof is already good enough
 
@@ -114,6 +115,7 @@ This ladder is narrower than the whole protocol domain and does not imply every 
 But it is the practical memory the parent page should preserve once the branch has enough child notes to be used as a real workflow surface.
 
 Compact anti-drift reminders worth preserving here:
+- do not treat BLE UUIDs, characteristic properties, CCCD writes, sniffer-visible notifications, or app callbacks as a trustworthy state claim until one value has crossed delivery, parsing, and first-consumer proof
 - do not treat visible bytes as a trustworthy protocol object until one smaller contract is already good enough
 - do not keep widening parser or state taxonomy once one consequence-bearing edge is already sufficient for the next experiment
 - do not stop at local acceptance or reply-object visibility if the first committed outbound or hardware-side consequence is still unproved
