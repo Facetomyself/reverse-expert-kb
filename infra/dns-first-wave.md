@@ -46,6 +46,8 @@
 - `hk.zhangxuemin.work`
 - `drop.hk.zhangxuemin.work`
 - `clash.hk.zhangxuemin.work`
+- `cliproxy-cn.zhangxuemin.work`
+- `claw-cn.zhangxuemin.work`
 - `tmail.zhangxuemin.work`
 - `tmail-front.zhangxuemin.work`
 
@@ -124,7 +126,7 @@
 ### 当前不要误删的
 - `mail`
 - `derp`
-- `hk` / `drop.hk` / `clash.hk`
+- `hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `claw-cn`
 - `tmail` / `tmail-front`
 - root MX / SPF / DMARC
 - `send` SES 路径

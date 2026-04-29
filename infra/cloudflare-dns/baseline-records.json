@@ -1,8 +1,8 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 22,
+  "record_count": 24,
   "type_counts": {
-    "A": 12,
+    "A": 14,
     "AAAA": 2,
     "MX": 4,
     "TXT": 4
@@ -37,6 +37,22 @@
       "content": "154.86.30.10",
       "ttl": 1,
       "proxied": false
+    },
+    {
+      "name": "claw-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN edge via hk-relay for OpenClaw"
+    },
+    {
+      "name": "cliproxy-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN edge via hk-relay for cliproxy"
     },
     {
       "name": "derp.zhangxuemin.work",

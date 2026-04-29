@@ -29,6 +29,8 @@
 - `hk.zhangxuemin.work`
 - `drop.hk.zhangxuemin.work`
 - `clash.hk.zhangxuemin.work`
+- `cliproxy-cn.zhangxuemin.work`
+- `claw-cn.zhangxuemin.work`
 - `tmail.zhangxuemin.work`
 - `tmail-front.zhangxuemin.work`
 
@@ -166,6 +168,8 @@ Reason:
 - `hk`
 - `drop.hk`
 - `clash.hk`
+- `cliproxy-cn`
+- `claw-cn`
 - `tmail`
 - `tmail-front`
 - Cloudflare MX

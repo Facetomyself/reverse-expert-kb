@@ -1,6 +1,6 @@
 # DNS / Host / Service Reconciliation
 
-本文件反映 **2026-04-14** 抓取的 Cloudflare live zone 与当前 `infra/` 主机文档之间的正式对账结果。
+本文件反映 **2026-04-30** 抓取的 Cloudflare live zone 与当前 `infra/` 主机文档之间的正式对账结果。
 
 基于以下信息对账：
 - Cloudflare live zone (`zhangxuemin.work`)
@@ -20,13 +20,13 @@
 
 - zone: `zhangxuemin.work`
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- current live record count: **22**
+- current live record count: **24**
 - type counts:
-  - `A`: 12
+  - `A`: 14
   - `AAAA`: 2
   - `MX`: 4
   - `TXT`: 4
-- current live snapshot vs committed baseline: **no diff**
+- current live snapshot vs committed baseline: **no diff** after the 2026-04-30 baseline refresh that recorded live MX priorities for Cloudflare Email Routing / SES records
 
 ---
 
@@ -46,6 +46,8 @@
 | `hk.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是认证下载/浏览入口 | **匹配** | HK relay canonical domain |
 | `drop.hk.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 HTTPS 上传/下载入口 | **匹配** | 由 Caddy 反代本地 `dufs` |
 | `clash.hk.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 Clash 配置分发入口 | **匹配** | 公共订阅下载面 |
+| `cliproxy-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 cliproxy 国内/HK 边缘入口 | **匹配** | HK Caddy -> `proxy.zhangxuemin.work:8317` |
+| `claw-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 OpenClaw 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://dev.zhangxuemin.work` |
 | `tmail.zhangxuemin.work` | Cloudflare proxied (`AAAA 100::`) | 当前仍作为 Cloudflare 侧临时邮箱/worker front path | **匹配** | 非主机直连记录 |
 | `tmail-front.zhangxuemin.work` | Cloudflare proxied (`AAAA 100::`) | 当前仍作为 Cloudflare 侧 front path | **匹配** | 非主机直连记录 |
 
@@ -93,7 +95,7 @@
 
 - 当前 live zone 与提交的 baseline **一致**，没有即时 drift。
 - 当前核心活跃基础设施域名与主机文档 **整体一致**。
-- 新纳入当前事实的域名组包括：`derp.*` 与 `hk-relay` 相关的三条记录（`hk` / `drop.hk` / `clash.hk`）。
+- 新纳入当前事实的域名组包括：`derp.*` 与 `hk-relay` 相关记录（`hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `claw-cn`）。
 - 当前 DNS 主要未闭环点不是主机映射，而是 **剩余唯一一条 DKIM（`cf2024-1`）的发送方归属与长期去留还需继续收口**。
 - 已新增 `infra/cloudflare-dns/dkim-reconciliation.md` 作为 DKIM 归属说明页，后续优先在那一页继续推进而不是在各处零散猜测。
 - 历史 Mailu 相关主机残留与其对应 `dkim._domainkey` 记录已在 2026-04-14 按用户确认完成删除。
