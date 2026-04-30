@@ -17,6 +17,7 @@ Related pages:
 - topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
 - topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
 - topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md
+- topics/protocol-can-uds-diagnostic-session-to-state-consumer-workflow-note.md
 - topics/protocol-ble-gatt-notification-to-state-consumer-workflow-note.md
 - topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
@@ -107,7 +108,7 @@ A compact reading worth preserving is:
 - choose the first trustworthy protocol object before overcommitting to packet folklore or broad state taxonomy
 - peel one visible layered object into one smaller contract when the raw bytes still mix framing, wrappers, crypto, or content continuation
 - externalize that recovered contract into one reusable schema, service-contract artifact, or representative harness target when the next bottleneck is no longer visibility but still not yet narrow replay-gate debugging
-- prove one receive owner, BLE GATT subscription/delivery/consumer chain when asynchronous characteristic values are the boundary, parser/state consequence, acceptance gate, or reply/output handoff rather than widening protocol narration too early
+- prove one receive owner, CAN / UDS diagnostic session-state chain when diagnostic requests are the boundary, BLE GATT subscription/delivery/consumer chain when asynchronous characteristic values are the boundary, parser/state consequence, acceptance gate, or reply/output handoff rather than widening protocol narration too early
 - continue into hardware-side consequence when the decisive edge has already moved below transport/output proof
 - preserve one parser/state, replay, output, or hardware-side claim as reusable evidence once the technical proof is already good enough
 

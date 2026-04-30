@@ -15,6 +15,7 @@ Related pages:
 - topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
 - topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
 - topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md
+- topics/protocol-can-uds-diagnostic-session-to-state-consumer-workflow-note.md
 - topics/protocol-ble-gatt-notification-to-state-consumer-workflow-note.md
 - topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
@@ -105,7 +106,7 @@ A compact reading worth preserving is:
 - peel one visible layered object into one smaller trustworthy contract
 - externalize that contract into one reusable schema, service-contract artifact, or representative harness target when the branch would otherwise stall in analyst-private notes
 - when one representative method/call already exists, freeze not only body/argument truth but also **call-context truth** when the family carries meaningful per-call semantics outside the body (for example gRPC deadline/metadata/authority posture or Windows RPC binding/authn/context-handle posture)
-- prove one receive owner, parser/state edge, acceptance gate, pending-owner lifetime contract when broad owner-match is already good enough, BLE GATT subscription/delivery/consumer truth when UUID/CCCD/sniffer/callback evidence can lie, reply/output handoff, or hardware-side consequence
+- prove one receive owner, parser/state edge, acceptance gate, pending-owner lifetime contract when broad owner-match is already good enough, CAN / UDS diagnostic session-state truth when IDs/ISO-TP/service scans/session/security/responses can lie, BLE GATT subscription/delivery/consumer truth when UUID/CCCD/sniffer/callback evidence can lie, reply/output handoff, or hardware-side consequence
 - preserve the result as a reusable evidence unit once the technical proof is already good enough
 
 This ladder is narrower than the whole domain and does not imply every case traverses every stage.
@@ -118,6 +119,7 @@ Compact anti-drift reminders worth preserving here:
 - in descriptor/ring-heavy firmware cases, do not mistake visible completion bytes for solved understanding when ownership transfer, freshness rules, notify/doorbell scope, or non-coherent cache visibility still decide whether the peer or CPU may trust them
 - preserve a sharper parent-page reminder for descriptor-heavy cases: `descriptor or completion bytes visible != peer may already trust them != ownership transfer is complete != durable completion consequence proved`; on streaming or non-coherent DMA paths, CPU->device handoff, device->CPU ownership return, and memory-barrier / observation splits can all be the narrower missing proof object even after queue shape and descriptor fields are already visible
 - preserve a second sharper parent-page reminder for USB-transfer cases: `submitted != retired/idle != usbmon completion visible != callback finished != first completion consumer proved != later visible consequence truth`; visible `usb_submit_urb(...)`, async cancel returns, or usbmon completion lines should not silently replace the smaller callback/parser/router proof object that first gives the completed transfer behavioral meaning
+- do not stop at CAN IDs, ISO-TP reassembly, UDS service/DID/RID enumeration, session/security unlock, TesterPresent cadence, positive response, negative response, or response-pending when the current ECU state/effect consumer is still unproved; preserve `ids != reassembled != service-contract != session/security-live != accepted/responded != state-consumed` for UDS-shaped cases
 - do not stop at BLE service/characteristic discovery, notify/indicate property, CCCD setup, sniffer-visible notification, or mobile callback when the first parsed state reducer or device/app consequence is still unproved; preserve `discovered != subscribed != notified/indicated != delivered != parsed != consumed` for BLE-shaped cases
 - do not stop at parser visibility or local acceptance if the first committed outbound or hardware-side effect edge is still unproved
 - do not treat one good technical proof as finished work if the next likely failure mode is rediscovery rather than missing one more hook

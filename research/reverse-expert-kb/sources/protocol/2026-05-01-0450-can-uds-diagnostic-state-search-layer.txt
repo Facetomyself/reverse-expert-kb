@@ -1,0 +1,463 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "UDS automotive protocol reverse engineering diagnostic response NRC session security access state machine workflow",
+    "CAN bus UDS ISO 14229 reverse engineering diagnostic services negative response code state consumer proof",
+    "automotive ECU UDS diagnostics reverse engineering security access session control routine control data identifier documentation"
+  ],
+  "count": 26,
+  "results": [
+    {
+      "title": "documentation/uds.md at master · CaringCaribou/caringcaribou",
+      "url": "https://github.com/CaringCaribou/caringcaribou/blob/master/documentation/uds.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6214
+    },
+    {
+      "title": "Unified Diagnostic Services",
+      "url": "https://en.wikipedia.org/wiki/Unified_Diagnostic_Services",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6214
+    },
+    {
+      "title": "ECU Reverse Engineering & Bypassing UDS SecurityAccess (0x27) | by BaudSkidNinja | AutoSecurityy | Medium",
+      "url": "https://medium.com/autosecurityy/ecu-reverse-engineering-bypassing-uds-securityaccess-0x27-9afd88771991",
+      "snippet": "",
+      "published_date": "2025-02-25T17:45:15.000Z",
+      "source": "exa, tavily",
+      "score": 0.5071
+    },
+    {
+      "title": "Diagnostics and Communication Management UDS Protocol Guide",
+      "url": "https://embetronicx.com/tutorials/automotive/uds-protocol/diagnostics-and-communication-management/",
+      "snippet": "The diagnostic session’s service ID is **0x10** and the Response SID is **0x50**. So before making any diagnostic request, the Client must make sure that this service is accessible or not in the ECU current session. * Services like Write data byte identifier (0x2E), Read data byte identifier (0x22), ECU Reset (0x11), Tester Present (0x3E), and Reading DTC (0x19) are available in this session. | **Extended Session(0x03)** | * All services allowed in the Default session are allowed in this session * This session is used to unlock the additional diagnostic functions also * Security access(0x27) is allowed in this session, meaning security levels are unlocked in this session * ECUs entered into default session if this session is ended or expired   **Example**: This session is End of line engineers doing a dynamic vehicle test to check the security level |. The ECU reset’s service ID is **0x11** and the Response SID is **0x51**.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "UDS Protocol: A Comprehensive Guide - Simma Software",
+      "url": "https://simmasoftware.com/uds-protocol/",
+      "snippet": "Key Features of UDS Protocol. Session Control – Defines various diagnostic sessions. Security Access – Prevents unauthorized ECU access.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4286
+    },
+    {
+      "title": "[PDF] UDS Unified Diagnostic Services - ISO 14229 - Softing Automotive",
+      "url": "https://automotive.softing.com/fileadmin/sof-files/pdf/de/ae/poster/UDS_Faltposter_softing2016.pdf",
+      "snippet": "g. number of errors matching to mask has increased $3 Event on change of measurement’s value, which is described by a data identiﬁ er $5 Start Event-Logic $6 Clear Event-Logic UDS Uniﬁ ed Diagnostic Services - ISO 14229 Services without Sub-Function-Byte: $14, $23, $24, $2A, $2E, $2F, $34, $35, $36, $37, $3D, $84 Bit 7: suppressPosRspMsgIndicationBit This Bit deﬁ nes whether a positive response of the ECU is wanted ‚0‘ = FALSE: the ECU shall send a response, that is, no suppression of a positive response shall be done ‚1‘ = TRUE: Suppression of the positive response, that is, the ECU must not send a positive response Negative responses shall be send by the ECU independent of this bit Bit 6 to 0: sub-function parameter value The Bits 0 to 6 contain the value for a Sub-Function parameter for diagnostic services Remark: A service, which uses the suppressPosRspMsgIndicationBit only, shall set the value of the Sub-Function parameter to 0 to support the sending of the bit 7 The Bits 0 to 6 are meaningless then Suppress Positive Response Message Indication Bit Bit 7 Sub-Function (Bit 6 to 0) Services with Sub-Function Byte: $10, $11, $19, $27, $28, $2C, $31, $3E, $83, $85, $87 Services with Sub-Function Byte and Storage State Parameter : $86 Bit 7 Bit 6 Sub-Function (Bit 5 to 0) Storage State The Sub-Function Byte of UDS International Standard Organization‘s Open System Interconnect 7 Layer Communication Model Layer Description Standards for UDS Standards for OBD “8” Diagnostic Application User ISO 15031-5 7 Application Layer ISO 14229-1 ISO 15765-3 ISO 15031-5 6 Presentation Layer Not applicable Not applicable 5 Session Layer ISO 15765-3 Not applicable 4 Transport layer ISO 15765-2 Not applicable 3 Network Layer ISO 15765-2 ISO 15765-4 2 Data Link Layer ISO 11898-1 ISO 15765-4 1 Physical Layer ISO 11898-2* ISO 11898-3 ISO 15765-4 *) The bus physics used is to be selected by the user Therefore,",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4286
+    },
+    {
+      "title": "UDS Protocol | Diagnostic Services in Automotive ECUs - YouTube",
+      "url": "https://www.youtube.com/watch?v=-WL_PVgvi9U",
+      "snippet": "\"UDS follows a simple request-response pattern. A diagnostic tester sends a request to the ECU using a specific Service ID (SID),",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4071
+    },
+    {
+      "title": "UDS Explained - A Simple Intro (Unified Diagnostic Services) – CSS Electronics",
+      "url": "https://www.csselectronics.com/pages/uds-protocol-tutorial-unified-diagnostic-services",
+      "snippet": "As in OBD2, the response SIDs generally add 0x40 to the request SIDs. See also the overview of all standardized UDS services and SIDs. We will mainly focus on UDS service 0x22 in this article, which is used to read data (e.g. speed, SoC, temperature, VIN) from an ECU. * **UDS** (ISO 14229) has been implemented by vehicle manufacturers to serve the need for richer diagnostics data/functionality - beyond the limits of the emissions-focused OBD protocols. Because of the proprietary nature of UDS communication, it is typically most relevant to automotive engineers working at OEMs. Tools like the CANedge CAN bus data logger allow these users to record raw CAN traffic from a vehicle - while at the same time requesting diagnostic trouble codes and specific parameter values via UDS. ## Example 1: Record Single Frame UDS data (Speed via WWH-OBD). To request Speed via WWH-OBD, we use the UDS SID 0x22 (Read Data by Identifier) and the DID 0xF40D as below.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4071
+    },
+    {
+      "title": "UDS SecurityAccess Algorithm Analysis: ECU 0x27 Guide - ReverseEngineer.net",
+      "url": "https://reverseengineer.net/uds-securityaccess-algorithm-analysis/",
+      "snippet": "",
+      "published_date": "2026-03-18T15:23:34.000Z",
+      "source": "exa",
+      "score": 0.3857
+    },
+    {
+      "title": "Introduction to Automotive UDS Protocol - Embien Technologies",
+      "url": "https://www.embien.com/automotive-insights/automotive-uds-protocol-for-vehicle-diagnostics",
+      "snippet": "This article introduces Unified Diagnostic Services or automotive UDS protocol explaining how vehicle diagnostics is done with UDS communication protocol.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3857
+    },
+    {
+      "title": "ISO 14229: UDS Negative Response Codes | PDF - Scribd",
+      "url": "https://www.scribd.com/document/454442201/ISO-14229-Automotive-Wiki-pdf",
+      "snippet": "ISO 14229 defines services and negative response codes for vehicle diagnostics. It lists 16 common services like diagnostic session control, ECU reset, and",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3857
+    },
+    {
+      "title": "[PDF] Unified Diagnostic Services - DG Technologies",
+      "url": "https://www.dgtech.com/wp-content/uploads/2019/08/WP1903_UDS_V01.pdf",
+      "snippet": "Figure WP1903-02: Components of a diagnostic communication System White Paper Unified Diagnostic Services © Softing Automotive - White Paper 1903 Page 3 To do so, tester (TST) and vehicle (ECU) must be connected to each other by a Vehicle Communication Interface (VCI). White Paper Unified Diagnostic Services © Softing Automotive - White Paper 1903 Page 4 Table WP1903-01: Services and Request SIDs according to ISO 14229-1 (2018) Table WP1903-02: Examples of request and response SIDs Request SID Service Pos. Response SID 0x10 Diagnostic session control 0x50 0x22 Read data by identifier 0x62 0x31 Routine control 0x71 0x85 Control DTC settings 0xC5 4. White Paper Unified Diagnostic Services © Softing Automotive - White Paper 1903 Page 5 Table 1903-03: Examples of Data Identifier (DID) - Examples DID Description 0xF180 Boot software identification 0xF18C ECU serial number 0xF190 Vehicle Identification Number (VIN) 5.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3857
+    },
+    {
+      "title": "UDS Services for ECU Diagnostics | PDF - Scribd",
+      "url": "https://www.scribd.com/document/784964677/Course4",
+      "snippet": "Security Access (0x27): This service is used to request and grant security access to protected functions in an ECU. It helps ensure that only authorized users",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3857
+    },
+    {
+      "title": "Understanding Negative Response Codes (NRC) in UDS - YouTube",
+      "url": "https://www.youtube.com/watch?v=DoycK-9XAps",
+      "snippet": "What is Negative Response Code in UDS : UDS services usually respond with a positive response or a negative response. If the service can't",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "UDS Diagnostic Session Control Overview | PDF - Scribd",
+      "url": "https://www.scribd.com/document/796167775/UDS-Session",
+      "snippet": "Diagnostic session is the basis for/of communication between the ECU and the diagnostic tool. During 'Diagnostics' the ECU being analyzed is in a particular",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "UDS Protocol Reference | Canbird",
+      "url": "https://canbird.com/encyclopedia/uds",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "Holistic Approach for Automated Reverse Engineering of Unified ...",
+      "url": "https://www.mdpi.com/2032-6653/16/7/384",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "Diagnostic Message — py-uds 2.0.0 documentation",
+      "url": "https://uds.readthedocs.io/en/v2.0.0/pages/knowledge%5Fbase/diagnostic%5Fmessage.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "ISO 14229 - automotive wiki",
+      "url": "https://automotive.wiki/index.php/ISO_14229",
+      "snippet": "0x80 – 0xFF: negative response codes for specific conditions that are not correct at the point in time the request is received by the server. These response",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "Diagnostic Services — py-uds 4.0.0 documentation",
+      "url": "https://uds.readthedocs.io/en/latest/pages/knowledge%5Fbase/service.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "UDS Scanning — Knowledgebase",
+      "url": "https://munich.dissec.to/kb/chapters/uds/uds-scan.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "Introduction to UDS — udsoncan 1.20.0 documentation",
+      "url": "https://udsoncan.readthedocs.io/en/v1.20.1/udsoncan/intro.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "ISO 14229-1:2020(en), Road vehicles — Unified diagnostic services ...",
+      "url": "https://www.iso.org/obp/ui/en/#!iso:std:72439:en",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "Python implementation of UDS standard (ISO-14229) — udsoncan 1.25.2 documentation",
+      "url": "https://udsoncan.readthedocs.io/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "Introduction to UDS — udsoncan 1.25.2 documentation",
+      "url": "https://udsoncan.readthedocs.io/en/latest/udsoncan/intro.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "UDS — Knowledgebase",
+      "url": "https://munich.dissec.to/kb/chapters/uds/uds.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3214
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "UDS SecurityAccess Algorithm Analysis: ECU 0x27 Guide - ReverseEngineer.net",
+        "url": "https://reverseengineer.net/uds-securityaccess-algorithm-analysis/",
+        "snippet": "",
+        "published_date": "2026-03-18T15:23:34.000Z",
+        "source": "exa",
+        "score": 0.3857
+      },
+      {
+        "title": "UDS Scanning — Knowledgebase",
+        "url": "https://munich.dissec.to/kb/chapters/uds/uds-scan.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "UDS Protocol Reference | Canbird",
+        "url": "https://canbird.com/encyclopedia/uds",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "Introduction to UDS — udsoncan 1.20.0 documentation",
+        "url": "https://udsoncan.readthedocs.io/en/v1.20.1/udsoncan/intro.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "ECU Reverse Engineering & Bypassing UDS SecurityAccess (0x27) | by BaudSkidNinja | AutoSecurityy | Medium",
+        "url": "https://medium.com/autosecurityy/ecu-reverse-engineering-bypassing-uds-securityaccess-0x27-9afd88771991",
+        "snippet": "",
+        "published_date": "2025-02-25T17:45:15.000Z",
+        "source": "exa, tavily",
+        "score": 0.5071
+      },
+      {
+        "title": "Holistic Approach for Automated Reverse Engineering of Unified ...",
+        "url": "https://www.mdpi.com/2032-6653/16/7/384",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "ISO 14229-1:2020(en), Road vehicles — Unified diagnostic services ...",
+        "url": "https://www.iso.org/obp/ui/en/#!iso:std:72439:en",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "Python implementation of UDS standard (ISO-14229) — udsoncan 1.25.2 documentation",
+        "url": "https://udsoncan.readthedocs.io/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "Introduction to UDS — udsoncan 1.25.2 documentation",
+        "url": "https://udsoncan.readthedocs.io/en/latest/udsoncan/intro.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "Diagnostic Message — py-uds 2.0.0 documentation",
+        "url": "https://uds.readthedocs.io/en/v2.0.0/pages/knowledge%5Fbase/diagnostic%5Fmessage.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "Diagnostic Services — py-uds 4.0.0 documentation",
+        "url": "https://uds.readthedocs.io/en/latest/pages/knowledge%5Fbase/service.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "UDS — Knowledgebase",
+        "url": "https://munich.dissec.to/kb/chapters/uds/uds.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "UDS SecurityAccess Algorithm Analysis: ECU 0x27 Guide - ReverseEngineer.net",
+        "url": "https://reverseengineer.net/uds-securityaccess-algorithm-analysis/",
+        "snippet": "",
+        "published_date": "2026-03-18T15:23:34.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "documentation/uds.md at master · CaringCaribou/caringcaribou",
+        "url": "https://github.com/CaringCaribou/caringcaribou/blob/master/documentation/uds.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6214
+      },
+      {
+        "title": "Unified Diagnostic Services",
+        "url": "https://en.wikipedia.org/wiki/Unified_Diagnostic_Services",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6214
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Diagnostics and Communication Management UDS Protocol Guide",
+        "url": "https://embetronicx.com/tutorials/automotive/uds-protocol/diagnostics-and-communication-management/",
+        "snippet": "The diagnostic session’s service ID is **0x10** and the Response SID is **0x50**. So before making any diagnostic request, the Client must make sure that this service is accessible or not in the ECU current session. * Services like Write data byte identifier (0x2E), Read data byte identifier (0x22), ECU Reset (0x11), Tester Present (0x3E), and Reading DTC (0x19) are available in this session. | **Extended Session(0x03)** | * All services allowed in the Default session are allowed in this session * This session is used to unlock the additional diagnostic functions also * Security access(0x27) is allowed in this session, meaning security levels are unlocked in this session * ECUs entered into default session if this session is ended or expired   **Example**: This session is End of line engineers doing a dynamic vehicle test to check the security level |. The ECU reset’s service ID is **0x11** and the Response SID is **0x51**.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "UDS Protocol: A Comprehensive Guide - Simma Software",
+        "url": "https://simmasoftware.com/uds-protocol/",
+        "snippet": "Key Features of UDS Protocol. Session Control – Defines various diagnostic sessions. Security Access – Prevents unauthorized ECU access.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4286
+      },
+      {
+        "title": "ECU Reverse Engineering & Bypassing UDS SecurityAccess (0x27)",
+        "url": "https://medium.com/autosecurityy/ecu-reverse-engineering-bypassing-uds-securityaccess-0x27-9afd88771991",
+        "snippet": "In this challenge, my goal was to reverse engineer the compiled ECU simulation, find the authentication logic, and modify it so that any security key would be",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "UDS Protocol | Diagnostic Services in Automotive ECUs - YouTube",
+        "url": "https://www.youtube.com/watch?v=-WL_PVgvi9U",
+        "snippet": "\"UDS follows a simple request-response pattern. A diagnostic tester sends a request to the ECU using a specific Service ID (SID),",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4071
+      },
+      {
+        "title": "Introduction to Automotive UDS Protocol - Embien Technologies",
+        "url": "https://www.embien.com/automotive-insights/automotive-uds-protocol-for-vehicle-diagnostics",
+        "snippet": "This article introduces Unified Diagnostic Services or automotive UDS protocol explaining how vehicle diagnostics is done with UDS communication protocol.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3857
+      },
+      {
+        "title": "Understanding Negative Response Codes (NRC) in UDS - YouTube",
+        "url": "https://www.youtube.com/watch?v=DoycK-9XAps",
+        "snippet": "What is Negative Response Code in UDS : UDS services usually respond with a positive response or a negative response. If the service can't",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "ISO 14229: UDS Negative Response Codes | PDF - Scribd",
+        "url": "https://www.scribd.com/document/454442201/ISO-14229-Automotive-Wiki-pdf",
+        "snippet": "ISO 14229 defines services and negative response codes for vehicle diagnostics. It lists 16 common services like diagnostic session control, ECU reset, and",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3857
+      },
+      {
+        "title": "[PDF] UDS Unified Diagnostic Services - ISO 14229 - Softing Automotive",
+        "url": "https://automotive.softing.com/fileadmin/sof-files/pdf/de/ae/poster/UDS_Faltposter_softing2016.pdf",
+        "snippet": "g. number of errors matching to mask has increased $3 Event on change of measurement’s value, which is described by a data identiﬁ er $5 Start Event-Logic $6 Clear Event-Logic UDS Uniﬁ ed Diagnostic Services - ISO 14229 Services without Sub-Function-Byte: $14, $23, $24, $2A, $2E, $2F, $34, $35, $36, $37, $3D, $84 Bit 7: suppressPosRspMsgIndicationBit This Bit deﬁ nes whether a positive response of the ECU is wanted ‚0‘ = FALSE: the ECU shall send a response, that is, no suppression of a positive response shall be done ‚1‘ = TRUE: Suppression of the positive response, that is, the ECU must not send a positive response Negative responses shall be send by the ECU independent of this bit Bit 6 to 0: sub-function parameter value The Bits 0 to 6 contain the value for a Sub-Function parameter for diagnostic services Remark: A service, which uses the suppressPosRspMsgIndicationBit only, shall set the value of the Sub-Function parameter to 0 to support the sending of the bit 7 The Bits 0 to 6 are meaningless then Suppress Positive Response Message Indication Bit Bit 7 Sub-Function (Bit 6 to 0) Services with Sub-Function Byte: $10, $11, $19, $27, $28, $2C, $31, $3E, $83, $85, $87 Services with Sub-Function Byte and Storage State Parameter : $86 Bit 7 Bit 6 Sub-Function (Bit 5 to 0) Storage State The Sub-Function Byte of UDS International Standard Organization‘s Open System Interconnect 7 Layer Communication Model Layer Description Standards for UDS Standards for OBD “8” Diagnostic Application User ISO 15031-5 7 Application Layer ISO 14229-1 ISO 15765-3 ISO 15031-5 6 Presentation Layer Not applicable Not applicable 5 Session Layer ISO 15765-3 Not applicable 4 Transport layer ISO 15765-2 Not applicable 3 Network Layer ISO 15765-2 ISO 15765-4 2 Data Link Layer ISO 11898-1 ISO 15765-4 1 Physical Layer ISO 11898-2* ISO 11898-3 ISO 15765-4 *) The bus physics used is to be selected by the user Therefore,",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4286
+      },
+      {
+        "title": "ISO 14229 - automotive wiki",
+        "url": "https://automotive.wiki/index.php/ISO_14229",
+        "snippet": "0x80 – 0xFF: negative response codes for specific conditions that are not correct at the point in time the request is received by the server. These response",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "UDS Explained - A Simple Intro (Unified Diagnostic Services) – CSS Electronics",
+        "url": "https://www.csselectronics.com/pages/uds-protocol-tutorial-unified-diagnostic-services",
+        "snippet": "As in OBD2, the response SIDs generally add 0x40 to the request SIDs. See also the overview of all standardized UDS services and SIDs. We will mainly focus on UDS service 0x22 in this article, which is used to read data (e.g. speed, SoC, temperature, VIN) from an ECU. * **UDS** (ISO 14229) has been implemented by vehicle manufacturers to serve the need for richer diagnostics data/functionality - beyond the limits of the emissions-focused OBD protocols. Because of the proprietary nature of UDS communication, it is typically most relevant to automotive engineers working at OEMs. Tools like the CANedge CAN bus data logger allow these users to record raw CAN traffic from a vehicle - while at the same time requesting diagnostic trouble codes and specific parameter values via UDS. ## Example 1: Record Single Frame UDS data (Speed via WWH-OBD). To request Speed via WWH-OBD, we use the UDS SID 0x22 (Read Data by Identifier) and the DID 0xF40D as below.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4071
+      },
+      {
+        "title": "Diagnostics and Communication Management UDS Protocol Guide",
+        "url": "https://embetronicx.com/tutorials/automotive/uds-protocol/diagnostics-and-communication-management/",
+        "snippet": "The diagnostic session’s service ID is **0x10** and the Response SID is **0x50**. So before making any diagnostic request, the Client must make sure that this service is accessible or not in the ECU current session. * Services like Write data byte identifier (0x2E), Read data byte identifier (0x22), ECU Reset (0x11), Tester Present (0x3E), and Reading DTC (0x19) are available in this session. | **Extended Session(0x03)** | * All services allowed in the Default session are allowed in this session * This session is used to unlock the additional diagnostic functions also * Security access(0x27) is allowed in this session, meaning security levels are unlocked in this session * ECUs entered into default session if this session is ended or expired   **Example**: This session is End of line engineers doing a dynamic vehicle test to check the security level |. The ECU reset’s service ID is **0x11** and the Response SID is **0x51**.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] Unified Diagnostic Services - DG Technologies",
+        "url": "https://www.dgtech.com/wp-content/uploads/2019/08/WP1903_UDS_V01.pdf",
+        "snippet": "Figure WP1903-02: Components of a diagnostic communication System White Paper Unified Diagnostic Services © Softing Automotive - White Paper 1903 Page 3 To do so, tester (TST) and vehicle (ECU) must be connected to each other by a Vehicle Communication Interface (VCI). White Paper Unified Diagnostic Services © Softing Automotive - White Paper 1903 Page 4 Table WP1903-01: Services and Request SIDs according to ISO 14229-1 (2018) Table WP1903-02: Examples of request and response SIDs Request SID Service Pos. Response SID 0x10 Diagnostic session control 0x50 0x22 Read data by identifier 0x62 0x31 Routine control 0x71 0x85 Control DTC settings 0xC5 4. White Paper Unified Diagnostic Services © Softing Automotive - White Paper 1903 Page 5 Table 1903-03: Examples of Data Identifier (DID) - Examples DID Description 0xF180 Boot software identification 0xF18C ECU serial number 0xF190 Vehicle Identification Number (VIN) 5.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3857
+      },
+      {
+        "title": "ECU Reverse Engineering & Bypassing UDS SecurityAccess (0x27)",
+        "url": "https://medium.com/autosecurityy/ecu-reverse-engineering-bypassing-uds-securityaccess-0x27-9afd88771991",
+        "snippet": "In this challenge, my goal was to reverse engineer the compiled ECU simulation, find the authentication logic, and modify it so that any security key would be",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "UDS Services for ECU Diagnostics | PDF - Scribd",
+        "url": "https://www.scribd.com/document/784964677/Course4",
+        "snippet": "Security Access (0x27): This service is used to request and grant security access to protected functions in an ECU. It helps ensure that only authorized users",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3857
+      },
+      {
+        "title": "UDS Diagnostic Session Control Overview | PDF - Scribd",
+        "url": "https://www.scribd.com/document/796167775/UDS-Session",
+        "snippet": "Diagnostic session is the basis for/of communication between the ECU and the diagnostic tool. During 'Diagnostics' the ECU being analyzed is in a particular",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      }
+    ],
+    "grok": []
+  }
+}
