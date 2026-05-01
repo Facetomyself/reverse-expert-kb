@@ -11,6 +11,7 @@ Related pages:
 - topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md
 - topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md
 - topics/native-dbus-service-activation-to-method-consumer-workflow-note.md
+- topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md
 - topics/native-callback-registration-to-event-loop-consumer-workflow-note.md
 - topics/native-completion-port-and-thread-pool-first-consumer-workflow-note.md
 - topics/native-window-creation-and-subclass-first-consumer-workflow-note.md
@@ -73,6 +74,10 @@ A Linux service/desktop reminder now worth preserving inside family 5 before wid
 - D-Bus-shaped services add one extra ownership seam between service metadata and worker proof
 - keep `.service` / `SystemdService=` activation metadata, current unique-name owner, object/interface/member contract, bus-level method delivery, binding dispatch, and first handler-owned consumer separate
 - use `topics/native-dbus-service-activation-to-method-consumer-workflow-note.md` when the visible API is a D-Bus name/object/interface/method and the current liar is whether listed / activatable / owned / delivered / dispatched / consumed were flattened into one claim
+
+A second Linux service/desktop reminder now worth preserving inside family 5 is the Unix-domain socket fd/credential seam:
+- AF_UNIX endpoint visibility, peer identity, credential evidence, ancillary-data survival, descriptor lineage, dispatch branch, and handler-owned consumer are different proof objects
+- use `topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md` when the visible API is a pathname/abstract/socketpair Unix socket, `sendmsg(...)` / `recvmsg(...)`, `SCM_RIGHTS`, `SO_PEERCRED`, `SO_PASSCRED`, or `SCM_CREDENTIALS`, and the current liar is whether **endpoint != peer/cred != ancillary-intact != fd-lineage != dispatched != consumed** was flattened into one claim
 
 A compact operator ladder for this branch is:
 
@@ -211,6 +216,7 @@ Primary note:
 
 Possible next handoff:
 - `topics/native-dbus-service-activation-to-method-consumer-workflow-note.md` if the service-owned question narrows specifically into D-Bus activation, name-owner, object/interface/member, and method-dispatch truth
+- `topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md` if the service-owned question narrows specifically into AF_UNIX endpoint, peer credential, ancillary-data, fd-lineage, and handler-consumer truth
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/malware-reporting-and-handoff-evidence-packaging-workflow-note.md`
@@ -331,6 +337,7 @@ This branch is currently strongest at practical notes for:
 - turning visible vtable/interface-slot dispatch into one concrete implementation proof
 - turning visible plugin/module loader structure into one first real module consumer proof
 - turning visible service/daemon control structure into one first worker-owned consumer proof
+- turning Unix-domain socket fd / credential handoff into one descriptor-lineage and handler-owned consumer proof
 - turning visible async framework structure into one consequence-bearing consumer proof
 
 That makes the branch good at cases where the main problem is not broad taxonomy or missing visibility, but choosing one proof-worthy reduction step inside a mostly readable native target.
