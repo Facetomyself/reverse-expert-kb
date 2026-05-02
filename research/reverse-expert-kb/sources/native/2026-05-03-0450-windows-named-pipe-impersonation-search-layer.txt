@@ -1,0 +1,385 @@
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+[grok] error: 502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows named pipe impersonation reverse engineering ImpersonateNamedPipeClient service handler consumer proof",
+    "Named pipe server client impersonation Windows service reverse engineering pipe message dispatch handler documentation",
+    "Windows named pipe security impersonation access token overlapped IO reverse engineering workflow"
+  ],
+  "count": 17,
+  "results": [
+    {
+      "title": "ImpersonateNamedPipeClient function (namedpipeapi.h) - Win32 ...",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/namedpipeapi/nf-namedpipeapi-impersonatenamedpipeclient",
+      "snippet": "Access to this page requires authorization. You can try signing in or changing directories. Access to this page requires authorization. You can try changing directories. # ImpersonateNamedPipeClient function (namedpipeapi.h). The **ImpersonateNamedPipeClient** function impersonates a named-pipe client application. If the function succeeds, the return value is nonzero. If the function fails, the return value is zero. The **ImpersonateNamedPipeClient** function allows the server end of a named pipe to impersonate the client end. When this function is called, the named-pipe file system changes the thread of the calling process to start impersonating the security context of the last message read from the pipe. Only the server end of the pipe can call this function. RevertToSelf function when the impersonation is complete. For an example that uses this function, see. | **Minimum supported client** | Windows XP [desktop apps only] |. | **Minimum supported server** | Windows Server 2003 [desktop apps only] |. Client/Server Access Control Overview.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.7364
+    },
+    {
+      "title": "named-pipe-client-impersonation.md - b4rdia/HackTricks - GitHub",
+      "url": "https://github.com/b4rdia/HackTricks/blob/master/windows-hardening/windows-local-privilege-escalation/named-pipe-client-impersonation.md",
+      "snippet": "Named Pipes is a Windows mechanism that enables two unrelated processes to exchange data between themselves, even if the processes are located on two different",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7091
+    },
+    {
+      "title": "Named pipes and OVERLAPPED on Windows",
+      "url": "https://stackoverflow.com/questions/30450370/named-pipes-and-overlapped-on-windows",
+      "snippet": "In overlapped mode, a thread can handle simultaneous input and output (I/O) operations on multiple instances of a pipe or perform simultaneous read and write",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "Impersonating a Named Pipe Client - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/ipc/impersonating-a-named-pipe-client",
+      "snippet": "",
+      "published_date": "2021-01-07T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "Named Pipe Server Using Overlapped I/O - Win32 - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/ipc/named-pipe-server-using-overlapped-i-o",
+      "snippet": "",
+      "published_date": "2022-10-25T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "Resources/PipeServerImpersonate/PipeServer.cpp at main · S3cur3Th1sSh1t/NamedPipePTH",
+      "url": "https://github.com/S3cur3Th1sSh1t/NamedPipePTH/blob/main/Resources/PipeServerImpersonate/PipeServer.cpp",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6545
+    },
+    {
+      "title": "safedv/RustPotato",
+      "url": "https://github.com/safedv/RustPotato",
+      "snippet": "",
+      "published_date": "2025-01-06T18:10:14.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Detecting Named Pipe Token Impersonation Abuse — Windows ...",
+      "url": "https://bherunda.medium.com/hunting-named-pipe-token-impersonation-abuse-573dcca36ae0",
+      "snippet": "# Detecting Named Pipe Token Impersonation Abuse — Windows PrivEsc | by Ankith Bharadwaj | Medium. [Sign in](https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=post_page---top_nav_layout_nav-----------------------global_nav------------------). [Sign in](https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=post_page---top_nav_layout_nav-----------------------global_nav------------------). [![Image 2: Ankith Bharadwaj](https://miro.medium.com/v2/resize:fill:32:32/1*DpX97fs8SAmKjnNzJMCQcg.jpeg)](https://bherunda.medium.com/?source=post_page---byline--573dcca36ae0---------------------------------------). [Ankith Bharadwaj](https://bherunda.medium.com/?source=post_page---byline--573dcca36ae0---------------------------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fvote%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&user=Ankith+Bharadwaj&userId=82e590612eeb&source=---header_actions--573dcca36ae0---------------------clap_footer------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=---header_actions--573dcca36ae0---------------------bookmark_footer------------------). [Listen](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2Fplans%3Fdimension%3Dpost_audio_button%26postId%3D573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=---header_actions--573dcca36ae0---------------------post_audio_button------------------). A named pipe server thread can call the [**ImpersonateNamedPipeClient**](https://learn.microsoft.com/en-us/windows/desktop/api/namedpipeapi/nf-namedpipeapi-impersonatenamedpipeclient) function to assume the **access token** of the user connected to the client end of the pipe. One of the ways tools like Cobalt Strike and Meterpreter abuses the above functionality is by creating a Windows Service to execute as NT Authority\\SYSTEM (pipe client) and having it connect to a named pipe that is created by the malicious payload (pipe server). Meterpreter (pipe server) creates a named pipe using [CreateNamedPipe](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createnamedpipea)API. ## [Impersonating a Named Pipe Client - Win32 apps ### Impersonation is the ability of a thread to execute in a security context different from that of the process that owns… learn.microsoft.com](https://learn.microsoft.com/en-us/windows/win32/ipc/impersonating-a-named-pipe-client?redirectedfrom=MSDN&source=post_page-----573dcca36ae0---------------------------------------). [Privilege Escalation](https://medium.com/tag/privilege-escalation?source=post_page-----573dcca36ae0---------------------------------------). [Named Pipes](https://medium.com/tag/named-pipes?source=post_page-----573dcca36ae0---------------------------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fvote%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&user=Ankith+Bharadwaj&userId=82e590612eeb&source=---footer_actions--573dcca36ae0---------------------clap_footer------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fvote%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&user=Ankith+Bharadwaj&userId=82e590612eeb&source=---footer_actions--573dcca36ae0---------------------clap_footer------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=---footer_actions--573dcca36ae0---------------------bookmark_footer------------------). [![Image 8: Ankith Bharadwaj](https://miro.medium.com/v2/resize:fill:48:48/1*DpX97fs8SAmKjnNzJMCQcg.jpeg)](https://bherunda.medium.com/?source=post_page---post_author_info--573dcca36ae0---------------------------------------). [![Image 9: Ankith Bharadwaj](https://miro.medium.com/v2/resize:fill:64:64/1*DpX97fs8SAmKjnNzJMCQcg.jpeg)](https://bherunda.medium.com/?source=post_page---post_author_info--573dcca36ae0---------------------------------------). ## [Written by Ankith Bharadwaj](https://bherunda.medium.com/?source=post_page---post_author_info--573dcca36ae0---------------------------------------). [132 followers](https://bherunda.medium.com/followers?source=post_page---post_author_info--573dcca36ae0---------------------------------------). [](https://policy.medium.com/medium-rules-30e5502c4eb4?source=post_page---post_responses--573dcca36ae0---------------------------------------). [What are your thoughts?](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=---post_responses--573dcca36ae0---------------------respond_sidebar------------------). [About](https://medium.com/about?autoplay=1&source=post_page-----573dcca36ae0---------------------------------------). [Terms](https://policy.medium.com/medium-terms-of-service-9db0094a1e0f?source=post_page-----573dcca36ae0---------------------------------------).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5636
+    },
+    {
+      "title": "Named Pipe Client Impersonation - HackTricks",
+      "url": "https://hacktricks.wiki/sr/windows-hardening/windows-local-privilege-escalation/named-pipe-client-impersonation.html",
+      "snippet": "# Named Pipe Client Impersonation. Named Pipe client impersonation je local privilege escalation primitive koji omogućava named-pipe server thread-u da preuzme security context klijenta koji se poveže na njega. SYSTEM service) da se poveže na pipe koji kontroliše napadač, pozvati ImpersonateNamedPipeClient, duplicirati dobijeni token u primary token i pokrenuti proces kao klijent (često NT AUTHORITY\\SYSTEM). Za end-to-end exploit chains koje primoravaju SYSTEM da se poveže na vaš pipe, pogledajte Potato family stranice navedene dole. 1, 0, 0, 0, NULL);. ConnectNamedPipe(hPipe, NULL)) return 2;. // Extract and duplicate the impersonation token into a primary token. HANDLE impTok = NULL, priTok = NULL;. // Spawn as the client (often SYSTEM). L\"C\\\\\\\\Windows\\\\\\\\System32\\\\\\\\cmd.exe\", NULL,. 0, NULL, NULL, &si, &pi)) {. CreateProcessAsUserW(priTok, L\"C\\\\\\\\Windows\\\\\\\\System32\\\\\\\\cmd.exe\", NULL,. NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);. Process pi; CreateProcessWithTokenW(p, 2, null, null, 0, IntPtr.Zero, null, ref psi, out pi);. Ako vam treba kompletan primer izrade pipe-a i impersonacije da spawn-ujete SYSTEM iz service trigger-a, pogledajte:. client = pipetap.Client((\"127.0.0.1\", 47001)).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4636
+    },
+    {
+      "title": "Named Pipe Client Impersonation - HackTricks",
+      "url": "https://hacktricks.wiki/af/windows-hardening/windows-local-privilege-escalation/named-pipe-client-impersonation.html",
+      "snippet": "# Named Pipe Client Impersonation. Named Pipe client impersonation is ’n lokale privilege escalation primitive wat ’n named-pipe server-draad toelaat om die sekuriteitskonteks van ’n kliënt wat daaraan koppel, aan te neem. In die praktyk kan ’n aanvaller wat kode met SeImpersonatePrivilege kan uitvoer ’n bevoorregte kliënt (bv. ’n SYSTEM-diens) dwing om aan ’n aanvaller-beheerde pipe te koppel, ImpersonateNamedPipeClient aan te roep, die resultaat-token in ’n primêre token te dupliseer, en ’n proses as die kliënt te spawn (dikwels NT AUTHORITY\\SYSTEM). 1, 0, 0, 0, NULL);. ConnectNamedPipe(hPipe, NULL)) return 2;. HANDLE impTok = NULL, priTok = NULL;. L\"C\\\\\\\\Windows\\\\\\\\System32\\\\\\\\cmd.exe\", NULL,. 0, NULL, NULL, &si, &pi)) {. CreateProcessAsUserW(priTok, L\"C\\\\\\\\Windows\\\\\\\\System32\\\\\\\\cmd.exe\", NULL,. NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);. Process pi; CreateProcessWithTokenW(p, 2, null, null, 0, IntPtr.Zero, null, ref psi, out pi);. Hierdie tegnieke dwing geprivilegieerde dienste om met jou named pipe te verbind sodat jy hulle kan impersonate:. Named-pipe hardened services kan steeds gekaap word deur die vertroude client te instrumenteer.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4636
+    },
+    {
+      "title": "Named Pipe Client Impersonation - HackTricks",
+      "url": "https://hacktricks.wiki/sw/windows-hardening/windows-local-privilege-escalation/named-pipe-client-impersonation.html",
+      "snippet": "# Named Pipe Client Impersonation. Named Pipe client impersonation ni primitive ya local privilege escalation inayowezesha thread ya server ya named-pipe kuchukua muktadha wa usalama wa client inayounganisha nayo. Kwa vitendo, mshambulizi anayeweza kuendesha code akiwa na SeImpersonatePrivilege anaweza kulazimisha client mwenye vipaumbele (mfano, huduma ya SYSTEM) kuunganishwa kwenye pipe inayodhibitiwa na mshambulizi, kuita ImpersonateNamedPipeClient, kuzaidisha token inayopatikana hadi TokenPrimary, na kuanzisha mchakato kama client (mara nyingi NT AUTHORITY\\SYSTEM). Kwa chains za end-to-end zinazolazimisha SYSTEM kuungana na pipe yako, ona kurasa za familia ya Potato zilizotajwa hapa chini. 1, 0, 0, 0, NULL);. ConnectNamedPipe(hPipe, NULL)) return 2;. // Extract and duplicate the impersonation token into a primary token. HANDLE impTok = NULL, priTok = NULL;. DuplicateTokenEx(impTok, TOKEN_ALL_ACCESS, NULL, SecurityImpersonation, TokenPrimary, &priTok)) return 5;. L\"C\\\\\\\\Windows\\\\\\\\System32\\\\\\\\cmd.exe\", NULL,. 0, NULL, NULL, &si, &pi)) {. CreateProcessAsUserW(priTok, L\"C\\\\\\\\Windows\\\\\\\\System32\\\\\\\\cmd.exe\", NULL,. NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);. Process pi; CreateProcessWithTokenW(p, 2, null, null, 0, IntPtr.Zero, null, ref psi, out pi);. client = pipetap.Client((\"127.0.0.1\", 47001)).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4364
+    },
+    {
+      "title": "ImpersonateNamedPipeClient() vulnerabilities",
+      "url": "https://seclists.org/vuln-dev/2000/Aug/31",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Exploring Impersonation through Named Pipe | SpecterOps Blog",
+      "url": "https://specterops.io/blog/2023/05/03/exploring-impersonation-through-the-named-pipe-filesystem-driver/",
+      "snippet": "",
+      "published_date": "2023-05-03T15:07:17.000Z",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Windows‌ ‌Exploitation‌ ‌Tricks:‌ ‌Spoofing‌ ‌Named‌ ‌Pipe‌ ‌Client‌ ‌PID‌ - Project Zero",
+      "url": "https://projectzero.google/2019/09/windows-exploitation-tricks-spoofing.html",
+      "snippet": "",
+      "published_date": "2019-09-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Hooking Windows Named Pipes - SIT-CyberSecurity",
+      "url": "https://sit-cybersecurity.com/hooking-windows-named-pipes/",
+      "snippet": "",
+      "published_date": "2026-04-20T23:59:47.000Z",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Named Pipe Client Impersonation | Resources For Pentesting",
+      "url": "https://chinnidiwakar.gitbook.io/githubimport/windows/windows-local-privilege-escalation/named-pipe-client-impersonation",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Named Pipe Impersonation | The Red Team Vade Mecum",
+      "url": "https://kwcsec.gitbook.io/the-red-team-handbook/techniques/privilege-escalation/to-system/named-pipe-impersonation",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3818
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Impersonating a Named Pipe Client - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/ipc/impersonating-a-named-pipe-client",
+        "snippet": "",
+        "published_date": "2021-01-07T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "safedv/RustPotato",
+        "url": "https://github.com/safedv/RustPotato",
+        "snippet": "",
+        "published_date": "2025-01-06T18:10:14.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "ImpersonateNamedPipeClient() vulnerabilities",
+        "url": "https://seclists.org/vuln-dev/2000/Aug/31",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "Exploring Impersonation through Named Pipe | SpecterOps Blog",
+        "url": "https://specterops.io/blog/2023/05/03/exploring-impersonation-through-the-named-pipe-filesystem-driver/",
+        "snippet": "",
+        "published_date": "2023-05-03T15:07:17.000Z",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "Windows‌ ‌Exploitation‌ ‌Tricks:‌ ‌Spoofing‌ ‌Named‌ ‌Pipe‌ ‌Client‌ ‌PID‌ - Project Zero",
+        "url": "https://projectzero.google/2019/09/windows-exploitation-tricks-spoofing.html",
+        "snippet": "",
+        "published_date": "2019-09-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "Named Pipe Server Using Overlapped I/O - Win32 - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/ipc/named-pipe-server-using-overlapped-i-o",
+        "snippet": "",
+        "published_date": "2022-10-25T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "Hooking Windows Named Pipes - SIT-CyberSecurity",
+        "url": "https://sit-cybersecurity.com/hooking-windows-named-pipes/",
+        "snippet": "",
+        "published_date": "2026-04-20T23:59:47.000Z",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "ImpersonateNamedPipeClient function (namedpipeapi.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/namedpipeapi/nf-namedpipeapi-impersonatenamedpipeclient",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Exploring Impersonation through Named Pipe | SpecterOps Blog",
+        "url": "https://specterops.io/blog/2023/05/03/exploring-impersonation-through-the-named-pipe-filesystem-driver/",
+        "snippet": "",
+        "published_date": "2023-05-03T15:07:17.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Impersonating a Named Pipe Client - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/ipc/impersonating-a-named-pipe-client",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Named Pipe Client Impersonation | Resources For Pentesting",
+        "url": "https://chinnidiwakar.gitbook.io/githubimport/windows/windows-local-privilege-escalation/named-pipe-client-impersonation",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "Exploring Impersonation through Named Pipe | SpecterOps Blog",
+        "url": "https://specterops.io/blog/2023/05/03/exploring-impersonation-through-the-named-pipe-filesystem-driver/",
+        "snippet": "",
+        "published_date": "2023-05-03T15:07:17.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Resources/PipeServerImpersonate/PipeServer.cpp at main · S3cur3Th1sSh1t/NamedPipePTH",
+        "url": "https://github.com/S3cur3Th1sSh1t/NamedPipePTH/blob/main/Resources/PipeServerImpersonate/PipeServer.cpp",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6545
+      },
+      {
+        "title": "Named Pipe Impersonation | The Red Team Vade Mecum",
+        "url": "https://kwcsec.gitbook.io/the-red-team-handbook/techniques/privilege-escalation/to-system/named-pipe-impersonation",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "Impersonating a Named Pipe Client - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/ipc/impersonating-a-named-pipe-client",
+        "snippet": "",
+        "published_date": "2021-01-07T00:00:00.000Z",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Named Pipe Client Impersonation - HackTricks",
+        "url": "https://hacktricks.wiki/sr/windows-hardening/windows-local-privilege-escalation/named-pipe-client-impersonation.html",
+        "snippet": "# Named Pipe Client Impersonation. Named Pipe client impersonation je local privilege escalation primitive koji omogućava named-pipe server thread-u da preuzme security context klijenta koji se poveže na njega. SYSTEM service) da se poveže na pipe koji kontroliše napadač, pozvati ImpersonateNamedPipeClient, duplicirati dobijeni token u primary token i pokrenuti proces kao klijent (često NT AUTHORITY\\SYSTEM). Za end-to-end exploit chains koje primoravaju SYSTEM da se poveže na vaš pipe, pogledajte Potato family stranice navedene dole. 1, 0, 0, 0, NULL);. ConnectNamedPipe(hPipe, NULL)) return 2;. // Extract and duplicate the impersonation token into a primary token. HANDLE impTok = NULL, priTok = NULL;. // Spawn as the client (often SYSTEM). L\"C\\\\\\\\Windows\\\\\\\\System32\\\\\\\\cmd.exe\", NULL,. 0, NULL, NULL, &si, &pi)) {. CreateProcessAsUserW(priTok, L\"C\\\\\\\\Windows\\\\\\\\System32\\\\\\\\cmd.exe\", NULL,. NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);. Process pi; CreateProcessWithTokenW(p, 2, null, null, 0, IntPtr.Zero, null, ref psi, out pi);. Ako vam treba kompletan primer izrade pipe-a i impersonacije da spawn-ujete SYSTEM iz service trigger-a, pogledajte:. client = pipetap.Client((\"127.0.0.1\", 47001)).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4636
+      },
+      {
+        "title": "Detecting Named Pipe Token Impersonation Abuse — Windows ...",
+        "url": "https://bherunda.medium.com/hunting-named-pipe-token-impersonation-abuse-573dcca36ae0",
+        "snippet": "# Detecting Named Pipe Token Impersonation Abuse — Windows PrivEsc | by Ankith Bharadwaj | Medium. [Sign in](https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=post_page---top_nav_layout_nav-----------------------global_nav------------------). [Sign in](https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=post_page---top_nav_layout_nav-----------------------global_nav------------------). [![Image 2: Ankith Bharadwaj](https://miro.medium.com/v2/resize:fill:32:32/1*DpX97fs8SAmKjnNzJMCQcg.jpeg)](https://bherunda.medium.com/?source=post_page---byline--573dcca36ae0---------------------------------------). [Ankith Bharadwaj](https://bherunda.medium.com/?source=post_page---byline--573dcca36ae0---------------------------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fvote%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&user=Ankith+Bharadwaj&userId=82e590612eeb&source=---header_actions--573dcca36ae0---------------------clap_footer------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=---header_actions--573dcca36ae0---------------------bookmark_footer------------------). [Listen](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2Fplans%3Fdimension%3Dpost_audio_button%26postId%3D573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=---header_actions--573dcca36ae0---------------------post_audio_button------------------). A named pipe server thread can call the [**ImpersonateNamedPipeClient**](https://learn.microsoft.com/en-us/windows/desktop/api/namedpipeapi/nf-namedpipeapi-impersonatenamedpipeclient) function to assume the **access token** of the user connected to the client end of the pipe. One of the ways tools like Cobalt Strike and Meterpreter abuses the above functionality is by creating a Windows Service to execute as NT Authority\\SYSTEM (pipe client) and having it connect to a named pipe that is created by the malicious payload (pipe server). Meterpreter (pipe server) creates a named pipe using [CreateNamedPipe](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createnamedpipea)API. ## [Impersonating a Named Pipe Client - Win32 apps ### Impersonation is the ability of a thread to execute in a security context different from that of the process that owns… learn.microsoft.com](https://learn.microsoft.com/en-us/windows/win32/ipc/impersonating-a-named-pipe-client?redirectedfrom=MSDN&source=post_page-----573dcca36ae0---------------------------------------). [Privilege Escalation](https://medium.com/tag/privilege-escalation?source=post_page-----573dcca36ae0---------------------------------------). [Named Pipes](https://medium.com/tag/named-pipes?source=post_page-----573dcca36ae0---------------------------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fvote%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&user=Ankith+Bharadwaj&userId=82e590612eeb&source=---footer_actions--573dcca36ae0---------------------clap_footer------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fvote%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&user=Ankith+Bharadwaj&userId=82e590612eeb&source=---footer_actions--573dcca36ae0---------------------clap_footer------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=---footer_actions--573dcca36ae0---------------------bookmark_footer------------------). [![Image 8: Ankith Bharadwaj](https://miro.medium.com/v2/resize:fill:48:48/1*DpX97fs8SAmKjnNzJMCQcg.jpeg)](https://bherunda.medium.com/?source=post_page---post_author_info--573dcca36ae0---------------------------------------). [![Image 9: Ankith Bharadwaj](https://miro.medium.com/v2/resize:fill:64:64/1*DpX97fs8SAmKjnNzJMCQcg.jpeg)](https://bherunda.medium.com/?source=post_page---post_author_info--573dcca36ae0---------------------------------------). ## [Written by Ankith Bharadwaj](https://bherunda.medium.com/?source=post_page---post_author_info--573dcca36ae0---------------------------------------). [132 followers](https://bherunda.medium.com/followers?source=post_page---post_author_info--573dcca36ae0---------------------------------------). [](https://policy.medium.com/medium-rules-30e5502c4eb4?source=post_page---post_responses--573dcca36ae0---------------------------------------). [What are your thoughts?](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=---post_responses--573dcca36ae0---------------------respond_sidebar------------------). [About](https://medium.com/about?autoplay=1&source=post_page-----573dcca36ae0---------------------------------------). [Terms](https://policy.medium.com/medium-terms-of-service-9db0094a1e0f?source=post_page-----573dcca36ae0---------------------------------------).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5636
+      },
+      {
+        "title": "ImpersonateNamedPipeClient function (namedpipeapi.h) - Win32 ...",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/namedpipeapi/nf-namedpipeapi-impersonatenamedpipeclient",
+        "snippet": "Access to this page requires authorization. You can try signing in or changing directories. Access to this page requires authorization. You can try changing directories. # ImpersonateNamedPipeClient function (namedpipeapi.h). The **ImpersonateNamedPipeClient** function impersonates a named-pipe client application. If the function succeeds, the return value is nonzero. If the function fails, the return value is zero. The **ImpersonateNamedPipeClient** function allows the server end of a named pipe to impersonate the client end. When this function is called, the named-pipe file system changes the thread of the calling process to start impersonating the security context of the last message read from the pipe. Only the server end of the pipe can call this function. RevertToSelf function when the impersonation is complete. For an example that uses this function, see. | **Minimum supported client** | Windows XP [desktop apps only] |. | **Minimum supported server** | Windows Server 2003 [desktop apps only] |. Client/Server Access Control Overview.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.7364
+      },
+      {
+        "title": "named-pipe-client-impersonation.md - b4rdia/HackTricks - GitHub",
+        "url": "https://github.com/b4rdia/HackTricks/blob/master/windows-hardening/windows-local-privilege-escalation/named-pipe-client-impersonation.md",
+        "snippet": "Named Pipes is a Windows mechanism that enables two unrelated processes to exchange data between themselves, even if the processes are located on two different",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7091
+      },
+      {
+        "title": "Impersonating a Named Pipe Client - Win32 apps",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/ipc/impersonating-a-named-pipe-client",
+        "snippet": "You can try signing in or changing directories. You can try changing directories. Impersonation enables the server thread to perform actions on behalf of the client, but within the limits of the client's security context. A named pipe server thread can call the **ImpersonateNamedPipeClient** function to assume the access token of the user connected to the client end of the pipe. When a pipe client sends a request to the server, the server impersonates the client and attempts to access the protected database. The system then grants or denies the server's access, based on the security level of the client. The impersonation level determines the operations the server can perform while impersonating the client. However, when the client calls the **CreateFile** function to open a handle to the client end of the pipe, the client can use the SECURITY\\_SQOS\\_PRESENT flag to control the server's impersonation level. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Named Pipe Client Impersonation - HackTricks",
+        "url": "https://hacktricks.wiki/af/windows-hardening/windows-local-privilege-escalation/named-pipe-client-impersonation.html",
+        "snippet": "# Named Pipe Client Impersonation. Named Pipe client impersonation is ’n lokale privilege escalation primitive wat ’n named-pipe server-draad toelaat om die sekuriteitskonteks van ’n kliënt wat daaraan koppel, aan te neem. In die praktyk kan ’n aanvaller wat kode met SeImpersonatePrivilege kan uitvoer ’n bevoorregte kliënt (bv. ’n SYSTEM-diens) dwing om aan ’n aanvaller-beheerde pipe te koppel, ImpersonateNamedPipeClient aan te roep, die resultaat-token in ’n primêre token te dupliseer, en ’n proses as die kliënt te spawn (dikwels NT AUTHORITY\\SYSTEM). 1, 0, 0, 0, NULL);. ConnectNamedPipe(hPipe, NULL)) return 2;. HANDLE impTok = NULL, priTok = NULL;. L\"C\\\\\\\\Windows\\\\\\\\System32\\\\\\\\cmd.exe\", NULL,. 0, NULL, NULL, &si, &pi)) {. CreateProcessAsUserW(priTok, L\"C\\\\\\\\Windows\\\\\\\\System32\\\\\\\\cmd.exe\", NULL,. NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);. Process pi; CreateProcessWithTokenW(p, 2, null, null, 0, IntPtr.Zero, null, ref psi, out pi);. Hierdie tegnieke dwing geprivilegieerde dienste om met jou named pipe te verbind sodat jy hulle kan impersonate:. Named-pipe hardened services kan steeds gekaap word deur die vertroude client te instrumenteer.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4636
+      },
+      {
+        "title": "Named Pipe Server Using Overlapped I/O - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/ipc/named-pipe-server-using-overlapped-i-o",
+        "snippet": "hEvents[i] = CreateEvent( NULL, // default security attribute TRUE, // manual-reset event TRUE, // initial state = signaled NULL); // unnamed event object if (hEvents[i] == NULL) { printf(\"CreateEvent failed with %d.\\n\", GetLastError()); return 0; } Pipe[i].oOverlap.hEvent = hEvents[i]; Pipe[i].oOverlap.Offset = 0; Pipe[i].oOverlap.OffsetHigh = 0; Pipe[i].hPipeInst = CreateNamedPipe( lpszPipename, // pipe name PIPE_ACCESS_DUPLEX | // read/write access FILE_FLAG_OVERLAPPED, // overlapped mode PIPE_TYPE_MESSAGE | // message-type pipe PIPE_READMODE_MESSAGE | // message-read mode PIPE_WAIT, // blocking mode INSTANCES, // number of instances BUFSIZE*sizeof(TCHAR), // output buffer size BUFSIZE*sizeof(TCHAR), // input buffer size PIPE_TIMEOUT, // client time-out NULL); // default security attributes if (Pipe[i].hPipeInst == INVALID_HANDLE_VALUE) { printf(\"CreateNamedPipe failed with %d.\\n\", GetLastError()); return 0; } // Call the subroutine to connect to the new client Pipe[i].fPendingIO = ConnectToNewClient( Pipe[i].hPipeInst, &Pipe[i].oOverlap); Pipe[i].dwState = Pipe[i].fPendingIO ? if (Pipe[i].fPendingIO) { fSuccess = GetOverlappedResult( Pipe[i].hPipeInst, // handle to pipe &Pipe[i].oOverlap, // OVERLAPPED structure &cbRet, // bytes transferred FALSE); // do not wait switch (Pipe[i].dwState) { // Pending connect operation case CONNECTING_STATE: if (!",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Impersonating a Named Pipe Client - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/ipc/impersonating-a-named-pipe-client",
+        "snippet": "You can try signing in or changing directories. You can try changing directories. Impersonation enables the server thread to perform actions on behalf of the client, but within the limits of the client's security context. A named pipe server thread can call the **ImpersonateNamedPipeClient** function to assume the access token of the user connected to the client end of the pipe. When a pipe client sends a request to the server, the server impersonates the client and attempts to access the protected database. The system then grants or denies the server's access, based on the security level of the client. The impersonation level determines the operations the server can perform while impersonating the client. However, when the client calls the **CreateFile** function to open a handle to the client end of the pipe, the client can use the SECURITY\\_SQOS\\_PRESENT flag to control the server's impersonation level. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "named-pipe-client-impersonation.md - b4rdia/HackTricks",
+        "url": "https://github.com/b4rdia/HackTricks/blob/master/windows-hardening/windows-local-privilege-escalation/named-pipe-client-impersonation.md",
+        "snippet": "It is possible for the named pipe server to impersonate the named pipe client's security context by leveraging a ImpersonateNamedPipeClient API call which in",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Named pipes and OVERLAPPED on Windows",
+        "url": "https://stackoverflow.com/questions/30450370/named-pipes-and-overlapped-on-windows",
+        "snippet": "In overlapped mode, a thread can handle simultaneous input and output (I/O) operations on multiple instances of a pipe or perform simultaneous read and write",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "Named Pipe Client Impersonation - HackTricks",
+        "url": "https://hacktricks.wiki/sw/windows-hardening/windows-local-privilege-escalation/named-pipe-client-impersonation.html",
+        "snippet": "# Named Pipe Client Impersonation. Named Pipe client impersonation ni primitive ya local privilege escalation inayowezesha thread ya server ya named-pipe kuchukua muktadha wa usalama wa client inayounganisha nayo. Kwa vitendo, mshambulizi anayeweza kuendesha code akiwa na SeImpersonatePrivilege anaweza kulazimisha client mwenye vipaumbele (mfano, huduma ya SYSTEM) kuunganishwa kwenye pipe inayodhibitiwa na mshambulizi, kuita ImpersonateNamedPipeClient, kuzaidisha token inayopatikana hadi TokenPrimary, na kuanzisha mchakato kama client (mara nyingi NT AUTHORITY\\SYSTEM). Kwa chains za end-to-end zinazolazimisha SYSTEM kuungana na pipe yako, ona kurasa za familia ya Potato zilizotajwa hapa chini. 1, 0, 0, 0, NULL);. ConnectNamedPipe(hPipe, NULL)) return 2;. // Extract and duplicate the impersonation token into a primary token. HANDLE impTok = NULL, priTok = NULL;. DuplicateTokenEx(impTok, TOKEN_ALL_ACCESS, NULL, SecurityImpersonation, TokenPrimary, &priTok)) return 5;. L\"C\\\\\\\\Windows\\\\\\\\System32\\\\\\\\cmd.exe\", NULL,. 0, NULL, NULL, &si, &pi)) {. CreateProcessAsUserW(priTok, L\"C\\\\\\\\Windows\\\\\\\\System32\\\\\\\\cmd.exe\", NULL,. NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);. Process pi; CreateProcessWithTokenW(p, 2, null, null, 0, IntPtr.Zero, null, ref psi, out pi);. client = pipetap.Client((\"127.0.0.1\", 47001)).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4364
+      },
+      {
+        "title": "named-pipe-client-impersonation.md - b4rdia/HackTricks - GitHub",
+        "url": "https://github.com/b4rdia/HackTricks/blob/master/windows-hardening/windows-local-privilege-escalation/named-pipe-client-impersonation.md",
+        "snippet": "It is possible for the named pipe server to impersonate the named pipe client's security context by leveraging a ImpersonateNamedPipeClient API call which in",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Detecting Named Pipe Token Impersonation Abuse — Windows PrivEsc",
+        "url": "https://bherunda.medium.com/hunting-named-pipe-token-impersonation-abuse-573dcca36ae0",
+        "snippet": "# Detecting Named Pipe Token Impersonation Abuse — Windows PrivEsc | by Ankith Bharadwaj | Medium. [Sign in](https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=post_page---top_nav_layout_nav-----------------------global_nav------------------). [Sign in](https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=post_page---top_nav_layout_nav-----------------------global_nav------------------). [![Image 2: Ankith Bharadwaj](https://miro.medium.com/v2/resize:fill:32:32/1*DpX97fs8SAmKjnNzJMCQcg.jpeg)](https://bherunda.medium.com/?source=post_page---byline--573dcca36ae0---------------------------------------). [Ankith Bharadwaj](https://bherunda.medium.com/?source=post_page---byline--573dcca36ae0---------------------------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fvote%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&user=Ankith+Bharadwaj&userId=82e590612eeb&source=---header_actions--573dcca36ae0---------------------clap_footer------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=---header_actions--573dcca36ae0---------------------bookmark_footer------------------). [Listen](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2Fplans%3Fdimension%3Dpost_audio_button%26postId%3D573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=---header_actions--573dcca36ae0---------------------post_audio_button------------------). A named pipe server thread can call the [**ImpersonateNamedPipeClient**](https://learn.microsoft.com/en-us/windows/desktop/api/namedpipeapi/nf-namedpipeapi-impersonatenamedpipeclient) function to assume the **access token** of the user connected to the client end of the pipe. One of the ways tools like Cobalt Strike and Meterpreter abuses the above functionality is by creating a Windows Service to execute as NT Authority\\SYSTEM (pipe client) and having it connect to a named pipe that is created by the malicious payload (pipe server). Meterpreter (pipe server) creates a named pipe using [CreateNamedPipe](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createnamedpipea)API. ## [Impersonating a Named Pipe Client - Win32 apps ### Impersonation is the ability of a thread to execute in a security context different from that of the process that owns… learn.microsoft.com](https://learn.microsoft.com/en-us/windows/win32/ipc/impersonating-a-named-pipe-client?redirectedfrom=MSDN&source=post_page-----573dcca36ae0---------------------------------------). [Privilege Escalation](https://medium.com/tag/privilege-escalation?source=post_page-----573dcca36ae0---------------------------------------). [Named Pipes](https://medium.com/tag/named-pipes?source=post_page-----573dcca36ae0---------------------------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fvote%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&user=Ankith+Bharadwaj&userId=82e590612eeb&source=---footer_actions--573dcca36ae0---------------------clap_footer------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fvote%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&user=Ankith+Bharadwaj&userId=82e590612eeb&source=---footer_actions--573dcca36ae0---------------------clap_footer------------------). [](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F573dcca36ae0&operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=---footer_actions--573dcca36ae0---------------------bookmark_footer------------------). [![Image 8: Ankith Bharadwaj](https://miro.medium.com/v2/resize:fill:48:48/1*DpX97fs8SAmKjnNzJMCQcg.jpeg)](https://bherunda.medium.com/?source=post_page---post_author_info--573dcca36ae0---------------------------------------). [![Image 9: Ankith Bharadwaj](https://miro.medium.com/v2/resize:fill:64:64/1*DpX97fs8SAmKjnNzJMCQcg.jpeg)](https://bherunda.medium.com/?source=post_page---post_author_info--573dcca36ae0---------------------------------------). ## [Written by Ankith Bharadwaj](https://bherunda.medium.com/?source=post_page---post_author_info--573dcca36ae0---------------------------------------). [132 followers](https://bherunda.medium.com/followers?source=post_page---post_author_info--573dcca36ae0---------------------------------------). [](https://policy.medium.com/medium-rules-30e5502c4eb4?source=post_page---post_responses--573dcca36ae0---------------------------------------). [What are your thoughts?](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fbherunda.medium.com%2Fhunting-named-pipe-token-impersonation-abuse-573dcca36ae0&source=---post_responses--573dcca36ae0---------------------respond_sidebar------------------). [About](https://medium.com/about?autoplay=1&source=post_page-----573dcca36ae0---------------------------------------). [Terms](https://policy.medium.com/medium-terms-of-service-9db0094a1e0f?source=post_page-----573dcca36ae0---------------------------------------).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "ImpersonateNamedPipeClient function (namedpipeapi.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/namedpipeapi/nf-namedpipeapi-impersonatenamedpipeclient",
+        "snippet": "Access to this page requires authorization. You can try signing in or changing directories. Access to this page requires authorization. You can try changing directories. # ImpersonateNamedPipeClient function (namedpipeapi.h). The **ImpersonateNamedPipeClient** function impersonates a named-pipe client application. If the function succeeds, the return value is nonzero. If the function fails, the return value is zero. The **ImpersonateNamedPipeClient** function allows the server end of a named pipe to impersonate the client end. When this function is called, the named-pipe file system changes the thread of the calling process to start impersonating the security context of the last message read from the pipe. Only the server end of the pipe can call this function. RevertToSelf function when the impersonation is complete. For an example that uses this function, see. | **Minimum supported client** | Windows XP [desktop apps only] |. | **Minimum supported server** | Windows Server 2003 [desktop apps only] |. Client/Server Access Control Overview.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Impersonating a Named Pipe Client - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/ipc/impersonating-a-named-pipe-client",
+        "snippet": "You can try signing in or changing directories. You can try changing directories. Impersonation enables the server thread to perform actions on behalf of the client, but within the limits of the client's security context. A named pipe server thread can call the **ImpersonateNamedPipeClient** function to assume the access token of the user connected to the client end of the pipe. When a pipe client sends a request to the server, the server impersonates the client and attempts to access the protected database. The system then grants or denies the server's access, based on the security level of the client. The impersonation level determines the operations the server can perform while impersonating the client. However, when the client calls the **CreateFile** function to open a handle to the client end of the pipe, the client can use the SECURITY\\_SQOS\\_PRESENT flag to control the server's impersonation level. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}
