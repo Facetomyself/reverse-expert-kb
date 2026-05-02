@@ -12,6 +12,7 @@ Related pages:
 - topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md
 - topics/native-dbus-service-activation-to-method-consumer-workflow-note.md
 - topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md
+- topics/native-windows-named-pipe-impersonation-to-handler-consumer-workflow-note.md
 - topics/native-callback-registration-to-event-loop-consumer-workflow-note.md
 - topics/native-completion-port-and-thread-pool-first-consumer-workflow-note.md
 - topics/native-window-creation-and-subclass-first-consumer-workflow-note.md
@@ -78,6 +79,10 @@ A Linux service/desktop reminder now worth preserving inside family 5 before wid
 A second Linux service/desktop reminder now worth preserving inside family 5 is the Unix-domain socket fd/credential seam:
 - AF_UNIX endpoint visibility, peer identity, credential evidence, ancillary-data survival, descriptor lineage, dispatch branch, and handler-owned consumer are different proof objects
 - use `topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md` when the visible API is a pathname/abstract/socketpair Unix socket, `sendmsg(...)` / `recvmsg(...)`, `SCM_RIGHTS`, `SO_PEERCRED`, `SO_PASSCRED`, or `SCM_CREDENTIALS`, and the current liar is whether **endpoint != peer/cred != ancillary-intact != fd-lineage != dispatched != consumed** was flattened into one claim
+
+A Windows service/helper reminder now worth preserving inside family 5 is the named-pipe impersonation seam:
+- pipe endpoint visibility, current client connection, request-read ownership, client identity / impersonation level, successful `ImpersonateNamedPipeClient(...)` lifetime, and handler-owned operation are different proof objects
+- use `topics/native-windows-named-pipe-impersonation-to-handler-consumer-workflow-note.md` when the visible API is `CreateNamedPipe*`, `ConnectNamedPipe`, overlapped pipe read/write state, `GetNamedPipeClientProcessId`, `ImpersonateNamedPipeClient`, `RevertToSelf`, or token duplication, and the current liar is whether **pipe != connected != read != impersonated != in-lifetime operation != consumed/effected** was flattened into one claim
 
 A compact operator ladder for this branch is:
 
@@ -217,6 +222,7 @@ Primary note:
 Possible next handoff:
 - `topics/native-dbus-service-activation-to-method-consumer-workflow-note.md` if the service-owned question narrows specifically into D-Bus activation, name-owner, object/interface/member, and method-dispatch truth
 - `topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md` if the service-owned question narrows specifically into AF_UNIX endpoint, peer credential, ancillary-data, fd-lineage, and handler-consumer truth
+- `topics/native-windows-named-pipe-impersonation-to-handler-consumer-workflow-note.md` if the service-owned question narrows specifically into Windows named-pipe instance, request-read, client identity / impersonation level, impersonation lifetime, and in-lifetime handler operation truth
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/malware-reporting-and-handoff-evidence-packaging-workflow-note.md`
@@ -253,6 +259,7 @@ Typical question:
 Primary notes:
 - `topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md`
 - `topics/native-dbus-service-activation-to-method-consumer-workflow-note.md` when the service ingress is D-Bus-shaped and the main uncertainty is bus instance / activation / current owner / method delivery / binding dispatch before one handler-owned consumer
+- `topics/native-windows-named-pipe-impersonation-to-handler-consumer-workflow-note.md` when the service/helper ingress is named-pipe-shaped and the main uncertainty is pipe instance / client request / identity or impersonation level / impersonation lifetime / first handler-owned operation
 
 Routing reminder:
 - when the case is Windows-service-shaped, keep **dispatcher connection**, **`ServiceMain` entry**, **handler-registration / accepted-controls truth**, **control-handler entry**, **worker handoff**, and **first worker-owned consumer** separate instead of flattening them into one vague service path
@@ -338,6 +345,7 @@ This branch is currently strongest at practical notes for:
 - turning visible plugin/module loader structure into one first real module consumer proof
 - turning visible service/daemon control structure into one first worker-owned consumer proof
 - turning Unix-domain socket fd / credential handoff into one descriptor-lineage and handler-owned consumer proof
+- turning Windows named-pipe impersonation and service IPC into one request/token/lifetime and handler-owned operation proof
 - turning visible async framework structure into one consequence-bearing consumer proof
 
 That makes the branch good at cases where the main problem is not broad taxonomy or missing visibility, but choosing one proof-worthy reduction step inside a mostly readable native target.
