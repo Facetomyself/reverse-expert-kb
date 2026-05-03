@@ -13,6 +13,7 @@ Related pages:
 - topics/native-dbus-service-activation-to-method-consumer-workflow-note.md
 - topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md
 - topics/native-windows-named-pipe-impersonation-to-handler-consumer-workflow-note.md
+- topics/native-macos-servicemanagement-xpc-helper-consumer-workflow-note.md
 - topics/native-callback-registration-to-event-loop-consumer-workflow-note.md
 - topics/native-completion-port-and-thread-pool-first-consumer-workflow-note.md
 - topics/native-window-creation-and-subclass-first-consumer-workflow-note.md
@@ -83,6 +84,10 @@ A second Linux service/desktop reminder now worth preserving inside family 5 is 
 A Windows service/helper reminder now worth preserving inside family 5 is the named-pipe impersonation seam:
 - pipe endpoint visibility, current client connection, request-read ownership, client identity / impersonation level, successful `ImpersonateNamedPipeClient(...)` lifetime, and handler-owned operation are different proof objects
 - use `topics/native-windows-named-pipe-impersonation-to-handler-consumer-workflow-note.md` when the visible API is `CreateNamedPipe*`, `ConnectNamedPipe`, overlapped pipe read/write state, `GetNamedPipeClientProcessId`, `ImpersonateNamedPipeClient`, `RevertToSelf`, or token duplication, and the current liar is whether **pipe != connected != read != impersonated != in-lifetime operation != consumed/effected** was flattened into one claim
+
+A macOS service/helper reminder now worth preserving inside family 5 is the ServiceManagement / launchd / XPC seam:
+- helper registration, launchd domain state, Mach-service or XPC endpoint publication, helper process identity, client trust acceptance, method entry, reply/lifecycle behavior, and helper-owned effect are different proof objects
+- use `topics/native-macos-servicemanagement-xpc-helper-consumer-workflow-note.md` when the visible API is `SMAppService`, legacy `SMJobBless`, LaunchDaemon / LaunchAgent `MachServices`, bundled `XPCServices/*.xpc`, `NSXPCConnection`, `NSXPCListener`, or `xpc_connection_create_mach_service(...)`, and the current liar is whether **registered != domain-live != endpoint-published != launched-identity != accepted-client != method-entered != replied/lifecycle != consumed/effected** was flattened into one claim
 
 A compact operator ladder for this branch is:
 
