@@ -1,0 +1,445 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "macOS XPC ServiceManagement SMAppService helper tool reverse engineering XPC service launchd Mach service handler consumer proof",
+    "Apple SMAppService launchd MachServices XPC helper app reverse engineering service management documentation",
+    "macOS privileged helper tool ServiceManagement XPC Mach service launchd reverse engineering workflow"
+  ],
+  "count": 24,
+  "results": [
+    {
+      "title": "Service Management | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/tags/servicemanagement/?page=3&sortBy=oldest&sortOrder=DESC",
+      "snippet": "*   [Apple Developer](https://developer.apple.com/). *   [Apple Developer](https://developer.apple.com/). [Forums](https://developer.apple.com/forums/). *   [Search](https://developer.apple.com/forums/search). [Post](https://developer.apple.com/forums/post/question). [RSS for tag](https://developer.apple.com/forums/tags/rssFeed/servicemanagement). [Service Management Documentation](https://developer.apple.com/documentation/ServiceManagement). *   [Activity](https://developer.apple.com/forums/tags/servicemanagement?sortBy=activity&sortOrder=desc&open-dropdown=true). *   [Replies](https://developer.apple.com/forums/tags/servicemanagement?sortBy=replies&sortOrder=desc&open-dropdown=true). *   [Boosts](https://developer.apple.com/forums/tags/servicemanagement?sortBy=boosts&sortOrder=desc&open-dropdown=true). *   [Created](https://developer.apple.com/forums/tags/servicemanagement?sortBy=created&sortOrder=desc&open-dropdown=true). [libswiftCompatibilitySpan.dylib missing in XCode 26.3](https://developer.apple.com/forums/thread/817488). [Securing XPC Daemon Communication from Authorization Plugin](https://developer.apple.com/forums/thread/819553). [SMAppService.daemon and AirWatch installation](https://developer.apple.com/forums/thread/823493). [libswiftCompatibilitySpan.dylib missing in XCode 26.3](https://developer.apple.com/forums/thread/817488). [Securing XPC Daemon Communication from Authorization Plugin](https://developer.apple.com/forums/thread/819553). [SMAppService.daemon and AirWatch installation](https://developer.apple.com/forums/thread/823493). 1.   [First](https://developer.apple.com/forums/tags/servicemanagement?sortBy=oldest&sortOrder=DESC). 2.   [](https://developer.apple.com/forums/tags/servicemanagement?page=2&sortBy=oldest&sortOrder=DESC). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-platform)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [iOS](https://developer.apple.com/ios/). *   [iPadOS](https://developer.apple.com/ipados/). *   [macOS](https://developer.apple.com/macos/). *   [tvOS](https://developer.apple.com/tvos/). *   [watchOS](https://developer.apple.com/watchos/). *   [visionOS](https://developer.apple.com/visionos/). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-tools)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [Swift](https://developer.apple.com/swift/). *   [SwiftUI](https://developer.apple.com/swiftui/). *   [TestFlight](https://developer.apple.com/testflight/). *   [Xcode](https://developer.apple.com/xcode/). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-topics)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [Accessibility](https://developer.apple.com/accessibility/). *   [Accessories](https://developer.apple.com/accessories/). *   [App Extensions](https://developer.apple.com/app-extensions/). *   [App Store](https://developer.apple.com/app-store/). *   [Design](https://developer.apple.com/design/). *   [Distribution](https://developer.apple.com/distribute/). *   [Education](https://developer.apple.com/education/). *   [Fonts](https://developer.apple.com/fonts/). *   [Games](https://developer.apple.com/games/). *   [Localization](https://developer.apple.com/localization/). *   [Security](https://developer.apple.com/security/). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-resources)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [Documentation](https://developer.apple.com/documentation/). *   [Tutorials](https://developer.apple.com/learn/). *   [Downloads](https://developer.apple.com/download/). *   [Forums](https://developer.apple.com/forums/). *   [Videos](https://developer.apple.com/videos/). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-support)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [Contact Us](https://developer.apple.com/contact/). *   [System Status](https://developer.apple.com/system-status/). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-account)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [Apple Developer](https://developer.apple.com/account/). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-programs)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [Security Bounty Program](https://developer.apple.com/security-bounty/). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-events)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [Meet with Apple](https://developer.apple.com/events/). *   [WWDC](https://developer.apple.com/wwdc/).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7286
+    },
+    {
+      "title": "Service Management | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/tags/servicemanagement/?page=2&sortBy=oldest&sortOrder=DESC",
+      "snippet": "The app I'm building has a helper tool using SMAppService. When I run the app and helper tool in macOS 15 or macOS 26, all works as expected. When it runs",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7071
+    },
+    {
+      "title": "alienator88/HelperToolApp: Swift privileged helper tool ...",
+      "url": "https://github.com/alienator88/HelperToolApp",
+      "snippet": "HelperToolApp is a demo macOS application that works alongside a privileged helper tool to perform tasks requiring elevated privileges using SMAppService",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7071
+    },
+    {
+      "title": "aronskaya/smjobbless: A showcase for launching Privileged Helper ...",
+      "url": "https://github.com/aronskaya/smjobbless",
+      "snippet": "In order to start the Helper tool, we need to register its label with launchd . A convention is to use reverse DNS notation, like com.myApp.myService or com.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7071
+    },
+    {
+      "title": "Updating your app package installer to use the new Service Management API | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/ServiceManagement/updating-your-app-package-installer-to-use-the-new-service-management-api",
+      "snippet": "# Updating your app package installer to use the new Service Management API | Apple Developer Documentation. 3 of 18 symbols inside <root>Updating your app package installer to use the new Service Management API. *    Updating your app package installer to use the new Service Management API. # Updating your app package installer to use the new Service Management API. This sample code project demonstrates how to structure your app package installer and use the new Service Management APIs. The sample project places the helper executable’s `launchd` property lists in the helper executable’s bundle, rather than relying on shared locations like `/Library/LaunchDaemons`. *   `SMAppServiceSampleCode`, which builds a GUI-less app that contains the sample launch agent binary property list and an executable to register the agent at install time. The installer adds a new login item in System Settings and installs the sample launch agent `SampleLaunchAgent` in the directory `/Library/Application Support/YOURDEVELOPERNAME`. Current page is Updating your app package installer to use the new Service Management API.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6857
+    },
+    {
+      "title": "SMAppService | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/servicemanagement/smappservice",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6429
+    },
+    {
+      "title": "SMAppService.daemon as root | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/thread/751439",
+      "snippet": "",
+      "published_date": "2025-03-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "Understanding Priviledged Helper Tools in OSX",
+      "url": "https://stackoverflow.com/questions/45589548/understanding-priviledged-helper-tools-in-osx",
+      "snippet": "",
+      "published_date": "2017-08-09T11:35:38.000Z",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "Writing a privileged helper tool with SMJobBless()",
+      "url": "https://stackoverflow.com/questions/9134841/writing-a-privileged-helper-tool-with-smjobbless",
+      "snippet": "",
+      "published_date": "2012-02-03T20:09:20.000Z",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "Service Management | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/servicemanagement",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6214
+    },
+    {
+      "title": "Service Management | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest",
+      "snippet": "The Service Management framework provides facilities to load and unload launched services and read and modify launched dictionaries from within an",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6214
+    },
+    {
+      "title": "trilemma-dev/SecureXPC",
+      "url": "https://github.com/trilemma-dev/SecureXPC",
+      "snippet": "",
+      "published_date": "2021-10-08T13:40:16.000Z",
+      "source": "exa",
+      "score": 0.6214
+    },
+    {
+      "title": "malpern/privileged_helper_help",
+      "url": "https://github.com/malpern/privileged_helper_help",
+      "snippet": "",
+      "published_date": "2025-07-09T05:04:19.000Z",
+      "source": "exa",
+      "score": 0.6214
+    },
+    {
+      "title": "SMJobBless(_:_:_:_:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/servicemanagement/smjobbless(_:_:_:_:)?changes=_4",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Setup LaunchAgent in Xcode | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/thread/745009",
+      "snippet": "",
+      "published_date": "2024-02-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "trilemma-dev/SwiftAuthorizationSample",
+      "url": "https://github.com/trilemma-dev/SwiftAuthorizationSample",
+      "snippet": "",
+      "published_date": "2021-10-22T15:06:29.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "ReadMe.txt",
+      "url": "https://developer.apple.com/library/archive/samplecode/SMJobBless/Listings/ReadMe_txt.html",
+      "snippet": "",
+      "published_date": "2013-09-17T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How to use SMAppService to launch a launchd Agent (2023) (Broken)",
+      "url": "https://medium.com/@teajmin/how-to-use-smappservice-to-launch-a-launchd-agent-2023-f663e4c3a9d4",
+      "snippet": "A launchd primer covering configuration, administration and troubleshooting. Complete with examples.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4643
+    },
+    {
+      "title": "macOS XPC Mach Services Abuse - HackTricks",
+      "url": "https://hacktricks.wiki/en/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-xpc-mach-services-abuse.html",
+      "snippet": "Client Process (user context) ↓ NSXPCConnection / xpc_connection_create_mach_service() ↓ Mach message via launchd Daemon Process (root context) ↓ Receives XPC message ↓ (Should verify client identity / entitlements) ↓ Performs privileged operation. // Minimal XPC client — connect to a LaunchDaemon's Mach service #import  @protocol VulnDaemonProtocol - (void)runCommandAsRoot:(NSString *)command withReply:(void (^)(NSString *))reply; @end int main(void) { @autoreleasepool { NSXPCConnection *conn = [[NSXPCConnection alloc] initWithMachServiceName:@\"com.example.vulndaemon\" options:NSXPCConnectionPrivileged]; conn.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(VulnDaemonProtocol)]; [conn resume]; id proxy = [conn remoteObjectProxyWithErrorHandler:^(NSError *error) { NSLog(@\"Connection error: %@\", error); }]; // If the daemon doesn't verify our identity, this works: [proxy runCommandAsRoot:@\"id\" withReply:^(NSString *result) { NSLog(@\"Result: %@\", result); // Output: uid=0(root) }]; [[NSRunLoop currentRunLoop] run]; } }.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4286
+    },
+    {
+      "title": "How to use launchd to run a helper app as root?",
+      "url": "https://apple-dev.groups.io/g/xcode/topic/how_to_use_launchd_to_run_a/7991824",
+      "snippet": "... XPC as the communications medium between app and helper tool. The SMJobLess function in ServiceManagement.framework does the checking and",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4286
+    },
+    {
+      "title": "Attacking macOS XPC Helpers: Protocol Reverse Engineering | Reverse Society",
+      "url": "https://tonygo.netlify.app/blog/2025/how-to-attack-macos-application-xpc-helpers",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4071
+    },
+    {
+      "title": "installing a SMAppService based La… | Apple Developer Forums",
+      "url": "https://origin-devforums.apple.com/forums/thread/771162",
+      "snippet": "due to various issues with the old `SMJobBless()` approach we have ported to helper to the new `SMAppService` API where the helpers do not need to be installed but remain within the app bundle ( `[[SMAppService daemonServiceWithPlistName:HELPER_PLIST_NAME] registerAndReturnError:&err]` ). So, one option here is to repackage your app as an installer package, and have the installer package install the daemon like it would any other `launchd` daemon, that is, copy the `launchd` property list file to `/Library/LaunchDaemons`. now that the app('s helper) is based on SMAppService, how to install&approve the helper instead? So, one option here is to repackage your app as an installer package, and have the installer package install the daemon like it would any other `launchd` daemon, that is, copy the `launchd` property list file to `/Library/LaunchDaemons`. to recap, to install a `SMAppService` based LaunchDaemon from a script or a PKG instead of interactively with `daemonServiceWithPlistName` you only need to change the `BundleProgram` key in the helpers plist to `Program` or `ProgramArguments`.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3857
+    },
+    {
+      "title": "Creating a Launch Agent that provides an XPC service on macOS ...",
+      "url": "https://rderik.com/blog/creating-a-launch-agent-that-provides-an-xpc-service-on-macos/",
+      "snippet": "This week we are going to explore how to provide XPC services that can be used from other applications or tools. To make the XPC service",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3857
+    },
+    {
+      "title": "CVE-2020-9971 Abusing XPC Service mechanism to elevate privilege in macOS/iOS - Tencent Xuanwu Lab",
+      "url": "https://xlab.tencent.com/en/2021/01/11/cve-2020-9971-abusing-xpc-service-to-elevate-privilege/",
+      "snippet": "If we could add a custom XPC Service to a root process’s domain, the XPC Service would probably be launched with that process’s privilege. Let’s see the process domain access check when trying to add a XPC Service to a process domain in macOS before Big Sur. The access check does not compare the caller pid and process domain’s owner pid. If we could pass in a path contains `../`to this access check function, we could bypass the check and add custom XPC Service to a process domain even in the most restricted app sandbox. Until now, we have known that we may add a custom XPC Service to other process domain. At here, I try to add a custom XPC Service which placed at the same directory of exploit application to a `systemsoundserverd` process domain through path traversal issue. When finished, we could output the XPC Service information in target process domain.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "SMAppService | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/servicemanagement/smappservice",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6429
+      },
+      {
+        "title": "Service Management | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/servicemanagement",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6214
+      },
+      {
+        "title": "SMJobBless(_:_:_:_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/servicemanagement/smjobbless(_:_:_:_:)?changes=_4",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "SMAppService.daemon as root | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/751439",
+        "snippet": "",
+        "published_date": "2025-03-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "Setup LaunchAgent in Xcode | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/745009",
+        "snippet": "",
+        "published_date": "2024-02-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Attacking macOS XPC Helpers: Protocol Reverse Engineering | Reverse Society",
+        "url": "https://tonygo.netlify.app/blog/2025/how-to-attack-macos-application-xpc-helpers",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4071
+      },
+      {
+        "title": "trilemma-dev/SecureXPC",
+        "url": "https://github.com/trilemma-dev/SecureXPC",
+        "snippet": "",
+        "published_date": "2021-10-08T13:40:16.000Z",
+        "source": "exa",
+        "score": 0.6214
+      },
+      {
+        "title": "Understanding Priviledged Helper Tools in OSX",
+        "url": "https://stackoverflow.com/questions/45589548/understanding-priviledged-helper-tools-in-osx",
+        "snippet": "",
+        "published_date": "2017-08-09T11:35:38.000Z",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "malpern/privileged_helper_help",
+        "url": "https://github.com/malpern/privileged_helper_help",
+        "snippet": "",
+        "published_date": "2025-07-09T05:04:19.000Z",
+        "source": "exa",
+        "score": 0.6214
+      },
+      {
+        "title": "Service Management | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/servicemanagement",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "SMJobBless(_:_:_:_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/servicemanagement/smjobbless(_:_:_:_:)?changes=_4",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "trilemma-dev/SwiftAuthorizationSample",
+        "url": "https://github.com/trilemma-dev/SwiftAuthorizationSample",
+        "snippet": "",
+        "published_date": "2021-10-22T15:06:29.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Writing a privileged helper tool with SMJobBless()",
+        "url": "https://stackoverflow.com/questions/9134841/writing-a-privileged-helper-tool-with-smjobbless",
+        "snippet": "",
+        "published_date": "2012-02-03T20:09:20.000Z",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "Understanding Priviledged Helper Tools in OSX",
+        "url": "https://stackoverflow.com/questions/45589548/understanding-priviledged-helper-tools-in-osx",
+        "snippet": "",
+        "published_date": "2017-08-09T11:35:38.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "ReadMe.txt",
+        "url": "https://developer.apple.com/library/archive/samplecode/SMJobBless/Listings/ReadMe_txt.html",
+        "snippet": "",
+        "published_date": "2013-09-17T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      }
+    ],
+    "tavily": [
+      {
+        "title": "SMAppService | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/servicemanagement/smappservice",
+        "snippet": "[Skip Navigation](https://developer.apple.com/documentation/servicemanagement/smappservice#app-main). *   [Featured Updates](https://developer.apple.com/documentation/Updates). [Open Menu](https://developer.apple.com/documentation/servicemanagement/smappservice#). *   [Objective-C](https://developer.apple.com/documentation/servicemanagement/smappservice#). [](https://developer.apple.com/documentation/servicemanagement/smappservice#). ## [Service Management](https://developer.apple.com/documentation/servicemanagement). 14 of 18 symbols inside <root> containing 12 symbols[Service Management Errors](https://developer.apple.com/documentation/servicemanagement/service-management-errors). 16 of 16 symbols inside -421619292 [class func statusForLegacyPlist(at: URL) -> SMAppService.Status](https://developer.apple.com/documentation/servicemanagement/smappservice/statusforlegacyplist(at:)). 13 of 16 symbols inside -421619292 [var status: SMAppService.Status](https://developer.apple.com/documentation/servicemanagement/smappservice/status-swift.property). 11 of 16 symbols inside -421619292 [class func openSystemSettingsLoginItems()](https://developer.apple.com/documentation/servicemanagement/smappservice/opensystemsettingsloginitems()). 4 of 16 symbols inside -421619292 [func unregister(completionHandler: ((any Error)?) -> Void)](https://developer.apple.com/documentation/servicemanagement/smappservice/unregister(completionhandler:)). 3 of 16 symbols inside -421619292 [func unregister() throws](https://developer.apple.com/documentation/servicemanagement/smappservice/unregister()). 2 of 16 symbols inside -421619292 [func register() throws](https://developer.apple.com/documentation/servicemanagement/smappservice/register()). 5 of 18 symbols inside <root> containing 16 symbols[SMAppService](https://developer.apple.com/documentation/servicemanagement/smappservice). 3 of 18 symbols inside <root>[Updating your app package installer to use the new Service Management API](https://developer.apple.com/documentation/servicemanagement/updating-your-app-package-installer-to-use-the-new-service-management-api). 2 of 18 symbols inside <root>[Updating helper executables from earlier versions of macOS](https://developer.apple.com/documentation/servicemanagement/updating-helper-executables-from-earlier-versions-of-macos). *   [Service Management](https://developer.apple.com/documentation/servicemanagement). ## [Overview](https://developer.apple.com/documentation/servicemanagement/smappservice#overview). ## [Topics](https://developer.apple.com/documentation/servicemanagement/smappservice#topics). ### [Registering services](https://developer.apple.com/documentation/servicemanagement/smappservice#Registering-services). [`func register() throws`](https://developer.apple.com/documentation/servicemanagement/smappservice/register()). ### [Managing apps](https://developer.apple.com/documentation/servicemanagement/smappservice#Managing-apps). ### [Interacting with System Settings](https://developer.apple.com/documentation/servicemanagement/smappservice#Interacting-with-System-Settings). ### [Getting the state of the service](https://developer.apple.com/documentation/servicemanagement/smappservice#Getting-the-state-of-the-service). ## [See Also](https://developer.apple.com/documentation/servicemanagement/smappservice#see-also). ### [Management](https://developer.apple.com/documentation/servicemanagement/smappservice#Management).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Updating your app package installer to use the new Service Management API | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/ServiceManagement/updating-your-app-package-installer-to-use-the-new-service-management-api",
+        "snippet": "# Updating your app package installer to use the new Service Management API | Apple Developer Documentation. 3 of 18 symbols inside <root>Updating your app package installer to use the new Service Management API. *    Updating your app package installer to use the new Service Management API. # Updating your app package installer to use the new Service Management API. This sample code project demonstrates how to structure your app package installer and use the new Service Management APIs. The sample project places the helper executable’s `launchd` property lists in the helper executable’s bundle, rather than relying on shared locations like `/Library/LaunchDaemons`. *   `SMAppServiceSampleCode`, which builds a GUI-less app that contains the sample launch agent binary property list and an executable to register the agent at install time. The installer adds a new login item in System Settings and installs the sample launch agent `SampleLaunchAgent` in the directory `/Library/Application Support/YOURDEVELOPERNAME`. Current page is Updating your app package installer to use the new Service Management API.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6857
+      },
+      {
+        "title": "installing a SMAppService based La… | Apple Developer Forums",
+        "url": "https://origin-devforums.apple.com/forums/thread/771162",
+        "snippet": "due to various issues with the old `SMJobBless()` approach we have ported to helper to the new `SMAppService` API where the helpers do not need to be installed but remain within the app bundle ( `[[SMAppService daemonServiceWithPlistName:HELPER_PLIST_NAME] registerAndReturnError:&err]` ). So, one option here is to repackage your app as an installer package, and have the installer package install the daemon like it would any other `launchd` daemon, that is, copy the `launchd` property list file to `/Library/LaunchDaemons`. now that the app('s helper) is based on SMAppService, how to install&approve the helper instead? So, one option here is to repackage your app as an installer package, and have the installer package install the daemon like it would any other `launchd` daemon, that is, copy the `launchd` property list file to `/Library/LaunchDaemons`. to recap, to install a `SMAppService` based LaunchDaemon from a script or a PKG instead of interactively with `daemonServiceWithPlistName` you only need to change the `BundleProgram` key in the helpers plist to `Program` or `ProgramArguments`.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3857
+      },
+      {
+        "title": "Service Management | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest",
+        "snippet": "The Service Management framework provides facilities to load and unload launched services and read and modify launched dictionaries from within an",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6214
+      },
+      {
+        "title": "How to use SMAppService to launch a launchd Agent (2023) (Broken)",
+        "url": "https://medium.com/@teajmin/how-to-use-smappservice-to-launch-a-launchd-agent-2023-f663e4c3a9d4",
+        "snippet": "A launchd primer covering configuration, administration and troubleshooting. Complete with examples.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4643
+      },
+      {
+        "title": "Service Management | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/tags/servicemanagement/?page=2&sortBy=oldest&sortOrder=DESC",
+        "snippet": "The app I'm building has a helper tool using SMAppService. When I run the app and helper tool in macOS 15 or macOS 26, all works as expected. When it runs",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7071
+      },
+      {
+        "title": "alienator88/HelperToolApp: Swift privileged helper tool ...",
+        "url": "https://github.com/alienator88/HelperToolApp",
+        "snippet": "HelperToolApp is a demo macOS application that works alongside a privileged helper tool to perform tasks requiring elevated privileges using SMAppService",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7071
+      },
+      {
+        "title": "Service Management | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest",
+        "snippet": "The same helper tool works as expected with XCode 26.2. The helper is installed using SMAppService. When I remove the dependency for SubProcess, the crash no",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Service Management | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/tags/servicemanagement/?page=3&sortBy=oldest&sortOrder=DESC",
+        "snippet": "*   [Apple Developer](https://developer.apple.com/). *   [Apple Developer](https://developer.apple.com/). [Forums](https://developer.apple.com/forums/). *   [Search](https://developer.apple.com/forums/search). [Post](https://developer.apple.com/forums/post/question). [RSS for tag](https://developer.apple.com/forums/tags/rssFeed/servicemanagement). [Service Management Documentation](https://developer.apple.com/documentation/ServiceManagement). *   [Activity](https://developer.apple.com/forums/tags/servicemanagement?sortBy=activity&sortOrder=desc&open-dropdown=true). *   [Replies](https://developer.apple.com/forums/tags/servicemanagement?sortBy=replies&sortOrder=desc&open-dropdown=true). *   [Boosts](https://developer.apple.com/forums/tags/servicemanagement?sortBy=boosts&sortOrder=desc&open-dropdown=true). *   [Created](https://developer.apple.com/forums/tags/servicemanagement?sortBy=created&sortOrder=desc&open-dropdown=true). [libswiftCompatibilitySpan.dylib missing in XCode 26.3](https://developer.apple.com/forums/thread/817488). [Securing XPC Daemon Communication from Authorization Plugin](https://developer.apple.com/forums/thread/819553). [SMAppService.daemon and AirWatch installation](https://developer.apple.com/forums/thread/823493). [libswiftCompatibilitySpan.dylib missing in XCode 26.3](https://developer.apple.com/forums/thread/817488). [Securing XPC Daemon Communication from Authorization Plugin](https://developer.apple.com/forums/thread/819553). [SMAppService.daemon and AirWatch installation](https://developer.apple.com/forums/thread/823493). 1.   [First](https://developer.apple.com/forums/tags/servicemanagement?sortBy=oldest&sortOrder=DESC). 2.   [](https://developer.apple.com/forums/tags/servicemanagement?page=2&sortBy=oldest&sortOrder=DESC). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-platform)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [iOS](https://developer.apple.com/ios/). *   [iPadOS](https://developer.apple.com/ipados/). *   [macOS](https://developer.apple.com/macos/). *   [tvOS](https://developer.apple.com/tvos/). *   [watchOS](https://developer.apple.com/watchos/). *   [visionOS](https://developer.apple.com/visionos/). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-tools)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [Swift](https://developer.apple.com/swift/). *   [SwiftUI](https://developer.apple.com/swiftui/). *   [TestFlight](https://developer.apple.com/testflight/). *   [Xcode](https://developer.apple.com/xcode/). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-topics)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [Accessibility](https://developer.apple.com/accessibility/). *   [Accessories](https://developer.apple.com/accessories/). *   [App Extensions](https://developer.apple.com/app-extensions/). *   [App Store](https://developer.apple.com/app-store/). *   [Design](https://developer.apple.com/design/). *   [Distribution](https://developer.apple.com/distribute/). *   [Education](https://developer.apple.com/education/). *   [Fonts](https://developer.apple.com/fonts/). *   [Games](https://developer.apple.com/games/). *   [Localization](https://developer.apple.com/localization/). *   [Security](https://developer.apple.com/security/). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-resources)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [Documentation](https://developer.apple.com/documentation/). *   [Tutorials](https://developer.apple.com/learn/). *   [Downloads](https://developer.apple.com/download/). *   [Forums](https://developer.apple.com/forums/). *   [Videos](https://developer.apple.com/videos/). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-support)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [Contact Us](https://developer.apple.com/contact/). *   [System Status](https://developer.apple.com/system-status/). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-account)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [Apple Developer](https://developer.apple.com/account/). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-programs)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [Security Bounty Program](https://developer.apple.com/security-bounty/). [Open Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#footer-directory-column-section-state-events)[Close Menu](https://developer.apple.com/forums/tags/servicemanagement?page=3&sortBy=oldest&sortOrder=DESC#). *   [Meet with Apple](https://developer.apple.com/events/). *   [WWDC](https://developer.apple.com/wwdc/).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7286
+      },
+      {
+        "title": "macOS XPC Mach Services Abuse - HackTricks",
+        "url": "https://hacktricks.wiki/en/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-xpc-mach-services-abuse.html",
+        "snippet": "Client Process (user context) ↓ NSXPCConnection / xpc_connection_create_mach_service() ↓ Mach message via launchd Daemon Process (root context) ↓ Receives XPC message ↓ (Should verify client identity / entitlements) ↓ Performs privileged operation. // Minimal XPC client — connect to a LaunchDaemon's Mach service #import  @protocol VulnDaemonProtocol - (void)runCommandAsRoot:(NSString *)command withReply:(void (^)(NSString *))reply; @end int main(void) { @autoreleasepool { NSXPCConnection *conn = [[NSXPCConnection alloc] initWithMachServiceName:@\"com.example.vulndaemon\" options:NSXPCConnectionPrivileged]; conn.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(VulnDaemonProtocol)]; [conn resume]; id proxy = [conn remoteObjectProxyWithErrorHandler:^(NSError *error) { NSLog(@\"Connection error: %@\", error); }]; // If the daemon doesn't verify our identity, this works: [proxy runCommandAsRoot:@\"id\" withReply:^(NSString *result) { NSLog(@\"Result: %@\", result); // Output: uid=0(root) }]; [[NSRunLoop currentRunLoop] run]; } }.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4286
+      },
+      {
+        "title": "macOS XPC Mach Services Abuse - HackTricks",
+        "url": "https://hacktricks.wiki/en/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-xpc-mach-services-abuse.html",
+        "snippet": "Client Process (user context) ↓ NSXPCConnection / xpc_connection_create_mach_service() ↓ Mach message via launchd Daemon Process (root context) ↓ Receives XPC message ↓ (Should verify client identity / entitlements) ↓ Performs privileged operation. // Minimal XPC client — connect to a LaunchDaemon's Mach service #import  @protocol VulnDaemonProtocol - (void)runCommandAsRoot:(NSString *)command withReply:(void (^)(NSString *))reply; @end int main(void) { @autoreleasepool { NSXPCConnection *conn = [[NSXPCConnection alloc] initWithMachServiceName:@\"com.example.vulndaemon\" options:NSXPCConnectionPrivileged]; conn.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(VulnDaemonProtocol)]; [conn resume]; id proxy = [conn remoteObjectProxyWithErrorHandler:^(NSError *error) { NSLog(@\"Connection error: %@\", error); }]; // If the daemon doesn't verify our identity, this works: [proxy runCommandAsRoot:@\"id\" withReply:^(NSString *result) { NSLog(@\"Result: %@\", result); // Output: uid=0(root) }]; [[NSRunLoop currentRunLoop] run]; } }.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to use launchd to run a helper app as root?",
+        "url": "https://apple-dev.groups.io/g/xcode/topic/how_to_use_launchd_to_run_a/7991824",
+        "snippet": "... XPC as the communications medium between app and helper tool. The SMJobLess function in ServiceManagement.framework does the checking and",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4286
+      },
+      {
+        "title": "CVE-2020-9971 Abusing XPC Service mechanism to elevate privilege in macOS/iOS - Tencent Xuanwu Lab",
+        "url": "https://xlab.tencent.com/en/2021/01/11/cve-2020-9971-abusing-xpc-service-to-elevate-privilege/",
+        "snippet": "If we could add a custom XPC Service to a root process’s domain, the XPC Service would probably be launched with that process’s privilege. Let’s see the process domain access check when trying to add a XPC Service to a process domain in macOS before Big Sur. The access check does not compare the caller pid and process domain’s owner pid. If we could pass in a path contains `../`to this access check function, we could bypass the check and add custom XPC Service to a process domain even in the most restricted app sandbox. Until now, we have known that we may add a custom XPC Service to other process domain. At here, I try to add a custom XPC Service which placed at the same directory of exploit application to a `systemsoundserverd` process domain through path traversal issue. When finished, we could output the XPC Service information in target process domain.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "aronskaya/smjobbless: A showcase for launching Privileged Helper ...",
+        "url": "https://github.com/aronskaya/smjobbless",
+        "snippet": "In order to start the Helper tool, we need to register its label with launchd . A convention is to use reverse DNS notation, like com.myApp.myService or com.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7071
+      },
+      {
+        "title": "Creating a Launch Agent that provides an XPC service on macOS ...",
+        "url": "https://rderik.com/blog/creating-a-launch-agent-that-provides-an-xpc-service-on-macos/",
+        "snippet": "This week we are going to explore how to provide XPC services that can be used from other applications or tools. To make the XPC service",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3857
+      }
+    ],
+    "grok": []
+  }
+}

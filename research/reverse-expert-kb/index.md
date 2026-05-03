@@ -179,6 +179,7 @@ A top-level practical reading now worth preserving is that recent maintenance ha
 - `topics/native-dbus-service-activation-to-method-consumer-workflow-note.md`
 - `topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md`
 - `topics/native-windows-named-pipe-impersonation-to-handler-consumer-workflow-note.md`
+- `topics/native-macos-servicemanagement-xpc-helper-consumer-workflow-note.md`
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 - `topics/native-completion-port-and-thread-pool-first-consumer-workflow-note.md`
 - `topics/native-window-creation-and-subclass-first-consumer-workflow-note.md`

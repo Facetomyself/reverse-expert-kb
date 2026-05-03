@@ -15,6 +15,7 @@ Related pages:
 - topics/native-practical-subtree-guide.md
 - topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md
 - topics/native-windows-named-pipe-impersonation-to-handler-consumer-workflow-note.md
+- topics/native-macos-servicemanagement-xpc-helper-consumer-workflow-note.md
 - topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md
 - topics/native-apc-alertable-wait-first-consumer-workflow-note.md
 - topics/native-cocoa-responder-chain-and-target-action-first-consumer-workflow-note.md
@@ -202,7 +203,7 @@ The branch is now best entered through these recurring bottlenecks:
 - **interface-path overabundance** when one semantic anchor is already good enough, but imports/strings/xrefs/callbacks still expose several plausible routes and no one consequence-bearing path has been proved yet
 - **virtual-dispatch implementation uncertainty** when one route or object family is already plausible enough, but a visible vtable/interface-slot call still leaves several candidate runtime types, subobjects, or concrete implementations competing
 - **module-owner uncertainty** when one route or implementation family is already plausible enough, but plugin/module loaders, export resolution, factory registration, or provider installation still leave several loaded components competing and the first real owner is still unclear
-- **service-owned worker uncertainty** when service/daemon entry, control handlers, command dispatchers, or worker launchers are visible enough to read, but the first worker-owned consumer that actually changes behavior is still unclear; in Windows-service-shaped cases, preserve a thinner middle ladder so dispatcher connection, `ServiceMain` entry, handler-registration / accepted-controls posture, control-handler entry, worker handoff, and worker-owned consumer truth do not collapse together
+- **service-owned worker uncertainty** when service/daemon entry, control handlers, command dispatchers, local IPC endpoints, XPC helpers, or worker launchers are visible enough to read, but the first worker-owned consumer that actually changes behavior is still unclear; in Windows-service-shaped cases, preserve a thinner middle ladder so dispatcher connection, `ServiceMain` entry, handler-registration / accepted-controls posture, control-handler entry, worker handoff, and worker-owned consumer truth do not collapse together; in macOS helper cases, preserve the thinner ServiceManagement / launchd / XPC ladder so registration, domain-live state, endpoint publication, launched-helper identity, accepted-client truth, method entry, reply/lifecycle truth, and helper-owned effect do not collapse together
 - **async ownership break** when one route or owner is already plausible, but behavioral ownership now breaks at registration, queue, completion, callback, or event-loop delivery boundaries and the first consequence-bearing consumer is still unclear
 
 A compact operator ladder for this branch is:
