@@ -103,6 +103,8 @@ hosts:
       - hk.zhangxuemin.work
       - drop.hk.zhangxuemin.work
       - clash.hk.zhangxuemin.work
+      - cliproxy-cn.zhangxuemin.work
+      - claw-cn.zhangxuemin.work
     docs:
       host: infra/hosts/hk-relay/HOST.md
       network: infra/hosts/hk-relay/NETWORK.md
