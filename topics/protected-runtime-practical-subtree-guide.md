@@ -15,6 +15,7 @@ Related pages:
 - topics/input-invariant-opaque-predicate-to-valid-input-constraint-recovery-workflow-note.md
 - topics/flattened-dispatcher-to-state-edge-workflow-note.md
 - topics/packed-stub-to-oep-and-first-real-module-workflow-note.md
+- topics/write-protect-execute-to-first-consumer-workflow-note.md
 - topics/string-decryption-origin-to-artifact-provenance-workflow-note.md
 - topics/decrypted-artifact-to-first-consumer-workflow-note.md
 - topics/integrity-check-to-tamper-consequence-workflow-note.md
@@ -47,7 +48,7 @@ This page makes that branch read more like the malware, protocol, and mobile pra
 - a compact ladder for moving from protected churn toward one smaller trustworthy target
 
 ## 2. Core claim
-Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of thirteen recurring families:
+Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of fourteen recurring families:
 
 1. **anti-instrumentation gate triage**
    - some anti-instrumentation effect is already visible, but the first decisive gate family and its first consequence-bearing effect are still unclear
@@ -66,15 +67,17 @@ Protected-runtime practical work is easiest to navigate when the analyst first c
    - a dispatcher or flattened protected region is already recognizable enough that one trustworthy successor relation already exists, but the first durable state object, reducer helper, or dispatcher-exit edge is still unclear
 8. **packed / staged bootstrap handoff**
    - a stub, shell, decrypt/copy/fixup loop, or staged loader is already visible, but the first trustworthy post-unpack handoff is still unclear
-9. **string-decryption origin / artifact-provenance proof**
+9. **write / protect / execute handoff**
+   - runtime-produced bytes, executable mapping/protection changes, or self-modifying code are visible, but allocation, write generation, executable/cache readiness, first transfer, stable decoding, and first consumer are still being collapsed
+10. **string-decryption origin / artifact-provenance proof**
    - encoded or encrypted strings are clearly present and decoders, stack builders, or emulator outputs are visible, but decoder callsite truth, origin bytes, key/constant pairing, decoded-output validation, and consumer-ready provenance are still not separated
-10. **artifact-to-consumer proof**
+11. **artifact-to-consumer proof**
    - strings, config, tables, bytecode, or normalized buffers are already readable enough to inspect, but the first ordinary consumer is still missing
-11. **runtime-artifact / initialization-obligation recovery**
+12. **runtime-artifact / initialization-obligation recovery**
    - static dumps, repaired artifacts, or offline reconstructions look damaged, under-initialized, or close-but-wrong, while live/runtime state appears truer
-12. **integrity / tamper consequence proof**
+13. **integrity / tamper consequence proof**
    - checks are visible, but the first reduced result or consequence-bearing tripwire is still unclear
-13. **exception-handler-owned control transfer**
+14. **exception-handler-owned control transfer**
    - visible direct control flow stays incomplete or misleading because handler registration, dispatcher-side landing, unwind lookup, signal delivery, or trap-resume logic owns the meaningful branch
    - keep a thinner guard-page / fault-owned continuation reminder inside this family: **guard configured != first fault != re-armed mechanism != resumed consequence**, because one `PAGE_GUARD` hit or one fault delivery is often only landing truth rather than sustained ownership or behavior truth
 
@@ -96,6 +99,7 @@ The subtree is strongest when read as:
 - **normalize** one opaque-predicate or computed-next-state bottleneck into one trustworthy successor relation, often by anchoring on one helper output, normalized compare family, table index, or other smaller recovery object instead of the whole flattened block
 - **reduce** one recognizable flattened dispatcher or protected state machine into one durable state edge
 - **handoff** out of staged startup when packing/bootstrap dominates
+- **split** runtime-generated or self-modified code handoff into mapping/allocation, byte generation, executable/cache readiness, first transfer, stable code decoding, and first ordinary consumer proof
 - **preserve provenance** for recovered strings when decoder identity, callsite/slice truth, origin bytes, key/constant pairing, and decoded-output validation are still shaky
 - **consume** recovered artifacts when readable material exists but ordinary use is still unproved
 - **stabilize** one truthful runtime artifact plus one minimal init obligation when static views are still lying
@@ -244,6 +248,22 @@ Do **not** start here when:
 - there is no real loader/stub handoff problem and the target is already post-unpack
 - unpacking is solved enough, but later VM/flattened execution still dominates
 - the readable object already exists and the real bottleneck is its consumer
+
+
+### Start with `write-protect-execute-to-first-consumer-workflow-note`
+Use:
+- `topics/write-protect-execute-to-first-consumer-workflow-note.md`
+
+Start here when:
+- a candidate code range is already visible through allocation, mapping, `VirtualProtect` / `mprotect`, RWX/RX memory, decoder writes, self-modifying code, JIT-like publication, or first execution into dynamic memory
+- the remaining ambiguity is narrower than broad packed-stub/OEP recovery but earlier than ordinary artifact-consumer proof
+- the next useful output is one generation-aware range, one byte-production window, one executable/coherent readiness boundary, one first transfer, and one first ordinary consumer/effect
+- the analyst needs to avoid overreading executable-memory inventory or one dramatic jump as final payload proof
+
+Do **not** start here when:
+- the current problem is still broad stub/OEP discovery across multiple stages; start with packed-stub -> OEP first
+- the emitted/recovered artifact is already stable and readable, and the only remaining question is which ordinary consumer uses it
+- the dynamic-code range is just a benign reduction surface and no downstream behavior hypothesis exists yet
 
 ### Start with `string-decryption-origin-to-artifact-provenance-workflow-note`
 Use:
@@ -525,13 +545,15 @@ When a case is clearly protected-runtime shaped, ask these in order:
    - if yes, continue into flattened-dispatcher -> state-edge reduction
 6. **Am I still stuck proving the post-unpack handoff?**
    - if yes, start with packed-stub -> OEP
-7. **Do I already have a readable recovered artifact, but no ordinary consumer?**
+7. **Is the narrower liar now a runtime-produced code range?**
+   - if yes, start with write/protect/execute -> first consumer
+8. **Do I already have a readable recovered artifact, but no ordinary consumer?**
    - if yes but string provenance is still weak, start with string-decryption origin -> artifact provenance; if provenance is already stable, start with decrypted-artifact -> first consumer
-8. **Are static artifacts or offline replay close-but-wrong because one runtime artifact or init obligation is still missing?**
+9. **Are static artifacts or offline replay close-but-wrong because one runtime artifact or init obligation is still missing?**
    - if yes, start with runtime-table / initialization-obligation recovery
-9. **Are checks already visible, but the first behavior-changing consequence is still hidden?**
+10. **Are checks already visible, but the first behavior-changing consequence is still hidden?**
    - if yes, start with integrity-check -> tamper consequence
-10. **Does visible direct control flow still stay incomplete because traps, faults, breakpoints, or signal delivery may own the meaningful branch?**
+11. **Does visible direct control flow still stay incomplete because traps, faults, breakpoints, or signal delivery may own the meaningful branch?**
    - if yes, start with exception-handler-owned control transfer
 
 If more than one feels true, prefer the earliest boundary that still blocks later work.
@@ -542,6 +564,7 @@ That usually means:
 - resolve trace churn into one stable semantic anchor before cataloging a recognizable flattened dispatcher in detail
 - resolve one dispatcher/state edge before treating the case as ordinary native follow-up
 - resolve packed/bootstrap handoff before artifact-consumer proof
+- resolve write/protect/execute handoff before treating executable memory as final payload or ordinary artifact
 - resolve runtime-artifact / init-obligation drift before rewriting core logic again
 - resolve integrity result reduction before treating later degrade/decoy behavior as explained
 - resolve one handler-owned transfer boundary before inventing wider missing-control-flow stories around the whole target
@@ -552,6 +575,7 @@ This branch is currently strongest at practical notes for:
 - reducing virtualized execution into one semantic anchor
 - reducing a recognizable flattened dispatcher or protected state machine into one durable state edge
 - turning stub-heavy startup into one trustworthy post-unpack handoff
+- turning dynamic-code ranges into one generation-aware first consumer
 - turning readable artifacts into one first ordinary consumer
 - turning close-but-wrong replay into one smaller runtime-artifact or initialization-obligation target
 - turning visible integrity logic into one consequence-bearing tripwire

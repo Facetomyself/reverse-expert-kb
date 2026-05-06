@@ -11,6 +11,9 @@ Related pages:
 - topics/decompilation-and-code-reconstruction.md
 - topics/symbol-type-and-signature-recovery.md
 - topics/analyst-workflows-and-human-llm-teaming.md
+- topics/protected-runtime-practical-subtree-guide.md
+- topics/packed-stub-to-oep-and-first-real-module-workflow-note.md
+- topics/write-protect-execute-to-first-consumer-workflow-note.md
 
 ## 1. Topic identity
 
@@ -275,6 +278,16 @@ High-signal findings:
 Why it matters:
 - the KB should preserve a thinner continuation for opaque-predicate / computed-next-state recovery instead of collapsing directly from VM/trace anchoring into broader flattened-dispatcher state-edge reduction
 - and once one normalized next-carrier already exists, it should preserve a second thinner continuation for copied-code branch inflation -> trustworthy successor split rather than flattening copied arms, carrier recovery, and split ownership into one vague step
+
+
+### G. Runtime-generated code handoff is a distinct practical seam
+
+Source-backed unpacking and OS API material reinforce a narrower workflow problem between broad packed-startup recovery and ordinary artifact-consumer proof: allocation/mapping, byte production, executable protection, instruction-cache/coherency readiness, first transfer, stable code decoding, and first consumer are separate proof objects.
+
+Why it matters:
+- RWX/RX memory inventory, `VirtualProtect` / `mprotect`, or a first jump into dynamic memory can be only a staging clue
+- a region may be a trampoline, JIT cache, helper slab, another unpacker phase, or wrong generation rather than final payload
+- the practical note `topics/write-protect-execute-to-first-consumer-workflow-note.md` preserves the compact stop rule `mapped != written != executable/coherent != transferred != decoded != consumed/effected`
 
 ## 6. Emerging internal structure of the topic
 A stable internal decomposition is emerging.
