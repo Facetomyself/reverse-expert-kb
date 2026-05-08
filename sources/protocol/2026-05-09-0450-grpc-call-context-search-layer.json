@@ -1,0 +1,454 @@
+{
+  "mode": "deep",
+  "intent": "tutorial",
+  "queries": [
+    "gRPC metadata deadline authority call credentials replay debugging HTTP/2 headers documentation",
+    "gRPC deadline propagation metadata authority status DEADLINE_EXCEEDED cancellation documentation",
+    "grpc reverse engineering protobuf metadata deadline authority replay fixture call context"
+  ],
+  "count": 25,
+  "results": [
+    {
+      "title": "Reliable gRPC services with deadlines and cancellation",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0",
+      "snippet": "[Sign in](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#). ![Image 1](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0). ![Image 2](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0). [Sign out](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#). [Sign in](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#). ![Image 3](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0). ![Image 4](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0). [Sign out](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#). *   [11.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-11.0). *   [10.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0). *   [9.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-9.0). *   [8.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-8.0). *   [7.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-7.0). *   [6.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-6.0). *   [5.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-5.0). *   [3.1](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-3.1). *   [3.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-3.0). *   [2.2](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-2.2). *   [2.1](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-2.1). *   [2.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-2.0). *   [1.1](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-1.1). *   [1.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-1.0). *   [Overview](https://learn.microsoft.com/en-us/aspnet/core/grpc/client?view=aspnetcore-10.0). *   [Client factory integration](https://learn.microsoft.com/en-us/aspnet/core/grpc/clientfactory?view=aspnetcore-10.0). *   [Deadlines and cancellation](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0). *   [Client-side load balancing](https://learn.microsoft.com/en-us/aspnet/core/grpc/loadbalancing?view=aspnetcore-10.0). *   [Code-first services and clients](https://learn.microsoft.com/en-us/aspnet/core/grpc/code-first?view=aspnetcore-10.0). Reading mode Table of contents[Read in English](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0)Add to Collections Add to plan[Edit](https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/grpc/deadlines-cancellation.md). You can try [changing directories](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0). 1.   [Deadlines](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#deadlines). 2.   [Cancellation](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#cancellation). 3.   [Additional resources](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#additional-resources). For the current release, see the [.NET 10 version of this article](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0&preserve-view=true). For the current release, see the [.NET 10 version of this article](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0&preserve-view=true). [](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#deadlines). [](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#deadlines-and-retries). [](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#propagating-deadlines). For more information, see [gRPC client factory integration in .NET](https://learn.microsoft.com/en-us/aspnet/core/grpc/clientfactory?view=aspnetcore-10.0#deadline-and-cancellation-propagation). [](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#cancellation). [gRPC client factory](https://learn.microsoft.com/en-us/aspnet/core/grpc/clientfactory?view=aspnetcore-10.0) and `EnableCallContextPropagation()` automatically propagates the cancellation token. [](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#additional-resources). *   [Call gRPC services with the .NET client](https://learn.microsoft.com/en-us/aspnet/core/grpc/client?view=aspnetcore-10.0). *   [gRPC client factory integration in .NET](https://learn.microsoft.com/en-us/aspnet/core/grpc/clientfactory?view=aspnetcore-10.0). 1.   [Deadlines](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#deadlines). 2.   [Cancellation](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#cancellation). 3.   [Additional resources](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#additional-resources). [Sign in](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6591
+    },
+    {
+      "title": "grpc/doc/statuscodes.md at master - GitHub",
+      "url": "https://github.com/grpc/grpc/blob/master/doc/statuscodes.md",
+      "snippet": "Status codes and their use in gRPC ; DEADLINE_EXCEEDED, 4, The deadline expired before the operation could complete. For operations that change the state of the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6227
+    },
+    {
+      "title": "content/en/docs/guides/error.md at main · grpc/grpc.io",
+      "url": "https://github.com/grpc/grpc.io/blob/main/content/en/docs/guides/error.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5864
+    },
+    {
+      "title": "readme.md at main · vadimi/grpc-client-cli",
+      "url": "https://github.com/vadimi/grpc-client-cli/blob/main/readme.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5864
+    },
+    {
+      "title": "doc/command_line_tool.md at master · grpc/grpc",
+      "url": "https://github.com/grpc/grpc/blob/master/doc/command_line_tool.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5864
+    },
+    {
+      "title": "GRPC Core: Status codes and their use in gRPC",
+      "url": "https://grpc.github.io/grpc/core/md_doc_statuscodes",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4364
+    },
+    {
+      "title": "GRPC C++: grpc::ClientContext Class Reference",
+      "url": "http://grpc.github.io/grpc/cpp/classgrpc_1_1_client_context.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4364
+    },
+    {
+      "title": "Learning About the Headers Used for gRPC Over HTTP/2",
+      "url": "https://dzone.com/articles/learning-about-the-headers-used-for-grpc-over-http",
+      "snippet": "4. Learning About the Headers Used for gRPC Over HTTP/2. I am learning more about gRPC and HTTP/2, as part of the recent expansion of my API toolbox. I’m not a huge fan of Protocol Buffers, however, I do get the performance gain they introduce, but I am very interested in learning more about how HTTP/2 is being used as a transport. While I’ve been studying how websockets, Kafka, MQTT, and other protocols have left the boundaries of HTTP and are embracing the performance gains available in the pure TCP realm, I’m more intrigued by the next generation of HTTP as a transport. Part of my learning process is all about understanding the headers available to us in the HTTP/2 realm. I’ve been learning more about the next generation HTTP headers from the gRPC Github repository which provides details on the request and response headers in play. * Call-Definition → Method Scheme Path TE [Authority] [Timeout] Content-Type [Message-Type] [Message-Encoding] [Message-Accept-Encoding] [User-Agent].",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4318
+    },
+    {
+      "title": "gRPC deep dive: from service definition to wire format | Kreya",
+      "url": "https://kreya.app/blog/grpc-deep-dive/",
+      "snippet": "In our previous posts (part 1 and part 2), we demystified Protocol Buffers and learned how data is encoded into compact binary. But Protobuf is just the payload. To send this data between microservices, we need a transport protocol. While many developers use gRPC daily, few look under the hood to see how it actually works. In this post, we’ll go beyond the basics and explore the full gRPC protocol stack: from the high-level service architecture and streaming models down to the low-level HTTP/2 framing and byte-level wire format. One of the biggest differentiators of gRPC is its native support for streaming. Metadata can be sent by both the client (at the start of the call) and the server (at the start as headers, or at the end as trailers). gRPC is built on top of HTTP/2,. is mapped to a single HTTP/2 stream. Since gRPC is built on HTTP/2, metadata is simply mapped to HTTP/2 headers.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4318
+    },
+    {
+      "title": "Deadlines — gRPC Chatroom Workshop documentation",
+      "url": "https://retroryan8080.gitlab.io/grpc-java-workshop/exercise3/deadlines.html",
+      "snippet": "A frontend often need to make multiple backends calls, or, making backend calls that calls other backends. If you know the performance characteristics of your services, or if you are able to drop requests that takes too long to finish, and return to user something else, then you should explore deadlines. In gRPC, you can set a deadline to a call, e.g., no more than 1 second in total. When the deadline has exceeded, it’ll throw a StatusRuntimeException with Status.DEADLINE\\_EXCEEDED. The deadline will propagate across all subsequent nested calls too. E.g., if you set a deadline to 1 second, and the first call took 0.7s, and if that call makes another nested call, then the nested call would have 0.3s to complete. To set a deadline is simple, for example, you can decorate a stub with deadline:. On the server side, if the deadline was exceeded, then the server will also receive a notification. You can listen to call cancellations by attaching a listener to the Context:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3955
+    },
+    {
+      "title": "How to Handle Metadata in gRPC Calls - OneUptime",
+      "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-metadata/view",
+      "snippet": "A comprehensive guide to working with metadata in gRPC, covering authentication tokens, request tracing, custom headers, and best practices",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3955
+    },
+    {
+      "title": "Deadlines | gRPC",
+      "url": "https://grpc.io/docs/guides/deadlines/",
+      "snippet": "### Deadlines on the Server. # Deadlines. A deadline is used to specify a point in time past which a client is unwilling to wait for a response from a server. ### Deadlines on the Client. If a server has gone past the deadline when processing a request, the client will give up and fail the RPC with the `DEADLINE_EXCEEDED` status. A server might receive RPCs from a client with an unrealistically short deadline that would not give the server enough time to ever respond in time. A gRPC server deals with this situation by automatically cancelling a call (`CANCELLED` status) once a deadline set by the client has passed. Since a deadline is set point in time, propagating it as-is to a server can be problematic as the clocks on the two servers might not be synchronized. DEADLINE_EXCEEDED deactivate c us ->> us: Stop waiting for server us -->> c: Cancel deactivate us bs -->> us: Cancel bs ->> bs: Clean up resources. # Deadlines.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3591
+    },
+    {
+      "title": "How to Handle Deadlines and Timeouts in gRPC",
+      "url": "https://oneuptime.com/blog/post/2026-01-08-grpc-deadlines-timeouts/view",
+      "snippet": "# How to Handle Deadlines and Timeouts in gRPC. Master gRPC deadline and timeout handling including deadline propagation, context cancellation, and strategies for preventing cascading failures in distributed systems. package main import ( \"context\" \"log\" \"time\" \"google.golang.org/grpc\" \"google.golang.org/grpc/codes\" \"google.golang.org/grpc/credentials/insecure\" \"google.golang.org/grpc/status\" pb \"myapp/proto\" ) func main() { conn, err := grpc.NewClient( \"localhost:50051\", grpc.WithTransportCredentials(insecure.NewCredentials()), ) if err != nil { log.Fatalf(\"Failed to connect: %v\", err) } defer conn.Close() client := pb.NewUserServiceClient(conn) // Method 1: Using context.WithTimeout ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second) defer cancel() resp, err := client.GetUser(ctx, &pb.GetUserRequest{UserId: \"123\"}) if err != nil { if status.Code(err) == codes.DeadlineExceeded { log.Printf(\"Request timed out: %v\", err) } else { log.Printf(\"Request failed: %v\", err) } return } log.Printf(\"User: %v\", resp) } // Method 2: Using context.WithDeadline func getWithDeadline(client pb.UserServiceClient, userID string) (*pb.User, error) { // Set absolute deadline deadline := time.Now().Add(5 * time.Second) ctx, cancel := context.WithDeadline(context.Background(), deadline) defer cancel() return client.GetUser(ctx, &pb.GetUserRequest{UserId: userID}) }.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3591
+    },
+    {
+      "title": "gRPC - userver",
+      "url": "https://userver.tech/d7/d7a/md_en_2userver_2grpc_2grpc.html",
+      "snippet": "gRPC metadata allows you to send additional information along with requests and responses. Metadata consists of key-value pairs that are transmitted as HTTP/2",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3591
+    },
+    {
+      "title": "Пакети в „sid“, Под-раздел python - Debian -- Packages",
+      "url": "https://packages.debian.org/bg/sid/python/",
+      "snippet": "Better Protobuf / gRPC Support for Python (command-line tools); proton-vpn ... Dataclass for PEP 621 metadata with support for [core metadata] generation",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3227
+    },
+    {
+      "title": "Cisco Digital Network Architecture Intent-Based Networking For The ...",
+      "url": "https://www.scribd.com/document/612679915/Cisco-Digital-Network-Architecture-Intent-Based-Networking-for-the-Enterprise-by-Tim-Szigeti",
+      "snippet": "Remote Procedure Call (gRPC) protocol, and Yet Another Next Generation (YANG) models for configuration and operational data. Chapter 14, “Cisco DNA",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3227
+    },
+    {
+      "title": "Cancellation | gRPC",
+      "url": "https://grpc.io/docs/guides/cancellation/",
+      "snippet": "",
+      "published_date": "2024-02-29T21:44:05.000Z",
+      "source": "exa",
+      "score": 0.2864
+    },
+    {
+      "title": "Metadata",
+      "url": "https://grpc.io/docs/guides/metadata/",
+      "snippet": "",
+      "published_date": "2024-11-12T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.2864
+    },
+    {
+      "title": "Authentication | gRPC",
+      "url": "https://grpc.io/docs/guides/auth",
+      "snippet": "",
+      "published_date": "2024-01-13T00:02:13.000Z",
+      "source": "exa",
+      "score": 0.2864
+    },
+    {
+      "title": "Metadata",
+      "url": "https://chromium.googlesource.com/external/github.com/grpc/grpc-go/+/HEAD/Documentation/grpc-metadata.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.2864
+    },
+    {
+      "title": "vault/awesome-go: A curated list of awesome Go frameworks - GitFlic",
+      "url": "https://gitflic.ru/project/vault/awesome-go",
+      "snippet": "Fault - An ergonomic mechanism for wrapping errors in order to facilitate structured metadata and context for error values. go-multierror - Go (golang)",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.2864
+    },
+    {
+      "title": "Query Rewrite Effectiveness Tester | BYTES.ENGINEER",
+      "url": "https://bytes.engineer/ai/query-rewrite-effectiveness-tester",
+      "snippet": "Query Rewrite Effectiveness Tester. Compare rewritten queries against baseline retrieval using recall gains, MRR gains, and latency cost.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.2864
+    },
+    {
+      "title": "IOActive Labs: Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries",
+      "url": "https://labs.ioactive.com/2021/07/breaking-protocol-buffers-reverse.html",
+      "snippet": "",
+      "published_date": "2021-07-30T13:04:57.000Z",
+      "source": "exa",
+      "score": 0.2864
+    },
+    {
+      "title": "Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries",
+      "url": "https://www.ioactive.com/breaking-protocol-buffers-reverse-engineering-grpc-binaries/",
+      "snippet": "",
+      "published_date": "2021-07-30T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.2864
+    },
+    {
+      "title": "May 2023 - legal - Fedora mailing-lists",
+      "url": "https://lists.fedoraproject.org/archives/list/legal@lists.fedoraproject.org/2023/5/",
+      "snippet": "cryptlib is licensed under the Sleepycat license with a SaaS restriction: “Note that decoupling the software from the user, for example by running in a SaaS",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.25
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Deadlines | gRPC",
+        "url": "https://grpc.io/docs/guides/deadlines/",
+        "snippet": "### Deadlines on the Server. # Deadlines. A deadline is used to specify a point in time past which a client is unwilling to wait for a response from a server. ### Deadlines on the Client. If a server has gone past the deadline when processing a request, the client will give up and fail the RPC with the `DEADLINE_EXCEEDED` status. A server might receive RPCs from a client with an unrealistically short deadline that would not give the server enough time to ever respond in time. A gRPC server deals with this situation by automatically cancelling a call (`CANCELLED` status) once a deadline set by the client has passed. Since a deadline is set point in time, propagating it as-is to a server can be problematic as the clocks on the two servers might not be synchronized. DEADLINE_EXCEEDED deactivate c us ->> us: Stop waiting for server us -->> c: Cancel deactivate us bs -->> us: Cancel bs ->> bs: Clean up resources. # Deadlines.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3591
+      },
+      {
+        "title": "Deadlines — gRPC Chatroom Workshop documentation",
+        "url": "https://retroryan8080.gitlab.io/grpc-java-workshop/exercise3/deadlines.html",
+        "snippet": "A frontend often need to make multiple backends calls, or, making backend calls that calls other backends. If you know the performance characteristics of your services, or if you are able to drop requests that takes too long to finish, and return to user something else, then you should explore deadlines. In gRPC, you can set a deadline to a call, e.g., no more than 1 second in total. When the deadline has exceeded, it’ll throw a StatusRuntimeException with Status.DEADLINE\\_EXCEEDED. The deadline will propagate across all subsequent nested calls too. E.g., if you set a deadline to 1 second, and the first call took 0.7s, and if that call makes another nested call, then the nested call would have 0.3s to complete. To set a deadline is simple, for example, you can decorate a stub with deadline:. On the server side, if the deadline was exceeded, then the server will also receive a notification. You can listen to call cancellations by attaching a listener to the Context:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3955
+      },
+      {
+        "title": "grpc/doc/statuscodes.md at master - GitHub",
+        "url": "https://github.com/grpc/grpc/blob/master/doc/statuscodes.md",
+        "snippet": "Status codes and their use in gRPC ; DEADLINE_EXCEEDED, 4, The deadline expired before the operation could complete. For operations that change the state of the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6227
+      },
+      {
+        "title": "Reliable gRPC services with deadlines and cancellation",
+        "url": "https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0",
+        "snippet": "[Sign in](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#). ![Image 1](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0). ![Image 2](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0). [Sign out](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#). [Sign in](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#). ![Image 3](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0). ![Image 4](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0). [Sign out](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#). *   [11.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-11.0). *   [10.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0). *   [9.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-9.0). *   [8.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-8.0). *   [7.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-7.0). *   [6.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-6.0). *   [5.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-5.0). *   [3.1](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-3.1). *   [3.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-3.0). *   [2.2](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-2.2). *   [2.1](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-2.1). *   [2.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-2.0). *   [1.1](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-1.1). *   [1.0](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-1.0). *   [Overview](https://learn.microsoft.com/en-us/aspnet/core/grpc/client?view=aspnetcore-10.0). *   [Client factory integration](https://learn.microsoft.com/en-us/aspnet/core/grpc/clientfactory?view=aspnetcore-10.0). *   [Deadlines and cancellation](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0). *   [Client-side load balancing](https://learn.microsoft.com/en-us/aspnet/core/grpc/loadbalancing?view=aspnetcore-10.0). *   [Code-first services and clients](https://learn.microsoft.com/en-us/aspnet/core/grpc/code-first?view=aspnetcore-10.0). Reading mode Table of contents[Read in English](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0)Add to Collections Add to plan[Edit](https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/grpc/deadlines-cancellation.md). You can try [changing directories](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0). 1.   [Deadlines](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#deadlines). 2.   [Cancellation](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#cancellation). 3.   [Additional resources](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#additional-resources). For the current release, see the [.NET 10 version of this article](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0&preserve-view=true). For the current release, see the [.NET 10 version of this article](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0&preserve-view=true). [](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#deadlines). [](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#deadlines-and-retries). [](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#propagating-deadlines). For more information, see [gRPC client factory integration in .NET](https://learn.microsoft.com/en-us/aspnet/core/grpc/clientfactory?view=aspnetcore-10.0#deadline-and-cancellation-propagation). [](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#cancellation). [gRPC client factory](https://learn.microsoft.com/en-us/aspnet/core/grpc/clientfactory?view=aspnetcore-10.0) and `EnableCallContextPropagation()` automatically propagates the cancellation token. [](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#additional-resources). *   [Call gRPC services with the .NET client](https://learn.microsoft.com/en-us/aspnet/core/grpc/client?view=aspnetcore-10.0). *   [gRPC client factory integration in .NET](https://learn.microsoft.com/en-us/aspnet/core/grpc/clientfactory?view=aspnetcore-10.0). 1.   [Deadlines](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#deadlines). 2.   [Cancellation](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#cancellation). 3.   [Additional resources](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#additional-resources). [Sign in](https://learn.microsoft.com/en-us/aspnet/core/grpc/deadlines-cancellation?view=aspnetcore-10.0#).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6591
+      },
+      {
+        "title": "How to Handle Deadlines and Timeouts in gRPC",
+        "url": "https://oneuptime.com/blog/post/2026-01-08-grpc-deadlines-timeouts/view",
+        "snippet": "# How to Handle Deadlines and Timeouts in gRPC. Master gRPC deadline and timeout handling including deadline propagation, context cancellation, and strategies for preventing cascading failures in distributed systems. package main import ( \"context\" \"log\" \"time\" \"google.golang.org/grpc\" \"google.golang.org/grpc/codes\" \"google.golang.org/grpc/credentials/insecure\" \"google.golang.org/grpc/status\" pb \"myapp/proto\" ) func main() { conn, err := grpc.NewClient( \"localhost:50051\", grpc.WithTransportCredentials(insecure.NewCredentials()), ) if err != nil { log.Fatalf(\"Failed to connect: %v\", err) } defer conn.Close() client := pb.NewUserServiceClient(conn) // Method 1: Using context.WithTimeout ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second) defer cancel() resp, err := client.GetUser(ctx, &pb.GetUserRequest{UserId: \"123\"}) if err != nil { if status.Code(err) == codes.DeadlineExceeded { log.Printf(\"Request timed out: %v\", err) } else { log.Printf(\"Request failed: %v\", err) } return } log.Printf(\"User: %v\", resp) } // Method 2: Using context.WithDeadline func getWithDeadline(client pb.UserServiceClient, userID string) (*pb.User, error) { // Set absolute deadline deadline := time.Now().Add(5 * time.Second) ctx, cancel := context.WithDeadline(context.Background(), deadline) defer cancel() return client.GetUser(ctx, &pb.GetUserRequest{UserId: userID}) }.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3591
+      },
+      {
+        "title": "Metadata | gRPC",
+        "url": "https://grpc.io/docs/guides/metadata/",
+        "snippet": "gRPC metadata is a key-value pair of data that is sent with initial or final gRPC requests or responses. gRPC metadata is implemented using HTTP/2 headers. gRPC metadata can be sent and received by both the client and the server. Headers are sent from the client to the server before the initial request and from the server to the client before the initial response of an RPC call. * **Authentication**: gRPC metadata can be used to send authentication credentials to the server. * **Tracing**: gRPC metadata can be used to send tracing information to the server. * **Custom headers**: gRPC metadata can be used to send custom headers to the server or from the server to the client. * **Internal usages**: gRPC uses HTTP/2 headers and trailers, which will be integrated with the metadata specified by your application. Headers are sent before the initial request data message from the client to the server and similarly before the initial response data from the server to the client.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "gRPC - userver",
+        "url": "https://userver.tech/d7/d7a/md_en_2userver_2grpc_2grpc.html",
+        "snippet": "gRPC metadata allows you to send additional information along with requests and responses. Metadata consists of key-value pairs that are transmitted as HTTP/2",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3591
+      },
+      {
+        "title": "How to Handle Metadata in gRPC Calls - OneUptime",
+        "url": "https://oneuptime.com/blog/post/2026-01-24-grpc-metadata/view",
+        "snippet": "A comprehensive guide to working with metadata in gRPC, covering authentication tokens, request tracing, custom headers, and best practices",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3955
+      },
+      {
+        "title": "Learning About the Headers Used for gRPC Over HTTP/2",
+        "url": "https://dzone.com/articles/learning-about-the-headers-used-for-grpc-over-http",
+        "snippet": "4. Learning About the Headers Used for gRPC Over HTTP/2. I am learning more about gRPC and HTTP/2, as part of the recent expansion of my API toolbox. I’m not a huge fan of Protocol Buffers, however, I do get the performance gain they introduce, but I am very interested in learning more about how HTTP/2 is being used as a transport. While I’ve been studying how websockets, Kafka, MQTT, and other protocols have left the boundaries of HTTP and are embracing the performance gains available in the pure TCP realm, I’m more intrigued by the next generation of HTTP as a transport. Part of my learning process is all about understanding the headers available to us in the HTTP/2 realm. I’ve been learning more about the next generation HTTP headers from the gRPC Github repository which provides details on the request and response headers in play. * Call-Definition → Method Scheme Path TE [Authority] [Timeout] Content-Type [Message-Type] [Message-Encoding] [Message-Accept-Encoding] [User-Agent].",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4318
+      },
+      {
+        "title": "gRPC deep dive: from service definition to wire format | Kreya",
+        "url": "https://kreya.app/blog/grpc-deep-dive/",
+        "snippet": "In our previous posts (part 1 and part 2), we demystified Protocol Buffers and learned how data is encoded into compact binary. But Protobuf is just the payload. To send this data between microservices, we need a transport protocol. While many developers use gRPC daily, few look under the hood to see how it actually works. In this post, we’ll go beyond the basics and explore the full gRPC protocol stack: from the high-level service architecture and streaming models down to the low-level HTTP/2 framing and byte-level wire format. One of the biggest differentiators of gRPC is its native support for streaming. Metadata can be sent by both the client (at the start of the call) and the server (at the start as headers, or at the end as trailers). gRPC is built on top of HTTP/2,. is mapped to a single HTTP/2 stream. Since gRPC is built on HTTP/2, metadata is simply mapped to HTTP/2 headers.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4318
+      },
+      {
+        "title": "Пакети в „sid“, Под-раздел python - Debian -- Packages",
+        "url": "https://packages.debian.org/bg/sid/python/",
+        "snippet": "Better Protobuf / gRPC Support for Python (command-line tools); proton-vpn ... Dataclass for PEP 621 metadata with support for [core metadata] generation",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3227
+      },
+      {
+        "title": "Cisco Digital Network Architecture Intent-Based Networking For The ...",
+        "url": "https://www.scribd.com/document/612679915/Cisco-Digital-Network-Architecture-Intent-Based-Networking-for-the-Enterprise-by-Tim-Szigeti",
+        "snippet": "Remote Procedure Call (gRPC) protocol, and Yet Another Next Generation (YANG) models for configuration and operational data. Chapter 14, “Cisco DNA",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3227
+      },
+      {
+        "title": "vault/awesome-go: A curated list of awesome Go frameworks - GitFlic",
+        "url": "https://gitflic.ru/project/vault/awesome-go",
+        "snippet": "Fault - An ergonomic mechanism for wrapping errors in order to facilitate structured metadata and context for error values. go-multierror - Go (golang)",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.2864
+      },
+      {
+        "title": "Query Rewrite Effectiveness Tester | BYTES.ENGINEER",
+        "url": "https://bytes.engineer/ai/query-rewrite-effectiveness-tester",
+        "snippet": "Query Rewrite Effectiveness Tester. Compare rewritten queries against baseline retrieval using recall gains, MRR gains, and latency cost.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.2864
+      },
+      {
+        "title": "May 2023 - legal - Fedora mailing-lists",
+        "url": "https://lists.fedoraproject.org/archives/list/legal@lists.fedoraproject.org/2023/5/",
+        "snippet": "cryptlib is licensed under the Sleepycat license with a SaaS restriction: “Note that decoupling the software from the user, for example by running in a SaaS",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.25
+      }
+    ],
+    "exa": [
+      {
+        "title": "content/en/docs/guides/error.md at main · grpc/grpc.io",
+        "url": "https://github.com/grpc/grpc.io/blob/main/content/en/docs/guides/error.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5864
+      },
+      {
+        "title": "Cancellation | gRPC",
+        "url": "https://grpc.io/docs/guides/cancellation/",
+        "snippet": "",
+        "published_date": "2024-02-29T21:44:05.000Z",
+        "source": "exa",
+        "score": 0.2864
+      },
+      {
+        "title": "Metadata",
+        "url": "https://grpc.io/docs/guides/metadata/",
+        "snippet": "",
+        "published_date": "2024-11-12T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.2864
+      },
+      {
+        "title": "Deadlines",
+        "url": "https://grpc.io/docs/guides/deadlines/",
+        "snippet": "",
+        "published_date": "2025-07-07T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "GRPC Core: Status codes and their use in gRPC",
+        "url": "https://grpc.github.io/grpc/core/md_doc_statuscodes",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4364
+      },
+      {
+        "title": "Metadata - gRPC",
+        "url": "https://grpc.io/docs/guides/metadata/",
+        "snippet": "",
+        "published_date": "2024-11-12T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Deadlines - gRPC",
+        "url": "https://grpc.io/docs/guides/deadlines/",
+        "snippet": "",
+        "published_date": "2025-07-07T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "GRPC C++: grpc::ClientContext Class Reference",
+        "url": "http://grpc.github.io/grpc/cpp/classgrpc_1_1_client_context.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4364
+      },
+      {
+        "title": "Authentication | gRPC",
+        "url": "https://grpc.io/docs/guides/auth",
+        "snippet": "",
+        "published_date": "2024-01-13T00:02:13.000Z",
+        "source": "exa",
+        "score": 0.2864
+      },
+      {
+        "title": "Metadata",
+        "url": "https://chromium.googlesource.com/external/github.com/grpc/grpc-go/+/HEAD/Documentation/grpc-metadata.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.2864
+      },
+      {
+        "title": "IOActive Labs: Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries",
+        "url": "https://labs.ioactive.com/2021/07/breaking-protocol-buffers-reverse.html",
+        "snippet": "",
+        "published_date": "2021-07-30T13:04:57.000Z",
+        "source": "exa",
+        "score": 0.2864
+      },
+      {
+        "title": "Breaking Protocol (Buffers): Reverse Engineering gRPC Binaries",
+        "url": "https://www.ioactive.com/breaking-protocol-buffers-reverse-engineering-grpc-binaries/",
+        "snippet": "",
+        "published_date": "2021-07-30T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.2864
+      },
+      {
+        "title": "readme.md at main · vadimi/grpc-client-cli",
+        "url": "https://github.com/vadimi/grpc-client-cli/blob/main/readme.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5864
+      },
+      {
+        "title": "doc/command_line_tool.md at master · grpc/grpc",
+        "url": "https://github.com/grpc/grpc/blob/master/doc/command_line_tool.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5864
+      },
+      {
+        "title": "Deadlines - gRPC",
+        "url": "https://grpc.io/docs/guides/deadlines/",
+        "snippet": "",
+        "published_date": "2025-07-07T00:00:00.000Z",
+        "source": "exa"
+      }
+    ],
+    "grok": []
+  }
+}

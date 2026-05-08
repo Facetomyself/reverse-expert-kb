@@ -7,6 +7,7 @@ Related pages:
 - topics/protocol-firmware-practical-subtree-guide.md
 - topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
 - topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
+- topics/protocol-grpc-call-context-to-replay-fixture-workflow-note.md
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
 - topics/protocol-reply-emission-and-transport-handoff-workflow-note.md
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
@@ -173,6 +174,7 @@ But gRPC-like fixture work should now preserve one extra stop rule:
 - the same protobuf body can still produce a practically different call when deadline posture, metadata, authority, or call-credential routing differ
 - gRPC’s own documentation makes this split concrete because metadata rides as HTTP/2 header/trailer side-channel state rather than inside the request body, and deadline posture can independently produce `DEADLINE_EXCEEDED` / cancellation behavior even when the body is unchanged
 - if replay fails after the body already looks stable, first ask whether the fixture froze the same call-context contract before reopening broad payload semantics
+- if the case is specifically gRPC-shaped and this bucket is the remaining liar, narrow into `topics/protocol-grpc-call-context-to-replay-fixture-workflow-note.md` rather than expanding the whole method-fixture page
 
 For Windows RPC-like families, a compact first route core is often:
 - interface UUID or interface binding target
