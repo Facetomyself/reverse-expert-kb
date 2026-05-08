@@ -29,7 +29,7 @@ Additional active DNS names currently pointed at this host's public IP:
   - host-local Caddy content path was retained on alternate ports `8080/8443` instead of public `80/443`
 
 Additional currently observed public surfaces on the host itself:
-- a temporary `python3` distribution endpoint is still listening on public `:18733`
+- none beyond the documented DERP/Hysteria/Caddy gateway surfaces in the 2026-05-08 UTC nightly check; the previously tracked public `python3` distribution endpoint on `:18733` was not present
 
 Historical DNS/Caddy names formerly associated with this host but no longer served after the 2026-03-21 cleanup:
 
@@ -42,18 +42,16 @@ Historical DNS/Caddy names formerly associated with this host but no longer serv
 - `ui.zhangxuemin.work`
 
 ## 3. Interpretation
-This host is now best understood as a small gateway box with a live Hysteria + DERP split, a reduced helper Caddy path, and a small amount of temporary distribution/upload residue — not a pure Hysteria-only surface and not the earlier broader registry/front-door role.
+This host is now best understood as a small gateway box with a live Hysteria + DERP split and a reduced helper Caddy path — not a pure Hysteria-only surface and not the earlier broader registry/front-door role.
 
 ## 4. Current confirmed gateway exposure
-Observed listener surface at the 2026-04-13 19:04 UTC recurring check:
+Observed listener surface at the 2026-05-08 19:02 UTC recurring check:
 - `derp.zhangxuemin.work` / `derper` remains the primary public TCP entrypoint on this host
 - host `derper` is active and listening on TCP `80/443`
 - `derper` STUN remains active on UDP `3478`
 - Hysteria remains active on UDP `443`
-- Tailscale remains joined with IPv4 `100.116.171.76`
 - host `caddy` remains on alternate local/helper ports `8080/8443` with admin on `127.0.0.1:2019`
-- temporary public `python3` distribution endpoint still present on `:18733`
-- the old temporary upload helper backend still exists as local residue on `127.0.0.1:18081`
+- previously tracked helper endpoints on public `:18733` and localhost `127.0.0.1:18081` were not present
 
 ## 5. Reusable temporary upload pattern
 A validated ad-hoc upload pattern now exists for this host when the user needs browser-based file transfer without SSH on the sender side:
