@@ -6,6 +6,8 @@
 - Additional domains:
   - `drop.hk.zhangxuemin.work`
   - `clash.hk.zhangxuemin.work`
+  - `cliproxy-cn.zhangxuemin.work`
+  - `claw-cn.zhangxuemin.work`
 - Provider: unknown / user-added Hong Kong VPS
 - Intended role: 三网优化流量中转
 
