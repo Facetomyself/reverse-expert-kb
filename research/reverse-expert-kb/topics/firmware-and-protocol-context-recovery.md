@@ -15,6 +15,7 @@ Related pages:
 - topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
 - topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
 - topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md
+- topics/protocol-grpc-call-context-to-replay-fixture-workflow-note.md
 - topics/protocol-can-uds-diagnostic-session-to-state-consumer-workflow-note.md
 - topics/protocol-ble-gatt-notification-to-state-consumer-workflow-note.md
 - topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
@@ -106,6 +107,7 @@ A compact reading worth preserving is:
 - peel one visible layered object into one smaller trustworthy contract
 - externalize that contract into one reusable schema, service-contract artifact, or representative harness target when the branch would otherwise stall in analyst-private notes
 - when one representative method/call already exists, freeze not only body/argument truth but also **call-context truth** when the family carries meaningful per-call semantics outside the body (for example gRPC deadline/metadata/authority posture or Windows RPC binding/authn/context-handle posture)
+- for gRPC-shaped replay work, keep `route/body != call-context != lifecycle != status/trailers != consumed/effected` visible so a recovered protobuf body, service route, or status code does not impersonate same-call replay truth
 - prove one receive owner, parser/state edge, acceptance gate, pending-owner lifetime contract when broad owner-match is already good enough, CAN / UDS diagnostic session-state truth when IDs/ISO-TP/service scans/session/security/responses can lie, BLE GATT subscription/delivery/consumer truth when UUID/CCCD/sniffer/callback evidence can lie, reply/output handoff, or hardware-side consequence
 - preserve the result as a reusable evidence unit once the technical proof is already good enough
 

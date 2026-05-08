@@ -12,6 +12,8 @@ Related pages:
 - topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md
 - topics/protocol-service-contract-extraction-and-method-dispatch-workflow-note.md
 - topics/protocol-schema-externalization-and-replay-harness-workflow-note.md
+- topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md
+- topics/protocol-grpc-call-context-to-replay-fixture-workflow-note.md
 - topics/protocol-windows-rpc-binding-authinfo-and-context-lineage-workflow-note.md
 - topics/protocol-can-uds-diagnostic-session-to-state-consumer-workflow-note.md
 - topics/protocol-ble-gatt-notification-to-state-consumer-workflow-note.md
@@ -82,6 +84,7 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - keep explicit branch memory that some families also require separate **call-context truth**: deadline/metadata/authority/credential posture for gRPC-like calls, or binding/authn/context-handle posture for Windows RPC-like calls, rather than pretending the serialized body or argument bundle alone is the whole replay object
    - preserve the narrower practical compare label **body-identical but call-context-different** when official transport/runtime docs already show that behavior can diverge outside the serialized body itself
    - also preserve the earlier service-contract stop rule **described != registered != listening != published != bindable/reachable**, so descriptor/reflection-visible service rosters, runtime registration, endpoint-map publication, and easy client-side binding-object construction are not silently overread as already-proven live callable surfaces
+   - use `topics/protocol-grpc-call-context-to-replay-fixture-workflow-note.md` when the case is specifically gRPC-shaped and the missing proof object is no longer the protobuf body, but metadata/header/trailer contract, authority/credential posture, deadline/cancellation lifecycle, status interpretation, and the first comparable replay fixture
 7. **content-pipeline continuation uncertainty**
    - the first authenticated API family is visible, but the real analyst object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder
 8. **ingress ownership uncertainty**
@@ -126,6 +129,7 @@ The subtree is strongest when read as:
 - **reduce** one parser/state consequence
 - **accept** one interaction under the right local precondition
 - **stabilize** one pending-request lifetime contract when broad owner-match is already good enough but late replies or reuse still drift
+- **preserve** one gRPC call-context contract when protobuf body truth is already good enough but metadata, authority, credentials, deadline/cancellation lifecycle, status/trailers, or stream-close behavior still decide whether replay is comparable
 - **emit** one real output
 - **publish** one mailbox/doorbell command when that narrower seam is the true bottleneck
 - **stabilize** one descriptor ownership-transfer / completion-visibility contract when publication is visible but publish-vs-notify-vs-trust/reclaim semantics still drift, especially when the case still has to be classified as coherent shared descriptor memory versus streaming/non-coherent DMA-backed visibility and freshness bits, explicit CPU/device trust transfer, or reclaim proof still decide whether completion bytes are actually trustworthy, when notify/doorbell edges still risk being overread as full trust proof, and when later work actually depends on preserving the thinner rule `completion-visible != consumed != reclaimed/reusable` rather than stopping at visible completion alone
@@ -537,6 +541,7 @@ Routing reminder:
 - leave broad minimal-fixture work once one truthful fixture package is already good enough and the real bottleneck becomes replay acceptance, parser/state consequence, or later output handoff
 
 Possible next handoff:
+- `topics/protocol-grpc-call-context-to-replay-fixture-workflow-note.md` when the remaining drift is gRPC-specific and the true mismatch is metadata/header/trailer contract, authority/credential posture, deadline/cancellation lifecycle, or status/trailer interpretation rather than broader replay-fixture shape
 - `topics/protocol-windows-rpc-binding-authinfo-and-context-lineage-workflow-note.md` when the remaining drift is Windows-RPC-specific and the true mismatch is binding-handle authentication posture or context-handle lineage rather than broader replay-fixture shape
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
