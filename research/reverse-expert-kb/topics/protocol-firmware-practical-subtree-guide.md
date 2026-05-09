@@ -6,6 +6,7 @@ Maturity: structured-practical
 Related pages:
 - topics/firmware-and-protocol-context-recovery.md
 - topics/firmware-hardware-observation-to-executed-image-workflow-note.md
+- topics/firmware-bootloader-selection-to-executed-image-workflow-note.md
 - topics/protocol-state-and-message-recovery.md
 - topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md
 - topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md
@@ -37,6 +38,8 @@ This guide exists because the KB’s firmware/protocol branch already has severa
 
 The branch already had practical entry surfaces for:
 - broad environment/context recovery framing
+- hardware observation / image-lineage proof
+- bootloader selection / loaded tuple / handoff proof
 - message/state recovery as a distinct recovery object
 - pre-parser capture-failure and boundary relocation
 - socket-boundary / private-overlay object recovery
@@ -64,11 +67,13 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of eighteen recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of nineteen recurring families:
 
 
 0. **hardware observation / image-lineage uncertainty**
    - the analyst has a board, pads, UART/JTAG/SWD/SPI surface, vendor update, flash dump, or bus trace, but has not yet proved that the bytes and observations map to the image actually selected and executed under the trigger of interest
+0a. **bootloader selection / handoff uncertainty**
+   - the analyst has U-Boot environment, `bootcmd`, `bootargs`, `boot_targets`, `bootmeths`, extlinux / distro boot config, FIT image material, bootflow output, boot logs, or `/proc/cmdline`, but still has not proved the selected bootflow, loaded kernel/initrd/FDT/overlay tuple, verification/policy result, OS handoff, and first runtime consumer as one coherent boot-chain evidence unit
 1. **context / object-of-recovery framing uncertainty**
    - the analyst still needs to decide whether the real object is environment recovery, protocol structure, peripheral context, or downstream rehosting/fuzzing utility
 2. **capture-failure / boundary-selection uncertainty**
@@ -111,7 +116,8 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
 A compact operator ladder for this branch is:
 
 ```text
-physical surface -> artifact bytes -> image lineage -> current boot selection -> executed trigger path
+physical surface -> artifact bytes -> image lineage -> current boot selection -> selected bootflow
+  -> loaded image tuple -> handoff / runtime consumption -> executed trigger path
   -> choose the current firmware/protocol bottleneck
   -> secure the nearest trustworthy protocol or hardware-side object
   -> prove one ownership, consequence, gate, or handoff edge
@@ -120,6 +126,7 @@ physical surface -> artifact bytes -> image lineage -> current boot selection ->
 
 The subtree is strongest when read as:
 - **see** the right boundary
+- **stabilize** one bootloader selection / handoff evidence unit when U-Boot environment, extlinux, FIT, bootflow, or `/proc/cmdline` evidence is visible but selected path truth can still lie; preserve `env/config != selected bootflow != loaded tuple != verified policy != handed off != consumed/effected` before treating a boot variable, config file, FIT blob, or signature result as current runtime truth
 - **surface** the first truthful socket-boundary or serializer-adjacent overlay object when the wire is one layer too late
 - **peel** the visible object into one smaller trustworthy contract
 - **recover** one service shell or representative method surface when the family is clearly service-oriented
@@ -150,6 +157,19 @@ Start here when:
 Do **not** start here when:
 - the firmware image and executed path are already trustworthy and the real bottleneck is protocol layer peeling, receive ownership, parser/state consequence, replay gating, output handoff, descriptor ownership, or hardware-side effect proof
 - the task is purely a soldering/pinout/electronics problem rather than reverse-analysis proof selection
+
+### Start with `firmware-bootloader-selection-to-executed-image-workflow-note`
+Use:
+- `topics/firmware-bootloader-selection-to-executed-image-workflow-note.md`
+
+Start here when:
+- hardware/image lineage is already plausible enough to discuss the boot chain, but the current selected boot path is still not trustworthy
+- U-Boot environment, `bootcmd`, `bootargs`, `boot_targets`, `bootmeths`, extlinux / distro boot config, FIT configuration, bootflow scan output, boot logs, or `/proc/cmdline` are visible
+- the real question is which bootdev/bootmeth/bootflow, kernel/initrd/FDT/overlay/rootfs/cmdline tuple, verified-boot policy result, handoff, and runtime consumer actually owns the behavior under analysis
+
+Do **not** start here when:
+- the acquired bytes still do not map to the current device/image at all; use the hardware observation / image-lineage note first
+- boot selection and handoff are already trustworthy and the current blocker is protocol layer peeling, receive ownership, parser/state consequence, replay gating, output handoff, descriptor ownership, or hardware-side effect proof
 
 ### Start with `firmware-and-protocol-context-recovery`
 Use:

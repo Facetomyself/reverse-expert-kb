@@ -1,0 +1,463 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "U-Boot environment bootcmd bootargs bootm bootflow verified boot documentation",
+    "firmware reverse engineering U-Boot environment boot chain executed image rootfs device tree",
+    "U-Boot bootstd extlinux FIT image verified boot bootm documentation"
+  ],
+  "count": 26,
+  "results": [
+    {
+      "title": "U-Boot environment - Documentation - NXP Semiconductors",
+      "url": "https://docs.nxp.com/bundle/UG10156/page/topics/u-boot_environment.html",
+      "snippet": "U-Boot environment bootcmd : the first command to run after U-Boot boot. bootargs : the kernel command line, which the bootloader passes to",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "U-Boot Verified Boot — Das U-Boot unknown version documentation",
+      "url": "https://docs.u-boot.org/en/v2025.04/usage/fit/verified-boot.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6833
+    },
+    {
+      "title": "bootm command — Das U-Boot unknown version documentation",
+      "url": "https://docs.u-boot.org/en/v2024.04/usage/cmd/bootm.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6833
+    },
+    {
+      "title": "U-Boot Verified Boot — Das U-Boot unknown version documentation",
+      "url": "https://docs.u-boot.org/en/latest/usage/fit/verified-boot.html",
+      "snippet": "Verified boot here means the verification of all software loaded into a machine during the boot process to ensure that it is authorised and correct for that",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6833
+    },
+    {
+      "title": "Environment Variables - The U-Boot Documentation",
+      "url": "https://docs.u-boot.org/en/latest/usage/environment.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6833
+    },
+    {
+      "title": "bootflow command — Das U-Boot unknown version documentation",
+      "url": "https://docs.u-boot.org/en/latest/usage/cmd/bootflow.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6833
+    },
+    {
+      "title": "U-Boot environment and boot script — FoundriesFactory 87 documentation",
+      "url": "https://docs.foundries.io/87/porting-guide/pg-spl-uboot-env.html",
+      "snippet": "* U-Boot environment and boot script. The last step to configure U-Boot in LmP is to provide the boot environment (for `lmp-base`) and the boot command. For the `lmp-base` distro, provide the boot environment input file (`uEnv.txt.in`), which sets the needed variables for booting:. `u-boot-base-scr/imx8mmevk/uEnv.txt.in`:. After `uEnv.txt.in` is in place, provide `boot.cmd`, which loads this environment and boots to kernel:. `u-boot-base-scr/imx8mmevk/boot.cmd`:. For the `lmp-base` distro, these files live in `u-boot-base-scr`:. recipes-bsp/u-boot/├── u-boot-base-scr │ └── │ ├── boot.cmd│ └── uEnv.txt.in└── u-boot-base-scr.bbappend. Also for the `lmp` distro, the only file that needs to be provided is `boot.cmd`, but in this case it handles both the environment as well as the boot command:. `u-boot-ostree-scr-fit/imx8mmevk/boot.cmd`:. The user needs to define `devnum` as expected by the board and make sure the `initrd_addr` is set in U-Boot correctly, otherwise the user may need to set the `initrd_addr` (as well as any other missing addresses) in this file. The boot.cmd for the `lmp` distro lives in:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6833
+    },
+    {
+      "title": "redpesk documentation - U-Boot's security advices -",
+      "url": "https://docs.redpesk.bzh/docs/en/master/redpesk-os/trusted-boot/trusted-boot-uboot.html",
+      "snippet": "That’s why to highly improve the security of the U-Boot’s bootloader system, it is necessary to set the correct flags in the U-Boot environment to disable all unnecessary features that could be an open door to an attacker! | CONFIG\\_CMD\\_CMDLINE | n | Remove the U-Boot command line \\*\\* |. | CONFIG\\_CMD\\_GO | n | This is the equivalent of an assembly jump/branch operation, so disable it to avoid an attacker changing the U-Boot’s execution to any arbitrary address |. | CONFIG\\_CMD\\_BOOTI | n | Disable the ‘booti’ command used to boot Linux images |. | CONFIG\\_CMD\\_BOOTZ | n | Remove the possibility to directly boot Linux Kernel images |. | CONFIG\\_CMD\\_ELF | n | Disable the use, the load, and the boot of ELF format images |. The only thing to do is to set (or add if the variable doesn’t exist depending of the U-Boot version) the variable CONFIG\\_BOOTDELAY to CONFIG\\_BOOTDELAY=-2 in the **/configs/imx8mp\\_solidrun\\_defconfig** and compile U-Boot again.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6833
+    },
+    {
+      "title": "U-Boot FIT Signature Verification — Das U-Boot unknown version documentation",
+      "url": "https://docs.u-boot.org/en/v2024.01/usage/fit/signature.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Standard Boot Overview — Das U-Boot unknown version documentation",
+      "url": "https://docs.u-boot.org/en/latest/develop/bootstd/overview.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Standard Boot — Das U-Boot unknown version documentation",
+      "url": "https://docs.u-boot.org/en/stable/develop/bootstd/index.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Flat Image Tree (FIT) - The U-Boot Documentation",
+      "url": "https://docs.u-boot.org/en/stable/usage/fit/index.html",
+      "snippet": "U-Boot uses Flat Image Tree (FIT) as a standard file format for packaging images that it reads and boots. Documentation about FIT is available in the Flattened",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "Command-line Parsing — Das U-Boot unknown version documentation",
+      "url": "https://docs.u-boot.org/en/stable/usage/cmdline.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Devicetree Control in U-Boot",
+      "url": "https://docs.u-boot.org/en/stable/develop/devicetree/control.html",
+      "snippet": "The U-Boot Makefile infrastructure allows for building the devicetree blob and embedding it in the U-Boot image. This is useful since it allows U-Boot to",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6167
+    },
+    {
+      "title": "intel-codex/Security/Pentesting/sop-firmware-reverse-engineering ...",
+      "url": "https://github.com/gl0bal01/intel-codex/blob/main/Security/Pentesting/sop-firmware-reverse-engineering.md",
+      "snippet": "Guide to extracting, analyzing, and exploiting firmware from embedded devices (routers, IoT devices, cameras, smart-home devices) for security research and",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "How U-boot loads Linux kernel | Welcome to the Mike’s homepage!",
+      "url": "https://krinkinmu.github.io/2023/08/21/how-u-boot-loads-linux-kernel.html",
+      "snippet": "",
+      "published_date": "2023-08-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.5167
+    },
+    {
+      "title": "Das U-Boot Verified Boot Bypass - WithSecure™ Labs",
+      "url": "https://labs.withsecure.com/advisories/das-u-boot-verified-boot-bypass",
+      "snippet": "U-Boot's verified boot feature is used to achieve this. This method only applies to the flattened image tree (FIT) image format. The FIT image is based on a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Is there a way to sign a FIT image as a whole for HAB?",
+      "url": "https://community.nxp.com/t5/i-MX-Processors/Is-there-a-way-to-sign-a-FIT-image-as-a-whole-for-HAB/m-p/1371975",
+      "snippet": "It seems u-boot hasn't enable the fit for the bootm command. it recognizes the fit image as legacy uImage format. maybe you haven't enable.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Shielder - Reversing embedded device bootloader (U-Boot) - p.1",
+      "url": "https://www.shielder.com/blog/2022/03/reversing-embedded-device-bootloader-u-boot-p.1/",
+      "snippet": "# Reversing embedded device bootloader (U-Boot) - p.1. *This blog post is not intended to be a “101” ARM firmware reverse-engineering tutorial or a guide to attacking a specific IoT device. In this two posts series, we will share an analysis of some aspects of reversing a low-level binary. Well, we have to admit we struggled a bit to collect the information to build the basic knowledge about this topic and the material we found was often not comprehensive enough, or many aspects were taken for granted. * The bootloader is a customized U-Boot (the binary is stripped). Some computer systems use a multistage boot process: when the computer is first turned on, a small bootloader located in non-volatile memory, known as the *BIOS*, is executed; this initial program then loads a second bootloader situated in a fixed area of the disk (called the boot block).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Booting an Embedded OS: the Booting and U-Boot Phase - SerHack",
+      "url": "https://serhack.me/articles/os-embedded-booting-phase-uboot/",
+      "snippet": "Another feature that U-Boot supports is the Flattened Device Tree file, a data structure that is used to describe hardware configuration.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Shielder - Reversing embedded device bootloader (U-Boot) - p.1",
+      "url": "https://www.shielder.it/blog/2022/03/reversing-embedded-device-bootloader-u-boot-p.1/",
+      "snippet": "",
+      "published_date": "2022-03-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "Porting U-Boot from Scratch: A Step-by-Step Dissection of the SoC Boot Process - Boardor",
+      "url": "https://boardor.com/blog/porting-u-boot-from-scratch-a-step-by-step-dissection-of-the-soc-boot-process",
+      "snippet": "",
+      "published_date": "2025-12-12T12:13:21.000Z",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "U-Boot/Boot process - linux-sunxi.org",
+      "url": "https://linux-sunxi.org/U-Boot/Boot_process",
+      "snippet": "",
+      "published_date": "2024-01-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "Firmware Acquisition: U-Boot - Embedded Lab Vienna for IoT & Security",
+      "url": "https://wiki.elvis.science/index.php?title=Firmware_Acquisition%3A_U-Boot",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3667
+    },
+    {
+      "title": "Reverse Engineering U-Boot for fun and profit",
+      "url": "https://groundzeno.net/blog/reverse-engineering-uboot-for-fun-and-profit/index.html",
+      "snippet": "board_init_r image entry point: 0x80100000 U-Boot 2013.07 (Jul 24 2023 - 16:37:26) Board: ISVP (Ingenic XBurst T31 SoC) DRAM: 128 MiB Top of RAM usable for U-Boot at: 84000000 Reserving 430k for U-Boot at: 83f94000 Reserving 32784k for malloc() at: 81f90000 Reserving 32 Bytes for Board Info at: 81f8ffe0 Reserving 124 Bytes for Global Data at: 81f8ff64 Reserving 128k for boot params() at: 81f6ff64 Stack Pointer at: 81f6ff48 Now running in RAM - U-Boot at: 83f94000 MMC: msc: 0 the manufacturer 20 SF: Detected XM25QH128C In: serial Out: serial Err: serial the manufacturer 20 SF: Detected XM25QH128C Hit any key to stop autoboot: 2 1 0 mmc power off ... The problem with the loaded binary, as there are no string references, the only way for finding functions and starting reverse engineering is cross referencing the C code of U-Boot with the disassembly and hoping to find similarities. `TCU_BASE` is defined once in the U-Boot code as `0xb0002000` and `TCU_OSTCNTH` as `0xe8`, resulting in a memory address of `0xb000200e8`. Searching the U-Boot source code we can find a place, where `get_timer` is used, and a \"lot\" of strings are referenced.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3467
+    },
+    {
+      "title": "Flattened uImage Tree (FIT) Images - The Good Penguin",
+      "url": "https://www.thegoodpenguin.co.uk/blog/u-boot-fit-image-overview/",
+      "snippet": "A FIT image is a device tree blob (DTB) with your binaries embedded inside – but represented in a structure that allows you to provide additional information.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "U-Boot Verified Boot — Das U-Boot unknown version documentation",
+        "url": "https://docs.u-boot.org/en/v2025.04/usage/fit/verified-boot.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6833
+      },
+      {
+        "title": "bootm command — Das U-Boot unknown version documentation",
+        "url": "https://docs.u-boot.org/en/v2024.04/usage/cmd/bootm.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6833
+      },
+      {
+        "title": "U-Boot FIT Signature Verification — Das U-Boot unknown version documentation",
+        "url": "https://docs.u-boot.org/en/v2024.01/usage/fit/signature.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "Standard Boot Overview — Das U-Boot unknown version documentation",
+        "url": "https://docs.u-boot.org/en/latest/develop/bootstd/overview.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "Standard Boot — Das U-Boot unknown version documentation",
+        "url": "https://docs.u-boot.org/en/stable/develop/bootstd/index.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "How U-boot loads Linux kernel | Welcome to the Mike’s homepage!",
+        "url": "https://krinkinmu.github.io/2023/08/21/how-u-boot-loads-linux-kernel.html",
+        "snippet": "",
+        "published_date": "2023-08-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.5167
+      },
+      {
+        "title": "Shielder - Reversing embedded device bootloader (U-Boot) - p.1",
+        "url": "https://www.shielder.it/blog/2022/03/reversing-embedded-device-bootloader-u-boot-p.1/",
+        "snippet": "",
+        "published_date": "2022-03-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "Porting U-Boot from Scratch: A Step-by-Step Dissection of the SoC Boot Process - Boardor",
+        "url": "https://boardor.com/blog/porting-u-boot-from-scratch-a-step-by-step-dissection-of-the-soc-boot-process",
+        "snippet": "",
+        "published_date": "2025-12-12T12:13:21.000Z",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "U-Boot/Boot process - linux-sunxi.org",
+        "url": "https://linux-sunxi.org/U-Boot/Boot_process",
+        "snippet": "",
+        "published_date": "2024-01-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "Firmware Acquisition: U-Boot - Embedded Lab Vienna for IoT & Security",
+        "url": "https://wiki.elvis.science/index.php?title=Firmware_Acquisition%3A_U-Boot",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3667
+      },
+      {
+        "title": "Environment Variables - The U-Boot Documentation",
+        "url": "https://docs.u-boot.org/en/latest/usage/environment.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6833
+      },
+      {
+        "title": "U-Boot Verified Boot — Das U-Boot unknown version documentation",
+        "url": "https://docs.u-boot.org/en/v2025.04/usage/fit/verified-boot.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "bootm command — Das U-Boot unknown version documentation",
+        "url": "https://docs.u-boot.org/en/v2024.04/usage/cmd/bootm.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Command-line Parsing — Das U-Boot unknown version documentation",
+        "url": "https://docs.u-boot.org/en/stable/usage/cmdline.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "bootflow command — Das U-Boot unknown version documentation",
+        "url": "https://docs.u-boot.org/en/latest/usage/cmd/bootflow.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6833
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Flat Image Tree (FIT) - The U-Boot Documentation",
+        "url": "https://docs.u-boot.org/en/stable/usage/fit/index.html",
+        "snippet": "U-Boot uses Flat Image Tree (FIT) as a standard file format for packaging images that it reads and boots. Documentation about FIT is available in the Flattened",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "U-Boot Verified Boot — Das U-Boot unknown version documentation",
+        "url": "https://docs.u-boot.org/en/latest/usage/fit/verified-boot.html",
+        "snippet": "Verified boot here means the verification of all software loaded into a machine during the boot process to ensure that it is authorised and correct for that",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6833
+      },
+      {
+        "title": "Das U-Boot Verified Boot Bypass - WithSecure™ Labs",
+        "url": "https://labs.withsecure.com/advisories/das-u-boot-verified-boot-bypass",
+        "snippet": "U-Boot's verified boot feature is used to achieve this. This method only applies to the flattened image tree (FIT) image format. The FIT image is based on a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Flattened uImage Tree (FIT) Images - The Good Penguin",
+        "url": "https://www.thegoodpenguin.co.uk/blog/u-boot-fit-image-overview/",
+        "snippet": "A FIT image is a device tree blob (DTB) with your binaries embedded inside – but represented in a structure that allows you to provide additional information.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Is there a way to sign a FIT image as a whole for HAB?",
+        "url": "https://community.nxp.com/t5/i-MX-Processors/Is-there-a-way-to-sign-a-FIT-image-as-a-whole-for-HAB/m-p/1371975",
+        "snippet": "It seems u-boot hasn't enable the fit for the bootm command. it recognizes the fit image as legacy uImage format. maybe you haven't enable.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Reverse Engineering U-Boot for fun and profit",
+        "url": "https://groundzeno.net/blog/reverse-engineering-uboot-for-fun-and-profit/index.html",
+        "snippet": "board_init_r image entry point: 0x80100000 U-Boot 2013.07 (Jul 24 2023 - 16:37:26) Board: ISVP (Ingenic XBurst T31 SoC) DRAM: 128 MiB Top of RAM usable for U-Boot at: 84000000 Reserving 430k for U-Boot at: 83f94000 Reserving 32784k for malloc() at: 81f90000 Reserving 32 Bytes for Board Info at: 81f8ffe0 Reserving 124 Bytes for Global Data at: 81f8ff64 Reserving 128k for boot params() at: 81f6ff64 Stack Pointer at: 81f6ff48 Now running in RAM - U-Boot at: 83f94000 MMC: msc: 0 the manufacturer 20 SF: Detected XM25QH128C In: serial Out: serial Err: serial the manufacturer 20 SF: Detected XM25QH128C Hit any key to stop autoboot: 2 1 0 mmc power off ... The problem with the loaded binary, as there are no string references, the only way for finding functions and starting reverse engineering is cross referencing the C code of U-Boot with the disassembly and hoping to find similarities. `TCU_BASE` is defined once in the U-Boot code as `0xb0002000` and `TCU_OSTCNTH` as `0xe8`, resulting in a memory address of `0xb000200e8`. Searching the U-Boot source code we can find a place, where `get_timer` is used, and a \"lot\" of strings are referenced.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3467
+      },
+      {
+        "title": "Shielder - Reversing embedded device bootloader (U-Boot) - p.1",
+        "url": "https://www.shielder.com/blog/2022/03/reversing-embedded-device-bootloader-u-boot-p.1/",
+        "snippet": "# Reversing embedded device bootloader (U-Boot) - p.1. *This blog post is not intended to be a “101” ARM firmware reverse-engineering tutorial or a guide to attacking a specific IoT device. In this two posts series, we will share an analysis of some aspects of reversing a low-level binary. Well, we have to admit we struggled a bit to collect the information to build the basic knowledge about this topic and the material we found was often not comprehensive enough, or many aspects were taken for granted. * The bootloader is a customized U-Boot (the binary is stripped). Some computer systems use a multistage boot process: when the computer is first turned on, a small bootloader located in non-volatile memory, known as the *BIOS*, is executed; this initial program then loads a second bootloader situated in a fixed area of the disk (called the boot block).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "intel-codex/Security/Pentesting/sop-firmware-reverse-engineering ...",
+        "url": "https://github.com/gl0bal01/intel-codex/blob/main/Security/Pentesting/sop-firmware-reverse-engineering.md",
+        "snippet": "Guide to extracting, analyzing, and exploiting firmware from embedded devices (routers, IoT devices, cameras, smart-home devices) for security research and",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Booting an Embedded OS: the Booting and U-Boot Phase - SerHack",
+        "url": "https://serhack.me/articles/os-embedded-booting-phase-uboot/",
+        "snippet": "Another feature that U-Boot supports is the Flattened Device Tree file, a data structure that is used to describe hardware configuration.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Devicetree Control in U-Boot",
+        "url": "https://docs.u-boot.org/en/stable/develop/devicetree/control.html",
+        "snippet": "The U-Boot Makefile infrastructure allows for building the devicetree blob and embedding it in the U-Boot image. This is useful since it allows U-Boot to",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6167
+      },
+      {
+        "title": "U-Boot environment - Documentation - NXP Semiconductors",
+        "url": "https://docs.nxp.com/bundle/UG10156/page/topics/u-boot_environment.html",
+        "snippet": "U-Boot environment bootcmd : the first command to run after U-Boot boot. bootargs : the kernel command line, which the bootloader passes to",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "U-Boot Verified Boot — Das U-Boot unknown version documentation",
+        "url": "https://docs.u-boot.org/en/latest/usage/fit/verified-boot.html",
+        "snippet": "Verified boot here means the verification of all software loaded into a machine during the boot process to ensure that it is authorised and correct for that",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "bootflow command — Das U-Boot unknown version documentation",
+        "url": "https://docs.u-boot.org/en/latest/usage/cmd/bootflow.html",
+        "snippet": "Description . The bootflow command is used to manage bootflows. It can scan bootdevs to locate bootflows, list them and boot them. See Standard Boot for",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "U-Boot environment and boot script — FoundriesFactory 87 documentation",
+        "url": "https://docs.foundries.io/87/porting-guide/pg-spl-uboot-env.html",
+        "snippet": "* U-Boot environment and boot script. The last step to configure U-Boot in LmP is to provide the boot environment (for `lmp-base`) and the boot command. For the `lmp-base` distro, provide the boot environment input file (`uEnv.txt.in`), which sets the needed variables for booting:. `u-boot-base-scr/imx8mmevk/uEnv.txt.in`:. After `uEnv.txt.in` is in place, provide `boot.cmd`, which loads this environment and boots to kernel:. `u-boot-base-scr/imx8mmevk/boot.cmd`:. For the `lmp-base` distro, these files live in `u-boot-base-scr`:. recipes-bsp/u-boot/├── u-boot-base-scr │ └── │ ├── boot.cmd│ └── uEnv.txt.in└── u-boot-base-scr.bbappend. Also for the `lmp` distro, the only file that needs to be provided is `boot.cmd`, but in this case it handles both the environment as well as the boot command:. `u-boot-ostree-scr-fit/imx8mmevk/boot.cmd`:. The user needs to define `devnum` as expected by the board and make sure the `initrd_addr` is set in U-Boot correctly, otherwise the user may need to set the `initrd_addr` (as well as any other missing addresses) in this file. The boot.cmd for the `lmp` distro lives in:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6833
+      },
+      {
+        "title": "redpesk documentation - U-Boot's security advices -",
+        "url": "https://docs.redpesk.bzh/docs/en/master/redpesk-os/trusted-boot/trusted-boot-uboot.html",
+        "snippet": "That’s why to highly improve the security of the U-Boot’s bootloader system, it is necessary to set the correct flags in the U-Boot environment to disable all unnecessary features that could be an open door to an attacker! | CONFIG\\_CMD\\_CMDLINE | n | Remove the U-Boot command line \\*\\* |. | CONFIG\\_CMD\\_GO | n | This is the equivalent of an assembly jump/branch operation, so disable it to avoid an attacker changing the U-Boot’s execution to any arbitrary address |. | CONFIG\\_CMD\\_BOOTI | n | Disable the ‘booti’ command used to boot Linux images |. | CONFIG\\_CMD\\_BOOTZ | n | Remove the possibility to directly boot Linux Kernel images |. | CONFIG\\_CMD\\_ELF | n | Disable the use, the load, and the boot of ELF format images |. The only thing to do is to set (or add if the variable doesn’t exist depending of the U-Boot version) the variable CONFIG\\_BOOTDELAY to CONFIG\\_BOOTDELAY=-2 in the **/configs/imx8mp\\_solidrun\\_defconfig** and compile U-Boot again.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6833
+      }
+    ],
+    "grok": []
+  }
+}
