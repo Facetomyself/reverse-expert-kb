@@ -21,6 +21,7 @@ Related pages:
 - topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 - topics/firmware-hardware-observation-to-executed-image-workflow-note.md
+- topics/firmware-bootloader-selection-to-executed-image-workflow-note.md
 
 ## 1. Topic identity
 
@@ -102,6 +103,7 @@ This branch should now also be remembered not only as a firmware/embedded domain
 
 A compact reading worth preserving is:
 - before choosing protocol semantics, prove image-lineage when the case starts at hardware access: physical interface, stable session, acquired bytes, partition/memory mapping, current boot selection, trigger-linked execution, and first behavior-bearing consumer are separate proof objects
+- once U-Boot / bootloader material is visible, preserve the narrower boot-chain split `env/config != selected bootflow != loaded tuple != verified policy != handed off != consumed/effected`, so boot variables, extlinux files, FIT blobs, signature logs, and `/proc/cmdline` evidence do not collapse into one vague “this firmware booted” claim
 - choose the right boundary before overcommitting to protocol semantics
 - surface the first truthful socket-boundary, serializer-adjacent, parser-adjacent, or hardware-adjacent object
 - peel one visible layered object into one smaller trustworthy contract
@@ -116,6 +118,7 @@ But it is the practical memory the parent page should preserve when the branch i
 
 Compact anti-drift reminders worth preserving here:
 - do not treat pads found, flash dumped, UART visible, or JTAG attached as equivalent to current executed-image truth; hardware surfaces first need image-lineage correlation and trigger-linked execution evidence before deep static claims are stable
+- do not treat `bootcmd`, `bootargs`, `boot_targets`, `extlinux.conf`, FIT image nodes, `bootm` arguments, or `signature ok` logs as equivalent to the final consumed kernel/initrd/FDT/rootfs/cmdline tuple; prove selected bootflow, loaded tuple, policy result, handoff, and one runtime consumer separately
 - do not keep broad packet or register collection going when the real blocker is still selecting the first truthful boundary
 - do not keep naming protocol or peripheral families once one smaller trustworthy contract is already available and the real bottleneck has shifted to ownership, consequence, acceptance, or handoff proof
 - in descriptor/ring-heavy firmware cases, do not mistake visible completion bytes for solved understanding when ownership transfer, freshness rules, notify/doorbell scope, or non-coherent cache visibility still decide whether the peer or CPU may trust them
