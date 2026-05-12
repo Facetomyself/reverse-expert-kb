@@ -7,6 +7,7 @@ Related pages:
 - topics/firmware-and-protocol-context-recovery.md
 - topics/firmware-hardware-observation-to-executed-image-workflow-note.md
 - topics/firmware-bootloader-selection-to-executed-image-workflow-note.md
+- topics/firmware-uefi-boot-manager-to-loader-handoff-workflow-note.md
 - topics/protocol-state-and-message-recovery.md
 - topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md
 - topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md
@@ -67,13 +68,15 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of nineteen recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty recurring families:
 
 
 0. **hardware observation / image-lineage uncertainty**
    - the analyst has a board, pads, UART/JTAG/SWD/SPI surface, vendor update, flash dump, or bus trace, but has not yet proved that the bytes and observations map to the image actually selected and executed under the trigger of interest
 0a. **bootloader selection / handoff uncertainty**
    - the analyst has U-Boot environment, `bootcmd`, `bootargs`, `boot_targets`, `bootmeths`, extlinux / distro boot config, FIT image material, bootflow output, boot logs, or `/proc/cmdline`, but still has not proved the selected bootflow, loaded kernel/initrd/FDT/overlay tuple, verification/policy result, OS handoff, and first runtime consumer as one coherent boot-chain evidence unit
+0b. **UEFI boot-manager / loader-handoff uncertainty**
+   - the analyst has `Boot####`, `BootOrder`, `BootNext`, `BootCurrent`, `efibootmgr -v`, ESP paths, Secure Boot state, U-Boot `eficonfig`, or `bootefi bootmgr` evidence, but still has not proved selected entry truth, device-path-to-byte resolution, loader start, verification/policy result, second-stage handoff, and first runtime consumer as one coherent evidence unit
 1. **context / object-of-recovery framing uncertainty**
    - the analyst still needs to decide whether the real object is environment recovery, protocol structure, peripheral context, or downstream rehosting/fuzzing utility
 2. **capture-failure / boundary-selection uncertainty**
@@ -116,8 +119,8 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
 A compact operator ladder for this branch is:
 
 ```text
-physical surface -> artifact bytes -> image lineage -> current boot selection -> selected bootflow
-  -> loaded image tuple -> handoff / runtime consumption -> executed trigger path
+physical surface -> artifact bytes -> image lineage -> current boot selection -> selected bootflow / UEFI selected entry
+  -> loaded image tuple / loader bytes -> handoff / runtime consumption -> executed trigger path
   -> choose the current firmware/protocol bottleneck
   -> secure the nearest trustworthy protocol or hardware-side object
   -> prove one ownership, consequence, gate, or handoff edge
@@ -127,6 +130,7 @@ physical surface -> artifact bytes -> image lineage -> current boot selection ->
 The subtree is strongest when read as:
 - **see** the right boundary
 - **stabilize** one bootloader selection / handoff evidence unit when U-Boot environment, extlinux, FIT, bootflow, or `/proc/cmdline` evidence is visible but selected path truth can still lie; preserve `env/config != selected bootflow != loaded tuple != verified policy != handed off != consumed/effected` before treating a boot variable, config file, FIT blob, or signature result as current runtime truth
+- **stabilize** one UEFI boot-manager / loader-handoff evidence unit when `Boot####`, `BootOrder`, `BootNext`, `BootCurrent`, ESP file paths, or Secure Boot state are visible but current-loader truth can still lie; preserve `entry != selected != resolved != loaded != verified != handed off != consumed/effected` before treating UEFI NVRAM state as current runtime truth
 - **surface** the first truthful socket-boundary or serializer-adjacent overlay object when the wire is one layer too late
 - **peel** the visible object into one smaller trustworthy contract
 - **recover** one service shell or representative method surface when the family is clearly service-oriented
@@ -170,6 +174,20 @@ Start here when:
 Do **not** start here when:
 - the acquired bytes still do not map to the current device/image at all; use the hardware observation / image-lineage note first
 - boot selection and handoff are already trustworthy and the current blocker is protocol layer peeling, receive ownership, parser/state consequence, replay gating, output handoff, descriptor ownership, or hardware-side effect proof
+
+### Start with `firmware-uefi-boot-manager-to-loader-handoff-workflow-note`
+Use:
+- `topics/firmware-uefi-boot-manager-to-loader-handoff-workflow-note.md`
+
+Start here when:
+- the case is UEFI-shaped rather than U-Boot/extlinux/FIT-shaped, or U-Boot is explicitly using UEFI boot options through `eficonfig` / `bootefi bootmgr`
+- `Boot####`, `BootOrder`, `BootNext`, `BootCurrent`, `efibootmgr -v`, ESP paths, Secure Boot state, or firmware boot logs are visible
+- the real question is which boot option and loader image were selected, resolved, loaded, verified, handed off, and consumed by the observed runtime
+
+Do **not** start here when:
+- hardware/image lineage is still unproved; use the hardware observation note first
+- the selected loader and handoff tuple are already trustworthy and the current blocker is protocol layer peeling, receive ownership, parser/state consequence, replay gating, output handoff, descriptor ownership, or hardware-side effect proof
+- the target is specifically U-Boot environment/extlinux/FIT bootflow rather than UEFI `Boot####`/BootOrder semantics; use the U-Boot-shaped bootloader-selection note first
 
 ### Start with `firmware-and-protocol-context-recovery`
 Use:
