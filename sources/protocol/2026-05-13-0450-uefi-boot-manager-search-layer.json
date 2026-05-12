@@ -1,0 +1,427 @@
+{
+  "mode": "deep",
+  "intent": "tutorial",
+  "queries": [
+    "UEFI Boot#### BootOrder EFI variable loader handoff documentation",
+    "UEFI boot manager BootOrder BootNext LoadOption device path documentation",
+    "firmware reverse engineering UEFI Boot#### EFI variable boot chain loader handoff executed image"
+  ],
+  "count": 22,
+  "results": [
+    {
+      "title": "eficonfig command — Das U-Boot unknown version documentation",
+      "url": "https://docs.u-boot.org/en/stable/usage/cmd/eficonfig.html",
+      "snippet": "# eficonfig command. The “eficonfig” command uses the U-Boot menu interface to provide a menu-driven UEFI variable maintenance feature. :   Add a new UEFI Boot Option. The new boot opiton is appended to the boot order in the *BootOrder* variable. :   Edit the UEFI Secure Boot Configuration. ### How to boot the system with a newly added UEFI Boot Option. The “eficonfig” command is used to set the UEFI boot options which are stored in the UEFI variable Boot#### where #### is a hexadecimal number. If the bootmenu is enabled, CONFIG\\_BOOTMENU\\_DISABLE\\_UBOOT\\_CONSOLE is enabled, and “eficonfig” is configured as preboot command, the newly added Boot Options are enumerated in the bootmenu when the user exits from the eficonfig menu. ### Auto boot with the UEFI Boot Option. ### UEFI Secure Boot Configuration. The “eficonfig” command is enabled by:. The UEFI Secure Boot Configuration menu entry is only available if the following options are enabled:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.8
+    },
+    {
+      "title": "3_foundation/315_platform_initialization/31512_boot_manager_boot_option_processing.md at master · tianocore-docs/edk2-UefiDriverWritersGuide",
+      "url": "https://github.com/tianocore-docs/edk2-UefiDriverWritersGuide/blob/master/3_foundation/315_platform_initialization/31512_boot_manager_boot_option_processing.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "UEFI Boot Manager - BIOS Engineer Stuff",
+      "url": "http://kurtqiao.github.io/uefi/2015/01/13/uefi-boot-manager.html",
+      "snippet": "The BootNext variable is a single UINT16 that defines the Boot#### option that is to be tried first on the next boot. After the BootNext boot",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Reverse engineering UEFI firmware updater : r/ReverseEngineering",
+      "url": "https://www.reddit.com/r/ReverseEngineering/comments/ejy923/reverse_engineering_uefi_firmware_updater/",
+      "snippet": "This software was designed by someone in the 90s, and basically has had no updates since 2010 and it is still used in 2020 to update a computer's BIOS.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.52
+    },
+    {
+      "title": "Moving From Manual Reverse Engineering of UEFI Modules To Dynamic Emulation of UEFI Firmware - SentinelLabs",
+      "url": "https://www.sentinelone.com/labs/moving-from-manual-reverse-engineering-of-uefi-modules-to-dynamic-emulation-of-uefi-firmware/",
+      "snippet": "The main reason for that is that UEFI modules typically execute early in the boot process, long before an OS kernel is loaded into memory. To accommodate these shortcomings, *efi\\_dxe\\_emulator* implements some of the most heavily-used UEFI services on its own. In addition to the core UEFI services, the emulator also implements a PE loader (so as to load UEFI images into memory), a simple heap, a handle database and a basic interactive debugger which lets you step through the emulated code. The run function in *os/uefi/uefi.py* is the main function of UEFI execution, however it is executed after the run function of *loader/pe\\_uefi.py* did the heavy lifting of loading the modules and installing the hooks and protocols. Figure 14 - Executing a UEFI module with variables values loaded from a file. To some degree, emulating a single UEFI module is equivalent to loading a binary without mapping all the shared libraries it depends on to function properly.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "3. Boot Manager — UEFI Specification 2.10 documentation",
+      "url": "https://uefi.org/specs/UEFI/2.10/03_Boot_Manager.html",
+      "snippet": "If a load option is marked as LOAD_OPTION_ACTIVE, the boot manager will attempt to boot automatically using the device path information in the load option.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4
+    },
+    {
+      "title": "3. Boot Manager — UEFI Specification 2.9A documentation",
+      "url": "https://uefi.org/specs/UEFI/2.9_A/03_Boot_Manager.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "3. Boot Manager — UEFI Specification 2.11 documentation",
+      "url": "https://uefi.org/specs/UEFI/2.11/03_Boot_Manager.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Unified Extensible Firmware Interface - ArchWiki",
+      "url": "https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface",
+      "snippet": "The Unified Extensible Firmware Interface **(UEFI)** is an interface between operating systems and firmware. It provides a standard environment for booting an operating system and running pre-boot applications. See Arch boot process for their differences and the boot process using UEFI. To set up UEFI boot loaders, see Arch boot process#Boot loader. Under UEFI, every program whether it is an operating system loader or a utility (e.g. a memory testing or recovery tool), should be an EFI application corresponding to the UEFI firmware bitness/architecture. An x64 UEFI firmware does not include support for launching 32-bit EFI applications (unlike x86\\_64 Linux and Windows versions which include such support). The firmware bitness can be checked from a booted operating system. So, if you have a 32-bit version of Windows booted in UEFI mode, you have a 32-bit UEFI. For 64-bit Windows on a 64-bit UEFI, it will be `System Type: x64-based PC` and `BIOS mode: UEFI`.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "loader.efi - FreeBSD Manual Pages",
+      "url": "https://man.freebsd.org/loader.efi",
+      "snippet": "loader.efi will load the kernel into memory that is 2MB aligned below 4GB. It cannot load to a fixed address because the UEFI firmware may reserve arbitrary",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "3. Boot Manager — UEFI Specification 2.10 documentation",
+      "url": "https://uefi.org/specs/UEFI/2.10/03_Boot_Manager.html?highlight=8be4d",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Boot manager | UEFI_IOT | Lenovo Docs",
+      "url": "https://pubs.lenovo.com/uefi_iot/boot_manager",
+      "snippet": "Boot manager. Use this menu to choose boot order, boot parameters, and boot ... Add one generic boot device as boot option. Add UEFI Full Path Boot Option.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "Setting up boot order from the UEFI boot manager - HPE Support",
+      "url": "https://support.hpe.com/hpesc/public/docDisplay?docId=sd00003096en_us&page=GUID-0AD283AE-CA4C-4759-8673-DE9E6DD17043.html&docLocale=en_US",
+      "snippet": "Press F2 to access the UEFI Boot Manager. ; Use the up and down arrow keys to select the Boot Maintenance Manager menu, then press Enter. ; To begin adjusting",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "efibootmgr(8): change EFI Boot Manager - Linux man page",
+      "url": "https://linux.die.net/man/8/efibootmgr",
+      "snippet": "BootNext - the boot entry which is scheduled to be run on next boot. This supercedes BootOrder for one boot only, and is deleted by the boot manager after first",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "Unified Extensible Firmware Interface (UEFI) Specification",
+      "url": "https://uefi.org/sites/default/files/resources/UEFI_Spec_Final_2.11.pdf",
+      "snippet": "",
+      "published_date": "2024-11-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "Jethro Beekman: Reversing UEFI by execution - YouTube",
+      "url": "https://www.youtube.com/watch?v=JbHrwS4PHMY",
+      "snippet": "This talk will be an overview of how to reverse-engineer Unified Extensible Firmware Interface (UEFI) firmware, the replacement for BIOS.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "Reverse Engineering UEFI Firmware – Technology & Policy – Jethro Beekman",
+      "url": "https://jbeekman.nl/blog/2015/03/reverse-engineering-uefi-firmware/",
+      "snippet": "*Wait what, run UEFI PE modules?* Yes, I wrote a tool called `efiperun` that can load PE modules into memory and simulate enough of what an UEFI environment is supposed to look like to actually run them. With `efiperun` you can actually write code that calls into loaded EFI modules, which makes it easy to test installed interfaces. The password control program has an interesting function at offset `0x8cc` that calls only `SetMem`, `CopyMem` and the Crypto and Translate services. The password control program calls a function in the Crypto service at offset `0x26e0`, which references three GUIDs that I hadn’t seen before:. All in all this suggests that the Crypto service is a front for the cryptographic routines in `SystemCryptSvcRt.efi` and that the password control program calls SHA256. I assume the input to the function at offset `0xce0` is the password hash from the password control program, but what is the data in “LenovoHddSecInfoVar”?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "Delving Deep into Reverse Engineering of UEFI Firmwares via ...",
+      "url": "https://www.mdpi.com/2079-9292/12/22/4601",
+      "snippet": "No special permission is required to reuse all or part of the article published by MDPI, including figures and tables. For articles published under an open access Creative Common CC BY license, any part of the article may be reused without permission provided that the original article is clearly cited. A Feature Paper should be a substantial original Article that involves several techniques or approaches, provides an outlook for future research directions and describes possible research applications. The aim is to provide a snapshot of some of the most exciting work published in the various research areas of the journal. UEFI UI is an interactive interface that allows users to configure and manage UEFI settings, which is closely related to HII (Human Interface Infrastructure). We proposed a protocol-centered static analysis method to obtain UEFI’s password policy, using HII-related protocols to find password implementation.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.35
+    },
+    {
+      "title": "modern uefi network booting | 🇺🇦 kraxel’s news",
+      "url": "https://www.kraxel.org/blog/2024/07/uefi-network-boot/",
+      "snippet": "",
+      "published_date": "2024-07-08T22:00:00.000Z",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "Geeking out with the UEFI boot manager – Out of Office Hours",
+      "url": "https://oofhours.com/2022/06/29/geeking-out-with-the-uefi-boot-manager/",
+      "snippet": "",
+      "published_date": "2022-06-29T08:31:19.000Z",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "9.  PEI to DXE Handoff ¶",
+      "url": "https://uefi.org/specs/PI/1.8/V1_PEI_to_DXE_Handoff.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "10.  Protocols – Device Path Protocol ",
+      "url": "https://uefi.org/specs/UEFI/2.11/10_Protocols_Device_Path_Protocol.html",
+      "snippet": "",
+      "published_date": "2026-04-03T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.25
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "3. Boot Manager — UEFI Specification 2.10 documentation",
+        "url": "https://uefi.org/specs/UEFI/2.10/03_Boot_Manager.html",
+        "snippet": "If a load option is marked as LOAD_OPTION_ACTIVE, the boot manager will attempt to boot automatically using the device path information in the load option.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4
+      },
+      {
+        "title": "Boot manager | UEFI_IOT | Lenovo Docs",
+        "url": "https://pubs.lenovo.com/uefi_iot/boot_manager",
+        "snippet": "Boot manager. Use this menu to choose boot order, boot parameters, and boot ... Add one generic boot device as boot option. Add UEFI Full Path Boot Option.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "UEFI Boot Manager - BIOS Engineer Stuff",
+        "url": "http://kurtqiao.github.io/uefi/2015/01/13/uefi-boot-manager.html",
+        "snippet": "The BootNext variable is a single UINT16 that defines the Boot#### option that is to be tried first on the next boot. After the BootNext boot",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Setting up boot order from the UEFI boot manager - HPE Support",
+        "url": "https://support.hpe.com/hpesc/public/docDisplay?docId=sd00003096en_us&page=GUID-0AD283AE-CA4C-4759-8673-DE9E6DD17043.html&docLocale=en_US",
+        "snippet": "Press F2 to access the UEFI Boot Manager. ; Use the up and down arrow keys to select the Boot Maintenance Manager menu, then press Enter. ; To begin adjusting",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "efibootmgr(8): change EFI Boot Manager - Linux man page",
+        "url": "https://linux.die.net/man/8/efibootmgr",
+        "snippet": "BootNext - the boot entry which is scheduled to be run on next boot. This supercedes BootOrder for one boot only, and is deleted by the boot manager after first",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "Jethro Beekman: Reversing UEFI by execution - YouTube",
+        "url": "https://www.youtube.com/watch?v=JbHrwS4PHMY",
+        "snippet": "This talk will be an overview of how to reverse-engineer Unified Extensible Firmware Interface (UEFI) firmware, the replacement for BIOS.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "Moving From Manual Reverse Engineering of UEFI Modules To Dynamic Emulation of UEFI Firmware - SentinelLabs",
+        "url": "https://www.sentinelone.com/labs/moving-from-manual-reverse-engineering-of-uefi-modules-to-dynamic-emulation-of-uefi-firmware/",
+        "snippet": "The main reason for that is that UEFI modules typically execute early in the boot process, long before an OS kernel is loaded into memory. To accommodate these shortcomings, *efi\\_dxe\\_emulator* implements some of the most heavily-used UEFI services on its own. In addition to the core UEFI services, the emulator also implements a PE loader (so as to load UEFI images into memory), a simple heap, a handle database and a basic interactive debugger which lets you step through the emulated code. The run function in *os/uefi/uefi.py* is the main function of UEFI execution, however it is executed after the run function of *loader/pe\\_uefi.py* did the heavy lifting of loading the modules and installing the hooks and protocols. Figure 14 - Executing a UEFI module with variables values loaded from a file. To some degree, emulating a single UEFI module is equivalent to loading a binary without mapping all the shared libraries it depends on to function properly.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Reverse engineering UEFI firmware updater : r/ReverseEngineering",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/ejy923/reverse_engineering_uefi_firmware_updater/",
+        "snippet": "This software was designed by someone in the 90s, and basically has had no updates since 2010 and it is still used in 2020 to update a computer's BIOS.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.52
+      },
+      {
+        "title": "Reverse Engineering UEFI Firmware – Technology & Policy – Jethro Beekman",
+        "url": "https://jbeekman.nl/blog/2015/03/reverse-engineering-uefi-firmware/",
+        "snippet": "*Wait what, run UEFI PE modules?* Yes, I wrote a tool called `efiperun` that can load PE modules into memory and simulate enough of what an UEFI environment is supposed to look like to actually run them. With `efiperun` you can actually write code that calls into loaded EFI modules, which makes it easy to test installed interfaces. The password control program has an interesting function at offset `0x8cc` that calls only `SetMem`, `CopyMem` and the Crypto and Translate services. The password control program calls a function in the Crypto service at offset `0x26e0`, which references three GUIDs that I hadn’t seen before:. All in all this suggests that the Crypto service is a front for the cryptographic routines in `SystemCryptSvcRt.efi` and that the password control program calls SHA256. I assume the input to the function at offset `0xce0` is the password hash from the password control program, but what is the data in “LenovoHddSecInfoVar”?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "Delving Deep into Reverse Engineering of UEFI Firmwares via ...",
+        "url": "https://www.mdpi.com/2079-9292/12/22/4601",
+        "snippet": "No special permission is required to reuse all or part of the article published by MDPI, including figures and tables. For articles published under an open access Creative Common CC BY license, any part of the article may be reused without permission provided that the original article is clearly cited. A Feature Paper should be a substantial original Article that involves several techniques or approaches, provides an outlook for future research directions and describes possible research applications. The aim is to provide a snapshot of some of the most exciting work published in the various research areas of the journal. UEFI UI is an interactive interface that allows users to configure and manage UEFI settings, which is closely related to HII (Human Interface Infrastructure). We proposed a protocol-centered static analysis method to obtain UEFI’s password policy, using HII-related protocols to find password implementation.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.35
+      },
+      {
+        "title": "UEFI Boot Manager - BIOS Engineer Stuff",
+        "url": "http://kurtqiao.github.io/uefi/2015/01/13/uefi-boot-manager.html",
+        "snippet": "The BootOrder variable contains an array of UINT16's that make up an ordered list of the Boot#### options. The first element in the array is the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "eficonfig command — Das U-Boot unknown version documentation",
+        "url": "https://docs.u-boot.org/en/stable/usage/cmd/eficonfig.html",
+        "snippet": "# eficonfig command. The “eficonfig” command uses the U-Boot menu interface to provide a menu-driven UEFI variable maintenance feature. :   Add a new UEFI Boot Option. The new boot opiton is appended to the boot order in the *BootOrder* variable. :   Edit the UEFI Secure Boot Configuration. ### How to boot the system with a newly added UEFI Boot Option. The “eficonfig” command is used to set the UEFI boot options which are stored in the UEFI variable Boot#### where #### is a hexadecimal number. If the bootmenu is enabled, CONFIG\\_BOOTMENU\\_DISABLE\\_UBOOT\\_CONSOLE is enabled, and “eficonfig” is configured as preboot command, the newly added Boot Options are enumerated in the bootmenu when the user exits from the eficonfig menu. ### Auto boot with the UEFI Boot Option. ### UEFI Secure Boot Configuration. The “eficonfig” command is enabled by:. The UEFI Secure Boot Configuration menu entry is only available if the following options are enabled:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.8
+      },
+      {
+        "title": "3. Boot Manager — UEFI Specification 2.10 documentation",
+        "url": "https://uefi.org/specs/UEFI/2.10/03_Boot_Manager.html",
+        "snippet": "The boot manager will attempt to load UEFI drivers and UEFI applications (including UEFI OS boot loaders) in an order defined by the global NVRAM variables.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Unified Extensible Firmware Interface - ArchWiki",
+        "url": "https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface",
+        "snippet": "The Unified Extensible Firmware Interface **(UEFI)** is an interface between operating systems and firmware. It provides a standard environment for booting an operating system and running pre-boot applications. See Arch boot process for their differences and the boot process using UEFI. To set up UEFI boot loaders, see Arch boot process#Boot loader. Under UEFI, every program whether it is an operating system loader or a utility (e.g. a memory testing or recovery tool), should be an EFI application corresponding to the UEFI firmware bitness/architecture. An x64 UEFI firmware does not include support for launching 32-bit EFI applications (unlike x86\\_64 Linux and Windows versions which include such support). The firmware bitness can be checked from a booted operating system. So, if you have a 32-bit version of Windows booted in UEFI mode, you have a 32-bit UEFI. For 64-bit Windows on a 64-bit UEFI, it will be `System Type: x64-based PC` and `BIOS mode: UEFI`.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "loader.efi - FreeBSD Manual Pages",
+        "url": "https://man.freebsd.org/loader.efi",
+        "snippet": "loader.efi will load the kernel into memory that is 2MB aligned below 4GB. It cannot load to a fixed address because the UEFI firmware may reserve arbitrary",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      }
+    ],
+    "exa": [
+      {
+        "title": "10.  Protocols – Device Path Protocol ",
+        "url": "https://uefi.org/specs/UEFI/2.11/10_Protocols_Device_Path_Protocol.html",
+        "snippet": "",
+        "published_date": "2026-04-03T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.25
+      },
+      {
+        "title": "3. Boot Manager — UEFI Specification 2.10 documentation",
+        "url": "https://uefi.org/specs/UEFI/2.10/03_Boot_Manager.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "3_foundation/315_platform_initialization/31512_boot_manager_boot_option_processing.md at master · tianocore-docs/edk2-UefiDriverWritersGuide",
+        "url": "https://github.com/tianocore-docs/edk2-UefiDriverWritersGuide/blob/master/3_foundation/315_platform_initialization/31512_boot_manager_boot_option_processing.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "Unified Extensible Firmware Interface (UEFI) Specification",
+        "url": "https://uefi.org/sites/default/files/resources/UEFI_Spec_Final_2.11.pdf",
+        "snippet": "",
+        "published_date": "2024-11-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "3. Boot Manager — UEFI Specification 2.9A documentation",
+        "url": "https://uefi.org/specs/UEFI/2.9_A/03_Boot_Manager.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "9.  PEI to DXE Handoff ¶",
+        "url": "https://uefi.org/specs/PI/1.8/V1_PEI_to_DXE_Handoff.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "3. Boot Manager — UEFI Specification 2.11 documentation",
+        "url": "https://uefi.org/specs/UEFI/2.11/03_Boot_Manager.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "modern uefi network booting | 🇺🇦 kraxel’s news",
+        "url": "https://www.kraxel.org/blog/2024/07/uefi-network-boot/",
+        "snippet": "",
+        "published_date": "2024-07-08T22:00:00.000Z",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "Geeking out with the UEFI boot manager – Out of Office Hours",
+        "url": "https://oofhours.com/2022/06/29/geeking-out-with-the-uefi-boot-manager/",
+        "snippet": "",
+        "published_date": "2022-06-29T08:31:19.000Z",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "Delving Deep into Reverse Engineering of UEFI Firmwares via ...",
+        "url": "https://www.mdpi.com/2079-9292/12/22/4601",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "3. Boot Manager — UEFI Specification 2.9A documentation",
+        "url": "https://uefi.org/specs/UEFI/2.9_A/03_Boot_Manager.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "3_foundation/315_platform_initialization/31512_boot_manager_boot_option_processing.md at master · tianocore-docs/edk2-UefiDriverWritersGuide",
+        "url": "https://github.com/tianocore-docs/edk2-UefiDriverWritersGuide/blob/master/3_foundation/315_platform_initialization/31512_boot_manager_boot_option_processing.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "3. Boot Manager — UEFI Specification 2.10 documentation",
+        "url": "https://uefi.org/specs/UEFI/2.10/03_Boot_Manager.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Geeking out with the UEFI boot manager – Out of Office Hours",
+        "url": "https://oofhours.com/2022/06/29/geeking-out-with-the-uefi-boot-manager/",
+        "snippet": "",
+        "published_date": "2022-06-29T08:31:19.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "3. Boot Manager — UEFI Specification 2.10 documentation",
+        "url": "https://uefi.org/specs/UEFI/2.10/03_Boot_Manager.html?highlight=8be4d",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4
+      }
+    ],
+    "grok": []
+  }
+}
