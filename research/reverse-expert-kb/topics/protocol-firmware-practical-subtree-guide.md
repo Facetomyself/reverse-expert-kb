@@ -8,6 +8,7 @@ Related pages:
 - topics/firmware-hardware-observation-to-executed-image-workflow-note.md
 - topics/firmware-bootloader-selection-to-executed-image-workflow-note.md
 - topics/firmware-uefi-boot-manager-to-loader-handoff-workflow-note.md
+- topics/firmware-android-ab-slot-rollback-to-stable-runtime-workflow-note.md
 - topics/protocol-state-and-message-recovery.md
 - topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md
 - topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md
@@ -77,6 +78,8 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - the analyst has U-Boot environment, `bootcmd`, `bootargs`, `boot_targets`, `bootmeths`, extlinux / distro boot config, FIT image material, bootflow output, boot logs, or `/proc/cmdline`, but still has not proved the selected bootflow, loaded kernel/initrd/FDT/overlay tuple, verification/policy result, OS handoff, and first runtime consumer as one coherent boot-chain evidence unit
 0b. **UEFI boot-manager / loader-handoff uncertainty**
    - the analyst has `Boot####`, `BootOrder`, `BootNext`, `BootCurrent`, `efibootmgr -v`, ESP paths, Secure Boot state, U-Boot `eficonfig`, or `bootefi bootmgr` evidence, but still has not proved selected entry truth, device-path-to-byte resolution, loader start, verification/policy result, second-stage handoff, and first runtime consumer as one coherent evidence unit
+0c. **Android A/B slot / rollback / stable-runtime uncertainty**
+   - the analyst has A/B metadata, fastboot or Boot Control HAL state, `androidboot.slot_suffix=`, `ro.boot.slot_suffix`, AVB / vbmeta material, rollback indexes, or update-engine state, but still has not proved active-for-next truth, current slot truth, resolved slot image tuple, AVB / rollback acceptance, userspace consumption, successful/stable marking, and first behavior owner as one coherent evidence unit
 1. **context / object-of-recovery framing uncertainty**
    - the analyst still needs to decide whether the real object is environment recovery, protocol structure, peripheral context, or downstream rehosting/fuzzing utility
 2. **capture-failure / boundary-selection uncertainty**
@@ -119,7 +122,7 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
 A compact operator ladder for this branch is:
 
 ```text
-physical surface -> artifact bytes -> image lineage -> current boot selection -> selected bootflow / UEFI selected entry
+physical surface -> artifact bytes -> image lineage -> current boot selection -> selected bootflow / UEFI selected entry / Android A/B current slot
   -> loaded image tuple / loader bytes -> handoff / runtime consumption -> executed trigger path
   -> choose the current firmware/protocol bottleneck
   -> secure the nearest trustworthy protocol or hardware-side object
@@ -131,6 +134,7 @@ The subtree is strongest when read as:
 - **see** the right boundary
 - **stabilize** one bootloader selection / handoff evidence unit when U-Boot environment, extlinux, FIT, bootflow, or `/proc/cmdline` evidence is visible but selected path truth can still lie; preserve `env/config != selected bootflow != loaded tuple != verified policy != handed off != consumed/effected` before treating a boot variable, config file, FIT blob, or signature result as current runtime truth
 - **stabilize** one UEFI boot-manager / loader-handoff evidence unit when `Boot####`, `BootOrder`, `BootNext`, `BootCurrent`, ESP file paths, or Secure Boot state are visible but current-loader truth can still lie; preserve `entry != selected != resolved != loaded != verified != handed off != consumed/effected` before treating UEFI NVRAM state as current runtime truth
+- **stabilize** one Android A/B slot / rollback / stable-runtime evidence unit when slot metadata, Boot Control HAL / `bootctl`, `androidboot.slot_suffix=`, AVB/vbmeta, rollback index, or update-engine evidence is visible but current-runtime truth can still lie; preserve `metadata != active != current != verified != consumed != successful/stable != effect-owned` before treating slot state as behavior ownership
 - **surface** the first truthful socket-boundary or serializer-adjacent overlay object when the wire is one layer too late
 - **peel** the visible object into one smaller trustworthy contract
 - **recover** one service shell or representative method surface when the family is clearly service-oriented
@@ -174,6 +178,20 @@ Start here when:
 Do **not** start here when:
 - the acquired bytes still do not map to the current device/image at all; use the hardware observation / image-lineage note first
 - boot selection and handoff are already trustworthy and the current blocker is protocol layer peeling, receive ownership, parser/state consequence, replay gating, output handoff, descriptor ownership, or hardware-side effect proof
+
+### Start with `firmware-android-ab-slot-rollback-to-stable-runtime-workflow-note`
+Use:
+- `topics/firmware-android-ab-slot-rollback-to-stable-runtime-workflow-note.md`
+
+Start here when:
+- the case is Android A/B / AVB / rollback-index shaped, including Android-derived embedded boot paths
+- A/B metadata, fastboot slot state, Boot Control HAL / `bootctl`, `androidboot.slot_suffix=`, `ro.boot.slot_suffix`, AVB / vbmeta, rollback-index, or update-engine evidence is visible
+- the real question is which slot was active for next boot, which slot actually booted, which image tuple was verified and consumed, whether the boot became successful/stable, and which first runtime consumer owns the behavior
+
+Do **not** start here when:
+- hardware/image lineage is still unproved; use the hardware observation note first
+- the target is U-Boot/extlinux/FIT-shaped and A/B is only one variable in a broader boot script; pair with the U-Boot-shaped bootloader-selection note
+- slot and boot-chain evidence are already trustworthy and the current blocker is protocol layer peeling, receive ownership, parser/state consequence, replay gating, output handoff, descriptor ownership, or hardware-side effect proof
 
 ### Start with `firmware-uefi-boot-manager-to-loader-handoff-workflow-note`
 Use:
