@@ -1736,3 +1736,31 @@ For `infra/`, if a push fails immediately after commit with an expected-old-SHA 
 - See Also: none
 
 ---
+## [ERR-20260515-001] git add pathspec mismatch
+
+**Logged**: 2026-05-15T04:50:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: docs
+
+### Summary
+Attempted to include a workspace-reverse memory file in a git add against the main workspace repo, but that path is outside the repo.
+
+### Error
+```text
+fatal: pathspec 'memory/2026-05-15.md' did not match any files
+```
+
+### Context
+- Command attempted: `git -C /root/.openclaw/workspace add ... memory/2026-05-15.md && git -C /root/.openclaw/workspace commit ...`
+- The reverse-agent daily memory file lives under `/root/.openclaw/workspace-reverse/memory/`, not under the main workspace git root.
+
+### Suggested Fix
+Only add repo-tracked KB files from `/root/.openclaw/workspace/research/reverse-expert-kb/` when committing in the main workspace repo; keep reverse-agent memory files outside that git add list unless the main repo explicitly mirrors them.
+
+### Metadata
+- Reproducible: yes
+- Related Files: research/reverse-expert-kb/*
+- See Also: none
+
+---

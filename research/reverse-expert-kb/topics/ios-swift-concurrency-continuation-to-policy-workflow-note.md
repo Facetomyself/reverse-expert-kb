@@ -7,6 +7,7 @@ Related pages:
 - topics/ios-practical-subtree-guide.md
 - topics/ios-block-callback-landing-and-signature-recovery-workflow-note.md
 - topics/ios-result-callback-to-policy-state-workflow-note.md
+- topics/ios-asyncstream-yield-buffer-consume-termination-workflow-note.md
 - topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
 - topics/ios-mitigation-aware-replay-repair-workflow-note.md
 - topics/mobile-reversing-and-runtime-instrumentation.md
@@ -198,6 +199,7 @@ A source-backed discipline worth preserving here:
   - first iterator-side consumption that actually changes later behavior
 - for `URLSession.AsyncBytes` or similar `AsyncSequence` cases, also separate header-time success from later body-consumption truth; do not treat `bytes(...)` return as equivalent to the parser / framer / classifier that actually turns stream material into policy-relevant meaning
 - for `AsyncStream`-shaped cases, preserve stream construction / continuation storage, buffering policy, first `yield(...)` / delivery truth, `finish()` / throwing-finish / termination / cancellation truth, and the first iterator-side or resumed task-side consumer as separate proof objects when they affect whether the same behavior-bearing consumer actually wakes
+- when the case has narrowed specifically into stream mechanics rather than broad continuation ownership, route to `topics/ios-asyncstream-yield-buffer-consume-termination-workflow-note.md`
 - a sharper stream-shaped stop rule is now worth keeping explicit: `yielded != enqueued != consumed != terminated != durable-effect`
   - `yielded` = producer attempted `yield(...)`
   - `enqueued` = buffering policy and continuation state accepted rather than dropped/terminated the element
