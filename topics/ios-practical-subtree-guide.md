@@ -20,6 +20,7 @@ Related pages:
 - topics/ios-block-callback-landing-and-signature-recovery-workflow-note.md
 - topics/ios-mitigation-aware-replay-repair-workflow-note.md
 - topics/ios-swift-concurrency-continuation-to-policy-workflow-note.md
+- topics/ios-asyncstream-yield-buffer-consume-termination-workflow-note.md
 - topics/ios-result-callback-to-policy-state-workflow-note.md
 - topics/ios-xpc-proxy-to-service-consumer-workflow-note.md
 - topics/ios-xpc-reply-error-invalidation-reconnect-compare-workflow-note.md
@@ -92,6 +93,7 @@ A sharper Swift-concurrency reminder now also belongs in branch memory: non-acto
 A second Swift-heavy reminder is now also worth preserving canonically: exact-once continuation discipline creates several operator-meaningful failure shapes that should not be collapsed into vague async drift. Callback visibility, continuation creation/storage, actual resume, missing-resume leak/suspend, double-resume misuse, resumed reducer truth, and MainActor-side consumer truth can each break a compare pair differently.
 
 A third stream-shaped reminder now also belongs in branch memory: visible `AsyncStream` / `AsyncThrowingStream` activity is not automatically durable consumer truth. Preserve stream construction, buffering policy, first `yield(...)` visibility, `finish()` / termination / cancellation truth, and the first iterator-side or later MainActor-side consumer separately instead of treating all stream activity as one generic async consequence.
+When the case has narrowed specifically into stream mechanics rather than broad continuation ownership, route to `topics/ios-asyncstream-yield-buffer-consume-termination-workflow-note.md`.
 A narrower stop rule is now also worth keeping explicit for those cases: `yielded != enqueued != consumed != terminated != durable-effect`. Producer-side `yield(...)` traffic, accepted buffering, iterator-side consumption, explicit finish/cancellation/termination, and later MainActor- or policy-bearing consequence should stay separate whenever compare pairs start lying.
 
 A compact operator ladder for this branch is:

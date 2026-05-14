@@ -1,0 +1,463 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Swift AsyncStream yield buffering termination consumer official documentation",
+    "Swift CheckedContinuation exact once resume official documentation",
+    "Swift AsyncSequence consumer termination yield result documentation"
+  ],
+  "count": 26,
+  "results": [
+    {
+      "title": "swift-evolution/proposals/0406-async-stream-backpressure.md at ...",
+      "url": "https://github.com/apple/swift-evolution/blob/main/proposals/0406-async-stream-backpressure.md",
+      "snippet": "Downstream consumer termination allows the producer to notify the consumer that no more values are going to be produced. Async[Throwing]Stream does support this",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7125
+    },
+    {
+      "title": "AsyncStream.Continuation.YieldResult | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/yieldresult?language=o_5",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7125
+    },
+    {
+      "title": "AsyncStream.Continuation.YieldResult.terminated - Apple Developer",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/yieldresult/terminated",
+      "snippet": "AsyncStream.Continuation.YieldResult.terminated. The stream didn't enqueue the element because the stream was in a terminal state.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "AsyncStream.Continuation.BufferingPolicy - Apple Developer",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/bufferingpolicy",
+      "snippet": "Constructs an asynchronous stream for an element type, using the specified buffering policy and element-producing closure.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "AsyncStream | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream",
+      "snippet": "AsyncStream conforms to AsyncSequence, providing a convenient way to create an asynchronous sequence without manually implementing an asynchronous iterator.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.675
+    },
+    {
+      "title": "yield(_:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/yield(_:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "init(_:bufferingPolicy:_:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/init(_:bufferingpolicy:_:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "AsyncStream.Continuation | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "Task Cancellation with AsyncSequence consumers that do not ...",
+      "url": "https://forums.swift.org/t/task-cancellation-with-asyncsequence-consumers-that-do-not-terminate/67092",
+      "snippet": "The documentation for AsyncIteratorProtocol does state that once an AsyncSequence is terminated or an error is thrown, then it should always return nil from",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "AsyncStream | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream?language=ft%2Cft",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "CheckedContinuation | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/checkedcontinuation",
+      "snippet": "You must call a resume method exactly once on every execution path throughout the program. Resuming from a continuation more than once is undefined behavior.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6375
+    },
+    {
+      "title": "swift/stdlib/public/Concurrency/CheckedContinuation.swift at main",
+      "url": "https://github.com/apple/swift/blob/main/stdlib/public/Concurrency/CheckedContinuation.swift",
+      "snippet": "/// You must invoke the continuation's `resume` method exactly once. ///. /// Missing to invoke it (eventually) will cause the calling task to remain suspended.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6375
+    },
+    {
+      "title": "Automatically Cancelling Continuations - Using Swift - Swift Forums",
+      "url": "https://forums.swift.org/t/automatically-cancelling-continuations/72960",
+      "snippet": "When writing async code I often need to combine `CheckedContinuation` APIs with task cancellation. return try await withCheckedThrowingContinuation { continuation in. The missing piece is to unblock the suspended task on cancellation, using something like:. It is not easy to add this functionality because `withTaskCancellationHandler` is difficult to get right in a thread safe way. Also, automatic cancellation interferes with the requirement to resume the continuation exactly once. The `continuation` in the closure is a thread safe wrapper around `CheckedContinuation` which handles cancellation. Instead, is is passed as an argument to the closure of `with...Continuation` APIs. This is different in `CancellingContinuation`, mainly because of an implementation necessity: The cancellation handler needs something to address to before `continuation` can be accessed in the closure. Next to the established `with...Continuation` API there is a second way on how to use the new construct:. If so, I would probably go with operation handling cancellation of continuation, something like that probably:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6375
+    },
+    {
+      "title": "withCheckedContinuation(isolation:function:_:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/withcheckedcontinuation(isolation:function:_:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6375
+    },
+    {
+      "title": "stdlib/public/Concurrency/CheckedContinuation.swift at 36b5090a · swiftlang/swift",
+      "url": "https://github.com/swiftlang/swift/blob/36b5090a/stdlib/public/Concurrency/CheckedContinuation.swift",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6375
+    },
+    {
+      "title": "resume(with:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/checkedcontinuation/resume(with:)-3gh60",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6375
+    },
+    {
+      "title": "proposals/0300-continuation.md at main · swiftlang/swift-evolution",
+      "url": "https://github.com/apple/swift-evolution/blob/main/proposals/0300-continuation.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6375
+    },
+    {
+      "title": "AsyncSequence Implementations | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asyncstream/asyncsequence-implementations",
+      "snippet": "Creates an asynchronous sequence that maps an error-throwing closure over the base sequence's elements, omitting results that don't return a value.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6375
+    },
+    {
+      "title": "AsyncSequence | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/Swift/AsyncSequence",
+      "snippet": "Overview. An AsyncSequence resembles the Sequence type — offering a list of values you can step through one at a time — and adds asynchronicity.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6375
+    },
+    {
+      "title": "swift-evolution/proposals/0298-asyncsequence.md at main - GitHub",
+      "url": "https://github.com/apple/swift-evolution/blob/main/proposals/0298-asyncsequence.md",
+      "snippet": "AsyncSequence allows for waiting on each element instead of the entire result by defining an asynchronous next() function on its associated iterator type.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6375
+    },
+    {
+      "title": "AsyncIteratorProtocol | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swift/asynciteratorprotocol",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6375
+    },
+    {
+      "title": "AsyncSequence | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/Swift/AsyncSequence?changes=_2___6_8",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6375
+    },
+    {
+      "title": "Understanding AsyncStream and AsyncThrowingStream in Swift",
+      "url": "https://dev.to/arshtechpro/understanding-asyncstream-and-asyncthrowingstream-in-swift-lgm",
+      "snippet": "AsyncStream automatically buffers them. -By default, it stores as many as needed (Int.max). -You can limit this by setting a buffer size.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.575
+    },
+    {
+      "title": "Chapter 5: Intermediate async/await & CheckedContinuation",
+      "url": "https://cainluo.github.io/Modern%20Concurrency%20in%20Swift/en/6.Chapter%205%20Intermediate%20asyncawait%20%26%20CheckedContinuation/",
+      "snippet": "You must resume the continuation once — and exactly once. Enforcing this rule is the difference between checked and unsafe continuations. You resume a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "CheckedContinuation · Swift 6.3 documentation - Swiftinit",
+      "url": "https://swiftinit.org/docs/swift/swift/checkedcontinuation",
+      "snippet": "Important. You must call a resume method exactly once on every execution path throughout the program. Resuming from a continuation more than once is undefined",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "AsyncSequence Implementations | Documentation",
+      "url": "https://swiftpackageindex.com/coenttb/swift-async-algorithms-fork/main/documentation/asyncalgorithms/asyncjoinedsequence/asyncsequence-implementations",
+      "snippet": "Returns a new asynchronous sequence containing the elements of this asynchronous sequence, inserting the given separator between each element.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3375
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "CheckedContinuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/checkedcontinuation",
+        "snippet": "You must call a resume method exactly once on every execution path throughout the program. Resuming from a continuation more than once is undefined behavior.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6375
+      },
+      {
+        "title": "CheckedContinuation · Swift 6.3 documentation - Swiftinit",
+        "url": "https://swiftinit.org/docs/swift/swift/checkedcontinuation",
+        "snippet": "Important. You must call a resume method exactly once on every execution path throughout the program. Resuming from a continuation more than once is undefined",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "swift/stdlib/public/Concurrency/CheckedContinuation.swift at main",
+        "url": "https://github.com/apple/swift/blob/main/stdlib/public/Concurrency/CheckedContinuation.swift",
+        "snippet": "/// You must invoke the continuation's `resume` method exactly once. ///. /// Missing to invoke it (eventually) will cause the calling task to remain suspended.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6375
+      },
+      {
+        "title": "Chapter 5: Intermediate async/await & CheckedContinuation",
+        "url": "https://cainluo.github.io/Modern%20Concurrency%20in%20Swift/en/6.Chapter%205%20Intermediate%20asyncawait%20%26%20CheckedContinuation/",
+        "snippet": "You must resume the continuation once — and exactly once. Enforcing this rule is the difference between checked and unsafe continuations. You resume a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Automatically Cancelling Continuations - Using Swift - Swift Forums",
+        "url": "https://forums.swift.org/t/automatically-cancelling-continuations/72960",
+        "snippet": "When writing async code I often need to combine `CheckedContinuation` APIs with task cancellation. return try await withCheckedThrowingContinuation { continuation in. The missing piece is to unblock the suspended task on cancellation, using something like:. It is not easy to add this functionality because `withTaskCancellationHandler` is difficult to get right in a thread safe way. Also, automatic cancellation interferes with the requirement to resume the continuation exactly once. The `continuation` in the closure is a thread safe wrapper around `CheckedContinuation` which handles cancellation. Instead, is is passed as an argument to the closure of `with...Continuation` APIs. This is different in `CancellingContinuation`, mainly because of an implementation necessity: The cancellation handler needs something to address to before `continuation` can be accessed in the closure. Next to the established `with...Continuation` API there is a second way on how to use the new construct:. If so, I would probably go with operation handling cancellation of continuation, something like that probably:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6375
+      },
+      {
+        "title": "AsyncStream.Continuation.YieldResult.terminated - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/yieldresult/terminated",
+        "snippet": "AsyncStream.Continuation.YieldResult.terminated. The stream didn't enqueue the element because the stream was in a terminal state.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "AsyncStream.Continuation.BufferingPolicy - Apple Developer",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/bufferingpolicy",
+        "snippet": "Constructs an asynchronous stream for an element type, using the specified buffering policy and element-producing closure.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "swift-evolution/proposals/0406-async-stream-backpressure.md at ...",
+        "url": "https://github.com/apple/swift-evolution/blob/main/proposals/0406-async-stream-backpressure.md",
+        "snippet": "Downstream consumer termination allows the producer to notify the consumer that no more values are going to be produced. Async[Throwing]Stream does support this",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7125
+      },
+      {
+        "title": "AsyncStream | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream",
+        "snippet": "AsyncStream conforms to AsyncSequence, providing a convenient way to create an asynchronous sequence without manually implementing an asynchronous iterator.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.675
+      },
+      {
+        "title": "Understanding AsyncStream and AsyncThrowingStream in Swift",
+        "url": "https://dev.to/arshtechpro/understanding-asyncstream-and-asyncthrowingstream-in-swift-lgm",
+        "snippet": "AsyncStream automatically buffers them. -By default, it stores as many as needed (Int.max). -You can limit this by setting a buffer size.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.575
+      },
+      {
+        "title": "Task Cancellation with AsyncSequence consumers that do not ...",
+        "url": "https://forums.swift.org/t/task-cancellation-with-asyncsequence-consumers-that-do-not-terminate/67092",
+        "snippet": "The documentation for AsyncIteratorProtocol does state that once an AsyncSequence is terminated or an error is thrown, then it should always return nil from",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "AsyncSequence Implementations | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/asyncsequence-implementations",
+        "snippet": "Creates an asynchronous sequence that maps an error-throwing closure over the base sequence's elements, omitting results that don't return a value.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6375
+      },
+      {
+        "title": "AsyncSequence | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/Swift/AsyncSequence",
+        "snippet": "Overview. An AsyncSequence resembles the Sequence type — offering a list of values you can step through one at a time — and adds asynchronicity.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6375
+      },
+      {
+        "title": "swift-evolution/proposals/0298-asyncsequence.md at main - GitHub",
+        "url": "https://github.com/apple/swift-evolution/blob/main/proposals/0298-asyncsequence.md",
+        "snippet": "AsyncSequence allows for waiting on each element instead of the entire result by defining an asynchronous next() function on its associated iterator type.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6375
+      },
+      {
+        "title": "AsyncSequence Implementations | Documentation",
+        "url": "https://swiftpackageindex.com/coenttb/swift-async-algorithms-fork/main/documentation/asyncalgorithms/asyncjoinedsequence/asyncsequence-implementations",
+        "snippet": "Returns a new asynchronous sequence containing the elements of this asynchronous sequence, inserting the given separator between each element.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3375
+      }
+    ],
+    "exa": [
+      {
+        "title": "CheckedContinuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/checkedcontinuation",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "withCheckedContinuation(isolation:function:_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/withcheckedcontinuation(isolation:function:_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6375
+      },
+      {
+        "title": "stdlib/public/Concurrency/CheckedContinuation.swift at 36b5090a · swiftlang/swift",
+        "url": "https://github.com/swiftlang/swift/blob/36b5090a/stdlib/public/Concurrency/CheckedContinuation.swift",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6375
+      },
+      {
+        "title": "resume(with:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/checkedcontinuation/resume(with:)-3gh60",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6375
+      },
+      {
+        "title": "proposals/0300-continuation.md at main · swiftlang/swift-evolution",
+        "url": "https://github.com/apple/swift-evolution/blob/main/proposals/0300-continuation.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6375
+      },
+      {
+        "title": "yield(_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/yield(_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.675
+      },
+      {
+        "title": "init(_:bufferingPolicy:_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/init(_:bufferingpolicy:_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.675
+      },
+      {
+        "title": "AsyncStream | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "AsyncStream.Continuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.675
+      },
+      {
+        "title": "AsyncStream.Continuation.YieldResult | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/yieldresult?language=o_5",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7125
+      },
+      {
+        "title": "yield(_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation/yield(_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "AsyncStream.Continuation | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream/continuation",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "AsyncIteratorProtocol | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asynciteratorprotocol",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6375
+      },
+      {
+        "title": "AsyncSequence | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/Swift/AsyncSequence?changes=_2___6_8",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6375
+      },
+      {
+        "title": "AsyncStream | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/swift/asyncstream?language=ft%2Cft",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.675
+      }
+    ],
+    "grok": []
+  }
+}
