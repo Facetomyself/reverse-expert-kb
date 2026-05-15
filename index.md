@@ -76,6 +76,7 @@ These pages define the central recovery objects, evaluation logic, and analyst w
 These pages show how different target classes change what matters in reverse engineering.
 
 - `topics/native-binary-reversing-baseline.md`
+- `topics/native-etw-provider-session-consumer-workflow-note.md`
 - `topics/js-browser-runtime-reversing.md`
 - `topics/mobile-reversing-and-runtime-instrumentation.md`
 - `topics/firmware-and-protocol-context-recovery.md`
@@ -195,6 +196,9 @@ A top-level practical reading now worth preserving is that recent maintenance ha
 - `topics/native-epoll-eventfd-first-consumer-workflow-note.md`
 - `topics/native-wait-object-and-threadpool-wait-first-consumer-workflow-note.md`
 - `topics/native-timer-queue-and-threadpool-timer-first-consumer-workflow-note.md`
+
+A Windows telemetry/evidence reading now worth preserving in the native/runtime-evidence overlap is:
+- ETW provider registration, session enablement, event write, ETL or real-time callback delivery, payload decode, and consumer-owned effect are separate proof objects; keep **registered != enabled != written != delivered != decoded != consumed/effected** visible so provider GUIDs, `EventWrite` hits, ETL records, or callback delivery do not silently become behavior ownership claims
 
 A smaller async-delivery reading now worth preserving in the native branch is:
 - wait registration or timer arming is often only setup truth

@@ -24,6 +24,7 @@ Related pages:
 - topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md
 - topics/native-qt-event-filter-vs-signal-slot-first-consumer-workflow-note.md
 - topics/native-cocoa-responder-chain-and-target-action-first-consumer-workflow-note.md
+- topics/native-etw-provider-session-consumer-workflow-note.md
 - topics/runtime-behavior-recovery.md
 
 ## 1. Why this guide exists
@@ -90,6 +91,10 @@ A macOS service/helper reminder now worth preserving inside family 5 is the Serv
 - use `topics/native-macos-servicemanagement-xpc-helper-consumer-workflow-note.md` when the visible API is `SMAppService`, legacy `SMJobBless`, LaunchDaemon / LaunchAgent `MachServices`, bundled `XPCServices/*.xpc`, `NSXPCConnection`, `NSXPCListener`, or `xpc_connection_create_mach_service(...)`, and the current liar is whether **registered != domain-live != endpoint-published != launched-identity != accepted-client != method-entered != replied/lifecycle != consumed/effected** was flattened into one claim
 
 A compact operator ladder for this branch is:
+
+A Windows telemetry reminder now worth preserving before treating trace events as consequence proof:
+- ETW provider identity, provider registration, session start, provider enablement, event write, ETL / real-time callback delivery, payload decode, and consumer-owned effect are different proof objects
+- use `topics/native-etw-provider-session-consumer-workflow-note.md` when the visible API is `EventRegister`, `TraceLoggingRegisterEx`, `EventWrite*`, `StartTrace`, `EnableTraceEx2`, `OpenTrace`, `ProcessTrace`, or `EventRecordCallback`, and the current liar is whether **registered != enabled != written != delivered != decoded != consumed/effected** was flattened into one claim
 
 ```text
 choose the current native bottleneck

@@ -13,6 +13,7 @@ Related pages:
 - topics/first-bad-write-and-decisive-reducer-localization-workflow-note.md
 - topics/watchpoint-location-vs-object-incarnation-workflow-note.md
 - topics/runtime-evidence-package-and-handoff-workflow-note.md
+- topics/native-etw-provider-session-consumer-workflow-note.md
 - topics/analytic-provenance-and-evidence-management.md
 - topics/notebook-and-memory-augmented-re.md
 - sources/runtime-evidence/2026-03-21-evidence-package-and-handoff-notes.md
@@ -62,6 +63,10 @@ Runtime-evidence practical work is easiest to navigate when the analyst first cl
    - one representative execution, compare-run result, or causal claim is already good enough technically, but still too scattered, assumption-heavy, or analyst-private to survive delay, handoff, or branch-specific reuse cleanly
 
 A compact operator ladder for this branch is:
+
+A Windows ETW-specific reminder now worth preserving inside runtime-evidence work:
+- trace evidence is often real but weaker than the claim being made; provider registration, session enablement, event emission, delivery, decoding, and downstream consumer effect are separate evidence boundaries
+- use `topics/native-etw-provider-session-consumer-workflow-note.md` when ETW is the chosen observation surface and the current risk is overreading a provider GUID, write callsite, ETL record, or callback delivery as behavior ownership without proving **registered != enabled != written != delivered != decoded != consumed/effected**
 
 ```text
 choose the current runtime-evidence bottleneck

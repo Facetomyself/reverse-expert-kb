@@ -1,0 +1,481 @@
+{
+  "mode": "deep",
+  "intent": "tutorial",
+  "queries": [
+    "Windows ETW Event Tracing provider enable session consumer official documentation",
+    "TraceLogging EventRegister EventWrite EnableCallback provider session documentation",
+    "reverse engineering ETW event tracing provider consumer evidence workflow"
+  ],
+  "count": 28,
+  "results": [
+    {
+      "title": "Event Tracing - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/etw/event-tracing-portal",
+      "snippet": "Event Tracing for Windows (ETW) provides application programmers the ability to start and stop event tracing sessions, instrument an application to provide trace events, and consume trace events. Trace events contain an event header and provider-defined data that describes the current state of an application or operation. This documentation is for user-mode applications that want to use ETW. For information about instrumenting device drivers that run in kernel mode, see WPP Software Tracing and Adding Event Tracing to Kernel-Mode Drivers in the Windows Driver Kit (WDK). Use ETW when you want to instrument your application, log user or kernel events to a log file, and consume events from a log file or in real time. You can use the .NET TraceProcessing API to analyze ETW traces for your applications and other software components. | Using Event Tracing | Task-related topics that describe how to use the ETW API. | Event Tracing Reference | Detailed descriptions of ETW functions and other programming elements.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.83
+    },
+    {
+      "title": "Instrumenting Your Code with ETW | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/test/weg/instrumenting-your-code-with-etw",
+      "snippet": "You can try signing in or changing directories. # Instrumenting Your Code with ETW. Event Tracing for Windows (ETW) is a high speed tracing facility built into Windows. Using a buffering and logging mechanism implemented in the operating system kernel, ETW provides an infrastructure for events raised by both user mode (apps) and kernel mode components (drivers). ETW can be used for system and app diagnosis, troubleshooting, and performance monitoring. The ETW mechanism lets you control tracing sessions dynamically, which makes it possible to capture detailed tracing in production environments without system reboot or app restart. The tracing buffer is managed by the kernel. A provider can be a user mode app, a kernel mode driver, or the Windows kernel itself. Manifest-based ETW events can be implemented in user-mode apps, including services, and in kernel mode components like drivers, by using an XML file called the *event manifest*.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.79
+    },
+    {
+      "title": "Configuring and Starting an Event Tracing Session - GitHub",
+      "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/ETW/configuring-and-starting-an-event-tracing-session.md",
+      "snippet": "To enable the providers that you want to log events to your session, call the EnableTrace function to enable classic providers and the EnableTraceEx function to",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "TraceLoggingRegisterEx function (traceloggingprovider.h) - Win32 ...",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/traceloggingprovider/nf-traceloggingprovider-traceloggingregisterex",
+      "snippet": "Registers a TraceLogging provider so that it can be used to log events, specifying an ETW enable callback. The registration is valid until the provider is",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.71
+    },
+    {
+      "title": "Windows Event Trace (ETW) - Bindplane Docs",
+      "url": "https://docs.bindplane.com/integrations/sources/windows-event-trace-etw",
+      "snippet": "This source creates a Real-Time ETW Session to ingest Event Tracing Logs from Windows using the Event Tracing API . Currently, only real-time",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "Controlling Event Tracing Sessions - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/etw/controlling-event-tracing-sessions",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.67
+    },
+    {
+      "title": "Configuring and Starting an Event Tracing Session - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/etw/configuring-and-starting-an-event-tracing-session",
+      "snippet": "",
+      "published_date": "2021-01-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.67
+    },
+    {
+      "title": "TraceLoggingRegister - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/traceloggingprovider/nf-traceloggingprovider-traceloggingregister",
+      "snippet": "Registers a TraceLogging provider so that it can be used to log events. The registration is valid until the provider is unregistered or the process exits.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.63
+    },
+    {
+      "title": "Consuming Events (Event Tracing) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/etw/consuming-events",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "Using Event Tracing - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/etw/using-event-tracing",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "repnz/etw-providers-docs",
+      "url": "https://github.com/repnz/etw-providers-docs",
+      "snippet": "",
+      "published_date": "2019-05-18T16:42:33.000Z",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "TraceLoggingProvider.h header - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/traceloggingprovider/",
+      "snippet": "",
+      "published_date": "2023-01-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.59
+    },
+    {
+      "title": "EventRegister function (evntprov.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/evntprov/nf-evntprov-eventregister",
+      "snippet": "",
+      "published_date": "2022-05-20T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.59
+    },
+    {
+      "title": "Providing Events - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/etw/providing-events",
+      "snippet": "",
+      "published_date": "2021-07-01T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.59
+    },
+    {
+      "title": "docs/UsingMessageAnalyzerToFindETWSources.md at master · microsoft/krabsetw",
+      "url": "https://github.com/microsoft/krabsetw/blob/master/docs/UsingMessageAnalyzerToFindETWSources.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.59
+    },
+    {
+      "title": "Event Tracing for Windows C++ example – Artem's blog",
+      "url": "https://tokmakov.me/2022/04/25/event-tracing-for-windows-c-example/",
+      "snippet": "Event Tracing for Windows, or ETW is an efficient facility for applications to write event messages. You can write the messages to a file or to the real time consumers. They configure, start/stop an event tracing session and enable/disable providers. To start with, we’ll need to include event tracing API headers: `#include`  for the controller and `#include`  for the provider. As an event controller, we need to setup and start a tracing session with:. On the other hand, the sessions are a limited resource, so if your session name is already in use, and you’ve started it, then stop it, and reuse the name. The tricky part of `EVENT_TRACE_PROPERTIES` is that it expects that there will be extra buffers located in memory after it – for the log file name and for the session name. But we will be creating a private session, and in this case, we’ll need to assign `providerId` to it.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.57
+    },
+    {
+      "title": "TraceLogging Functions - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/tracelogging/trace-logging-functions",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.55
+    },
+    {
+      "title": "TraceLogging C/C++ Quick Start - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/tracelogging/tracelogging-native-quick-start",
+      "snippet": "",
+      "published_date": "2022-06-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.55
+    },
+    {
+      "title": "About TraceLogging - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/tracelogging/trace-logging-about",
+      "snippet": "",
+      "published_date": "2023-02-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.55
+    },
+    {
+      "title": "Solving log collection challenges with Event Tracing for Windows | White papers",
+      "url": "https://nxlog.co/whitepapers/windows-event-tracing",
+      "snippet": "# Solving log collection challenges with Event Tracing for Windows. Event Tracing for Windows (ETW) logs kernel, application, and other system activity. By understanding the key characteristics of ETW, system administrators can make well-informed decisions about how to utilize the logs collected via ETW to improve IT Security. ## About Event Tracing for Windows. Event Tracing for Windows is a dynamically enabled kernel-level tracing facility provided by the operating system. It logs kernel, application, and other system events. Since it became available in Windows 2000, ETW has provided more detailed information on the operating system environment and application interaction than other logging services on Windows. This information is then ingested by event consumers, either from log files and/or by listening to tracing sessions in real time. | Consumers | Consumers consume events from one or more event tracing sessions and retrieve events stored in log files along with logs from other real-time sessions.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.53
+    },
+    {
+      "title": "Tcl Windows API extension",
+      "url": "https://twapi.magicsplat.com/v5.2/etw.html",
+      "snippet": "Windows includes a facility, Event Tracing for Windows (ETW), that allows the kernel and applications to log events that can either be written to a file or consumed in real time. * To create and remove associations between event providers and traces, use the **etw\\_enable\\_provider** command. Once the TWAPI provider is registered and attached to an event trace, events can be logged to the trace with the **etw\\_log\\_message** command. The specific events to be logged are also specified as options to this command as the **etw\\_enable\\_provider** cannot be used with kernel traces. :   Disables the specified provider from logging to the event trace specified by *TRACEHANDLE* (as returned by **etw\\_start\\_trace**). :   Enables a provider to log to the event trace specified by *TRACEHANDLE* (as returned by **etw\\_start\\_trace**). :   Extracts events from one or more ETW log files or real time trace, returning them as a record array. :   Opens a log file containing ETW events and returns a trace handle to it which can be passed to **etw\\_process\\_events**.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.49
+    },
+    {
+      "title": "ETW: Event Tracing for Windows 101 | Red Team Notes",
+      "url": "https://www.ired.team/miscellaneous-reversing-forensics/windows-kernel-internals/etw-event-tracing-for-windows-101",
+      "snippet": "* `Tracing session` records events from one or more providers. Note that at the moment, although the tracing session is running, it is not recording any events as we have not yet subscribed to any providers:. Inside the `spotless-tracing` tracing session, let's subscribe to events about `PROCESSES` and `IMAGES` provided by the provider `Microsoft-Windows-Kernel-Process` and see what they look like. In order to subscribe to those events, we first need to refer back to `Microsoft-Windows-Kernel-Process` available `keywords` (event types of this provider) and add `0x10` (`WINEVENT_KEYWORD_PROCESS`) to `0x40` (`WINEVENT_KEYWORD_IMAGE`), which gives us the total of `0x50`:. We can now register a provider to the tracing session and ask it to emit events that map back to events `WINEVENT_KEYWORD_PROCESS` and `WINEVENT_KEYWORD_IMAGE`:. If we query the tracing session again, we see it now has `Microsoft-Windows-Kernel-Process`provider registered and listening to the two event types pertaining to processes (start/exit) and images (load/unload):. Note that the kernel provider is no longer associated with the `spotless-tracing` tracing session:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.49
+    },
+    {
+      "title": "Uncovering Windows Events. Threat Intelligence ETW | by Jonathan Johnson | Medium",
+      "url": "https://jsecurity101.medium.com/uncovering-windows-events-b4b9db7eac54",
+      "snippet": "",
+      "published_date": "2023-03-15T15:48:53.000Z",
+      "source": "exa",
+      "score": 0.47
+    },
+    {
+      "title": "EtwRegister - Geoff Chappell, Software Analyst",
+      "url": "https://www.geoffchappell.com/studies/windows/km/ntoskrnl/api/etw/register/register.htm",
+      "snippet": "The EnableCallback argument is the address of a routine that is to be called back whenever a tracing session interacts with the provider. This argument can",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Reading Event Tracing for Windows Threat Intelligence - 0xflux Red Team Manual | Systems programming",
+      "url": "https://fluxsec.red/event-tracing-for-windows-threat-intelligence-rust-consumer",
+      "snippet": "# Reading Event Tracing for Windows Threat Intelligence. Now we can get into some more really cool stuff by utilising the Event Tracing for Windows: Threat Intelligence (ETW:TI) provider. However; as stated there, we cannot patch out the Threat Intelligence provider as this is emitted from within the kernel itself. Points 1 and 2 are covered in my previous blog post, Creating a Protected Process Light and point 3 you can check out my logging module of the project. First of all, getting started with this was a little daunting as there is not much information about the Threat Intelligence provider in terms of implementation, so the first port of call is to run this in powershell, which will give us all the information we could want to know at this stage about ETW:TI. What this gives us, is the **GUID** of the provider which we need to subscribe to it, as well as all the tasks and keywords the provider has to offer.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Bypassing ETW For Fun and Profit | White Knight Labs",
+      "url": "https://whiteknightlabs.com/2021/12/11/bypassing-etw-for-fun-and-profit/",
+      "snippet": "One of these log sources is ETW (Event Tracing for Windows). As opposed to other mainstream threat detection and prevention products that hook commonly abused Windows API calls in userland, ATP has hooks that operate within the kernel. Event Tracing for Windows (ETW) is an efficient kernel-level tracing facility that lets you log kernel or application-defined events to a log file. You can consume the events in real time or from a log file and use them to debug an application or to determine where performance issues are occurring in the application. There is a common misconception that ETW is challenging to bypass in a process because it runs in kernel mode, juxtaposed to the AMSI.dll which runs in user mode. However, this is incorrect because the Microsoft .NET runtime provider sends logs in JSON format from the .NET runtime to any subscribers of that provider. Renaming all of these in your code is a great first step for bypassing ETW.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Pavel Yosifovich — Building your own profiling and diagnosis tools ...",
+      "url": "https://www.youtube.com/watch?v=gBkvAO02qUY",
+      "snippet": "Build 2017 Production tracing with Event Tracing for Windows ETW ... DEF CON 26 - Alexei Bulazel - Reverse Engineering Windows Defenders Emulator.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.41
+    },
+    {
+      "title": "Uncovering Windows Events - SpecterOps",
+      "url": "https://specterops.io/blog/2023/03/15/uncovering-windows-events/",
+      "snippet": "",
+      "published_date": "2023-03-15T16:01:44.000Z",
+      "source": "exa",
+      "score": 0.33
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "TraceLoggingProvider.h header - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/traceloggingprovider/",
+        "snippet": "",
+        "published_date": "2023-01-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.59
+      },
+      {
+        "title": "TraceLogging Functions - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/tracelogging/trace-logging-functions",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.55
+      },
+      {
+        "title": "EventRegister function (evntprov.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/evntprov/nf-evntprov-eventregister",
+        "snippet": "",
+        "published_date": "2022-05-20T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.59
+      },
+      {
+        "title": "TraceLogging C/C++ Quick Start - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/tracelogging/tracelogging-native-quick-start",
+        "snippet": "",
+        "published_date": "2022-06-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.55
+      },
+      {
+        "title": "About TraceLogging - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/tracelogging/trace-logging-about",
+        "snippet": "",
+        "published_date": "2023-02-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.55
+      },
+      {
+        "title": "Consuming Events (Event Tracing) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/etw/consuming-events",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "Controlling Event Tracing Sessions - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/etw/controlling-event-tracing-sessions",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.67
+      },
+      {
+        "title": "Configuring and Starting an Event Tracing Session - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/etw/configuring-and-starting-an-event-tracing-session",
+        "snippet": "",
+        "published_date": "2021-01-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.67
+      },
+      {
+        "title": "Using Event Tracing - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/etw/using-event-tracing",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "Providing Events - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/etw/providing-events",
+        "snippet": "",
+        "published_date": "2021-07-01T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.59
+      },
+      {
+        "title": "Consuming Events (Event Tracing) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/etw/consuming-events",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Uncovering Windows Events - SpecterOps",
+        "url": "https://specterops.io/blog/2023/03/15/uncovering-windows-events/",
+        "snippet": "",
+        "published_date": "2023-03-15T16:01:44.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "repnz/etw-providers-docs",
+        "url": "https://github.com/repnz/etw-providers-docs",
+        "snippet": "",
+        "published_date": "2019-05-18T16:42:33.000Z",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "Uncovering Windows Events. Threat Intelligence ETW | by Jonathan Johnson | Medium",
+        "url": "https://jsecurity101.medium.com/uncovering-windows-events-b4b9db7eac54",
+        "snippet": "",
+        "published_date": "2023-03-15T15:48:53.000Z",
+        "source": "exa",
+        "score": 0.47
+      },
+      {
+        "title": "docs/UsingMessageAnalyzerToFindETWSources.md at master · microsoft/krabsetw",
+        "url": "https://github.com/microsoft/krabsetw/blob/master/docs/UsingMessageAnalyzerToFindETWSources.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.59
+      }
+    ],
+    "tavily": [
+      {
+        "title": "EventRegister function (evntprov.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/evntprov/nf-evntprov-eventregister",
+        "snippet": "[in, optional] EnableCallback. Optional EnableCallback that ETW will invoke when a trace session enables or disables this provider. Use NULL",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "TraceLoggingRegisterEx function (traceloggingprovider.h) - Win32 ...",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/traceloggingprovider/nf-traceloggingprovider-traceloggingregisterex",
+        "snippet": "Registers a TraceLogging provider so that it can be used to log events, specifying an ETW enable callback. The registration is valid until the provider is",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.71
+      },
+      {
+        "title": "TraceLoggingRegister - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/traceloggingprovider/nf-traceloggingprovider-traceloggingregister",
+        "snippet": "Registers a TraceLogging provider so that it can be used to log events. The registration is valid until the provider is unregistered or the process exits.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.63
+      },
+      {
+        "title": "Event Tracing for Windows C++ example – Artem's blog",
+        "url": "https://tokmakov.me/2022/04/25/event-tracing-for-windows-c-example/",
+        "snippet": "Event Tracing for Windows, or ETW is an efficient facility for applications to write event messages. You can write the messages to a file or to the real time consumers. They configure, start/stop an event tracing session and enable/disable providers. To start with, we’ll need to include event tracing API headers: `#include`  for the controller and `#include`  for the provider. As an event controller, we need to setup and start a tracing session with:. On the other hand, the sessions are a limited resource, so if your session name is already in use, and you’ve started it, then stop it, and reuse the name. The tricky part of `EVENT_TRACE_PROPERTIES` is that it expects that there will be extra buffers located in memory after it – for the log file name and for the session name. But we will be creating a private session, and in this case, we’ll need to assign `providerId` to it.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.57
+      },
+      {
+        "title": "EtwRegister - Geoff Chappell, Software Analyst",
+        "url": "https://www.geoffchappell.com/studies/windows/km/ntoskrnl/api/etw/register/register.htm",
+        "snippet": "The EnableCallback argument is the address of a routine that is to be called back whenever a tracing session interacts with the provider. This argument can",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Event Tracing - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/etw/event-tracing-portal",
+        "snippet": "Event Tracing for Windows (ETW) provides application programmers the ability to start and stop event tracing sessions, instrument an application to provide trace events, and consume trace events. Trace events contain an event header and provider-defined data that describes the current state of an application or operation. This documentation is for user-mode applications that want to use ETW. For information about instrumenting device drivers that run in kernel mode, see WPP Software Tracing and Adding Event Tracing to Kernel-Mode Drivers in the Windows Driver Kit (WDK). Use ETW when you want to instrument your application, log user or kernel events to a log file, and consume events from a log file or in real time. You can use the .NET TraceProcessing API to analyze ETW traces for your applications and other software components. | Using Event Tracing | Task-related topics that describe how to use the ETW API. | Event Tracing Reference | Detailed descriptions of ETW functions and other programming elements.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.83
+      },
+      {
+        "title": "Configuring and Starting an Event Tracing Session - GitHub",
+        "url": "https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/ETW/configuring-and-starting-an-event-tracing-session.md",
+        "snippet": "To enable the providers that you want to log events to your session, call the EnableTrace function to enable classic providers and the EnableTraceEx function to",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "Solving log collection challenges with Event Tracing for Windows | White papers",
+        "url": "https://nxlog.co/whitepapers/windows-event-tracing",
+        "snippet": "# Solving log collection challenges with Event Tracing for Windows. Event Tracing for Windows (ETW) logs kernel, application, and other system activity. By understanding the key characteristics of ETW, system administrators can make well-informed decisions about how to utilize the logs collected via ETW to improve IT Security. ## About Event Tracing for Windows. Event Tracing for Windows is a dynamically enabled kernel-level tracing facility provided by the operating system. It logs kernel, application, and other system events. Since it became available in Windows 2000, ETW has provided more detailed information on the operating system environment and application interaction than other logging services on Windows. This information is then ingested by event consumers, either from log files and/or by listening to tracing sessions in real time. | Consumers | Consumers consume events from one or more event tracing sessions and retrieve events stored in log files along with logs from other real-time sessions.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.53
+      },
+      {
+        "title": "Windows Event Trace (ETW) - Bindplane Docs",
+        "url": "https://docs.bindplane.com/integrations/sources/windows-event-trace-etw",
+        "snippet": "This source creates a Real-Time ETW Session to ingest Event Tracing Logs from Windows using the Event Tracing API . Currently, only real-time",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "Tcl Windows API extension",
+        "url": "https://twapi.magicsplat.com/v5.2/etw.html",
+        "snippet": "Windows includes a facility, Event Tracing for Windows (ETW), that allows the kernel and applications to log events that can either be written to a file or consumed in real time. * To create and remove associations between event providers and traces, use the **etw\\_enable\\_provider** command. Once the TWAPI provider is registered and attached to an event trace, events can be logged to the trace with the **etw\\_log\\_message** command. The specific events to be logged are also specified as options to this command as the **etw\\_enable\\_provider** cannot be used with kernel traces. :   Disables the specified provider from logging to the event trace specified by *TRACEHANDLE* (as returned by **etw\\_start\\_trace**). :   Enables a provider to log to the event trace specified by *TRACEHANDLE* (as returned by **etw\\_start\\_trace**). :   Extracts events from one or more ETW log files or real time trace, returning them as a record array. :   Opens a log file containing ETW events and returns a trace handle to it which can be passed to **etw\\_process\\_events**.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.49
+      },
+      {
+        "title": "Pavel Yosifovich — Building your own profiling and diagnosis tools ...",
+        "url": "https://www.youtube.com/watch?v=gBkvAO02qUY",
+        "snippet": "Build 2017 Production tracing with Event Tracing for Windows ETW ... DEF CON 26 - Alexei Bulazel - Reverse Engineering Windows Defenders Emulator.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.41
+      },
+      {
+        "title": "ETW: Event Tracing for Windows 101 | Red Team Notes",
+        "url": "https://www.ired.team/miscellaneous-reversing-forensics/windows-kernel-internals/etw-event-tracing-for-windows-101",
+        "snippet": "* `Tracing session` records events from one or more providers. Note that at the moment, although the tracing session is running, it is not recording any events as we have not yet subscribed to any providers:. Inside the `spotless-tracing` tracing session, let's subscribe to events about `PROCESSES` and `IMAGES` provided by the provider `Microsoft-Windows-Kernel-Process` and see what they look like. In order to subscribe to those events, we first need to refer back to `Microsoft-Windows-Kernel-Process` available `keywords` (event types of this provider) and add `0x10` (`WINEVENT_KEYWORD_PROCESS`) to `0x40` (`WINEVENT_KEYWORD_IMAGE`), which gives us the total of `0x50`:. We can now register a provider to the tracing session and ask it to emit events that map back to events `WINEVENT_KEYWORD_PROCESS` and `WINEVENT_KEYWORD_IMAGE`:. If we query the tracing session again, we see it now has `Microsoft-Windows-Kernel-Process`provider registered and listening to the two event types pertaining to processes (start/exit) and images (load/unload):. Note that the kernel provider is no longer associated with the `spotless-tracing` tracing session:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.49
+      },
+      {
+        "title": "Reading Event Tracing for Windows Threat Intelligence - 0xflux Red Team Manual | Systems programming",
+        "url": "https://fluxsec.red/event-tracing-for-windows-threat-intelligence-rust-consumer",
+        "snippet": "# Reading Event Tracing for Windows Threat Intelligence. Now we can get into some more really cool stuff by utilising the Event Tracing for Windows: Threat Intelligence (ETW:TI) provider. However; as stated there, we cannot patch out the Threat Intelligence provider as this is emitted from within the kernel itself. Points 1 and 2 are covered in my previous blog post, Creating a Protected Process Light and point 3 you can check out my logging module of the project. First of all, getting started with this was a little daunting as there is not much information about the Threat Intelligence provider in terms of implementation, so the first port of call is to run this in powershell, which will give us all the information we could want to know at this stage about ETW:TI. What this gives us, is the **GUID** of the provider which we need to subscribe to it, as well as all the tasks and keywords the provider has to offer.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Bypassing ETW For Fun and Profit | White Knight Labs",
+        "url": "https://whiteknightlabs.com/2021/12/11/bypassing-etw-for-fun-and-profit/",
+        "snippet": "One of these log sources is ETW (Event Tracing for Windows). As opposed to other mainstream threat detection and prevention products that hook commonly abused Windows API calls in userland, ATP has hooks that operate within the kernel. Event Tracing for Windows (ETW) is an efficient kernel-level tracing facility that lets you log kernel or application-defined events to a log file. You can consume the events in real time or from a log file and use them to debug an application or to determine where performance issues are occurring in the application. There is a common misconception that ETW is challenging to bypass in a process because it runs in kernel mode, juxtaposed to the AMSI.dll which runs in user mode. However, this is incorrect because the Microsoft .NET runtime provider sends logs in JSON format from the .NET runtime to any subscribers of that provider. Renaming all of these in your code is a great first step for bypassing ETW.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Instrumenting Your Code with ETW | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/test/weg/instrumenting-your-code-with-etw",
+        "snippet": "You can try signing in or changing directories. # Instrumenting Your Code with ETW. Event Tracing for Windows (ETW) is a high speed tracing facility built into Windows. Using a buffering and logging mechanism implemented in the operating system kernel, ETW provides an infrastructure for events raised by both user mode (apps) and kernel mode components (drivers). ETW can be used for system and app diagnosis, troubleshooting, and performance monitoring. The ETW mechanism lets you control tracing sessions dynamically, which makes it possible to capture detailed tracing in production environments without system reboot or app restart. The tracing buffer is managed by the kernel. A provider can be a user mode app, a kernel mode driver, or the Windows kernel itself. Manifest-based ETW events can be implemented in user-mode apps, including services, and in kernel mode components like drivers, by using an XML file called the *event manifest*.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.79
+      }
+    ],
+    "grok": []
+  }
+}
