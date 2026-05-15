@@ -20,6 +20,7 @@ Related pages:
 - topics/first-bad-write-and-decisive-reducer-localization-workflow-note.md
 - topics/watchpoint-location-vs-object-incarnation-workflow-note.md
 - topics/runtime-evidence-package-and-handoff-workflow-note.md
+- topics/native-etw-provider-session-consumer-workflow-note.md
 
 ## 1. Topic identity
 

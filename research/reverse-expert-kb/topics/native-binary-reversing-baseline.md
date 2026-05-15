@@ -19,6 +19,7 @@ Related pages:
 - topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md
 - topics/native-apc-alertable-wait-first-consumer-workflow-note.md
 - topics/native-cocoa-responder-chain-and-target-action-first-consumer-workflow-note.md
+- topics/native-etw-provider-session-consumer-workflow-note.md
 
 ## 1. Topic identity
 
