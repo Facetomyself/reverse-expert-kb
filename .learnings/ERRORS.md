@@ -1764,3 +1764,31 @@ Only add repo-tracked KB files from `/root/.openclaw/workspace/research/reverse-
 - See Also: none
 
 ---
+
+## [ERR-20260517-001] shell_printf_preamble
+
+**Logged**: 2026-05-17T04:51:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+A repo-inspection shell command failed because `/bin/sh` `printf` treated a leading `---` format string as an option.
+
+### Error
+```text
+/bin/sh: 3: printf: Illegal option --
+```
+
+### Context
+- Command used `printf '--- README ---\n'` under `/bin/sh`.
+- Re-running with `echo` avoided the issue.
+
+### Suggested Fix
+Use `printf -- '--- heading ---\n'` or `echo` for simple headings in portable shell snippets.
+
+### Metadata
+- Reproducible: yes
+- Related Files: research/reverse-expert-kb/
+
+---

@@ -1,0 +1,463 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Linux netlink reverse engineering nlmsg sequence port ID ACK multicast groups kernel user space consumer",
+    "netlink nlmsg_seq nlmsg_pid NLM_F_ACK NETLINK_EXT_ACK rtnetlink generic netlink documentation",
+    "Generic Netlink family operations multicast groups sequence ACK reverse engineering workflow"
+  ],
+  "count": 26,
+  "results": [
+    {
+      "title": "netlink/nl_kernel.c at master · tomxue/netlink",
+      "url": "https://github.com/tomxue/netlink/blob/master/nl_kernel.c",
+      "snippet": "pid = nlh->nlmsg_pid ; // Sending process port ID, will send new message back to the 'user space sender'",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Kernel Connector — The Linux Kernel documentation",
+      "url": "https://docs.kernel.org/driver-api/connector.html",
+      "snippet": "Kernel connector - new netlink based userspace <-> kernel space easy to use communication module. When the driver receives a special netlink message with the appropriate identifier, the appropriate callback will be called. idx and val are unique identifiers which must be registered in the connector.h header for in-kernel usage. void (\\*callback) (void \\*) is a callback function which will be called when a message with above idx.val is received by the connector core. If **portid** and **group** is zero, then appropriate group will be searched through all registered connector users, and message will be delivered to the group which was created for user with the same ID as in **msg**. If you expect a reply to the message, then the sequence number in the received message MUST be the same as in the original message, and the acknowledge number MUST be the same + 1.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7214
+    },
+    {
+      "title": "Introduction to Netlink — The Linux Kernel documentation",
+      "url": "https://docs.kernel.org/userspace-api/netlink/intro.html",
+      "snippet": "struct  nlmsghdr  { __u32  nlmsg_len;  /* Length of message including headers */  __u16  nlmsg_type;  /* Generic Netlink Family (subsystem) ID */  __u16  nlmsg_flags;  /* Flags - request or dump */  __u32  nlmsg_seq;  /* Sequence number */  __u32  nlmsg_pid;  /* Port ID, set to 0 */}; struct  genlmsghdr  { __u8  cmd;  /* Command, as defined by the Family */  __u8  version;  /* Irrelevant, set to 1 */  __u16  reserved;  /* Reserved, set to 0 */};/* TLV attributes follow... In Classic Netlink `nlmsghdr.nlmsg_type` used to identify which operation within the subsystem the message was referring to (e.g. get information about a netdev). (See Resolving the Family ID for information on how to find the Family ID of the subsystem of interest.) Note that the first 16 values (0 - 15) of this field are reserved for control messages both in Classic Netlink and Generic Netlink. Even though other protocols and Generic Netlink commands often use the same verbs in their message names (`GET`, `SET`) the concept of request types did not find wider adoption.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6786
+    },
+    {
+      "title": "What multicast groups are available for each netlink family?",
+      "url": "https://stackoverflow.com/questions/35892666/what-multicast-groups-are-available-for-each-netlink-family",
+      "snippet": "netlink says, that each netlink family has a set of 32 multicast groups. Where do I find available multicast groups for each netlink family?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6643
+    },
+    {
+      "title": "include/uapi/linux/netlink.h at master · torvalds/linux",
+      "url": "https://github.com/torvalds/linux/blob/master/include/uapi/linux/netlink.h",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "net/netlink/af_netlink.c at master · torvalds/linux",
+      "url": "https://github.com/torvalds/linux/blob/master/net/netlink/af_netlink.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "netlink(7) - Linux manual page",
+      "url": "https://man7.org/linux/man-pages/man7/netlink.7.html",
+      "snippet": "# netlink(7) — Linux manual page. netlink(7) Miscellaneous Information Manual netlink(7). netlink - communication between kernel and user space (AF_NETLINK). Netlink is used to transfer information between the kernel and user-space processes. It consists of a standard sockets-based interface for user space processes and an internal kernel API for kernel modules. The internal kernel interface is not documented in this manual page. There is also an obsolete netlink interface via netlink character devices; this interface is not documented here, and is provided only for backward compatibility. NETLINK_FIREWALL (up to and including Linux 3.4) Transport IPv4 packets from netfilter to user space. NETLINK_SOCK_DIAG (since Linux 3.3) Query information about sockets of various protocol families from the kernel (see sock_diag(7)). NETLINK_KOBJECT_UEVENT (since Linux 2.6.10) Kernel messages to user space. The kernel can't send a netlink message if the socket buffer is full: the message will be dropped and the kernel and the user-space process will no longer have the same view of kernel state.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Introduction to Generic Netlink, or How to Talk with the Linux Kernel",
+      "url": "https://www.yaroslavps.com/weblog/genl-intro/",
+      "snippet": "# Introduction to Generic Netlink, or How to Talk with the Linux Kernel. Are you writing some code in kernel-space and want to communicate with it from the comfort of user-space? You are not writing kernel code, but want to talk with the Linux kernel? I recently got myself into programming in the Linux Kernel, more specifically kernel space modules, and one of the APIs that I had to study was Generic Netlink. Hence why I decided to make a little example for myself on how to use Generic Netlink for kernel-user space communications, and an introductory guide using the aforementioned example for my colleagues and any other person interested in using Generic Netlink but not knowing where to start. * Resolving Generic Netlink families and multicast groups from a user program. * Sending a message to a Generic Netlink family from a user program. * Subscribing to a Generic Netlink multicast group from a user program.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Linux, Netlink, and Go — Part 2: generic netlink | by Matt Layher",
+      "url": "https://medium.com/@mdlayher/linux-netlink-and-go-part-2-generic-netlink-833bce516400",
+      "snippet": "In this post, I will dive into generic netlink, a specialized netlink family designed to be more extensible than a typical netlink family.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4429
+    },
+    {
+      "title": "[PDF] netlink-libmnl-manual.pdf - people",
+      "url": "https://people.netfilter.org/pablo/netlink/netlink-libmnl-manual.pdf",
+      "snippet": "1 static int 2 n l e x n o t i f y ( int rep , int pid ) 3 { 4 struct s k b u f f ∗skb ; 5 6 skb = nlmsg new (NLMSG DEFAULT SIZE,GFP KERNEL) ; 7 i f ( skb == NULL) 8 return − E N O M E M; 9 10 nlmsg put ( skb , pid , rep , NLEX MSG UPD, 0 , 0 ) ; 11 NLA PUT U32( skb , NLE MYVAR, myvar ) ; 12 13 nlmsg notify ( nlsk , skb , pid , 14 NLEX GRP MYVAR, 15 rep , GFP KERNEL) ; 16 return 0; 17 18 n l a p u t f a i l u r e : 19 return −1; 20 } Listing 5: Broadcast notiﬁcation of changes in myvar This function allocates memory for the Netlink message that will be send to the user-space listeners that are subscribed to the NLEX GRP MYVAR group.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4071
+    },
+    {
+      "title": "netlink(7) — manpages — Debian testing — Debian Manpages",
+      "url": "https://manpages.debian.org/testing/manpages/netlink.7.en.html",
+      "snippet": "The next example demonstrates how to send a netlink message to the kernel (pid 0). Note that the application must take care of message sequence numbers in order to reliably track acknowledgements. struct nlmsghdr *nh; /* The nlmsghdr with payload to send */ struct sockaddr_nl sa; struct iovec iov = { nh, nh->nlmsg_len }; struct msghdr msg; msg = { &sa, sizeof(sa), &iov, 1, NULL, 0, 0 }; memset(&sa, 0, sizeof(sa)); sa.nl_family = AF_NETLINK; nh->nlmsg_pid = 0; nh->nlmsg_seq = ++sequence_number; /* Request an ack from kernel by setting NLM_F_ACK */ nh->nlmsg_flags |= NLM_F_ACK; sendmsg(fd, &msg, 0);",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4071
+    },
+    {
+      "title": "netlink(7) — Arch manual pages",
+      "url": "https://man.archlinux.org/man/netlink.7.en",
+      "snippet": "The next example demonstrates how to send a netlink message to the kernel (pid 0). Note that the application must take care of message sequence numbers in order to reliably track acknowledgements. struct nlmsghdr *nh; /* The nlmsghdr with payload to send */ struct sockaddr_nl sa; struct iovec iov = { nh, nh->nlmsg_len }; struct msghdr msg; msg = { &sa, sizeof(sa), &iov, 1, NULL, 0, 0 }; memset(&sa, 0, sizeof(sa)); sa.nl_family = AF_NETLINK; nh->nlmsg_pid = 0; nh->nlmsg_seq = ++sequence_number; /* Request an ack from kernel by setting NLM_F_ACK */ nh->nlmsg_flags |= NLM_F_ACK; sendmsg(fd, &msg, 0);",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4071
+    },
+    {
+      "title": "netlink(4) - CHERI manual pages with mandoc",
+      "url": "https://man.cheribsd.org/cgi-bin/man.cgi/dev/netlink.4",
+      "snippet": "... nlmsg_seq The nlmsg_pid field is the message sender id. This field is optional for userland. The kernel sender id is zero. The nlmsg_flags field contains",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3857
+    },
+    {
+      "title": "Netlink specification support for legacy Generic Netlink families — The Linux Kernel  documentation",
+      "url": "https://www.kernel.org/doc/html/v6.8/userspace-api/netlink/genetlink-legacy.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3857
+    },
+    {
+      "title": "netlink.rs - source",
+      "url": "https://crosvm.dev/doc/src/base/sys/unix/netlink.rs.html",
+      "snippet": "... nlmsg_seq: u32, pub nlmsg_pid: u32, } /// Netlink attribute struct, can be used by netlink consumer #[repr(C)] #[derive(Copy, Clone, FromZeroes, FromBytes",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "Introduction to Netlink — The Linux Kernel  documentation",
+      "url": "https://kernel.org/doc/html/latest/userspace-api/netlink/intro.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3643
+    },
+    {
+      "title": "Netlink notes for kernel developers — The Linux Kernel  documentation",
+      "url": "https://kernel.org/doc/html/latest/core-api/netlink.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3643
+    },
+    {
+      "title": "Introduction to Netlink — The Linux Kernel  documentation",
+      "url": "https://kernel.org/doc/html/next/userspace-api/netlink/intro.html",
+      "snippet": "",
+      "published_date": "2024-06-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3643
+    },
+    {
+      "title": "rtnetlink(3) - Linux manual page",
+      "url": "https://www.man7.org/linux/man-pages/man3/rtnetlink.3.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "tools/net/ynl/lib/ynl.py - pub/scm/linux/kernel/git/torvalds/linux - Git at Google",
+      "url": "https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux/+/45e34c8af58f23db4474e2bfe79183efec09a18b/tools/net/ynl/lib/ynl.py",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "man genl-ctrl-list (8): List available kernel-side Generic Netlink families",
+      "url": "https://manpages.org/genl-ctrl-list/8",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "NETLINK(4)",
+      "url": "https://www.gsp.com/cgi-bin/man.cgi?section=4&topic=netlink",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "Generic Netlink HOW-TO based on Jamal's original doc [LWN.net]",
+      "url": "https://lwn.net/Articles/211209/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "Module: netlink.generic - python-netlink",
+      "url": "https://netlink.readthedocs.io/en/latest/reference/generic/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3214
+    },
+    {
+      "title": "networking:generic_netlink_howto [Wiki]",
+      "url": "https://wiki.linuxfoundation.org/networking/generic_netlink_howto",
+      "snippet": "This document gives a brief introduction to Generic Netlink, some simple examples on how to use it and some recommendations on how to make the most of the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3214
+    },
+    {
+      "title": "libnl: Family and Command Registration",
+      "url": "https://www.infradead.org/~tgr/libnl/doc/api/group__genl__mngt.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Introduction to Netlink — The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/userspace-api/netlink/intro.html",
+        "snippet": "struct  nlmsghdr  { __u32  nlmsg_len;  /* Length of message including headers */  __u16  nlmsg_type;  /* Generic Netlink Family (subsystem) ID */  __u16  nlmsg_flags;  /* Flags - request or dump */  __u32  nlmsg_seq;  /* Sequence number */  __u32  nlmsg_pid;  /* Port ID, set to 0 */}; struct  genlmsghdr  { __u8  cmd;  /* Command, as defined by the Family */  __u8  version;  /* Irrelevant, set to 1 */  __u16  reserved;  /* Reserved, set to 0 */};/* TLV attributes follow... In Classic Netlink `nlmsghdr.nlmsg_type` used to identify which operation within the subsystem the message was referring to (e.g. get information about a netdev). (See Resolving the Family ID for information on how to find the Family ID of the subsystem of interest.) Note that the first 16 values (0 - 15) of this field are reserved for control messages both in Classic Netlink and Generic Netlink. Even though other protocols and Generic Netlink commands often use the same verbs in their message names (`GET`, `SET`) the concept of request types did not find wider adoption.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6786
+      },
+      {
+        "title": "netlink(4) - CHERI manual pages with mandoc",
+        "url": "https://man.cheribsd.org/cgi-bin/man.cgi/dev/netlink.4",
+        "snippet": "... nlmsg_seq The nlmsg_pid field is the message sender id. This field is optional for userland. The kernel sender id is zero. The nlmsg_flags field contains",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3857
+      },
+      {
+        "title": "netlink.rs - source",
+        "url": "https://crosvm.dev/doc/src/base/sys/unix/netlink.rs.html",
+        "snippet": "... nlmsg_seq: u32, pub nlmsg_pid: u32, } /// Netlink attribute struct, can be used by netlink consumer #[repr(C)] #[derive(Copy, Clone, FromZeroes, FromBytes",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "netlink(7) - Linux manual page",
+        "url": "https://man7.org/linux/man-pages/man7/netlink.7.html",
+        "snippet": "# netlink(7) — Linux manual page. netlink(7) Miscellaneous Information Manual netlink(7). netlink - communication between kernel and user space (AF_NETLINK). Netlink is used to transfer information between the kernel and user-space processes. It consists of a standard sockets-based interface for user space processes and an internal kernel API for kernel modules. The internal kernel interface is not documented in this manual page. There is also an obsolete netlink interface via netlink character devices; this interface is not documented here, and is provided only for backward compatibility. NETLINK_FIREWALL (up to and including Linux 3.4) Transport IPv4 packets from netfilter to user space. NETLINK_SOCK_DIAG (since Linux 3.3) Query information about sockets of various protocol families from the kernel (see sock_diag(7)). NETLINK_KOBJECT_UEVENT (since Linux 2.6.10) Kernel messages to user space. The kernel can't send a netlink message if the socket buffer is full: the message will be dropped and the kernel and the user-space process will no longer have the same view of kernel state.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "[PDF] netlink-libmnl-manual.pdf - people",
+        "url": "https://people.netfilter.org/pablo/netlink/netlink-libmnl-manual.pdf",
+        "snippet": "1 static int 2 n l e x n o t i f y ( int rep , int pid ) 3 { 4 struct s k b u f f ∗skb ; 5 6 skb = nlmsg new (NLMSG DEFAULT SIZE,GFP KERNEL) ; 7 i f ( skb == NULL) 8 return − E N O M E M; 9 10 nlmsg put ( skb , pid , rep , NLEX MSG UPD, 0 , 0 ) ; 11 NLA PUT U32( skb , NLE MYVAR, myvar ) ; 12 13 nlmsg notify ( nlsk , skb , pid , 14 NLEX GRP MYVAR, 15 rep , GFP KERNEL) ; 16 return 0; 17 18 n l a p u t f a i l u r e : 19 return −1; 20 } Listing 5: Broadcast notiﬁcation of changes in myvar This function allocates memory for the Netlink message that will be send to the user-space listeners that are subscribed to the NLEX GRP MYVAR group.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4071
+      },
+      {
+        "title": "netlink/nl_kernel.c at master · tomxue/netlink",
+        "url": "https://github.com/tomxue/netlink/blob/master/nl_kernel.c",
+        "snippet": "pid = nlh->nlmsg_pid ; // Sending process port ID, will send new message back to the 'user space sender'",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "Kernel Connector — The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/driver-api/connector.html",
+        "snippet": "Kernel connector - new netlink based userspace <-> kernel space easy to use communication module. When the driver receives a special netlink message with the appropriate identifier, the appropriate callback will be called. idx and val are unique identifiers which must be registered in the connector.h header for in-kernel usage. void (\\*callback) (void \\*) is a callback function which will be called when a message with above idx.val is received by the connector core. If **portid** and **group** is zero, then appropriate group will be searched through all registered connector users, and message will be delivered to the group which was created for user with the same ID as in **msg**. If you expect a reply to the message, then the sequence number in the received message MUST be the same as in the original message, and the acknowledge number MUST be the same + 1.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7214
+      },
+      {
+        "title": "netlink(7) — manpages — Debian testing — Debian Manpages",
+        "url": "https://manpages.debian.org/testing/manpages/netlink.7.en.html",
+        "snippet": "The next example demonstrates how to send a netlink message to the kernel (pid 0). Note that the application must take care of message sequence numbers in order to reliably track acknowledgements. struct nlmsghdr *nh; /* The nlmsghdr with payload to send */ struct sockaddr_nl sa; struct iovec iov = { nh, nh->nlmsg_len }; struct msghdr msg; msg = { &sa, sizeof(sa), &iov, 1, NULL, 0, 0 }; memset(&sa, 0, sizeof(sa)); sa.nl_family = AF_NETLINK; nh->nlmsg_pid = 0; nh->nlmsg_seq = ++sequence_number; /* Request an ack from kernel by setting NLM_F_ACK */ nh->nlmsg_flags |= NLM_F_ACK; sendmsg(fd, &msg, 0);",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4071
+      },
+      {
+        "title": "netlink(7) — Arch manual pages",
+        "url": "https://man.archlinux.org/man/netlink.7.en",
+        "snippet": "The next example demonstrates how to send a netlink message to the kernel (pid 0). Note that the application must take care of message sequence numbers in order to reliably track acknowledgements. struct nlmsghdr *nh; /* The nlmsghdr with payload to send */ struct sockaddr_nl sa; struct iovec iov = { nh, nh->nlmsg_len }; struct msghdr msg; msg = { &sa, sizeof(sa), &iov, 1, NULL, 0, 0 }; memset(&sa, 0, sizeof(sa)); sa.nl_family = AF_NETLINK; nh->nlmsg_pid = 0; nh->nlmsg_seq = ++sequence_number; /* Request an ack from kernel by setting NLM_F_ACK */ nh->nlmsg_flags |= NLM_F_ACK; sendmsg(fd, &msg, 0);",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4071
+      },
+      {
+        "title": "Communicating between the kernel and user-space in Linux using Netlink Sockets:",
+        "url": "https://people.netfilter.org/pablo/netlink/netlink-libmnl-manual.pdf",
+        "snippet": "1 static int 2 n l e x n o t i f y ( int rep , int pid ) 3 { 4 struct s k b u f f ∗skb ; 5 6 skb = nlmsg new (NLMSG DEFAULT SIZE,GFP KERNEL) ; 7 i f ( skb == NULL) 8 return − E N O M E M; 9 10 nlmsg put ( skb , pid , rep , NLEX MSG UPD, 0 , 0 ) ; 11 NLA PUT U32( skb , NLE MYVAR, myvar ) ; 12 13 nlmsg notify ( nlsk , skb , pid , 14 NLEX GRP MYVAR, 15 rep , GFP KERNEL) ; 16 return 0; 17 18 n l a p u t f a i l u r e : 19 return −1; 20 } Listing 5: Broadcast notiﬁcation of changes in myvar This function allocates memory for the Netlink message that will be send to the user-space listeners that are subscribed to the NLEX GRP MYVAR group.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Linux, Netlink, and Go — Part 2: generic netlink | by Matt Layher",
+        "url": "https://medium.com/@mdlayher/linux-netlink-and-go-part-2-generic-netlink-833bce516400",
+        "snippet": "In this post, I will dive into generic netlink, a specialized netlink family designed to be more extensible than a typical netlink family.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4429
+      },
+      {
+        "title": "Introduction to Generic Netlink, or How to Talk with the Linux Kernel",
+        "url": "https://www.yaroslavps.com/weblog/genl-intro/",
+        "snippet": "# Introduction to Generic Netlink, or How to Talk with the Linux Kernel. Are you writing some code in kernel-space and want to communicate with it from the comfort of user-space? You are not writing kernel code, but want to talk with the Linux kernel? I recently got myself into programming in the Linux Kernel, more specifically kernel space modules, and one of the APIs that I had to study was Generic Netlink. Hence why I decided to make a little example for myself on how to use Generic Netlink for kernel-user space communications, and an introductory guide using the aforementioned example for my colleagues and any other person interested in using Generic Netlink but not knowing where to start. * Resolving Generic Netlink families and multicast groups from a user program. * Sending a message to a Generic Netlink family from a user program. * Subscribing to a Generic Netlink multicast group from a user program.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "networking:generic_netlink_howto [Wiki]",
+        "url": "https://wiki.linuxfoundation.org/networking/generic_netlink_howto",
+        "snippet": "This document gives a brief introduction to Generic Netlink, some simple examples on how to use it and some recommendations on how to make the most of the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3214
+      },
+      {
+        "title": "What multicast groups are available for each netlink family?",
+        "url": "https://stackoverflow.com/questions/35892666/what-multicast-groups-are-available-for-each-netlink-family",
+        "snippet": "netlink says, that each netlink family has a set of 32 multicast groups. Where do I find available multicast groups for each netlink family?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6643
+      },
+      {
+        "title": "Introduction to Netlink - The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/userspace-api/netlink/intro.html",
+        "snippet": "struct  nlmsghdr  { __u32  nlmsg_len;  /* Length of message including headers */  __u16  nlmsg_type;  /* Generic Netlink Family (subsystem) ID */  __u16  nlmsg_flags;  /* Flags - request or dump */  __u32  nlmsg_seq;  /* Sequence number */  __u32  nlmsg_pid;  /* Port ID, set to 0 */}; struct  genlmsghdr  { __u8  cmd;  /* Command, as defined by the Family */  __u8  version;  /* Irrelevant, set to 1 */  __u16  reserved;  /* Reserved, set to 0 */};/* TLV attributes follow... In Classic Netlink `nlmsghdr.nlmsg_type` used to identify which operation within the subsystem the message was referring to (e.g. get information about a netdev). (See Resolving the Family ID for information on how to find the Family ID of the subsystem of interest.) Note that the first 16 values (0 - 15) of this field are reserved for control messages both in Classic Netlink and Generic Netlink. Even though other protocols and Generic Netlink commands often use the same verbs in their message names (`GET`, `SET`) the concept of request types did not find wider adoption.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "exa": [
+      {
+        "title": "Introduction to Netlink — The Linux Kernel  documentation",
+        "url": "https://kernel.org/doc/html/latest/userspace-api/netlink/intro.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3643
+      },
+      {
+        "title": "include/uapi/linux/netlink.h at master · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/master/include/uapi/linux/netlink.h",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "Netlink notes for kernel developers — The Linux Kernel  documentation",
+        "url": "https://kernel.org/doc/html/latest/core-api/netlink.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3643
+      },
+      {
+        "title": "NETLINK(4)",
+        "url": "https://www.gsp.com/cgi-bin/man.cgi?section=4&topic=netlink",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "rtnetlink(3) - Linux manual page",
+        "url": "https://www.man7.org/linux/man-pages/man3/rtnetlink.3.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "tools/net/ynl/lib/ynl.py - pub/scm/linux/kernel/git/torvalds/linux - Git at Google",
+        "url": "https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux/+/45e34c8af58f23db4474e2bfe79183efec09a18b/tools/net/ynl/lib/ynl.py",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "include/uapi/linux/netlink.h at master · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/master/include/uapi/linux/netlink.h",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Netlink notes for kernel developers — The Linux Kernel  documentation",
+        "url": "https://kernel.org/doc/html/latest/core-api/netlink.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "net/netlink/af_netlink.c at master · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/master/net/netlink/af_netlink.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "Introduction to Netlink — The Linux Kernel  documentation",
+        "url": "https://kernel.org/doc/html/next/userspace-api/netlink/intro.html",
+        "snippet": "",
+        "published_date": "2024-06-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3643
+      },
+      {
+        "title": "Generic Netlink HOW-TO based on Jamal's original doc [LWN.net]",
+        "url": "https://lwn.net/Articles/211209/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3214
+      },
+      {
+        "title": "libnl: Family and Command Registration",
+        "url": "https://www.infradead.org/~tgr/libnl/doc/api/group__genl__mngt.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "man genl-ctrl-list (8): List available kernel-side Generic Netlink families",
+        "url": "https://manpages.org/genl-ctrl-list/8",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "Netlink specification support for legacy Generic Netlink families — The Linux Kernel  documentation",
+        "url": "https://www.kernel.org/doc/html/v6.8/userspace-api/netlink/genetlink-legacy.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3857
+      },
+      {
+        "title": "Module: netlink.generic - python-netlink",
+        "url": "https://netlink.readthedocs.io/en/latest/reference/generic/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3214
+      }
+    ],
+    "grok": []
+  }
+}

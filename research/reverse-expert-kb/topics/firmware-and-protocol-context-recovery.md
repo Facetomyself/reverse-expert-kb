@@ -20,6 +20,7 @@ Related pages:
 - topics/protocol-ble-gatt-notification-to-state-consumer-workflow-note.md
 - topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
+- topics/protocol-netlink-message-to-consumer-workflow-note.md
 - topics/firmware-hardware-observation-to-executed-image-workflow-note.md
 - topics/firmware-bootloader-selection-to-executed-image-workflow-note.md
 - topics/firmware-uefi-boot-manager-to-loader-handoff-workflow-note.md
@@ -435,6 +436,8 @@ Use the pending-request-generation/epoch/slot-reuse note when broad owner-match 
 If timeout/cancel cleanup already looks like the main liar and the remaining ambiguity is whether one pending handler/tag/callback still fires for a retired owner versus a live one, continue with `topics/protocol-retired-owner-vs-callback-firing-workflow-note.md`.
 
 Use the reply-emission/transport-handoff note when protocol/firmware handling is already locally understood far enough to show acceptance or reply-object creation, but the analyst still needs to prove where that accepted result is serialized, queued, committed, or handed to the transport/peripheral side as one real output behavior; leave broad output-side work there once one committed outbound path is already good enough and the real bottleneck becomes hardware-side effect proof, later interrupt/deferred consequence proof, or one narrower output-side continuation.
+
+Use the Netlink message-to-consumer note when the Linux control/event plane is already visibly Netlink-shaped but the truthful object is still unclear: family/control discovery, command selection, ACK acceptance, dump completion, multicast notification delivery, and first local callback/parser/state consumer should stay separate before a visible `sendmsg(AF_NETLINK)`, `NLMSG_ERROR(error == 0)`, `NLMSG_DONE`, `nlmsg_pid`, or multicast send site becomes a behavior claim.
 
 Use the provenance/evidence-management page when one parser/state edge, replay gate, reply/output handoff, or hardware-side consequence is already good enough and the remaining problem is preserving the exact assumptions, compare points, proof slices, and handoff packaging needed so later replay, automation, or analyst transfer does not collapse back into rediscovery.
 

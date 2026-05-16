@@ -371,6 +371,7 @@ A subtree guide and practical bridge pages now exist for the protocol/firmware o
 - `topics/protocol-layer-peeling-and-contract-recovery-workflow-note.md`
 - `topics/protocol-content-pipeline-recovery-workflow-note.md`
 - `topics/protocol-ingress-ownership-and-receive-path-workflow-note.md`
+- `topics/protocol-netlink-message-to-consumer-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - `topics/protocol-pending-request-correlation-and-async-reply-workflow-note.md`

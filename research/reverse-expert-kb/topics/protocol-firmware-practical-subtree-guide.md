@@ -22,6 +22,7 @@ Related pages:
 - topics/protocol-ble-gatt-notification-to-state-consumer-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 - topics/protocol-ingress-ownership-and-receive-path-workflow-note.md
+- topics/protocol-netlink-message-to-consumer-workflow-note.md
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
 - topics/protocol-pending-request-correlation-and-async-reply-workflow-note.md
@@ -69,7 +70,7 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty-one recurring families:
 
 
 0. **hardware observation / image-lineage uncertainty**
@@ -100,6 +101,8 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - the first authenticated API family is visible, but the real analyst object continues through manifest/handle, key/path, chunk/segment, or another downstream artifact ladder
 8. **ingress ownership uncertainty**
    - inbound traffic is visible, but the first local receive owner that feeds parser-relevant handling is still unclear
+8a. **Netlink request / dump / notification consumer uncertainty**
+   - Linux Netlink traffic, family discovery, ACKs, dumps, or multicast notifications are visible, but the first truthful operation, completion/delivery boundary, local callback/parser consumer, or state/effect owner is still unclear; keep **family discovered != command selected != ACKed != dump-complete != notification-delivered != consumed/effected** visible before treating `sendmsg(AF_NETLINK)`, `NLMSG_ERROR(error == 0)`, `NLMSG_DONE`, `nlmsg_pid`, or a multicast send site as behavior ownership
 9. **parser-to-consequence uncertainty**
    - the parser or dispatch region is visible, but the first state/reply/peripheral consequence edge is still unknown
 10. **acceptance / replay-precondition uncertainty**
@@ -141,6 +144,7 @@ The subtree is strongest when read as:
 - **externalize** that contract into one reusable schema or harness target
 - **freeze** one representative replay fixture and smallest constructor path when one method-bearing contract is already good enough but replay is still too vague
 - **own** the right inbound object
+- **stabilize** one Linux Netlink request / dump / notification chain when family/control discovery, command truth, ACK truth, dump completion, notification delivery, and local consumer truth are easy to flatten together
 - **reduce** one parser/state consequence
 - **accept** one interaction under the right local precondition
 - **stabilize** one pending-request lifetime contract when broad owner-match is already good enough but late replies or reuse still drift
@@ -650,9 +654,28 @@ Routing reminder:
 - leave broad ingress/ownership work once one receive owner is already good enough and the real bottleneck becomes parser/state consequence, replay acceptance, or later output-side proof
 
 Possible next handoff:
+- `topics/protocol-netlink-message-to-consumer-workflow-note.md` when the visible inbound/control plane is Linux Netlink-shaped and the remaining liar is whether family discovery, command selection, ACK, dump completion, notification delivery, or local consumer truth was flattened
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
 - `topics/peripheral-mmio-effect-proof-workflow-note.md`
+
+### H2. Linux Netlink visible -> request / dump / notification consumer truth
+Typical question:
+- if `sendmsg(AF_NETLINK)`, `recvmsg(AF_NETLINK)`, libnl/libmnl, rtnetlink, Generic Netlink, connector, audit, uevent, or netfilter Netlink traffic is already visible, what narrower command/ACK/dump/notification/consumer proof must be frozen before behavior claims are honest?
+
+Primary note:
+- `topics/protocol-netlink-message-to-consumer-workflow-note.md`
+
+Routing reminder:
+- stay here while the missing proof is specifically whether a family/control discovery, operation command, ACK, dump-completion, multicast delivery, or local callback/parser consumer owns the behavior
+- do not enter this thinner Netlink continuation when the real problem is still generic capture failure or unknown framing
+- leave this thinner Netlink continuation once one message-to-consumer chain is good enough and the real bottleneck becomes parser/state consequence, replay acceptance, or output/hardware-side effect proof
+
+Possible next handoff:
+- `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
+- `topics/protocol-replay-precondition-and-state-gate-workflow-note.md`
+- `topics/protocol-reply-emission-and-transport-handoff-workflow-note.md`
+- `topics/native-inotify-fanotify-first-event-consumer-workflow-note.md` when the remaining liar is actually file-watch delivery semantics rather than Netlink message ownership
 
 ### I. Parser visibility -> first state or effect consequence
 Typical question:
