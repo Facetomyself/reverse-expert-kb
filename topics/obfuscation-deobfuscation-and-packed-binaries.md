@@ -12,6 +12,7 @@ Related pages:
 - topics/symbol-type-and-signature-recovery.md
 - topics/analyst-workflows-and-human-llm-teaming.md
 - topics/protected-runtime-practical-subtree-guide.md
+- topics/mba-expression-simplification-to-semantic-consumer-workflow-note.md
 - topics/packed-stub-to-oep-and-first-real-module-workflow-note.md
 - topics/write-protect-execute-to-first-consumer-workflow-note.md
 
@@ -280,6 +281,15 @@ Why it matters:
 - and once one normalized next-carrier already exists, it should preserve a second thinner continuation for copied-code branch inflation -> trustworthy successor split rather than flattening copied arms, carrier recovery, and split ownership into one vague step
 
 
+### K. MBA / bit-vector expression simplification is a distinct practical seam
+
+Source-backed MBA material reinforces a narrower expression-recovery workflow between broad opaque-predicate / next-state recovery and durable state-edge or ordinary consumer proof: expression extraction, bit-vector domain freezing, candidate simplification, equivalence validation, replacement posture, and first semantic consumer are separate proof objects.
+
+Why it matters:
+- MBA simplification can make one predicate, index, key component, handler return, or dispatcher update readable without proving that the extracted expression preserved casts, flags, memory reads, side effects, or original width semantics
+- solver proof, oracle lookup, algebraic rewriting, and synthesis / trace-window learning are different evidence strengths; sampling agreement is useful but not the same as universal equivalence over the original program domain
+- the practical note `topics/mba-expression-simplification-to-semantic-consumer-workflow-note.md` preserves the compact stop rule `extracted != domain-frozen != simplified != equivalent != replaced != consumed/effected`
+
 ### G. Runtime-generated code handoff is a distinct practical seam
 
 Source-backed unpacking and OS API material reinforce a narrower workflow problem between broad packed-startup recovery and ordinary artifact-consumer proof: allocation/mapping, byte production, executable protection, instruction-cache/coherency readiness, first transfer, stable code decoding, and first consumer are separate proof objects.
@@ -437,6 +447,7 @@ Practical bridge pages now exist for recurring operator bottlenecks:
 - `topics/vm-trace-to-semantic-anchor-workflow-note.md`
 - `topics/opaque-predicate-and-computed-next-state-recovery-workflow-note.md`
 - `topics/copied-code-branch-inflation-to-trustworthy-successor-split-workflow-note.md`
+- `topics/mba-expression-simplification-to-semantic-consumer-workflow-note.md`
 - `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
 - `topics/packed-stub-to-oep-and-first-real-module-workflow-note.md`
 - `topics/string-decryption-origin-to-artifact-provenance-workflow-note.md`
@@ -449,6 +460,8 @@ Use `topics/protected-runtime-practical-subtree-guide.md` as the branch entry su
 Use `topics/protected-runtime-observation-topology-selection-workflow-note.md` when direct attach, spawn, app-local hooks, or ordinary instrumentation are themselves unstable, detected, semantically late, or misleading and the analyst first needs one more truthful boundary before narrower protected-runtime work becomes trustworthy.
 
 Use `topics/vm-trace-to-semantic-anchor-workflow-note.md` when virtualization, flattening, or handler churn is already visible and some execution-derived evidence exists, but the analyst still needs to reduce that churn into one stable semantic anchor plus one consequence-bearing handler/state edge before deeper static reconstruction becomes trustworthy; leave broad trace/semantic-anchor work there once one stable semantic anchor and one consequence-bearing handler/state edge are already good enough and the real bottleneck becomes dispatcher/state-edge reduction inside a still-recognizable flattened region, ordinary native follow-up in a quieter post-protection region, or a narrower packed/artifact continuation.
+
+Use `topics/mba-expression-simplification-to-semantic-consumer-workflow-note.md` when one MBA / bit-vector expression is already isolated enough to extract, but the practical bottleneck is now exact bit-vector domain, side-effect boundary, candidate simplification, equivalence validation, safe replacement posture, and first semantic consumer proof. Leave broad MBA/expression work there once one validated expression and one first consumer are good enough and the real bottleneck becomes durable state-edge proof, input-invariant recovery, runtime-table initialization, or ordinary artifact-consumer work.
 
 Use `topics/flattened-dispatcher-to-state-edge-workflow-note.md` when the dispatcher or flattened region is already recognizable, but the practical bottleneck is now smaller and more concrete: identifying the first durable state object, reduction helper, or dispatcher-exit family that predicts later behavior and gives static follow-up a trustworthy next target; leave broad trace/dispatcher work there once one durable state object and one consequence-bearing state edge are already good enough and the real bottleneck becomes post-unpack handoff, ordinary route proof, or another narrower post-protection continuation.
 

@@ -13,6 +13,7 @@ Related pages:
 - topics/opaque-predicate-and-computed-next-state-recovery-workflow-note.md
 - topics/copied-code-branch-inflation-to-trustworthy-successor-split-workflow-note.md
 - topics/input-invariant-opaque-predicate-to-valid-input-constraint-recovery-workflow-note.md
+- topics/mba-expression-simplification-to-semantic-consumer-workflow-note.md
 - topics/flattened-dispatcher-to-state-edge-workflow-note.md
 - topics/packed-stub-to-oep-and-first-real-module-workflow-note.md
 - topics/write-protect-execute-to-first-consumer-workflow-note.md
@@ -48,7 +49,7 @@ This page makes that branch read more like the malware, protocol, and mobile pra
 - a compact ladder for moving from protected churn toward one smaller trustworthy target
 
 ## 2. Core claim
-Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of fourteen recurring families:
+Protected-runtime practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of fifteen recurring families:
 
 1. **anti-instrumentation gate triage**
    - some anti-instrumentation effect is already visible, but the first decisive gate family and its first consequence-bearing effect are still unclear
@@ -63,21 +64,23 @@ Protected-runtime practical work is easiest to navigate when the analyst first c
    - visible VM, handler churn, or repetitive protected execution is the main problem and the first stable semantic anchor is still missing
 6. **opaque-predicate / computed-next-state recovery**
    - flattening is already recognizable and some dispatcher/state object is visible, but the next-state relation is still obscured by opaque predicates, copied-code branches, helper-mediated writes, or computed-next-state machinery
-7. **flattened-dispatcher-to-state-edge reduction**
+7. **MBA / bit-vector expression simplification**
+   - one obfuscated value expression is already isolated, but extraction fidelity, bit-vector domain, equivalence validation, safe replacement, and the first semantic consumer are still being collapsed
+8. **flattened-dispatcher-to-state-edge reduction**
    - a dispatcher or flattened protected region is already recognizable enough that one trustworthy successor relation already exists, but the first durable state object, reducer helper, or dispatcher-exit edge is still unclear
-8. **packed / staged bootstrap handoff**
+9. **packed / staged bootstrap handoff**
    - a stub, shell, decrypt/copy/fixup loop, or staged loader is already visible, but the first trustworthy post-unpack handoff is still unclear
-9. **write / protect / execute handoff**
+10. **write / protect / execute handoff**
    - runtime-produced bytes, executable mapping/protection changes, or self-modifying code are visible, but allocation, write generation, executable/cache readiness, first transfer, stable decoding, and first consumer are still being collapsed
-10. **string-decryption origin / artifact-provenance proof**
+11. **string-decryption origin / artifact-provenance proof**
    - encoded or encrypted strings are clearly present and decoders, stack builders, or emulator outputs are visible, but decoder callsite truth, origin bytes, key/constant pairing, decoded-output validation, and consumer-ready provenance are still not separated
-11. **artifact-to-consumer proof**
+12. **artifact-to-consumer proof**
    - strings, config, tables, bytecode, or normalized buffers are already readable enough to inspect, but the first ordinary consumer is still missing
-12. **runtime-artifact / initialization-obligation recovery**
+13. **runtime-artifact / initialization-obligation recovery**
    - static dumps, repaired artifacts, or offline reconstructions look damaged, under-initialized, or close-but-wrong, while live/runtime state appears truer
-13. **integrity / tamper consequence proof**
+14. **integrity / tamper consequence proof**
    - checks are visible, but the first reduced result or consequence-bearing tripwire is still unclear
-14. **exception-handler-owned control transfer**
+15. **exception-handler-owned control transfer**
    - visible direct control flow stays incomplete or misleading because handler registration, dispatcher-side landing, unwind lookup, signal delivery, or trap-resume logic owns the meaningful branch
    - keep a thinner guard-page / fault-owned continuation reminder inside this family: **guard configured != first fault != re-armed mechanism != resumed consequence**, because one `PAGE_GUARD` hit or one fault delivery is often only landing truth rather than sustained ownership or behavior truth
 
@@ -97,6 +100,7 @@ The subtree is strongest when read as:
 - **reposition** observation when the current topology itself is the problem
 - **anchor** noisy protected execution when the first stable semantic anchor is still missing
 - **normalize** one opaque-predicate or computed-next-state bottleneck into one trustworthy successor relation, often by anchoring on one helper output, normalized compare family, table index, or other smaller recovery object instead of the whole flattened block
+- **simplify** one MBA / bit-vector expression only after extraction fidelity, bit-vector domain, equivalence proof, replacement posture, and first semantic consumer are separated
 - **reduce** one recognizable flattened dispatcher or protected state machine into one durable state edge
 - **handoff** out of staged startup when packing/bootstrap dominates
 - **split** runtime-generated or self-modified code handoff into mapping/allocation, byte generation, executable/cache readiness, first transfer, stable code decoding, and first ordinary consumer proof
@@ -215,6 +219,7 @@ Do **not** start here when:
 Possible next handoff:
 - `topics/copied-code-branch-inflation-to-trustworthy-successor-split-workflow-note.md` when one normalized next-carrier already exists, but copied-code / question-opaque branch inflation still hides which visible branch family really owns the successor split
 - `topics/input-invariant-opaque-predicate-to-valid-input-constraint-recovery-workflow-note.md` when the remaining ambiguity is no longer broad successor recovery but the smaller question of which valid-input invariant makes one suspicious predicate effectively fixed for accepted executions
+- `topics/mba-expression-simplification-to-semantic-consumer-workflow-note.md` when the missing object has narrowed to one MBA / bit-vector expression whose exact domain, candidate simplification, equivalence, replacement posture, and first consumer still need to be proved
 - `topics/flattened-dispatcher-to-state-edge-workflow-note.md`
 - `topics/native-interface-to-state-proof-workflow-note.md`
 - `topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md`
@@ -232,6 +237,21 @@ Do **not** start here when:
 - the main blocker is still broad successor-state recovery
 - there is not yet enough stable trace evidence to distinguish accepted-input behavior from arbitrary perturbation noise
 - the target is better described as packed/bootstrap handoff, artifact-to-consumer proof, or integrity consequence reduction
+
+### Start with `mba-expression-simplification-to-semantic-consumer-workflow-note`
+Use:
+- `topics/mba-expression-simplification-to-semantic-consumer-workflow-note.md`
+
+Start here when:
+- one MBA / bit-vector expression is already isolated enough to extract as AST, IR, trace-window semantics, or symbolic slice
+- the remaining ambiguity is not broad dispatcher discovery, but whether the expression was extracted with the correct width, casts, flags, side effects, and input domain
+- a candidate simplification exists or is reachable through rewriting, MBA-specific reduction, SMT, oracle lookup, or synthesis, but equivalence and consumer proof are still missing
+- the next useful output is one validated expression plus one first semantic consumer such as a branch, table index, key component, request field, state edge, or policy reducer
+
+Do **not** start here when:
+- the expression is not yet isolated and the main problem is still trace-to-anchor or broad successor-state recovery
+- the simplified value is already good enough and the real bottleneck is now durable state-edge or outer-consumer proof
+- the expression only produces readable artifact material whose first ordinary consumer is the true next question
 
 ### Start with `packed-stub-to-oep-and-first-real-module-workflow-note`
 Use:
