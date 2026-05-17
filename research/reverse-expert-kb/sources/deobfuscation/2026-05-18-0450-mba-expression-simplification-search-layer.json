@@ -1,0 +1,436 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "mixed boolean arithmetic MBA obfuscation deobfuscation bit-vector simplification reverse engineering",
+    "MBA-Blast mixed boolean arithmetic deobfuscation bit-vector expressions",
+    "Syntia synthesis deobfuscation mixed boolean arithmetic expressions"
+  ],
+  "count": 23,
+  "results": [
+    {
+      "title": "mrphrazer/msynth: Code deobfuscation framework to ... - GitHub",
+      "url": "https://github.com/mrphrazer/msynth",
+      "snippet": "msynth is a code deobfuscation framework to simplify Mixed Boolean-Arithmetic (MBA) expressions. Given a pre-computed simplification oracle, it walks over a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.81
+    },
+    {
+      "title": "trailofbits/CoBRA: Coefficient-Based Reconstruction ...",
+      "url": "https://github.com/trailofbits/CoBRA",
+      "snippet": "Coefficient-Based Reconstruction of Arithmetic — a Mixed Boolean-Arithmetic (MBA) expression simplifier for deobfuscation - trailofbits/CoBRA.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.78
+    },
+    {
+      "title": "[PDF] Efficient Deobfuscation of Linear Mixed Boolean-Arithmetic ... - arXiv",
+      "url": "https://arxiv.org/pdf/2209.06335",
+      "snippet": "Abstract. Mixed Boolean-Arithmetic (MBA) expressions are frequently used for obfuscation. As they combine arithmetic as well as Boolean",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.78
+    },
+    {
+      "title": "RUB-SysSec/syntia: Program synthesis based ... - GitHub",
+      "url": "https://github.com/RUB-SysSec/syntia",
+      "snippet": "Syntia is a program synthesis based framework for deobfuscation. It ... In this example, the expression is obfuscated via Mixed Boolean-Arithmetic (MBA).",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.78
+    },
+    {
+      "title": "[2305.06763] Simplification of General Mixed Boolean-Arithmetic Expressions: GAMBA 1footnote 11footnote 1Accepted for presentation at the 2nd Workshop on Robust Malware Analysis (WoRMA’23), co-located with the 8th IEEE European Symposium on Security and Privacy, Delft, The Netherlands, July 3 - 7, 2023.",
+      "url": "https://arxiv.org/pdf/2305.06763",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.75
+    },
+    {
+      "title": "[PDF] Software Obfuscation with Non-Linear Mixed Boolean-Arithmetic ...",
+      "url": "https://par.nsf.gov/servlets/purl/10318183",
+      "snippet": "Abstract. Mixed Boolean-Arithmetic (MBA) expression mixes bitwise operations (e.g., AND, OR, and NOT) and arithmetic operations (e.g.,. ADD and IMUL).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "MBA-Blast: Unveiling and Simplifying Mixed Boolean-Arithmetic Obfuscation | NSF Public Access Repository",
+      "url": "https://par.nsf.gov/biblio/10327164",
+      "snippet": "",
+      "published_date": "2021-08-11T12:50:40.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "README.md at master · RUB-SysSec/syntia",
+      "url": "https://github.com/RUB-SysSec/syntia/blob/master/README.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "arnaugamez/r2syntia",
+      "url": "https://github.com/arnaugamez/r2syntia",
+      "snippet": "",
+      "published_date": "2020-07-15T20:14:54.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Simplifying Mixed Boolean-Arithmetic Obfuscation by ...",
+      "url": "https://dl.acm.org/doi/10.1145/3576915.3623186",
+      "snippet": "In this paper, we propose a versatile MBA deobfuscation method that synergistically combines program synthesis, term rewriting, and an algebraic simplification",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.51
+    },
+    {
+      "title": "Simplifying Mixed Boolean-Arithmetic Obfuscation by Program ...",
+      "url": "https://psl.hanyang.ac.kr/assets/pdf/ccs23.pdf",
+      "snippet": "by J Lee · 2023 · Cited by 28 — MBA obfuscation has been popular to pro- tect programs from reverse engineering thanks to its simplicity and effectiveness. However, it is also",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.49
+    },
+    {
+      "title": "Unifying Mixed Boolean-Arithmetic Obfuscation by ...",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/4804315f-2d28-410d-b412-9c21cd7702fa-MECA.pdf?abstractid=5550463&mirid=1",
+      "snippet": "Mixed Boolean-Arithmetic (MBA) is a powerful code obfuscation technique critical for software protection, with wide applications in malware evasion and",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Efficient Deobfuscation of Linear Mixed Boolean-Arithmetic Expressions",
+      "url": "https://dl.acm.org/doi/10.1145/3560831.3564256",
+      "snippet": "",
+      "published_date": "2022-11-07T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "[PDF] MBA-Blast: Unveiling and Simplifying Mixed Boolean-Arithmetic ...",
+      "url": "https://www.usenix.org/system/files/sec21-liu-binbin.pdf",
+      "snippet": "Figure 1: An example of MBA obfuscation for x+y, which is transformed into a complex expression mixing both arithmetic and boolean operations with a redundant variable z. We notice that new MBA identity equations can be sim-ply extended from the linear combination of existing MBA 1708 30th USENIX Security Symposium USENIX Association Expression Substitution Arithmetic Reduction Dynamic Analyzer Static Disassembler Source Code Editor MBA-Blast Front-end Interface Back-end Interface Parser Formula Generation IR IR AST AST IR Trace Assembly Code Source Code Human-readable Formula Solver Input Formula C, Java, Python, ... For MBA samples in-volving more than 8 input variables, Z3 spends considerable USENIX Association 30th USENIX Security Symposium 1711 0 500 1000 1500 2000 2500 8-bit MBA expressions 10−2 10−1 100 101 102 103 104 Z3 Solve Time (Seconds) Original SSPAM Syntia MBA-Blast (a) 8-bit result. For example, the following procedure shows how MBA-Blast simpliﬁes the obfuscated expression above on the right side of the equation and produces the re-sult x −y.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.45
+    },
+    {
+      "title": "[PDF] Syntia: Breaking State-of-the-Art Binary Code Obfuscation via ...",
+      "url": "https://i.blackhat.com/briefings/asia/2018/asia-18-Blazytko-Breaking-State-Of-The-Art-Binary-Code-Obfuscation-Via-Program-Synthesis-wp.pdf",
+      "snippet": "Syntia automatically learns the semantics of 489 out of 500 random expressions obfuscated via Mixed Boolean-Arithmetic and achieves a success rate of more than 94% when synthesizing the semantics of arithmetic instruction handlers in two state-of-the-art virtualization-based protection systems, Themida and VMProtect. Contributions In summary, we make the following contributions in this paper: • We introduce a generic approach for trace simpliﬁcation based on program synthesis to obtain the semantics of diﬀerent kinds of obfuscated code. Based on I/O samples from assembly code as input, Syntia can apply MCTS-based program synthesis to compute a simpliﬁed expression that represents a deobfuscated version of the input. MBA VMP TM ROP #trace windows 500 12,577 2,448 78 #unique windows 500 449 106 78 #instructions per window 116 49 258 3 #inputs per window 5 2 15 3 #outputs per window 1 2 10 2 #synthesis tasks 500 1,123 1,092 178 I/O sampling time (s) 110 118 60 17 overall synthesis time (s) 2,020 4,160 9,946 829 synthesis time per task (s) 4.0 3.7 9.1 4.7 encodes it into a linear MBA expression of layer 383 (omitted due to complexity).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Syntia: Synthesizing the Semantics of Obfuscated Code | USENIX",
+      "url": "https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/blazytko",
+      "snippet": "# Syntia: Synthesizing the Semantics of Obfuscated Code. Current state-of-the-art deobfuscation approaches operate on instruction traces and use a mixed approach of symbolic execution and taint analysis; two techniques that require precise analysis of the underlying code. As program synthesis can synthesize code of arbitrary code complexity, it is only limited by the complexity of the underlying code’s *semantic*. To demonstrate the practical feasibility of our approach, we automatically learn the semantics of 489 out of 500 random expressions obfuscated via Mixed Boolean-Arithmetic. Finally, to substantiate our claim that the approach is generic and applicable to different use cases, we show that Syntia can also automatically learn the semantics of ROP gadgets. USENIX is committed to Open Access to the research presented at our events. Any video, audio, and/or slides that are posted after the event are also free and open to everyone. Support USENIX and our commitment to Open Access.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.45
+    },
+    {
+      "title": "MBA-Blast: Unveiling and Simplifying Mixed Boolean- ...",
+      "url": "https://www.usenix.org/conference/usenixsecurity21/presentation/liu-binbin",
+      "snippet": "by B Liu · 2021 · Cited by 61 — Binary code with MBA obfuscation can effectively hide the secret data/algorithm from both static and dynamic reverse engineering, including advanced analyses",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "[PDF] Breaking Mixed Boolean-Arithmetic Obfuscation in Real-World ...",
+      "url": "https://synthesis.to/presentations/recon25_mba_obfuscation.pdf",
+      "snippet": "(0,7,2) (1, 1, 1) →3 (2, 3, 1) →6 (0, 7, 2) →9 25 Syntia & Xyntia: Stochastic Program Synthesis We use f as a black-box: f(x, y, z) := (((x ⊕y) + ((x ∧y) · 2)) ∨z) + (((x ⊕y) + ((x ∧y) · 2)) ∧z) (1, 1, 1) →3 (2, 3, 1) →6 (0, 7, 2) →9 We learn a function h that has the same I/O behavior. 25 Syntia & Xyntia: Stochastic Program Synthesis We use f as a black-box: f(x, y, z) := (((x ⊕y) + ((x ∧y) · 2)) ∨z) + (((x ⊕y) + ((x ∧y) · 2)) ∧z) (1, 1, 1) →3 (2, 3, 1) →6 (0, 7, 2) →9 We learn a function h that has the same I/O behavior.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "On Simplifying Mixed Boolean-Arithmetic Expressions | Automatic Control and Computer Sciences | Springer Nature Link",
+      "url": "https://link.springer.com/article/10.3103/S0146411624700299",
+      "snippet": "",
+      "published_date": "2025-02-12T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "Practical MBA Deobfuscation with msynth | Tim Blazytko",
+      "url": "https://synthesis.to/2021/11/11/practical_mba_deobfuscation.html",
+      "snippet": "",
+      "published_date": "2021-11-10T23:00:00.000Z",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "",
+      "url": "https://hal.science/hal-01388109/document",
+      "snippet": "",
+      "published_date": "2016-09-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "",
+      "url": "https://www.usenix.org/system/files/sec21fall-liu-binbin.pdf",
+      "snippet": "",
+      "published_date": "2021-02-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Syntia: Synthesizing the Semantics of Obfuscated Code",
+      "url": "https://www.usenix.org/system/files/conference/usenixsecurity17/sec17-blazytko.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Simplifying Mixed Boolean-Arithmetic Obfuscation by Program ...",
+        "url": "https://psl.hanyang.ac.kr/assets/pdf/ccs23.pdf",
+        "snippet": "by J Lee · 2023 · Cited by 28 — MBA obfuscation has been popular to pro- tect programs from reverse engineering thanks to its simplicity and effectiveness. However, it is also",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.49
+      },
+      {
+        "title": "trailofbits/CoBRA: Coefficient-Based Reconstruction ...",
+        "url": "https://github.com/trailofbits/CoBRA",
+        "snippet": "Coefficient-Based Reconstruction of Arithmetic — a Mixed Boolean-Arithmetic (MBA) expression simplifier for deobfuscation - trailofbits/CoBRA.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.78
+      },
+      {
+        "title": "Unifying Mixed Boolean-Arithmetic Obfuscation by ...",
+        "url": "https://papers.ssrn.com/sol3/Delivery.cfm/4804315f-2d28-410d-b412-9c21cd7702fa-MECA.pdf?abstractid=5550463&mirid=1",
+        "snippet": "Mixed Boolean-Arithmetic (MBA) is a powerful code obfuscation technique critical for software protection, with wide applications in malware evasion and",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "MBA-Blast: Unveiling and Simplifying Mixed Boolean- ...",
+        "url": "https://www.usenix.org/conference/usenixsecurity21/presentation/liu-binbin",
+        "snippet": "by B Liu · 2021 · Cited by 61 — Binary code with MBA obfuscation can effectively hide the secret data/algorithm from both static and dynamic reverse engineering, including advanced analyses",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "Simplifying Mixed Boolean-Arithmetic Obfuscation by ...",
+        "url": "https://dl.acm.org/doi/10.1145/3576915.3623186",
+        "snippet": "In this paper, we propose a versatile MBA deobfuscation method that synergistically combines program synthesis, term rewriting, and an algebraic simplification",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.51
+      },
+      {
+        "title": "[PDF] Software Obfuscation with Non-Linear Mixed Boolean-Arithmetic ...",
+        "url": "https://par.nsf.gov/servlets/purl/10318183",
+        "snippet": "Abstract. Mixed Boolean-Arithmetic (MBA) expression mixes bitwise operations (e.g., AND, OR, and NOT) and arithmetic operations (e.g.,. ADD and IMUL).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "MBA-Blast: Unveiling and Simplifying Mixed Boolean-Arithmetic ...",
+        "url": "https://www.usenix.org/conference/usenixsecurity21/presentation/liu-binbin",
+        "snippet": "Mixed Boolean-Arithmetic (MBA) obfuscation is a method to perform a semantics-preserving transformation from a simple expression to a representation that is",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] Efficient Deobfuscation of Linear Mixed Boolean-Arithmetic ... - arXiv",
+        "url": "https://arxiv.org/pdf/2209.06335",
+        "snippet": "Abstract. Mixed Boolean-Arithmetic (MBA) expressions are frequently used for obfuscation. As they combine arithmetic as well as Boolean",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.78
+      },
+      {
+        "title": "[PDF] Simplifying Mixed Boolean-Arithmetic Obfuscation by Program ...",
+        "url": "https://psl.hanyang.ac.kr/assets/pdf/ccs23.pdf",
+        "snippet": "We implement our method in a tool called ProMBA and evaluate it on over 4000 MBA expressions obfuscated by the state-of-the-art obfuscation",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[PDF] MBA-Blast: Unveiling and Simplifying Mixed Boolean-Arithmetic ...",
+        "url": "https://www.usenix.org/system/files/sec21-liu-binbin.pdf",
+        "snippet": "Figure 1: An example of MBA obfuscation for x+y, which is transformed into a complex expression mixing both arithmetic and boolean operations with a redundant variable z. We notice that new MBA identity equations can be sim-ply extended from the linear combination of existing MBA 1708 30th USENIX Security Symposium USENIX Association Expression Substitution Arithmetic Reduction Dynamic Analyzer Static Disassembler Source Code Editor MBA-Blast Front-end Interface Back-end Interface Parser Formula Generation IR IR AST AST IR Trace Assembly Code Source Code Human-readable Formula Solver Input Formula C, Java, Python, ... For MBA samples in-volving more than 8 input variables, Z3 spends considerable USENIX Association 30th USENIX Security Symposium 1711 0 500 1000 1500 2000 2500 8-bit MBA expressions 10−2 10−1 100 101 102 103 104 Z3 Solve Time (Seconds) Original SSPAM Syntia MBA-Blast (a) 8-bit result. For example, the following procedure shows how MBA-Blast simpliﬁes the obfuscated expression above on the right side of the equation and produces the re-sult x −y.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.45
+      },
+      {
+        "title": "[PDF] Syntia: Breaking State-of-the-Art Binary Code Obfuscation via ...",
+        "url": "https://i.blackhat.com/briefings/asia/2018/asia-18-Blazytko-Breaking-State-Of-The-Art-Binary-Code-Obfuscation-Via-Program-Synthesis-wp.pdf",
+        "snippet": "Syntia automatically learns the semantics of 489 out of 500 random expressions obfuscated via Mixed Boolean-Arithmetic and achieves a success rate of more than 94% when synthesizing the semantics of arithmetic instruction handlers in two state-of-the-art virtualization-based protection systems, Themida and VMProtect. Contributions In summary, we make the following contributions in this paper: • We introduce a generic approach for trace simpliﬁcation based on program synthesis to obtain the semantics of diﬀerent kinds of obfuscated code. Based on I/O samples from assembly code as input, Syntia can apply MCTS-based program synthesis to compute a simpliﬁed expression that represents a deobfuscated version of the input. MBA VMP TM ROP #trace windows 500 12,577 2,448 78 #unique windows 500 449 106 78 #instructions per window 116 49 258 3 #inputs per window 5 2 15 3 #outputs per window 1 2 10 2 #synthesis tasks 500 1,123 1,092 178 I/O sampling time (s) 110 118 60 17 overall synthesis time (s) 2,020 4,160 9,946 829 synthesis time per task (s) 4.0 3.7 9.1 4.7 encodes it into a linear MBA expression of layer 383 (omitted due to complexity).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Syntia: Synthesizing the Semantics of Obfuscated Code | USENIX",
+        "url": "https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/blazytko",
+        "snippet": "# Syntia: Synthesizing the Semantics of Obfuscated Code. Current state-of-the-art deobfuscation approaches operate on instruction traces and use a mixed approach of symbolic execution and taint analysis; two techniques that require precise analysis of the underlying code. As program synthesis can synthesize code of arbitrary code complexity, it is only limited by the complexity of the underlying code’s *semantic*. To demonstrate the practical feasibility of our approach, we automatically learn the semantics of 489 out of 500 random expressions obfuscated via Mixed Boolean-Arithmetic. Finally, to substantiate our claim that the approach is generic and applicable to different use cases, we show that Syntia can also automatically learn the semantics of ROP gadgets. USENIX is committed to Open Access to the research presented at our events. Any video, audio, and/or slides that are posted after the event are also free and open to everyone. Support USENIX and our commitment to Open Access.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.45
+      },
+      {
+        "title": "RUB-SysSec/syntia: Program synthesis based ... - GitHub",
+        "url": "https://github.com/RUB-SysSec/syntia",
+        "snippet": "Syntia is a program synthesis based framework for deobfuscation. It ... In this example, the expression is obfuscated via Mixed Boolean-Arithmetic (MBA).",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.78
+      },
+      {
+        "title": "[PDF] Breaking Mixed Boolean-Arithmetic Obfuscation in Real-World ...",
+        "url": "https://synthesis.to/presentations/recon25_mba_obfuscation.pdf",
+        "snippet": "(0,7,2) (1, 1, 1) →3 (2, 3, 1) →6 (0, 7, 2) →9 25 Syntia & Xyntia: Stochastic Program Synthesis We use f as a black-box: f(x, y, z) := (((x ⊕y) + ((x ∧y) · 2)) ∨z) + (((x ⊕y) + ((x ∧y) · 2)) ∧z) (1, 1, 1) →3 (2, 3, 1) →6 (0, 7, 2) →9 We learn a function h that has the same I/O behavior. 25 Syntia & Xyntia: Stochastic Program Synthesis We use f as a black-box: f(x, y, z) := (((x ⊕y) + ((x ∧y) · 2)) ∨z) + (((x ⊕y) + ((x ∧y) · 2)) ∧z) (1, 1, 1) →3 (2, 3, 1) →6 (0, 7, 2) →9 We learn a function h that has the same I/O behavior.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "mrphrazer/msynth: Code deobfuscation framework to ... - GitHub",
+        "url": "https://github.com/mrphrazer/msynth",
+        "snippet": "msynth is a code deobfuscation framework to simplify Mixed Boolean-Arithmetic (MBA) expressions. Given a pre-computed simplification oracle, it walks over a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.81
+      }
+    ],
+    "exa": [
+      {
+        "title": "",
+        "url": "https://hal.science/hal-01388109/document",
+        "snippet": "",
+        "published_date": "2016-09-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Efficient Deobfuscation of Linear Mixed Boolean-Arithmetic Expressions",
+        "url": "https://dl.acm.org/doi/10.1145/3560831.3564256",
+        "snippet": "",
+        "published_date": "2022-11-07T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "On Simplifying Mixed Boolean-Arithmetic Expressions | Automatic Control and Computer Sciences | Springer Nature Link",
+        "url": "https://link.springer.com/article/10.3103/S0146411624700299",
+        "snippet": "",
+        "published_date": "2025-02-12T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "[2305.06763] Simplification of General Mixed Boolean-Arithmetic Expressions: GAMBA 1footnote 11footnote 1Accepted for presentation at the 2nd Workshop on Robust Malware Analysis (WoRMA’23), co-located with the 8th IEEE European Symposium on Security and Privacy, Delft, The Netherlands, July 3 - 7, 2023.",
+        "url": "https://arxiv.org/pdf/2305.06763",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.75
+      },
+      {
+        "title": "Practical MBA Deobfuscation with msynth | Tim Blazytko",
+        "url": "https://synthesis.to/2021/11/11/practical_mba_deobfuscation.html",
+        "snippet": "",
+        "published_date": "2021-11-10T23:00:00.000Z",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "[PDF] MBA-Blast: Unveiling and Simplifying Mixed Boolean-Arithmetic ...",
+        "url": "https://www.usenix.org/system/files/sec21-liu-binbin.pdf",
+        "snippet": "",
+        "published_date": "2021-08-11T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Efficient Deobfuscation of Linear Mixed Boolean-Arithmetic Expressions",
+        "url": "https://dl.acm.org/doi/10.1145/3560831.3564256",
+        "snippet": "",
+        "published_date": "2022-11-07T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "",
+        "url": "https://www.usenix.org/system/files/sec21fall-liu-binbin.pdf",
+        "snippet": "",
+        "published_date": "2021-02-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "",
+        "url": "https://hal.science/hal-01388109/document",
+        "snippet": "",
+        "published_date": "2016-09-21T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "MBA-Blast: Unveiling and Simplifying Mixed Boolean-Arithmetic Obfuscation | NSF Public Access Repository",
+        "url": "https://par.nsf.gov/biblio/10327164",
+        "snippet": "",
+        "published_date": "2021-08-11T12:50:40.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "README.md at master · RUB-SysSec/syntia",
+        "url": "https://github.com/RUB-SysSec/syntia/blob/master/README.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Syntia: Synthesizing the Semantics of Obfuscated Code",
+        "url": "https://www.usenix.org/system/files/conference/usenixsecurity17/sec17-blazytko.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "arnaugamez/r2syntia",
+        "url": "https://github.com/arnaugamez/r2syntia",
+        "snippet": "",
+        "published_date": "2020-07-15T20:14:54.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "RUB-SysSec/syntia: Program synthesis based ...",
+        "url": "https://github.com/RUB-SysSec/syntia",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Syntia: Synthesizing the Semantics of Obfuscated Code",
+        "url": "https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/blazytko",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "grok": []
+  }
+}
