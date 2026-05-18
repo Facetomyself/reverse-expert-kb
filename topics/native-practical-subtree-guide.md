@@ -13,6 +13,7 @@ Related pages:
 - topics/native-dbus-service-activation-to-method-consumer-workflow-note.md
 - topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md
 - topics/native-windows-named-pipe-impersonation-to-handler-consumer-workflow-note.md
+- topics/native-com-activation-to-method-consumer-workflow-note.md
 - topics/native-macos-servicemanagement-xpc-helper-consumer-workflow-note.md
 - topics/native-callback-registration-to-event-loop-consumer-workflow-note.md
 - topics/native-completion-port-and-thread-pool-first-consumer-workflow-note.md
@@ -81,6 +82,10 @@ A Linux service/desktop reminder now worth preserving inside family 5 before wid
 A second Linux service/desktop reminder now worth preserving inside family 5 is the Unix-domain socket fd/credential seam:
 - AF_UNIX endpoint visibility, peer identity, credential evidence, ancillary-data survival, descriptor lineage, dispatch branch, and handler-owned consumer are different proof objects
 - use `topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md` when the visible API is a pathname/abstract/socketpair Unix socket, `sendmsg(...)` / `recvmsg(...)`, `SCM_RIGHTS`, `SO_PEERCRED`, `SO_PASSCRED`, or `SCM_CREDENTIALS`, and the current liar is whether **endpoint != peer/cred != ancillary-intact != fd-lineage != dispatched != consumed** was flattened into one claim
+
+A Windows COM / local-server reminder now worth preserving inside family 5 is the activation-to-method-consumer seam:
+- COM registration, activation, class-factory selection, object creation, interface binding, method ingress, and first handler-owned effect are different proof objects
+- use `topics/native-com-activation-to-method-consumer-workflow-note.md` when the visible API is `CoCreateInstance`, `CoCreateInstanceEx`, `CoGetClassObject`, `CoRegisterClassObject`, `IClassFactory::CreateInstance`, `QueryInterface`, proxy/stub dispatch, or DCOM activation, and the current liar is whether **registered != activated != factory-selected != object-created != interface-bound != method-entered != consumed/effected** was flattened into one claim
 
 A Windows service/helper reminder now worth preserving inside family 5 is the named-pipe impersonation seam:
 - pipe endpoint visibility, current client connection, request-read ownership, client identity / impersonation level, successful `ImpersonateNamedPipeClient(...)` lifetime, and handler-owned operation are different proof objects
