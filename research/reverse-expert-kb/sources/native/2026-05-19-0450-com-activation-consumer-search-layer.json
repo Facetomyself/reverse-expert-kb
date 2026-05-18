@@ -1,0 +1,490 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows COM local server activation class factory reverse engineering CoCreateInstance DCOM registration",
+    "Microsoft COM activation registry class factory CoGetClassObject IClassFactory documentation",
+    "COM server reverse engineering CLSID AppID LocalServer32 class factory method invocation"
+  ],
+  "count": 29,
+  "results": [
+    {
+      "title": "CoGetClassObject (Windows CE 5.0) | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/previous-versions/windows/embedded/ms863902(v=msdn.10)",
+      "snippet": "This function provides a pointer to an interface on a class object associated with a specified class identifier. Call **CoGetClassObject** directly when you want to create multiple objects through a class object whose class identifier is already in the system registry. [in] Class identifier associated with the data and code that you will use to create the objects. [in] Specifies the context in which the executable code is to be run The only valid value for this parameter is CLSCTX\\_INPROC\\_SERVER. This interface will be used to communicate with the class object. Usually, the interface implemented on a class object is **IClassFactory**, through which you can create object instances of a given definition (class). A call to **CoGetClassObject** creates, initializes, and gives the caller access to the class object through a pointer to an interface specified with the *riid* parameter. The class object is the one associated with the class identifier that you specify in the *rclsid* parameter.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.725
+    },
+    {
+      "title": "[MS-DCOM]: Activation - Microsoft Learn",
+      "url": "https://learn.microsoft.com/hr-hr/openspecs/windows_protocols/ms-dcom/c767a336-608a-4005-a39d-0d5bc68d34b7",
+      "snippet": "Activation is a generic term used to describe the act of creating (or sometimes finding) an existing DCOM object or class factory.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.725
+    },
+    {
+      "title": "[MS-DCOM]: Activation - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-dcom/c767a336-608a-4005-a39d-0d5bc68d34b7",
+      "snippet": "Activation is a generic term used to describe the act of creating (or sometimes finding) an existing DCOM object or class factory.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.725
+    },
+    {
+      "title": ".net - Retrieving the COM class factory for component with CLSID {XXXX} failed due to the following error: 80040154 - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/1036856/retrieving-the-com-class-factory-for-component-with-clsid-xxxx-failed-due-to-t",
+      "snippet": "### more stack exchange communities. Stack Overflow for Teams is now called **Stack Internal**. # Retrieving the COM class factory for component with CLSID {XXXX} failed due to the following error: 80040154. I developed a Windows service using C#.NET to generate PDF report. The application is running in my Windows XP platform. When I deployed the service in Windows Server 2008 64 bit version, I got this error:. I needed to use an old 32-bit DLL within a Web Application that was being developed on a 64-bit machine. I registered the 32-bit DLL into the windows\\sysWOW64 folder using the version of regsvr32 in that folder. Calls to the third party DLL worked from unit tests in Visual Studio but failed from the Web Application hosted in IIS on the same machine with the 80040154 error. The problem is that the server process is 64 bit and the library is 32-bit and it tries to create the COM component in the same process (in-proc server).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.725
+    },
+    {
+      "title": "Local Activation permission for the COM Server - Microsoft Q&A",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/4214310/local-activation-permission-for-the-com-server",
+      "snippet": "The machine-default permission settings do not grant Local Activation permission for the COM Server application with CLSID {C2F03A33-21F5-47FA-B4BB-156362A2F",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "Registering COM Servers - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/com/registering-com-servers",
+      "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. You can try signing in or changing directories. After you have defined a class in code (ensuring that it implements **IClassFactory** or **IClassFactory2**) and assigned it a CLSID, you need to put information in the registry that will allow COM, on request of a client with the CLSID, to create instances of its objects. This information tells the system, for a given CLSID, where the DLL or EXE code for that class is located and how it is to be launched. There is more than one way of registering a class in the registry. In addition, there are other ways of \"registering\" a class with the system when it is running, so that the system is aware that a running object is currently in the system. See the following topics for more information about registering:. Want to try using Ask Learn to clarify or guide you through this topic?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "Create new process for every class of COM server - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/46171921/create-new-process-for-every-class-of-com-server",
+      "snippet": "The problem is that your COM server starts and registers ALL class factories that it supports. So the application start and registers class",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "CoGetClassObject function (combaseapi.h)",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-cogetclassobject?redirectedfrom=MSDN",
+      "snippet": "",
+      "published_date": "2021-12-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "COM Class Objects and CLSIDs - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/com/com-class-objects-and-clsids",
+      "snippet": "",
+      "published_date": "2020-08-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Implementing IClassFactory",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/com/implementing-iclassfactory",
+      "snippet": "",
+      "published_date": "2020-08-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "CoRegisterClassObject function (combaseapi.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-coregisterclassobject",
+      "snippet": "",
+      "published_date": "2021-12-10T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Class Factories and Factory Templates - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/directshow/class-factories-and-factory-templates",
+      "snippet": "Documentation. All product ... CoGetClassObject function. The client then calls the class factory's IClassFactory::CreateInstance method.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "Registering COM Servers - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/windows/win32/com/registering-com-servers",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "IClassFactory::CreateInstance - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/unknwn/nf-unknwn-iclassfactory-createinstance",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Registering a Class at Installation",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/com/registering-a-class-at-installation",
+      "snippet": "",
+      "published_date": "2020-08-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "Why is COM ignoring my DllSurrogate entry?",
+      "url": "https://stackoverflow.com/questions/1880288/why-is-com-ignoring-my-dllsurrogate-entry",
+      "snippet": "",
+      "published_date": "2009-12-10T11:09:44.000Z",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "CLSID Key - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/com/clsid-key-hklm",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Abusing the COM Registry Structure: CLSID, LocalServer32, & InprocServer32 – bohops",
+      "url": "https://bohops.com/2018/06/28/abusing-com-registry-structure-clsid-localserver32-inprocserver32/",
+      "snippet": "# Abusing the COM Registry Structure: CLSID, LocalServer32, & InprocServer32. * Vendors are notorious for including and/or leaving behind Registry artifacts that could potentially be abused by attackers for lateral movement, evasion, bypass, and persistence. * CLSIDs subkeys (LocalServer32 and InprocServer32) can be enumerated to discover abandoned binary references. Previously, I blogged about a DCOM lateral movement technique that took advantage of a missing file that was referenced in a registry Class Identifier (CLSID) subkey-value on Windows 2008/2012 hosts. * The purpose of CLSIDs, LocalServer32, and InprocServer32. * A slightly improved method for enumerating LocalServer32 and InprocServer32 keys and missing key references. Behind the implementation of a COM class is the ‘server’ (some binary) that is referenced within registry keys under the CLSID. In the Windows O/S, there are many COM classes, and the number of those that have missing references to binary paths in the data fields of LocalServer32/InprocServer32 depends on a few factors such as:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "The role of the activation factory in the Windows Runtime",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20240822-00/?p=110165",
+      "snippet": "... activation factory is the class's static members. ... So RoGetActivationFactory is to IActivationFactory as CoGetClassObject is to IClassFactory?",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "[PDF] Fundamentals Of COM(+) (Part 2)",
+      "url": "https://osm.hpi.de/componentVl/2004/VL5/03_11-204-COM_fundamentals2.pdf",
+      "snippet": "▫ Called a class object or class factory. ▫ Typically implements ... CoGetClassObject/IClassFactory. HRESULT CoGetClassObject(. [in] const CLSID&",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Dissecting DCOM part 1 - Synacktiv",
+      "url": "https://www.synacktiv.com/en/publications/dissecting-dcom-part-1",
+      "snippet": "CLSID (Class Identifier): A globally unique identifier (GUID) that uniquely identifies a COM class. ... AppID (Application Identifier): An",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "InprocServer32 – Penetration Testing Lab",
+      "url": "https://pentestlab.blog/tag/inprocserver32/",
+      "snippet": "Administrator privileges are not required to perform COM Hijacking since classes in the HKCU registry hive are executed prior to the classes in HKLM. Depending on how the malicious code will executed various registry sub-keys are used during COM Hijacking. Identification of COM keys that could be used to conduct COM hijacking is trivial and requires the use of Process Monitor in order to discover COM servers which are missing CLSID’s and doesn’t require elevated privileges (HKCU). Opening files and executing tasks like a standard user will produce a list with COM keys that could be hijacked in order to load an arbitrary library to a trusted process. Recreating the registry key structure in the HKCU for the “*Cache Task*” that was discovered above and pointing to an arbitrary DLL instead of the “*wininet.dll*” will execute the code since the DLL located in the HKCU will be loaded prior to the HKLM.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Solved: Retrieving the COM class factory for component wit...",
+      "url": "https://community.sap.com/t5/technology-q-a/retrieving-the-com-class-factory-for-component-with-clsid-crystal-for-vs/qaq-p/12481236",
+      "snippet": "When we access the page that creates our report, we get the following error. Retrieving the COM class factory for component with CLSID {F734A321-8381-4FFD-A614-",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "DBMS - June 1995 - Understanding OLE - Dyalog",
+      "url": "https://www.dyalog.com/uploads/conference/dyalog11/presentations/C05_using_excel_under_apl/html/understanding_ole.html",
+      "snippet": "To ask the class factory to manufacture one or more objects, the client obtains the pointer to IClassFactory and calls CoGetClassObject. The client can also",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "COM/DCOM: Architecture, Workflow, and Troubleshooting – UnrealEmo",
+      "url": "https://unrealemo.space/technical-compendium/windows-architecture/com-dcom-architecture-workflow-and-troubleshooting/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "Chapter 6. COM Servers",
+      "url": "https://graphcomp.com/info/specs/com/comdocs/ch06serv.htm",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "DLL Surrogates",
+      "url": "https://thrysoee.dk/InsideCOM+/ch12b.htm",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "OLE DB Introduction",
+      "url": "http://diranieh.com/ATLCOM/ClassFactory.htm",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "How can I figure out which object is being hosted in an instance of dllhost? - The Old New Thing",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20210802-00/?p=105510",
+      "snippet": "",
+      "published_date": "2021-08-02T14:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "CoGetClassObject function (combaseapi.h)",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-cogetclassobject?redirectedfrom=MSDN",
+        "snippet": "",
+        "published_date": "2021-12-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "COM Class Objects and CLSIDs - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/com/com-class-objects-and-clsids",
+        "snippet": "",
+        "published_date": "2020-08-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "Implementing IClassFactory",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/com/implementing-iclassfactory",
+        "snippet": "",
+        "published_date": "2020-08-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "CoRegisterClassObject function (combaseapi.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-coregisterclassobject",
+        "snippet": "",
+        "published_date": "2021-12-10T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "Registering a Class at Installation",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/com/registering-a-class-at-installation",
+        "snippet": "",
+        "published_date": "2020-08-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "Why is COM ignoring my DllSurrogate entry?",
+        "url": "https://stackoverflow.com/questions/1880288/why-is-com-ignoring-my-dllsurrogate-entry",
+        "snippet": "",
+        "published_date": "2009-12-10T11:09:44.000Z",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "DLL Surrogates",
+        "url": "https://thrysoee.dk/InsideCOM+/ch12b.htm",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "OLE DB Introduction",
+        "url": "http://diranieh.com/ATLCOM/ClassFactory.htm",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "COM/DCOM: Architecture, Workflow, and Troubleshooting – UnrealEmo",
+        "url": "https://unrealemo.space/technical-compendium/windows-architecture/com-dcom-architecture-workflow-and-troubleshooting/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "Registering COM Servers - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/windows/win32/com/registering-com-servers",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "COM Class Objects and CLSIDs - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/com/com-class-objects-and-clsids",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "IClassFactory::CreateInstance - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/unknwn/nf-unknwn-iclassfactory-createinstance",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "CLSID Key - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/com/clsid-key-hklm",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "How can I figure out which object is being hosted in an instance of dllhost? - The Old New Thing",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20210802-00/?p=105510",
+        "snippet": "",
+        "published_date": "2021-08-02T14:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Chapter 6. COM Servers",
+        "url": "https://graphcomp.com/info/specs/com/comdocs/ch06serv.htm",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.35
+      }
+    ],
+    "tavily": [
+      {
+        "title": "Class Factories and Factory Templates - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/directshow/class-factories-and-factory-templates",
+        "snippet": "Documentation. All product ... CoGetClassObject function. The client then calls the class factory's IClassFactory::CreateInstance method.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "The role of the activation factory in the Windows Runtime",
+        "url": "https://devblogs.microsoft.com/oldnewthing/20240822-00/?p=110165",
+        "snippet": "... activation factory is the class's static members. ... So RoGetActivationFactory is to IActivationFactory as CoGetClassObject is to IClassFactory?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "CoGetClassObject (Windows CE 5.0) | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/previous-versions/windows/embedded/ms863902(v=msdn.10)",
+        "snippet": "This function provides a pointer to an interface on a class object associated with a specified class identifier. Call **CoGetClassObject** directly when you want to create multiple objects through a class object whose class identifier is already in the system registry. [in] Class identifier associated with the data and code that you will use to create the objects. [in] Specifies the context in which the executable code is to be run The only valid value for this parameter is CLSCTX\\_INPROC\\_SERVER. This interface will be used to communicate with the class object. Usually, the interface implemented on a class object is **IClassFactory**, through which you can create object instances of a given definition (class). A call to **CoGetClassObject** creates, initializes, and gives the caller access to the class object through a pointer to an interface specified with the *riid* parameter. The class object is the one associated with the class identifier that you specify in the *rclsid* parameter.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.725
+      },
+      {
+        "title": "[PDF] Fundamentals Of COM(+) (Part 2)",
+        "url": "https://osm.hpi.de/componentVl/2004/VL5/03_11-204-COM_fundamentals2.pdf",
+        "snippet": "▫ Called a class object or class factory. ▫ Typically implements ... CoGetClassObject/IClassFactory. HRESULT CoGetClassObject(. [in] const CLSID&",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "DBMS - June 1995 - Understanding OLE - Dyalog",
+        "url": "https://www.dyalog.com/uploads/conference/dyalog11/presentations/C05_using_excel_under_apl/html/understanding_ole.html",
+        "snippet": "To ask the class factory to manufacture one or more objects, the client obtains the pointer to IClassFactory and calls CoGetClassObject. The client can also",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "[MS-DCOM]: Activation - Microsoft Learn",
+        "url": "https://learn.microsoft.com/hr-hr/openspecs/windows_protocols/ms-dcom/c767a336-608a-4005-a39d-0d5bc68d34b7",
+        "snippet": "Activation is a generic term used to describe the act of creating (or sometimes finding) an existing DCOM object or class factory.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.725
+      },
+      {
+        "title": "[MS-DCOM]: Activation - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-dcom/c767a336-608a-4005-a39d-0d5bc68d34b7",
+        "snippet": "Activation is a generic term used to describe the act of creating (or sometimes finding) an existing DCOM object or class factory.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.725
+      },
+      {
+        "title": "Local Activation permission for the COM Server - Microsoft Q&A",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/4214310/local-activation-permission-for-the-com-server",
+        "snippet": "The machine-default permission settings do not grant Local Activation permission for the COM Server application with CLSID {C2F03A33-21F5-47FA-B4BB-156362A2F",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "Registering COM Servers - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/com/registering-com-servers",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. You can try signing in or changing directories. After you have defined a class in code (ensuring that it implements **IClassFactory** or **IClassFactory2**) and assigned it a CLSID, you need to put information in the registry that will allow COM, on request of a client with the CLSID, to create instances of its objects. This information tells the system, for a given CLSID, where the DLL or EXE code for that class is located and how it is to be launched. There is more than one way of registering a class in the registry. In addition, there are other ways of \"registering\" a class with the system when it is running, so that the system is aware that a running object is currently in the system. See the following topics for more information about registering:. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "Create new process for every class of COM server - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/46171921/create-new-process-for-every-class-of-com-server",
+        "snippet": "The problem is that your COM server starts and registers ALL class factories that it supports. So the application start and registers class",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "Abusing the COM Registry Structure: CLSID, LocalServer32, & InprocServer32 – bohops",
+        "url": "https://bohops.com/2018/06/28/abusing-com-registry-structure-clsid-localserver32-inprocserver32/",
+        "snippet": "# Abusing the COM Registry Structure: CLSID, LocalServer32, & InprocServer32. * Vendors are notorious for including and/or leaving behind Registry artifacts that could potentially be abused by attackers for lateral movement, evasion, bypass, and persistence. * CLSIDs subkeys (LocalServer32 and InprocServer32) can be enumerated to discover abandoned binary references. Previously, I blogged about a DCOM lateral movement technique that took advantage of a missing file that was referenced in a registry Class Identifier (CLSID) subkey-value on Windows 2008/2012 hosts. * The purpose of CLSIDs, LocalServer32, and InprocServer32. * A slightly improved method for enumerating LocalServer32 and InprocServer32 keys and missing key references. Behind the implementation of a COM class is the ‘server’ (some binary) that is referenced within registry keys under the CLSID. In the Windows O/S, there are many COM classes, and the number of those that have missing references to binary paths in the data fields of LocalServer32/InprocServer32 depends on a few factors such as:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": ".net - Retrieving the COM class factory for component with CLSID {XXXX} failed due to the following error: 80040154 - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/1036856/retrieving-the-com-class-factory-for-component-with-clsid-xxxx-failed-due-to-t",
+        "snippet": "### more stack exchange communities. Stack Overflow for Teams is now called **Stack Internal**. # Retrieving the COM class factory for component with CLSID {XXXX} failed due to the following error: 80040154. I developed a Windows service using C#.NET to generate PDF report. The application is running in my Windows XP platform. When I deployed the service in Windows Server 2008 64 bit version, I got this error:. I needed to use an old 32-bit DLL within a Web Application that was being developed on a 64-bit machine. I registered the 32-bit DLL into the windows\\sysWOW64 folder using the version of regsvr32 in that folder. Calls to the third party DLL worked from unit tests in Visual Studio but failed from the Web Application hosted in IIS on the same machine with the 80040154 error. The problem is that the server process is 64 bit and the library is 32-bit and it tries to create the COM component in the same process (in-proc server).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.725
+      },
+      {
+        "title": "Dissecting DCOM part 1 - Synacktiv",
+        "url": "https://www.synacktiv.com/en/publications/dissecting-dcom-part-1",
+        "snippet": "CLSID (Class Identifier): A globally unique identifier (GUID) that uniquely identifies a COM class. ... AppID (Application Identifier): An",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "InprocServer32 – Penetration Testing Lab",
+        "url": "https://pentestlab.blog/tag/inprocserver32/",
+        "snippet": "Administrator privileges are not required to perform COM Hijacking since classes in the HKCU registry hive are executed prior to the classes in HKLM. Depending on how the malicious code will executed various registry sub-keys are used during COM Hijacking. Identification of COM keys that could be used to conduct COM hijacking is trivial and requires the use of Process Monitor in order to discover COM servers which are missing CLSID’s and doesn’t require elevated privileges (HKCU). Opening files and executing tasks like a standard user will produce a list with COM keys that could be hijacked in order to load an arbitrary library to a trusted process. Recreating the registry key structure in the HKCU for the “*Cache Task*” that was discovered above and pointing to an arbitrary DLL instead of the “*wininet.dll*” will execute the code since the DLL located in the HKCU will be loaded prior to the HKLM.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Solved: Retrieving the COM class factory for component wit...",
+        "url": "https://community.sap.com/t5/technology-q-a/retrieving-the-com-class-factory-for-component-with-clsid-crystal-for-vs/qaq-p/12481236",
+        "snippet": "When we access the page that creates our report, we get the following error. Retrieving the COM class factory for component with CLSID {F734A321-8381-4FFD-A614-",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      }
+    ],
+    "grok": []
+  }
+}
