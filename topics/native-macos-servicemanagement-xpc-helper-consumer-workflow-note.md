@@ -15,6 +15,8 @@ Related pages:
 Related source notes:
 - sources/native/2026-05-04-macos-servicemanagement-xpc-consumer-notes.md
 - sources/native/2026-05-04-0450-macos-service-management-xpc-search-layer.txt
+- sources/native/2026-05-20-macos-xpc-client-identity-notes.md
+- sources/native/2026-05-20-0450-macos-xpc-client-identity-search-layer.json
 
 ## 1. What this workflow note is for
 
@@ -162,19 +164,30 @@ Typical anchors:
 - entitlement checks
 - `SecCode` / `SecRequirement`-style validation
 - XPC connection peer attributes
+- `NSXPCListener.setConnectionCodeSigningRequirement(_:)`, `NSXPCConnection.setCodeSigningRequirement(_:)`, or low-level `xpc_connection_set_peer_code_signing_requirement(...)`-style gates
 - authorization references or one-time user approval
 - weaker PID/name/session clues that only reduce candidates
 
 What to capture:
 - which trust material the helper actually uses
-- whether the accepted client is the same client that sent the behavior-bearing request
+- where the gate is applied: before listener acceptance, after acceptance but before method dispatch, inside one method, or only around a privileged sub-operation
+- whether the accepted / identity-gated client is the same client that sent the behavior-bearing request
 - whether identity is checked before connection resume, before method dispatch, or only inside one method
+- whether helper restart, reconnection, or retry invalidated a previously observed trust decision
 
 Stop rule:
 
 ```text
 client PID/name/proxy visible != accepted audit-token/signature/entitlement identity
 ```
+
+Sharper 2026-05-20 source-backed stop rule:
+
+```text
+proxy-visible != accepted != identity-gated != request-owned != method-entered != effect-owned
+```
+
+Apple ServiceManagement / XPC material and SMJobBless-style helper samples support treating installation association, launchd daemon execution, client-side connection creation, server-side listener acceptance, code-requirement / audit-token validation, and exported-method execution as separate proof objects. For a reverser, the important move is to place the identity gate relative to the request being explained. A code-signing requirement on the connection is stronger than a PID/name clue, but it still does not prove the later method-specific reducer or resource operation ran; a PID/name or proxy-only observation is only reduction evidence unless the helper actually keys authorization to it and the race/reconnect posture is understood.
 
 ### E. Connection / listener acceptance boundary
 
