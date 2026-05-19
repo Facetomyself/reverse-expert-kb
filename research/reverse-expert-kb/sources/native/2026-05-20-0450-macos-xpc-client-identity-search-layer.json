@@ -1,0 +1,409 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "NSXPCListener setConnectionCodeSigningRequirement audit token accepted client macOS official documentation",
+    "NSXPCConnection auditToken code signing requirement XPC service client identity Apple documentation",
+    "macOS XPC helper verify client identity audit token code signing requirement reverse engineering"
+  ],
+  "count": 20,
+  "results": [
+    {
+      "title": "Alternative to auditToken · Issue #1 · securing/SimpleXPCApp · GitHub",
+      "url": "https://github.com/securing/SimpleXPCApp/issues/1",
+      "snippet": "# Search code, repositories, users, issues, pull requests... You signed in with another tab or window. Reload to refresh your session. You switched accounts on another tab or window. This repository was archived by the owner on Feb 21, 2025. It is now read-only. * Notifications  You must be signed in to change notification settings. # Alternative to auditToken #1. Earlier this month an Apple employee posted an update to ADC where he suggested an alternative to using the audit token:. > You can use the public API to get the process ID from the connection (processIdentifier or xpc\\_connection\\_get\\_pid) and create your code object from that using kSecGuestAttributePid. In this case, design your IPC protocol to not accept any security-critical requests as the first message on the connection. The idea being only the 1st message over the connection is vulnerable. What's your opinion on that? No branches or pull requests. You can’t perform that action at this time.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6867
+    },
+    {
+      "title": "NSXPCListener | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpclistener",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "NSXPCConnection | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/Foundation/NSXPCConnection",
+      "snippet": "Initializes an NSXPCConnection object to connect to an NSXPCListener object in another process, identified by an NSXPCListenerEndpoint object. init(",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6667
+    },
+    {
+      "title": "Get token audit for a NSXPCConnect… | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/thread/716635",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6667
+    },
+    {
+      "title": "NSXPCConnection | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "setCodeSigningRequirement: | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/setcodesigningrequirement(_:)?language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6333
+    },
+    {
+      "title": "setCodeSigningRequirement(_:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/setcodesigningrequirement(_:)?changes=__6",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6333
+    },
+    {
+      "title": "setConnectionCodeSigningRequ...",
+      "url": "https://developer.apple.com/documentation/foundation/nsxpclistener/setconnectioncodesigningrequirement(_:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Validating Signature Of XPC Process | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/thread/681053",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Security: Unauthenticated access to privileged XPC helper allows root command execution · Issue #278 · alienator88/Pearcleaner",
+      "url": "https://github.com/alienator88/Pearcleaner/issues/278",
+      "snippet": "",
+      "published_date": "2025-07-08T16:53:33.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "XPC restricted to processes with t… | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/thread/72881",
+      "snippet": "",
+      "published_date": "2025-03-18T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Secure coding XPC Services - Part 2 - Checking CS (CodeSigning) flags of the client · theevilbit blog",
+      "url": "https://theevilbit.github.io/posts/secure_coding_xpc_part2/",
+      "snippet": "",
+      "published_date": "2020-03-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4833
+    },
+    {
+      "title": "persistence monitor",
+      "url": "https://taomm.org/vol2/pdfs/CH%2011%20Persistence%20Monitor.pdf",
+      "snippet": "#define DAEMON_MACH_SERVICE @\"com.objective-see.blockblock\" #define HELPER_ID @\"com.objective-see.blockblock.helper\" #define SIGNING_AUTH @\"Developer ID Application: Objective-See, LLC (VBG97UB4TA)\" self.listener = [[NSXPCListener alloc] initWithMachServiceName:DAEMON_MACH_SERVICE]; if(@available(macOS 13.0, *)) { NSString* requirement = [NSString stringWithFormat:@\"anchor apple generic and identifier \\\"%@\\\" and certificate leaf [subject.CN] = \\\"%@\\\" and info [CFBundleShortVersionString] >= \\\"2.0.0\\\"\", HELPER_ID, SIGNING_AUTH]; 1 [self.listener setConnectionCodeSigningRequirement:requirement]; 2 } self.listener.delegate = self; [self.listener resume]; Listing 1 1-17: Authorizing clients on macOS versions 13 and newer After allocating and initializing an NSXPCListener object, we use the Objective-C @available attribute with a value of macOS 13.0, * to instruct the compiler to execute the following lines on macOS 13 or newer only 1, as the setConnectionCodeSigningRequirement: method isn’t available on earlier versions of macOS.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4333
+    },
+    {
+      "title": "macOS XPC Connecting Process Check - HackTricks - GitBook",
+      "url": "https://angelica.gitbook.io/hacktricks/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-ipc-inter-process-communication/macos-xpc/macos-xpc-connecting-process-check",
+      "snippet": "The verification must be based on the connecting client's audit token instead of its process ID (PID) since the former prevents PID reuse",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4333
+    },
+    {
+      "title": "[PDF] Elevating Privileges on macOS by Audit Token Spoofing - OBTS",
+      "url": "https://objectivebythesea.org/v6/talks/OBTS_v6_tAlkemade.pdf",
+      "snippet": "> Parrsing blocks and the shared dyld cache made this very challenging > Gave up, submitted what we had >> The fix > Suggested structural fix: drop a message if the audit token is not equal to the saved audit token > UID may change, but PID and PID version really should never change > Apple’s fix: changed the vulnerable call to xpc_connection_get_audit_token to xpc_dictionary_get_audit_token in smd > xpc_dictionary_get_audit_token uses the audit token from the mach message’s trailer, which is safe > Issue may still affect other services, so… good luck anyone else who wants to look at this! >> Hardening advice for XPC services > Drop the connection after receiving an unrecognised message > Perform authorisation checks before accepting a connection wherever possible > If not, use xpc_dictionary_get_audit_token > Alternatively, save the audit token during the accept handler and use that (works for NSXPCConnection too) > There are new APIs to automatically perform a codesigning check before accepting: > -[NSXPCConnection setCodeSigningRequirement:] (since macOS 13.0) > xpc_connection_set_peer_code_signing_requirement (since macOS 12.0) >> Summary > XPC is a one-to-one communication channel, built on mach messages, which are a multiple sender, single receiver communication channel > We can create an XPC connection with multiple senders.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "macOS XPC Mach Services Abuse - HackTricks",
+      "url": "https://hacktricks.wiki/en/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-xpc-mach-services-abuse.html",
+      "snippet": "Client Process (user context) ↓ NSXPCConnection / xpc_connection_create_mach_service() ↓ Mach message via launchd Daemon Process (root context) ↓ Receives XPC message ↓ (Should verify client identity / entitlements) ↓ Performs privileged operation. // Minimal XPC client — connect to a LaunchDaemon's Mach service #import  @protocol VulnDaemonProtocol - (void)runCommandAsRoot:(NSString *)command withReply:(void (^)(NSString *))reply; @end int main(void) { @autoreleasepool { NSXPCConnection *conn = [[NSXPCConnection alloc] initWithMachServiceName:@\"com.example.vulndaemon\" options:NSXPCConnectionPrivileged]; conn.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(VulnDaemonProtocol)]; [conn resume]; id proxy = [conn remoteObjectProxyWithErrorHandler:^(NSError *error) { NSLog(@\"Connection error: %@\", error); }]; // If the daemon doesn't verify our identity, this works: [proxy runCommandAsRoot:@\"id\" withReply:^(NSString *result) { NSLog(@\"Result: %@\", result); // Output: uid=0(root) }]; [[NSRunLoop currentRunLoop] run]; } }.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Audit tokens explained - Scott Knight",
+      "url": "https://knight.sc/reverse%20engineering/2020/03/20/audit-tokens-explained.html",
+      "snippet": "We started this journey by discussing an XPC service best practice of using the audit_token_t rather than the PID to verify the code signing of",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3667
+    },
+    {
+      "title": "Attacking macOS XPC Helpers: Protocol Reverse Engineering | Reverse Society",
+      "url": "https://tonygo.tech/blog/2025/how-to-attack-macos-application-xpc-helpers",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3333
+    },
+    {
+      "title": "Validating Signature Of XPC Process | Apple Developer Forums",
+      "url": "https://origin-devforums.apple.com/forums/thread/681053",
+      "snippet": "I’m *very* please to announce that macOS 12 beta includes a new API that represents a *great* solution to this problem: Check out `xpc_connection_set_peer_code_signing_requirement`, and its associated doc comments, in . I've just started using `xpc_connection_set_peer_code_signing_requirement()` and can happily report that it meets all of my needs in terms of validating who my XPC connection is really connected to. However there seems to have been a slight oversight in that the new error `XPC_ERROR_PEER_CODE_SIGNING_REQUIREMENT` has either not been made public, or is not available to Swift code for some reason. `XPC_ERROR_PEER_CODE_SIGNING_REQUIREMENT` is actually a macro and it seems likely that this macro is structured in a way that prevents the Swift importer from seeing it. Working around this is relatively straightforward: Define a C function that returns `XPC_ERROR_PEER_CODE_SIGNING_REQUIREMENT` and call that from your Swift code. * If you’re using the XPC C API, use the `xpc_connection_set_peer_code_signing_requirement` API to solve this problem. * Alternatively, use the `xpc_connection_set_peer_lightweight_code_requirement` API added in macOS 14.4. * **2024-03-13** Added an entry for `xpc_connection_set_peer_lightweight_code_requirement`.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3133
+    },
+    {
+      "title": "Technical Advisory: Insufficient Proxyman HelperTool XPC Validation",
+      "url": "https://www.fox-it.com/nl/research-blog/technical-advisory-insufficient-proxyman-helpertool-xpc-validation/",
+      "snippet": "",
+      "published_date": "2023-10-31T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "setConnectionCodeSigningRequ...",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpclistener/setconnectioncodesigningrequirement(_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6333
+      },
+      {
+        "title": "setCodeSigningRequirement: | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/setcodesigningrequirement(_:)?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6333
+      },
+      {
+        "title": "NSXPCListener | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpclistener",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "Validating Signature Of XPC Process | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/681053",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Technical Advisory: Insufficient Proxyman HelperTool XPC Validation",
+        "url": "https://www.fox-it.com/nl/research-blog/technical-advisory-insufficient-proxyman-helpertool-xpc-validation/",
+        "snippet": "",
+        "published_date": "2023-10-31T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Validating Signature Of XPC Process | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/681053",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Security: Unauthenticated access to privileged XPC helper allows root command execution · Issue #278 · alienator88/Pearcleaner",
+        "url": "https://github.com/alienator88/Pearcleaner/issues/278",
+        "snippet": "",
+        "published_date": "2025-07-08T16:53:33.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Secure coding XPC Services - Part 2 - Checking CS (CodeSigning) flags of the client · theevilbit blog",
+        "url": "https://theevilbit.github.io/posts/secure_coding_xpc_part2/",
+        "snippet": "",
+        "published_date": "2020-03-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4833
+      },
+      {
+        "title": "Attacking macOS XPC Helpers: Protocol Reverse Engineering | Reverse Society",
+        "url": "https://tonygo.tech/blog/2025/how-to-attack-macos-application-xpc-helpers",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3333
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "setCodeSigningRequirement(_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/setcodesigningrequirement(_:)?changes=__6",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6333
+      },
+      {
+        "title": "Validating Signature Of XPC Process | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/681053",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "XPC restricted to processes with t… | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/72881",
+        "snippet": "",
+        "published_date": "2025-03-18T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Get token audit for a NSXPCConnect… | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/716635",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6667
+      }
+    ],
+    "tavily": [
+      {
+        "title": "[PDF] Elevating Privileges on macOS by Audit Token Spoofing - OBTS",
+        "url": "https://objectivebythesea.org/v6/talks/OBTS_v6_tAlkemade.pdf",
+        "snippet": "> Parrsing blocks and the shared dyld cache made this very challenging > Gave up, submitted what we had >> The fix > Suggested structural fix: drop a message if the audit token is not equal to the saved audit token > UID may change, but PID and PID version really should never change > Apple’s fix: changed the vulnerable call to xpc_connection_get_audit_token to xpc_dictionary_get_audit_token in smd > xpc_dictionary_get_audit_token uses the audit token from the mach message’s trailer, which is safe > Issue may still affect other services, so… good luck anyone else who wants to look at this! >> Hardening advice for XPC services > Drop the connection after receiving an unrecognised message > Perform authorisation checks before accepting a connection wherever possible > If not, use xpc_dictionary_get_audit_token > Alternatively, save the audit token during the accept handler and use that (works for NSXPCConnection too) > There are new APIs to automatically perform a codesigning check before accepting: > -[NSXPCConnection setCodeSigningRequirement:] (since macOS 13.0) > xpc_connection_set_peer_code_signing_requirement (since macOS 12.0) >> Summary > XPC is a one-to-one communication channel, built on mach messages, which are a multiple sender, single receiver communication channel > We can create an XPC connection with multiple senders.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "setConnectionCodeSigningRequ...",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpclistener/setconnectioncodesigningrequirement(_:)",
+        "snippet": "Use this method to enforce a code-signing requirement on incoming XPC connections. The following example shows how a listener can ensure that the XPC client",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "setCodeSigningRequirement: | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/setcodesigningrequirement(_:)?language=objc",
+        "snippet": "Use this method to enforce a code-signing requirement on the peer process of an XPC connection. The following example shows how a client can ensure that the XPC",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSXPCListener | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpclistener",
+        "snippet": "NSXPCListener. A listener that waits for new incoming connections, configures them, and accepts or rejects them. iOS 6.0+",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/Foundation/NSXPCConnection",
+        "snippet": "Initializes an NSXPCConnection object to connect to an NSXPCListener object in another process, identified by an NSXPCListenerEndpoint object. init(",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6667
+      },
+      {
+        "title": "macOS XPC Mach Services Abuse - HackTricks",
+        "url": "https://hacktricks.wiki/en/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-xpc-mach-services-abuse.html",
+        "snippet": "Client Process (user context) ↓ NSXPCConnection / xpc_connection_create_mach_service() ↓ Mach message via launchd Daemon Process (root context) ↓ Receives XPC message ↓ (Should verify client identity / entitlements) ↓ Performs privileged operation. // Minimal XPC client — connect to a LaunchDaemon's Mach service #import  @protocol VulnDaemonProtocol - (void)runCommandAsRoot:(NSString *)command withReply:(void (^)(NSString *))reply; @end int main(void) { @autoreleasepool { NSXPCConnection *conn = [[NSXPCConnection alloc] initWithMachServiceName:@\"com.example.vulndaemon\" options:NSXPCConnectionPrivileged]; conn.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(VulnDaemonProtocol)]; [conn resume]; id proxy = [conn remoteObjectProxyWithErrorHandler:^(NSError *error) { NSLog(@\"Connection error: %@\", error); }]; // If the daemon doesn't verify our identity, this works: [proxy runCommandAsRoot:@\"id\" withReply:^(NSString *result) { NSLog(@\"Result: %@\", result); // Output: uid=0(root) }]; [[NSRunLoop currentRunLoop] run]; } }.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "Audit tokens explained - Scott Knight",
+        "url": "https://knight.sc/reverse%20engineering/2020/03/20/audit-tokens-explained.html",
+        "snippet": "We started this journey by discussing an XPC service best practice of using the audit_token_t rather than the PID to verify the code signing of",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3667
+      },
+      {
+        "title": "persistence monitor",
+        "url": "https://taomm.org/vol2/pdfs/CH%2011%20Persistence%20Monitor.pdf",
+        "snippet": "#define DAEMON_MACH_SERVICE @\"com.objective-see.blockblock\" #define HELPER_ID @\"com.objective-see.blockblock.helper\" #define SIGNING_AUTH @\"Developer ID Application: Objective-See, LLC (VBG97UB4TA)\" self.listener = [[NSXPCListener alloc] initWithMachServiceName:DAEMON_MACH_SERVICE]; if(@available(macOS 13.0, *)) { NSString* requirement = [NSString stringWithFormat:@\"anchor apple generic and identifier \\\"%@\\\" and certificate leaf [subject.CN] = \\\"%@\\\" and info [CFBundleShortVersionString] >= \\\"2.0.0\\\"\", HELPER_ID, SIGNING_AUTH]; 1 [self.listener setConnectionCodeSigningRequirement:requirement]; 2 } self.listener.delegate = self; [self.listener resume]; Listing 1 1-17: Authorizing clients on macOS versions 13 and newer After allocating and initializing an NSXPCListener object, we use the Objective-C @available attribute with a value of macOS 13.0, * to instruct the compiler to execute the following lines on macOS 13 or newer only 1, as the setConnectionCodeSigningRequirement: method isn’t available on earlier versions of macOS.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4333
+      },
+      {
+        "title": "macOS XPC Connecting Process Check - HackTricks - GitBook",
+        "url": "https://angelica.gitbook.io/hacktricks/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-ipc-inter-process-communication/macos-xpc/macos-xpc-connecting-process-check",
+        "snippet": "The verification must be based on the connecting client's audit token instead of its process ID (PID) since the former prevents PID reuse",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4333
+      },
+      {
+        "title": "[PDF] Elevating Privileges on macOS by Audit Token Spoofing - OBTS",
+        "url": "https://objectivebythesea.org/v6/talks/OBTS_v6_tAlkemade.pdf",
+        "snippet": "> Parrsing blocks and the shared dyld cache made this very challenging > Gave up, submitted what we had >> The fix > Suggested structural fix: drop a message if the audit token is not equal to the saved audit token > UID may change, but PID and PID version really should never change > Apple’s fix: changed the vulnerable call to xpc_connection_get_audit_token to xpc_dictionary_get_audit_token in smd > xpc_dictionary_get_audit_token uses the audit token from the mach message’s trailer, which is safe > Issue may still affect other services, so… good luck anyone else who wants to look at this! >> Hardening advice for XPC services > Drop the connection after receiving an unrecognised message > Perform authorisation checks before accepting a connection wherever possible > If not, use xpc_dictionary_get_audit_token > Alternatively, save the audit token during the accept handler and use that (works for NSXPCConnection too) > There are new APIs to automatically perform a codesigning check before accepting: > -[NSXPCConnection setCodeSigningRequirement:] (since macOS 13.0) > xpc_connection_set_peer_code_signing_requirement (since macOS 12.0) >> Summary > XPC is a one-to-one communication channel, built on mach messages, which are a multiple sender, single receiver communication channel > We can create an XPC connection with multiple senders.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "setCodeSigningRequirement: | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsxpcconnection/setcodesigningrequirement(_:)?language=objc",
+        "snippet": "Use this method to enforce a code-signing requirement on the peer process of an XPC connection. The following example shows how a client can ensure that the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Alternative to auditToken · Issue #1 · securing/SimpleXPCApp · GitHub",
+        "url": "https://github.com/securing/SimpleXPCApp/issues/1",
+        "snippet": "# Search code, repositories, users, issues, pull requests... You signed in with another tab or window. Reload to refresh your session. You switched accounts on another tab or window. This repository was archived by the owner on Feb 21, 2025. It is now read-only. * Notifications  You must be signed in to change notification settings. # Alternative to auditToken #1. Earlier this month an Apple employee posted an update to ADC where he suggested an alternative to using the audit token:. > You can use the public API to get the process ID from the connection (processIdentifier or xpc\\_connection\\_get\\_pid) and create your code object from that using kSecGuestAttributePid. In this case, design your IPC protocol to not accept any security-critical requests as the first message on the connection. The idea being only the 1st message over the connection is vulnerable. What's your opinion on that? No branches or pull requests. You can’t perform that action at this time.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6867
+      },
+      {
+        "title": "NSXPCConnection | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/Foundation/NSXPCConnection",
+        "snippet": "Initializes an NSXPCConnection object to connect to an NSXPCListener object in an XPC service, identified by a service name. ... Sets the code signing requirement",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Validating Signature Of XPC Process | Apple Developer Forums",
+        "url": "https://origin-devforums.apple.com/forums/thread/681053",
+        "snippet": "I’m *very* please to announce that macOS 12 beta includes a new API that represents a *great* solution to this problem: Check out `xpc_connection_set_peer_code_signing_requirement`, and its associated doc comments, in . I've just started using `xpc_connection_set_peer_code_signing_requirement()` and can happily report that it meets all of my needs in terms of validating who my XPC connection is really connected to. However there seems to have been a slight oversight in that the new error `XPC_ERROR_PEER_CODE_SIGNING_REQUIREMENT` has either not been made public, or is not available to Swift code for some reason. `XPC_ERROR_PEER_CODE_SIGNING_REQUIREMENT` is actually a macro and it seems likely that this macro is structured in a way that prevents the Swift importer from seeing it. Working around this is relatively straightforward: Define a C function that returns `XPC_ERROR_PEER_CODE_SIGNING_REQUIREMENT` and call that from your Swift code. * If you’re using the XPC C API, use the `xpc_connection_set_peer_code_signing_requirement` API to solve this problem. * Alternatively, use the `xpc_connection_set_peer_lightweight_code_requirement` API added in macOS 14.4. * **2024-03-13** Added an entry for `xpc_connection_set_peer_lightweight_code_requirement`.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3133
+      },
+      {
+        "title": "persistence monitor",
+        "url": "https://taomm.org/vol2/pdfs/CH%2011%20Persistence%20Monitor.pdf",
+        "snippet": "#define DAEMON_MACH_SERVICE @\"com.objective-see.blockblock\" #define HELPER_ID @\"com.objective-see.blockblock.helper\" #define SIGNING_AUTH @\"Developer ID Application: Objective-See, LLC (VBG97UB4TA)\" self.listener = [[NSXPCListener alloc] initWithMachServiceName:DAEMON_MACH_SERVICE]; if(@available(macOS 13.0, *)) { NSString* requirement = [NSString stringWithFormat:@\"anchor apple generic and identifier \\\"%@\\\" and certificate leaf [subject.CN] = \\\"%@\\\" and info [CFBundleShortVersionString] >= \\\"2.0.0\\\"\", HELPER_ID, SIGNING_AUTH]; 1 [self.listener setConnectionCodeSigningRequirement:requirement]; 2 } self.listener.delegate = self; [self.listener resume]; Listing 1 1-17: Authorizing clients on macOS versions 13 and newer After allocating and initializing an NSXPCListener object, we use the Objective-C @available attribute with a value of macOS 13.0, * to instruct the compiler to execute the following lines on macOS 13 or newer only 1, as the setConnectionCodeSigningRequirement: method isn’t available on earlier versions of macOS.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}
