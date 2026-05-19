@@ -1792,3 +1792,34 @@ Use `printf -- '--- heading ---\n'` or `echo` for simple headings in portable sh
 - Related Files: research/reverse-expert-kb/
 
 ---
+
+## [ERR-20260520-001] ssh_remote_awk_quoting
+
+**Logged**: 2026-05-20T03:08:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+A read-only Oracle fleet inspection command produced broken remote `awk` snippets because nested local/SSH quoting over-escaped `$` fields.
+
+### Error
+```text
+awk: cmd. line:1: NR==2{print \,\,\,\}
+awk: cmd. line:1:             ^ backslash not last character on line
+```
+
+### Context
+- The first SSH loop embedded multiple `awk` commands inside nested single-quoted remote shell text.
+- The command was read-only, but several fields were unusable until rerun.
+- Re-running by feeding a small remote script over stdin with `ssh host 'bash -s' < /tmp/oracle_remote_readonly_check.sh` avoided fragile nested quoting and completed successfully.
+
+### Suggested Fix
+For recurring SSH fleet checks with `$`-heavy awk/sed snippets, stage or generate a small script and feed it via SSH stdin instead of nesting interpreter code inside multiple shell-quote layers.
+
+### Metadata
+- Reproducible: yes
+- Related Files: skills/oracle-fleet-maintenance/references/workflow.md
+- See Also: none
+
+---
