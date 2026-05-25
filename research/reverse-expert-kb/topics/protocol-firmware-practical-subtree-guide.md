@@ -9,6 +9,7 @@ Related pages:
 - topics/firmware-bootloader-selection-to-executed-image-workflow-note.md
 - topics/firmware-uefi-boot-manager-to-loader-handoff-workflow-note.md
 - topics/firmware-android-ab-slot-rollback-to-stable-runtime-workflow-note.md
+- topics/firmware-devicetree-to-driver-consumer-workflow-note.md
 - topics/protocol-state-and-message-recovery.md
 - topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md
 - topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md
@@ -43,6 +44,7 @@ The branch already had practical entry surfaces for:
 - broad environment/context recovery framing
 - hardware observation / image-lineage proof
 - bootloader selection / loaded tuple / handoff proof
+- Devicetree / DTB / overlay to driver-consumer proof
 - message/state recovery as a distinct recovery object
 - pre-parser capture-failure and boundary relocation
 - socket-boundary / private-overlay object recovery
@@ -70,7 +72,7 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty-one recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty-two recurring families:
 
 
 0. **hardware observation / image-lineage uncertainty**
@@ -81,6 +83,8 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - the analyst has `Boot####`, `BootOrder`, `BootNext`, `BootCurrent`, `efibootmgr -v`, ESP paths, Secure Boot state, U-Boot `eficonfig`, or `bootefi bootmgr` evidence, but still has not proved selected entry truth, device-path-to-byte resolution, loader start, verification/policy result, second-stage handoff, and first runtime consumer as one coherent evidence unit
 0c. **Android A/B slot / rollback / stable-runtime uncertainty**
    - the analyst has A/B metadata, fastboot or Boot Control HAL state, `androidboot.slot_suffix=`, `ro.boot.slot_suffix`, AVB / vbmeta material, rollback indexes, or update-engine state, but still has not proved active-for-next truth, current slot truth, resolved slot image tuple, AVB / rollback acceptance, userspace consumption, successful/stable marking, and first behavior owner as one coherent evidence unit
+0d. **Devicetree / overlay / driver-consumer uncertainty**
+   - the analyst has a recovered DTB/DTS, boot-passed FDT, overlay/DTBO evidence, `/proc/device-tree`, `compatible` strings, OF match tables, platform devices, or sysfs driver links, but still has not proved the selected live tree, populated device, final successful probe after supplier readiness, exact resource/property consumer, and later behavior owner as one coherent evidence unit
 1. **context / object-of-recovery framing uncertainty**
    - the analyst still needs to decide whether the real object is environment recovery, protocol structure, peripheral context, or downstream rehosting/fuzzing utility
 2. **capture-failure / boundary-selection uncertainty**
@@ -138,6 +142,7 @@ The subtree is strongest when read as:
 - **stabilize** one bootloader selection / handoff evidence unit when U-Boot environment, extlinux, FIT, bootflow, or `/proc/cmdline` evidence is visible but selected path truth can still lie; preserve `env/config != selected bootflow != loaded tuple != verified policy != handed off != consumed/effected` before treating a boot variable, config file, FIT blob, or signature result as current runtime truth
 - **stabilize** one UEFI boot-manager / loader-handoff evidence unit when `Boot####`, `BootOrder`, `BootNext`, `BootCurrent`, ESP file paths, or Secure Boot state are visible but current-loader truth can still lie; preserve `entry != selected != resolved != loaded != verified != handed off != consumed/effected` before treating UEFI NVRAM state as current runtime truth
 - **stabilize** one Android A/B slot / rollback / stable-runtime evidence unit when slot metadata, Boot Control HAL / `bootctl`, `androidboot.slot_suffix=`, AVB/vbmeta, rollback index, or update-engine evidence is visible but current-runtime truth can still lie; preserve `metadata != active != current != verified != consumed != successful/stable != effect-owned` before treating slot state as behavior ownership
+- **stabilize** one Devicetree / overlay / driver-consumer evidence unit when DTB/DTS, live tree, overlay, `compatible`, OF match, platform-device, or sysfs driver evidence is visible but driver behavior truth can still lie; preserve `base DTB visible != overlay selected/applied != live tree mutated != device populated != match/bind selected != probe succeeded after suppliers ready != resource/property consumed != behavior/effect owned` before treating a node/property as behavior ownership
 - **surface** the first truthful socket-boundary or serializer-adjacent overlay object when the wire is one layer too late
 - **peel** the visible object into one smaller trustworthy contract
 - **recover** one service shell or representative method surface when the family is clearly service-oriented
@@ -210,6 +215,21 @@ Do **not** start here when:
 - hardware/image lineage is still unproved; use the hardware observation note first
 - the selected loader and handoff tuple are already trustworthy and the current blocker is protocol layer peeling, receive ownership, parser/state consequence, replay gating, output handoff, descriptor ownership, or hardware-side effect proof
 - the target is specifically U-Boot environment/extlinux/FIT bootflow rather than UEFI `Boot####`/BootOrder semantics; use the U-Boot-shaped bootloader-selection note first
+
+### Start with `firmware-devicetree-to-driver-consumer-workflow-note`
+Use:
+- `topics/firmware-devicetree-to-driver-consumer-workflow-note.md`
+
+Start here when:
+- the case is embedded-Linux / Devicetree-shaped and the analyst has DTB/DTS, FDT, DTBO/overlay, `/proc/device-tree`, `/sys/firmware/devicetree/base`, `compatible`, `reg`, `interrupts`, phandle, OF match, platform-device, or sysfs driver-link evidence
+- boot selection is plausible enough to discuss the live tree, but driver behavior is still being over-inferred from node/property visibility
+- overlays or deferred probe can decide whether the observed behavior is actually owned by the node/driver under analysis
+- the real question is which live node became which device, matched which driver, reached final successful `probe()` after supplier readiness, consumed which resource/property, and handed off to which first behavior-bearing consumer
+
+Do **not** start here when:
+- the current boot-selected image/FDT tuple is still unproved; use hardware observation / bootloader-selection / UEFI / Android A/B notes first as appropriate
+- device-tree resource consumption is already proved and the bottleneck has moved into MMIO effect, IRQ/deferred-worker consequence, DMA/descriptor ownership, mailbox/doorbell completion, or protocol parser/state proof
+- the target is not Devicetree-shaped and the relevant device model is better explained by ACPI, PCI/USB enumeration, static board code, or a user-space protocol boundary
 
 ### Start with `firmware-and-protocol-context-recovery`
 Use:

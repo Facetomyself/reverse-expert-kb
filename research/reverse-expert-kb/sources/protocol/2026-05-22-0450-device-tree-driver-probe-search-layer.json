@@ -1,0 +1,454 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Linux device tree binding compatible property driver probe firmware reverse engineering",
+    "DeviceTree specification compatible reg interrupts status phandle driver binding",
+    "embedded firmware reverse engineering device tree dtb driver probe hardware behavior"
+  ],
+  "count": 25,
+  "results": [
+    {
+      "title": "Linux device tree compatible property and driver probe with same pin different chip - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/73397334/linux-device-tree-compatible-property-and-driver-probe-with-same-pin-different-c",
+      "snippet": "### your communities. ### more stack exchange communities. Communities for your favorite technologies. Stack Overflow for Teams is now called **Stack Internal**. ##### Collectives™ on Stack Overflow. I have a arm64 linux custom board with a spi-to-can chip, and the chip sometime is mcp2515, sometime is mcp2518fd.But they use different driver (mcp251x.ko/mcp25xxfd.ko). The question is if the chip is mcp2518fd, kernel only match the first compatible \"microchip,mcp2515 and then the driver(mcp251x.ko) probe failed. The compatible strings are supposed to be in hierarchical order from most specific to most general, e.g. specifying an ID for a specific chip, followed by an ID for a \"family\" of related chips with a common programming interface (that will usually have less features than the chip-specific programming interfaces). Different .dtbo files could be loaded by the bootloader or by the Linux operating system based on some stored setting in the bootloader or in the Linux operating system, respectively. Find the answer to your question by asking.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7909
+    },
+    {
+      "title": "Device tree and driver probing - linux - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/18736026/device-tree-and-driver-probing",
+      "snippet": "In Linux device tree files (DTS), how does the compatible entry work if more than one option is given? It seems that this is not a choice",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7364
+    },
+    {
+      "title": "Explaining the Linux Device Tree for Embedded Engineers From ...",
+      "url": "https://dev.to/darshan_rathod/explaining-the-linux-device-tree-for-embedded-engineersfrom-dts-source-to-a-running-kernel-39p6",
+      "snippet": "Confirm compatible and reg are what the driver expects (from bindings/docs). Check dmesg for probe failures or “no compatible device found”",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6909
+    },
+    {
+      "title": "devicetree-specification/source/chapter2-devicetree-basics.rst at main · devicetree-org/devicetree-specification · GitHub",
+      "url": "https://github.com/devicetree-org/devicetree-specification/blob/main/source/chapter2-devicetree-basics.rst",
+      "snippet": "# The Devicetree. |spec| specifies a construct called a *devicetree* to describe. program’s memory and passes a pointer to the devicetree to the client. This chapter describes the logical structure of the devicetree and. specifies a base set of properties for use in describing device nodes. :numref:`Chapter %s <chapter-device-node-requirements>` specifies certain device nodes. :numref:`Chapter %s <chapter-fdt-structure>` describes the in-memory encoding of the devicetree. A devicetree is a tree data structure with nodes that describe the. Each node has property/value pairs that describe. A device in this context may be an actual hardware device, such as a UART. may be part of a hardware device, such as the random-number generator in a TPM. There is no requirement that nodes in a device tree be a physical. The *unit-address* component of the name is specific to the bus type on. address specified in the *reg* property of the node. In the case of *node-name* without an *@unit-address* the *node-name* shall.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "DOs and DON’Ts for designing and writing Devicetree bindings — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/6.17/devicetree/bindings/writing-bindings.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6591
+    },
+    {
+      "title": "DOs and DON’Ts for designing and writing Devicetree bindings — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/devicetree/bindings/writing-bindings.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6591
+    },
+    {
+      "title": "DatanoiseTV/practical-reverse-engineering",
+      "url": "https://github.com/DatanoiseTV/practical-reverse-engineering",
+      "snippet": "",
+      "published_date": "2026-05-18T04:39:48.000Z",
+      "source": "exa",
+      "score": 0.6545
+    },
+    {
+      "title": "Driver Binding — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/driver-api/driver-model/binding.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6318
+    },
+    {
+      "title": "Device Trees for microcontrollers? : r/embedded - Reddit",
+      "url": "https://www.reddit.com/r/embedded/comments/1ojeaov/device_trees_for_microcontrollers",
+      "snippet": "Specific builds for specific chips would have to include the device drivers that understand both the dtb and the underlying hardware, but as an",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5818
+    },
+    {
+      "title": "[PDF] Devicetree Specification",
+      "url": "https://chenweixiang.github.io/docs/devicetree-specification-changebars-v0.2.pdf",
+      "snippet": "/aliases node 25 Devicetree Speciﬁcation, Release v0.2 Table 3.3: /memory Node Properties Property Name Usage Value Type Deﬁnition device_type R <string> Value shall be “memory” reg R <prop-encoded-array> Consists of an arbitrary number of address and size pairs that specify the physical address and size of the memory ranges. Sense and level information shall be encoded as follows in interrupt speciﬁers: 0 = low to high edge sensitive type enabled 1 = active low level sensitive type enabled 2 = active high level sensitive type enabled 3 = high to low edge sensitive type enabled Table 4.15: Open-PIC properties Property Name Usage Value Type Deﬁnition compatible R <string> Value shall include \"open-pic\" reg R <prop encoded array> Speciﬁes the physical address of the registers device within the address space of the parent bus interrupt-controller R <empty> Speciﬁes that this node is an interrupt con-troller #interrupt-cells R <u32> Shall be 2.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5591
+    },
+    {
+      "title": "How does the device tree's 'compatible' property matching work in ...",
+      "url": "https://www.quora.com/How-does-the-device-trees-compatible-property-matching-work-in-Linux",
+      "snippet": "Linux developers are responsible for writing their own drivers for hardware, either through published specifications, or by reverse engineering.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5182
+    },
+    {
+      "title": "Beginner's Journey into Device Trees | Tom Ice",
+      "url": "https://tomice.github.io/posts/journey-into-device-trees/",
+      "snippet": "",
+      "published_date": "2025-12-28T04:00:00.000Z",
+      "source": "exa",
+      "score": 0.5045
+    },
+    {
+      "title": "Device tree bindings for ADT7516 - Q&A - Linux Software Drivers",
+      "url": "https://ez.analog.com/linux-software-drivers/f/q-a/101028/device-tree-bindings-for-adt7516",
+      "snippet": "So my question is that how do I replace those things in the driver if I remove platform data and use DT bindings. I am putting probe function's",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4636
+    },
+    {
+      "title": "Linux Device Driver Probe Flow via Device Tree - LinkedIn",
+      "url": "https://www.linkedin.com/posts/techdhaba_linuxkernel-devicetree-embeddedlinux-activity-7435633192759484416-C3IW",
+      "snippet": "Linux Device Driver Probe — How It Actually Gets Invoked (via Device Tree) Many engineers think a driver's probe() runs simply because the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4364
+    },
+    {
+      "title": "linux device tree reverse engineering - Google Groups",
+      "url": "https://groups.google.com/g/inside_linux/c/zi28dcM-Rk0",
+      "snippet": "I'm trying to reverse engineer the already built system to add new features like enabling CAN and I2C interface in the kernel.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4364
+    },
+    {
+      "title": "4. Device Bindings — Devicetree Specification v0.3-dirty documentation",
+      "url": "https://devicetree-specification.readthedocs.io/en/stable/device-bindings.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "[PDF] Devicetree Specification - TI E2E",
+      "url": "https://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/968/devicetree_2D00_specification_2D00_v0.3.pdf",
+      "snippet": "Structure Block 48 Devicetree Speciﬁcation, Release v0.3 * [zeroed padding bytes to align to a 4-byte boundary] • Representations of all child nodes in this format • (optionally) any number of FDT_NOP tokens • FDT_END_NODE token Note that this process requires that all property deﬁnitions for a particular node precede any subnode deﬁnitions for that node.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "renesas,ra-ethernet — Devicetree Bindings - Bridle - TiaC Systems",
+      "url": "https://bridle.tiac-systems.net/doc/4.3/devicetree/bindings/ethernet/renesas%2Cra-ethernet.html",
+      "snippet": "Devices with the same \"interrupt-parent\" will use the same format in their interrupts properties. For details, see \"2.4 Interrupts and Interrupt Mapping\" in",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "Linux and the Devicetree — The Linux Kernel  documentation",
+      "url": "https://www.kernel.org/doc/html/v6.5/devicetree/usage-model.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Device drivers infrastructure — The Linux Kernel  documentation",
+      "url": "https://www.kernel.org/doc/html/v5.17/driver-api/infrastructure.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "Welcome to Devicetree Specification’s documentation! — Devicetree Specification v0.3-dirty documentation",
+      "url": "https://devicetree-specification.readthedocs.io/en/stable/index.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "6. Devicetree Source (DTS) Format (version 1) — Devicetree Specification v0.3-dirty documentation",
+      "url": "https://devicetree-specification.readthedocs.io/en/stable/source-language.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "2. The Devicetree",
+      "url": "https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "Device Tree 101",
+      "url": "https://bootlin.com/pub/conferences/2021/webinar/petazzoni-device-tree-101/petazzoni-device-tree-101.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "EmbLogic's Blog",
+      "url": "https://www.emblogic.com/blog/12/linux-and-the-device-tree/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Welcome to Devicetree Specification’s documentation! — Devicetree Specification v0.3-dirty documentation",
+        "url": "https://devicetree-specification.readthedocs.io/en/stable/index.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "4. Device Bindings — Devicetree Specification v0.3-dirty documentation",
+        "url": "https://devicetree-specification.readthedocs.io/en/stable/device-bindings.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "6. Devicetree Source (DTS) Format (version 1) — Devicetree Specification v0.3-dirty documentation",
+        "url": "https://devicetree-specification.readthedocs.io/en/stable/source-language.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "DOs and DON’Ts for designing and writing Devicetree bindings — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/6.17/devicetree/bindings/writing-bindings.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6591
+      },
+      {
+        "title": "2. The Devicetree",
+        "url": "https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "Linux and the Devicetree — The Linux Kernel  documentation",
+        "url": "https://www.kernel.org/doc/html/v6.5/devicetree/usage-model.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "Driver Binding — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/driver-api/driver-model/binding.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6318
+      },
+      {
+        "title": "4. Device Bindings — Devicetree Specification v0.3-dirty documentation",
+        "url": "https://devicetree-specification.readthedocs.io/en/stable/device-bindings.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Device drivers infrastructure — The Linux Kernel  documentation",
+        "url": "https://www.kernel.org/doc/html/v5.17/driver-api/infrastructure.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "DOs and DON’Ts for designing and writing Devicetree bindings — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/devicetree/bindings/writing-bindings.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6591
+      },
+      {
+        "title": "DatanoiseTV/practical-reverse-engineering",
+        "url": "https://github.com/DatanoiseTV/practical-reverse-engineering",
+        "snippet": "",
+        "published_date": "2026-05-18T04:39:48.000Z",
+        "source": "exa",
+        "score": 0.6545
+      },
+      {
+        "title": "Linux and the Devicetree — The Linux Kernel  documentation",
+        "url": "https://www.kernel.org/doc/html/v6.5/devicetree/usage-model.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Beginner's Journey into Device Trees | Tom Ice",
+        "url": "https://tomice.github.io/posts/journey-into-device-trees/",
+        "snippet": "",
+        "published_date": "2025-12-28T04:00:00.000Z",
+        "source": "exa",
+        "score": 0.5045
+      },
+      {
+        "title": "Device Tree 101",
+        "url": "https://bootlin.com/pub/conferences/2021/webinar/petazzoni-device-tree-101/petazzoni-device-tree-101.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "EmbLogic's Blog",
+        "url": "https://www.emblogic.com/blog/12/linux-and-the-device-tree/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      }
+    ],
+    "tavily": [
+      {
+        "title": "[PDF] Devicetree Specification",
+        "url": "https://chenweixiang.github.io/docs/devicetree-specification-changebars-v0.2.pdf",
+        "snippet": "/aliases node 25 Devicetree Speciﬁcation, Release v0.2 Table 3.3: /memory Node Properties Property Name Usage Value Type Deﬁnition device_type R <string> Value shall be “memory” reg R <prop-encoded-array> Consists of an arbitrary number of address and size pairs that specify the physical address and size of the memory ranges. Sense and level information shall be encoded as follows in interrupt speciﬁers: 0 = low to high edge sensitive type enabled 1 = active low level sensitive type enabled 2 = active high level sensitive type enabled 3 = high to low edge sensitive type enabled Table 4.15: Open-PIC properties Property Name Usage Value Type Deﬁnition compatible R <string> Value shall include \"open-pic\" reg R <prop encoded array> Speciﬁes the physical address of the registers device within the address space of the parent bus interrupt-controller R <empty> Speciﬁes that this node is an interrupt con-troller #interrupt-cells R <u32> Shall be 2.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5591
+      },
+      {
+        "title": "devicetree-specification/source/chapter2-devicetree-basics.rst at main · devicetree-org/devicetree-specification · GitHub",
+        "url": "https://github.com/devicetree-org/devicetree-specification/blob/main/source/chapter2-devicetree-basics.rst",
+        "snippet": "# The Devicetree. |spec| specifies a construct called a *devicetree* to describe. program’s memory and passes a pointer to the devicetree to the client. This chapter describes the logical structure of the devicetree and. specifies a base set of properties for use in describing device nodes. :numref:`Chapter %s <chapter-device-node-requirements>` specifies certain device nodes. :numref:`Chapter %s <chapter-fdt-structure>` describes the in-memory encoding of the devicetree. A devicetree is a tree data structure with nodes that describe the. Each node has property/value pairs that describe. A device in this context may be an actual hardware device, such as a UART. may be part of a hardware device, such as the random-number generator in a TPM. There is no requirement that nodes in a device tree be a physical. The *unit-address* component of the name is specific to the bus type on. address specified in the *reg* property of the node. In the case of *node-name* without an *@unit-address* the *node-name* shall.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "[PDF] Devicetree Specification - TI E2E",
+        "url": "https://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/968/devicetree_2D00_specification_2D00_v0.3.pdf",
+        "snippet": "Structure Block 48 Devicetree Speciﬁcation, Release v0.3 * [zeroed padding bytes to align to a 4-byte boundary] • Representations of all child nodes in this format • (optionally) any number of FDT_NOP tokens • FDT_END_NODE token Note that this process requires that all property deﬁnitions for a particular node precede any subnode deﬁnitions for that node.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "2. The Devicetree — Devicetree Specification unknown-rev documentation",
+        "url": "https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html",
+        "snippet": "A boot program loads a devicetree into a client program’s memory and passes a pointer to the devicetree to the client. This chapter describes the logical structure of the devicetree and specifies a base set of properties for use in describing device nodes. Chapter 3 specifies certain device nodes required by a DTSpec-compliant devicetree. A devicetree is a tree data structure with nodes that describe the devices in a system. Each node has property/value pairs that describe the characteristics of the device being represented. A DTSpec-compliant devicetree describes device information in a system that cannot necessarily be dynamically detected by a client program. However, a device node is required to describe a PCI host bridge device in the system if it cannot be detected by probing. Fig. 2.1 shows an example representation of a simple devicetree that is nearly complete enough to boot a simple operating system, with the platform type, CPU, memory and a single UART described.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "renesas,ra-ethernet — Devicetree Bindings - Bridle - TiaC Systems",
+        "url": "https://bridle.tiac-systems.net/doc/4.3/devicetree/bindings/ethernet/renesas%2Cra-ethernet.html",
+        "snippet": "Devices with the same \"interrupt-parent\" will use the same format in their interrupts properties. For details, see \"2.4 Interrupts and Interrupt Mapping\" in",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Linux device tree compatible property and driver probe with same pin different chip - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/73397334/linux-device-tree-compatible-property-and-driver-probe-with-same-pin-different-c",
+        "snippet": "### your communities. ### more stack exchange communities. Communities for your favorite technologies. Stack Overflow for Teams is now called **Stack Internal**. ##### Collectives™ on Stack Overflow. I have a arm64 linux custom board with a spi-to-can chip, and the chip sometime is mcp2515, sometime is mcp2518fd.But they use different driver (mcp251x.ko/mcp25xxfd.ko). The question is if the chip is mcp2518fd, kernel only match the first compatible \"microchip,mcp2515 and then the driver(mcp251x.ko) probe failed. The compatible strings are supposed to be in hierarchical order from most specific to most general, e.g. specifying an ID for a specific chip, followed by an ID for a \"family\" of related chips with a common programming interface (that will usually have less features than the chip-specific programming interfaces). Different .dtbo files could be loaded by the bootloader or by the Linux operating system based on some stored setting in the bootloader or in the Linux operating system, respectively. Find the answer to your question by asking.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7909
+      },
+      {
+        "title": "How does the device tree's 'compatible' property matching work in ...",
+        "url": "https://www.quora.com/How-does-the-device-trees-compatible-property-matching-work-in-Linux",
+        "snippet": "Linux developers are responsible for writing their own drivers for hardware, either through published specifications, or by reverse engineering.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5182
+      },
+      {
+        "title": "Explaining the Linux Device Tree for Embedded Engineers From ...",
+        "url": "https://dev.to/darshan_rathod/explaining-the-linux-device-tree-for-embedded-engineersfrom-dts-source-to-a-running-kernel-39p6",
+        "snippet": "Confirm compatible and reg are what the driver expects (from bindings/docs). Check dmesg for probe failures or “no compatible device found”",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6909
+      },
+      {
+        "title": "Linux Device Driver Probe Flow via Device Tree - LinkedIn",
+        "url": "https://www.linkedin.com/posts/techdhaba_linuxkernel-devicetree-embeddedlinux-activity-7435633192759484416-C3IW",
+        "snippet": "Linux Device Driver Probe — How It Actually Gets Invoked (via Device Tree) Many engineers think a driver's probe() runs simply because the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4364
+      },
+      {
+        "title": "Device tree bindings for ADT7516 - Q&A - Linux Software Drivers",
+        "url": "https://ez.analog.com/linux-software-drivers/f/q-a/101028/device-tree-bindings-for-adt7516",
+        "snippet": "So my question is that how do I replace those things in the driver if I remove platform data and use DT bindings. I am putting probe function's",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4636
+      },
+      {
+        "title": "Linux Device Driver Probe Flow via Device Tree - LinkedIn",
+        "url": "https://www.linkedin.com/posts/techdhaba_linuxkernel-devicetree-embeddedlinux-activity-7435633192759484416-C3IW",
+        "snippet": "... Hardware Is Described in the Device Tree The firmware passes a Device Tree Blob (DTB) to the kernel during boot. Example DTS node: uart0",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Device Trees for microcontrollers? : r/embedded - Reddit",
+        "url": "https://www.reddit.com/r/embedded/comments/1ojeaov/device_trees_for_microcontrollers",
+        "snippet": "Specific builds for specific chips would have to include the device drivers that understand both the dtb and the underlying hardware, but as an",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5818
+      },
+      {
+        "title": "Explaining the Linux Device Tree for Embedded Engineers From ...",
+        "url": "https://dev.to/darshan_rathod/explaining-the-linux-device-tree-for-embedded-engineersfrom-dts-source-to-a-running-kernel-39p6",
+        "snippet": "This post walks through the full story, end‑to‑end: what the device tree is, how DTS becomes DTB, what the bootloader and kernel do with it, and",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Device tree and driver probing - linux - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/18736026/device-tree-and-driver-probing",
+        "snippet": "In Linux device tree files (DTS), how does the compatible entry work if more than one option is given? It seems that this is not a choice",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7364
+      },
+      {
+        "title": "linux device tree reverse engineering - Google Groups",
+        "url": "https://groups.google.com/g/inside_linux/c/zi28dcM-Rk0",
+        "snippet": "I'm trying to reverse engineer the already built system to add new features like enabling CAN and I2C interface in the kernel.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4364
+      }
+    ],
+    "grok": []
+  }
+}
