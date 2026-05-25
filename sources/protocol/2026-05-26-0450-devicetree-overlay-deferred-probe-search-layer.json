@@ -1,0 +1,339 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Linux DeviceTree overlays live tree fdt overlay bootloader kernel reverse engineering",
+    "Linux driver probe deferred probe devicetree resource consumption ftrace dynamic debug",
+    "of_platform_populate devicetree platform device probe sysfs of_node driver binding"
+  ],
+  "count": 20,
+  "results": [
+    {
+      "title": "Devicetree Overlay Notes — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/devicetree/overlay-notes.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6864
+    },
+    {
+      "title": "How to load device-tree overlays - Unix & Linux Stack Exchange",
+      "url": "https://unix.stackexchange.com/questions/727138/how-to-load-device-tree-overlays",
+      "snippet": "There are several ways to add overlays to the kernel devicetree in u-boot, the most common one is by using various u-boot commands to \"manually\"",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6636
+    },
+    {
+      "title": "DeviceTree Kernel API — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/6.14/devicetree/kernel-api.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6591
+    },
+    {
+      "title": "DeviceTree Kernel API — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/6.13/devicetree/kernel-api.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6591
+    },
+    {
+      "title": "drivers/of/overlay.c at master · Xilinx/linux-xlnx",
+      "url": "https://github.com/Xilinx/linux-xlnx/blob/master/drivers/of/overlay.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6545
+    },
+    {
+      "title": "Device Tree Overlays — Das U-Boot unknown version documentation",
+      "url": "https://docs.u-boot.org/en/v2021.04/usage/fdt_overlays.html",
+      "snippet": "Overlays provides a means to manipulate a symbol a previous device-tree or device-tree overlay has defined.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6318
+    },
+    {
+      "title": "drivers/base/dd.c at master · torvalds/linux",
+      "url": "https://github.com/torvalds/linux/blob/master/drivers/base/dd.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "drivers/of/platform.c at master · torvalds/linux",
+      "url": "https://github.com/torvalds/linux/blob/master/drivers/of/platform.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "Platform Devices and Drivers — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/driver-api/driver-model/platform.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6045
+    },
+    {
+      "title": "Linux-Kernel Archive: [PATCH v4] driver core: add a debugfs entry to show deferred devices",
+      "url": "https://lkml.iu.edu/1807.1/00062.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5545
+    },
+    {
+      "title": "How to use linux device tree overlay from u-boot and apply it automatically - NXP Community",
+      "url": "https://community.nxp.com/t5/i-MX-Processors-Knowledge-Base/How-to-use-linux-device-tree-overlay-from-u-boot-and-apply-it/ta-p/1896858",
+      "snippet": "# How to use linux device tree overlay from u-boot and apply it automatically. The following steps allow to make use of device tree overlay files, a definition of device tree overlay provided by kernel.org is the next:. \"A Devicetree’s overlay purpose is to modify the kernel’s live tree, and have the modification affecting the state of the kernel in a way that is reflecting the changes. Knowing that, in this post will be used as an example the baseboard \"i.MX 93 EVK\" and will be added with device tree overlay an LVDS panel, adding an automatic detection from u-boot, and will be used a host with linux version Ubuntu 20.04.2. # Linux device-tree overlay from linux-imx. This section explains all about device tree overlay compilation and building, to create a .dtso file, the equivalent of .dts for overlays, adding some difference between them, using as base the linux-imx repository. Using as an example the file imx93-11x11-evk-boe-wxga-lvds-panel.dts located in the previous repository file direction <linux-imx path>/arch/arm64/boot/dts/freescale/ using it as a base tree:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4909
+    },
+    {
+      "title": "[PATCH 0/3 - V2] Introducing Device Tree Overlays - Google Groups",
+      "url": "https://groups.google.com/g/fa.linux.kernel/c/_-76ty5hP2A",
+      "snippet": "+A Device Tree's overlay purpose is to modify the kernel's live tree, and +have the modification affecting the state of the the kernel in a way that +is",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4364
+    },
+    {
+      "title": "How to troubleshoot deferred probe issues in Linux",
+      "url": "https://blog.dowhile0.org/2022/06/21/how-to-troubleshoot-deferred-probe-issues-in-linux/",
+      "snippet": "",
+      "published_date": "2022-06-21T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4273
+    },
+    {
+      "title": "Device Tree Overlays in 6.18.1 kernel - BeagleBoard forum",
+      "url": "https://forum.beagleboard.org/t/device-tree-overlays-in-6-18-1-kernel/43722",
+      "snippet": "I've just updated my kernel to 6.18.1 - and something odd is happening - the device tree overlay blobs no longer apply to the device tree",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "Device Tree overlays and U-boot extension board management",
+      "url": "https://bootlin.com/pub/conferences/2021/lee/maincent-devicetree-overlay-and-uboot-extension-board-management/maincent-devicetree-overlay-and-uboot-extension-board-management.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "[RFC] Device Tree Overlays Proposal (Was Re: capebus moving omap_devices to mach-omap2)",
+      "url": "https://lists.ozlabs.org/pipermail/devicetree-discuss/2012-November/021827.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3818
+    },
+    {
+      "title": "1.12.  Devicetree support ¶",
+      "url": "https://barebox.org/doc/latest/user/devicetree.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "Dynamic Debug - Linux Kernel Internals",
+      "url": "https://kernel-internals.org/modules/dynamic-debug/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3545
+    },
+    {
+      "title": "drivercore: Add driver probe deferral mechanism  [LWN.net]",
+      "url": "https://lwn.net/Articles/460522/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "[PATCH v4 04/22] of: add function to allow probing a device from a OF node",
+      "url": "http://lists.infradead.org/pipermail/linux-arm-kernel/2015-October/379794.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "How to use linux device tree overlay from u-boot and apply it automatically - NXP Community",
+        "url": "https://community.nxp.com/t5/i-MX-Processors-Knowledge-Base/How-to-use-linux-device-tree-overlay-from-u-boot-and-apply-it/ta-p/1896858",
+        "snippet": "# How to use linux device tree overlay from u-boot and apply it automatically. The following steps allow to make use of device tree overlay files, a definition of device tree overlay provided by kernel.org is the next:. \"A Devicetree’s overlay purpose is to modify the kernel’s live tree, and have the modification affecting the state of the kernel in a way that is reflecting the changes. Knowing that, in this post will be used as an example the baseboard \"i.MX 93 EVK\" and will be added with device tree overlay an LVDS panel, adding an automatic detection from u-boot, and will be used a host with linux version Ubuntu 20.04.2. # Linux device-tree overlay from linux-imx. This section explains all about device tree overlay compilation and building, to create a .dtso file, the equivalent of .dts for overlays, adding some difference between them, using as base the linux-imx repository. Using as an example the file imx93-11x11-evk-boe-wxga-lvds-panel.dts located in the previous repository file direction <linux-imx path>/arch/arm64/boot/dts/freescale/ using it as a base tree:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4909
+      },
+      {
+        "title": "[PATCH 0/3 - V2] Introducing Device Tree Overlays - Google Groups",
+        "url": "https://groups.google.com/g/fa.linux.kernel/c/_-76ty5hP2A",
+        "snippet": "+A Device Tree's overlay purpose is to modify the kernel's live tree, and +have the modification affecting the state of the the kernel in a way that +is",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4364
+      },
+      {
+        "title": "Device Tree Overlays — Das U-Boot unknown version documentation",
+        "url": "https://docs.u-boot.org/en/v2021.04/usage/fdt_overlays.html",
+        "snippet": "Overlays provides a means to manipulate a symbol a previous device-tree or device-tree overlay has defined.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6318
+      },
+      {
+        "title": "Device Tree Overlays in 6.18.1 kernel - BeagleBoard forum",
+        "url": "https://forum.beagleboard.org/t/device-tree-overlays-in-6-18-1-kernel/43722",
+        "snippet": "I've just updated my kernel to 6.18.1 - and something odd is happening - the device tree overlay blobs no longer apply to the device tree",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "How to load device-tree overlays - Unix & Linux Stack Exchange",
+        "url": "https://unix.stackexchange.com/questions/727138/how-to-load-device-tree-overlays",
+        "snippet": "There are several ways to add overlays to the kernel devicetree in u-boot, the most common one is by using various u-boot commands to \"manually\"",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6636
+      }
+    ],
+    "exa": [
+      {
+        "title": "Devicetree Overlay Notes — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/devicetree/overlay-notes.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6864
+      },
+      {
+        "title": "Device Tree overlays and U-boot extension board management",
+        "url": "https://bootlin.com/pub/conferences/2021/lee/maincent-devicetree-overlay-and-uboot-extension-board-management/maincent-devicetree-overlay-and-uboot-extension-board-management.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "1.12.  Devicetree support ¶",
+        "url": "https://barebox.org/doc/latest/user/devicetree.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "[RFC] Device Tree Overlays Proposal (Was Re: capebus moving omap_devices to mach-omap2)",
+        "url": "https://lists.ozlabs.org/pipermail/devicetree-discuss/2012-November/021827.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3818
+      },
+      {
+        "title": "drivers/of/overlay.c at master · Xilinx/linux-xlnx",
+        "url": "https://github.com/Xilinx/linux-xlnx/blob/master/drivers/of/overlay.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6545
+      },
+      {
+        "title": "drivers/base/dd.c at master · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/master/drivers/base/dd.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "drivercore: Add driver probe deferral mechanism  [LWN.net]",
+        "url": "https://lwn.net/Articles/460522/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "How to troubleshoot deferred probe issues in Linux",
+        "url": "https://blog.dowhile0.org/2022/06/21/how-to-troubleshoot-deferred-probe-issues-in-linux/",
+        "snippet": "",
+        "published_date": "2022-06-21T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4273
+      },
+      {
+        "title": "Dynamic Debug - Linux Kernel Internals",
+        "url": "https://kernel-internals.org/modules/dynamic-debug/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3545
+      },
+      {
+        "title": "Linux-Kernel Archive: [PATCH v4] driver core: add a debugfs entry to show deferred devices",
+        "url": "https://lkml.iu.edu/1807.1/00062.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5545
+      },
+      {
+        "title": "Platform Devices and Drivers — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/driver-api/driver-model/platform.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6045
+      },
+      {
+        "title": "DeviceTree Kernel API — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/6.14/devicetree/kernel-api.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6591
+      },
+      {
+        "title": "DeviceTree Kernel API — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/6.13/devicetree/kernel-api.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6591
+      },
+      {
+        "title": "[PATCH v4 04/22] of: add function to allow probing a device from a OF node",
+        "url": "http://lists.infradead.org/pipermail/linux-arm-kernel/2015-October/379794.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "drivers/of/platform.c at master · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/master/drivers/of/platform.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6273
+      }
+    ],
+    "grok": []
+  }
+}
