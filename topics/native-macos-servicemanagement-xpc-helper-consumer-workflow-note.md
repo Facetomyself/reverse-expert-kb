@@ -17,6 +17,8 @@ Related source notes:
 - sources/native/2026-05-04-0450-macos-service-management-xpc-search-layer.txt
 - sources/native/2026-05-20-macos-xpc-client-identity-notes.md
 - sources/native/2026-05-20-0450-macos-xpc-client-identity-search-layer.json
+- sources/native/2026-05-27-macos-xpc-audit-token-hardening-notes.md
+- sources/native/2026-05-27-0450-macos-xpc-audit-token-hardening-search-layer.json
 
 ## 1. What this workflow note is for
 
@@ -189,6 +191,16 @@ proxy-visible != accepted != identity-gated != request-owned != method-entered !
 
 Apple ServiceManagement / XPC material and SMJobBless-style helper samples support treating installation association, launchd daemon execution, client-side connection creation, server-side listener acceptance, code-requirement / audit-token validation, and exported-method execution as separate proof objects. For a reverser, the important move is to place the identity gate relative to the request being explained. A code-signing requirement on the connection is stronger than a PID/name clue, but it still does not prove the later method-specific reducer or resource operation ran; a PID/name or proxy-only observation is only reduction evidence unless the helper actually keys authorization to it and the race/reconnect posture is understood.
 
+Sharper 2026-05-27 source-backed sub-boundary: when the helper performs its own `SecCode` validation, separate the **identity selector** from the **policy gate**. A PID-backed `SecCodeCopyGuestWithAttributes(...)` path is a weaker, race-prone peer proof than an audit-token-backed path. A `SecCodeCopySigningInformation(..., kSecCSDynamicInformation, ...)` check for code-signing flags such as library validation / hardened-runtime posture can be a valuable client-integrity gate, but it is still not the same proof object as request ownership or helper-owned effect.
+
+Practical ladder for that narrower seam:
+
+```text
+proxy-visible != accepted != audit-token-validated != policy-checked != request-owned != method-entered != effect-owned
+```
+
+Use this ladder when a helper appears to reject an otherwise plausible client: the answer may be that the listener accepted only after audit-token identity plus code-signing-policy validation, not merely after Team ID / PID / protocol-shape matching.
+
 ### E. Connection / listener acceptance boundary
 
 Connection setup can be client-visible while service-side acceptance is absent, stale, or rejected.
@@ -312,7 +324,7 @@ For NSXPC:
 For C XPC:
 - freeze Mach-service connection, event handler, message dictionary keys, reply object, and dispatch branch
 
-If the helper validates clients, capture the exact accepted identity material before interpreting downstream behavior.
+If the helper validates clients, capture the exact accepted identity material before interpreting downstream behavior. In audit-token-shaped cases, also record whether `SecCodeCopyGuestWithAttributes(...)` is keyed by audit token or PID, and whether a later `SecCodeCopySigningInformation(...)` / `kSecCodeInfoStatus` check enforces library validation or hardened-runtime flags before the request is trusted.
 
 ### Step 5: cross into one method / handler and one durable effect
 
@@ -349,6 +361,10 @@ They do not prove allowed-class deserialization, exported-object method entry, o
 
 PID and process-name evidence can reduce candidates, but client authorization should be tied to audit token, code signature, entitlements, authorization, or whichever material the helper actually checks.
 
+### False stop: code-signature check equals request-owned identity
+
+A code-signature or Team ID check is stronger than a proxy or process-name clue, but still inspect how the peer was selected and when the check ran. A PID-backed `SecCode` lookup, an audit-token-backed lookup, and a code-signing-flags policy check are different proof objects; none of them alone proves the later method-specific request and helper-owned effect.
+
 ### False stop: reply equals effect
 
 A reply can be transport-level success, contract-level rejection, lifecycle recovery, or semantic success.
@@ -361,7 +377,7 @@ Static anchors:
 - ServiceManagement calls: `SMAppService`, `register`, `unregister`, status checks, legacy `SMJobBless`
 - NSXPC anchors: `NSXPCConnection`, `remoteObjectProxy`, `NSXPCListener`, `listener:shouldAcceptNewConnection:`, `exportedInterface`, `exportedObject`, `resume`
 - C XPC anchors: `xpc_connection_create_mach_service`, connection event handlers, dictionary key dispatch, reply creation
-- trust anchors: audit-token accessors, `SecCode`, `SecRequirement`, entitlement checks, authorization APIs
+- trust anchors: audit-token accessors, `SecCode`, `SecRequirement`, entitlement checks, authorization APIs, `kSecGuestAttributeAudit`, `kSecGuestAttributePid`, `kSecCodeInfoStatus`, library-validation / hardened-runtime flag checks
 
 Runtime anchors:
 - `launchctl print` / domain-specific job state
@@ -385,6 +401,8 @@ Hand off to:
 
 - Source synthesis: `sources/native/2026-05-04-macos-servicemanagement-xpc-consumer-notes.md`
 - Search artifact: `sources/native/2026-05-04-0450-macos-service-management-xpc-search-layer.txt`
+- Source synthesis: `sources/native/2026-05-27-macos-xpc-audit-token-hardening-notes.md`
+- Search artifact: `sources/native/2026-05-27-0450-macos-xpc-audit-token-hardening-search-layer.json`
 - Apple, `SMAppService` — https://developer.apple.com/documentation/servicemanagement/smappservice
 - Apple, `Updating your app package installer to use the new Service Management API` — https://developer.apple.com/documentation/ServiceManagement/updating-your-app-package-installer-to-use-the-new-service-management-api
 - Apple, `Creating Launch Daemons and Agents` — https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html

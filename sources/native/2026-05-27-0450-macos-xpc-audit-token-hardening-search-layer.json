@@ -1,0 +1,436 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "macOS reverse engineering EndpointSecurity audit token XPC helper code signing entitlement check reverse engineering",
+    "NSXPCConnection audit token SecCode entitlements reverse engineering helper identity validation",
+    "macOS XPC helper entitlement auditToken code signing requirement reverse engineering"
+  ],
+  "count": 23,
+  "results": [
+    {
+      "title": "Alternative to auditToken · Issue #1 · securing/SimpleXPCApp - GitHub",
+      "url": "https://github.com/securing/SimpleXPCApp/issues/1",
+      "snippet": "In macOS 11.0, SecCodeCreateWithXPCMessage was introduced which can be used to validate code-signing requirements of the sender of a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Access to the audit token of an NSXPCConnection in pure Swift",
+      "url": "https://gist.github.com/T1T4N/e2994ef2dc7d150f6b8df3e1f2f3f156",
+      "snippet": "Exposes the **private** audit token data of the connection. Adapted from: [AuditTokenHack](https://github.com/securing/SimpleXPCApp/blob/master/SimpleXPCService",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.675
+    },
+    {
+      "title": "Get token audit for a NSXPCConnect… | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/thread/716635",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "XPC restricted to processes with t… | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/thread/72881",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "Alkenso/sEndpointSecurity",
+      "url": "https://github.com/Alkenso/sEndpointSecurity",
+      "snippet": "",
+      "published_date": "2021-09-23T19:44:29.000Z",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "CVE-2020-0984 - Secure coding XPC Services - Part 3",
+      "url": "https://theevilbit.github.io/posts/secure_coding_xpc_part3",
+      "snippet": "Now that we can talk to the helper tool, with some reverse engineering we can check if it has any promising function. ... as these entitlements",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "es_process_t in endpoint_sec_sys - Rust",
+      "url": "https://docs.rs/endpoint-sec-sys/latest/endpoint_sec_sys/struct.es_process_t.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Secure coding XPC Services - Part 2 - Checking CS (CodeSigning) flags of the client · theevilbit blog",
+      "url": "https://theevilbit.github.io/posts/secure_coding_xpc_part2/",
+      "snippet": "",
+      "published_date": "2020-03-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.55
+    },
+    {
+      "title": "Audit tokens explained | Scott Knight",
+      "url": "https://knight.sc/reverse%20engineering/2020/03/20/audit-tokens-explained.html",
+      "snippet": "One of those recommendations was to use the audit token rather than PID when checking the connecting process. Since the audit token APIs aren’t public I thought it would be interesting to take a closer look at what audit tokens actually are and where they come from. The issue with this is since it only uses PID to locate the process, and PIDs wrap around and can be reused, it’s possible to race the code signing verification and trick it into checking a different binary. As we’ll see shortly, making use of the `auditToken` allows the Security framework to use the internal fields to ensure the connecting process is the one the XPC service thinks it is. Now that we know some of the history behind the audit token lets actually take a look at what it is and how the kernel implements and stores it.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.45
+    },
+    {
+      "title": "Learn XPC exploitation - Part 2: Say no to the PID!",
+      "url": "https://wojciechregula.blog/post/learn-xpc-exploitation-part-2-say-no-to-the-pid",
+      "snippet": "# Learn XPC exploitation - Part 2: Say no to the PID! Learn XPC exploitation - Part 1: Broken cryptography. Learn XPC exploitation - Part 3: Code injections. In my last post, I showed you how weak SecRequirement string might lead to incoming connections validation issues. 😈 We’re going to exploit a vulnerability that I found some time ago in Malwarebytes. The bug is, of course, fixed. Well, when you send a lot of messages to an XPC service, the messages are enqueued. It creates a time window between popping out the XPC message and the actual process validation. Developers usually use that method to code the validation logic - it’s a good point to start from. To do so, usually, the `SecCodeCopyGuestWithAttributes` function is used with the **PID**. The problem is that the `audit token` is private property… I wrote an open-source example of a secure XPC helper with the solution for that.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "The Story Behind CVE-2019-13013 - Objective Development",
+      "url": "https://obdev.at/blog/what-we-have-learned-from-a-vulnerability",
+      "snippet": "The same code can be used in the app to authenticate the privileged helper after sending the first XPC request ( auditToken is not valid before",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "[PDF] persistence monitor - The Art of Mac Malware",
+      "url": "https://taomm.org/vol2/pdfs/CH%2011%20Persistence%20Monitor.pdf",
+      "snippet": "#define DAEMON_MACH_SERVICE @\"com.objective-see.blockblock\" #define HELPER_ID @\"com.objective-see.blockblock.helper\" #define SIGNING_AUTH @\"Developer ID Application: Objective-See, LLC (VBG97UB4TA)\" self.listener = [[NSXPCListener alloc] initWithMachServiceName:DAEMON_MACH_SERVICE]; if(@available(macOS 13.0, *)) { NSString* requirement = [NSString stringWithFormat:@\"anchor apple generic and identifier \\\"%@\\\" and certificate leaf [subject.CN] = \\\"%@\\\" and info [CFBundleShortVersionString] >= \\\"2.0.0\\\"\", HELPER_ID, SIGNING_AUTH]; 1 [self.listener setConnectionCodeSigningRequirement:requirement]; 2 } self.listener.delegate = self; [self.listener resume]; Listing 1 1-17: Authorizing clients on macOS versions 13 and newer After allocating and initializing an NSXPCListener object, we use the Objective-C @available attribute with a value of macOS 13.0, * to instruct the compiler to execute the following lines on macOS 13 or newer only 1, as the setConnectionCodeSigningRequirement: method isn’t available on earlier versions of macOS.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "Attacking macOS XPC Helpers: Protocol Reverse Engineering | Reverse Society",
+      "url": "https://tonygo.tech/blog/2025/how-to-attack-macos-application-xpc-helpers",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.425
+    },
+    {
+      "title": "XPC Security | SpringerLink",
+      "url": "https://link.springer.com/chapter/10.1007/978-1-4842-7277-0_15",
+      "snippet": "NSXPCConnection does not expose the audit token in a public API, but ... \"entitlements-dict\": <NSDictionary>. \"cms\": <NSData>. \"cdhashes",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "OBTS v6.0: \"Elevating Privileges on macOS by Audit Token Spoofing\"",
+      "url": "https://www.youtube.com/watch?v=xbjYhEAkn68",
+      "snippet": "Slides: https://objectivebythesea.org/v6/talks/OBTS_v6_tAlkemade.pdf Talk Description: XPC is an important technology in all of Apple's",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Reverse Engineering Access Tokens Part 2 - YouTube",
+      "url": "https://www.youtube.com/watch?v=Y58eBWyJxDA",
+      "snippet": "... Rights and Access Masks https://learn.microsoft.com/en-gb/windows/win32/secauthz/access-rights-and-access-masks Process Security and Access",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "macOS XPC Connecting Process Check - HackTricks",
+      "url": "https://hacktricks.wiki/en/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-ipc-inter-process-communication/macos-xpc/macos-xpc-connecting-process-check/index.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "Reverse Engineering macOS Malware - YouTube",
+      "url": "https://www.youtube.com/watch?v=qfGMnlDqRj0",
+      "snippet": "Join Christopher Lopez - @L0pse and myself as we take a look at revers engineering macOS malware!",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Reverse Engineering Malware 101: Getting Started with macOS ...",
+      "url": "https://stairwell.com/blog/resources/reverse-engineering-malware-101-getting-started-with-macos-reversing",
+      "snippet": "This series will help you build that foundation. We'll explore the structure of macOS binaries, how to safely analyze them, and how to recognize potential red",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Don’t Talk All at Once! Elevating Privileges on macOS by Audit Token Spoofing",
+      "url": "https://sector7.computest.nl/post/2023-10-xpc-audit-token-spoofing/",
+      "snippet": "",
+      "published_date": "2023-10-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "macOS XPC Mach Services Abuse - HackTricks",
+      "url": "https://hacktricks.wiki/en/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-xpc-mach-services-abuse.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.35
+    },
+    {
+      "title": "De-mystifying Endpoint Security Messages | ryan dowd's 🍎 security blog",
+      "url": "https://rdowd.com/de-mystifying-endpoint-security-messages/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Introduction to the Apple Endpoint Security Framework",
+      "url": "https://research.meekolab.com/introduction-to-the-apple-endpoint-security-framework",
+      "snippet": "",
+      "published_date": "2024-01-26T17:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "XPC Security | SpringerLink",
+        "url": "https://link.springer.com/chapter/10.1007/978-1-4842-7277-0_15",
+        "snippet": "NSXPCConnection does not expose the audit token in a public API, but ... \"entitlements-dict\": <NSDictionary>. \"cms\": <NSData>. \"cdhashes",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Access to the audit token of an NSXPCConnection in pure Swift",
+        "url": "https://gist.github.com/T1T4N/e2994ef2dc7d150f6b8df3e1f2f3f156",
+        "snippet": "Exposes the **private** audit token data of the connection. Adapted from: [AuditTokenHack](https://github.com/securing/SimpleXPCApp/blob/master/SimpleXPCService",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.675
+      },
+      {
+        "title": "Audit tokens explained | Scott Knight",
+        "url": "https://knight.sc/reverse%20engineering/2020/03/20/audit-tokens-explained.html",
+        "snippet": "One of those recommendations was to use the audit token rather than PID when checking the connecting process. Since the audit token APIs aren’t public I thought it would be interesting to take a closer look at what audit tokens actually are and where they come from. The issue with this is since it only uses PID to locate the process, and PIDs wrap around and can be reused, it’s possible to race the code signing verification and trick it into checking a different binary. As we’ll see shortly, making use of the `auditToken` allows the Security framework to use the internal fields to ensure the connecting process is the one the XPC service thinks it is. Now that we know some of the history behind the audit token lets actually take a look at what it is and how the kernel implements and stores it.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.45
+      },
+      {
+        "title": "Learn XPC exploitation - Part 2: Say no to the PID!",
+        "url": "https://wojciechregula.blog/post/learn-xpc-exploitation-part-2-say-no-to-the-pid",
+        "snippet": "# Learn XPC exploitation - Part 2: Say no to the PID! Learn XPC exploitation - Part 1: Broken cryptography. Learn XPC exploitation - Part 3: Code injections. In my last post, I showed you how weak SecRequirement string might lead to incoming connections validation issues. 😈 We’re going to exploit a vulnerability that I found some time ago in Malwarebytes. The bug is, of course, fixed. Well, when you send a lot of messages to an XPC service, the messages are enqueued. It creates a time window between popping out the XPC message and the actual process validation. Developers usually use that method to code the validation logic - it’s a good point to start from. To do so, usually, the `SecCodeCopyGuestWithAttributes` function is used with the **PID**. The problem is that the `audit token` is private property… I wrote an open-source example of a secure XPC helper with the solution for that.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "Reverse Engineering Access Tokens Part 2 - YouTube",
+        "url": "https://www.youtube.com/watch?v=Y58eBWyJxDA",
+        "snippet": "... Rights and Access Masks https://learn.microsoft.com/en-gb/windows/win32/secauthz/access-rights-and-access-masks Process Security and Access",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Audit tokens explained - Scott Knight",
+        "url": "https://knight.sc/reverse%20engineering/2020/03/20/audit-tokens-explained.html",
+        "snippet": "One of those recommendations was to use the audit token rather than PID when checking the connecting process. Since the audit token APIs aren’t public I thought it would be interesting to take a closer look at what audit tokens actually are and where they come from. The issue with this is since it only uses PID to locate the process, and PIDs wrap around and can be reused, it’s possible to race the code signing verification and trick it into checking a different binary. As we’ll see shortly, making use of the `auditToken` allows the Security framework to use the internal fields to ensure the connecting process is the one the XPC service thinks it is. Now that we know some of the history behind the audit token lets actually take a look at what it is and how the kernel implements and stores it.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "CVE-2020-0984 - Secure coding XPC Services - Part 3",
+        "url": "https://theevilbit.github.io/posts/secure_coding_xpc_part3",
+        "snippet": "Now that we can talk to the helper tool, with some reverse engineering we can check if it has any promising function. ... as these entitlements",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Reverse Engineering macOS Malware - YouTube",
+        "url": "https://www.youtube.com/watch?v=qfGMnlDqRj0",
+        "snippet": "Join Christopher Lopez - @L0pse and myself as we take a look at revers engineering macOS malware!",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "macOS XPC Mach Services Abuse - HackTricks",
+        "url": "https://hacktricks.wiki/en/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-xpc-mach-services-abuse.html",
+        "snippet": "Client Process (user context) ↓ NSXPCConnection / xpc_connection_create_mach_service() ↓ Mach message via launchd Daemon Process (root context) ↓ Receives XPC message ↓ (Should verify client identity / entitlements) ↓ Performs privileged operation. // Minimal XPC client — connect to a LaunchDaemon's Mach service #import  @protocol VulnDaemonProtocol - (void)runCommandAsRoot:(NSString *)command withReply:(void (^)(NSString *))reply; @end int main(void) { @autoreleasepool { NSXPCConnection *conn = [[NSXPCConnection alloc] initWithMachServiceName:@\"com.example.vulndaemon\" options:NSXPCConnectionPrivileged]; conn.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(VulnDaemonProtocol)]; [conn resume]; id proxy = [conn remoteObjectProxyWithErrorHandler:^(NSError *error) { NSLog(@\"Connection error: %@\", error); }]; // If the daemon doesn't verify our identity, this works: [proxy runCommandAsRoot:@\"id\" withReply:^(NSString *result) { NSLog(@\"Result: %@\", result); // Output: uid=0(root) }]; [[NSRunLoop currentRunLoop] run]; } }.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Reverse Engineering Malware 101: Getting Started with macOS ...",
+        "url": "https://stairwell.com/blog/resources/reverse-engineering-malware-101-getting-started-with-macos-reversing",
+        "snippet": "This series will help you build that foundation. We'll explore the structure of macOS binaries, how to safely analyze them, and how to recognize potential red",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "Alternative to auditToken · Issue #1 · securing/SimpleXPCApp - GitHub",
+        "url": "https://github.com/securing/SimpleXPCApp/issues/1",
+        "snippet": "In macOS 11.0, SecCodeCreateWithXPCMessage was introduced which can be used to validate code-signing requirements of the sender of a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "The Story Behind CVE-2019-13013 - Objective Development",
+        "url": "https://obdev.at/blog/what-we-have-learned-from-a-vulnerability",
+        "snippet": "The same code can be used in the app to authenticate the privileged helper after sending the first XPC request ( auditToken is not valid before",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "XPC Security | SpringerLink",
+        "url": "https://link.springer.com/chapter/10.1007/978-1-4842-7277-0_15",
+        "snippet": "Applied entitlements. In a general case, the code signature can be obtained using a security framework. See Listing 15-3.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "OBTS v6.0: \"Elevating Privileges on macOS by Audit Token Spoofing\"",
+        "url": "https://www.youtube.com/watch?v=xbjYhEAkn68",
+        "snippet": "Slides: https://objectivebythesea.org/v6/talks/OBTS_v6_tAlkemade.pdf Talk Description: XPC is an important technology in all of Apple's",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "[PDF] persistence monitor - The Art of Mac Malware",
+        "url": "https://taomm.org/vol2/pdfs/CH%2011%20Persistence%20Monitor.pdf",
+        "snippet": "#define DAEMON_MACH_SERVICE @\"com.objective-see.blockblock\" #define HELPER_ID @\"com.objective-see.blockblock.helper\" #define SIGNING_AUTH @\"Developer ID Application: Objective-See, LLC (VBG97UB4TA)\" self.listener = [[NSXPCListener alloc] initWithMachServiceName:DAEMON_MACH_SERVICE]; if(@available(macOS 13.0, *)) { NSString* requirement = [NSString stringWithFormat:@\"anchor apple generic and identifier \\\"%@\\\" and certificate leaf [subject.CN] = \\\"%@\\\" and info [CFBundleShortVersionString] >= \\\"2.0.0\\\"\", HELPER_ID, SIGNING_AUTH]; 1 [self.listener setConnectionCodeSigningRequirement:requirement]; 2 } self.listener.delegate = self; [self.listener resume]; Listing 1 1-17: Authorizing clients on macOS versions 13 and newer After allocating and initializing an NSXPCListener object, we use the Objective-C @available attribute with a value of macOS 13.0, * to instruct the compiler to execute the following lines on macOS 13 or newer only 1, as the setConnectionCodeSigningRequirement: method isn’t available on earlier versions of macOS.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      }
+    ],
+    "exa": [
+      {
+        "title": "XPC restricted to processes with t… | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/72881",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "Secure coding XPC Services - Part 2 - Checking CS (CodeSigning) flags of the client · theevilbit blog",
+        "url": "https://theevilbit.github.io/posts/secure_coding_xpc_part2/",
+        "snippet": "",
+        "published_date": "2020-03-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.55
+      },
+      {
+        "title": "macOS XPC Connecting Process Check - HackTricks",
+        "url": "https://hacktricks.wiki/en/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-ipc-inter-process-communication/macos-xpc/macos-xpc-connecting-process-check/index.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "macOS XPC Mach Services Abuse - HackTricks",
+        "url": "https://hacktricks.wiki/en/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-xpc-mach-services-abuse.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.35
+      },
+      {
+        "title": "Get token audit for a NSXPCConnect… | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/716635",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.675
+      },
+      {
+        "title": "De-mystifying Endpoint Security Messages | ryan dowd's 🍎 security blog",
+        "url": "https://rdowd.com/de-mystifying-endpoint-security-messages/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Introduction to the Apple Endpoint Security Framework",
+        "url": "https://research.meekolab.com/introduction-to-the-apple-endpoint-security-framework",
+        "snippet": "",
+        "published_date": "2024-01-26T17:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "es_process_t in endpoint_sec_sys - Rust",
+        "url": "https://docs.rs/endpoint-sec-sys/latest/endpoint_sec_sys/struct.es_process_t.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Don’t Talk All at Once! Elevating Privileges on macOS by Audit Token Spoofing",
+        "url": "https://sector7.computest.nl/post/2023-10-xpc-audit-token-spoofing/",
+        "snippet": "",
+        "published_date": "2023-10-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "Alkenso/sEndpointSecurity",
+        "url": "https://github.com/Alkenso/sEndpointSecurity",
+        "snippet": "",
+        "published_date": "2021-09-23T19:44:29.000Z",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "Secure coding XPC Services - Part 2 - Checking CS (CodeSigning) flags of the client · theevilbit blog",
+        "url": "https://theevilbit.github.io/posts/secure_coding_xpc_part2/",
+        "snippet": "",
+        "published_date": "2020-03-22T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Attacking macOS XPC Helpers: Protocol Reverse Engineering | Reverse Society",
+        "url": "https://tonygo.tech/blog/2025/how-to-attack-macos-application-xpc-helpers",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.425
+      },
+      {
+        "title": "macOS XPC Connecting Process Check - HackTricks",
+        "url": "https://hacktricks.wiki/en/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-ipc-inter-process-communication/macos-xpc/macos-xpc-connecting-process-check/index.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "XPC restricted to processes with t… | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/72881",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Audit tokens explained | Scott Knight",
+        "url": "https://knight.sc/reverse%20engineering/2020/03/20/audit-tokens-explained.html",
+        "snippet": "",
+        "published_date": "2020-03-20T00:00:00.000Z",
+        "source": "exa"
+      }
+    ],
+    "grok": []
+  }
+}
