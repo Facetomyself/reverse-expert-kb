@@ -10,6 +10,7 @@ Related pages:
 - topics/firmware-uefi-boot-manager-to-loader-handoff-workflow-note.md
 - topics/firmware-android-ab-slot-rollback-to-stable-runtime-workflow-note.md
 - topics/firmware-devicetree-to-driver-consumer-workflow-note.md
+- topics/firmware-acpi-namespace-to-driver-consumer-workflow-note.md
 - topics/protocol-state-and-message-recovery.md
 - topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md
 - topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md
@@ -72,7 +73,7 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty-two recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty-three recurring families:
 
 
 0. **hardware observation / image-lineage uncertainty**
@@ -85,6 +86,8 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - the analyst has A/B metadata, fastboot or Boot Control HAL state, `androidboot.slot_suffix=`, `ro.boot.slot_suffix`, AVB / vbmeta material, rollback indexes, or update-engine state, but still has not proved active-for-next truth, current slot truth, resolved slot image tuple, AVB / rollback acceptance, userspace consumption, successful/stable marking, and first behavior owner as one coherent evidence unit
 0d. **Devicetree / overlay / driver-consumer uncertainty**
    - the analyst has a recovered DTB/DTS, boot-passed FDT, overlay/DTBO evidence, `/proc/device-tree`, `compatible` strings, OF match tables, platform devices, or sysfs driver links, but still has not proved the selected live tree, populated device, final successful probe after supplier readiness, exact resource/property consumer, and later behavior owner as one coherent evidence unit
+0e. **ACPI namespace / resource-description / driver-consumer uncertainty**
+   - the analyst has DSDT/SSDT/AML, a live ACPI namespace node, `_HID` / `_CID` / `_UID`, `_CRS` / `_DSD` / `_DSM`, PCI host-bridge routing, or AML method traces, but still has not proved loaded-table truth, OS enumeration, bus-visible driver binding, actual resource/method consumption, and first behavior owner as one coherent evidence unit
 1. **context / object-of-recovery framing uncertainty**
    - the analyst still needs to decide whether the real object is environment recovery, protocol structure, peripheral context, or downstream rehosting/fuzzing utility
 2. **capture-failure / boundary-selection uncertainty**
@@ -143,6 +146,7 @@ The subtree is strongest when read as:
 - **stabilize** one UEFI boot-manager / loader-handoff evidence unit when `Boot####`, `BootOrder`, `BootNext`, `BootCurrent`, ESP file paths, or Secure Boot state are visible but current-loader truth can still lie; preserve `entry != selected != resolved != loaded != verified != handed off != consumed/effected` before treating UEFI NVRAM state as current runtime truth
 - **stabilize** one Android A/B slot / rollback / stable-runtime evidence unit when slot metadata, Boot Control HAL / `bootctl`, `androidboot.slot_suffix=`, AVB/vbmeta, rollback index, or update-engine evidence is visible but current-runtime truth can still lie; preserve `metadata != active != current != verified != consumed != successful/stable != effect-owned` before treating slot state as behavior ownership
 - **stabilize** one Devicetree / overlay / driver-consumer evidence unit when DTB/DTS, live tree, overlay, `compatible`, OF match, platform-device, or sysfs driver evidence is visible but driver behavior truth can still lie; preserve `base DTB visible != overlay selected/applied != live tree mutated != device populated != match/bind selected != probe succeeded after suppliers ready != resource/property consumed != behavior/effect owned` before treating a node/property as behavior ownership
+- **stabilize** one ACPI namespace / resource-description / driver-consumer evidence unit when DSDT/SSDT/AML, live namespace paths, `_HID` / `_CID`, `_CRS`, `_DSD`, `_DSM`, or method traces are visible but OS enumeration and driver behavior truth can still lie; preserve `ACPI table visible != namespace node loaded != device enumerated != bus object bound != resource/method consumed != handler/effect owned` before treating a namespace node or method trace as behavior ownership
 - **surface** the first truthful socket-boundary or serializer-adjacent overlay object when the wire is one layer too late
 - **peel** the visible object into one smaller trustworthy contract
 - **recover** one service shell or representative method surface when the family is clearly service-oriented
@@ -230,6 +234,21 @@ Do **not** start here when:
 - the current boot-selected image/FDT tuple is still unproved; use hardware observation / bootloader-selection / UEFI / Android A/B notes first as appropriate
 - device-tree resource consumption is already proved and the bottleneck has moved into MMIO effect, IRQ/deferred-worker consequence, DMA/descriptor ownership, mailbox/doorbell completion, or protocol parser/state proof
 - the target is not Devicetree-shaped and the relevant device model is better explained by ACPI, PCI/USB enumeration, static board code, or a user-space protocol boundary
+
+
+### Start with `firmware-acpi-namespace-to-driver-consumer-workflow-note`
+Use:
+- `topics/firmware-acpi-namespace-to-driver-consumer-workflow-note.md`
+
+Start here when:
+- the case is ACPI-shaped and the analyst has DSDT/SSDT/AML, live namespace paths, `_HID`, `_CID`, `_UID`, `_STA`, `_ADR`, `_CRS`, `_DSD`, `_DSM`, PCI host-bridge routing, GPIO/I2C/SPI/serial-bus resources, or AML method traces
+- table / namespace evidence is plausible enough to discuss OS enumeration, but driver behavior is still being over-inferred from resource or method visibility
+- the real question is which live ACPI node became which OS device or companion, which bus-visible object bound to which driver, which resource or method output was consumed, and which first handler/effect owner carried the behavior
+
+Do **not** start here when:
+- the current boot/firmware table provenance is still unproved; use hardware observation / UEFI / boot-chain notes first as appropriate
+- ACPI resource or method consumption is already proved and the bottleneck has moved into MMIO effect, IRQ/deferred-worker consequence, DMA/descriptor ownership, mailbox/doorbell completion, protocol parser/state proof, or user/kernel service handoff
+- the target is Devicetree-shaped; use the Devicetree note instead
 
 ### Start with `firmware-and-protocol-context-recovery`
 Use:
