@@ -1,0 +1,463 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "ACPI table namespace _HID _CID _CRS device enumeration driver binding reverse engineering Linux Windows",
+    "Linux ACPI device enumeration _CRS resources driver probe fwnode reverse engineering",
+    "Windows ACPI device driver _HID _CID _DSM _CRS resource parsing reverse engineering"
+  ],
+  "count": 26,
+  "results": [
+    {
+      "title": "ACPI Based Device Enumeration — The Linux Kernel documentation",
+      "url": "https://docs.kernel.org/firmware-guide/acpi/enumeration.html",
+      "snippet": "- ACPI Device Tree - Representation of ACPI Namespace. Generally speaking, there are two categories of devices in a system in which ACPI is used as an interface between the platform firmware and the OS: Devices that can be discovered and enumerated natively, through a protocol defined for the specific bus that they are on (for example, configuration space in PCI), without the platform firmware assistance, and devices that need to be described by the platform firmware so that they can be discovered. Those `struct acpi_device` objects are never used for binding drivers to natively discoverable devices, because they are represented by other types of device objects (for example, `struct pci_dev` for PCI devices) that are bound to by device drivers (the corresponding `struct acpi_device` object is then used as an additional source of information on the configuration of the given device).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "Other ACPI Namespace Objects - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/bringup/other-acpi-namespace-objects",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6857
+    },
+    {
+      "title": "acpi-device-specific-methods.md - windows-driver-docs-pr - GitHub",
+      "url": "https://github.com/MicrosoftDocs/windows-driver-docs/blob/staging/windows-driver-docs-pr/bringup/acpi-device-specific-methods.md",
+      "snippet": "HIDI2C Device-Specific Method (_DSM), The _DSM method is defined in section 9.14.1, \"_DSM (Device Specific Method)\", in the ACPI 5.0 specification. This",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6857
+    },
+    {
+      "title": "drivers/pci/pci-acpi.c at master · torvalds/linux",
+      "url": "https://github.com/torvalds/linux/blob/master/drivers/pci/pci-acpi.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6643
+    },
+    {
+      "title": "Programmatic Parsing of ACPI _CRS Resource Templates in WDM ...",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/5889612/programmatic-parsing-of-acpi-crs-resource-template",
+      "snippet": "Windows does not expose a public kernel‑mode parser for ACPI _CRS buffers; the supported approach is to use the Plug and Play manager's resource",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6643
+    },
+    {
+      "title": "HIDI2C Device-Specific Method (_DSM) - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/bringup/hidi2c-device-specific-method---dsm-",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6643
+    },
+    {
+      "title": "usb/UcmUcsiAcpiSample/UcmUcsiAcpiSample/Acpi.cpp at main · microsoft/Windows-driver-samples",
+      "url": "https://github.com/microsoft/Windows-driver-samples/blob/main/usb/UcmUcsiAcpiSample/UcmUcsiAcpiSample/Acpi.cpp",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6643
+    },
+    {
+      "title": "include/acpi/acpi_bus.h at master · torvalds/linux",
+      "url": "https://github.com/torvalds/linux/blob/master/include/acpi/acpi_bus.h",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6429
+    },
+    {
+      "title": "ACPI Based Device Enumeration — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/6.19-rc7/firmware-guide/acpi/enumeration.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6357
+    },
+    {
+      "title": "ACPI Device Tree - Representation of ACPI Namespace — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/6.19-rc7/firmware-guide/acpi/namespace.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6357
+    },
+    {
+      "title": "Device-specific methods (_DSM)",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/bringup/acpi-device-specific-methods",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6214
+    },
+    {
+      "title": "6. ACPI considerations for PCI host bridges — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/6.19-rc7/PCI/acpi-info.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5929
+    },
+    {
+      "title": "Linux-Kernel Archive: [PATCH 3/3] ACPI: Evaluate _CRS while creating device node objects",
+      "url": "https://lkml.iu.edu/hypermail/linux/kernel/1211.1/01597.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5857
+    },
+    {
+      "title": "Linux-Kernel Archive: [no subject]",
+      "url": "https://lkml.iu.edu/1207.0/01870.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.5214
+    },
+    {
+      "title": "5. ACPI considerations for PCI host bridges — The Linux Kernel 5.2.0-rc6-next-20190626+ documentation",
+      "url": "https://www.infradead.org/~mchehab/rst_conversion/PCI/acpi-info.html",
+      "snippet": "ACPI considerations for PCI host bridges. The general rule is that the ACPI namespace should describe everything the OS might use unless there’s another way for the OS to find it [1, 2]. For example, there’s no standard hardware mechanism for enumerating PCI host bridges, so the ACPI namespace must describe each host bridge, the method for accessing PCI config space below it, the address space windows the host bridge forwards to PCI (using \\_CRS), and the routing of legacy INTx interrupts (using \\_PRT). The OS can discover them via the standard PCI enumeration mechanism, using config accesses to discover and identify devices and read and size their BARs. However, ACPI may describe PCI devices if it provides power management or hotplug functionality for them or if the device has INTx interrupts connected by platform interrupt controllers and a \\_PRT is needed to describe those connections.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Acpi Enumeration Rev0 5 PDF | PDF | Device Driver - Scribd",
+      "url": "https://www.scribd.com/document/456123540/598506-acpi-enumeration-rev0-5-pdf",
+      "snippet": "(Inter-Integrated Circuit). The purpose of this document is to walk through the documentation and create a working ACPI table and Linux driver. This document",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4286
+    },
+    {
+      "title": "[PDF] Implementing ACPI 5 Features - Device Enumeration And Power ...",
+      "url": "https://events.static.linuxfound.org/images/stories/slides/lfcs2013_wysocki.pdf",
+      "snippet": "Wysocki (Intel OTC) ACPI 5 Features Implementation April 16, 2013 1 / 21 Outline 1 Introduction: ACPI 5 ACPI Overview What’s New In ACPI 5 2 ACPI GPIO And SPB Support In The Kernel Representation Of Controllers Enumeration Of Client Devices 3 ACPI Device Power Management ACPI PM Control Interface ACPI PM Domain 4 Resources Rafael J. Wysocki (Intel OTC) ACPI 5 Features Implementation April 16, 2013 5 / 21 Introduction: ACPI 5 What’s New In ACPI 5 GPIO And Simple Peripheral Bus (SPB) Support Connection Resources 1 GPIO and SPB controllers as devices in the ACPI Namespace. Wysocki (Intel OTC) ACPI 5 Features Implementation April 16, 2013 11 / 21 ACPI GPIO And SPB Support In The Kernel Enumeration Of Client Devices GPIO Pin Lookup Linux device hierarchy ACPI Namespace PNPID struct platform_device _CRS GpioIo INT33C7 struct gpio_chip GPIO number acpi_get_gpio() Rafael J.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4286
+    },
+    {
+      "title": "Reverse engineering ACPI functionality on a Toshiba Z830 Ultrabook",
+      "url": "https://vorpal.se/posts/2022/aug/21/reverse-engineering-acpi-functionality-on-a-toshiba-z830-ultrabook",
+      "snippet": "Then I spend some time reading the Linux kernel driver toshiba\\_acpi that provided some working features to familiarise myself with how ACPI on Toshiba laptops work. The Toshiba driver on for ACPI on Windows is named `TVALZ.sys` by the way (at least on this particular laptop) in case you want to figure out which processes opens handles to it. According to the Windows program used to control the feature the setting will not take effect until the battery has been discharged to around 50%. The `toshiba_acpi` driver supports controlling the panel power via SCI calls (SCI\\_PANEL\\_POWER\\_ON). The `toshiba_acpi` driver currently uses `{HCI_SET, HCI_HOTKEY_EVENT, HCI_HOTKEY_ENABLE, 0, ...}` to enable the `Fn+` hotkeys, where `HCI_HOTKEY_ENABLE = 0x09`. `REG1` and `REG2` give return code `TOS_INPUT_DATA_ERROR` on this laptop, but presumably they are needed on some laptops, or the Windows program would not be attempting to use them. Linux currently only uses `HCI_GET` on `HCI_SYSTEM_INFO`, Windows sometimes uses `HCI_SET` too:.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4286
+    },
+    {
+      "title": "[v2,13/39] acpi: Add a binding for ACPI settings in the device tree",
+      "url": "https://patchwork.ozlabs.org/patch/1251176",
+      "snippet": "Devices need to report various identifiers in the ACPI tables. Rather than hard-coding these in drivers it is typically better to put them in the device",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4071
+    },
+    {
+      "title": "6. Device Configuration — ACPI Specification 6.4 documentation",
+      "url": "https://uefi.org/htmlspecs/ACPI_Spec_6_4_html/06_Device_Configuration/Device_Configuration.html",
+      "snippet": "OSPM uses device configuration objects to configure hardware resources for devices enumerated via ACPI. ... The _CRS object describes a device's resources.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "Hid over I2C and ACPI interaction - Google Groups",
+      "url": "https://groups.google.com/g/linux.kernel/c/cHP8CfW99qI",
+      "snippet": "A HID over I2C device has to present the Compatibility ID \"PNP0C50\" in the _CRS block, the address, the adapter and the gpioInt are defined (or referenced).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "ACPI: How to parse the output buffer of _CRS function? - NTDEV",
+      "url": "https://community.osr.com/t/acpi-how-to-parse-the-output-buffer-of-crs-function/51885",
+      "snippet": "You can look in the ACPI spec to learn how to parse a _CRS table. That would tell you which resources are memory, which are I/O, and what the fields mean.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3643
+    },
+    {
+      "title": "6. ACPI considerations for PCI host bridges — The Linux Kernel  documentation",
+      "url": "https://kernel.org/doc/html/latest/PCI/acpi-info.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "6. Device Configuration — ACPI Specification 6.5 documentation",
+      "url": "https://uefi.org/specs/ACPI/6.5/06_Device_Configuration.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3429
+    },
+    {
+      "title": "HID over I2C: ACPI changes - of NetBSD Mailing Lists",
+      "url": "https://mail-index.netbsd.org/tech-kern/2017/12/01/msg022655.html",
+      "snippet": "For HID devices this is the HID descriptor address, found in the _DSM. ... So we need to add device-specific ACPI parsing and device properly.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3429
+    },
+    {
+      "title": "9. ACPI-Defined Devices and Device-Specific Objects — ACPI Specification 6.5 documentation",
+      "url": "https://uefi.org/specs/ACPI/6.5/09_ACPI_Defined_Devices_and_Device_Specific_Objects.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3429
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "ACPI Based Device Enumeration — The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/firmware-guide/acpi/enumeration.html",
+        "snippet": "- ACPI Device Tree - Representation of ACPI Namespace. Generally speaking, there are two categories of devices in a system in which ACPI is used as an interface between the platform firmware and the OS: Devices that can be discovered and enumerated natively, through a protocol defined for the specific bus that they are on (for example, configuration space in PCI), without the platform firmware assistance, and devices that need to be described by the platform firmware so that they can be discovered. Those `struct acpi_device` objects are never used for binding drivers to natively discoverable devices, because they are represented by other types of device objects (for example, `struct pci_dev` for PCI devices) that are bound to by device drivers (the corresponding `struct acpi_device` object is then used as an additional source of information on the configuration of the given device).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "6. Device Configuration — ACPI Specification 6.4 documentation",
+        "url": "https://uefi.org/htmlspecs/ACPI_Spec_6_4_html/06_Device_Configuration/Device_Configuration.html",
+        "snippet": "OSPM uses device configuration objects to configure hardware resources for devices enumerated via ACPI. ... The _CRS object describes a device's resources.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "Acpi Enumeration Rev0 5 PDF | PDF | Device Driver - Scribd",
+        "url": "https://www.scribd.com/document/456123540/598506-acpi-enumeration-rev0-5-pdf",
+        "snippet": "(Inter-Integrated Circuit). The purpose of this document is to walk through the documentation and create a working ACPI table and Linux driver. This document",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4286
+      },
+      {
+        "title": "[PDF] Implementing ACPI 5 Features - Device Enumeration And Power ...",
+        "url": "https://events.static.linuxfound.org/images/stories/slides/lfcs2013_wysocki.pdf",
+        "snippet": "Wysocki (Intel OTC) ACPI 5 Features Implementation April 16, 2013 1 / 21 Outline 1 Introduction: ACPI 5 ACPI Overview What’s New In ACPI 5 2 ACPI GPIO And SPB Support In The Kernel Representation Of Controllers Enumeration Of Client Devices 3 ACPI Device Power Management ACPI PM Control Interface ACPI PM Domain 4 Resources Rafael J. Wysocki (Intel OTC) ACPI 5 Features Implementation April 16, 2013 5 / 21 Introduction: ACPI 5 What’s New In ACPI 5 GPIO And Simple Peripheral Bus (SPB) Support Connection Resources 1 GPIO and SPB controllers as devices in the ACPI Namespace. Wysocki (Intel OTC) ACPI 5 Features Implementation April 16, 2013 11 / 21 ACPI GPIO And SPB Support In The Kernel Enumeration Of Client Devices GPIO Pin Lookup Linux device hierarchy ACPI Namespace PNPID struct platform_device _CRS GpioIo INT33C7 struct gpio_chip GPIO number acpi_get_gpio() Rafael J.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4286
+      },
+      {
+        "title": "5. ACPI considerations for PCI host bridges — The Linux Kernel 5.2.0-rc6-next-20190626+ documentation",
+        "url": "https://www.infradead.org/~mchehab/rst_conversion/PCI/acpi-info.html",
+        "snippet": "ACPI considerations for PCI host bridges. The general rule is that the ACPI namespace should describe everything the OS might use unless there’s another way for the OS to find it [1, 2]. For example, there’s no standard hardware mechanism for enumerating PCI host bridges, so the ACPI namespace must describe each host bridge, the method for accessing PCI config space below it, the address space windows the host bridge forwards to PCI (using \\_CRS), and the routing of legacy INTx interrupts (using \\_PRT). The OS can discover them via the standard PCI enumeration mechanism, using config accesses to discover and identify devices and read and size their BARs. However, ACPI may describe PCI devices if it provides power management or hotplug functionality for them or if the device has INTx interrupts connected by platform interrupt controllers and a \\_PRT is needed to describe those connections.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "ACPI Based Device Enumeration - The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/firmware-guide/acpi/enumeration.html",
+        "snippet": "- ACPI Device Tree - Representation of ACPI Namespace. Generally speaking, there are two categories of devices in a system in which ACPI is used as an interface between the platform firmware and the OS: Devices that can be discovered and enumerated natively, through a protocol defined for the specific bus that they are on (for example, configuration space in PCI), without the platform firmware assistance, and devices that need to be described by the platform firmware so that they can be discovered. Those `struct acpi_device` objects are never used for binding drivers to natively discoverable devices, because they are represented by other types of device objects (for example, `struct pci_dev` for PCI devices) that are bound to by device drivers (the corresponding `struct acpi_device` object is then used as an additional source of information on the configuration of the given device).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[v2,13/39] acpi: Add a binding for ACPI settings in the device tree",
+        "url": "https://patchwork.ozlabs.org/patch/1251176",
+        "snippet": "Devices need to report various identifiers in the ACPI tables. Rather than hard-coding these in drivers it is typically better to put them in the device",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4071
+      },
+      {
+        "title": "Reverse engineering ACPI functionality on a Toshiba Z830 Ultrabook",
+        "url": "https://vorpal.se/posts/2022/aug/21/reverse-engineering-acpi-functionality-on-a-toshiba-z830-ultrabook",
+        "snippet": "Then I spend some time reading the Linux kernel driver toshiba\\_acpi that provided some working features to familiarise myself with how ACPI on Toshiba laptops work. The Toshiba driver on for ACPI on Windows is named `TVALZ.sys` by the way (at least on this particular laptop) in case you want to figure out which processes opens handles to it. According to the Windows program used to control the feature the setting will not take effect until the battery has been discharged to around 50%. The `toshiba_acpi` driver supports controlling the panel power via SCI calls (SCI\\_PANEL\\_POWER\\_ON). The `toshiba_acpi` driver currently uses `{HCI_SET, HCI_HOTKEY_EVENT, HCI_HOTKEY_ENABLE, 0, ...}` to enable the `Fn+` hotkeys, where `HCI_HOTKEY_ENABLE = 0x09`. `REG1` and `REG2` give return code `TOS_INPUT_DATA_ERROR` on this laptop, but presumably they are needed on some laptops, or the Windows program would not be attempting to use them. Linux currently only uses `HCI_GET` on `HCI_SYSTEM_INFO`, Windows sometimes uses `HCI_SET` too:.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4286
+      },
+      {
+        "title": "Hid over I2C and ACPI interaction - Google Groups",
+        "url": "https://groups.google.com/g/linux.kernel/c/cHP8CfW99qI",
+        "snippet": "A HID over I2C device has to present the Compatibility ID \"PNP0C50\" in the _CRS block, the address, the adapter and the gpioInt are defined (or referenced).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "6. Device Configuration — ACPI Specification 6.4 documentation",
+        "url": "https://uefi.org/htmlspecs/ACPI_Spec_6_4_html/06_Device_Configuration/Device_Configuration.html",
+        "snippet": "This type of Device object is enumerated by the ACPI subsystem (OSPM), and contains a Hardware ID object (_HID). An Agumented Device Descriptor, which contains",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Programmatic Parsing of ACPI _CRS Resource Templates in WDM ...",
+        "url": "https://learn.microsoft.com/en-us/answers/questions/5889612/programmatic-parsing-of-acpi-crs-resource-template",
+        "snippet": "Windows does not expose a public kernel‑mode parser for ACPI _CRS buffers; the supported approach is to use the Plug and Play manager's resource",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6643
+      },
+      {
+        "title": "HID over I2C: ACPI changes - of NetBSD Mailing Lists",
+        "url": "https://mail-index.netbsd.org/tech-kern/2017/12/01/msg022655.html",
+        "snippet": "For HID devices this is the HID descriptor address, found in the _DSM. ... So we need to add device-specific ACPI parsing and device properly.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3429
+      },
+      {
+        "title": "acpi-device-specific-methods.md - windows-driver-docs-pr - GitHub",
+        "url": "https://github.com/MicrosoftDocs/windows-driver-docs/blob/staging/windows-driver-docs-pr/bringup/acpi-device-specific-methods.md",
+        "snippet": "HIDI2C Device-Specific Method (_DSM), The _DSM method is defined in section 9.14.1, \"_DSM (Device Specific Method)\", in the ACPI 5.0 specification. This",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6857
+      },
+      {
+        "title": "ACPI: How to parse the output buffer of _CRS function? - NTDEV",
+        "url": "https://community.osr.com/t/acpi-how-to-parse-the-output-buffer-of-crs-function/51885",
+        "snippet": "You can look in the ACPI spec to learn how to parse a _CRS table. That would tell you which resources are memory, which are I/O, and what the fields mean.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3643
+      },
+      {
+        "title": "Hid over I2C and ACPI interaction - Google Groups",
+        "url": "https://groups.google.com/g/linux.kernel/c/cHP8CfW99qI",
+        "snippet": "A HID over I2C device has to present the Compatibility ID \"PNP0C50\" in the _CRS block, the address, the adapter and the gpioInt are defined (or referenced).",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "exa": [
+      {
+        "title": "ACPI Based Device Enumeration — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/6.19-rc7/firmware-guide/acpi/enumeration.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6357
+      },
+      {
+        "title": "Linux-Kernel Archive: [PATCH 3/3] ACPI: Evaluate _CRS while creating device node objects",
+        "url": "https://lkml.iu.edu/hypermail/linux/kernel/1211.1/01597.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5857
+      },
+      {
+        "title": "6. ACPI considerations for PCI host bridges — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/6.19-rc7/PCI/acpi-info.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5929
+      },
+      {
+        "title": "Linux-Kernel Archive: [no subject]",
+        "url": "https://lkml.iu.edu/1207.0/01870.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.5214
+      },
+      {
+        "title": "drivers/pci/pci-acpi.c at master · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/master/drivers/pci/pci-acpi.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6643
+      },
+      {
+        "title": "Other ACPI Namespace Objects - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/bringup/other-acpi-namespace-objects",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6857
+      },
+      {
+        "title": "6. ACPI considerations for PCI host bridges — The Linux Kernel  documentation",
+        "url": "https://kernel.org/doc/html/latest/PCI/acpi-info.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "ACPI Device Tree - Representation of ACPI Namespace — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/6.19-rc7/firmware-guide/acpi/namespace.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6357
+      },
+      {
+        "title": "6. Device Configuration — ACPI Specification 6.5 documentation",
+        "url": "https://uefi.org/specs/ACPI/6.5/06_Device_Configuration.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3429
+      },
+      {
+        "title": "include/acpi/acpi_bus.h at master · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/master/include/acpi/acpi_bus.h",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6429
+      },
+      {
+        "title": "Other ACPI Namespace Objects - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/bringup/other-acpi-namespace-objects",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "HIDI2C Device-Specific Method (_DSM) - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/bringup/hidi2c-device-specific-method---dsm-",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6643
+      },
+      {
+        "title": "Device-specific methods (_DSM)",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/bringup/acpi-device-specific-methods",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6214
+      },
+      {
+        "title": "usb/UcmUcsiAcpiSample/UcmUcsiAcpiSample/Acpi.cpp at main · microsoft/Windows-driver-samples",
+        "url": "https://github.com/microsoft/Windows-driver-samples/blob/main/usb/UcmUcsiAcpiSample/UcmUcsiAcpiSample/Acpi.cpp",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6643
+      },
+      {
+        "title": "9. ACPI-Defined Devices and Device-Specific Objects — ACPI Specification 6.5 documentation",
+        "url": "https://uefi.org/specs/ACPI/6.5/09_ACPI_Defined_Devices_and_Device_Specific_Objects.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3429
+      }
+    ],
+    "grok": []
+  }
+}
