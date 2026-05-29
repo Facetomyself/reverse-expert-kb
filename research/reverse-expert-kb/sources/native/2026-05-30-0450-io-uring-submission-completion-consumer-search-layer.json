@@ -1,0 +1,463 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "io_uring reverse engineering SQE CQE submission completion user_data consumer lifetime",
+    "Linux io_uring submit completion queue user_data kernel documentation liburing man page",
+    "io_uring cancellation timeout multishot CQE user_data buffer selection reverse engineering"
+  ],
+  "count": 26,
+  "results": [
+    {
+      "title": "io_uring and networking in 2023 · axboe/liburing Wiki - GitHub",
+      "url": "https://github.com/axboe/liburing/wiki/io_uring-and-networking-in-2023",
+      "snippet": "By default, any SQE submitted will yield a single completion event, a CQE. For example, an application submits a read, and once that read",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.72
+    },
+    {
+      "title": "Reliable cancelation or wait for completion of specified sqe · axboe/liburing · Discussion #608 · GitHub",
+      "url": "https://github.com/axboe/liburing/discussions/608",
+      "snippet": "## Navigation Menu. # Search code, repositories, users, issues, pull requests... ## Footer. 3. Is there a way to wait ( synchronously / blocking ) for specified sqe's completion? When IORING\\_OP\\_ASYNC\\_CANCEL failed, I must wait for the task's completion. For cancelations that return `0` then both will have been posted by the time submission returns, for `-EALREADY` it may take a bit of time to do so. If you need sync cancelation, wrap it in something that submits the cancelation request for a specific user\\_data and then also waits for the completion event of that user\\_data to be posted? io\\_uring doesn't provide any way to do that, and I don't think it should as you can implement it on top of the existing interface. | then also waits for the completion event of that user\\_data to be posted? We should better write it in the man page. In this case, users don't have to find the result in CQ. ### Footer navigation.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.69
+    },
+    {
+      "title": "include/uapi/linux/io_uring.h at master · torvalds/linux",
+      "url": "https://github.com/torvalds/linux/blob/master/include/uapi/linux/io_uring.h",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "io_uring/io_uring.c at master · torvalds/linux",
+      "url": "https://github.com/torvalds/linux/blob/master/io_uring/io_uring.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "fs/io_uring.c at 2b188cc1bb857a9d4701ae59aa7768b5124e262e · torvalds/linux",
+      "url": "https://github.com/torvalds/linux/blob/2b188cc1bb857a9d4701ae59aa7768b5124e262e/fs/io_uring.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "io_uring for Prod APIs: Lower p99, Happier CPUs | by Nikulsinh Rajput",
+      "url": "https://medium.com/@hadiyolworld007/io-uring-for-prod-apis-lower-p99-happier-cpus-5d2516672778",
+      "snippet": "Register the hot set of sockets and I/O buffers. Switch to multishot accept/recv to slash wakeups. Use timeouts (linked SQEs) instead of ad-hoc",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.46
+    },
+    {
+      "title": "io_uring(7) - Linux manual page",
+      "url": "https://man7.org/linux/man-pages/man7/io_uring.7.html",
+      "snippet": "The general programming model you need to follow for io_uring is outlined below • Set up shared buffers with io_uring_setup(2) and mmap(2), mapping into user space shared buffers for the submission queue (SQ) and the completion queue (CQ). • For every I/O request you need to make (like to read a file, write a file, accept a socket connection, etc), you create a submission queue entry, or SQE, describe the I/O operation you need to get done and add it to the tail of the submission queue (SQ). • After you add one or more SQEs, you need to call io_uring_enter(2) to tell the kernel to dequeue your I/O requests off the SQ and begin processing them. • For each SQE you submit, once it is done processing the request, the kernel places a completion queue event or CQE at the tail of the completion queue or CQ.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.45
+    },
+    {
+      "title": "io_uring(7) — liburing-dev — Debian testing — Debian Manpages",
+      "url": "https://manpages.debian.org/testing/liburing-dev/io_uring.7.en.html",
+      "snippet": "* Set up shared buffers with io\\_uring\\_setup(2) and mmap(2), mapping into user space shared buffers for the submission queue (SQ) and the completion queue (CQ). * For every I/O request you need to make (like to read a file, write a file, accept a socket connection, etc), you create a submission queue entry, or SQE, describe the I/O operation you need to get done and add it to the tail of the submission queue (SQ). For instance, a SQE with the *opcode* set to **IORING\\_OP\\_READ** will request a read operation to be issued that is similar to the read(2) system call. * After you add one or more SQEs, you need to call io\\_uring\\_enter(2) to tell the kernel to dequeue your I/O requests off the SQ and begin processing them. * For each SQE you submit, once it is done processing the request, the kernel places a completion queue event or CQE at the tail of the completion queue or CQ.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "[PDF] What's new with io_uring - kernel.dk",
+      "url": "https://kernel.dk/axboe-kr2022.pdf",
+      "snippet": "Example #include <liburing.h> struct io_uring_sqe *sqe; struct io_uring_cqe *cqe; struct io_uring ring; io_uring_queue_init(8, &ring, 0); /* get request slot, prepare request */ sqe = io_uring_get_sqe(&ring); io_uring_prep_read(sqe, fd, buf, sizeof(buf), offset); /* submit request(s) to the kernel */ io_uring_submit(&ring); /* wait for a completion */ io_uring_wait_cqe(&ring, &cqe); if (cqe->res < 0) printf(\"Read error: %s\\n\", strerror(-cqe->res); else printf(\"Read %d from file\\n\", cqe->res); /* mark cqe as seen, increments CQ ring head */ io_uring_cqe_seen(&ring, cqe); Lifetimes SQE lifetime is from get → submit.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "[PDF] Efficient IO with io_uring - kernel.dk",
+      "url": "https://kernel.dk/io_uring.pdf",
+      "snippet": "The params structure is both read and written by the kernel, it is deﬁned as follows: struct io_uring_params { __u32 sq_entries; __u32 cq_entries; __u32 flags; __u32 sq_thread_cpu; __u32 sq_thread_idle; __u32 resv[5]; struct io_sqring_offsets sq_off; struct io_cqring_offsets cq_off; }; The sq_entries will be ﬁlled out by the kernel, letting the application know how many sqe entries this ring supports. The io_sqring_oﬀsets structure looks as follows: struct io_sqring_offsets { __u32 head; /* offset of ring head */ __u32 tail; /* offset of ring tail */ __u32 ring_mask; /* ring mask value */ __u32 ring_entries; /* entries in ring */ __u32 flags; /* ring flags */ __u32 dropped; /* number of sqes not submitted */ __u32 array; /* sqe index array / __u32 resv1; __u64 resv2; }; To access this memory, the application must call mmap(2) using the io_uring ﬁle descriptor and the memory oﬀset associated with the SQ ring. The kernel will modify CQ ring tail directly, hence completions can be consumed by the application without necessarily having to call io_uring_enter(2) with IORING_ENTER_GETEVENTS set. For both use cases, the application must call io_uring_cqe_seen(3) once it is done with this completion event.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "Io uring - dankwiki, the wiki of nick black",
+      "url": "https://nick-black.com/dankwiki/index.php?title=Io_uring",
+      "snippet": "Central to every uring are two ringbuffers holding CQEs (Completion Queue Entries) and SQE (Submission Queue Entries) descriptors (as best I can",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "Package liburing-devel - man pages - ManKier",
+      "url": "https://www.mankier.com/package/liburing-devel",
+      "snippet": "Package liburing-devel ; io_uring_cq_ready, returns number of unconsumed ready entries in the CQ ring ; io_uring_cqe_get_data, get user data for completion event.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "An Introduction to the io_uring Asynchronous I/O Framework | linux",
+      "url": "https://blogs.oracle.com/linux/an-introduction-to-the-io-uring-asynchronous-io-framework",
+      "snippet": "An io_uring instance has two rings, a submission queue (SQ) and a completion queue (CQ), shared between the kernel and the application. The",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "io_uring_sqe_set_data(3) - Linux manual page",
+      "url": "https://man7.org/linux/man-pages/man3/io_uring_sqe_set_data.3.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.36
+    },
+    {
+      "title": "io_uring_cancelation(7) — liburing-dev — Debian testing — Debian Manpages",
+      "url": "https://manpages.debian.org/testing/liburing-dev/io_uring_cancelation.7.en.html",
+      "snippet": "/ testing / liburing-dev / io\\_uring\\_cancelation(7). | io\\_uring\\_cancelation(7) | Linux Programmer's Manual | io\\_uring\\_cancelation(7) |. io\\_uring\\_cancelation - io\\_uring request cancelation overview. io\\_uring provides mechanisms to cancel in-flight requests before they complete naturally. This is useful for implementing timeouts, handling connection drops, closing connections that go away, or when a request is no longer needed. The primary cancelation mechanism is **IORING\\_OP\\_ASYNC\\_CANCEL** (set up with io\\_uring\\_prep\\_cancel(3) or related functions). **The canceled request's CQE:**. * *res* is set to **-ECANCELED** (or occasionally **-EINTR** if the operation was already in progress). * *res* is 0 on success (request was found and canceled). * *res* is **-ENOENT** if no matching request was found. * *res* is **-EALREADY** if the request was found but already completing. The application may receive the cancel CQE before or after the canceled request's CQE. When an io\\_uring instance is closed (via io\\_uring\\_queue\\_exit(3) or closing the ring file descriptor), all pending requests are automatically canceled.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.36
+    },
+    {
+      "title": "io_uring_enter(2) - Linux manual page",
+      "url": "https://man7.org/linux/man-pages/man2/io_uring_enter.2.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "io_uring_submit(3) - Linux manual page",
+      "url": "https://man7.org/linux/man-pages/man3/io_uring_submit.3.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "io_uring_setup(2) - Linux manual page",
+      "url": "https://man7.org/linux/man-pages/man2/io_uring_setup.2.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Life of an io_uring Request - Linux Kernel Internals",
+      "url": "https://kernel-internals.org/io-uring/life-of-request/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Interface and implementation of io_uring - SoByte",
+      "url": "https://www.sobyte.net/post/2022-04/io-uring/",
+      "snippet": "",
+      "published_date": "2022-04-09T14:50:25.000Z",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "[PATCH v4] io_uring: add support for multishot timeouts",
+      "url": "https://lore.gnuweeb.org/io-uring/20230418225817.1905027-1-davidhwei@meta.com/T/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "[PATCH v4] io_uring: add support for multishot timeouts",
+      "url": "https://lore.gnuweeb.org/io-uring/168186835123.340981.13070185209888390249.b4-ty@kernel.dk/T/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "io_uring_prep_cancel64(3) - Linux manual page",
+      "url": "https://man7.org/linux/man-pages/man3/io_uring_prep_cancel64.3.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "io_uring_cancelation(7) — Arch manual pages",
+      "url": "https://man.archlinux.org/man/extra/liburing/io_uring_cancelation.7.en",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "io_uring: multishot recv - LWN.net",
+      "url": "https://lwn.net/Articles/899498",
+      "snippet": "This series adds support for multishot recv/recvmsg to io_uring. The idea is that generally socket applications will be continually enqueuing a new recv() when",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.33
+    },
+    {
+      "title": "Multishot, Linked Requests, and Probing - Linux Kernel Internals",
+      "url": "https://kernel-internals.org/io-uring/multishot-ops/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "io_uring_enter(2) - Linux manual page",
+        "url": "https://man7.org/linux/man-pages/man2/io_uring_enter.2.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "io_uring_sqe_set_data(3) - Linux manual page",
+        "url": "https://man7.org/linux/man-pages/man3/io_uring_sqe_set_data.3.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.36
+      },
+      {
+        "title": "include/uapi/linux/io_uring.h at master · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/master/include/uapi/linux/io_uring.h",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "io_uring_submit(3) - Linux manual page",
+        "url": "https://man7.org/linux/man-pages/man3/io_uring_submit.3.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "io_uring_setup(2) - Linux manual page",
+        "url": "https://man7.org/linux/man-pages/man2/io_uring_setup.2.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Life of an io_uring Request - Linux Kernel Internals",
+        "url": "https://kernel-internals.org/io-uring/life-of-request/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "io_uring/io_uring.c at master · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/master/io_uring/io_uring.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "io_uring(7) - Linux manual page",
+        "url": "https://man7.org/linux/man-pages/man7/io_uring.7.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "fs/io_uring.c at 2b188cc1bb857a9d4701ae59aa7768b5124e262e · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/2b188cc1bb857a9d4701ae59aa7768b5124e262e/fs/io_uring.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "Interface and implementation of io_uring - SoByte",
+        "url": "https://www.sobyte.net/post/2022-04/io-uring/",
+        "snippet": "",
+        "published_date": "2022-04-09T14:50:25.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "Multishot, Linked Requests, and Probing - Linux Kernel Internals",
+        "url": "https://kernel-internals.org/io-uring/multishot-ops/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "[PATCH v4] io_uring: add support for multishot timeouts",
+        "url": "https://lore.gnuweeb.org/io-uring/20230418225817.1905027-1-davidhwei@meta.com/T/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "[PATCH v4] io_uring: add support for multishot timeouts",
+        "url": "https://lore.gnuweeb.org/io-uring/168186835123.340981.13070185209888390249.b4-ty@kernel.dk/T/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "io_uring_prep_cancel64(3) - Linux manual page",
+        "url": "https://man7.org/linux/man-pages/man3/io_uring_prep_cancel64.3.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "io_uring_cancelation(7) — Arch manual pages",
+        "url": "https://man.archlinux.org/man/extra/liburing/io_uring_cancelation.7.en",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      }
+    ],
+    "tavily": [
+      {
+        "title": "io_uring(7) - Linux manual page",
+        "url": "https://man7.org/linux/man-pages/man7/io_uring.7.html",
+        "snippet": "The general programming model you need to follow for io_uring is outlined below • Set up shared buffers with io_uring_setup(2) and mmap(2), mapping into user space shared buffers for the submission queue (SQ) and the completion queue (CQ). • For every I/O request you need to make (like to read a file, write a file, accept a socket connection, etc), you create a submission queue entry, or SQE, describe the I/O operation you need to get done and add it to the tail of the submission queue (SQ). • After you add one or more SQEs, you need to call io_uring_enter(2) to tell the kernel to dequeue your I/O requests off the SQ and begin processing them. • For each SQE you submit, once it is done processing the request, the kernel places a completion queue event or CQE at the tail of the completion queue or CQ.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.45
+      },
+      {
+        "title": "io_uring(7) — liburing-dev — Debian testing — Debian Manpages",
+        "url": "https://manpages.debian.org/testing/liburing-dev/io_uring.7.en.html",
+        "snippet": "* Set up shared buffers with io\\_uring\\_setup(2) and mmap(2), mapping into user space shared buffers for the submission queue (SQ) and the completion queue (CQ). * For every I/O request you need to make (like to read a file, write a file, accept a socket connection, etc), you create a submission queue entry, or SQE, describe the I/O operation you need to get done and add it to the tail of the submission queue (SQ). For instance, a SQE with the *opcode* set to **IORING\\_OP\\_READ** will request a read operation to be issued that is similar to the read(2) system call. * After you add one or more SQEs, you need to call io\\_uring\\_enter(2) to tell the kernel to dequeue your I/O requests off the SQ and begin processing them. * For each SQE you submit, once it is done processing the request, the kernel places a completion queue event or CQE at the tail of the completion queue or CQ.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Package liburing-devel - man pages - ManKier",
+        "url": "https://www.mankier.com/package/liburing-devel",
+        "snippet": "Package liburing-devel ; io_uring_cq_ready, returns number of unconsumed ready entries in the CQ ring ; io_uring_cqe_get_data, get user data for completion event.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      },
+      {
+        "title": "An Introduction to the io_uring Asynchronous I/O Framework | linux",
+        "url": "https://blogs.oracle.com/linux/an-introduction-to-the-io-uring-asynchronous-io-framework",
+        "snippet": "An io_uring instance has two rings, a submission queue (SQ) and a completion queue (CQ), shared between the kernel and the application. The",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      },
+      {
+        "title": "[PDF] Efficient IO with io_uring - kernel.dk",
+        "url": "https://kernel.dk/io_uring.pdf",
+        "snippet": "The params structure is both read and written by the kernel, it is deﬁned as follows: struct io_uring_params { __u32 sq_entries; __u32 cq_entries; __u32 flags; __u32 sq_thread_cpu; __u32 sq_thread_idle; __u32 resv[5]; struct io_sqring_offsets sq_off; struct io_cqring_offsets cq_off; }; The sq_entries will be ﬁlled out by the kernel, letting the application know how many sqe entries this ring supports. The io_sqring_oﬀsets structure looks as follows: struct io_sqring_offsets { __u32 head; /* offset of ring head */ __u32 tail; /* offset of ring tail */ __u32 ring_mask; /* ring mask value */ __u32 ring_entries; /* entries in ring */ __u32 flags; /* ring flags */ __u32 dropped; /* number of sqes not submitted */ __u32 array; /* sqe index array / __u32 resv1; __u64 resv2; }; To access this memory, the application must call mmap(2) using the io_uring ﬁle descriptor and the memory oﬀset associated with the SQ ring. The kernel will modify CQ ring tail directly, hence completions can be consumed by the application without necessarily having to call io_uring_enter(2) with IORING_ENTER_GETEVENTS set. For both use cases, the application must call io_uring_cqe_seen(3) once it is done with this completion event.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "io_uring(7) - Linux manual page",
+        "url": "https://man7.org/linux/man-pages/man7/io_uring.7.html",
+        "snippet": "The general programming model you need to follow for io_uring is outlined below • Set up shared buffers with io_uring_setup(2) and mmap(2), mapping into user space shared buffers for the submission queue (SQ) and the completion queue (CQ). • For every I/O request you need to make (like to read a file, write a file, accept a socket connection, etc), you create a submission queue entry, or SQE, describe the I/O operation you need to get done and add it to the tail of the submission queue (SQ). • After you add one or more SQEs, you need to call io_uring_enter(2) to tell the kernel to dequeue your I/O requests off the SQ and begin processing them. • For each SQE you submit, once it is done processing the request, the kernel places a completion queue event or CQE at the tail of the completion queue or CQ.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "io_uring(7) — liburing-dev — Debian testing — Debian Manpages",
+        "url": "https://manpages.debian.org/testing/liburing-dev/io_uring.7.en.html",
+        "snippet": "* Set up shared buffers with io\\_uring\\_setup(2) and mmap(2), mapping into user space shared buffers for the submission queue (SQ) and the completion queue (CQ). * For every I/O request you need to make (like to read a file, write a file, accept a socket connection, etc), you create a submission queue entry, or SQE, describe the I/O operation you need to get done and add it to the tail of the submission queue (SQ). For instance, a SQE with the *opcode* set to **IORING\\_OP\\_READ** will request a read operation to be issued that is similar to the read(2) system call. * After you add one or more SQEs, you need to call io\\_uring\\_enter(2) to tell the kernel to dequeue your I/O requests off the SQ and begin processing them. * For each SQE you submit, once it is done processing the request, the kernel places a completion queue event or CQE at the tail of the completion queue or CQ.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "io_uring and networking in 2023 · axboe/liburing Wiki - GitHub",
+        "url": "https://github.com/axboe/liburing/wiki/io_uring-and-networking-in-2023",
+        "snippet": "By default, any SQE submitted will yield a single completion event, a CQE. For example, an application submits a read, and once that read",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.72
+      },
+      {
+        "title": "Io uring - dankwiki, the wiki of nick black",
+        "url": "https://nick-black.com/dankwiki/index.php?title=Io_uring",
+        "snippet": "Central to every uring are two ringbuffers holding CQEs (Completion Queue Entries) and SQE (Submission Queue Entries) descriptors (as best I can",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "An Introduction to the io_uring Asynchronous I/O Framework | linux",
+        "url": "https://blogs.oracle.com/linux/an-introduction-to-the-io-uring-asynchronous-io-framework",
+        "snippet": "An io_uring instance has two rings, a submission queue (SQ) and a completion queue (CQ), shared between the kernel and the application. The",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Reliable cancelation or wait for completion of specified sqe · axboe/liburing · Discussion #608 · GitHub",
+        "url": "https://github.com/axboe/liburing/discussions/608",
+        "snippet": "## Navigation Menu. # Search code, repositories, users, issues, pull requests... ## Footer. 3. Is there a way to wait ( synchronously / blocking ) for specified sqe's completion? When IORING\\_OP\\_ASYNC\\_CANCEL failed, I must wait for the task's completion. For cancelations that return `0` then both will have been posted by the time submission returns, for `-EALREADY` it may take a bit of time to do so. If you need sync cancelation, wrap it in something that submits the cancelation request for a specific user\\_data and then also waits for the completion event of that user\\_data to be posted? io\\_uring doesn't provide any way to do that, and I don't think it should as you can implement it on top of the existing interface. | then also waits for the completion event of that user\\_data to be posted? We should better write it in the man page. In this case, users don't have to find the result in CQ. ### Footer navigation.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.69
+      },
+      {
+        "title": "io_uring_cancelation(7) — liburing-dev — Debian testing — Debian Manpages",
+        "url": "https://manpages.debian.org/testing/liburing-dev/io_uring_cancelation.7.en.html",
+        "snippet": "/ testing / liburing-dev / io\\_uring\\_cancelation(7). | io\\_uring\\_cancelation(7) | Linux Programmer's Manual | io\\_uring\\_cancelation(7) |. io\\_uring\\_cancelation - io\\_uring request cancelation overview. io\\_uring provides mechanisms to cancel in-flight requests before they complete naturally. This is useful for implementing timeouts, handling connection drops, closing connections that go away, or when a request is no longer needed. The primary cancelation mechanism is **IORING\\_OP\\_ASYNC\\_CANCEL** (set up with io\\_uring\\_prep\\_cancel(3) or related functions). **The canceled request's CQE:**. * *res* is set to **-ECANCELED** (or occasionally **-EINTR** if the operation was already in progress). * *res* is 0 on success (request was found and canceled). * *res* is **-ENOENT** if no matching request was found. * *res* is **-EALREADY** if the request was found but already completing. The application may receive the cancel CQE before or after the canceled request's CQE. When an io\\_uring instance is closed (via io\\_uring\\_queue\\_exit(3) or closing the ring file descriptor), all pending requests are automatically canceled.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.36
+      },
+      {
+        "title": "[PDF] What's new with io_uring - kernel.dk",
+        "url": "https://kernel.dk/axboe-kr2022.pdf",
+        "snippet": "Example #include <liburing.h> struct io_uring_sqe *sqe; struct io_uring_cqe *cqe; struct io_uring ring; io_uring_queue_init(8, &ring, 0); /* get request slot, prepare request */ sqe = io_uring_get_sqe(&ring); io_uring_prep_read(sqe, fd, buf, sizeof(buf), offset); /* submit request(s) to the kernel */ io_uring_submit(&ring); /* wait for a completion */ io_uring_wait_cqe(&ring, &cqe); if (cqe->res < 0) printf(\"Read error: %s\\n\", strerror(-cqe->res); else printf(\"Read %d from file\\n\", cqe->res); /* mark cqe as seen, increments CQ ring head */ io_uring_cqe_seen(&ring, cqe); Lifetimes SQE lifetime is from get → submit.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "io_uring for Prod APIs: Lower p99, Happier CPUs | by Nikulsinh Rajput",
+        "url": "https://medium.com/@hadiyolworld007/io-uring-for-prod-apis-lower-p99-happier-cpus-5d2516672778",
+        "snippet": "Register the hot set of sockets and I/O buffers. Switch to multishot accept/recv to slash wakeups. Use timeouts (linked SQEs) instead of ad-hoc",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.46
+      },
+      {
+        "title": "io_uring: multishot recv - LWN.net",
+        "url": "https://lwn.net/Articles/899498",
+        "snippet": "This series adds support for multishot recv/recvmsg to io_uring. The idea is that generally socket applications will be continually enqueuing a new recv() when",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.33
+      }
+    ],
+    "grok": []
+  }
+}
