@@ -13,6 +13,7 @@ Related pages:
 - topics/native-dbus-service-activation-to-method-consumer-workflow-note.md
 - topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md
 - topics/native-windows-named-pipe-impersonation-to-handler-consumer-workflow-note.md
+- topics/native-alpc-port-message-to-handler-consumer-workflow-note.md
 - topics/native-com-activation-to-method-consumer-workflow-note.md
 - topics/native-macos-servicemanagement-xpc-helper-consumer-workflow-note.md
 - topics/native-callback-registration-to-event-loop-consumer-workflow-note.md
@@ -94,6 +95,10 @@ A Windows service/helper reminder now worth preserving inside family 5 is the na
 A macOS service/helper reminder now worth preserving inside family 5 is the ServiceManagement / launchd / XPC seam:
 - helper registration, launchd domain state, Mach-service or XPC endpoint publication, helper process identity, client trust acceptance, identity-gate / code-requirement posture, request ownership, method entry, reply/lifecycle behavior, and helper-owned effect are different proof objects
 - use `topics/native-macos-servicemanagement-xpc-helper-consumer-workflow-note.md` when the visible API is `SMAppService`, legacy `SMJobBless`, LaunchDaemon / LaunchAgent `MachServices`, bundled `XPCServices/*.xpc`, `NSXPCConnection`, `NSXPCListener`, `NSXPCListener.setConnectionCodeSigningRequirement(_:)`, `NSXPCConnection.setCodeSigningRequirement(_:)`, or `xpc_connection_create_mach_service(...)`, and the current liar is whether **registered != domain-live != endpoint-published != launched-identity != accepted-client/identity-gated != request-owned != method-entered != replied/lifecycle != consumed/effected** was flattened into one claim
+
+A Windows ALPC / local-service IPC reminder now worth preserving inside family 5 is the port/message-to-handler seam:
+- ALPC connection-port visibility, accepted connection truth, receive-side message truth, attribute/view/handle/context decode truth, handler dispatch, reply/impersonation truth, and later effect ownership are different proof objects
+- use `topics/native-alpc-port-message-to-handler-consumer-workflow-note.md` when the visible API is `NtAlpcCreatePort`, `NtAlpcConnectPort`, `NtAlpcAcceptConnectPort`, `NtAlpcSendWaitReceivePort`, `NtRequestWaitReplyPort`, `NtReplyWaitReceivePort`, ALPC ETW send/receive/wait events, or `\\RPC Control` port surfaces, and the current liar is whether **port visible != connection accepted != message received != attributes/context decoded != handler dispatched != reply/impersonation/effect owned** was flattened into one claim
 
 A compact operator ladder for this branch is:
 
@@ -238,6 +243,7 @@ Possible next handoff:
 - `topics/native-dbus-service-activation-to-method-consumer-workflow-note.md` if the service-owned question narrows specifically into D-Bus activation, name-owner, object/interface/member, and method-dispatch truth
 - `topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md` if the service-owned question narrows specifically into AF_UNIX endpoint, peer credential, ancillary-data, fd-lineage, and handler-consumer truth
 - `topics/native-windows-named-pipe-impersonation-to-handler-consumer-workflow-note.md` if the service-owned question narrows specifically into Windows named-pipe instance, request-read, client identity / impersonation level, impersonation lifetime, and in-lifetime handler operation truth
+- `topics/native-alpc-port-message-to-handler-consumer-workflow-note.md` if the service-owned question narrows specifically into Windows ALPC connection/communication ports, message id/callback id, message attributes/views/handles, reply/wait correlation, or ALPC client identity / impersonation truth
 - `topics/native-callback-registration-to-event-loop-consumer-workflow-note.md`
 - `topics/protocol-parser-to-state-edge-localization-workflow-note.md`
 - `topics/malware-reporting-and-handoff-evidence-packaging-workflow-note.md`
@@ -275,6 +281,7 @@ Primary notes:
 - `topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md`
 - `topics/native-dbus-service-activation-to-method-consumer-workflow-note.md` when the service ingress is D-Bus-shaped and the main uncertainty is bus instance / activation / current owner / method delivery / binding dispatch before one handler-owned consumer
 - `topics/native-windows-named-pipe-impersonation-to-handler-consumer-workflow-note.md` when the service/helper ingress is named-pipe-shaped and the main uncertainty is pipe instance / client request / identity or impersonation level / impersonation lifetime / first handler-owned operation
+- `topics/native-alpc-port-message-to-handler-consumer-workflow-note.md` when the service/helper ingress is ALPC-shaped and the main uncertainty is port role / accepted connection / delivered message / attribute or view or handle decode / handler dispatch / reply or impersonation ownership
 
 Routing reminder:
 - when the case is Windows-service-shaped, keep **dispatcher connection**, **`ServiceMain` entry**, **handler-registration / accepted-controls truth**, **control-handler entry**, **worker handoff**, and **first worker-owned consumer** separate instead of flattening them into one vague service path
