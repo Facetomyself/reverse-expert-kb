@@ -31,6 +31,8 @@
 - `clash.hk.zhangxuemin.work`
 - `cliproxy-cn.zhangxuemin.work`
 - `claw-cn.zhangxuemin.work`
+- `cpam.zhangxuemin.work`
+- `cpam-cn.zhangxuemin.work`
 - `tmail.zhangxuemin.work`
 - `tmail-front.zhangxuemin.work`
 

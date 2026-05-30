@@ -1,8 +1,8 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 24,
+  "record_count": 26,
   "type_counts": {
-    "A": 14,
+    "A": 16,
     "AAAA": 2,
     "MX": 4,
     "TXT": 4
@@ -53,6 +53,22 @@
       "ttl": 300,
       "proxied": false,
       "comment": "CN edge via hk-relay for cliproxy"
+    },
+    {
+      "name": "cpam-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN edge via hk-relay for CPA Manager Plus"
+    },
+    {
+      "name": "cpam.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "oracle-proxy CPA Manager Plus"
     },
     {
       "name": "derp.zhangxuemin.work",

@@ -48,6 +48,8 @@
 - `clash.hk.zhangxuemin.work`
 - `cliproxy-cn.zhangxuemin.work`
 - `claw-cn.zhangxuemin.work`
+- `cpam.zhangxuemin.work`
+- `cpam-cn.zhangxuemin.work`
 - `tmail.zhangxuemin.work`
 - `tmail-front.zhangxuemin.work`
 
@@ -127,6 +129,7 @@
 - `mail`
 - `derp`
 - `hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `claw-cn`
+- `cpam` / `cpam-cn`
 - `tmail` / `tmail-front`
 - root MX / SPF / DMARC
 - `send` SES 路径

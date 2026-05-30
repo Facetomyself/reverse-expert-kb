@@ -8,6 +8,7 @@
   - `clash.hk.zhangxuemin.work`
   - `cliproxy-cn.zhangxuemin.work`
   - `claw-cn.zhangxuemin.work`
+  - `cpam-cn.zhangxuemin.work`
 - Provider: unknown / user-added Hong Kong VPS
 - Intended role: 三网优化流量中转
 
@@ -85,6 +86,7 @@ Validated on 2026-04-13, then hardened on 2026-04-21:
 - `https://clash.hk.zhangxuemin.work/` -> Clash distribution hostname, but YAML download now requires a randomized private path segment rather than the old public `/clash-meta.yaml`
 - `https://cliproxy-cn.zhangxuemin.work/` -> CN/HK TLS edge for cliproxy, reverse-proxied to `proxy.zhangxuemin.work:8317`
 - `https://claw-cn.zhangxuemin.work/` -> CN/HK TLS edge for OpenClaw Control UI, reverse-proxied to `https://dev.zhangxuemin.work` while preserving origin auth behavior
+- `https://cpam-cn.zhangxuemin.work/` -> CN/HK TLS edge for CPA Manager Plus, reverse-proxied to `https://cpam.zhangxuemin.work`
 
 Subscription hardening on 2026-04-21:
 - legacy public paths `/clash-meta.yaml`, `/clash-compat.yaml`, and `/clash-classic.yaml` were disabled and now return 404
@@ -119,6 +121,7 @@ Runtime note confirmed on 2026-04-13:
 - The existing Oracle/source names remain the global/foreign and machine-to-machine path, and should stay publicly reachable as the planned fallback if HK has an outage:
   - cliproxy global/source: `proxy.zhangxuemin.work:8317`
   - OpenClaw global/source: `dev.zhangxuemin.work`
+  - CPA Manager Plus global/source: `cpam.zhangxuemin.work`
 - Do **not** apply source-firewall restrictions that make HK the only public route to these services. Keeping direct/global entrypoints is intentional for HK single-point-of-failure avoidance and overseas access.
 - Oracle-to-Oracle traffic should not be routed through `hk-relay`; use direct Oracle/source endpoints, Oracle private networking if available, or a dedicated non-HK overlay.
 - SSH via HK is exposed as client-side `ProxyJump` aliases rather than one public HK TCP port per Oracle host; direct SSH aliases should remain available as emergency/global paths unless a separate hardening decision supersedes this.

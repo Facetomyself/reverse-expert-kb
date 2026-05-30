@@ -3,6 +3,7 @@
 ## 1. Addressing
 - Public IP: `158.178.236.241`
 - Primary documented domain: `proxy.zhangxuemin.work`
+- CPA Manager Plus direct domain: `cpam.zhangxuemin.work`
 - Observed local/private addresses at snapshot:
   - `10.0.0.68`
   - multiple docker bridge ranges (`172.x.x.x`)
@@ -13,6 +14,8 @@
 |---|---:|---|---|---|
 | 22 | 0.0.0.0 | sshd | public | SSH access |
 | 80 | 0.0.0.0 | 1panel | public/internal-mgmt | Needs policy confirmation |
+| 443 | * | caddy-cpam | public/direct | TLS front door for `cpam.zhangxuemin.work` -> `127.0.0.1:18317` |
+| 18317 | 0.0.0.0 | CPA Manager Plus | public/direct | Manager Server / management panel; normally accessed via `https://cpam.zhangxuemin.work` |
 | 8000 | 0.0.0.0 | grok2api | public/direct | Grok API bridge |
 | 8317 | 0.0.0.0 | cliproxy | public/direct | OpenAI-compatible CLI proxy |
 | 9874 | 0.0.0.0 | Tavily proxy | public/direct | Web console + `/api/*` |
@@ -24,10 +27,18 @@
 
 ## 3. Domain Resolution
 - `proxy.zhangxuemin.work` → `158.178.236.241`
+- `cpam.zhangxuemin.work` → `158.178.236.241`
 
 ## 4. Tavily-related entry points
 - Web console: `http://proxy.zhangxuemin.work:9874/`
 - API base: `http://proxy.zhangxuemin.work:9874/api`
+
+
+## 4A. CPA Manager Plus entry points
+- Global/direct panel: `https://cpam.zhangxuemin.work/management.html`
+- Domestic/HK optimized panel: `https://cpam-cn.zhangxuemin.work/management.html`
+- Direct source service on this host: `caddy-cpam` container on public `443`, reverse-proxying to `127.0.0.1:18317`
+- Manager Server connects back to local cliproxy using `http://host.docker.internal:8317`
 
 ## 5. Nginx / Proxy Layer Notes
 ### System nginx
@@ -38,6 +49,11 @@
   - `root /var/www/html`
   - `server_name _`
 - No meaningful reverse-proxy mapping was found in system nginx during this pass
+
+### caddy-cpam
+- Containerized Caddy front door for `cpam.zhangxuemin.work`
+- Config root: `/root/containers/caddy-cpam`
+- Uses `network_mode: host` and owns public `443`; `1panel` continues to own public `80`
 
 ### sing-box embedded nginx
 - `sing-box.service` also owns nginx processes via `/etc/sing-box/nginx.conf`

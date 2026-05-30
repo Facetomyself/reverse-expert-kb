@@ -23,6 +23,7 @@ hosts:
     public_ip: 158.178.236.241
     domains:
       - proxy.zhangxuemin.work
+      - cpam.zhangxuemin.work
     docs:
       host: infra/hosts/oracle-proxy/HOST.md
       network: infra/hosts/oracle-proxy/NETWORK.md
@@ -105,6 +106,7 @@ hosts:
       - clash.hk.zhangxuemin.work
       - cliproxy-cn.zhangxuemin.work
       - claw-cn.zhangxuemin.work
+      - cpam-cn.zhangxuemin.work
     docs:
       host: infra/hosts/hk-relay/HOST.md
       network: infra/hosts/hk-relay/NETWORK.md
