@@ -1,0 +1,334 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows ALPC reverse engineering port connection message completion callback consumer NtAlpcSendWaitReceivePort",
+    "ALPC Windows internals communication port connection port message attributes security context documentation",
+    "NtAlpcCreatePort NtAlpcConnectPort NtAlpcAcceptConnectPort NtAlpcSendWaitReceivePort message attributes reverse engineering"
+  ],
+  "count": 14,
+  "results": [
+    {
+      "title": "CPP-ALPC-Basic-Server.cpp - GitHub",
+      "url": "https://github.com/csandker/InterProcessCommunication-Samples/blob/master/ALPC/CPP-ALPC-Basic-Client-Server/CPP-ALPC-Basic-Server/CPP-ALPC-Basic-Server.cpp",
+      "snippet": "&portContext, // port context. (PPORT_MESSAGE)&pmRequest, // connection request. pMsgAttrSend, // connection message attributes. bAcceptConnection // accepting",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7091
+    },
+    {
+      "title": "ALPC.h - GitHub",
+      "url": "https://github.com/csandker/InterProcessCommunication-Samples/blob/master/ALPC/CPP-ALPC-Basic-Client-Server/CPP-Util/ALPC.h",
+      "snippet": "Some Code Samples for Windows based Inter-Process-Communication (IPC) ... // ALPC Message Attributes. #define ALPC_MESSAGE_SECURITY_ATTRIBUTE",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6818
+    },
+    {
+      "title": "ALPC class - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/etw/alpc",
+      "snippet": "",
+      "published_date": "2021-01-07T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.6273
+    },
+    {
+      "title": "wininc/ntalpc.h at master · DynamoRIO/drmemory",
+      "url": "https://github.com/DynamoRIO/drmemory/blob/master/wininc/ntalpc.h",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "ntalpcapi.h at master · DownWithUp/ALPC-Example",
+      "url": "https://github.com/DownWithUp/ALPC-Example/blob/master/ntalpcapi.h",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "ALPC/ntlpcapi.h at master · avalon1610/ALPC",
+      "url": "https://github.com/avalon1610/ALPC/blob/master/ALPC/ntlpcapi.h",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "ntlpcapi.h at master · winsiderss/phnt",
+      "url": "https://github.com/winsiderss/phnt/blob/master/ntlpcapi.h",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "[Research] Windows ALPC (KR) - hackyboiz",
+      "url": "https://hackyboiz.github.io/2025/11/29/gongjae/Windows_ALPC/KR",
+      "snippet": "루트 경로에도 ALPC 포트가 있지만, 대부분은 \\RPC Control 경로에 존재합니다. ALPC 통신에는 총 3개의 ALPC port(서버측 2개, 클라이언트측 1개)가 관여",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.5318
+    },
+    {
+      "title": "[Research] Windows ALPC (EN) - hackyboiz",
+      "url": "https://hackyboiz.github.io/2025/11/29/gongjae/Windows_ALPC/EN/",
+      "snippet": "",
+      "published_date": "2025-11-29T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.5045
+    },
+    {
+      "title": "The Tragedy of ALPC - Qianxin Threat Intelligence Center",
+      "url": "https://ti.qianxin.com/blog/articles/the-tragedy-of-alpc-unknown-windows-privilege-escalation-nday-vulnerability-research-in-august-en",
+      "snippet": "After completing Connect and obtaining the corresponding portHandle, you can send and receive messages through the NtAlpcSendWaitReceivePort",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4091
+    },
+    {
+      "title": "Offensive Windows IPC Internals 3: ALPC · csandker.io",
+      "url": "https://csandker.io/2022/05/24/Offensive-Windows-IPC-3-ALPC.html",
+      "snippet": "",
+      "published_date": "2022-05-24T08:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "Chaining N-days to Compromise All: Part 2 — Windows Kernel LPE (a.k.a Chrome Sandbox Escape) - Theori BLOG",
+      "url": "https://theori.io/blog/chaining-n-days-to-compromise-all-part-2-windows-kernel-lpe-a-k-a-chrome-sandbox-escape",
+      "snippet": "",
+      "published_date": "2024-03-31T15:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "WINDOWS PRIVILEGE ESCALATION THROUGH LPC",
+      "url": "https://recon.cx/2008/a/thomas_garnier/LPC-ALPC-paper.pdf",
+      "snippet": "",
+      "published_date": "2008-06-02T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3273
+    },
+    {
+      "title": "Process Hacker: phlib/include/ntlpcapi.h File Reference",
+      "url": "https://processhacker.sourceforge.io/doc/ntlpcapi_8h.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "[Research] Windows ALPC (EN) - hackyboiz",
+        "url": "https://hackyboiz.github.io/2025/11/29/gongjae/Windows_ALPC/EN/",
+        "snippet": "",
+        "published_date": "2025-11-29T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.5045
+      },
+      {
+        "title": "Offensive Windows IPC Internals 3: ALPC · csandker.io",
+        "url": "https://csandker.io/2022/05/24/Offensive-Windows-IPC-3-ALPC.html",
+        "snippet": "",
+        "published_date": "2022-05-24T08:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "ALPC class - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/etw/alpc",
+        "snippet": "",
+        "published_date": "2021-01-07T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.6273
+      },
+      {
+        "title": "Chaining N-days to Compromise All: Part 2 — Windows Kernel LPE (a.k.a Chrome Sandbox Escape) - Theori BLOG",
+        "url": "https://theori.io/blog/chaining-n-days-to-compromise-all-part-2-windows-kernel-lpe-a-k-a-chrome-sandbox-escape",
+        "snippet": "",
+        "published_date": "2024-03-31T15:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "WINDOWS PRIVILEGE ESCALATION THROUGH LPC",
+        "url": "https://recon.cx/2008/a/thomas_garnier/LPC-ALPC-paper.pdf",
+        "snippet": "",
+        "published_date": "2008-06-02T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3273
+      },
+      {
+        "title": "Process Hacker: phlib/include/ntlpcapi.h File Reference",
+        "url": "https://processhacker.sourceforge.io/doc/ntlpcapi_8h.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "ntlpcapi.h at master · winsiderss/phnt",
+        "url": "https://github.com/winsiderss/phnt/blob/master/ntlpcapi.h",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "wininc/ntalpc.h at master · DynamoRIO/drmemory",
+        "url": "https://github.com/DynamoRIO/drmemory/blob/master/wininc/ntalpc.h",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "ntalpcapi.h at master · DownWithUp/ALPC-Example",
+        "url": "https://github.com/DownWithUp/ALPC-Example/blob/master/ntalpcapi.h",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "Offensive Windows IPC Internals 3: ALPC",
+        "url": "https://csandker.io/2022/05/24/Offensive-Windows-IPC-3-ALPC.html",
+        "snippet": "",
+        "published_date": "2022-05-24T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Offensive Windows IPC Internals 3: ALPC - csandker",
+        "url": "https://csandker.io/2022/05/24/Offensive-Windows-IPC-3-ALPC.html",
+        "snippet": "",
+        "published_date": "2022-05-24T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "[Research] Windows ALPC (EN) - hackyboiz",
+        "url": "https://hackyboiz.github.io/2025/11/29/gongjae/Windows_ALPC/EN/",
+        "snippet": "",
+        "published_date": "2025-11-29T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "ALPC/ntlpcapi.h at master · avalon1610/ALPC",
+        "url": "https://github.com/avalon1610/ALPC/blob/master/ALPC/ntlpcapi.h",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "Process Hacker: phlib/include/ntlpcapi.h File Reference",
+        "url": "https://processhacker.sourceforge.io/doc/ntlpcapi_8h.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "ntlpcapi.h at master · winsiderss/phnt",
+        "url": "https://github.com/winsiderss/phnt/blob/master/ntlpcapi.h",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "[Research] Windows ALPC (EN) - hackyboiz",
+        "url": "https://hackyboiz.github.io/2025/11/29/gongjae/Windows_ALPC/EN",
+        "snippet": "→ This is the **ALPC Connection Port!**. #include include #include include #include include #include \"ntalpcapi.h\" include\"ntalpcapi.h\"#pragma comment(lib, \"ntdll.lib\") pragma\"ntdll.lib\" #define MSG_LEN 0x100 defineLPVOID CreateMsgMem(PPORT_MESSAGE PortMessage, SIZE_T MessageSize, LPVOID Message) CreateMsgMem(PPORT_MESSAGE PortMessage, SIZE_T MessageSize, LPVOID Message) sizeof sizeof sizeof returnvoid main() void main() printf\"ALPC-Example Client\\n\" L\"\\\\RPC Control\\\\HackyBoiz\" sizeof sizeofL\"Hello HackyBoiz!\" NULL NULL 0 NULL NULL NULL NULL NULL NULL printf\"[i] NtAlpcConnectPort: 0x%X\\n\" if printf\"[i] type 'exit' to disconnect from the server\\n\" while sizeof sizeof printf\"[.] Enter Message > \" stdin strlen sizeof 0 NULL NULL NULL NULL NULL printf\"[i] NtAlpcSendWaitReceivePort: 0x%X\\n\" 0 return. #include include #include include #include include #include \"ntalpcapi.h\" include\"ntalpcapi.h\"#pragma comment(lib, \"ntdll.lib\") pragma\"ntdll.lib\" #define MAX_MSG_LEN 0x500 defineLPVOID AllocMsgMem(SIZE_T Size) AllocMsgMem(SIZE_T Size) return sizeofvoid CreatePortAndListen(LPCWSTR PortName) void CreatePortAndListen(LPCWSTR PortName) 0 0 0 sizeof printf\"[i] NtAlpcCreatePort: 0x%X\\n\" if sizeof 0 NULL NULL NULL NULL if sizeof 0x0 sizeof 0 NULL NULL NULL NULL// 0 printf\"[i] NtAlpcAcceptConnectPort: 0x%X\\n\" if while 0 NULL NULL NULL NULL if strcmp sizeof \"exit\\n\" printf\"[i] Received 'exit' command\\n\" 0 0 printf\"[i] NtAlpcDisconnectPort: %X\\n\" 0 else printf\"[i] Received Data: \" for int 0 sizeof printf \"0x%X \" printf \"\\n\" 0 0void main() void main() printf\"[i] ALPC-Example Server\\n\" NULL 0 L\"\\\\RPC Control\\\\HackyBoiz\" 0 NULL printf\"[!] Shuting down server\\n\" return.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "The Tragedy of ALPC - Qianxin Threat Intelligence Center",
+        "url": "https://ti.qianxin.com/blog/articles/the-tragedy-of-alpc-unknown-windows-privilege-escalation-nday-vulnerability-research-in-august-en",
+        "snippet": "After completing Connect and obtaining the corresponding portHandle, you can send and receive messages through the NtAlpcSendWaitReceivePort",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4091
+      },
+      {
+        "title": "Offensive Windows IPC Internals 3: ALPC - csandker",
+        "url": "https://csandker.io/2022/05/24/Offensive-Windows-IPC-3-ALPC.html",
+        "snippet": "Client and server can now send and receive messages to/from each other via NtAlpcSendWaitReceivePort, where: The client listens for and sends",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "[Research] Windows ALPC (KR) - hackyboiz",
+        "url": "https://hackyboiz.github.io/2025/11/29/gongjae/Windows_ALPC/KR",
+        "snippet": "루트 경로에도 ALPC 포트가 있지만, 대부분은 \\RPC Control 경로에 존재합니다. ALPC 통신에는 총 3개의 ALPC port(서버측 2개, 클라이언트측 1개)가 관여",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.5318
+      },
+      {
+        "title": "ALPC class - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/etw/alpc",
+        "snippet": "Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. You can try signing in or changing directories. # ALPC class. This class is the parent class for advanced local procedure call events. The following syntax is simplified from MOF code. The **ALPC** class does not define any members. Use the following event types to identify the actual ALPC event when consuming events. The **ALPC\\_Send\\_Message** MOF class defines the event data for this event. The **ALPC\\_Receive\\_Message** MOF class defines the event data for this event. | Event type value, 35 | Wait for reply event. The **ALPC\\_Wait\\_For\\_Reply** MOF class defines the event data for this event. | Event type value, 36 | Wait for new message event. The **ALPC\\_Wait\\_For\\_New\\_Message** MOF class defines the event data for this event. The **ALPC\\_Unwait** MOF class defines the event data for this event. Want to try using Ask Learn to clarify or guide you through this topic?",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Offensive Windows IPC Internals 3: ALPC - csandker",
+        "url": "https://csandker.io/2022/05/24/Offensive-Windows-IPC-3-ALPC.html",
+        "snippet": "Once a client connects to a server's ALPC connection port, two new ports are created by the kernel called ALPC server communication port and",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "CPP-ALPC-Basic-Server.cpp - GitHub",
+        "url": "https://github.com/csandker/InterProcessCommunication-Samples/blob/master/ALPC/CPP-ALPC-Basic-Client-Server/CPP-ALPC-Basic-Server/CPP-ALPC-Basic-Server.cpp",
+        "snippet": "&portContext, // port context. (PPORT_MESSAGE)&pmRequest, // connection request. pMsgAttrSend, // connection message attributes. bAcceptConnection // accepting",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7091
+      },
+      {
+        "title": "[Research] Windows ALPC (EN) - hackyboiz",
+        "url": "https://hackyboiz.github.io/2025/11/29/gongjae/Windows_ALPC/EN",
+        "snippet": "→ This is the **ALPC Connection Port!**. #include include #include include #include include #include \"ntalpcapi.h\" include\"ntalpcapi.h\"#pragma comment(lib, \"ntdll.lib\") pragma\"ntdll.lib\" #define MSG_LEN 0x100 defineLPVOID CreateMsgMem(PPORT_MESSAGE PortMessage, SIZE_T MessageSize, LPVOID Message) CreateMsgMem(PPORT_MESSAGE PortMessage, SIZE_T MessageSize, LPVOID Message) sizeof sizeof sizeof returnvoid main() void main() printf\"ALPC-Example Client\\n\" L\"\\\\RPC Control\\\\HackyBoiz\" sizeof sizeofL\"Hello HackyBoiz!\" NULL NULL 0 NULL NULL NULL NULL NULL NULL printf\"[i] NtAlpcConnectPort: 0x%X\\n\" if printf\"[i] type 'exit' to disconnect from the server\\n\" while sizeof sizeof printf\"[.] Enter Message > \" stdin strlen sizeof 0 NULL NULL NULL NULL NULL printf\"[i] NtAlpcSendWaitReceivePort: 0x%X\\n\" 0 return. #include include #include include #include include #include \"ntalpcapi.h\" include\"ntalpcapi.h\"#pragma comment(lib, \"ntdll.lib\") pragma\"ntdll.lib\" #define MAX_MSG_LEN 0x500 defineLPVOID AllocMsgMem(SIZE_T Size) AllocMsgMem(SIZE_T Size) return sizeofvoid CreatePortAndListen(LPCWSTR PortName) void CreatePortAndListen(LPCWSTR PortName) 0 0 0 sizeof printf\"[i] NtAlpcCreatePort: 0x%X\\n\" if sizeof 0 NULL NULL NULL NULL if sizeof 0x0 sizeof 0 NULL NULL NULL NULL// 0 printf\"[i] NtAlpcAcceptConnectPort: 0x%X\\n\" if while 0 NULL NULL NULL NULL if strcmp sizeof \"exit\\n\" printf\"[i] Received 'exit' command\\n\" 0 0 printf\"[i] NtAlpcDisconnectPort: %X\\n\" 0 else printf\"[i] Received Data: \" for int 0 sizeof printf \"0x%X \" printf \"\\n\" 0 0void main() void main() printf\"[i] ALPC-Example Server\\n\" NULL 0 L\"\\\\RPC Control\\\\HackyBoiz\" 0 NULL printf\"[!] Shuting down server\\n\" return.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "ALPC.h - GitHub",
+        "url": "https://github.com/csandker/InterProcessCommunication-Samples/blob/master/ALPC/CPP-ALPC-Basic-Client-Server/CPP-Util/ALPC.h",
+        "snippet": "Some Code Samples for Windows based Inter-Process-Communication (IPC) ... // ALPC Message Attributes. #define ALPC_MESSAGE_SECURITY_ATTRIBUTE",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6818
+      },
+      {
+        "title": "[Research] Windows ALPC (KR) - hackyboiz",
+        "url": "https://hackyboiz.github.io/2025/11/29/gongjae/Windows_ALPC/KR",
+        "snippet": "연결을 수락 시, 커널은 새로운 ALPC Communication Port를 생성하여 서버와 클라이언트 양쪽에 각각 핸들을 반환합니다. 이후 메시지는 Connection Port",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Offensive Windows IPC Internals 3: ALPC - csandker",
+        "url": "https://csandker.io/2022/05/24/Offensive-Windows-IPC-3-ALPC.html",
+        "snippet": "You don't setup the message attributes for every call to NtAlpcSendWaitReceivePort, you set all the message attributes up once and use the",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "The Tragedy of ALPC - Qianxin Threat Intelligence Center",
+        "url": "https://ti.qianxin.com/blog/articles/the-tragedy-of-alpc-unknown-windows-privilege-escalation-nday-vulnerability-research-in-august-en",
+        "snippet": "The first is NtAlpcConnectPort, this function is used to connect alpc server side, after a successful call will return a PortHandle, which in",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}
