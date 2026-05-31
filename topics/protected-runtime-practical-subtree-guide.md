@@ -82,6 +82,7 @@ Protected-runtime practical work is easiest to navigate when the analyst first c
    - checks are visible, but the first reduced result or consequence-bearing tripwire is still unclear
 15. **exception-handler-owned control transfer**
    - visible direct control flow stays incomplete or misleading because handler registration, dispatcher-side landing, unwind lookup, signal delivery, or trap-resume logic owns the meaningful branch
+   - keep a source-backed dynamic-unwind split inside this family: **registered != covering this PC != lookup hit != resumed consequence**, because `RtlAddFunctionTable` / `RtlAddGrowableFunctionTable` presence is weaker than proving live range ownership, lookup, and later resume/effect truth
    - keep a thinner guard-page / fault-owned continuation reminder inside this family: **guard configured != first fault != re-armed mechanism != resumed consequence**, because one `PAGE_GUARD` hit or one fault delivery is often only landing truth rather than sustained ownership or behavior truth
 
 A compact operator ladder for this branch is:
