@@ -11,6 +11,7 @@ Related pages:
 - topics/integrity-check-to-tamper-consequence-workflow-note.md
 - topics/runtime-behavior-recovery.md
 - topics/native-binary-reversing-baseline.md
+- sources/protected-runtime/2026-06-01-exception-guard-unwind-ownership-notes.md
 
 ## 1. Why this page exists
 This page exists for a recurring protected-runtime bottleneck where the analyst has already localized anti-debug, anti-tamper, or odd breakpoint behavior far enough to suspect that the real ownership of control transfer sits inside an exception or signal path.
@@ -384,6 +385,41 @@ Practical caution:
 - Microsoft’s callback/table API surfaces are range-shaped (`BaseAddress`, `Length`, callback-managed region), so API presence by itself is weaker than proving that the current PC actually falls inside the owned region and that unwind lookup really hits there
 - if registration is visible but the current PC is outside the owned range, or lookup still returns `NULL`, treat that as failed ownership proof rather than as partial success
 
+### D1. Dynamic unwind table ownership: registration, range, lookup, resume
+Use when:
+- `RtlAddFunctionTable`, `RtlAddGrowableFunctionTable`, or a function-table callback is visible and generated / relocated / unpacked code appears to participate in exception handling
+- static `.pdata` / `UNWIND_INFO` explains only part of the path, or the exception dispatcher can unwind through a code region that static image metadata does not own convincingly
+- stack walking, debugger views, or dispatcher traces keep looking close-but-wrong until live table installation is considered
+
+Source-backed anchor:
+- Microsoft documents dynamic function tables as the runtime mechanism that lets dynamically generated code provide unwind information on 64-bit Windows.
+- `RtlAddGrowableFunctionTable` is explicitly range-shaped (`RangeBase`, `RangeEnd`, entry counts) and is used for dispatching exceptions through runtime-generated code and stack backtraces.
+- x64 `RUNTIME_FUNCTION` entries are sorted range entries that point to unwind info; `UNWIND_INFO` may then identify exception / termination handlers or chained unwind metadata.
+
+Practical stop rule:
+- keep four proof objects separate:
+  - **registered** -> one dynamic table / callback API was installed
+  - **covering this PC** -> the relevant exception PC falls inside the installed table range or entry
+  - **lookup hit** -> dispatcher / unwind-aware observation resolves this PC through that live table or callback-owned range
+  - **resumed consequence** -> one handler action, unwind consequence, resume target, or state mutation predicts later behavior
+- if registration is visible but the current PC falls outside the range, or lookup still fails, treat ownership as unproved rather than “partly done”
+- if lookup is proved but the resumed target or handler-side action is not, remain in exception-owned control-transfer work instead of handing off too early
+
+Evidence row:
+
+```text
+table site | base/range | entry count/capacity | current exception PC | lookup result | handler/unwind action | resumed target | downstream state/effect
+```
+
+Compact shorthand:
+
+```text
+registered != covering this PC != lookup hit != resumed consequence
+```
+
+Common payoff:
+- this narrows broad “dynamic SEH/unwind weirdness” into one live ownership range plus one later consequence, which is small enough to compare, re-find, and hand back to ordinary post-handler route proof.
+
 ### E. Linux signal handler converts trap/fault into hidden continuation
 Use when:
 - a signal appears to indicate failure, but the handler mutates context or state and resumes into real work or anti-debug consequence
@@ -428,6 +464,56 @@ Related shorthand worth preserving:
 - **guard configured != first fault != re-armed mechanism != resumed consequence**
 - and, for Linux-style signal cases, **handler registered != fault delivered != resumed target edited**
 
+### F1. Guard-page / trap ownership: first hit is not sustained mechanism
+Use when:
+- `PAGE_GUARD`, single-step, debug-register, `int3`, or analogous trap/fault machinery is visible and appears to feed handler-owned control transfer
+- the target or hook layer depends on repeated trap delivery rather than one accidental first exception
+- the handler rewrites `ContextRecord`, return state, or the instruction pointer and may reapply the trigger condition afterward
+
+Source-backed anchor:
+- Public guard-page VEH/SEH demo material shows the useful pattern: a guard page triggers `STATUS_GUARD_PAGE_VIOLATION`, the handler checks the accessed address, and `ContextRecord` can be edited so execution continues at a hook/alternate target.
+- The same material preserves the key realism check: after a guard-page violation, the guard is removed, so a repeated mechanism needs explicit reapply / single-step / protection-restore evidence.
+
+Practical stop rule:
+- keep four proof objects separate:
+  - **guard/trap configured** -> setup exists (`PAGE_GUARD`, debug register, breakpoint/trap, signal/fault precondition)
+  - **first fault delivered** -> the expected exception/signal actually lands
+  - **re-armed mechanism** -> the trigger condition is restored or otherwise sustained when repeated ownership matters
+  - **resumed consequence** -> one resume-IP rewrite, skip length, context/register mutation, state write, or downstream target predicts the behavior
+- do not treat `VirtualProtect(... PAGE_GUARD ...)`, a single first violation, or a dispatcher landing as proof of sustained control-transfer ownership
+- if later hits seem to happen without visible re-arm, assume the story is incomplete until the re-arm path, alternate trigger, or one-shot nature is explained
+
+Evidence row:
+
+```text
+trigger setup | first delivered exception | handler branch | context/resume edit | re-arm/restoration fact | repeated-hit or one-shot note | downstream effect
+```
+
+Compact shorthand:
+
+```text
+guard configured != first fault != re-armed mechanism != resumed consequence
+```
+
+Common payoff:
+- this prevents guard/trap cases from overclaiming from setup or first delivery, while still allowing one proved resume edit to become the post-handler handoff point.
+
+### G. VEH-based protected dispatch can be architecture, not incidental noise
+Use when:
+- VEH hits are repeated and structured enough to look like bytecode or dispatch machinery rather than only anti-debug friction
+- trace evidence suggests exception delivery selects handlers, interpreter state, heap trampolines, or dispatch state
+- the next useful output is one dispatch-owned state edge or resumed target, not a complete devirtualizer
+
+Practical reminder:
+- practitioner VMProtect research describes VEH-based dispatch as one possible protected-runtime architecture alongside other dispatch models; treat that as case-shape signal, not universal truth
+- do not classify every VEH hit as debugger resistance, crash noise, or page-fault trickery before checking whether the exception path carries dispatch state
+- stop once one smallest stable dispatch proof object is available: handler-owned state edge, bytecode/handler relation, trampoline handoff, or resumed target that predicts later behavior
+
+Handoff rule:
+- if the exception path now exposes interpreter/state-machine structure, route to `vm-trace-to-semantic-anchor-workflow-note.md` or `flattened-dispatcher-to-state-edge-workflow-note.md`
+- if the exception path only gates observation, route to anti-instrumentation or observation-topology work
+- if it resolves to one ordinary resumed target, route to native route/state proof or integrity consequence proof
+
 ## 8. Representative scratch schemas
 ### Minimal handler-owned-transfer note
 ```text
@@ -469,6 +555,30 @@ later effect:
 
 decision:
   anti-debug continuation / integrity continuation / ordinary native follow-up / topology change
+```
+
+### Dynamic unwind / function-table ownership note
+```text
+registration/table API:
+  RtlAddFunctionTable / RtlAddGrowableFunctionTable / callback / ...
+
+installed range or base:
+  ...
+
+current exception PC:
+  ...
+
+lookup/table hit:
+  ...
+
+handler/unwind action:
+  ...
+
+resumed target or consequence:
+  ...
+
+handoff route:
+  ordinary post-handler route proof / integrity consequence / observation-topology / ...
 ```
 
 ### Guard-page / fault-owned continuation scratch note
@@ -638,9 +748,12 @@ That strengthens the protected-runtime branch by giving it a practical answer to
 ## 12. Source footprint / evidence note
 Grounding for this page comes from:
 - Microsoft documentation on vectored exception handling and structured exception handling functions, including the official dynamic-function-table API surface
+- Microsoft x64 exception-handling documentation on `RUNTIME_FUNCTION`, `UNWIND_INFO`, handler flags, chained unwind information, and the role of runtime-provided function tables for generated code
+- Microsoft `RtlAddFunctionTable` / `RtlAddGrowableFunctionTable` documentation showing that dynamic unwind ownership is table/range-shaped and used for dispatching exceptions through runtime-generated code
 - practitioner material on `KiUserExceptionDispatcher`, `RtlDispatchException`, and unwind lookup behavior
 - x64 SEH/unwind writeups and dynamic function-table discussions
-- practical demo material showing trap-triggered VEH/SEH behavior and context-based resume changes
+- practical demo material showing trap-triggered VEH/SEH behavior, `PAGE_GUARD` first-hit behavior, explicit reapply requirements, and context-based resume changes
+- practitioner VMProtect research indicating that VEH-based dispatch can be part of protected-runtime architecture rather than only incidental anti-debug noise
 - KB protected-runtime branch pages and practitioner-community signal synthesis
 
 The page intentionally stays conservative:

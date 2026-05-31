@@ -1,0 +1,472 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "VMProtect exception based control flow guard page VEH SEH reverse engineering PAGE_GUARD",
+    "Windows guard page vectored exception handler obfuscation control flow anti reverse engineering",
+    "exception based obfuscation dynamic function table unwind reverse engineering RtlAddFunctionTable"
+  ],
+  "count": 27,
+  "results": [
+    {
+      "title": "BenteVE/SEH-VEH-hook-Page-Guard-Exception",
+      "url": "https://github.com/BenteVE/SEH-VEH-hook-Page-Guard-Exception",
+      "snippet": "",
+      "published_date": "2023-12-23T22:33:47.000Z",
+      "source": "exa",
+      "score": 0.725
+    },
+    {
+      "title": "c++ - PAGE_GUARD with VirtualProtect not raising an exception on ...",
+      "url": "https://stackoverflow.com/questions/50558785/page-guard-with-virtualprotect-not-raising-an-exception-on-execute-access",
+      "snippet": "I'm trying to hook a function using PAGE_GUARD but it does not raise any exception when the page/address is called.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7
+    },
+    {
+      "title": "What is the difference between RtlAddFunctionTable and ...",
+      "url": "https://stackoverflow.com/questions/78565505/what-is-the-difference-between-rtladdfunctiontable-and-rtlinsertinvertedfunction",
+      "snippet": "The RtlAddFunctionTable is used to dynamically install a funciton table in order to handle SEH exceptions.I have used it on custom loader",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "Rasetsuu/vmprotect-research",
+      "url": "https://github.com/Rasetsuu/vmprotect-research",
+      "snippet": "",
+      "published_date": "2026-05-28T22:02:35.000Z",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "x64 exception handling | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/cpp/build/exception-handling-x64?view=msvc-170",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "thomasxm/BOAZ_beta",
+      "url": "https://github.com/thomasxm/boaz_beta",
+      "snippet": "",
+      "published_date": "2024-05-26T16:42:09.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "C5Hackr/Eclipse",
+      "url": "https://github.com/C5Hackr/Eclipse",
+      "snippet": "",
+      "published_date": "2025-03-02T22:11:57.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "How do I interpret xdata and pdata section to hand-write RUNTIME_FUNCTION and UNWIND_INFO for RtlAddFunctionTable?",
+      "url": "https://stackoverflow.com/questions/78933204/how-do-i-interpret-xdata-and-pdata-section-to-hand-write-runtime-function-and-un",
+      "snippet": "",
+      "published_date": "2024-08-30T17:39:01.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Describing dynamically generated code with RtlAddFunctionTable on Windows x64",
+      "url": "https://stackoverflow.com/questions/20998155/describing-dynamically-generated-code-with-rtladdfunctiontable-on-windows-x64",
+      "snippet": "",
+      "published_date": "2014-01-08T14:17:33.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "RtlAddGrowableFunctionTable function (winnt.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtladdgrowablefunctiontable",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "RtlAddFunctionTable function (winnt.h) - Win32 apps - Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtladdfunctiontable",
+      "snippet": "This function is useful for code that is generated from a template or generated only once during the life of the process.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "VMProtect 2 - Detailed Analysis of the Virtual Machine Architecture",
+      "url": "https://www.reddit.com/r/ReverseEngineering/comments/nglk7w/vmprotect_2_detailed_analysis_of_the_virtual",
+      "snippet": "Recommended VMProtect unpackers. Top reverse engineering tools for beginners. Most challenging reverse engineering projects. Best practices for",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.575
+    },
+    {
+      "title": "EDR Analysis: Leveraging Fake DLLs, Guard Pages, and VEH for Enhanced Detection - RedOps - English",
+      "url": "https://redops.at/en/blog/edr-analysis-leveraging-fake-dlls-guard-pages-and-veh-for-enhanced-detection",
+      "snippet": "# EDR Analysis: Leveraging Fake DLLs, Guard Pages, and VEH for Enhanced Detection. In this blog post I would like to document and share my latest findings and experiences in the area of EDR (Endpoint Detection and Response) debugging and reverse engineering. In this article, I would like to discuss a rather unconventional but very interesting detection mechanism that is used in conjunction with EDR. In some of my previous articles I have mentioned the concept of inline API hooking, which is used by some EDRs to actively interfere with the execution of code and parameters of Windows APIs. For more information on this, see my recent blog post Syscalls via Vectored Exception Handling. In this article, however, I would like to discuss a rather unconventional but very interesting detection mechanism used in conjunction with EDR, based on a combination of process environment block (PEB) modification, the use of fake DLLs and guard pages, and the use of vectored exception handling.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.475
+    },
+    {
+      "title": "Quick look around VMP 3.x - Part 1 : Unpacking | r0da's Blog",
+      "url": "https://whereisr0da.github.io/blog/posts/2021-01-05-vmp-1/",
+      "snippet": "",
+      "published_date": "2021-01-05T14:13:03.000Z",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "Malware Development Part 14: Vectored Exception Handling (VEH ...",
+      "url": "https://sid4hack.medium.com/malware-development-part-14-vectored-exception-handling-veh-injection-technique-98d804adac5c",
+      "snippet": "Core Idea. Abuse the Windows Vectored Exception Handling (VEH) infrastructure to execute arbitrary code by registering a handler, triggering a",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Fantastic unwind information and where to find them | klezVirus",
+      "url": "https://klezvirus.github.io/posts/Byoud/",
+      "snippet": "",
+      "published_date": "2026-03-16T09:00:00.000Z",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "Designing a Malware Loader detector with Guard Violation Exceptions | Reversing codes",
+      "url": "https://reversing.codes/posts/Detecting-injected-code-with-page-guards",
+      "snippet": "All of this is made possible by a memory page protection bit called `PAGE_GUARD`, which gives me the ability to detect when newly allocated memory is executed, read, or written to. In this article, we will dive into how we can utilize this mechanism to detect code flow redirection to newly allocated memory areas, which are often associated with injection. Also I want to talk a little about the Shinigami memory monitoring implementation and it’s limitations, also address improvements for future versions. Every time you allocate memory using API calls like ***VirtualAlloc*** or ***NtAllocateVirtualMemory***, you have the capability to choose the memory protection for the page allocated. However, there is a special flag allowed by the Windows API called PAGE\\_GUARD and when this flag is set, it adds the GUARD page bit to the Page Table Entry (PTE). Then, we write some data to the allocated memory and use the `VirtualProtect` function to add a new protection, `PAGE_GUARD`, to this memory page.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "VMProtect Control Flow Obfuscation (Case study: string algorithm ...",
+      "url": "https://katyscode.wordpress.com/2021/01/23/reverse-engineering-adventures-vmprotect-control-flow-obfuscation-case-study-string-algorithm-cryptanalysis-in-honkai-impact-3rd",
+      "snippet": "In this article, I'll show you how – in one caffeine-fueled all-nighter – I reverse engineered this function, and present a reimplementation of the algorithm",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4
+    },
+    {
+      "title": "GuLoader Demystified: Unraveling its Vectored Exception Handler Approach",
+      "url": "https://www.sonicwall.com/blog/guloader-demystified-unraveling-its-vectored-exception-handler-approach",
+      "snippet": "# GuLoader Demystified: Unraveling its Vectored Exception Handler Approach. GuLoader is a shellcode-based downloader, known for its numerous anti-analysis techniques and control flow obfuscation. In latest variant of GuLoader it introduces new ways to raise exceptions that hamper complete analysis process and its execution under controlled environment. * Writing an IDAPython script to deobfuscate the control flow of shellcode and to make GuLoader’s analysis easy and fast. Recent variant of GuLoader is spreading as NSIS Installer consisting of NSIS script, DLL plugin and encrypted shellcode’s file. File “**Hangarer.Man**” contains shellcode of Layer 2 and an encrypted shellcode of Layer 3 which is main shellcode of GuLoader. First parameter of CallWindowProcW is **lpPrevWndFunc.** lpPrevWndFunc is callback function, which is set to address of allocated memory space, which results in indirect execution of the Layer 2’s shellcode. * During analysis of this variant, we have identified a significant enhancement in GuLoader’s one of most effective anti-debug technique that it’s custom **Vectored Exception Handler**.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Ever wondered how Cheat Engine works? (Extended)",
+      "url": "https://www.guardingpearsoftware.com/blog/ever-wondered-how-cheat-engine-works-extended-41008",
+      "snippet": "Vectored Exception Handling (VEH) avoids attaching as a traditional debugger. ... Page-level access control via Extended Page Tables (EPT); Concealment from",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Patchless AMSI Bypass via Page Guard Exceptions | ShigShag",
+      "url": "https://shigshag.com/blog/amsi_page_guard",
+      "snippet": "",
+      "published_date": "2025-11-15T18:18:40.000Z",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "C++ Unwind Exception Metadata - Möbius Strip Reverse Engineering",
+      "url": "https://www.msreverseengineering.com/blog/2024/8/20/c-unwind-metadata-1",
+      "snippet": "This blog entry describes an overlooked source of information in C++ programs that can make manual and automated type reconstruction more efficient.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Obscuring Control Flow - Unprotect Project",
+      "url": "https://unprotect.it/technique/obscuring-control-flow",
+      "snippet": "Obscuring control flow is an anti-disassembling technique that involves using methods of flow control that are difficult or impossible for disassemblers and",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "VMProtect 2 - Detailed Analysis of the Virtual Machine Architecture",
+      "url": "https://back.engineering/blog/17/05/2021/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "Page Streaming",
+      "url": "https://tradecraftgarden.org/pagestream.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.325
+    },
+    {
+      "title": "RtlAddFunctionTable vs RtlAddGrowableFunctionTable? - NTDEV",
+      "url": "https://community.osr.com/t/rtladdfunctiontable-vs-rtladdgrowablefunctiontable/51512",
+      "snippet": "For dynamically generated code that requires stack unwinding using RtlVirtualUnwind, we need to call a function RtlAddFunctionTable.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "pmeerw's blog /programming/RtlAddFunctionTable.html",
+      "url": "https://pmeerw.net/blog/programming/RtlAddFunctionTable.html",
+      "snippet": "A function table is used to associate unwind information to functions in order to help 64-bit Windows unwind the call stack, but also to",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "VMProtect Control Flow Obfuscation (Case study: string algorithm ...",
+        "url": "https://katyscode.wordpress.com/2021/01/23/reverse-engineering-adventures-vmprotect-control-flow-obfuscation-case-study-string-algorithm-cryptanalysis-in-honkai-impact-3rd",
+        "snippet": "In this article, I'll show you how – in one caffeine-fueled all-nighter – I reverse engineered this function, and present a reimplementation of the algorithm",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4
+      },
+      {
+        "title": "Designing a Malware Loader detector with Guard Violation Exceptions | Reversing codes",
+        "url": "https://reversing.codes/posts/Detecting-injected-code-with-page-guards",
+        "snippet": "All of this is made possible by a memory page protection bit called `PAGE_GUARD`, which gives me the ability to detect when newly allocated memory is executed, read, or written to. In this article, we will dive into how we can utilize this mechanism to detect code flow redirection to newly allocated memory areas, which are often associated with injection. Also I want to talk a little about the Shinigami memory monitoring implementation and it’s limitations, also address improvements for future versions. Every time you allocate memory using API calls like ***VirtualAlloc*** or ***NtAllocateVirtualMemory***, you have the capability to choose the memory protection for the page allocated. However, there is a special flag allowed by the Windows API called PAGE\\_GUARD and when this flag is set, it adds the GUARD page bit to the Page Table Entry (PTE). Then, we write some data to the allocated memory and use the `VirtualProtect` function to add a new protection, `PAGE_GUARD`, to this memory page.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "c++ - PAGE_GUARD with VirtualProtect not raising an exception on ...",
+        "url": "https://stackoverflow.com/questions/50558785/page-guard-with-virtualprotect-not-raising-an-exception-on-execute-access",
+        "snippet": "I'm trying to hook a function using PAGE_GUARD but it does not raise any exception when the page/address is called.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7
+      },
+      {
+        "title": "VMProtect 2 - Detailed Analysis of the Virtual Machine Architecture",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/nglk7w/vmprotect_2_detailed_analysis_of_the_virtual",
+        "snippet": "Recommended VMProtect unpackers. Top reverse engineering tools for beginners. Most challenging reverse engineering projects. Best practices for",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.575
+      },
+      {
+        "title": "EDR Analysis: Leveraging Fake DLLs, Guard Pages, and VEH for Enhanced Detection - RedOps - English",
+        "url": "https://redops.at/en/blog/edr-analysis-leveraging-fake-dlls-guard-pages-and-veh-for-enhanced-detection",
+        "snippet": "# EDR Analysis: Leveraging Fake DLLs, Guard Pages, and VEH for Enhanced Detection. In this blog post I would like to document and share my latest findings and experiences in the area of EDR (Endpoint Detection and Response) debugging and reverse engineering. In this article, I would like to discuss a rather unconventional but very interesting detection mechanism that is used in conjunction with EDR. In some of my previous articles I have mentioned the concept of inline API hooking, which is used by some EDRs to actively interfere with the execution of code and parameters of Windows APIs. For more information on this, see my recent blog post Syscalls via Vectored Exception Handling. In this article, however, I would like to discuss a rather unconventional but very interesting detection mechanism used in conjunction with EDR, based on a combination of process environment block (PEB) modification, the use of fake DLLs and guard pages, and the use of vectored exception handling.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.475
+      },
+      {
+        "title": "GuLoader Demystified: Unraveling its Vectored Exception Handler Approach",
+        "url": "https://www.sonicwall.com/blog/guloader-demystified-unraveling-its-vectored-exception-handler-approach",
+        "snippet": "# GuLoader Demystified: Unraveling its Vectored Exception Handler Approach. GuLoader is a shellcode-based downloader, known for its numerous anti-analysis techniques and control flow obfuscation. In latest variant of GuLoader it introduces new ways to raise exceptions that hamper complete analysis process and its execution under controlled environment. * Writing an IDAPython script to deobfuscate the control flow of shellcode and to make GuLoader’s analysis easy and fast. Recent variant of GuLoader is spreading as NSIS Installer consisting of NSIS script, DLL plugin and encrypted shellcode’s file. File “**Hangarer.Man**” contains shellcode of Layer 2 and an encrypted shellcode of Layer 3 which is main shellcode of GuLoader. First parameter of CallWindowProcW is **lpPrevWndFunc.** lpPrevWndFunc is callback function, which is set to address of allocated memory space, which results in indirect execution of the Layer 2’s shellcode. * During analysis of this variant, we have identified a significant enhancement in GuLoader’s one of most effective anti-debug technique that it’s custom **Vectored Exception Handler**.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "EDR Analysis: Leveraging Fake DLLs, Guard Pages, and VEH for ...",
+        "url": "https://redops.at/en/blog/edr-analysis-leveraging-fake-dlls-guard-pages-and-veh-for-enhanced-detection",
+        "snippet": "# EDR Analysis: Leveraging Fake DLLs, Guard Pages, and VEH for Enhanced Detection. In this blog post I would like to document and share my latest findings and experiences in the area of EDR (Endpoint Detection and Response) debugging and reverse engineering. In this article, I would like to discuss a rather unconventional but very interesting detection mechanism that is used in conjunction with EDR. In some of my previous articles I have mentioned the concept of inline API hooking, which is used by some EDRs to actively interfere with the execution of code and parameters of Windows APIs. For more information on this, see my recent blog post Syscalls via Vectored Exception Handling. In this article, however, I would like to discuss a rather unconventional but very interesting detection mechanism used in conjunction with EDR, based on a combination of process environment block (PEB) modification, the use of fake DLLs and guard pages, and the use of vectored exception handling.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Ever wondered how Cheat Engine works? (Extended)",
+        "url": "https://www.guardingpearsoftware.com/blog/ever-wondered-how-cheat-engine-works-extended-41008",
+        "snippet": "Vectored Exception Handling (VEH) avoids attaching as a traditional debugger. ... Page-level access control via Extended Page Tables (EPT); Concealment from",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Malware Development Part 14: Vectored Exception Handling (VEH ...",
+        "url": "https://sid4hack.medium.com/malware-development-part-14-vectored-exception-handling-veh-injection-technique-98d804adac5c",
+        "snippet": "Core Idea. Abuse the Windows Vectored Exception Handling (VEH) infrastructure to execute arbitrary code by registering a handler, triggering a",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Obscuring Control Flow - Unprotect Project",
+        "url": "https://unprotect.it/technique/obscuring-control-flow",
+        "snippet": "Obscuring control flow is an anti-disassembling technique that involves using methods of flow control that are difficult or impossible for disassemblers and",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "RtlAddFunctionTable vs RtlAddGrowableFunctionTable? - NTDEV",
+        "url": "https://community.osr.com/t/rtladdfunctiontable-vs-rtladdgrowablefunctiontable/51512",
+        "snippet": "For dynamically generated code that requires stack unwinding using RtlVirtualUnwind, we need to call a function RtlAddFunctionTable.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "pmeerw's blog /programming/RtlAddFunctionTable.html",
+        "url": "https://pmeerw.net/blog/programming/RtlAddFunctionTable.html",
+        "snippet": "A function table is used to associate unwind information to functions in order to help 64-bit Windows unwind the call stack, but also to",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "RtlAddFunctionTable function (winnt.h) - Win32 apps - Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtladdfunctiontable",
+        "snippet": "This function is useful for code that is generated from a template or generated only once during the life of the process.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "What is the difference between RtlAddFunctionTable and ...",
+        "url": "https://stackoverflow.com/questions/78565505/what-is-the-difference-between-rtladdfunctiontable-and-rtlinsertinvertedfunction",
+        "snippet": "The RtlAddFunctionTable is used to dynamically install a funciton table in order to handle SEH exceptions.I have used it on custom loader",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "C++ Unwind Exception Metadata - Möbius Strip Reverse Engineering",
+        "url": "https://www.msreverseengineering.com/blog/2024/8/20/c-unwind-metadata-1",
+        "snippet": "This blog entry describes an overlooked source of information in C++ programs that can make manual and automated type reconstruction more efficient.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      }
+    ],
+    "exa": [
+      {
+        "title": "Rasetsuu/vmprotect-research",
+        "url": "https://github.com/Rasetsuu/vmprotect-research",
+        "snippet": "",
+        "published_date": "2026-05-28T22:02:35.000Z",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "BenteVE/SEH-VEH-hook-Page-Guard-Exception",
+        "url": "https://github.com/BenteVE/SEH-VEH-hook-Page-Guard-Exception",
+        "snippet": "",
+        "published_date": "2023-12-23T22:33:47.000Z",
+        "source": "exa",
+        "score": 0.725
+      },
+      {
+        "title": "VMProtect 2 - Detailed Analysis of the Virtual Machine Architecture",
+        "url": "https://back.engineering/blog/17/05/2021/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "Quick look around VMP 3.x - Part 1 : Unpacking | r0da's Blog",
+        "url": "https://whereisr0da.github.io/blog/posts/2021-01-05-vmp-1/",
+        "snippet": "",
+        "published_date": "2021-01-05T14:13:03.000Z",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "Reverse Engineering Adventures: VMProtect Control Flow Obfuscation (Case study: string algorithm cryptanalysis in Honkai Impact 3rd) – Adventures in code and reverse engineering",
+        "url": "https://katyscode.wordpress.com/2021/01/23/reverse-engineering-adventures-vmprotect-control-flow-obfuscation-case-study-string-algorithm-cryptanalysis-in-honkai-impact-3rd/",
+        "snippet": "",
+        "published_date": "2021-01-23T05:17:55.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "thomasxm/BOAZ_beta",
+        "url": "https://github.com/thomasxm/boaz_beta",
+        "snippet": "",
+        "published_date": "2024-05-26T16:42:09.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Page Streaming",
+        "url": "https://tradecraftgarden.org/pagestream.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "EDR Analysis: Leveraging Fake DLLs, Guard Pages, and VEH for Enhanced Detection - RedOps - English",
+        "url": "https://redops.at/en/blog/edr-analysis-leveraging-fake-dlls-guard-pages-and-veh-for-enhanced-detection",
+        "snippet": "",
+        "published_date": "2025-02-23T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "C5Hackr/Eclipse",
+        "url": "https://github.com/C5Hackr/Eclipse",
+        "snippet": "",
+        "published_date": "2025-03-02T22:11:57.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Patchless AMSI Bypass via Page Guard Exceptions | ShigShag",
+        "url": "https://shigshag.com/blog/amsi_page_guard",
+        "snippet": "",
+        "published_date": "2025-11-15T18:18:40.000Z",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "Fantastic unwind information and where to find them | klezVirus",
+        "url": "https://klezvirus.github.io/posts/Byoud/",
+        "snippet": "",
+        "published_date": "2026-03-16T09:00:00.000Z",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "x64 exception handling | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/cpp/build/exception-handling-x64?view=msvc-170",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "How do I interpret xdata and pdata section to hand-write RUNTIME_FUNCTION and UNWIND_INFO for RtlAddFunctionTable?",
+        "url": "https://stackoverflow.com/questions/78933204/how-do-i-interpret-xdata-and-pdata-section-to-hand-write-runtime-function-and-un",
+        "snippet": "",
+        "published_date": "2024-08-30T17:39:01.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Describing dynamically generated code with RtlAddFunctionTable on Windows x64",
+        "url": "https://stackoverflow.com/questions/20998155/describing-dynamically-generated-code-with-rtladdfunctiontable-on-windows-x64",
+        "snippet": "",
+        "published_date": "2014-01-08T14:17:33.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "RtlAddGrowableFunctionTable function (winnt.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-rtladdgrowablefunctiontable",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      }
+    ],
+    "grok": []
+  }
+}
