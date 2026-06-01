@@ -1,6 +1,6 @@
 # DNS / Host / Service Reconciliation
 
-本文件反映 **2026-05-31** 抓取的 Cloudflare live zone 与当前 `infra/` 主机文档之间的正式对账结果。
+本文件反映 **2026-06-02** 抓取的 Cloudflare live zone 与当前 `infra/` 主机文档之间的正式对账结果。
 
 基于以下信息对账：
 - Cloudflare live zone (`zhangxuemin.work`)
@@ -20,13 +20,13 @@
 
 - zone: `zhangxuemin.work`
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- current live record count: **26**
+- current live record count: **28**
 - type counts:
-  - `A`: 16
+  - `A`: 18
   - `AAAA`: 2
   - `MX`: 4
   - `TXT`: 4
-- current live snapshot vs committed baseline: **no diff** after the 2026-05-31 baseline refresh that incorporated the CPA Manager Plus direct/HK edge records
+- current live snapshot vs committed baseline: **no semantic diff** after the 2026-06-02 baseline refresh that recorded Cloudflare MX priorities (`send`: 10; root `route1/2/3`: 56/24/98) on the existing MX records
 
 ---
 
@@ -49,6 +49,8 @@
 | `cliproxy-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 cliproxy 国内/HK 边缘入口 | **匹配** | HK Caddy -> `proxy.zhangxuemin.work:8317` |
 | `cpam.zhangxuemin.work` | `158.178.236.241` | 指向 `oracle-proxy`，当前是 CPA Manager Plus direct/source 入口 | **匹配** | 直连/海外路径 |
 | `cpam-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 CPA Manager Plus 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://cpam.zhangxuemin.work` |
+| `reverse-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 `oracle-reverse-dev` 的国内/HK SSH 边缘入口（HK `:22061` -> Oracle `:22`） | **匹配** | DNS-only A；使用 `ssh -p 22061 ubuntu@reverse-cn.zhangxuemin.work` |
+| `ctf-gpt-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 `oracle-reverse-dev` CTF GPT Plus 的国内/HK HTTPS 边缘入口 | **匹配** | HK Caddy -> `http://140.245.61.236:8000`; 使用 `https://ctf-gpt-cn.zhangxuemin.work/ctf-gpt-plus` |
 | `claw-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 OpenClaw 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://dev.zhangxuemin.work` |
 | `tmail.zhangxuemin.work` | Cloudflare proxied (`AAAA 100::`) | 当前仍作为 Cloudflare 侧临时邮箱/worker front path | **匹配** | 非主机直连记录 |
 | `tmail-front.zhangxuemin.work` | Cloudflare proxied (`AAAA 100::`) | 当前仍作为 Cloudflare 侧 front path | **匹配** | 非主机直连记录 |
@@ -59,8 +61,8 @@
 
 | Record | DNS Target | Current reality | Status | Notes |
 |---|---|---|---|---|
-| `zhangxuemin.work` | `route1/2/3.mx.cloudflare.net` | 根域当前仍走 Cloudflare Email Routing | **匹配** | 与当前保留策略一致 |
-| `send.zhangxuemin.work` | `feedback-smtp.ap-northeast-1.amazonses.com` | 当前保留 SES 发送/反馈路径 | **匹配** | 与现有 `send` SPF 记录配套 |
+| `zhangxuemin.work` | `route1/2/3.mx.cloudflare.net` (`priority`: 56/24/98) | 根域当前仍走 Cloudflare Email Routing | **匹配** | 与当前保留策略一致；优先级来自当前 Cloudflare live zone |
+| `send.zhangxuemin.work` | `feedback-smtp.ap-northeast-1.amazonses.com` (`priority`: 10) | 当前保留 SES 发送/反馈路径 | **匹配** | 与现有 `send` SPF 记录配套；优先级来自当前 Cloudflare live zone |
 
 ---
 
@@ -97,7 +99,7 @@
 
 - 当前 live zone 与提交的 baseline **一致**，没有即时 drift。
 - 当前核心活跃基础设施域名与主机文档 **整体一致**。
-- 新纳入当前事实的域名组包括：`derp.*`、CPA Manager Plus 入口（`cpam` / `cpam-cn`）与 `hk-relay` 相关记录（`hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `claw-cn` / `cpam-cn`）。
+- 新纳入当前事实的域名组包括：`derp.*`、CPA Manager Plus 入口（`cpam` / `cpam-cn`）、`oracle-reverse-dev` SSH 边缘入口（`reverse-cn`）与 `hk-relay` 相关记录（`hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `claw-cn` / `cpam-cn` / `reverse-cn`）。
 - 当前 DNS 主要未闭环点不是主机映射，而是 **剩余唯一一条 DKIM（`cf2024-1`）的发送方归属与长期去留还需继续收口**。
 - 已新增 `infra/cloudflare-dns/dkim-reconciliation.md` 作为 DKIM 归属说明页，后续优先在那一页继续推进而不是在各处零散猜测。
 - 历史 Mailu 相关主机残留与其对应 `dkim._domainkey` 记录已在 2026-04-14 按用户确认完成删除。

@@ -1,8 +1,8 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 26,
+  "record_count": 28,
   "type_counts": {
-    "A": 16,
+    "A": 18,
     "AAAA": 2,
     "MX": 4,
     "TXT": 4
@@ -69,6 +69,14 @@
       "ttl": 300,
       "proxied": false,
       "comment": "oracle-proxy CPA Manager Plus"
+    },
+    {
+      "name": "ctf-gpt-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN/HK edge via hk-relay for oracle-reverse-dev CTF GPT Plus"
     },
     {
       "name": "derp.zhangxuemin.work",
@@ -145,6 +153,14 @@
       "ttl": 1,
       "proxied": false,
       "comment": "oracle-proxy"
+    },
+    {
+      "name": "reverse-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN/HK SSH edge via hk-relay to oracle-reverse-dev:22"
     },
     {
       "name": "send.zhangxuemin.work",

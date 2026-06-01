@@ -1,9 +1,9 @@
-# Cloudflare DNS Snapshot
+# Cloudflare DNS Baseline Summary
 
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- record_count: 26
+- record_count: 28
 - type_counts:
-  - A: 16
+  - A: 18
   - AAAA: 2
   - MX: 4
   - TXT: 4
@@ -18,6 +18,7 @@
 - A cliproxy-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN edge via hk-relay for cliproxy
 - A cpam-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN edge via hk-relay for CPA Manager Plus
 - A cpam.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=300 comment=oracle-proxy CPA Manager Plus
+- A ctf-gpt-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK edge via hk-relay for oracle-reverse-dev CTF GPT Plus
 - A derp.zhangxuemin.work -> 129.150.61.78 proxied=false ttl=1
 - A dev.zhangxuemin.work -> 64.110.106.11 proxied=false ttl=1 comment=openclaw-host
 - A drop.hk.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1
@@ -28,6 +29,7 @@
 - A mail.zhangxuemin.work -> 140.83.52.216 proxied=false ttl=1 comment=oracle-mail web-app host
 - A mcr.zhangxuemin.work -> 140.245.33.114 proxied=false ttl=1
 - A proxy.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=1 comment=oracle-proxy
+- A reverse-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK SSH edge via hk-relay to oracle-reverse-dev:22
 - MX send.zhangxuemin.work -> feedback-smtp.ap-northeast-1.amazonses.com priority=10 proxied=false ttl=3600
 - TXT send.zhangxuemin.work -> "v=spf1 include:amazonses.com ~all" proxied=false ttl=3600
 - AAAA tmail-front.zhangxuemin.work -> 100:: proxied=true ttl=1
