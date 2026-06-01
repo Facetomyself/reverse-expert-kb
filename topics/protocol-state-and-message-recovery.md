@@ -19,6 +19,7 @@ Related pages:
 - topics/protocol-method-contract-to-minimal-replay-fixture-workflow-note.md
 - topics/protocol-can-uds-diagnostic-session-to-state-consumer-workflow-note.md
 - topics/protocol-ble-gatt-notification-to-state-consumer-workflow-note.md
+- topics/protocol-usb-hid-report-descriptor-to-semantic-consumer-workflow-note.md
 - topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 
@@ -117,6 +118,7 @@ But it is the practical memory the parent page should preserve once the branch h
 
 Compact anti-drift reminders worth preserving here:
 - do not treat BLE UUIDs, characteristic properties, CCCD writes, sniffer-visible notifications, or app callbacks as a trustworthy state claim until one value has crossed delivery, parsing, and first-consumer proof
+- do not treat USB HID report descriptors, report IDs, usage tables, hidraw bytes, or evdev events as a trustworthy state claim until one live report instance has crossed field decoding, quirk/fixup classification when relevant, and first semantic-consumer proof
 - do not treat visible bytes as a trustworthy protocol object until one smaller contract is already good enough
 - do not keep widening parser or state taxonomy once one consequence-bearing edge is already sufficient for the next experiment
 - do not stop at local acceptance or reply-object visibility if the first committed outbound or hardware-side consequence is still unproved

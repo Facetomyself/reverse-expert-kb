@@ -18,6 +18,7 @@ Related pages:
 - topics/protocol-grpc-call-context-to-replay-fixture-workflow-note.md
 - topics/protocol-can-uds-diagnostic-session-to-state-consumer-workflow-note.md
 - topics/protocol-ble-gatt-notification-to-state-consumer-workflow-note.md
+- topics/protocol-usb-hid-report-descriptor-to-semantic-consumer-workflow-note.md
 - topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 - topics/protocol-netlink-message-to-consumer-workflow-note.md
@@ -139,6 +140,7 @@ Compact anti-drift reminders worth preserving here:
 - preserve a second sharper parent-page reminder for USB-transfer cases: `submitted != retired/idle != usbmon completion visible != callback finished != first completion consumer proved != later visible consequence truth`; visible `usb_submit_urb(...)`, async cancel returns, or usbmon completion lines should not silently replace the smaller callback/parser/router proof object that first gives the completed transfer behavioral meaning
 - do not stop at CAN IDs, ISO-TP reassembly, UDS service/DID/RID enumeration, session/security unlock, TesterPresent cadence, positive response, negative response, or response-pending when the current ECU state/effect consumer is still unproved; preserve `ids != reassembled != service-contract != session/security-live != accepted/responded != state-consumed` for UDS-shaped cases
 - do not stop at BLE service/characteristic discovery, notify/indicate property, CCCD setup, sniffer-visible notification, or mobile callback when the first parsed state reducer or device/app consequence is still unproved; preserve `discovered != subscribed != notified/indicated != delivered != parsed != consumed` for BLE-shaped cases
+- do not stop at USB HID descriptor parsing, report ID discovery, usage/page labels, hidraw bytes, evdev events, or Feature/Output report writes when the first semantic device/app consumer is still unproved; preserve `descriptor parsed != report selected != field decoded != live report delivered != parsed/quirked meaning != semantic consumer/effect` for HID-shaped cases
 - do not stop at parser visibility or local acceptance if the first committed outbound or hardware-side effect edge is still unproved
 - do not treat one good technical proof as finished work if the next likely failure mode is rediscovery rather than missing one more hook
 
