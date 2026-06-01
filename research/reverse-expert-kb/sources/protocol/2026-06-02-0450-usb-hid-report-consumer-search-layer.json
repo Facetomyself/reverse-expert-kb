@@ -1,0 +1,391 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "USB HID report descriptor reverse engineering input report parser consumer hidraw hid report descriptor",
+    "Linux HID report descriptor hidraw input report parsing documentation reverse engineering",
+    "USB HID report descriptor parser usages collections report id reverse engineering"
+  ],
+  "count": 18,
+  "results": [
+    {
+      "title": "todbot/hidraw-dump: Use Linux HIDRAW to print info about ...",
+      "url": "https://github.com/todbot/hidraw-dump",
+      "snippet": "Use Linux HIDRAW to print info about HID devices (USB & Bluetooth/BLE) ... To parse the HID Report Descriptor, use either hidrd-convert or https",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "hidparser - Rust",
+      "url": "https://docs.rs/hidparser",
+      "snippet": "This crate defines data types to describe a HID report descriptor, and implements a parser that will process a raw descriptor and return a ReportDescriptor object that describes the contents of the report descriptor. 0 None//Input report field[4] is right control - Usage Page 7, Usage 0xE4, occupying bit 4 of the input report. let ref 0 4 else panic!\"Unexpected field type.\" let Some 0x07 0xe4assert_eq! 4 5//Input report field[8] is padding, occupying bit 8 through 15 of the input report. let ref 0 8 else panic!\"Unexpected field type.\"assert_eq! //The key code can have usages in Usage Page 7, in the range 0x00 to 0xFF let ref 0 9 else panic!\"Unexpected field type.\"assert_eq! 0x00070000 0x000700ff//Output report field[1] is caps lock - Usage Page 8, Usage 0x01, occupying bit 1 of the output report. :   Describes an Array data field in a report descriptor. :   Describes a Padding data field in a report descriptor (i.e. a field without usages). :   Describes a Variable data field in a report descriptor.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "usb-tools/python-hid-parser",
+      "url": "https://github.com/usb-tools/python-hid-parser",
+      "snippet": "",
+      "published_date": "2020-09-09T23:45:36.000Z",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "pasztorpisti/hid-report-parser",
+      "url": "https://github.com/pasztorpisti/hid-report-parser",
+      "snippet": "",
+      "published_date": "2024-02-25T04:53:26.000Z",
+      "source": "exa, tavily",
+      "score": 0.69
+    },
+    {
+      "title": "My USB HID Report Descriptor Parser (hosted on my own website)",
+      "url": "https://www.reddit.com/r/electronics/comments/1ipf1f/my_usb_hid_report_descriptor_parser_hosted_on_my",
+      "snippet": "Essentially, this tool is the reverse of the (horrible) \"HID Descriptor Tool\" provided by USB.org, and the display format is very similar.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.68
+    },
+    {
+      "title": "samples/hidraw/hid-example.c at master · torvalds/linux",
+      "url": "https://github.com/torvalds/linux/blob/master/samples/hidraw/hid-example.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "Introduction to HID report descriptors — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/hid/hidintro.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.64
+    },
+    {
+      "title": "HIDRAW - Raw Access to USB and Bluetooth Human Interface Devices — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/hid/hidraw.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.64
+    },
+    {
+      "title": "Introduction to HID report descriptors — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/6.9/hid/hidintro.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.64
+    },
+    {
+      "title": "GSoC 2020 - Wireshark USB HID Report Descriptor Parser",
+      "url": "https://ffy00.github.io/blog/01-gsoc-2020",
+      "snippet": "I am taking upon the task of writing a HID report descriptor parser and adding annotations for HID data in Wireshark.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "Reverse Engineering a USB Device in Linux",
+      "url": "https://blog.gistre.epita.fr/posts/sifeddine.regragui-2025-06-17-reverse_engineering_a_usb_device_in_linux",
+      "snippet": "These reports follow a format defined by the device's HID descriptor, which acts as a template for interpreting the raw data. The DualShock 4",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.58
+    },
+    {
+      "title": "How to get HID Report Descriptor using Windows API - NTDEV",
+      "url": "https://community.osr.com/t/how-to-get-hid-report-descriptor-using-windows-api/57340",
+      "snippet": "The best result so far is to use an reverse engineering approach adopted by Chromium project. https://github.com/libusb/hidapi/pull/306.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.48
+    },
+    {
+      "title": "USB Descriptor and Request Parser",
+      "url": "https://eleccelerator.com/usbdescreqparser",
+      "snippet": "This page can be downloaded and used offline, because it does not depend on any external or online resources. The reason why I made this tool is because some USB traffic sniffers do not perform parsing on USB packets (especially the freeware ones), but the binary data can still be obtained. This tool will traverse through the binary data, and translate it into something human-readable, using the official documents from USB.org. The three types of data this tool can handle are \"USB Standard Descriptors\", \"USB Standard Requests\", and \"USB HID Report Descriptors\". The \"parse USB HID report descriptor\" function is the reverse of the (horrible) \"HID Descriptor Tool\" provided by USB.org, and the display format is very similar. I was frustrated when I couldn't find a tool for this, so I wrote it in hopes that it will become useful for everybody looking for such a tool. This tool is a great companion to a USB traffic sniffer like the Beagle USB 12, available from Adafruit Industries.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.48
+    },
+    {
+      "title": "AI helped me reverse engineer a USB device with Linux 🤯 ...",
+      "url": "https://x.com/popovicu94/status/1987022970083254504",
+      "snippet": "AI helped me reverse engineer a USB device with Linux I found the \"instruction manual\" (the HID Report Descriptor), but it's not a simple",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "How to reverse engineer USB HID on Linux - Uros Popovic",
+      "url": "https://popovicu.com/posts/how-to-reverse-engineer-usb-hid-on-linux/",
+      "snippet": "",
+      "published_date": "2025-11-08T15:30:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.39
+    },
+    {
+      "title": "HIDRAW - Raw Access to USB and Bluetooth Human Interface Devices — The Linux Kernel  documentation",
+      "url": "https://www.kernel.org/doc/html/latest/hid/hidraw.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "Universal Serial Bus (USB)",
+      "url": "https://www.usb.org/sites/default/files/documents/hid1_11.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "",
+      "url": "https://www.usb.org/sites/default/files/hut1_6.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Introduction to HID report descriptors — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/hid/hidintro.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.64
+      },
+      {
+        "title": "Universal Serial Bus (USB)",
+        "url": "https://www.usb.org/sites/default/files/documents/hid1_11.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "",
+        "url": "https://www.usb.org/sites/default/files/hut1_6.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "How to reverse engineer USB HID on Linux - Uros Popovic",
+        "url": "https://popovicu.com/posts/how-to-reverse-engineer-usb-hid-on-linux/",
+        "snippet": "",
+        "published_date": "2025-11-08T15:30:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.39
+      },
+      {
+        "title": "usb-tools/python-hid-parser",
+        "url": "https://github.com/usb-tools/python-hid-parser",
+        "snippet": "",
+        "published_date": "2020-09-09T23:45:36.000Z",
+        "source": "exa",
+        "score": 0.69
+      },
+      {
+        "title": "HIDRAW - Raw Access to USB and Bluetooth Human Interface Devices — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/hid/hidraw.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.64
+      },
+      {
+        "title": "Introduction to HID report descriptors — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/6.9/hid/hidintro.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.64
+      },
+      {
+        "title": "HIDRAW - Raw Access to USB and Bluetooth Human Interface Devices — The Linux Kernel  documentation",
+        "url": "https://www.kernel.org/doc/html/latest/hid/hidraw.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "samples/hidraw/hid-example.c at master · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/master/samples/hidraw/hid-example.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "How to reverse engineer USB HID on Linux - Uros Popovic",
+        "url": "https://popovicu.com/posts/how-to-reverse-engineer-usb-hid-on-linux/",
+        "snippet": "",
+        "published_date": "2025-11-08T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Introduction to HID report descriptors — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/hid/hidintro.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "HIDRAW - Raw Access to USB and Bluetooth Human Interface Devices — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/hid/hidraw.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "pasztorpisti/hid-report-parser",
+        "url": "https://github.com/pasztorpisti/hid-report-parser",
+        "snippet": "",
+        "published_date": "2024-02-25T04:53:26.000Z",
+        "source": "exa, tavily",
+        "score": 0.69
+      },
+      {
+        "title": "How to reverse engineer USB HID on Linux - Uros Popovic",
+        "url": "https://popovicu.com/posts/how-to-reverse-engineer-usb-hid-on-linux/",
+        "snippet": "",
+        "published_date": "2025-11-08T15:30:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "samples/hidraw/hid-example.c at master · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/master/samples/hidraw/hid-example.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "My USB HID Report Descriptor Parser (hosted on my own website)",
+        "url": "https://www.reddit.com/r/electronics/comments/1ipf1f/my_usb_hid_report_descriptor_parser_hosted_on_my",
+        "snippet": "Essentially, this tool is the reverse of the (horrible) \"HID Descriptor Tool\" provided by USB.org, and the display format is very similar.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.68
+      },
+      {
+        "title": "How to get HID Report Descriptor using Windows API - NTDEV",
+        "url": "https://community.osr.com/t/how-to-get-hid-report-descriptor-using-windows-api/57340",
+        "snippet": "The best result so far is to use an reverse engineering approach adopted by Chromium project. https://github.com/libusb/hidapi/pull/306.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.48
+      },
+      {
+        "title": "How to reverse engineer USB HID on Linux - Uros Popovic",
+        "url": "https://popovicu.com/posts/how-to-reverse-engineer-usb-hid-on-linux",
+        "snippet": "# How to reverse engineer USB HID on Linux. Discover how Linux exposes raw USB device data, even without a driver. This article details how to use /dev/hidraw and the HID report descriptor to reverse-engineer and read real-time data from a UPS. After unpacking it, I investigated its USB port and discovered it wasn't for powering other devices. I wanted to access this data without relying on third-party software, so I decided to see if I could reverse-engineer the protocol using Linux. My goal is to set up 24/7 monitoring for the UPS, and for this task, I've dedicated a 10+ year-old Raspberry Pi 2B. I've previously written about using mainline Linux on a Raspberry Pi, which you can check out for more details. When a USB HID device performs its initial handshake with the Linux host, it provides a descriptor of the protocol it uses on top of HID.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "GSoC 2020 - Wireshark USB HID Report Descriptor Parser",
+        "url": "https://ffy00.github.io/blog/01-gsoc-2020",
+        "snippet": "I am taking upon the task of writing a HID report descriptor parser and adding annotations for HID data in Wireshark.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "Introduction to HID report descriptors — The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/hid/hidintro.html",
+        "snippet": "# Introduction to HID report descriptors¶. This chapter is meant to give a broad overview of what HID report descriptors are, and of how a casual (non-kernel) programmer can deal with HID devices that are not working well with Linux. This is because modern HID devices do advertise their capabilities through the *HID report descriptor*, a fixed set of bytes describing exactly what *HID reports* may be sent between the device and the host and the meaning of each individual bit in those reports. For example, a HID Report Descriptor may specify that “in a report with ID 3 the bits from 8 to 15 is the delta x coordinate of a mouse”. Note that HID reports may be sent from the device (“Input Reports”, i.e. input events), to the device (“Output Reports” to e.g. change LEDs) or used for device configuration (“Feature reports”). The HID subsystem is in charge of parsing the HID report descriptors, and converts HID events into normal input device interfaces (see HID I/O Transport Drivers).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "How to reverse engineer USB HID on Linux - Uros Popovic",
+        "url": "https://popovicu.com/posts/how-to-reverse-engineer-usb-hid-on-linux",
+        "snippet": "# How to reverse engineer USB HID on Linux. Discover how Linux exposes raw USB device data, even without a driver. This article details how to use /dev/hidraw and the HID report descriptor to reverse-engineer and read real-time data from a UPS. After unpacking it, I investigated its USB port and discovered it wasn't for powering other devices. I wanted to access this data without relying on third-party software, so I decided to see if I could reverse-engineer the protocol using Linux. My goal is to set up 24/7 monitoring for the UPS, and for this task, I've dedicated a 10+ year-old Raspberry Pi 2B. I've previously written about using mainline Linux on a Raspberry Pi, which you can check out for more details. When a USB HID device performs its initial handshake with the Linux host, it provides a descriptor of the protocol it uses on top of HID.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Introduction to HID report descriptors",
+        "url": "https://docs.kernel.org/hid/hidintro.html",
+        "snippet": "# Introduction to HID report descriptors¶. This chapter is meant to give a broad overview of what HID report descriptors are, and of how a casual (non-kernel) programmer can deal with HID devices that are not working well with Linux. This is because modern HID devices do advertise their capabilities through the *HID report descriptor*, a fixed set of bytes describing exactly what *HID reports* may be sent between the device and the host and the meaning of each individual bit in those reports. For example, a HID Report Descriptor may specify that “in a report with ID 3 the bits from 8 to 15 is the delta x coordinate of a mouse”. Note that HID reports may be sent from the device (“Input Reports”, i.e. input events), to the device (“Output Reports” to e.g. change LEDs) or used for device configuration (“Feature reports”). The HID subsystem is in charge of parsing the HID report descriptors, and converts HID events into normal input device interfaces (see HID I/O Transport Drivers).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "todbot/hidraw-dump: Use Linux HIDRAW to print info about ...",
+        "url": "https://github.com/todbot/hidraw-dump",
+        "snippet": "Use Linux HIDRAW to print info about HID devices (USB & Bluetooth/BLE) ... To parse the HID Report Descriptor, use either hidrd-convert or https",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "AI helped me reverse engineer a USB device with Linux 🤯 ...",
+        "url": "https://x.com/popovicu94/status/1987022970083254504",
+        "snippet": "AI helped me reverse engineer a USB device with Linux I found the \"instruction manual\" (the HID Report Descriptor), but it's not a simple",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Reverse Engineering a USB Device in Linux",
+        "url": "https://blog.gistre.epita.fr/posts/sifeddine.regragui-2025-06-17-reverse_engineering_a_usb_device_in_linux",
+        "snippet": "These reports follow a format defined by the device's HID descriptor, which acts as a template for interpreting the raw data. The DualShock 4",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.58
+      },
+      {
+        "title": "Parser for USB HID input reports and their descriptors - GitHub",
+        "url": "https://github.com/pasztorpisti/hid-report-parser",
+        "snippet": "Parser for USB HID input reports and their descriptors. Pros: High level programming interface that can map specific report fields onto the int32_t and bool",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "hidparser - Rust",
+        "url": "https://docs.rs/hidparser",
+        "snippet": "This crate defines data types to describe a HID report descriptor, and implements a parser that will process a raw descriptor and return a ReportDescriptor object that describes the contents of the report descriptor. 0 None//Input report field[4] is right control - Usage Page 7, Usage 0xE4, occupying bit 4 of the input report. let ref 0 4 else panic!\"Unexpected field type.\" let Some 0x07 0xe4assert_eq! 4 5//Input report field[8] is padding, occupying bit 8 through 15 of the input report. let ref 0 8 else panic!\"Unexpected field type.\"assert_eq! //The key code can have usages in Usage Page 7, in the range 0x00 to 0xFF let ref 0 9 else panic!\"Unexpected field type.\"assert_eq! 0x00070000 0x000700ff//Output report field[1] is caps lock - Usage Page 8, Usage 0x01, occupying bit 1 of the output report. :   Describes an Array data field in a report descriptor. :   Describes a Padding data field in a report descriptor (i.e. a field without usages). :   Describes a Variable data field in a report descriptor.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "USB Descriptor and Request Parser",
+        "url": "https://eleccelerator.com/usbdescreqparser",
+        "snippet": "This page can be downloaded and used offline, because it does not depend on any external or online resources. The reason why I made this tool is because some USB traffic sniffers do not perform parsing on USB packets (especially the freeware ones), but the binary data can still be obtained. This tool will traverse through the binary data, and translate it into something human-readable, using the official documents from USB.org. The three types of data this tool can handle are \"USB Standard Descriptors\", \"USB Standard Requests\", and \"USB HID Report Descriptors\". The \"parse USB HID report descriptor\" function is the reverse of the (horrible) \"HID Descriptor Tool\" provided by USB.org, and the display format is very similar. I was frustrated when I couldn't find a tool for this, so I wrote it in hopes that it will become useful for everybody looking for such a tool. This tool is a great companion to a USB traffic sniffer like the Beagle USB 12, available from Adafruit Industries.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.48
+      },
+      {
+        "title": "Introduction to HID report descriptors",
+        "url": "https://docs.kernel.org/hid/hidintro.html",
+        "snippet": "# Introduction to HID report descriptors¶. This chapter is meant to give a broad overview of what HID report descriptors are, and of how a casual (non-kernel) programmer can deal with HID devices that are not working well with Linux. This is because modern HID devices do advertise their capabilities through the *HID report descriptor*, a fixed set of bytes describing exactly what *HID reports* may be sent between the device and the host and the meaning of each individual bit in those reports. For example, a HID Report Descriptor may specify that “in a report with ID 3 the bits from 8 to 15 is the delta x coordinate of a mouse”. Note that HID reports may be sent from the device (“Input Reports”, i.e. input events), to the device (“Output Reports” to e.g. change LEDs) or used for device configuration (“Feature reports”). The HID subsystem is in charge of parsing the HID report descriptors, and converts HID events into normal input device interfaces (see HID I/O Transport Drivers).",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "GSoC 2020 - Wireshark USB HID Report Descriptor Parser",
+        "url": "https://ffy00.github.io/blog/01-gsoc-2020",
+        "snippet": "I am taking upon the task of writing a HID report descriptor parser and adding annotations for HID data in Wireshark.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "grok": []
+  }
+}

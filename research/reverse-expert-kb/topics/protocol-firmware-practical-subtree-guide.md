@@ -33,6 +33,7 @@ Related pages:
 - topics/protocol-reply-emission-and-transport-handoff-workflow-note.md
 - topics/mailbox-doorbell-command-completion-workflow-note.md
 - topics/descriptor-ownership-transfer-and-completion-visibility-workflow-note.md
+- topics/protocol-usb-hid-report-descriptor-to-semantic-consumer-workflow-note.md
 - topics/peripheral-mmio-effect-proof-workflow-note.md
 - topics/isr-and-deferred-worker-consequence-proof-workflow-note.md
 - topics/runtime-behavior-recovery.md
@@ -73,7 +74,7 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty-three recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty-four recurring families:
 
 
 0. **hardware observation / image-lineage uncertainty**
@@ -124,7 +125,9 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - one descriptor, ring, or completion record is already visible, but the exact ownership-transfer, publish-vs-notify-vs-trust, or reclaim boundary is still unclear
 15. **CAN / UDS diagnostic session-state uncertainty**
    - one automotive diagnostic endpoint, service, DID/RID, session, or security level is already visible, but the first accepted request/response exchange and ECU state/effect consumer are still unclear
-16. **USB URB completion / first-consumer uncertainty**
+16. **USB HID report descriptor / semantic-consumer uncertainty**
+   - USB HID descriptor bytes, report IDs, hidraw report bytes, evdev events, or parser output are already visible, but the real bottleneck is still whether descriptor truth, report-ID/type truth, field-layout truth, live report-instance truth, kernel quirk/fixup truth, or the first semantic consumer actually owns the behavior; keep **descriptor parsed != report selected != field decoded != live report delivered != parsed/quirked meaning != semantic consumer/effect** visible before treating usages or hidraw bytes as state truth
+16a. **USB URB completion / first-consumer uncertainty**
    - USB transfer submission or completion visibility is already good enough, but the real bottleneck is still whether submit/setup truth, retire/cancel truth, usbmon-visible completion truth, callback/giveback truth, or the first callback/parser/router consumer actually owns the behavior
 17. **hardware-side effect / interrupt consequence uncertainty**
    - the path already reaches peripheral or interrupt/deferred boundaries, but the first durable effect-bearing write or later consequence handoff is still unproved
@@ -163,6 +166,7 @@ The subtree is strongest when read as:
 - **stabilize** one descriptor ownership-transfer / completion-visibility contract when publication is visible but publish-vs-notify-vs-trust/reclaim semantics still drift, especially when the case still has to be classified as coherent shared descriptor memory versus streaming/non-coherent DMA-backed visibility and freshness bits, explicit CPU/device trust transfer, or reclaim proof still decide whether completion bytes are actually trustworthy, when notify/doorbell edges still risk being overread as full trust proof, and when later work actually depends on preserving the thinner rule `completion-visible != consumed != reclaimed/reusable` rather than stopping at visible completion alone
 - **prove** one CAN / UDS diagnostic request path when CAN IDs, ISO-TP payloads, service/DID/RID scans, session/security posture, or positive/negative responses are visible but current ECU state/effect consumption is still unclear
 - **prove** one BLE GATT notification/indication path when UUID/CCCD/sniffer/callback truth is visible but delivered/parsed/consumed state truth is still unclear
+- **stabilize** one USB HID descriptor/report/semantic-consumer evidence unit when descriptor bytes, report IDs, hidraw bytes, evdev events, or parser output are visible but live report instance, kernel quirk/fixup, and app/device-owned meaning can still lie; preserve `descriptor parsed != report selected != field decoded != live report delivered != parsed/quirked meaning != semantic consumer/effect` before treating usages or raw report bytes as behavior ownership
 - **prove** one peripheral or interrupt-side consequence
 
 ## 3. How to choose the right entry note
@@ -511,6 +515,21 @@ Do **not** start here when:
 - the first hardware-facing effect-bearing MMIO edge is still more important than the shared-memory trust boundary
 - the ownership / visibility contract is already good enough and the remaining gap is now a later ISR/deferred consequence or model-realism follow-up
 
+### Start with `protocol-usb-hid-report-descriptor-to-semantic-consumer-workflow-note`
+Use:
+- `topics/protocol-usb-hid-report-descriptor-to-semantic-consumer-workflow-note.md`
+
+Start here when:
+- the case is USB HID-shaped and descriptor bytes, report IDs, hidraw report bytes, evdev events, Feature / Output / Input reports, or parser output are already visible
+- the main uncertainty is no longer whether USB traffic exists, but whether the relevant truth lives in descriptor layout, report-ID/type selection, field decoding, live report delivery, kernel quirk/fixup output, or one first app/device semantic consumer
+- the next useful output is one descriptor-to-report evidence row such as descriptor -> report ID/type -> field tuple -> live report instance -> hidraw/evdev/app consumer -> visible behavior
+- the case is better described as HID report meaning than as low-level URB completion/cancel ownership
+
+Do **not** start here when:
+- the real bottleneck is still USB enumeration, endpoint discovery, transfer completion, cancel/retire semantics, or callback/giveback ownership; use the USB URB note
+- the HID report only carries an opaque vendor/private payload and descriptor-level field meaning is no longer the useful object; freeze HID framing, then route to layer-peeling or parser/state notes
+- first semantic-consumer ownership is already good enough and the remaining gap is now later parser/business logic, replay preconditions, or hardware-side effect proof
+
 ### Start with `usb-urb-completion-and-first-consumer-workflow-note`
 Use:
 - `topics/usb-urb-completion-and-first-consumer-workflow-note.md`
@@ -554,7 +573,7 @@ Do **not** start here when:
 - the real bottleneck is earlier in parser/state or replay-gate work
 
 ## 4. Compact ladder across the branch
-A useful way to read the branch is as fifteen common bottleneck families that often chain into one another.
+A useful way to read the branch is as common bottleneck families that often chain into one another.
 
 ### A. Broad firmware/protocol uncertainty -> correct recovery object
 Typical question:
