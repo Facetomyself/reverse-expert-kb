@@ -1,0 +1,436 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "MQTT protocol QoS retained message duplicate packet identifier reverse engineering handler consumer",
+    "MQTT subscribe publish retained QoS packet identifier session expiry documentation reverse engineering",
+    "MQTT message delivery semantics QoS 1 QoS 2 retained session state official docs"
+  ],
+  "count": 23,
+  "results": [
+    {
+      "title": "3 MQTT Control Packets - Solace Docs",
+      "url": "https://docs.solace.com/API/MQTT-v50-Prtl-Conformance-Spec/mqtt-v50-3-control-packets.htm",
+      "snippet": "The PUBLISH packet sent to a Client by the Server MUST contain a Message Expiry ... identifier, or when the Client receives Session Present 0 in a CONNACK packet.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.65
+    },
+    {
+      "title": "epan/dissectors/packet-mqtt.c at master · wireshark/wireshark",
+      "url": "https://github.com/wireshark/wireshark/blob/master/epan/dissectors/packet-mqtt.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "QOS2 Duplicates not being confirmed : r/MQTT - Reddit",
+      "url": "https://www.reddit.com/r/MQTT/comments/1d4acwm/qos2_duplicates_not_being_confirmed",
+      "snippet": "Publishing messages with QoS > 0 adds packet identifier so they are distinct messages. How did you subscribe to that topic to observe this",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "MQTT Protocol",
+      "url": "https://docs.aklivity.io/zilla/next/concepts/protocol/mqtt",
+      "snippet": "With features like publish-subscribe messaging, Quality of Service (QoS) levels, and persistent session support, MQTT enables scalable and resilient",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.625
+    },
+    {
+      "title": "mqtt-v3.1.1-os.html - MQTT Version 3.1.1 - OASIS Open",
+      "url": "https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html",
+      "snippet": "MQTT Version 3.1.1. http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.doc (Authoritative). http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.doc (Authoritative).          *MQTT and the NIST Cybersecurity Framework Version 1.0*. MQTT is a Client Server publish/subscribe messaging transport protocol.          A messaging transport that is agnostic to the content of the payload. Latest version: http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html. However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English. OASIS invites any party to contact the OASIS TC Administrator if it is aware of a claim of ownership of any patent claims that would necessarily be infringed by implementations of this specification by a patent holder that is not willing to provide a license to such patent claims in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this specification.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6
+    },
+    {
+      "title": "src/handle_publish.c at d0152406 · eclipse-mosquitto/mosquitto",
+      "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/d0152406/src/handle_publish.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "2 MQTT\nControl Packet format",
+      "url": "https://docs.solace.com/API/MQTT-v50-Prtl-Conformance-Spec/mqtt-v50-2-control-packet-format.htm",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "MQTT Version 5.0 | OASIS Standard",
+      "url": "https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.575
+    },
+    {
+      "title": "MQTT Version 5.0",
+      "url": "https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.575
+    },
+    {
+      "title": "MQTT Version 5.0 | OASIS Standard",
+      "url": "https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.575
+    },
+    {
+      "title": "MQTT Version 3.1.1",
+      "url": "https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.575
+    },
+    {
+      "title": "MQTT Version 3.1.1",
+      "url": "https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.575
+    },
+    {
+      "title": "Introduction to MQTT QoS 0, 1, 2 - Medium",
+      "url": "https://medium.com/@emqx/introduction-to-mqtt-qos-0-1-2-bfe9c6ee115b",
+      "snippet": "Compared with QoS 1, QoS 2 ensures that messages are not duplicated by adding a new process involving the PUBREL and PUBCOMP packets. Before we",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.525
+    },
+    {
+      "title": "Debunking Common MQTT QoS Misconceptions",
+      "url": "https://www.hivemq.com/blog/debunking-common-mqtt-qos-misconceptions",
+      "snippet": "In the modern world of IoT, understanding the intricacies of MQTT's Quality of Service (QoS) is crucial for designing robust and efficient systems. First of all it is very important to understand: There is no timeout for message retransmission in MQTT QoS. Again, retransmission of unacknowledged PUBLISH packets is only required by client or broker on client reconnects (MQTT v3.1.1+5,.0). *When a Client reconnects with CleanSession set to 0, both the Client and Server MUST re-send any unacknowledged PUBLISH Packets (where QoS > 0) and PUBREL Packets using their original Packet Identifiers [MQTT-4.4.0-1].* ***This is the only circumstance where a Client or Server is REQUIRED to redeliver messages.***. *When a Client reconnects with Clean Start set to 0 and a session is present, both the Client and Server MUST resend any unacknowledged PUBLISH packets (where QoS > 0) and PUBREL packets using their original Packet Identifiers.* ***This is the only circumstance where a Client or Server is REQUIRED to resend messages.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "Quality of Service | Docs | ThingsBoard TBMQ PE",
+      "url": "https://thingsboard.io/docs/mqtt-broker/pe/user-guide/qos",
+      "snippet": "**Quality of Service (QoS)** levels define message delivery guarantees in MQTT, governing the interaction between the broker and connected clients. TBMQ QoS 0 — MQTT Client sends a single PUBLISH packet to TBMQ; no acknowledgement is sent back. A message is delivered at most once — no duplicates are possible, but delivery is not guaranteed. After sending, the message is removed from the queue. Messages are delivered at least once, ensuring the receiver gets the message, but duplicates are possible. TBMQ QoS 2 — four-packet handshake between MQTT Client and TBMQ: PUBLISH → PUBREC → PUBREL → PUBCOMP. Messages are delivered exactly once — no duplicates and no loss. In MQTT, the publisher and subscriber must use the same Quality of Service level to communicate correctly. QoS downgrade — publisher sends at QoS 1 to a subscriber that is subscribed at QoS 2; the message is delivered at QoS 1. The message is delivered with QoS 1.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.425
+    },
+    {
+      "title": "MQTT",
+      "url": "https://artemis.apache.org/components/artemis/documentation/latest/mqtt.html",
+      "snippet": "# MQTT. Each message (or topic subscription) can define a quality of service that is associated with it. The quality of service level defined on a topic is the maximum level a client is willing to accept. The quality of service level on a message is the desired quality of service level for this message. The broker will attempt to deliver messages to subscribers at the highest quality of service level based on what is defined on the message and topic subscription. Each quality of service level offers a level of guarantee by which a message is sent or received:. The sender and the receiver will attempt to deliver the message, but if something fails and the message does not reach its destination (say due to a network connection) the message may be lost. This QoS has the least network traffic overhead and the least burden on the client and the broker and is often useful for telemetry data where it doesn’t matter if some of the data is lost.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "What is MQTT Quality of Service (QoS) 0,1, & 2? – MQTT Essentials",
+      "url": "https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels",
+      "snippet": "In QoS 1 of MQTT, the focus is on ensuring message delivery at least once to the receiver. When a message is published with QoS 1, the sender",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "MQTT QoS 0, 1, 2 Explained: A Quickstart Guide | EMQ - EMQX",
+      "url": "https://www.emqx.com/en/blog/introduction-to-mqtt-qos",
+      "snippet": "QoS in MQTT defines the level of guarantee for a message to be delivered from a publisher to a subscriber. It's not about the network transport",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "MQTT QoS Guide - Quality of Service 0, 1, 2 Explained | Cedalo",
+      "url": "https://www.cedalo.com/blog/understanding-mqtt-qos",
+      "snippet": "# Understanding MQTT Quality of Service or also known as MQTT QoS. When the term ‘quality of service’ comes to mind, you’re probably thinking about the standards at which someone provides a service – and you’d be right. For an MQTT message to reach its destination, it has to overcome a path from a publisher to a broker, and then from the broker to a subscriber. In other words, there are at least two stages of delivery where a message could get lost in the transmission process. ## What is MQTT Quality of Service (QoS)? MQTT QoS is a level of service that serves as a consensus between a publisher and a broker on one hand, and the broker and a subscriber - on the other regarding a guarantee to successfully dispatch an MQTT message. * From a **publisher** (data sender) to a **broker** (data receiver), and. In every message transmission, the broker acts as a middleman between the publisher and subscriber, performing a role of both a receiver and sender of data.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "MQTT QoS - Quality of Service | MQTT Essentials Part 7 - YouTube",
+      "url": "https://www.youtube.com/watch?v=hvhtJORsE5Y",
+      "snippet": "... QoS 1: At least once delivery QoS 2: Exactly once delivery Why is Quality of Service important? QoS is a key feature of the MQTT protocol. QoS",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.375
+    },
+    {
+      "title": "Protocol Packet Handlers | eclipse-mosquitto/mosquitto | DeepWiki",
+      "url": "https://deepwiki.com/eclipse-mosquitto/mosquitto/2.4-protocol-packet-handlers",
+      "snippet": "",
+      "published_date": "2026-02-16T16:24:46.000Z",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "MQTT design broker QoS 1 and 2 - Google Groups",
+      "url": "https://groups.google.com/g/mqtt/c/75mb2iPDcjI",
+      "snippet": "If the connection is lost and the client reconnects with cleansession false then delivery must continue from where it left off to the QOS - this requires the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "MQTT Protocol Implementation | eclipse-mosquitto/mosquitto | DeepWiki",
+      "url": "https://deepwiki.com/eclipse-mosquitto/mosquitto/1.2-mqtt-protocol-implementation",
+      "snippet": "",
+      "published_date": "2026-02-16T16:24:46.000Z",
+      "source": "exa",
+      "score": 0.35
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "3 MQTT Control Packets - Solace Docs",
+        "url": "https://docs.solace.com/API/MQTT-v50-Prtl-Conformance-Spec/mqtt-v50-3-control-packets.htm",
+        "snippet": "The PUBLISH packet sent to a Client by the Server MUST contain a Message Expiry ... identifier, or when the Client receives Session Present 0 in a CONNACK packet.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.65
+      },
+      {
+        "title": "MQTT Protocol",
+        "url": "https://docs.aklivity.io/zilla/next/concepts/protocol/mqtt",
+        "snippet": "With features like publish-subscribe messaging, Quality of Service (QoS) levels, and persistent session support, MQTT enables scalable and resilient",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.625
+      },
+      {
+        "title": "Debunking Common MQTT QoS Misconceptions",
+        "url": "https://www.hivemq.com/blog/debunking-common-mqtt-qos-misconceptions",
+        "snippet": "In the modern world of IoT, understanding the intricacies of MQTT's Quality of Service (QoS) is crucial for designing robust and efficient systems. First of all it is very important to understand: There is no timeout for message retransmission in MQTT QoS. Again, retransmission of unacknowledged PUBLISH packets is only required by client or broker on client reconnects (MQTT v3.1.1+5,.0). *When a Client reconnects with CleanSession set to 0, both the Client and Server MUST re-send any unacknowledged PUBLISH Packets (where QoS > 0) and PUBREL Packets using their original Packet Identifiers [MQTT-4.4.0-1].* ***This is the only circumstance where a Client or Server is REQUIRED to redeliver messages.***. *When a Client reconnects with Clean Start set to 0 and a session is present, both the Client and Server MUST resend any unacknowledged PUBLISH packets (where QoS > 0) and PUBREL packets using their original Packet Identifiers.* ***This is the only circumstance where a Client or Server is REQUIRED to resend messages.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "MQTT",
+        "url": "https://artemis.apache.org/components/artemis/documentation/latest/mqtt.html",
+        "snippet": "# MQTT. Each message (or topic subscription) can define a quality of service that is associated with it. The quality of service level defined on a topic is the maximum level a client is willing to accept. The quality of service level on a message is the desired quality of service level for this message. The broker will attempt to deliver messages to subscribers at the highest quality of service level based on what is defined on the message and topic subscription. Each quality of service level offers a level of guarantee by which a message is sent or received:. The sender and the receiver will attempt to deliver the message, but if something fails and the message does not reach its destination (say due to a network connection) the message may be lost. This QoS has the least network traffic overhead and the least burden on the client and the broker and is often useful for telemetry data where it doesn’t matter if some of the data is lost.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "mqtt-v3.1.1-os.html - MQTT Version 3.1.1 - OASIS Open",
+        "url": "https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html",
+        "snippet": "MQTT Version 3.1.1. http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.doc (Authoritative). http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.doc (Authoritative).          *MQTT and the NIST Cybersecurity Framework Version 1.0*. MQTT is a Client Server publish/subscribe messaging transport protocol.          A messaging transport that is agnostic to the content of the payload. Latest version: http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html. However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English. OASIS invites any party to contact the OASIS TC Administrator if it is aware of a claim of ownership of any patent claims that would necessarily be infringed by implementations of this specification by a patent holder that is not willing to provide a license to such patent claims in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this specification.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6
+      },
+      {
+        "title": "What is MQTT Quality of Service (QoS) 0,1, & 2? – MQTT Essentials",
+        "url": "https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels",
+        "snippet": "In QoS 1 of MQTT, the focus is on ensuring message delivery at least once to the receiver. When a message is published with QoS 1, the sender",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "MQTT QoS 0, 1, 2 Explained: A Quickstart Guide | EMQ - EMQX",
+        "url": "https://www.emqx.com/en/blog/introduction-to-mqtt-qos",
+        "snippet": "QoS in MQTT defines the level of guarantee for a message to be delivered from a publisher to a subscriber. It's not about the network transport",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "MQTT design broker QoS 1 and 2 - Google Groups",
+        "url": "https://groups.google.com/g/mqtt/c/75mb2iPDcjI",
+        "snippet": "If the connection is lost and the client reconnects with cleansession false then delivery must continue from where it left off to the QOS - this requires the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "MQTT QoS Guide - Quality of Service 0, 1, 2 Explained | Cedalo",
+        "url": "https://www.cedalo.com/blog/understanding-mqtt-qos",
+        "snippet": "# Understanding MQTT Quality of Service or also known as MQTT QoS. When the term ‘quality of service’ comes to mind, you’re probably thinking about the standards at which someone provides a service – and you’d be right. For an MQTT message to reach its destination, it has to overcome a path from a publisher to a broker, and then from the broker to a subscriber. In other words, there are at least two stages of delivery where a message could get lost in the transmission process. ## What is MQTT Quality of Service (QoS)? MQTT QoS is a level of service that serves as a consensus between a publisher and a broker on one hand, and the broker and a subscriber - on the other regarding a guarantee to successfully dispatch an MQTT message. * From a **publisher** (data sender) to a **broker** (data receiver), and. In every message transmission, the broker acts as a middleman between the publisher and subscriber, performing a role of both a receiver and sender of data.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "MQTT QoS - Quality of Service | MQTT Essentials Part 7 - YouTube",
+        "url": "https://www.youtube.com/watch?v=hvhtJORsE5Y",
+        "snippet": "... QoS 1: At least once delivery QoS 2: Exactly once delivery Why is Quality of Service important? QoS is a key feature of the MQTT protocol. QoS",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.375
+      },
+      {
+        "title": "QOS2 Duplicates not being confirmed : r/MQTT - Reddit",
+        "url": "https://www.reddit.com/r/MQTT/comments/1d4acwm/qos2_duplicates_not_being_confirmed",
+        "snippet": "Publishing messages with QoS > 0 adds packet identifier so they are distinct messages. How did you subscribe to that topic to observe this",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.65
+      },
+      {
+        "title": "MQTT QoS 0, 1, 2 Explained: A Quickstart Guide | EMQ - EMQX",
+        "url": "https://www.emqx.com/en/blog/introduction-to-mqtt-qos",
+        "snippet": "To handle duplicates at the application level, you can include a unique message ID or a timestamp in the message payload. MQTT QoS 1. Why Are",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Introduction to MQTT QoS 0, 1, 2 - Medium",
+        "url": "https://medium.com/@emqx/introduction-to-mqtt-qos-0-1-2-bfe9c6ee115b",
+        "snippet": "Compared with QoS 1, QoS 2 ensures that messages are not duplicated by adding a new process involving the PUBREL and PUBCOMP packets. Before we",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.525
+      },
+      {
+        "title": "Quality of Service | Docs | ThingsBoard TBMQ PE",
+        "url": "https://thingsboard.io/docs/mqtt-broker/pe/user-guide/qos",
+        "snippet": "**Quality of Service (QoS)** levels define message delivery guarantees in MQTT, governing the interaction between the broker and connected clients. TBMQ QoS 0 — MQTT Client sends a single PUBLISH packet to TBMQ; no acknowledgement is sent back. A message is delivered at most once — no duplicates are possible, but delivery is not guaranteed. After sending, the message is removed from the queue. Messages are delivered at least once, ensuring the receiver gets the message, but duplicates are possible. TBMQ QoS 2 — four-packet handshake between MQTT Client and TBMQ: PUBLISH → PUBREC → PUBREL → PUBCOMP. Messages are delivered exactly once — no duplicates and no loss. In MQTT, the publisher and subscriber must use the same Quality of Service level to communicate correctly. QoS downgrade — publisher sends at QoS 1 to a subscriber that is subscribed at QoS 2; the message is delivered at QoS 1. The message is delivered with QoS 1.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.425
+      },
+      {
+        "title": "MQTT QoS Guide - Quality of Service 0, 1, 2 Explained | Cedalo",
+        "url": "https://www.cedalo.com/blog/understanding-mqtt-qos",
+        "snippet": "# Understanding MQTT Quality of Service or also known as MQTT QoS. When the term ‘quality of service’ comes to mind, you’re probably thinking about the standards at which someone provides a service – and you’d be right. For an MQTT message to reach its destination, it has to overcome a path from a publisher to a broker, and then from the broker to a subscriber. In other words, there are at least two stages of delivery where a message could get lost in the transmission process. ## What is MQTT Quality of Service (QoS)? MQTT QoS is a level of service that serves as a consensus between a publisher and a broker on one hand, and the broker and a subscriber - on the other regarding a guarantee to successfully dispatch an MQTT message. * From a **publisher** (data sender) to a **broker** (data receiver), and. In every message transmission, the broker acts as a middleman between the publisher and subscriber, performing a role of both a receiver and sender of data.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "exa": [
+      {
+        "title": "MQTT Version 5.0 | OASIS Standard",
+        "url": "https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.575
+      },
+      {
+        "title": "MQTT Version 5.0",
+        "url": "https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.575
+      },
+      {
+        "title": "MQTT Version 5.0 | OASIS Standard",
+        "url": "https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.575
+      },
+      {
+        "title": "3 MQTT\nControl Packets",
+        "url": "https://docs.solace.com/API/MQTT-v50-Prtl-Conformance-Spec/mqtt-v50-3-control-packets.htm",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "epan/dissectors/packet-mqtt.c at master · wireshark/wireshark",
+        "url": "https://github.com/wireshark/wireshark/blob/master/epan/dissectors/packet-mqtt.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "MQTT Version 5.0 | OASIS Standard",
+        "url": "https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "MQTT Version 5.0",
+        "url": "https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "MQTT Version 3.1.1",
+        "url": "https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.575
+      },
+      {
+        "title": "MQTT Version 5.0 | OASIS Standard",
+        "url": "https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "MQTT Version 3.1.1",
+        "url": "https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.575
+      },
+      {
+        "title": "src/handle_publish.c at d0152406 · eclipse-mosquitto/mosquitto",
+        "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/d0152406/src/handle_publish.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "MQTT Protocol Implementation | eclipse-mosquitto/mosquitto | DeepWiki",
+        "url": "https://deepwiki.com/eclipse-mosquitto/mosquitto/1.2-mqtt-protocol-implementation",
+        "snippet": "",
+        "published_date": "2026-02-16T16:24:46.000Z",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "Protocol Packet Handlers | eclipse-mosquitto/mosquitto | DeepWiki",
+        "url": "https://deepwiki.com/eclipse-mosquitto/mosquitto/2.4-protocol-packet-handlers",
+        "snippet": "",
+        "published_date": "2026-02-16T16:24:46.000Z",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "2 MQTT\nControl Packet format",
+        "url": "https://docs.solace.com/API/MQTT-v50-Prtl-Conformance-Spec/mqtt-v50-2-control-packet-format.htm",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "epan/dissectors/packet-mqtt.c at master · wireshark/wireshark",
+        "url": "https://github.com/wireshark/wireshark/blob/master/epan/dissectors/packet-mqtt.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "grok": []
+  }
+}
