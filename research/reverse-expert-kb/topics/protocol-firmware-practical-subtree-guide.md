@@ -25,6 +25,7 @@ Related pages:
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 - topics/protocol-ingress-ownership-and-receive-path-workflow-note.md
 - topics/protocol-netlink-message-to-consumer-workflow-note.md
+- topics/protocol-mqtt-delivery-state-to-application-consumer-workflow-note.md
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
 - topics/protocol-pending-request-correlation-and-async-reply-workflow-note.md
@@ -74,7 +75,7 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty-four recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty-five recurring families:
 
 
 0. **hardware observation / image-lineage uncertainty**
@@ -111,6 +112,8 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - inbound traffic is visible, but the first local receive owner that feeds parser-relevant handling is still unclear
 8a. **Netlink request / dump / notification consumer uncertainty**
    - Linux Netlink traffic, family discovery, ACKs, dumps, or multicast notifications are visible, but the first truthful operation, completion/delivery boundary, local callback/parser consumer, or state/effect owner is still unclear; keep **family discovered != command selected != ACKed != dump-complete != notification-delivered != consumed/effected** visible before treating `sendmsg(AF_NETLINK)`, `NLMSG_ERROR(error == 0)`, `NLMSG_DONE`, `nlmsg_pid`, or a multicast send site as behavior ownership
+8b. **MQTT delivery-state / application-consumer uncertainty**
+   - MQTT `PUBLISH`, `SUBSCRIBE`, QoS handshake, retained-message, Packet Identifier, topic-alias, or session-state evidence is visible, but the first broker-accepted, subscription/session-matched, delivered, callback-owned application state/effect is still unclear; keep **PUBLISH captured != broker accepted != subscription/session matched != queued/delivered != ack lifecycle complete != callback/application state consumed** visible before treating topic/payload bytes as device/app behavior
 9. **parser-to-consequence uncertainty**
    - the parser or dispatch region is visible, but the first state/reply/peripheral consequence edge is still unknown
 10. **acceptance / replay-precondition uncertainty**
@@ -157,6 +160,7 @@ The subtree is strongest when read as:
 - **freeze** one representative replay fixture and smallest constructor path when one method-bearing contract is already good enough but replay is still too vague
 - **own** the right inbound object
 - **stabilize** one Linux Netlink request / dump / notification chain when family/control discovery, command truth, ACK truth, dump completion, notification delivery, and local consumer truth are easy to flatten together
+- **stabilize** one MQTT delivery-state chain when visible `PUBLISH` packets, topic strings, QoS acknowledgements, retained flags, Packet Identifiers, topic aliases, or session queues can still lie about broker acceptance, subscription/session match, callback delivery, and first app/device state consumption
 - **reduce** one parser/state consequence
 - **accept** one interaction under the right local precondition
 - **stabilize** one pending-request lifetime contract when broad owner-match is already good enough but late replies or reuse still drift
