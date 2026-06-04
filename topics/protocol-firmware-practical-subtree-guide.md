@@ -26,6 +26,7 @@ Related pages:
 - topics/protocol-ingress-ownership-and-receive-path-workflow-note.md
 - topics/protocol-netlink-message-to-consumer-workflow-note.md
 - topics/protocol-mqtt-delivery-state-to-application-consumer-workflow-note.md
+- topics/protocol-modbus-register-map-to-device-state-consumer-workflow-note.md
 - topics/protocol-parser-to-state-edge-localization-workflow-note.md
 - topics/protocol-replay-precondition-and-state-gate-workflow-note.md
 - topics/protocol-pending-request-correlation-and-async-reply-workflow-note.md
@@ -75,7 +76,7 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty-five recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty-six recurring families:
 
 
 0. **hardware observation / image-lineage uncertainty**
@@ -114,6 +115,8 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - Linux Netlink traffic, family discovery, ACKs, dumps, or multicast notifications are visible, but the first truthful operation, completion/delivery boundary, local callback/parser consumer, or state/effect owner is still unclear; keep **family discovered != command selected != ACKed != dump-complete != notification-delivered != consumed/effected** visible before treating `sendmsg(AF_NETLINK)`, `NLMSG_ERROR(error == 0)`, `NLMSG_DONE`, `nlmsg_pid`, or a multicast send site as behavior ownership
 8b. **MQTT delivery-state / application-consumer uncertainty**
    - MQTT `PUBLISH`, `SUBSCRIBE`, QoS handshake, retained-message, Packet Identifier, topic-alias, or session-state evidence is visible, but the first broker-accepted, subscription/session-matched, delivered, callback-owned application state/effect is still unclear; keep **PUBLISH captured != broker accepted != subscription/session matched != queued/delivered != ack lifecycle complete != callback/application state consumed** visible before treating topic/payload bytes as device/app behavior
+8c. **Modbus register-map / device-state-consumer uncertainty**
+   - Modbus RTU/ASCII/TCP traffic, register-map rows, function-code scans, exception responses, transaction identifiers, or decoded register values are visible, but the first trustworthy PDU offset, accepted access, live value validation, and device-state/effect consumer are still unclear; keep **map row != PDU offset != accepted access != decoded value != live validation != device-state consumer/effect** visible before treating a successful read/write or printed map row as behavior proof
 9. **parser-to-consequence uncertainty**
    - the parser or dispatch region is visible, but the first state/reply/peripheral consequence edge is still unknown
 10. **acceptance / replay-precondition uncertainty**
@@ -161,6 +164,7 @@ The subtree is strongest when read as:
 - **own** the right inbound object
 - **stabilize** one Linux Netlink request / dump / notification chain when family/control discovery, command truth, ACK truth, dump completion, notification delivery, and local consumer truth are easy to flatten together
 - **stabilize** one MQTT delivery-state chain when visible `PUBLISH` packets, topic strings, QoS acknowledgements, retained flags, Packet Identifiers, topic aliases, or session queues can still lie about broker acceptance, subscription/session match, callback delivery, and first app/device state consumption
+- **stabilize** one Modbus register-map chain when register rows, function codes, exception responses, decoded values, or TCP transaction identifiers can still lie about the actual PDU offset, accepted access, live value validation, and first device-state/effect consumer
 - **reduce** one parser/state consequence
 - **accept** one interaction under the right local precondition
 - **stabilize** one pending-request lifetime contract when broad owner-match is already good enough but late replies or reuse still drift

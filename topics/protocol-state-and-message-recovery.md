@@ -21,6 +21,7 @@ Related pages:
 - topics/protocol-ble-gatt-notification-to-state-consumer-workflow-note.md
 - topics/protocol-usb-hid-report-descriptor-to-semantic-consumer-workflow-note.md
 - topics/protocol-mqtt-delivery-state-to-application-consumer-workflow-note.md
+- topics/protocol-modbus-register-map-to-device-state-consumer-workflow-note.md
 - topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 
@@ -121,6 +122,7 @@ Compact anti-drift reminders worth preserving here:
 - do not treat BLE UUIDs, characteristic properties, CCCD writes, sniffer-visible notifications, or app callbacks as a trustworthy state claim until one value has crossed delivery, parsing, and first-consumer proof
 - do not treat USB HID report descriptors, report IDs, usage tables, hidraw bytes, or evdev events as a trustworthy state claim until one live report instance has crossed field decoding, quirk/fixup classification when relevant, and first semantic-consumer proof
 - do not treat MQTT `PUBLISH` frames, topic names, QoS acknowledgements, retained flags, Packet Identifiers, topic aliases, or session-present clues as application/device state proof until broker acceptance, subscription/session match, retained-vs-live classification, delivery/callback, and first state/effect consumer are separated
+- do not treat Modbus register-map rows, function-code scan success, exception responses, decoded 16-bit/32-bit values, or TCP transaction-id echoes as device-state proof until map notation, PDU offset, function/data-model posture, live value validation, and first device-state/effect consumer are separated
 - do not treat visible bytes as a trustworthy protocol object until one smaller contract is already good enough
 - do not keep widening parser or state taxonomy once one consequence-bearing edge is already sufficient for the next experiment
 - do not stop at local acceptance or reply-object visibility if the first committed outbound or hardware-side consequence is still unproved

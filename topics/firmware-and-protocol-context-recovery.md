@@ -20,6 +20,7 @@ Related pages:
 - topics/protocol-ble-gatt-notification-to-state-consumer-workflow-note.md
 - topics/protocol-usb-hid-report-descriptor-to-semantic-consumer-workflow-note.md
 - topics/protocol-mqtt-delivery-state-to-application-consumer-workflow-note.md
+- topics/protocol-modbus-register-map-to-device-state-consumer-workflow-note.md
 - topics/protocol-retired-owner-vs-callback-firing-workflow-note.md
 - topics/protocol-content-pipeline-recovery-workflow-note.md
 - topics/protocol-netlink-message-to-consumer-workflow-note.md
@@ -143,6 +144,7 @@ Compact anti-drift reminders worth preserving here:
 - do not stop at BLE service/characteristic discovery, notify/indicate property, CCCD setup, sniffer-visible notification, or mobile callback when the first parsed state reducer or device/app consequence is still unproved; preserve `discovered != subscribed != notified/indicated != delivered != parsed != consumed` for BLE-shaped cases
 - do not stop at USB HID descriptor parsing, report ID discovery, usage/page labels, hidraw bytes, evdev events, or Feature/Output report writes when the first semantic device/app consumer is still unproved; preserve `descriptor parsed != report selected != field decoded != live report delivered != parsed/quirked meaning != semantic consumer/effect` for HID-shaped cases
 - do not stop at MQTT topic/payload visibility, QoS handshakes, retained flags, Packet Identifier matches, topic aliases, or session-present clues when the first application/device consumer is still unproved; preserve `PUBLISH captured != broker accepted != subscription/session matched != queued/delivered != ack lifecycle complete != callback/application state consumed` for broker-mediated MQTT cases
+- do not stop at Modbus register-map rows, scanner success, exception responses, plausible scale/endianness decodes, or TCP transaction-id echoes when actual PDU offset, accepted access, live validation, and the first device-state/effect consumer are still unproved; preserve `map row != PDU offset != accepted access != decoded value != live validation != device-state consumer/effect` for industrial register-map cases
 - do not stop at parser visibility or local acceptance if the first committed outbound or hardware-side effect edge is still unproved
 - do not treat one good technical proof as finished work if the next likely failure mode is rediscovery rather than missing one more hook
 
