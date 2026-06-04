@@ -18,6 +18,7 @@
 
 ### Core active infra / delivery surfaces
 - `proxy.zhangxuemin.work`
+- `proxy-bak.zhangxuemin.work`
 - `backup.zhangxuemin.work`
 - `derp.zhangxuemin.work`
 - `dev.zhangxuemin.work`
@@ -30,9 +31,12 @@
 - `drop.hk.zhangxuemin.work`
 - `clash.hk.zhangxuemin.work`
 - `cliproxy-cn.zhangxuemin.work`
+- `proxy-bak-cn.zhangxuemin.work`
 - `claw-cn.zhangxuemin.work`
 - `cpam.zhangxuemin.work`
 - `cpam-cn.zhangxuemin.work`
+- `reverse-cn.zhangxuemin.work`
+- `ctf-gpt-cn.zhangxuemin.work`
 - `tmail.zhangxuemin.work`
 - `tmail-front.zhangxuemin.work`
 
@@ -46,7 +50,7 @@
 Reason:
 - 这些记录要么已与活跃主机/服务对齐
 - 要么与当前 Cloudflare / SES mail path 相符
-- 要么是当前 live zone 的核心 front door / 分发面
+- 要么是当前 live zone 的核心 front door / 分发面 / SSH 边缘入口
 
 ---
 

@@ -1,8 +1,8 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 28,
+  "record_count": 30,
   "type_counts": {
-    "A": 18,
+    "A": 20,
     "AAAA": 2,
     "MX": 4,
     "TXT": 4
@@ -145,6 +145,22 @@
       "content": "140.245.33.114",
       "ttl": 1,
       "proxied": false
+    },
+    {
+      "name": "proxy-bak-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 1,
+      "proxied": false,
+      "comment": "cliproxy backup pool CN/HK edge on hk-relay"
+    },
+    {
+      "name": "proxy-bak.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 1,
+      "proxied": false,
+      "comment": "cliproxy backup pool direct/source entry on oracle-proxy"
     },
     {
       "name": "proxy.zhangxuemin.work",

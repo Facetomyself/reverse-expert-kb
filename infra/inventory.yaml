@@ -23,6 +23,7 @@ hosts:
     public_ip: 158.178.236.241
     domains:
       - proxy.zhangxuemin.work
+      - proxy-bak.zhangxuemin.work
       - cpam.zhangxuemin.work
     docs:
       host: infra/hosts/oracle-proxy/HOST.md
@@ -105,8 +106,11 @@ hosts:
       - drop.hk.zhangxuemin.work
       - clash.hk.zhangxuemin.work
       - cliproxy-cn.zhangxuemin.work
+      - proxy-bak-cn.zhangxuemin.work
       - claw-cn.zhangxuemin.work
       - cpam-cn.zhangxuemin.work
+      - reverse-cn.zhangxuemin.work
+      - ctf-gpt-cn.zhangxuemin.work
     docs:
       host: infra/hosts/hk-relay/HOST.md
       network: infra/hosts/hk-relay/NETWORK.md
@@ -119,7 +123,9 @@ hosts:
       - reverse-development-host
       - ubuntu-arm-host
     public_ip: 140.245.61.236
-    domains: []
+    domains:
+      - reverse-cn.zhangxuemin.work
+      - ctf-gpt-cn.zhangxuemin.work
     docs:
       host: infra/hosts/oracle-reverse-dev/HOST.md
       projects: infra/hosts/oracle-reverse-dev/PROJECTS.md

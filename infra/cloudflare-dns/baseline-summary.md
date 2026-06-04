@@ -1,9 +1,9 @@
-# Cloudflare DNS Baseline Summary
+# Cloudflare DNS Snapshot
 
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- record_count: 28
+- record_count: 30
 - type_counts:
-  - A: 18
+  - A: 20
   - AAAA: 2
   - MX: 4
   - TXT: 4
@@ -28,6 +28,8 @@
 - A k8s.zhangxuemin.work -> 140.245.33.114 proxied=false ttl=1 comment=oracle-registry
 - A mail.zhangxuemin.work -> 140.83.52.216 proxied=false ttl=1 comment=oracle-mail web-app host
 - A mcr.zhangxuemin.work -> 140.245.33.114 proxied=false ttl=1
+- A proxy-bak-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1 comment=cliproxy backup pool CN/HK edge on hk-relay
+- A proxy-bak.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=1 comment=cliproxy backup pool direct/source entry on oracle-proxy
 - A proxy.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=1 comment=oracle-proxy
 - A reverse-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK SSH edge via hk-relay to oracle-reverse-dev:22
 - MX send.zhangxuemin.work -> feedback-smtp.ap-northeast-1.amazonses.com priority=10 proxied=false ttl=3600

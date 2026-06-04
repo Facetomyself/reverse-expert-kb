@@ -1,6 +1,6 @@
 # DNS / Host / Service Reconciliation
 
-本文件反映 **2026-06-02** 抓取的 Cloudflare live zone 与当前 `infra/` 主机文档之间的正式对账结果。
+本文件反映 **2026-06-05** 抓取的 Cloudflare live zone 与当前 `infra/` 主机文档之间的正式对账结果。
 
 基于以下信息对账：
 - Cloudflare live zone (`zhangxuemin.work`)
@@ -20,13 +20,13 @@
 
 - zone: `zhangxuemin.work`
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- current live record count: **28**
+- current live record count: **30**
 - type counts:
-  - `A`: 18
+  - `A`: 20
   - `AAAA`: 2
   - `MX`: 4
   - `TXT`: 4
-- current live snapshot vs committed baseline: **no semantic diff** after the 2026-06-02 baseline refresh that recorded Cloudflare MX priorities (`send`: 10; root `route1/2/3`: 56/24/98) on the existing MX records
+- current live snapshot vs committed baseline: **no semantic diff** in the 2026-06-05 audit; the baseline includes Cloudflare MX priorities (`send`: 10; root `route1/2/3`: 56/24/98) and the active `proxy-bak` / `proxy-bak-cn` A records
 
 ---
 
@@ -35,6 +35,7 @@
 | Record | DNS Target | Current reality | Status | Notes |
 |---|---|---|---|---|
 | `proxy.zhangxuemin.work` | `158.178.236.241` | 指向 `oracle-proxy`，且该主机现役 | **匹配** | 主入口域名已确认 |
+| `proxy-bak.zhangxuemin.work` | `158.178.236.241` | 指向 `oracle-proxy`，当前是 CLIProxy backup pool direct/source 入口 | **匹配** | 备用池直连/海外路径 |
 | `backup.zhangxuemin.work` | `129.150.61.78` | 指向 `oracle-gateway`，当前承载 Hysteria / gateway 角色 | **匹配** | 仍然有效，但不再是主公共 HTTPS front door |
 | `derp.zhangxuemin.work` | `129.150.61.78` | 指向 `oracle-gateway`，当前是该主机的主公共 TCP front door | **匹配** | `derper` 当前占用公共 `80/443` |
 | `dev.zhangxuemin.work` | `64.110.106.11` | 指向当前 OpenClaw 本机 `oracle-open_claw` | **匹配** | 当前 comment `openclaw-host` 与事实一致 |
@@ -46,7 +47,8 @@
 | `hk.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是认证下载/浏览入口 | **匹配** | HK relay canonical domain |
 | `drop.hk.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 HTTPS 上传/下载入口 | **匹配** | 由 Caddy 反代本地 `dufs` |
 | `clash.hk.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 Clash 配置分发入口 | **匹配** | 公共订阅下载面 |
-| `cliproxy-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 cliproxy 国内/HK 边缘入口 | **匹配** | HK Caddy -> `proxy.zhangxuemin.work:8317` |
+| `cliproxy-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 cliproxy 主池国内/HK 边缘入口 | **匹配** | HK Caddy -> `proxy.zhangxuemin.work:8317` |
+| `proxy-bak-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 CLIProxy backup pool 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://proxy-bak.zhangxuemin.work` |
 | `cpam.zhangxuemin.work` | `158.178.236.241` | 指向 `oracle-proxy`，当前是 CPA Manager Plus direct/source 入口 | **匹配** | 直连/海外路径 |
 | `cpam-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 CPA Manager Plus 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://cpam.zhangxuemin.work` |
 | `reverse-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 `oracle-reverse-dev` 的国内/HK SSH 边缘入口（HK `:22061` -> Oracle `:22`） | **匹配** | DNS-only A；使用 `ssh -p 22061 ubuntu@reverse-cn.zhangxuemin.work` |
@@ -99,7 +101,7 @@
 
 - 当前 live zone 与提交的 baseline **一致**，没有即时 drift。
 - 当前核心活跃基础设施域名与主机文档 **整体一致**。
-- 新纳入当前事实的域名组包括：`derp.*`、CPA Manager Plus 入口（`cpam` / `cpam-cn`）、`oracle-reverse-dev` SSH 边缘入口（`reverse-cn`）与 `hk-relay` 相关记录（`hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `claw-cn` / `cpam-cn` / `reverse-cn`）。
+- 新纳入当前事实的域名组包括：`derp.*`、CPA Manager Plus 入口（`cpam` / `cpam-cn`）、`oracle-reverse-dev` SSH 边缘入口（`reverse-cn`）与 `hk-relay` 相关记录（`hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `proxy-bak-cn` / `claw-cn` / `cpam-cn` / `reverse-cn`）。
 - 当前 DNS 主要未闭环点不是主机映射，而是 **剩余唯一一条 DKIM（`cf2024-1`）的发送方归属与长期去留还需继续收口**。
 - 已新增 `infra/cloudflare-dns/dkim-reconciliation.md` 作为 DKIM 归属说明页，后续优先在那一页继续推进而不是在各处零散猜测。
 - 历史 Mailu 相关主机残留与其对应 `dkim._domainkey` 记录已在 2026-04-14 按用户确认完成删除。
