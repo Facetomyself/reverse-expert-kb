@@ -1,6 +1,6 @@
 # DNS First-Wave Change Set
 
-这份文件已按 **2026-04-14 live Cloudflare 对账结果**重写。
+这份文件已按 **2026-06-08 live Cloudflare 对账结果**更新。
 
 它现在描述的是：
 - **第一波低风险 DNS 清理里，哪些目标已经事实上完成**
@@ -52,6 +52,18 @@
 - `claw-cn.zhangxuemin.work`
 - `cpam.zhangxuemin.work`
 - `cpam-cn.zhangxuemin.work`
+- `gptam.zhangxuemin.work`
+- `gptam-cn.zhangxuemin.work`
+- `kiro.zhangxuemin.work`
+- `kiro-cn.zhangxuemin.work`
+- `kiro-rs.zhangxuemin.work`
+- `kiro-rs-cn.zhangxuemin.work`
+- `docs.zhangxuemin.work`
+- `docs-cn.zhangxuemin.work`
+- `card.zhangxuemin.work`
+- `card-cn.zhangxuemin.work`
+- `gpt-card.zhangxuemin.work`
+- `gpt-card-cn.zhangxuemin.work`
 - `reverse-cn.zhangxuemin.work`
 - `ctf-gpt-cn.zhangxuemin.work`
 - `tmail.zhangxuemin.work`

@@ -1,6 +1,6 @@
 # DNS / Host / Service Reconciliation
 
-本文件反映 **2026-06-05** 抓取的 Cloudflare live zone 与当前 `infra/` 主机文档之间的正式对账结果。
+本文件反映 **2026-06-08** 抓取的 Cloudflare live zone 与当前 `infra/` 主机文档之间的正式对账结果。
 
 基于以下信息对账：
 - Cloudflare live zone (`zhangxuemin.work`)
@@ -20,13 +20,13 @@
 
 - zone: `zhangxuemin.work`
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- current live record count: **30**
+- current live record count: **42**
 - type counts:
-  - `A`: 20
+  - `A`: 32
   - `AAAA`: 2
   - `MX`: 4
   - `TXT`: 4
-- current live snapshot vs committed baseline: **no semantic diff** in the 2026-06-05 audit; the baseline includes Cloudflare MX priorities (`send`: 10; root `route1/2/3`: 56/24/98) and the active `proxy-bak` / `proxy-bak-cn` A records
+- current live snapshot vs committed baseline: **no semantic diff** in the 2026-06-08 audit; the baseline includes Cloudflare MX priorities (`send`: 10; root `route1/2/3`: 56/24/98), the active `proxy-bak` / `proxy-bak-cn` A records, and the newer app/doc/card/Kiro entrypoints
 
 ---
 
@@ -50,7 +50,19 @@
 | `cliproxy-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 cliproxy 主池国内/HK 边缘入口 | **匹配** | HK Caddy -> `proxy.zhangxuemin.work:8317` |
 | `proxy-bak-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 CLIProxy backup pool 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://proxy-bak.zhangxuemin.work` |
 | `cpam.zhangxuemin.work` | `158.178.236.241` | 指向 `oracle-proxy`，当前是 CPA Manager Plus direct/source 入口 | **匹配** | 直连/海外路径 |
+| `gptam.zhangxuemin.work` | `158.178.236.241` | 指向 `oracle-proxy`，当前是 GPT Account Manager direct/source 入口 | **匹配** | 直连/海外路径 |
 | `cpam-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 CPA Manager Plus 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://cpam.zhangxuemin.work` |
+| `gptam-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 GPT Account Manager 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://gptam.zhangxuemin.work` |
+| `kiro.zhangxuemin.work` | `158.178.236.241` | 指向 `oracle-proxy`，当前是 Kiro-Go direct/source 入口 | **匹配** | Caddy -> `127.0.0.1:18766` |
+| `kiro-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 Kiro-Go 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://kiro.zhangxuemin.work` |
+| `kiro-rs.zhangxuemin.work` | `158.178.236.241` | 指向 `oracle-proxy`，当前是 Kiro-RS direct/source 入口 | **匹配** | Caddy -> `127.0.0.1:18769` |
+| `kiro-rs-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 Kiro-RS 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://kiro-rs.zhangxuemin.work` |
+| `docs.zhangxuemin.work` | `158.178.236.241` | 指向 `oracle-proxy`，当前是 Kiro docs direct/source 静态站入口 | **匹配** | Caddy 静态站 |
+| `docs-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 Kiro docs 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://docs.zhangxuemin.work` |
+| `card.zhangxuemin.work` | `158.178.236.241` | 指向 `oracle-proxy`，当前是 Card Shop direct/source 入口 | **匹配** | Caddy -> card-shop loopback origin |
+| `card-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 Card Shop 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://card.zhangxuemin.work` |
+| `gpt-card.zhangxuemin.work` | `158.178.236.241` | 指向 `oracle-proxy`，当前是 GPT Card Shop direct/source 入口 | **匹配** | Caddy -> gpt-card-shop loopback origin |
+| `gpt-card-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 GPT Card Shop 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://gpt-card.zhangxuemin.work` |
 | `reverse-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 `oracle-reverse-dev` 的国内/HK SSH 边缘入口（HK `:22061` -> Oracle `:22`） | **匹配** | DNS-only A；使用 `ssh -p 22061 ubuntu@reverse-cn.zhangxuemin.work` |
 | `ctf-gpt-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 `oracle-reverse-dev` CTF GPT Plus 的国内/HK HTTPS 边缘入口 | **匹配** | HK Caddy -> `http://140.245.61.236:8000`; 使用 `https://ctf-gpt-cn.zhangxuemin.work/ctf-gpt-plus` |
 | `claw-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 OpenClaw 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://dev.zhangxuemin.work` |
@@ -101,7 +113,7 @@
 
 - 当前 live zone 与提交的 baseline **一致**，没有即时 drift。
 - 当前核心活跃基础设施域名与主机文档 **整体一致**。
-- 新纳入当前事实的域名组包括：`derp.*`、CPA Manager Plus 入口（`cpam` / `cpam-cn`）、`oracle-reverse-dev` SSH 边缘入口（`reverse-cn`）与 `hk-relay` 相关记录（`hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `proxy-bak-cn` / `claw-cn` / `cpam-cn` / `reverse-cn`）。
+- 新纳入当前事实的域名组包括：`derp.*`、CPA Manager Plus 入口（`cpam` / `cpam-cn`）、GPT Account Manager 双入口（`gptam` / `gptam-cn`）、Kiro-Go/Kiro-RS 入口（`kiro` / `kiro-cn` / `kiro-rs` / `kiro-rs-cn`）、Kiro docs（`docs` / `docs-cn`）、Card Shop（`card` / `card-cn`）、GPT Card Shop（`gpt-card` / `gpt-card-cn`）、`oracle-reverse-dev` SSH 边缘入口（`reverse-cn`）与 `hk-relay` 相关记录（`hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `proxy-bak-cn` / `claw-cn` / `cpam-cn` / `gptam-cn` / `kiro-cn` / `docs-cn` / `card-cn` / `gpt-card-cn` / `reverse-cn`）。
 - 当前 DNS 主要未闭环点不是主机映射，而是 **剩余唯一一条 DKIM（`cf2024-1`）的发送方归属与长期去留还需继续收口**。
 - 已新增 `infra/cloudflare-dns/dkim-reconciliation.md` 作为 DKIM 归属说明页，后续优先在那一页继续推进而不是在各处零散猜测。
 - 历史 Mailu 相关主机残留与其对应 `dkim._domainkey` 记录已在 2026-04-14 按用户确认完成删除。

@@ -25,6 +25,12 @@ hosts:
       - proxy.zhangxuemin.work
       - proxy-bak.zhangxuemin.work
       - cpam.zhangxuemin.work
+      - gptam.zhangxuemin.work
+      - kiro.zhangxuemin.work
+      - kiro-rs.zhangxuemin.work
+      - docs.zhangxuemin.work
+      - card.zhangxuemin.work
+      - gpt-card.zhangxuemin.work
     docs:
       host: infra/hosts/oracle-proxy/HOST.md
       network: infra/hosts/oracle-proxy/NETWORK.md
@@ -109,6 +115,12 @@ hosts:
       - proxy-bak-cn.zhangxuemin.work
       - claw-cn.zhangxuemin.work
       - cpam-cn.zhangxuemin.work
+      - gptam-cn.zhangxuemin.work
+      - kiro-cn.zhangxuemin.work
+      - kiro-rs-cn.zhangxuemin.work
+      - docs-cn.zhangxuemin.work
+      - card-cn.zhangxuemin.work
+      - gpt-card-cn.zhangxuemin.work
       - reverse-cn.zhangxuemin.work
       - ctf-gpt-cn.zhangxuemin.work
     docs:

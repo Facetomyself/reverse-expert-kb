@@ -1,21 +1,13 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 30,
+  "record_count": 42,
   "type_counts": {
-    "A": 20,
+    "A": 32,
     "AAAA": 2,
     "MX": 4,
     "TXT": 4
   },
   "records": [
-    {
-      "name": "_dmarc.zhangxuemin.work",
-      "type": "TXT",
-      "content": "\"v=DMARC1; p=reject; rua=mailto:f7f21e5e0ab844279caa542a187734f0@dmarc-reports.cloudflare.net,mailto:mail@zhangxuemin.work; ruf=mailto:mail@zhangxuemin.work; adkim=s; aspf=s\"",
-      "ttl": 1,
-      "proxied": false,
-      "comment": "DMARC"
-    },
     {
       "name": "backup.zhangxuemin.work",
       "type": "A",
@@ -25,11 +17,20 @@
       "comment": "oracle-gateway / hysteria"
     },
     {
-      "name": "cf2024-1._domainkey.zhangxuemin.work",
-      "type": "TXT",
-      "content": "\"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78k\" \"m4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB\"",
-      "ttl": 1,
-      "proxied": false
+      "name": "card-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN edge via hk-relay for card shop"
+    },
+    {
+      "name": "card.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "card shop global/source on oracle-proxy"
     },
     {
       "name": "clash.hk.zhangxuemin.work",
@@ -94,6 +95,22 @@
       "comment": "openclaw-host"
     },
     {
+      "name": "docs-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN edge via hk-relay for Kiro docs"
+    },
+    {
+      "name": "docs.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "Kiro docs global/source on oracle-proxy"
+    },
+    {
       "name": "drop.hk.zhangxuemin.work",
       "type": "A",
       "content": "154.86.30.10",
@@ -107,6 +124,36 @@
       "ttl": 1,
       "proxied": false,
       "comment": "oracle-registry"
+    },
+    {
+      "name": "gpt-card-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "gpt-card.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "gptam-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN/HK edge via hk-relay for GPT Account Manager"
+    },
+    {
+      "name": "gptam.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "oracle-proxy GPT Account Manager direct/source entry"
     },
     {
       "name": "hk.zhangxuemin.work",
@@ -130,6 +177,34 @@
       "ttl": 1,
       "proxied": false,
       "comment": "oracle-registry"
+    },
+    {
+      "name": "kiro-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "kiro-rs-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "kiro-rs.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "kiro.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 1,
+      "proxied": false
     },
     {
       "name": "mail.zhangxuemin.work",
@@ -179,21 +254,6 @@
       "comment": "CN/HK SSH edge via hk-relay to oracle-reverse-dev:22"
     },
     {
-      "name": "send.zhangxuemin.work",
-      "type": "MX",
-      "content": "feedback-smtp.ap-northeast-1.amazonses.com",
-      "ttl": 3600,
-      "proxied": false,
-      "priority": 10
-    },
-    {
-      "name": "send.zhangxuemin.work",
-      "type": "TXT",
-      "content": "\"v=spf1 include:amazonses.com ~all\"",
-      "ttl": 3600,
-      "proxied": false
-    },
-    {
       "name": "tmail-front.zhangxuemin.work",
       "type": "AAAA",
       "content": "100::",
@@ -206,6 +266,14 @@
       "content": "100::",
       "ttl": 1,
       "proxied": true
+    },
+    {
+      "name": "send.zhangxuemin.work",
+      "type": "MX",
+      "content": "feedback-smtp.ap-northeast-1.amazonses.com",
+      "ttl": 3600,
+      "proxied": false,
+      "priority": 10
     },
     {
       "name": "zhangxuemin.work",
@@ -230,6 +298,28 @@
       "ttl": 1,
       "proxied": false,
       "priority": 98
+    },
+    {
+      "name": "_dmarc.zhangxuemin.work",
+      "type": "TXT",
+      "content": "\"v=DMARC1; p=reject; rua=mailto:f7f21e5e0ab844279caa542a187734f0@dmarc-reports.cloudflare.net,mailto:mail@zhangxuemin.work; ruf=mailto:mail@zhangxuemin.work; adkim=s; aspf=s\"",
+      "ttl": 1,
+      "proxied": false,
+      "comment": "DMARC"
+    },
+    {
+      "name": "cf2024-1._domainkey.zhangxuemin.work",
+      "type": "TXT",
+      "content": "\"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78k\" \"m4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB\"",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "send.zhangxuemin.work",
+      "type": "TXT",
+      "content": "\"v=spf1 include:amazonses.com ~all\"",
+      "ttl": 3600,
+      "proxied": false
     },
     {
       "name": "zhangxuemin.work",
