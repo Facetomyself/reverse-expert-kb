@@ -1,0 +1,472 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    ".NET malware obfuscation encrypted resource Assembly.Load reflection unpacking reverse engineering",
+    "ConfuserEx unpacking encrypted resources Assembly.Load dnSpy deobfuscation workflow",
+    "dnlib deobfuscation .NET resources metadata tokens reflection invocation reverse engineering"
+  ],
+  "count": 27,
+  "results": [
+    {
+      "title": "Anthropic-Cybersecurity-Skills/skills/reverse-engineering-dotnet ...",
+      "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/blob/main/skills/reverse-engineering-dotnet-malware-with-dnspy/SKILL.md",
+      "snippet": "Load the deobfuscated assembly in dnSpy for source-level analysis: dnSpy ... resources, often encrypted with a key derived from assembly metadata.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.72
+    },
+    {
+      "title": "src/DotNet/Resource.cs at master · 0xd4d/dnlib",
+      "url": "https://github.com/0xd4d/dnlib/blob/master/src/DotNet/Resource.cs",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": ".NET deobfuscation? : r/ReverseEngineering - Reddit",
+      "url": "https://www.reddit.com/r/ReverseEngineering/comments/d0a0c/net_deobfuscation",
+      "snippet": "There's a program I would like to reverse and it appears to be obfuscated by SmartAssembly. I know this program can be deobfuscated.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.62
+    },
+    {
+      "title": "Dump-GUY/ConfuserEx2_String_Decryptor",
+      "url": "https://github.com/Dump-GUY/ConfuserEx2_String_Decryptor",
+      "snippet": "",
+      "published_date": "2023-12-11T21:40:12.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "de4dot.code/deobfuscators/Confuser/Unpacker.cs at b7d5728f · de4dot/de4dot",
+      "url": "https://github.com/de4dot/de4dot/blob/b7d5728f/de4dot.code/deobfuscators/Confuser/Unpacker.cs",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "README.md at master · 0xd4d/dnlib",
+      "url": "https://github.com/0xd4d/dnlib/blob/master/README.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "src/DotNet/ModuleDef.cs at master · 0xd4d/dnlib",
+      "url": "https://github.com/0xd4d/dnlib/blob/master/src/DotNet/ModuleDef.cs",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "src/DotNet/TypeDef.cs at master · 0xd4d/dnlib",
+      "url": "https://github.com/0xd4d/dnlib/blob/master/src/DotNet/TypeDef.cs",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "src/DotNet/ModuleDefMD.cs at master · 0xd4d/dnlib",
+      "url": "https://github.com/0xd4d/dnlib/blob/master/src/DotNet/ModuleDefMD.cs",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "A ConfuserEx-custom deobfuscation toolchain (.NET IL) using ...",
+      "url": "https://www.reddit.com/r/ReverseEngineering/comments/6ss3n3/a_confuserexcustom_deobfuscation_toolchain_net_il",
+      "snippet": "Fork of dnspy with only one change: the ICSCode.Decompiler submodule is my fork of that one instead. said submodule with the actual changes. So",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.56
+    },
+    {
+      "title": "How To Deobfuscate ConfuserEx .NET Assembly?",
+      "url": "https://reverseengineering.stackexchange.com/questions/25574/how-to-deobfuscate-confuserex-net-assembly",
+      "snippet": "An expert will have it deobfuscated in a few mins. Is anyone able to advise the steps with dnSpy to truly deobfuscate this crackme? I'm not",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.53
+    },
+    {
+      "title": "reverse-engineering-dotnet-malware-w... · LobeHub",
+      "url": "https://lobehub.com/it/skills/mukul975-anthropic-cybersecurity-skills-reverse-engineering-dotnet-malware-with-dnspy",
+      "snippet": "This Skill provides a focused workflow for reverse-engineering .NET malware using dnSpy/dnSpyEx to decompile managed assemblies to readable C#/VB.NET source, debug runtime behavior, and extract embedded configuration and secrets. Key features include identifying .NET assemblies and obfuscators (Detect It Easy), automated deobfuscation (de4dot), cross-validation with ILSpy, runtime debugging to reveal unpacking/decryption routines, and recompiling patched assemblies with the .NET SDK. Typical use cases are analyzing .NET-based families (AgentTesla, AsyncRAT, RedLine, Quasar), extracting hardcoded C2 endpoints, keys, and credentials, and deobfuscating ConfuserEx/SmartAssembly protections. Core advantages are rapid source-level insight, the ability to observe dynamic decryption in a controlled VM, and reduced manual IL analysis. # Reverse Engineering .NET Malware with dnSpy. **Do not use** for native (unmanaged) PE binaries; use Ghidra or IDA for native code analysis. ### Step 1: Identify .NET Assembly and Obfuscator. Verify the sample is a .NET binary and detect protection:. `# Check if file is .NET assembly. # Check for .NET COM descriptor. print(\"[!] Not a .NET assembly\").",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.48
+    },
+    {
+      "title": "Inspecting .NET assemblies with dnlib - graceful is noforce",
+      "url": "https://blog.iisreset.me/inspecting-net-assemblies-with-dnlib",
+      "snippet": "Reflection.MetaData API is a bit more complicated than ReflectionOnly; The Metadata API is not available in .NET Framework, and I want this",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.46
+    },
+    {
+      "title": "ConfuserEx2: A Guide to .NET Obfuscation and Reverse Engineering | Iterasec",
+      "url": "https://iterasec.com/blog/understanding-confuserex2-net-obfuscation-and-deobfuscation-techniques",
+      "snippet": "- AI and LLM Penetration Testing Services iconAI and LLM Penetration Testing Services. - Web Penetration Testing Services iconWeb Penetration Testing Services. - Mobile Penetration Testing Services iconMobile Penetration Testing Services. - API Penetration Testing Services iconAPI Penetration Testing Services. - External Network Penetration Testing Services iconExternal Network Penetration Testing Services. - loT Penetration Testing Services iconloT Penetration Testing Services. - Cloud Penetration Testing Services iconCloud Penetration Testing Services. # Understanding ConfuserEx2: .NET Obfuscation and Deobfuscation Techniques. ConfuserEx2 is a powerful open-source .NET binary obfuscator that offers a range of features from string encryption to anti-tampering and packing mechanisms. In this article, we explore how to set up ConfuserEx2 and apply its obfuscation techniques as well as walk through the deobfuscation and unpacking process with a variety of tools. As can be seen, the binary is successfully obfuscated with no ability to read the instructions and several deobfuscation steps need to be performed in order to restore the original code.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Uncovering .NET Malware Obfuscated by Encryption and Virtualization",
+      "url": "https://unit42.paloaltonetworks.com/malware-obfuscation-techniques",
+      "snippet": "# Uncovering .NET Malware Obfuscated by Encryption and Virtualization. This article examines obfuscation techniques used in popular malware families, and offers some insights into possible opportunities for automating unpacking of these malware samples. We will examine these behaviors in samples we have observed, showing how to extract their configuration parameters through unpacking each stage. Adversaries use the following techniques to deliver popular malware families like Agent Tesla, XWorm and FormBook/XLoader:. Palo Alto Networks customers are better protected from the threats discussed in this article through the following products or services:. Malware authors use obfuscation techniques to hinder sandboxes from using static analysis, increasing the possibility that a malicious file will evade detection. This article examines obfuscation techniques used to deliver malware families like Agent Tesla, XWorm and FormBook/XLoader. | Payload delivery | * Staged payloads * Payload stored in the Portable Executable (PE) overlay * Dynamic code loading, deobfuscation and execution via .NET reflection |.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Defeating Packed Malware - Reverse Engineering 4 of 4 - YouTube",
+      "url": "https://www.youtube.com/watch?v=WdAVooS6nqM",
+      "snippet": "... Malware - Manual Unpacking & Memory Dumping Techniques - Reverse Engineering ... Reverse Engineering 2/4 - Encoding, Encryption, & Obfuscation",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Deobfuscation & Technical Analysis of ConfuserEx 2",
+      "url": "https://blog.threat.zone/deobfuscation-technical-analysis-of-confuserex-2/",
+      "snippet": "",
+      "published_date": "2023-02-19T17:27:18.000Z",
+      "source": "exa",
+      "score": 0.43
+    },
+    {
+      "title": "Deobfuscation of .NET using PowerShelling & dnlib - Eternity Malware",
+      "url": "https://www.youtube.com/watch?v=r6AYV2mNcFE",
+      "snippet": "... deobfuscation: - Load dnlib via reflection so we can use it - Load malware as moduleDef with dnlib - Load malware via reflection so we can",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": ".NET Malware Threats: Internals And Reversing - TIB AV-Portal",
+      "url": "https://av.tib.eu/media/48429",
+      "snippet": "... NET malware samples have become very challenger because it is so complicated to deobfuscated associated resources, as unpacking and dumping them from memory",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "Reverse Engineering .NET AOT Malware | Cyderes",
+      "url": "https://www.cyderes.com/howler-cell/reverse-engineering-net-aot-malware",
+      "snippet": "Cyderes analyzes .NET AOT malware, showing how attackers use native binaries to evade detection and execute stealthy attacks.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "BlackGuard Analysis - Deobfuscation Using Dnlib",
+      "url": "https://goggleheadedhacker.com/post/blackguard-analysis",
+      "snippet": ".NET binaries are normally easier to reverse engineer than compiled binaries. Just like with Java .jars, they can be decompiled to reveal the",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.39
+    },
+    {
+      "title": "PureCrypter: Reverse Engineering a .NET Loader From the PureCoder Ecosystem | Derp",
+      "url": "https://www.derp.ca/purecrypter-loader-analysis/",
+      "snippet": "",
+      "published_date": "2026-02-22T23:37:38.000Z",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": "Stealthy .NET Malware: Hiding Malicious Payloads as Bitmap Resources",
+      "url": "https://unit42.paloaltonetworks.com/malicious-payloads-as-bitmap-resources-hide-net-malware/",
+      "snippet": "",
+      "published_date": "2025-05-09T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.39
+    },
+    {
+      "title": ".NET Deobfuscation | cyber.wtf",
+      "url": "https://cyber.wtf/2025/04/07/dotnet-deobfuscation/",
+      "snippet": "",
+      "published_date": "2025-04-07T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.36
+    },
+    {
+      "title": "UNPACK YOUR TROUBLES 1: .NET PACKER TRICKS AND COUNTERMEASURES",
+      "url": "https://web-assets.esetstatic.com/wls/en/papers/white-papers/Hartung-VB20151.pdf",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Dissecting PureCrypter: A Technical Malware Analysis – 0xlibris",
+      "url": "https://0xlibris.net/posts/infection_chain_infostealer_2/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.33
+    },
+    {
+      "title": "Inside ConfuserEx's Anti-tamper and Anti-dumping - wwh1004's blog",
+      "url": "https://wwh1004.com/en/inside-confuserex-antitamper-and-antidump/",
+      "snippet": "",
+      "published_date": "2018-08-13T16:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "reverse-engineering-dotnet-malware-w... · LobeHub",
+        "url": "https://lobehub.com/it/skills/mukul975-anthropic-cybersecurity-skills-reverse-engineering-dotnet-malware-with-dnspy",
+        "snippet": "This Skill provides a focused workflow for reverse-engineering .NET malware using dnSpy/dnSpyEx to decompile managed assemblies to readable C#/VB.NET source, debug runtime behavior, and extract embedded configuration and secrets. Key features include identifying .NET assemblies and obfuscators (Detect It Easy), automated deobfuscation (de4dot), cross-validation with ILSpy, runtime debugging to reveal unpacking/decryption routines, and recompiling patched assemblies with the .NET SDK. Typical use cases are analyzing .NET-based families (AgentTesla, AsyncRAT, RedLine, Quasar), extracting hardcoded C2 endpoints, keys, and credentials, and deobfuscating ConfuserEx/SmartAssembly protections. Core advantages are rapid source-level insight, the ability to observe dynamic decryption in a controlled VM, and reduced manual IL analysis. # Reverse Engineering .NET Malware with dnSpy. **Do not use** for native (unmanaged) PE binaries; use Ghidra or IDA for native code analysis. ### Step 1: Identify .NET Assembly and Obfuscator. Verify the sample is a .NET binary and detect protection:. `# Check if file is .NET assembly. # Check for .NET COM descriptor. print(\"[!] Not a .NET assembly\").",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.48
+      },
+      {
+        "title": "Anthropic-Cybersecurity-Skills/skills/reverse-engineering-dotnet ...",
+        "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/blob/main/skills/reverse-engineering-dotnet-malware-with-dnspy/SKILL.md",
+        "snippet": "Load the deobfuscated assembly in dnSpy for source-level analysis: dnSpy ... resources, often encrypted with a key derived from assembly metadata.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.72
+      },
+      {
+        "title": "How To Deobfuscate ConfuserEx .NET Assembly?",
+        "url": "https://reverseengineering.stackexchange.com/questions/25574/how-to-deobfuscate-confuserex-net-assembly",
+        "snippet": "An expert will have it deobfuscated in a few mins. Is anyone able to advise the steps with dnSpy to truly deobfuscate this crackme? I'm not",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.53
+      },
+      {
+        "title": "ConfuserEx2: A Guide to .NET Obfuscation and Reverse Engineering | Iterasec",
+        "url": "https://iterasec.com/blog/understanding-confuserex2-net-obfuscation-and-deobfuscation-techniques",
+        "snippet": "- AI and LLM Penetration Testing Services iconAI and LLM Penetration Testing Services. - Web Penetration Testing Services iconWeb Penetration Testing Services. - Mobile Penetration Testing Services iconMobile Penetration Testing Services. - API Penetration Testing Services iconAPI Penetration Testing Services. - External Network Penetration Testing Services iconExternal Network Penetration Testing Services. - loT Penetration Testing Services iconloT Penetration Testing Services. - Cloud Penetration Testing Services iconCloud Penetration Testing Services. # Understanding ConfuserEx2: .NET Obfuscation and Deobfuscation Techniques. ConfuserEx2 is a powerful open-source .NET binary obfuscator that offers a range of features from string encryption to anti-tampering and packing mechanisms. In this article, we explore how to set up ConfuserEx2 and apply its obfuscation techniques as well as walk through the deobfuscation and unpacking process with a variety of tools. As can be seen, the binary is successfully obfuscated with no ability to read the instructions and several deobfuscation steps need to be performed in order to restore the original code.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "A ConfuserEx-custom deobfuscation toolchain (.NET IL) using ...",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/6ss3n3/a_confuserexcustom_deobfuscation_toolchain_net_il",
+        "snippet": "Fork of dnspy with only one change: the ICSCode.Decompiler submodule is my fork of that one instead. said submodule with the actual changes. So",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.56
+      },
+      {
+        "title": "BlackGuard Analysis - Deobfuscation Using Dnlib",
+        "url": "https://goggleheadedhacker.com/post/blackguard-analysis",
+        "snippet": ".NET binaries are normally easier to reverse engineer than compiled binaries. Just like with Java .jars, they can be decompiled to reveal the",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.39
+      },
+      {
+        "title": "Deobfuscation of .NET using PowerShelling & dnlib - Eternity Malware",
+        "url": "https://www.youtube.com/watch?v=r6AYV2mNcFE",
+        "snippet": "... deobfuscation: - Load dnlib via reflection so we can use it - Load malware as moduleDef with dnlib - Load malware via reflection so we can",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "Inspecting .NET assemblies with dnlib - graceful is noforce",
+        "url": "https://blog.iisreset.me/inspecting-net-assemblies-with-dnlib",
+        "snippet": "Reflection.MetaData API is a bit more complicated than ReflectionOnly; The Metadata API is not available in .NET Framework, and I want this",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.46
+      },
+      {
+        "title": ".NET Deobfuscation | cyber.wtf",
+        "url": "https://cyber.wtf/2025/04/07/dotnet-deobfuscation",
+        "snippet": "In the last post, we ended up with a couple .NET Framework malware samples that had obfuscation applied to them. .NET is a runtime environment that executes intermediate code (CIL) in a managed way, using a just-in-time compiler to translate it into native machine code at runtime. In order to make that possible, a .NET binary (more commonly called *assembly*) has clearly laid out information about contained types, fields, methods, and more. This post will provide an overview over a couple of obfuscation techniques that are commonly encountered in .NET assemblies and how to deal with them. At times, this post will take on a tutorial-like tone, because there are not many resources at all that explain how to extend de4dot. We’ll be working with de4dot’s code, because it’s an excellent framework for .NET code deobfuscation. In most cases, this involves a more or less obvious call to `Assembly.Load`, followed by some reflection code to invoke a method and begin execution.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": ".NET deobfuscation? : r/ReverseEngineering - Reddit",
+        "url": "https://www.reddit.com/r/ReverseEngineering/comments/d0a0c/net_deobfuscation",
+        "snippet": "There's a program I would like to reverse and it appears to be obfuscated by SmartAssembly. I know this program can be deobfuscated.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.62
+      },
+      {
+        "title": "Uncovering .NET Malware Obfuscated by Encryption and Virtualization",
+        "url": "https://unit42.paloaltonetworks.com/malware-obfuscation-techniques",
+        "snippet": "# Uncovering .NET Malware Obfuscated by Encryption and Virtualization. This article examines obfuscation techniques used in popular malware families, and offers some insights into possible opportunities for automating unpacking of these malware samples. We will examine these behaviors in samples we have observed, showing how to extract their configuration parameters through unpacking each stage. Adversaries use the following techniques to deliver popular malware families like Agent Tesla, XWorm and FormBook/XLoader:. Palo Alto Networks customers are better protected from the threats discussed in this article through the following products or services:. Malware authors use obfuscation techniques to hinder sandboxes from using static analysis, increasing the possibility that a malicious file will evade detection. This article examines obfuscation techniques used to deliver malware families like Agent Tesla, XWorm and FormBook/XLoader. | Payload delivery | * Staged payloads * Payload stored in the Portable Executable (PE) overlay * Dynamic code loading, deobfuscation and execution via .NET reflection |.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": ".NET Malware Threats: Internals And Reversing - TIB AV-Portal",
+        "url": "https://av.tib.eu/media/48429",
+        "snippet": "... NET malware samples have become very challenger because it is so complicated to deobfuscated associated resources, as unpacking and dumping them from memory",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "Anthropic-Cybersecurity-Skills/skills/reverse-engineering-dotnet ...",
+        "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/blob/main/skills/reverse-engineering-dotnet-malware-with-dnspy/SKILL.md",
+        "snippet": "Reverse engineers .NET malware using dnSpy decompiler and debugger to analyze C#/VB.NET source code, identify obfuscation techniques, extract configurations,",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Defeating Packed Malware - Reverse Engineering 4 of 4 - YouTube",
+        "url": "https://www.youtube.com/watch?v=WdAVooS6nqM",
+        "snippet": "... Malware - Manual Unpacking & Memory Dumping Techniques - Reverse Engineering ... Reverse Engineering 2/4 - Encoding, Encryption, & Obfuscation",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Reverse Engineering .NET AOT Malware | Cyderes",
+        "url": "https://www.cyderes.com/howler-cell/reverse-engineering-net-aot-malware",
+        "snippet": "Cyderes analyzes .NET AOT malware, showing how attackers use native binaries to evade detection and execute stealthy attacks.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      }
+    ],
+    "exa": [
+      {
+        "title": ".NET Deobfuscation | cyber.wtf",
+        "url": "https://cyber.wtf/2025/04/07/dotnet-deobfuscation/",
+        "snippet": "",
+        "published_date": "2025-04-07T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.36
+      },
+      {
+        "title": "Deobfuscation & Technical Analysis of ConfuserEx 2",
+        "url": "https://blog.threat.zone/deobfuscation-technical-analysis-of-confuserex-2/",
+        "snippet": "",
+        "published_date": "2023-02-19T17:27:18.000Z",
+        "source": "exa",
+        "score": 0.43
+      },
+      {
+        "title": "Dump-GUY/ConfuserEx2_String_Decryptor",
+        "url": "https://github.com/Dump-GUY/ConfuserEx2_String_Decryptor",
+        "snippet": "",
+        "published_date": "2023-12-11T21:40:12.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "de4dot.code/deobfuscators/Confuser/Unpacker.cs at b7d5728f · de4dot/de4dot",
+        "url": "https://github.com/de4dot/de4dot/blob/b7d5728f/de4dot.code/deobfuscators/Confuser/Unpacker.cs",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Inside ConfuserEx's Anti-tamper and Anti-dumping - wwh1004's blog",
+        "url": "https://wwh1004.com/en/inside-confuserex-antitamper-and-antidump/",
+        "snippet": "",
+        "published_date": "2018-08-13T16:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "README.md at master · 0xd4d/dnlib",
+        "url": "https://github.com/0xd4d/dnlib/blob/master/README.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "src/DotNet/Resource.cs at master · 0xd4d/dnlib",
+        "url": "https://github.com/0xd4d/dnlib/blob/master/src/DotNet/Resource.cs",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "src/DotNet/ModuleDef.cs at master · 0xd4d/dnlib",
+        "url": "https://github.com/0xd4d/dnlib/blob/master/src/DotNet/ModuleDef.cs",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "src/DotNet/TypeDef.cs at master · 0xd4d/dnlib",
+        "url": "https://github.com/0xd4d/dnlib/blob/master/src/DotNet/TypeDef.cs",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "src/DotNet/ModuleDefMD.cs at master · 0xd4d/dnlib",
+        "url": "https://github.com/0xd4d/dnlib/blob/master/src/DotNet/ModuleDefMD.cs",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "UNPACK YOUR TROUBLES 1: .NET PACKER TRICKS AND COUNTERMEASURES",
+        "url": "https://web-assets.esetstatic.com/wls/en/papers/white-papers/Hartung-VB20151.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "PureCrypter: Reverse Engineering a .NET Loader From the PureCoder Ecosystem | Derp",
+        "url": "https://www.derp.ca/purecrypter-loader-analysis/",
+        "snippet": "",
+        "published_date": "2026-02-22T23:37:38.000Z",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": ".NET Deobfuscation | cyber.wtf",
+        "url": "https://cyber.wtf/2025/04/07/dotnet-deobfuscation/",
+        "snippet": "",
+        "published_date": "2025-04-07T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Stealthy .NET Malware: Hiding Malicious Payloads as Bitmap Resources",
+        "url": "https://unit42.paloaltonetworks.com/malicious-payloads-as-bitmap-resources-hide-net-malware/",
+        "snippet": "",
+        "published_date": "2025-05-09T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "Dissecting PureCrypter: A Technical Malware Analysis – 0xlibris",
+        "url": "https://0xlibris.net/posts/infection_chain_infostealer_2/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.33
+      }
+    ],
+    "grok": []
+  }
+}

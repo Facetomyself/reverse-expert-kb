@@ -19,6 +19,7 @@ Related pages:
 - topics/write-protect-execute-to-first-consumer-workflow-note.md
 - topics/string-decryption-origin-to-artifact-provenance-workflow-note.md
 - topics/decrypted-artifact-to-first-consumer-workflow-note.md
+- topics/dotnet-resource-reflection-load-to-managed-consumer-workflow-note.md
 - topics/integrity-check-to-tamper-consequence-workflow-note.md
 - topics/runtime-table-and-initialization-obligation-recovery-workflow-note.md
 - topics/exception-handler-owned-control-transfer-workflow-note.md
@@ -76,6 +77,7 @@ Protected-runtime practical work is easiest to navigate when the analyst first c
    - encoded or encrypted strings are clearly present and decoders, stack builders, or emulator outputs are visible, but decoder callsite truth, origin bytes, key/constant pairing, decoded-output validation, and consumer-ready provenance are still not separated
 12. **artifact-to-consumer proof**
    - strings, config, tables, bytecode, or normalized buffers are already readable enough to inspect, but the first ordinary consumer is still missing
+   - for managed .NET resource/reflection loader cases, keep `resource/overlay visible`, `bytes decoded`, `Assembly.Load`, `target selected/invoked`, and `managed consumer/effect` as separate proof objects
 13. **runtime-artifact / initialization-obligation recovery**
    - static dumps, repaired artifacts, or offline reconstructions look damaged, under-initialized, or close-but-wrong, while live/runtime state appears truer
 14. **integrity / tamper consequence proof**
@@ -171,6 +173,21 @@ Do **not** start here when:
 - the current observation model is already good enough and the bottleneck is now inside one visible packed, VM, artifact, or integrity path
 - the case is already narrowed to a specific Android surface-choice problem handled better by the Android observation notes
 - the earlier unknown is still which anti-instrumentation gate family actually matters first
+
+### Start with `dotnet-resource-reflection-load-to-managed-consumer-workflow-note`
+Use:
+- `topics/dotnet-resource-reflection-load-to-managed-consumer-workflow-note.md`
+
+Start here when:
+- the protected or malware-shaped target is managed .NET and the current bottleneck is an embedded resource, overlay, bitmap, static byte array, or decoded managed stage
+- `Assembly.Load(...)`, reflection, late binding, delegate proxies, or static-constructor effects are likely on the handoff path
+- the analyst can extract or dump bytes but still cannot say which loaded type/member/delegate owns the first config, comms, persistence, next-stage, or payload effect
+- the next useful output is one selected managed target plus one first managed consumer/effect rather than another resource inventory or dumped DLL
+
+Do **not** start here when:
+- the target is native and the main bottleneck is an OEP / RX memory / thread-resume boundary
+- decoded artifacts are already readable and the only missing object is their ordinary non-loader consumer
+- the first managed consumer is already proved and the real work is now config reduction, request proof, persistence, or staged malware consequence analysis
 
 ### Start with `vm-trace-to-semantic-anchor-workflow-note`
 Use:
