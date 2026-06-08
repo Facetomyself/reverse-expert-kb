@@ -15,6 +15,7 @@ Related pages:
 - topics/mba-expression-simplification-to-semantic-consumer-workflow-note.md
 - topics/packed-stub-to-oep-and-first-real-module-workflow-note.md
 - topics/write-protect-execute-to-first-consumer-workflow-note.md
+- topics/dotnet-resource-reflection-load-to-managed-consumer-workflow-note.md
 
 ## 1. Topic identity
 
@@ -93,6 +94,20 @@ For packed binaries, the first expert problem may be detecting, classifying, dum
 
 #### 5. Intrinsic benchmark accuracy vs workflow survivability
 Analysts care about whether triage, clustering, patch diffing, and navigation remain possible despite transformations.
+
+
+### Managed .NET resource / reflection loader handoff
+
+A thinner managed-runtime deobfuscation seam is now preserved in:
+- `topics/dotnet-resource-reflection-load-to-managed-consumer-workflow-note.md`
+
+Keep this split visible for .NET malware and managed packers:
+
+```text
+resource/overlay visible != bytes decoded != assembly loaded != target selected/invoked != managed consumer/effect-owned
+```
+
+The practical warning is that a manifest resource, bitmap resource, PE overlay, recovered byte array, dumped DLL, or `Assembly.Load(...)` hit is weaker than proving the selected type/member/delegate/static-constructor path and the first behavior-bearing managed consumer.
 
 ## 3. What this topic depends on
 This topic depends on several other KB concepts.
