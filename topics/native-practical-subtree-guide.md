@@ -10,6 +10,7 @@ Related pages:
 - topics/native-virtual-dispatch-slot-to-concrete-implementation-workflow-note.md
 - topics/native-plugin-loader-to-first-real-module-consumer-workflow-note.md
 - topics/native-service-dispatcher-to-worker-owned-consumer-workflow-note.md
+- topics/native-windows-service-trigger-to-worker-consumer-workflow-note.md
 - topics/native-dbus-service-activation-to-method-consumer-workflow-note.md
 - topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md
 - topics/native-windows-named-pipe-impersonation-to-handler-consumer-workflow-note.md
@@ -87,6 +88,10 @@ A second Linux service/desktop reminder now worth preserving inside family 5 is 
 A Windows COM / local-server reminder now worth preserving inside family 5 is the activation-to-method-consumer seam:
 - COM registration, activation, class-factory selection, object creation, interface binding, method ingress, and first handler-owned effect are different proof objects
 - use `topics/native-com-activation-to-method-consumer-workflow-note.md` when the visible API is `CoCreateInstance`, `CoCreateInstanceEx`, `CoGetClassObject`, `CoRegisterClassObject`, `IClassFactory::CreateInstance`, `QueryInterface`, proxy/stub dispatch, or DCOM activation, and the current liar is whether **registered != activated != factory-selected != object-created != interface-bound != method-entered != consumed/effected** was flattened into one claim
+
+A Windows service trigger reminder now worth preserving inside family 5 is the SCM trigger-to-worker seam:
+- trigger configuration, condition firing, SCM action selection, service entry, accepted-control posture, HandlerEx / ServiceMain routing, worker handoff, and first effect are different proof objects
+- use `topics/native-windows-service-trigger-to-worker-consumer-workflow-note.md` when the visible API is `SERVICE_TRIGGER_INFO`, `SERVICE_TRIGGER`, `QueryServiceConfig2(...SERVICE_CONFIG_TRIGGER_INFO...)`, `sc qtriggerinfo`, `SERVICE_TRIGGER_STARTED_ARGUMENT`, `SERVICE_CONTROL_TRIGGEREVENT`, `SERVICE_ACCEPT_TRIGGEREVENT`, or named-pipe / RPC / ETW trigger-start behavior, and the current liar is whether **configured != fired != selected != entered != accepted/routed != handed off != consumed/effected** was flattened into one claim
 
 A Windows service/helper reminder now worth preserving inside family 5 is the named-pipe impersonation seam:
 - pipe endpoint visibility, current client connection, request-read ownership, client identity / impersonation level, successful `ImpersonateNamedPipeClient(...)` lifetime, and handler-owned operation are different proof objects
