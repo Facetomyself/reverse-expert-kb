@@ -15,6 +15,7 @@ Related pages:
 - topics/native-practical-subtree-guide.md
 - topics/native-unix-domain-socket-fd-credential-first-consumer-workflow-note.md
 - topics/native-windows-named-pipe-impersonation-to-handler-consumer-workflow-note.md
+- topics/native-windows-service-trigger-to-worker-consumer-workflow-note.md
 - topics/native-alpc-port-message-to-handler-consumer-workflow-note.md
 - topics/native-com-activation-to-method-consumer-workflow-note.md
 - topics/native-macos-servicemanagement-xpc-helper-consumer-workflow-note.md
