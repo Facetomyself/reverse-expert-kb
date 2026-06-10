@@ -27,6 +27,7 @@ Related pages:
 - topics/native-gui-message-pump-and-signal-slot-first-consumer-workflow-note.md
 - topics/native-qt-event-filter-vs-signal-slot-first-consumer-workflow-note.md
 - topics/native-cocoa-responder-chain-and-target-action-first-consumer-workflow-note.md
+- topics/native-macos-notificationcenter-to-observer-consumer-workflow-note.md
 - topics/native-etw-provider-session-consumer-workflow-note.md
 - topics/runtime-behavior-recovery.md
 
@@ -423,3 +424,6 @@ The compact reading is:
 - prove one async callback or event-loop consumer chain
 
 That makes the branch easier to enter, easier to sequence, and less dependent on already knowing which native workflow note to read first.
+
+### macOS NotificationCenter continuation
+- Use `topics/native-macos-notificationcenter-to-observer-consumer-workflow-note.md` when notification producer/observer/delivery/consumer proof is the current bottleneck; preserve **name visible != posted != matched != delivered != observer entered != consumed/effected**.

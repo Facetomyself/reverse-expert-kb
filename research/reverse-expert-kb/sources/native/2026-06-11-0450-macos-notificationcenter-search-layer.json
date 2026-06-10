@@ -1,0 +1,427 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "macOS NSNotificationCenter addObserver postNotification reverse engineering observer selector first consumer",
+    "macOS DistributedNotificationCenter notification observer delivery suspensionBehavior reverse engineering",
+    "Apple NotificationCenter addObserver selector block queue OperationQueue delivery object userInfo documentation"
+  ],
+  "count": 22,
+  "results": [
+    {
+      "title": "NSDistributedNotificationCenter | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/distributednotificationcenter?language=objc",
+      "snippet": "## Explore Platforms. ## Explore Technologies. ## Explore Community. ## Explore Documentation. ## Explore Support. 17 of 18 symbols inside 586840872 containing 2 symbolsNSDistributedNotificationCenterType. 16 of 18 symbols inside 586840872 containing 5 symbolsNSDistributedNotificationOptions. 14 of 18 symbols inside 586840872 suspended. 12 of 18 symbols inside 586840872 - postNotificationName:object:userInfo:options:? 11 of 18 symbols inside 586840872 - postNotificationName:object:userInfo:deliverImmediately:? 10 of 18 symbols inside 586840872 - postNotificationName:object:userInfo:? 9 of 18 symbols inside 586840872 - postNotificationName:object:? 7 of 18 symbols inside 586840872 - removeObserver:name:object:? 6 of 18 symbols inside 586840872 - addObserver:selector:name:object:suspensionBehavior:? 5 of 18 symbols inside 586840872 - addObserver:selector:name:object:? 3 of 18 symbols inside 586840872 + notificationCenterForType:? 2 of 18 symbols inside 586840872 + defaultCenter? A `NSDistributedNotificationCenter` instance broadcasts `NSNotification` objects to objects in other tasks that have registered for the notification with their task’s default distributed notification center. In addition to the notification name and sender, dispatch table entries for distributed notification centers specify when the notification center delivers notifications to its observers.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.72
+    },
+    {
+      "title": "NSNotificationCenter | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/notificationcenter?language=objc",
+      "snippet": "Adds an entry to the notification center to receive notifications that passed to the provided block. - addObserver:selector:name:object: Adds an entry to the",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.72
+    },
+    {
+      "title": "addObserver(_:selector:name:object:) - Apple Developer",
+      "url": "https://developer.apple.com/documentation/foundation/notificationcenter/addobserver(_:selector:name:object:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.69
+    },
+    {
+      "title": "addObserver(_:selector:name:object:suspensionBehavior:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/distributednotificationcenter/addobserver(_:selector:name:object:suspensionbehavior:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "NotificationCenter | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/notificationcenter",
+      "snippet": "Objects register with a notification center to receive notifications ( NSNotification objects) using the addObserver(_:selector:name:object:) or addObserver(",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.69
+    },
+    {
+      "title": "addObserver(forName:object:queue:using:) - Apple Developer",
+      "url": "https://developer.apple.com/documentation/foundation/notificationcenter/addobserver(forname:object:queue:using:)",
+      "snippet": "Adds an entry to the notification center to receive notifications that passed to the provided block.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.66
+    },
+    {
+      "title": "How to avoid adding multiple NSNotification observer?",
+      "url": "https://stackoverflow.com/questions/5658426/how-to-avoid-adding-multiple-nsnotification-observer",
+      "snippet": "One way to prevent duplicate observers from being added is to explicitly call removeObserver for the target / selector before adding it again.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "NSNotificationCenter Observer stops receiving events when app is ...",
+      "url": "https://stackoverflow.com/questions/8130570/nsnotificationcenter-observer-stops-receiving-events-when-app-is-out-of-focus-on",
+      "snippet": "The NSApplication class automatically suspends distributed notification delivery when the application is not active. ... NSNotificationCenter",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.66
+    },
+    {
+      "title": "CFNotificationCenterAddObserver(_:_:_:_:_:_:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/corefoundation/cfnotificationcenteraddobserver(_:_:_:_:_:_:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "Frameworks/Foundation.framework/NSNotificationCenter.h at master · nst/iOS-Runtime-Headers",
+      "url": "https://github.com/nst/iOS-Runtime-Headers/blob/master/Frameworks/Foundation.framework/NSNotificationCenter.h",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "System/Foundation/src/NSNotificationCenter.m at master · apportable/Foundation",
+      "url": "https://github.com/apportable/Foundation/blob/master/System/Foundation/src/NSNotificationCenter.m",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "Source/NSNotificationCenter.m at master · gnustep/libs-base",
+      "url": "https://github.com/gnustep/libs-base/blob/master/Source/NSNotificationCenter.m",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.63
+    },
+    {
+      "title": "DistributedNotificationCenter.SuspensionBehavior | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/distributednotificationcenter/suspensionbehavior",
+      "snippet": "# DistributedNotificationCenter.SuspensionBehavior | Apple Developer Documentation. ## Explore Get Started. ## Explore Platforms. ## Explore Technologies. ## Explore Community. ## Explore Documentation. ## Explore Downloads. ## Explore Support. # Distributed Notification Center.Suspension Behavior. These constants specify the types of notification delivery suspension behaviors. ### Topics & Technologies. ### Constants. The server doesn’t queue any notifications with this name and object until the notification center resumes notification delivery. The server only queues the last notification of the specified name and object; earlier notifications are dropped. In cover methods for which suspension behavior is not an explicit argument, `NSNotificationSuspensionBehaviorCoalesce` is the default. The server holds all matching notifications until the queue has been filled (queue size determined by the server), at which point the server may flush queued notifications. These constants specify the behavior of notifications posted using the `postNotificationName(_:object:userInfo:options:)`) method. This constant specifies the notification center type. Current page is DistributedNotificationCenter.SuspensionBehavior. ### Platforms. To submit feedback on documentation, visit Feedback Assistant.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.63
+    },
+    {
+      "title": "DistributedNotificationCenter | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/distributednotificationcenter?changes=_3%2C_3",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Registering for a Notification",
+      "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Notifications/Articles/Registering.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Notifications",
+      "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Notifications/Articles/Notifications.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "macos - How to debug Distributed Notification Center - Ask Different",
+      "url": "https://apple.stackexchange.com/questions/468925/how-to-debug-distributed-notification-center",
+      "snippet": "#### Stack Exchange Network. Stack Exchange network consists of 184 Q&A communities including Stack Overflow, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers. ### your communities. ### more stack exchange communities. Stack Overflow for Teams is now called **Stack Internal**. Is there any way to debug this feature? Ps. I've noticed that notification is sent when I went machine to Sleep and the Login again. It may be used to post notifications, detect and report notifications, and to examine and set the state values associated with notification keys. The sender can use the options `deliver immediately` and `post to all sessions` to ensure delivery:. **NSNotificationDeliverImmediately** When set, the notification is delivered immediately to all observers, regardless of their suspension behavior or suspension state. When not set, allows the normal suspension behavior of notification observers to take place. **NSNotificationPostToAllSessions** When set, the notification is posted to all sessions. Find the answer to your question by asking.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.56
+    },
+    {
+      "title": "NSNotificationCenter addObserver in Swift - TutorialsPoint",
+      "url": "https://www.tutorialspoint.com/article/nsnotificationcenter-addobserver-in-swift",
+      "snippet": "The purpose of this article is to explain how an iOS application can send and receive change events using NSNotificationCenter.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.49
+    },
+    {
+      "title": "Notification in Swift (NSNotification) | by Dmytro Anokhin - Medium",
+      "url": "https://dmytro-anokhin.medium.com/notification-in-swift-nsnotification-d47f641282fa",
+      "snippet": "One way to observe notifications is to add the observer and its selector to NotificationCenter . Notification center uses a queue (",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.46
+    },
+    {
+      "title": "Reverse Engineering Apple Security Updates by John McIntosh",
+      "url": "https://www.youtube.com/watch?v=4fiKBHuSYMg",
+      "snippet": "From RE//verse 2026, watch John McIntosh's talk: Reverse Engineering Apple Security Updates Talk Slides:",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.44
+    },
+    {
+      "title": "NSNotification &NSNotification​Center - NSHipster",
+      "url": "https://nshipster.com/nsnotification-and-nsnotificationcenter",
+      "snippet": "A medium defines the form and scale of significance in such a way to shape the very meaning of an idea. One of the first lessons of socialization is to know one’s audience. Sometimes communication is one-to-one, like an in-person conversation, while at other times, such as a television broadcast, it’s one-to-many. The traditional way to add an observer is `–addObserver:selector:name:object:`, in which an object (usually `self`) adds itself to have the specified selector performed when a matching notification is posted. Instead of registering an existing object as an observer for a notification, this method creates its own anonymous object to be the observer, which performs a block on the specified queue (or the calling thread, if `nil`) when a matching notification is posted. The `name` and `object` parameters of both methods are used to decide whether the criteria of a posted notification match the observer. So, if both `name` and `object` are set, only notifications with that name *and* the specified object will trigger.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "mikeash.com: Friday Q&A 2011-07-08: Let's Build NSNotificationCenter",
+      "url": "https://mikeash.com/pyblog/friday-qa-2011-07-08-lets-build-nsnotificationcenter.html",
+      "snippet": "",
+      "published_date": "2011-07-08T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.33
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Frameworks/Foundation.framework/NSNotificationCenter.h at master · nst/iOS-Runtime-Headers",
+        "url": "https://github.com/nst/iOS-Runtime-Headers/blob/master/Frameworks/Foundation.framework/NSNotificationCenter.h",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "System/Foundation/src/NSNotificationCenter.m at master · apportable/Foundation",
+        "url": "https://github.com/apportable/Foundation/blob/master/System/Foundation/src/NSNotificationCenter.m",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "Source/NSNotificationCenter.m at master · gnustep/libs-base",
+        "url": "https://github.com/gnustep/libs-base/blob/master/Source/NSNotificationCenter.m",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.63
+      },
+      {
+        "title": "addObserver(_:selector:name:object:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/notificationcenter/addobserver(_:selector:name:object:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.69
+      },
+      {
+        "title": "mikeash.com: Friday Q&A 2011-07-08: Let's Build NSNotificationCenter",
+        "url": "https://mikeash.com/pyblog/friday-qa-2011-07-08-lets-build-nsnotificationcenter.html",
+        "snippet": "",
+        "published_date": "2011-07-08T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.33
+      },
+      {
+        "title": "addObserver(_:selector:name:object:suspensionBehavior:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/distributednotificationcenter/addobserver(_:selector:name:object:suspensionbehavior:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.69
+      },
+      {
+        "title": "CFNotificationCenterAddObserver(_:_:_:_:_:_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/corefoundation/cfnotificationcenteraddobserver(_:_:_:_:_:_:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "DistributedNotificationCenter.SuspensionBehavior - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/distributednotificationcenter/suspensionbehavior",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "DistributedNotificationCenter | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/distributednotificationcenter?changes=_3%2C_3",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Registering for a Notification",
+        "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Notifications/Articles/Registering.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "addObserver(_:selector:name:object:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/notificationcenter/addobserver(_:selector:name:object:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "addObserver(forName:object:queue:using:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/notificationcenter/addobserver(forname:object:queue:using:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "NotificationCenter | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/notificationcenter",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Notifications",
+        "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Notifications/Articles/Notifications.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "NSNotificationCenter | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/notificationcenter?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "tavily": [
+      {
+        "title": "addObserver(_:selector:name:object:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/notificationcenter/addobserver(_:selector:name:object:)",
+        "snippet": "A selector that specifies the message the receiver sends observer to alert it to the notification posting. The method that aSelector specifies must have one and",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "addObserver(forName:object:queue:using:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/notificationcenter/addobserver(forname:object:queue:using:)",
+        "snippet": "Adds an entry to the notification center to receive notifications that passed to the provided block.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.66
+      },
+      {
+        "title": "NSNotification &NSNotification​Center - NSHipster",
+        "url": "https://nshipster.com/nsnotification-and-nsnotificationcenter",
+        "snippet": "A medium defines the form and scale of significance in such a way to shape the very meaning of an idea. One of the first lessons of socialization is to know one’s audience. Sometimes communication is one-to-one, like an in-person conversation, while at other times, such as a television broadcast, it’s one-to-many. The traditional way to add an observer is `–addObserver:selector:name:object:`, in which an object (usually `self`) adds itself to have the specified selector performed when a matching notification is posted. Instead of registering an existing object as an observer for a notification, this method creates its own anonymous object to be the observer, which performs a block on the specified queue (or the calling thread, if `nil`) when a matching notification is posted. The `name` and `object` parameters of both methods are used to decide whether the criteria of a posted notification match the observer. So, if both `name` and `object` are set, only notifications with that name *and* the specified object will trigger.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "How to avoid adding multiple NSNotification observer?",
+        "url": "https://stackoverflow.com/questions/5658426/how-to-avoid-adding-multiple-nsnotification-observer",
+        "snippet": "One way to prevent duplicate observers from being added is to explicitly call removeObserver for the target / selector before adding it again.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "NSNotificationCenter addObserver in Swift - TutorialsPoint",
+        "url": "https://www.tutorialspoint.com/article/nsnotificationcenter-addobserver-in-swift",
+        "snippet": "The purpose of this article is to explain how an iOS application can send and receive change events using NSNotificationCenter.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.49
+      },
+      {
+        "title": "macos - How to debug Distributed Notification Center - Ask Different",
+        "url": "https://apple.stackexchange.com/questions/468925/how-to-debug-distributed-notification-center",
+        "snippet": "#### Stack Exchange Network. Stack Exchange network consists of 184 Q&A communities including Stack Overflow, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers. ### your communities. ### more stack exchange communities. Stack Overflow for Teams is now called **Stack Internal**. Is there any way to debug this feature? Ps. I've noticed that notification is sent when I went machine to Sleep and the Login again. It may be used to post notifications, detect and report notifications, and to examine and set the state values associated with notification keys. The sender can use the options `deliver immediately` and `post to all sessions` to ensure delivery:. **NSNotificationDeliverImmediately** When set, the notification is delivered immediately to all observers, regardless of their suspension behavior or suspension state. When not set, allows the normal suspension behavior of notification observers to take place. **NSNotificationPostToAllSessions** When set, the notification is posted to all sessions. Find the answer to your question by asking.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.56
+      },
+      {
+        "title": "DistributedNotificationCenter.SuspensionBehavior | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/distributednotificationcenter/suspensionbehavior",
+        "snippet": "# DistributedNotificationCenter.SuspensionBehavior | Apple Developer Documentation. ## Explore Get Started. ## Explore Platforms. ## Explore Technologies. ## Explore Community. ## Explore Documentation. ## Explore Downloads. ## Explore Support. # Distributed Notification Center.Suspension Behavior. These constants specify the types of notification delivery suspension behaviors. ### Topics & Technologies. ### Constants. The server doesn’t queue any notifications with this name and object until the notification center resumes notification delivery. The server only queues the last notification of the specified name and object; earlier notifications are dropped. In cover methods for which suspension behavior is not an explicit argument, `NSNotificationSuspensionBehaviorCoalesce` is the default. The server holds all matching notifications until the queue has been filled (queue size determined by the server), at which point the server may flush queued notifications. These constants specify the behavior of notifications posted using the `postNotificationName(_:object:userInfo:options:)`) method. This constant specifies the notification center type. Current page is DistributedNotificationCenter.SuspensionBehavior. ### Platforms. To submit feedback on documentation, visit Feedback Assistant.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.63
+      },
+      {
+        "title": "NSDistributedNotificationCenter | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/distributednotificationcenter?language=objc",
+        "snippet": "## Explore Platforms. ## Explore Technologies. ## Explore Community. ## Explore Documentation. ## Explore Support. 17 of 18 symbols inside 586840872 containing 2 symbolsNSDistributedNotificationCenterType. 16 of 18 symbols inside 586840872 containing 5 symbolsNSDistributedNotificationOptions. 14 of 18 symbols inside 586840872 suspended. 12 of 18 symbols inside 586840872 - postNotificationName:object:userInfo:options:? 11 of 18 symbols inside 586840872 - postNotificationName:object:userInfo:deliverImmediately:? 10 of 18 symbols inside 586840872 - postNotificationName:object:userInfo:? 9 of 18 symbols inside 586840872 - postNotificationName:object:? 7 of 18 symbols inside 586840872 - removeObserver:name:object:? 6 of 18 symbols inside 586840872 - addObserver:selector:name:object:suspensionBehavior:? 5 of 18 symbols inside 586840872 - addObserver:selector:name:object:? 3 of 18 symbols inside 586840872 + notificationCenterForType:? 2 of 18 symbols inside 586840872 + defaultCenter? A `NSDistributedNotificationCenter` instance broadcasts `NSNotification` objects to objects in other tasks that have registered for the notification with their task’s default distributed notification center. In addition to the notification name and sender, dispatch table entries for distributed notification centers specify when the notification center delivers notifications to its observers.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.72
+      },
+      {
+        "title": "Reverse Engineering Apple Security Updates by John McIntosh",
+        "url": "https://www.youtube.com/watch?v=4fiKBHuSYMg",
+        "snippet": "From RE//verse 2026, watch John McIntosh's talk: Reverse Engineering Apple Security Updates Talk Slides:",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.44
+      },
+      {
+        "title": "NSNotificationCenter Observer stops receiving events when app is ...",
+        "url": "https://stackoverflow.com/questions/8130570/nsnotificationcenter-observer-stops-receiving-events-when-app-is-out-of-focus-on",
+        "snippet": "The NSApplication class automatically suspends distributed notification delivery when the application is not active. ... NSNotificationCenter",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.66
+      },
+      {
+        "title": "addObserver(forName:object:queue:using:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/notificationcenter/addobserver(forname:object:queue:using:)",
+        "snippet": "Adds an entry to the notification center to receive notifications that passed to the provided block. OperationQueue ?, The operation queue where the block runs.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "addObserver(_:selector:name:object:) - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/notificationcenter/addobserver(_:selector:name:object:)",
+        "snippet": "The name of the notification to register for delivery to the observer. Specify a notification name to deliver only entries with this notification name.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "NSNotificationCenter | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/notificationcenter?language=objc",
+        "snippet": "Adds an entry to the notification center to receive notifications that passed to the provided block. - addObserver:selector:name:object: Adds an entry to the",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.72
+      },
+      {
+        "title": "NotificationCenter | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/notificationcenter",
+        "snippet": "Objects register with a notification center to receive notifications ( NSNotification objects) using the addObserver(_:selector:name:object:) or addObserver(",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.69
+      },
+      {
+        "title": "Notification in Swift (NSNotification) | by Dmytro Anokhin - Medium",
+        "url": "https://dmytro-anokhin.medium.com/notification-in-swift-nsnotification-d47f641282fa",
+        "snippet": "One way to observe notifications is to add the observer and its selector to NotificationCenter . Notification center uses a queue (",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.46
+      }
+    ],
+    "grok": []
+  }
+}
