@@ -213,6 +213,7 @@ A second narrower iOS reminder is now also worth preserving canonically:
 
 A third narrower iOS reminder is now also worth preserving canonically:
 - some iOS/network cases narrow not from broad trust-path work straight into broad owner search, but into a URL-loading interception seam around `URLProtocol.registerClass(...)`, session-local `URLSessionConfiguration.protocolClasses`, or `WKURLSchemeHandler`
+- some Foundation-owned iOS network cases narrow further into a background `URLSession` seam where background-session identifier truth, system/daemon transfer progress, app relaunch, queued delegate drain, stored completion-handler invocation, and first app-owned result consumption must stay separate
 - in those cases, registration truth, current session or webview ownership truth, request-selection truth, first interception consumer truth, and later visible consequence truth are different proof objects
 - the practical stop rule is therefore not “custom protocol/scheme handler exists,” but “which current request or resource actually reached one first interception consumer under the current session or webview configuration?”
 - a sharper WebKit-specific reminder also belongs here: `webView(_:start:)` is stronger than registration, but still weaker than resource-still-needed truth or later page-visible consequence when `webView(_:stop:)` can still cancel the task
