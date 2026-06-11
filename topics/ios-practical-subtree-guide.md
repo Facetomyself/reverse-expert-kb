@@ -11,6 +11,7 @@ Related pages:
 - topics/ios-packaging-jailbreak-and-runtime-gate-workflow-note.md
 - topics/ios-trust-path-and-pinning-localization-workflow-note.md
 - topics/ios-url-loading-interception-and-first-consumer-workflow-note.md
+- topics/ios-background-urlsession-relaunch-to-result-consumer-workflow-note.md
 - topics/ios-objc-swift-native-owner-localization-workflow-note.md
 - topics/ios-flutter-cross-runtime-owner-localization-workflow-note.md
 - topics/ios-chomper-owner-recovery-and-black-box-invocation-workflow-note.md
@@ -35,6 +36,7 @@ The branch already had practical entry surfaces for:
 - packaging / jailbreak / runtime-gate diagnosis when the app still diverges before later analysis is trustworthy
 - trust-path and pinning localization once traffic topology is truthful enough and the remaining bottleneck is routing-vs-trust-vs-post-trust diagnosis on iOS
 - URL-loading interception / first-consumer proof once a custom `URLProtocol`, session-local `protocolClasses`, or `WKURLSchemeHandler` is already visible but current session/webview ownership and the first interception consumer still lie
+- background `URLSession` relaunch / delegate-drain / result-consumer proof once a Foundation background transfer is visible but task creation, system-owned progress, app relaunch, queued delegate delivery, stored completion-handler calls, and first app-owned result consumption are still being flattened together
 - ObjC / Swift / native owner localization once the target flow is reachable enough to study
 - Flutter/Dart cross-runtime owner localization when iOS shell, engine routing, and Dart ownership all compete
 - execution-assisted owner replay when the owner path is already plausible and the next bottleneck is minimal truthful invocation
@@ -67,6 +69,7 @@ iOS practical work is easiest to navigate when the analyst first classifies the 
 4. **trust-path / pinning uncertainty**
    - traffic topology is truthful enough and the run is comparable enough, but the decisive request family is still blocked by routing-vs-trust-vs-post-trust uncertainty on iOS
    - once broad trust-path work is already good enough and a custom `URLProtocol`, session-local `protocolClasses`, or `WKURLSchemeHandler` is now the visible family, a narrower URL-loading interception / first-consumer continuation may be the right next route instead of jumping straight into broad owner localization
+   - once the visible Foundation path is specifically a background `URLSession`, a still narrower relaunch/delegate/result-consumer continuation may be the right route before generic owner localization
 5. **post-gate owner uncertainty**
    - the flow is reachable enough to study, yet several ObjC / Swift / native boundaries still compete and the first consequence-bearing owner is unclear
 6. **cross-runtime owner uncertainty**
@@ -87,6 +90,8 @@ iOS practical work is easiest to navigate when the analyst first classifies the 
 Inside families 2 and 3, a recurring practical reminder now deserves to stay explicit: do not collapse all early iOS setup into one vague "jailbroken vs not" bucket. Installation/signing path, rootful vs rootless mode, Frida deployment coherence, and rewrite/repack stability can each change whether later evidence is trustworthy; some cases first need environment normalization before broader gate diagnosis is even meaningful.
 
 A newer continuation reminder also deserves to stay explicit here: once callback/delegate truth and continuation resume truth are already good enough, some modern Swift-heavy cases still hide the first usable consequence one hop later at a MainActor-isolated view-model, coordinator, or UI-state boundary. In those cases, do not reopen broad callback hunting; freeze one MainActor-side state consumer and one later effect instead.
+
+A background-transfer reminder now also belongs in branch memory: in `URLSession` background-session cases, task creation, system/daemon transfer progress, app relaunch, delegate-event drain, stored completion-handler invocation, and first app-owned result consumption are separate proof objects. Preserve `created != progressed != relaunched != delegate-drained != completion-called != result-consumed` before treating a relaunch callback or downloaded file as behavior ownership.
 
 A sharper Swift-concurrency reminder now also belongs in branch memory: non-actor-isolated `async` work and later MainActor-owned state are not the same proof object. Preserve callback truth, continuation creation/storage, actual resume or delivery, first resumed reducer truth, actor-hop / executor-handoff truth when relevant, and first MainActor-side consumer truth separately instead of flattening them into one generic “async callback happened” story.
 
@@ -112,6 +117,7 @@ The subtree is strongest when read as:
 - **stabilize** one trustworthy runtime/setup state
 - **localize** one decisive trust path when routing-vs-trust remains the blocker
 - **intercept** one current URL-loading-owned consumer when custom `URLProtocol` / `protocolClasses` / `WKURLSchemeHandler` visibility is now the real missing proof
+- **reattach** one background `URLSession` result path when the real missing proof is background-session identifier, app relaunch, delegate drain, stored completion-handler call, and first result consumer
 - **own** one consequence-bearing path
 - **replay** one truthful callable owner path when static cleanup is no longer the cheapest next move
 - **reduce** one iOS-shaped signing/finalization boundary before flattening the case into generic preimage work
@@ -194,6 +200,22 @@ Do **not** start here when:
 - the broad problem is still traffic-topology or setup/gate shaped
 - the remaining question is still the earlier iOS trust-path / pinning boundary rather than interception ownership
 - interception selection and the first interception consumer are already good enough and the real missing step is now broader ObjC / Swift / native owner localization or later policy consequence
+
+
+### Start with `ios-background-urlsession-relaunch-to-result-consumer-workflow-note`
+Use:
+- `topics/ios-background-urlsession-relaunch-to-result-consumer-workflow-note.md`
+
+Start here when:
+- the visible Foundation networking path is specifically a background `URLSession` / `NSURLSession` transfer
+- the current bottleneck is whether task creation, system-owned transfer progress, app relaunch, queued delegate delivery, stored completion-handler invocation, or first app-owned result consumption owns the behavior
+- compare pairs diverge between foreground delegate delivery and suspended/terminated/relaunched background delivery
+- the next useful output is one smaller chain such as background session identifier -> accepted/progressed task -> matching app relaunch -> delegate event drain -> completion-handler call -> file parse/state update/next-request effect
+
+Do **not** start here when:
+- the request family has not yet been localized to Foundation URL loading
+- the real missing proof is custom `URLProtocol`, `protocolClasses`, or `WKURLSchemeHandler` selection rather than background transfer relaunch and result consumption
+- delegate/result delivery is already good enough and the remaining gap is Swift continuation, parser/protocol semantics, request signing, or downstream policy state
 
 ### Start with `ios-objc-swift-native-owner-localization-workflow-note`
 Use:
@@ -371,6 +393,7 @@ Primary note:
 
 Possible next handoff:
 - `topics/ios-url-loading-interception-and-first-consumer-workflow-note.md` when broad trust-path work is already good enough but a custom `URLProtocol`, session-local `protocolClasses`, or `WKURLSchemeHandler` now looks like the real lying ownership surface
+- `topics/ios-background-urlsession-relaunch-to-result-consumer-workflow-note.md` when Foundation background-transfer truth is visible but the real liar is relaunch/delegate-drain/completion-handler/result-consumer ownership
 - `topics/ios-objc-swift-native-owner-localization-workflow-note.md` when trust is no longer the earliest blocker and the remaining gap is consequence ownership
 - `topics/ios-result-callback-to-policy-state-workflow-note.md` when trust appears to pass and the remaining failure is later policy logic
 - request/signature or native proof pages when the localized trust path narrows the case further

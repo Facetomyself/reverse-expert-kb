@@ -1,0 +1,445 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Apple URLSession background session app relaunch delegate events handleEventsForBackgroundURLSession documentation",
+    "NSURLSession background transfer delegate URLSessionDidFinishEventsForBackgroundURLSession completionHandler",
+    "iOS background URLSession reverse engineering delegate relaunch first consumer"
+  ],
+  "count": 24,
+  "results": [
+    {
+      "title": "application(_:handleEventsForBackgroundURLSession:completionHandler:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/UIKit/UIApplicationDelegate/application%28_:handleEventsForBackgroundURLSession:completionHandler:%29",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.84
+    },
+    {
+      "title": "URLSessionDidFinishEventsForBackgroundURLSession: | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/foundation/nsurlsessiondelegate/1617185-urlsessiondidfinisheventsforback",
+      "snippet": "Tells the delegate that all messages enqueued for a session have been delivered .",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.84
+    },
+    {
+      "title": "handleEventsForBackgroundURLSessio… | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/thread/69825",
+      "snippet": "-application:handleEventsForBackgroundURLSession:completionHandler:. The URL session then starts calling completion events; your handling of those events schedules data tasks in session B. ... -URLSessionDidFinishEventsForBackgroundURLSession delegate callback, at which point you call the completion handler you got in step 2.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.84
+    },
+    {
+      "title": "NSURLSession background download l… | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/thread/71401",
+      "snippet": "January 23, 2017 - Rather, the docs seem to imply that the NSURLSession should be created and restored from application:handleEventsForBackgroundURLSession:completionHandler:, which is what made me uncertain. By the way, regarding your notes on testing NSURLSession background code, I found that if I launch an app using Xcode on a physical device, initiate a download from the app, then click Xcode's stop button while the download is in progress, the background transfer process continues normally, and launches the app to handle the NSURLSession events, exercising the appropriate app delegate and session delegate API.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.84
+    },
+    {
+      "title": "handleEventsForBackgroundURLSession never get called : ios7 Background Transfer Service - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/27933082/handleeventsforbackgroundurlsession-never-get-called-ios7-background-transfer",
+      "snippet": "- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler { NSLog(@\">>>>>>>>>>>>>\"); self.backgroundSessionCompletionHandler = completionHandler; } -(void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session { NSLog(@\"Background URL session %@ finished events.\\n\", session); AppDelegate * delegate =(AppDelegate *)[[UIApplication sharedApplication] delegate]; if(delegate.backgroundSessionCompletionHandler) { void (^handler)() = delegate.backgroundSessionCompletionHandler; handler(); } }",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.81
+    },
+    {
+      "title": "application(_:handleEventsForBackgroundURLSession ...",
+      "url": "https://developer.apple.com/documentation/uikit/uiapplicationdelegate/application(_:handleeventsforbackgroundurlsession:completionhandler:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.78
+    },
+    {
+      "title": "Hook for receiving background URLSession events queued for app ...",
+      "url": "https://github.com/cloudinary/cloudinary_ios/issues/327",
+      "snippet": "URLSession tasks received via the didCompleteWithError delegate message can be a task resurrected only for the message, and so have no",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.78
+    },
+    {
+      "title": "URLSessionDidFinishEventsFor...",
+      "url": "https://developer.apple.com/documentation/foundation/urlsessiondelegate/urlsessiondidfinishevents(forbackgroundurlsession:)?language=objc",
+      "snippet": "URLSessionDidFinishEventsForBackgroundURLSession: tells the delegate that all messages enqueued for a session have been delivered.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.75
+    },
+    {
+      "title": "Downloading files in the background - Apple Developer",
+      "url": "https://developer.apple.com/documentation/foundation/downloading-files-in-the-background?language=objc",
+      "snippet": "Once the app relaunches, the series of events is the same as if the app had been suspended and resumed, as discussed earlier in Handle app suspension. Note.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.75
+    },
+    {
+      "title": "URLSession background fails with t… | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/thread/121487",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.75
+    },
+    {
+      "title": "urlSessionDidFinishEvents(forBackgroundURLSession:)",
+      "url": "https://developer.apple.com/documentation/foundation/urlsessiondelegate/urlsessiondidfinishevents(forbackgroundurlsession:)",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.72
+    },
+    {
+      "title": "Background URLSessions support · Issue #81 · MacPaw/OpenAI",
+      "url": "https://github.com/MacPaw/OpenAI/issues/81",
+      "snippet": "The main issue is that the background sessions do not support closures so we have to use URLSession delegates. Additional context. This is about",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.72
+    },
+    {
+      "title": "What happens behind when I create URLSession with background ...",
+      "url": "https://stackoverflow.com/questions/76136268/what-happens-behind-when-i-create-urlsession-with-background-configuration",
+      "snippet": "",
+      "published_date": "2023-04-29T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.72
+    },
+    {
+      "title": "Downloading files in the background - Apple Developer",
+      "url": "https://developer.apple.com/documentation/Foundation/downloading-files-in-the-background",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.69
+    },
+    {
+      "title": "URLSessionConfiguration.background(withIdentifier:) implementation",
+      "url": "https://forums.swift.org/t/urlsessionconfiguration-background-withidentifier-implementation/26024",
+      "snippet": "I am trying to understand how tasks added into Sessions with the background configuration, in order to implement URLSessionConfiguration.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.69
+    },
+    {
+      "title": "Networking in a Short-Lived Extens… | Apple Developer Forums",
+      "url": "https://developer.apple.com/forums/thread/76659",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.66
+    },
+    {
+      "title": "Mastering Background Transfers with NSURLSession in Objective-C - A Step-by-Step Guide",
+      "url": "https://moldstud.com/articles/p-mastering-background-transfers-with-nsurlsession-in-objective-c-a-step-by-step-guide",
+      "snippet": "October 12, 2025 - Don't underestimate the importance of delegate callbacks, especially URLSession:handleEventsForBackgroundURLSession:completionHandler:, which resumes your app to finish processing events after transfers complete in the background .",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.53
+    },
+    {
+      "title": "URLSession Delegates, Authentication & Background Transfers | by ...",
+      "url": "https://medium.com/@sreejithbhatt/advanced-networking-in-ios-urlsession-delegates-authentication-background-transfers-38bcd36d52aa",
+      "snippet": "In Part 1 of this series, we explored the basics of iOS networking — from URLSession, configurations, tasks, and delegates at a high level.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.52
+    },
+    {
+      "title": "URLSession: Common pitfalls with background download & upload tasks",
+      "url": "https://www.avanderlee.com/swift/urlsession-common-pitfalls-with-background-download-upload-tasks",
+      "snippet": "SwiftLee > Swift > URLSession: Common pitfalls with background download & upload tasks. # URLSession: Common pitfalls with background download & upload tasks. URLSession enables you to download and upload files while the app is in the background. If you’re looking for ways to set up background downloading and uploading, take a look at this documentation by Apple to kickstart your implementation. Not using a unique URLSessionConfiguration identifier is mainly an issue if you’re triggering background downloads or uploads from your main app and an app extension. > Because only one process can use a background session at a time, you need to create a different background session for the containing app and each of its app extensions. (Each background session should have a unique identifier.) It’s recommended that your containing app only use a background session that was created by one of its extensions when the app is launched in the background to handle events for that extension.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.51
+    },
+    {
+      "title": "urlSessionDidFinishEvents(forBackgroundURLSession:) — Apple Developer Docs",
+      "url": "https://apple-docs.everest.mt/docs/foundation/urlsessiondelegate/urlsessiondidfinishevents(forbackgroundurlsession:)/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.48
+    },
+    {
+      "title": "sessionSendsLaunchEvents — Apple Developer Docs",
+      "url": "https://apple-docs.everest.mt/docs/foundation/urlsessionconfiguration/sessionsendslaunchevents/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.42
+    },
+    {
+      "title": "[Answered] What happens behind when I create URLSession with background configuration? on ios, swift, upload, urlsession, nsurlsessionconfiguration | Devhide",
+      "url": "https://devhide.com/what-happens-behind-when-i-create-urlsession-with-background-configuration-76136268",
+      "snippet": "",
+      "published_date": "2023-04-29T12:38:38.000Z",
+      "source": "exa",
+      "score": 0.42
+    },
+    {
+      "title": "Testing Background Uploads in iOS - Adam Wulf",
+      "url": "https://adamwulf.me/2025/01/testing-background-uploads-in-ios",
+      "snippet": "Invalidating URLSession. One tip it gives at the end is to invalidate the URLSession on app launch so that you can start from a clean slate:",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.42
+    },
+    {
+      "title": "Downloading files in the background — Apple Developer Docs",
+      "url": "https://apple-docs.everest.mt/docs/foundation/downloading-files-in-the-background/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.39
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "application(_:handleEventsForBackgroundURLSession:completionHandler:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/UIKit/UIApplicationDelegate/application%28_:handleEventsForBackgroundURLSession:completionHandler:%29",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.84
+      },
+      {
+        "title": "urlSessionDidFinishEvents(forBackgroundURLSession:)",
+        "url": "https://developer.apple.com/documentation/foundation/urlsessiondelegate/urlsessiondidfinishevents(forbackgroundurlsession:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.72
+      },
+      {
+        "title": "sessionSendsLaunchEvents — Apple Developer Docs",
+        "url": "https://apple-docs.everest.mt/docs/foundation/urlsessionconfiguration/sessionsendslaunchevents/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.42
+      },
+      {
+        "title": "Downloading files in the background - Apple Developer",
+        "url": "https://developer.apple.com/documentation/Foundation/downloading-files-in-the-background",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.69
+      },
+      {
+        "title": "application(_:handleEventsForBackgroundURLSession ...",
+        "url": "https://developer.apple.com/documentation/uikit/uiapplicationdelegate/application(_:handleeventsforbackgroundurlsession:completionhandler:)",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.78
+      },
+      {
+        "title": "URLSessionDidFinishEventsFor...",
+        "url": "https://developer.apple.com/documentation/foundation/urlsessiondelegate/urlsessiondidfinishevents(forbackgroundurlsession:)?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "application(_:handleEventsForBackgroundURLSession:completionHandler:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/UIKit/UIApplicationDelegate/application%28_:handleEventsForBackgroundURLSession:completionHandler:%29",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Downloading files in the background — Apple Developer Docs",
+        "url": "https://apple-docs.everest.mt/docs/foundation/downloading-files-in-the-background/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.39
+      },
+      {
+        "title": "urlSessionDidFinishEvents(forBackgroundURLSession:) — Apple Developer Docs",
+        "url": "https://apple-docs.everest.mt/docs/foundation/urlsessiondelegate/urlsessiondidfinishevents(forbackgroundurlsession:)/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.48
+      },
+      {
+        "title": "Downloading files in the background - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/downloading-files-in-the-background?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "What happens behind when I create URLSession with background ...",
+        "url": "https://stackoverflow.com/questions/76136268/what-happens-behind-when-i-create-urlsession-with-background-configuration",
+        "snippet": "",
+        "published_date": "2023-04-29T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.72
+      },
+      {
+        "title": "[Answered] What happens behind when I create URLSession with background configuration? on ios, swift, upload, urlsession, nsurlsessionconfiguration | Devhide",
+        "url": "https://devhide.com/what-happens-behind-when-i-create-urlsession-with-background-configuration-76136268",
+        "snippet": "",
+        "published_date": "2023-04-29T12:38:38.000Z",
+        "source": "exa",
+        "score": 0.42
+      },
+      {
+        "title": "Networking in a Short-Lived Extens… | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/76659",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.66
+      },
+      {
+        "title": "Downloading files in the background - Apple Developer",
+        "url": "https://developer.apple.com/documentation/Foundation/downloading-files-in-the-background",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "URLSession background fails with t… | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/121487",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.75
+      }
+    ],
+    "tavily": [
+      {
+        "title": "application(_:handleEventsForBackgroundURLSession ...",
+        "url": "https://developer.apple.com/documentation/uikit/uiapplicationdelegate/application(_:handleeventsforbackgroundurlsession:completionhandler:)",
+        "snippet": "The app calls this method after all background transfers associated with an URLSession object are done, whether they finished successfully or resulted in an",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "urlSessionDidFinishEvents(forBackgroundURLSession:)",
+        "url": "https://developer.apple.com/documentation/foundation/urlsessiondelegate/urlsessiondidfinishevents(forbackgroundurlsession:)",
+        "snippet": "In iOS, when a background transfer completes or requires credentials, if your app is no longer running, your app is automatically relaunched in the background,",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "URLSessionDidFinishEventsFor...",
+        "url": "https://developer.apple.com/documentation/foundation/urlsessiondelegate/urlsessiondidfinishevents(forbackgroundurlsession:)?language=objc",
+        "snippet": "URLSessionDidFinishEventsForBackgroundURLSession: tells the delegate that all messages enqueued for a session have been delivered.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.75
+      },
+      {
+        "title": "Background URLSessions support · Issue #81 · MacPaw/OpenAI",
+        "url": "https://github.com/MacPaw/OpenAI/issues/81",
+        "snippet": "The main issue is that the background sessions do not support closures so we have to use URLSession delegates. Additional context. This is about",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.72
+      },
+      {
+        "title": "Downloading files in the background - Apple Developer",
+        "url": "https://developer.apple.com/documentation/foundation/downloading-files-in-the-background?language=objc",
+        "snippet": "Once the app relaunches, the series of events is the same as if the app had been suspended and resumed, as discussed earlier in Handle app suspension. Note.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.75
+      },
+      {
+        "title": "URLSessionDidFinishEventsForBackgroundURLSession: | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/foundation/nsurlsessiondelegate/1617185-urlsessiondidfinisheventsforback",
+        "snippet": "Tells the delegate that all messages enqueued for a session have been delivered .",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.84
+      },
+      {
+        "title": "handleEventsForBackgroundURLSession never get called : ios7 Background Transfer Service - Stack Overflow",
+        "url": "https://stackoverflow.com/questions/27933082/handleeventsforbackgroundurlsession-never-get-called-ios7-background-transfer",
+        "snippet": "- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler { NSLog(@\">>>>>>>>>>>>>\"); self.backgroundSessionCompletionHandler = completionHandler; } -(void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session { NSLog(@\"Background URL session %@ finished events.\\n\", session); AppDelegate * delegate =(AppDelegate *)[[UIApplication sharedApplication] delegate]; if(delegate.backgroundSessionCompletionHandler) { void (^handler)() = delegate.backgroundSessionCompletionHandler; handler(); } }",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.81
+      },
+      {
+        "title": "handleEventsForBackgroundURLSessio… | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/69825",
+        "snippet": "-application:handleEventsForBackgroundURLSession:completionHandler:. The URL session then starts calling completion events; your handling of those events schedules data tasks in session B. ... -URLSessionDidFinishEventsForBackgroundURLSession delegate callback, at which point you call the completion handler you got in step 2.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.84
+      },
+      {
+        "title": "NSURLSession background download l… | Apple Developer Forums",
+        "url": "https://developer.apple.com/forums/thread/71401",
+        "snippet": "January 23, 2017 - Rather, the docs seem to imply that the NSURLSession should be created and restored from application:handleEventsForBackgroundURLSession:completionHandler:, which is what made me uncertain. By the way, regarding your notes on testing NSURLSession background code, I found that if I launch an app using Xcode on a physical device, initiate a download from the app, then click Xcode's stop button while the download is in progress, the background transfer process continues normally, and launches the app to handle the NSURLSession events, exercising the appropriate app delegate and session delegate API.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.84
+      },
+      {
+        "title": "Mastering Background Transfers with NSURLSession in Objective-C - A Step-by-Step Guide",
+        "url": "https://moldstud.com/articles/p-mastering-background-transfers-with-nsurlsession-in-objective-c-a-step-by-step-guide",
+        "snippet": "October 12, 2025 - Don't underestimate the importance of delegate callbacks, especially URLSession:handleEventsForBackgroundURLSession:completionHandler:, which resumes your app to finish processing events after transfers complete in the background .",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.53
+      },
+      {
+        "title": "Hook for receiving background URLSession events queued for app ...",
+        "url": "https://github.com/cloudinary/cloudinary_ios/issues/327",
+        "snippet": "URLSession tasks received via the didCompleteWithError delegate message can be a task resurrected only for the message, and so have no",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.78
+      },
+      {
+        "title": "URLSession Delegates, Authentication & Background Transfers | by ...",
+        "url": "https://medium.com/@sreejithbhatt/advanced-networking-in-ios-urlsession-delegates-authentication-background-transfers-38bcd36d52aa",
+        "snippet": "In Part 1 of this series, we explored the basics of iOS networking — from URLSession, configurations, tasks, and delegates at a high level.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.52
+      },
+      {
+        "title": "URLSessionConfiguration.background(withIdentifier:) implementation",
+        "url": "https://forums.swift.org/t/urlsessionconfiguration-background-withidentifier-implementation/26024",
+        "snippet": "I am trying to understand how tasks added into Sessions with the background configuration, in order to implement URLSessionConfiguration.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.69
+      },
+      {
+        "title": "Testing Background Uploads in iOS - Adam Wulf",
+        "url": "https://adamwulf.me/2025/01/testing-background-uploads-in-ios",
+        "snippet": "Invalidating URLSession. One tip it gives at the end is to invalidate the URLSession on app launch so that you can start from a clean slate:",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.42
+      },
+      {
+        "title": "URLSession: Common pitfalls with background download & upload tasks",
+        "url": "https://www.avanderlee.com/swift/urlsession-common-pitfalls-with-background-download-upload-tasks",
+        "snippet": "SwiftLee > Swift > URLSession: Common pitfalls with background download & upload tasks. # URLSession: Common pitfalls with background download & upload tasks. URLSession enables you to download and upload files while the app is in the background. If you’re looking for ways to set up background downloading and uploading, take a look at this documentation by Apple to kickstart your implementation. Not using a unique URLSessionConfiguration identifier is mainly an issue if you’re triggering background downloads or uploads from your main app and an app extension. > Because only one process can use a background session at a time, you need to create a different background session for the containing app and each of its app extensions. (Each background session should have a unique identifier.) It’s recommended that your containing app only use a background session that was created by one of its extensions when the app is launched in the background to handle events for that extension.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.51
+      }
+    ],
+    "grok": []
+  }
+}
