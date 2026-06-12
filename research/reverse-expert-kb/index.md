@@ -78,6 +78,7 @@ These pages show how different target classes change what matters in reverse eng
 - `topics/native-binary-reversing-baseline.md`
 - `topics/native-etw-provider-session-consumer-workflow-note.md`
 - `topics/native-macos-notificationcenter-to-observer-consumer-workflow-note.md`
+- `topics/native-macos-endpointsecurity-event-to-policy-consumer-workflow-note.md`
 - `topics/js-browser-runtime-reversing.md`
 - `topics/mobile-reversing-and-runtime-instrumentation.md`
 - `topics/firmware-and-protocol-context-recovery.md`
@@ -213,6 +214,9 @@ A top-level practical reading now worth preserving is that recent maintenance ha
 
 A Windows telemetry/evidence reading now worth preserving in the native/runtime-evidence overlap is:
 - ETW provider registration, session enablement, event write, ETL or real-time callback delivery, payload decode, and consumer-owned effect are separate proof objects; keep **registered != enabled != written != delivered != decoded != consumed/effected** visible so provider GUIDs, `EventWrite` hits, ETL records, or callback delivery do not silently become behavior ownership claims
+
+A macOS security-telemetry reading now worth preserving in the native/runtime-evidence overlap is:
+- EndpointSecurity client creation, event subscription, generated event truth, handler delivery, AUTH/NOTIFY response or logging, mute/cache/deadline behavior, and first policy/enforcement/telemetry consumer are separate proof objects; keep **client != subscribed != event-generated != delivered != responded/logged != policy-consumed/effected** visible so framework imports, `es_new_client`, `es_subscribe`, event arrays, or handler entry do not silently become enforcement or alert ownership claims
 
 A smaller async-delivery reading now worth preserving in the native branch is:
 - wait registration or timer arming is often only setup truth

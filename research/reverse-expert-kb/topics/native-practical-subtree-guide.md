@@ -28,6 +28,7 @@ Related pages:
 - topics/native-qt-event-filter-vs-signal-slot-first-consumer-workflow-note.md
 - topics/native-cocoa-responder-chain-and-target-action-first-consumer-workflow-note.md
 - topics/native-macos-notificationcenter-to-observer-consumer-workflow-note.md
+- topics/native-macos-endpointsecurity-event-to-policy-consumer-workflow-note.md
 - topics/native-etw-provider-session-consumer-workflow-note.md
 - topics/runtime-behavior-recovery.md
 
@@ -107,6 +108,10 @@ A Windows ALPC / local-service IPC reminder now worth preserving inside family 5
 - use `topics/native-alpc-port-message-to-handler-consumer-workflow-note.md` when the visible API is `NtAlpcCreatePort`, `NtAlpcConnectPort`, `NtAlpcAcceptConnectPort`, `NtAlpcSendWaitReceivePort`, `NtRequestWaitReplyPort`, `NtReplyWaitReceivePort`, ALPC ETW send/receive/wait events, or `\\RPC Control` port surfaces, and the current liar is whether **port visible != connection accepted != message received != attributes/context decoded != handler dispatched != reply/impersonation/effect owned** was flattened into one claim
 
 A compact operator ladder for this branch is:
+
+A macOS security-telemetry reminder now worth preserving inside family 5 / native telemetry overlap is the EndpointSecurity event-consumer seam:
+- EndpointSecurity client creation, event subscription, concrete event generation, handler delivery, AUTH/NOTIFY response or logging, mute/cache/deadline behavior, and first policy/enforcement/telemetry consumer are different proof objects
+- use `topics/native-macos-endpointsecurity-event-to-policy-consumer-workflow-note.md` when the visible API is `es_new_client`, `es_subscribe`, `es_handler_block_t`, `es_message_t`, `es_respond_auth_result`, `es_respond_flags_result`, `es_mute_*`, or `ES_EVENT_TYPE_*`, and the current liar is whether **client != subscribed != event-generated != delivered != responded/logged != policy-consumed/effected** was flattened into one claim
 
 A Windows telemetry reminder now worth preserving before treating trace events as consequence proof:
 - ETW provider identity, provider registration, session start, provider enablement, event write, ETL / real-time callback delivery, payload decode, and consumer-owned effect are different proof objects

@@ -1,0 +1,427 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Apple EndpointSecurity framework es_new_client es_subscribe event handler reverse engineering first consumer",
+    "macOS EndpointSecurity ES_EVENT_TYPE_AUTH_NOTIFY handler es_message_t documentation",
+    "macOS EndpointSecurity client event delivery auth result response cache mute reverse engineering"
+  ],
+  "count": 22,
+  "results": [
+    {
+      "title": "es_new_client(_:_:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/endpointsecurity/es_new_client(_:_:)",
+      "snippet": "# es_new_client(_:_:) | Apple Developer Documentation. ## Explore Platforms. ## Explore Technologies. ## Explore Documentation. ## Explore Support. ## Endpoint Security. 35 of 45 symbols inside -1783017393 func es_unmute_process_events(OpaquePointer, UnsafePointer<audit_token_t>, UnsafePointer<es_event_type_t>, Int) -> es_return_t). 34 of 45 symbols inside -1783017393 func es_unmute_process(OpaquePointer, UnsafePointer<audit_token_t>) -> es_return_t). 32 of 45 symbols inside -1783017393 func es_release_muted_paths(UnsafeMutablePointer<es_muted_paths_t>)). 30 of 45 symbols inside -1783017393 func es_muted_paths_events(OpaquePointer, UnsafeMutablePointer<UnsafeMutablePointer<es_muted_paths_t>>?) -> es_return_t). 28 of 45 symbols inside -1783017393 func es_mute_path_events(OpaquePointer, UnsafePointer<CChar>, es_mute_path_type_t, UnsafePointer<es_event_type_t>, Int) -> es_return_t). 27 of 45 symbols inside -1783017393 func es_mute_path(OpaquePointer, UnsafePointer<CChar>, es_mute_path_type_t) -> es_return_t). 26 of 45 symbols inside -1783017393 func es_muted_processes_events(OpaquePointer, UnsafeMutablePointer<UnsafeMutablePointer<es_muted_processes_t>?>) -> es_return_t). ### Responding to Events. 8 of 45 symbols inside -1783017393 func es_subscribe(OpaquePointer, UnsafePointer<es_event_type_t>, UInt32) -> es_return_t). Creates a new client instance and connects it to the Endpoint Security system. To create a client, your app must have the `com.apple.developer.endpoint-security.client` entitlement. When you no longer need to receive Endpoint Security messages, destroy the client with `es_delete_client(_:)`) to free resources. `com.apple.developer.endpoint-security.client`.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.7091
+    },
+    {
+      "title": "es_message_t | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/endpointsecurity/es_message_t",
+      "snippet": "Overview. A message contains an event monitored by Endpoint Security and an action to perform. The event is a union of types specific to each kind of event.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6545
+    },
+    {
+      "title": "es_handler_block_t | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/endpointsecurity/es_handler_block_t",
+      "snippet": "The message to handle, as an es_message_t pointer. You implement the handler by inspecting the message and deciding how to respond to it. For example, your",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "Message | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/endpointsecurity/message",
+      "snippet": "When Endpoint Security monitors an event of a given type, it sends a message to all clients subscribed to that event type, containing data about the event.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6545
+    },
+    {
+      "title": "endpointsecurity package - github.com/gatkinso/gomac ...",
+      "url": "https://pkg.go.dev/github.com/gatkinso/gomac/endpointsecurity",
+      "snippet": "* Respond to an auth event that requires an Es_auth_result_t response * client The client that produced the event * message The message",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6545
+    },
+    {
+      "title": "es_new_client(_:_:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/endpointsecurity/es_new_client(_:_:)?language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6545
+    },
+    {
+      "title": "Message in endpoint_sec - Rust - Docs.rs",
+      "url": "https://docs.rs/endpoint-sec/latest/endpoint_sec/struct.Message.html",
+      "snippet": "Implementation details (macOS 10.15.x). Dropping a Message while inside a handler may cause your app to crash. We copy the message before handing it over for",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6273
+    },
+    {
+      "title": "Build an Endpoint Security app - WWDC20 - Videos - Apple Developer",
+      "url": "https://developer.apple.com/videos/play/wwdc2020/10159/?time=1999",
+      "snippet": "",
+      "published_date": "2020-06-24T11:50:48.000Z",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "es_event_type_t in endpoint_sec_sys - Rust",
+      "url": "https://docs.rs/endpoint-sec-sys/latest/endpoint_sec_sys/struct.es_event_type_t.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "client.rs - source - Docs.rs",
+      "url": "https://docs.rs/endpoint-sec-sys/latest/src/endpoint_sec_sys/client.rs.html",
+      "snippet": "endpoint_sec_sys/. client.rs ; 371 feature = \"macos_12_0_0\" ; 372 doc = \"**Deprecated in macOS 12**: Please use [`es_mute_path()`] or [`es_mute_path_events()`]\"",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.6273
+    },
+    {
+      "title": "Client | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/endpointsecurity/client?changes=_3_1&language=objc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6273
+    },
+    {
+      "title": "Struct  es_message_t Copy item path",
+      "url": "https://docs.rs/endpoint-sec-sys/latest/endpoint_sec_sys/struct.es_message_t.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "8. Endpoint Security DYLIB · Brandon7CC/mac-monitor Wiki - GitHub",
+      "url": "https://github.com/redcanaryco/mac-monitor/wiki/8.-Endpoint-Security-DYLIB",
+      "snippet": "Endpoint Security shares caches across all clients, so you can provide any valid client as the parameter to this function. Muting. es_mute_path",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.6
+    },
+    {
+      "title": "8. Endpoint Security DYLIB · Brandon7CC/mac-monitor Wiki · GitHub",
+      "url": "https://github.com/Brandon7CC/mac-monitor/wiki/8.-Endpoint-Security-DYLIB",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Sinter: New user-mode security enforcement for macOS - The Trail of Bits Blog",
+      "url": "https://blog.trailofbits.com/2020/08/12/sinter-new-user-mode-security-enforcement-for-macos/",
+      "snippet": "",
+      "published_date": "2020-08-12T05:41:16.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Mastering Apple's Endpoint Security - YouTube",
+      "url": "https://www.youtube.com/watch?v=-jue-YKgoi0",
+      "snippet": "... event monitoring which offer unprecedented visibility into ... Apple's Endpoint Security framework.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3818
+    },
+    {
+      "title": "De-mystifying Endpoint Security Messages | ryan dowd's 🍎 security blog",
+      "url": "https://rdowd.com/de-mystifying-endpoint-security-messages",
+      "snippet": "Each security event being processed by the ES subsystem will be encoded in an es\\_message\\_t. typedef  struct  { uint32_t  version;  struct  timespec  time;  uint64_t  mach_time;  uint64_t  deadline;  es_process_t  * _Nonnull  process;  uint64_t  seq_num;  es_action_type_t  action_type;  union  { es_event_id_t  auth;  es_result_t  notify;  }  action;  es_event_type_t  event_type;  es_events_t  event;  es_thread_t  * _Nullable  thread;  uint64_t  global_seq_num;  uint64_t  opaque[];}  es_message_t;. { \"version\":  10,  \"time\":  \"2025-12-29T02:21:42.907139146Z\",  \"mach_time\":  212493431893,  \"process\":  { \"audit_token\":  {},  \"is_es_client\":  false,  \"group_id\":  3412,  \"responsible_audit_token\":  {},  \"is_platform_binary\":  true,  \"tty\":  { \"stat\":  {},  \"path_truncated\":  false,  \"path\":  \"/dev/ttys003\"  },  \"cs_validation_category\":  1,  \"codesigning_flags\":  637606673,  \"signing_id\":  \"com.apple.rm\",  \"team_id\":  null,  \"cdhash\":  \"FD4F433664E0BD2AC41A745C93F56A9A1A397C6B\",  \"ppid\":  3392,  \"original_ppid\":  3392,  \"parent_audit_token\":  {},  \"start_time\":  \"2025-12-29T02:21:42.897629Z\",  \"session_id\":  3391,  \"executable\":  { \"stat\":  {},  \"path_truncated\":  false,  \"path\":  \"/bin/rm\"  }  },  \"seq_num\":  389,  \"action_type\":  1,  \"action\":  { \"result\":  { \"result\":  { \"auth\":  0  },  \"result_type\":  0  }  },  \"event_type\":  32,  \"event\":  { \"unlink\":  { \"target\":  { \"path\":  \"/Users/dowdy/Desktop/blabla\",  \"path_truncated\":  false,  \"stat\":  {}  },  \"parent_dir\":  { \"path\":  \"/Users/dowdy/Desktop\",  \"path_truncated\":  false,  \"stat\":  {}  }  }  },  \"thread\":  { \"thread_id\":  152879  }  \"global_seq_num\":  389}.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3745
+    },
+    {
+      "title": "Mastering Apple Endpoint Security for Advanced macOS Malware ...",
+      "url": "https://www.youtube.com/watch?v=AgYGwZjcsLo",
+      "snippet": "... event monitoring which ... authorization deadlines, before diving into Endpoint Security's more advanced features like mute inversions.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3545
+    },
+    {
+      "title": "[PDF] Muting and Authorization Events - The Art of Mac Malware, Volume 2",
+      "url": "https://taomm.org/vol2/pdfs/CH%209%20Muting%20and%20Authorization%20Events.pdf",
+      "snippet": "You can trigger such events by either browsing to the directory via Finder or using the terminal (for example, to list the direc-tory’s contents via ls): # ESPlayground.app/Contents/MacOS/ESPlayground -muteinvert ES Playground Executing 'mute inversion' logic unmuted all (default) paths mute (inverted) /Users/Patrick/Documents event: ES_EVENT_TYPE_NOTIFY_OPEN process: /System/Library/CoreServices/Finder.app/Contents/MacOS/Finder file path: /Users/Patrick/Documents event: ES_EVENT_TYPE_NOTIFY_OPEN process: /bin/ls file path: /Users/Patrick/Documents If we extended the example code to also monitor other directories, such as those where browsers store their cookies, we’d easily detect stealers such as MacStealer! We detect this access, and because WindTail’s binary (called usrnode in this example) isn’t trusted, we block access to the directory: # ESPlayground.app/Contents/MacOS/ESPlayground -protect ES Playground Executing 'protect' logic protecting directory: /Users/User event: ES_EVENT_TYPE_AUTH_OPEN responsible process: /Users/User/Library/Final_Presentation.app/Contents/MacOS/usrnode target file path: /Users/User/Documents process is *not* trusted, so will deny event It’s hard to overstate the importance of Endpoint Security for building tools capable of detecting and protecting against Mac malware.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3273
+    },
+    {
+      "title": "Endpoint Security In a macOS World | Huntress",
+      "url": "https://www.huntress.com/blog/endpoint-security-in-a-macos-world",
+      "snippet": "ES is designed to give security applications more detailed access to system events, all while being able to ignore direct interaction with the kernel.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3273
+    },
+    {
+      "title": "Endpoint Security",
+      "url": "https://newosxbook.com/articles/eps.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Objective-See's Blog",
+      "url": "https://objective-see.org/blog/blog_0x86.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "es_message_t | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/endpointsecurity/es_message_t",
+        "snippet": "Overview. A message contains an event monitored by Endpoint Security and an action to perform. The event is a union of types specific to each kind of event.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6545
+      },
+      {
+        "title": "De-mystifying Endpoint Security Messages | ryan dowd's 🍎 security blog",
+        "url": "https://rdowd.com/de-mystifying-endpoint-security-messages",
+        "snippet": "Each security event being processed by the ES subsystem will be encoded in an es\\_message\\_t. typedef  struct  { uint32_t  version;  struct  timespec  time;  uint64_t  mach_time;  uint64_t  deadline;  es_process_t  * _Nonnull  process;  uint64_t  seq_num;  es_action_type_t  action_type;  union  { es_event_id_t  auth;  es_result_t  notify;  }  action;  es_event_type_t  event_type;  es_events_t  event;  es_thread_t  * _Nullable  thread;  uint64_t  global_seq_num;  uint64_t  opaque[];}  es_message_t;. { \"version\":  10,  \"time\":  \"2025-12-29T02:21:42.907139146Z\",  \"mach_time\":  212493431893,  \"process\":  { \"audit_token\":  {},  \"is_es_client\":  false,  \"group_id\":  3412,  \"responsible_audit_token\":  {},  \"is_platform_binary\":  true,  \"tty\":  { \"stat\":  {},  \"path_truncated\":  false,  \"path\":  \"/dev/ttys003\"  },  \"cs_validation_category\":  1,  \"codesigning_flags\":  637606673,  \"signing_id\":  \"com.apple.rm\",  \"team_id\":  null,  \"cdhash\":  \"FD4F433664E0BD2AC41A745C93F56A9A1A397C6B\",  \"ppid\":  3392,  \"original_ppid\":  3392,  \"parent_audit_token\":  {},  \"start_time\":  \"2025-12-29T02:21:42.897629Z\",  \"session_id\":  3391,  \"executable\":  { \"stat\":  {},  \"path_truncated\":  false,  \"path\":  \"/bin/rm\"  }  },  \"seq_num\":  389,  \"action_type\":  1,  \"action\":  { \"result\":  { \"result\":  { \"auth\":  0  },  \"result_type\":  0  }  },  \"event_type\":  32,  \"event\":  { \"unlink\":  { \"target\":  { \"path\":  \"/Users/dowdy/Desktop/blabla\",  \"path_truncated\":  false,  \"stat\":  {}  },  \"parent_dir\":  { \"path\":  \"/Users/dowdy/Desktop\",  \"path_truncated\":  false,  \"stat\":  {}  }  }  },  \"thread\":  { \"thread_id\":  152879  }  \"global_seq_num\":  389}.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3745
+      },
+      {
+        "title": "es_handler_block_t | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/endpointsecurity/es_handler_block_t",
+        "snippet": "The message to handle, as an es_message_t pointer. You implement the handler by inspecting the message and deciding how to respond to it. For example, your",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "Message | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/endpointsecurity/message",
+        "snippet": "When Endpoint Security monitors an event of a given type, it sends a message to all clients subscribed to that event type, containing data about the event.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6545
+      },
+      {
+        "title": "Message in endpoint_sec - Rust - Docs.rs",
+        "url": "https://docs.rs/endpoint-sec/latest/endpoint_sec/struct.Message.html",
+        "snippet": "Implementation details (macOS 10.15.x). Dropping a Message while inside a handler may cause your app to crash. We copy the message before handing it over for",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6273
+      },
+      {
+        "title": "8. Endpoint Security DYLIB · Brandon7CC/mac-monitor Wiki - GitHub",
+        "url": "https://github.com/redcanaryco/mac-monitor/wiki/8.-Endpoint-Security-DYLIB",
+        "snippet": "Endpoint Security shares caches across all clients, so you can provide any valid client as the parameter to this function. Muting. es_mute_path",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.6
+      },
+      {
+        "title": "client.rs - source - Docs.rs",
+        "url": "https://docs.rs/endpoint-sec-sys/latest/src/endpoint_sec_sys/client.rs.html",
+        "snippet": "endpoint_sec_sys/. client.rs ; 371 feature = \"macos_12_0_0\" ; 372 doc = \"**Deprecated in macOS 12**: Please use [`es_mute_path()`] or [`es_mute_path_events()`]\"",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6273
+      },
+      {
+        "title": "endpointsecurity package - github.com/gatkinso/gomac ...",
+        "url": "https://pkg.go.dev/github.com/gatkinso/gomac/endpointsecurity",
+        "snippet": "* Respond to an auth event that requires an Es_auth_result_t response * client The client that produced the event * message The message",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.6545
+      },
+      {
+        "title": "Mastering Apple Endpoint Security for Advanced macOS Malware ...",
+        "url": "https://www.youtube.com/watch?v=AgYGwZjcsLo",
+        "snippet": "... event monitoring which ... authorization deadlines, before diving into Endpoint Security's more advanced features like mute inversions.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3545
+      },
+      {
+        "title": "[PDF] Muting and Authorization Events - The Art of Mac Malware, Volume 2",
+        "url": "https://taomm.org/vol2/pdfs/CH%209%20Muting%20and%20Authorization%20Events.pdf",
+        "snippet": "You can trigger such events by either browsing to the directory via Finder or using the terminal (for example, to list the direc-tory’s contents via ls): # ESPlayground.app/Contents/MacOS/ESPlayground -muteinvert ES Playground Executing 'mute inversion' logic unmuted all (default) paths mute (inverted) /Users/Patrick/Documents event: ES_EVENT_TYPE_NOTIFY_OPEN process: /System/Library/CoreServices/Finder.app/Contents/MacOS/Finder file path: /Users/Patrick/Documents event: ES_EVENT_TYPE_NOTIFY_OPEN process: /bin/ls file path: /Users/Patrick/Documents If we extended the example code to also monitor other directories, such as those where browsers store their cookies, we’d easily detect stealers such as MacStealer! We detect this access, and because WindTail’s binary (called usrnode in this example) isn’t trusted, we block access to the directory: # ESPlayground.app/Contents/MacOS/ESPlayground -protect ES Playground Executing 'protect' logic protecting directory: /Users/User event: ES_EVENT_TYPE_AUTH_OPEN responsible process: /Users/User/Library/Final_Presentation.app/Contents/MacOS/usrnode target file path: /Users/User/Documents process is *not* trusted, so will deny event It’s hard to overstate the importance of Endpoint Security for building tools capable of detecting and protecting against Mac malware.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3273
+      },
+      {
+        "title": "es_new_client(_:_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/endpointsecurity/es_new_client(_:_:)",
+        "snippet": "# es_new_client(_:_:) | Apple Developer Documentation. ## Explore Platforms. ## Explore Technologies. ## Explore Documentation. ## Explore Support. ## Endpoint Security. 35 of 45 symbols inside -1783017393 func es_unmute_process_events(OpaquePointer, UnsafePointer<audit_token_t>, UnsafePointer<es_event_type_t>, Int) -> es_return_t). 34 of 45 symbols inside -1783017393 func es_unmute_process(OpaquePointer, UnsafePointer<audit_token_t>) -> es_return_t). 32 of 45 symbols inside -1783017393 func es_release_muted_paths(UnsafeMutablePointer<es_muted_paths_t>)). 30 of 45 symbols inside -1783017393 func es_muted_paths_events(OpaquePointer, UnsafeMutablePointer<UnsafeMutablePointer<es_muted_paths_t>>?) -> es_return_t). 28 of 45 symbols inside -1783017393 func es_mute_path_events(OpaquePointer, UnsafePointer<CChar>, es_mute_path_type_t, UnsafePointer<es_event_type_t>, Int) -> es_return_t). 27 of 45 symbols inside -1783017393 func es_mute_path(OpaquePointer, UnsafePointer<CChar>, es_mute_path_type_t) -> es_return_t). 26 of 45 symbols inside -1783017393 func es_muted_processes_events(OpaquePointer, UnsafeMutablePointer<UnsafeMutablePointer<es_muted_processes_t>?>) -> es_return_t). ### Responding to Events. 8 of 45 symbols inside -1783017393 func es_subscribe(OpaquePointer, UnsafePointer<es_event_type_t>, UInt32) -> es_return_t). Creates a new client instance and connects it to the Endpoint Security system. To create a client, your app must have the `com.apple.developer.endpoint-security.client` entitlement. When you no longer need to receive Endpoint Security messages, destroy the client with `es_delete_client(_:)`) to free resources. `com.apple.developer.endpoint-security.client`.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.7091
+      },
+      {
+        "title": "8. Endpoint Security DYLIB · Brandon7CC/mac-monitor Wiki - GitHub",
+        "url": "https://github.com/redcanaryco/mac-monitor/wiki/8.-Endpoint-Security-DYLIB",
+        "snippet": "Make your event subscriptions: es_subscribe ... The descriptions of these functions were inferred through reverse engineering libEndpointSecurity.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Building a Firewall ...via Endpoint Security!? - Objective-See's Blog",
+        "url": "https://objective-see.org/blog/blog_0x86.html",
+        "snippet": "Building a Firewall ...via Endpoint Security!? Reverse Engineering macOS 26.4's Undocumented Network Events. ### Endpoint Security Events. Each release of macOS brings a host of security fixes, but also the occasional new Endpoint Security events. Such events can extend and improve security tools that already leverage Endpoint Security. Endpoint Security events can be found in `ESTypes.h` in a large `es_event_type_t` enum. // The following events are available beginning in macOS 15.0 ES_EVENT_TYPE_NOTIFY_GATEKEEPER_USER_OVERRIDE, // The following events are available beginning in macOS 15.4 ES_EVENT_TYPE_NOTIFY_TCC_MODIFY,. So, when new ones emerge, I like to dig into them and see if they can be used to enhance Objective-See’s free open-source tools. With the release of macOS 26.4 (and `MacOSX26.4.sdk`), several new events were added, but for the first time ever, they were not documented — just added as “`ES_EVENT_TYPE_RESERVED_*`”:. // The following events are available beginning in macOS 26.3 ES_EVENT_TYPE_RESERVED_0, ES_EVENT_TYPE_RESERVED_1, ES_EVENT_TYPE_RESERVED_2, // The following events are available beginning in macOS 26.4.0 ES_EVENT_TYPE_RESERVED_3, ES_EVENT_TYPE_RESERVED_4, ES_EVENT_TYPE_RESERVED_5, ES_EVENT_TYPE_RESERVED_6,.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Mastering Apple's Endpoint Security - YouTube",
+        "url": "https://www.youtube.com/watch?v=-jue-YKgoi0",
+        "snippet": "... event monitoring which offer unprecedented visibility into ... Apple's Endpoint Security framework.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3818
+      },
+      {
+        "title": "Endpoint Security In a macOS World | Huntress",
+        "url": "https://www.huntress.com/blog/endpoint-security-in-a-macos-world",
+        "snippet": "ES is designed to give security applications more detailed access to system events, all while being able to ignore direct interaction with the kernel.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3273
+      }
+    ],
+    "exa": [
+      {
+        "title": "es_message_t | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/endpointsecurity/es_message_t",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Message | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/endpointsecurity/message",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Build an Endpoint Security app - WWDC20 - Videos - Apple Developer",
+        "url": "https://developer.apple.com/videos/play/wwdc2020/10159/?time=1999",
+        "snippet": "",
+        "published_date": "2020-06-24T11:50:48.000Z",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "Struct  es_message_t Copy item path",
+        "url": "https://docs.rs/endpoint-sec-sys/latest/endpoint_sec_sys/struct.es_message_t.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "es_event_type_t in endpoint_sec_sys - Rust",
+        "url": "https://docs.rs/endpoint-sec-sys/latest/endpoint_sec_sys/struct.es_event_type_t.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "Build an Endpoint Security app - WWDC20 - Videos - Apple Developer",
+        "url": "https://developer.apple.com/videos/play/wwdc2020/10159/?time=1999",
+        "snippet": "",
+        "published_date": "2020-06-24T11:50:48.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Client | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/endpointsecurity/client?changes=_3_1&language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6273
+      },
+      {
+        "title": "8. Endpoint Security DYLIB · Brandon7CC/mac-monitor Wiki · GitHub",
+        "url": "https://github.com/redcanaryco/mac-monitor/wiki/8.-Endpoint-Security-DYLIB",
+        "snippet": "",
+        "published_date": "2023-12-15T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "",
+        "url": "https://taomm.org/vol2/pdfs/CH%209%20Muting%20and%20Authorization%20Events.pdf",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Sinter: New user-mode security enforcement for macOS - The Trail of Bits Blog",
+        "url": "https://blog.trailofbits.com/2020/08/12/sinter-new-user-mode-security-enforcement-for-macos/",
+        "snippet": "",
+        "published_date": "2020-08-12T05:41:16.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "es_new_client(_:_:) | Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/endpointsecurity/es_new_client(_:_:)?language=objc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6545
+      },
+      {
+        "title": "Build an Endpoint Security app - WWDC20 - Videos - Apple Developer",
+        "url": "https://developer.apple.com/videos/play/wwdc2020/10159/?time=1999",
+        "snippet": "",
+        "published_date": "2020-06-24T11:50:48.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Endpoint Security",
+        "url": "https://newosxbook.com/articles/eps.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "8. Endpoint Security DYLIB · Brandon7CC/mac-monitor Wiki · GitHub",
+        "url": "https://github.com/Brandon7CC/mac-monitor/wiki/8.-Endpoint-Security-DYLIB",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Objective-See's Blog",
+        "url": "https://objective-see.org/blog/blog_0x86.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.3
+      }
+    ],
+    "grok": []
+  }
+}
