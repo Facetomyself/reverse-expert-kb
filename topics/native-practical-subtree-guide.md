@@ -30,6 +30,7 @@ Related pages:
 - topics/native-macos-notificationcenter-to-observer-consumer-workflow-note.md
 - topics/native-macos-endpointsecurity-event-to-policy-consumer-workflow-note.md
 - topics/native-etw-provider-session-consumer-workflow-note.md
+- topics/native-windows-minifilter-callback-to-policy-consumer-workflow-note.md
 - topics/runtime-behavior-recovery.md
 
 ## 1. Why this guide exists
@@ -116,6 +117,10 @@ A macOS security-telemetry reminder now worth preserving inside family 5 / nativ
 A Windows telemetry reminder now worth preserving before treating trace events as consequence proof:
 - ETW provider identity, provider registration, session start, provider enablement, event write, ETL / real-time callback delivery, payload decode, and consumer-owned effect are different proof objects
 - use `topics/native-etw-provider-session-consumer-workflow-note.md` when the visible API is `EventRegister`, `TraceLoggingRegisterEx`, `EventWrite*`, `StartTrace`, `EnableTraceEx2`, `OpenTrace`, `ProcessTrace`, or `EventRecordCallback`, and the current liar is whether **registered != enabled != written != delivered != decoded != consumed/effected** was flattened into one claim
+
+A Windows file-system minifilter reminder now worth preserving inside family 5 / native policy-driver overlap is the callback-to-policy-consumer seam:
+- Filter Manager registration, active filtering, operation selection, pre-operation callback entry, pended/user-mode verdict handoff, kernel-side completion/resume, and caller-visible effect are different proof objects
+- use `topics/native-windows-minifilter-callback-to-policy-consumer-workflow-note.md` when the visible API is `FltRegisterFilter`, `FltStartFiltering`, `PFLT_PRE_OPERATION_CALLBACK`, `FLT_PREOP_PENDING`, `FltCompletePendedPreOperation`, `FltCreateCommunicationPort`, `FilterConnectCommunicationPort`, or `FltSendMessage`, and the current liar is whether **registered != operation-selected != pre-callback-entered != pended/sent != replied/decided != completed/resumed != effect-owned** was flattened into one claim
 
 ```text
 choose the current native bottleneck

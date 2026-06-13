@@ -1,0 +1,445 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Windows minifilter driver pre operation callback FltRegisterFilter FltStartFiltering reverse engineering policy consumer",
+    "Microsoft Filter Manager minifilter PreOperationCallback FltCompletePendedPreOperation documentation",
+    "Windows minifilter communication port user mode service policy decision FltSendMessage FltCreateCommunicationPort"
+  ],
+  "count": 24,
+  "results": [
+    {
+      "title": "Processing I/O Operations - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/processing-i-o-operations",
+      "snippet": "# Processing I/O Operations. *FltMgr* simplifies processing I/O operations for minifilter drivers. For a given I/O operation, *FltMgr* calls only minifilter drivers that register a **preoperation callback** routine for that operation. In its preoperation callback routine, a minifilter driver:. To do the same with a completion routine (the minifilter driver's postoperation callback routine for the I/O operation), the minifilter driver returns FLT\\_PREOP\\_SUCCESS\\_WITH\\_CALLBACK. In its preoperation callback routine, the minifilter driver can queue the operation to a worker thread if needed by calling **FltQueueDeferredIoWorkItem**. After doing so, the minifilter driver returns FLT\\_PREOP\\_PENDING from its preoperation callback routine to indicate that the I/O operation is pending. * Calling *FltCbdqInsertIo* in its preoperation callback routine as needed to insert I/O operations into the queue. Or it can queue the completion processing of the operation to a worker thread if needed by calling **FltQueueDeferredIoWorkItem**. *FltMgr* provides the following support routines for pending I/O in **preoperation** and **postoperation** callback routines:. ## Minifilter callback routines for processing I/O operations.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Writing Pre-operation Callback Routines - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/writing-preoperation-callback-routines",
+      "snippet": "A minifilter driver uses one or more *pre-operation callback routines* to filter I/O operations. **Pre-operation callback routines** are similar to the dispatch routines used in the legacy filter model. A minifilter registers a pre-operation callback routine for a particular type of I/O operation by storing the callback routine's entry point in the **OperationRegistration** member of the **FLT\\_REGISTRATION** structure. A minifilter can register a pre-operation callback routine for a given type of I/O operation without registering a **post-operation callback routine**, and vice versa. When *FltMgr* calls a minifilter's pre-operation callback routine for a given I/O operation, the minifilter temporarily controls the I/O operation. | The routine isn't relevant for the operation and doesn't require the final status of the operation or it has no post-operation callback. | Pass the I/O operation through and tell *FltMgr* to not call the minifilter's post-operation callback on completion. | Pass the operation through and tell *FltMgr* to call the minifilter's post-operation callback routine.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "Filter Manager Concepts - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/filter-manager-concepts",
+      "snippet": "The Filter Manager (*FltMgr.sys*) is a system-supplied kernel-mode driver that implements and exposes functionality commonly required in file system filter drivers. File system filter developers can use *FltMgr*'s functionality to write *minifilter* drivers that are simpler to develop than legacy file system filter drivers. A minifilter driver attaches to the file system stack indirectly, by registering with *FltMgr* for the I/O operations that the minifilter driver chooses to filter. The following figure shows a simplified I/O stack with the filter manager and three minifilter drivers. Diagram illustrating a simplified I/O stack with the filter manager and three minifilter drivers. For each of the I/O operations it chooses to filter, a minifilter can register a preoperation callback routine, a postoperation callback routine, or both. For interoperability with legacy filter drivers, *FltMgr* can attach filter device objects to a file system I/O stack in more than one location. The following figure shows a simplified I/O stack with two filter manager frames, minifilter driver instances, and a legacy filter driver.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "FltCompletePendedPreOperation function (fltkernel.h)",
+      "url": "https://learn.microsoft.com/pl-pl/windows-hardware/drivers/ddi/fltkernel/nf-fltkernel-fltcompletependedpreoperation",
+      "snippet": "FltCompletePendedPreOperation resumes processing for an I/O operation that was pended in a minifilter driver's preoperation callback",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.725
+    },
+    {
+      "title": "Writing Preoperation and Postoperation Callback Routines",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/writing-preoperation-and-postoperation-callback-routines",
+      "snippet": "A minifilter driver can register up to one preoperation callback routine and up to one postoperation callback routine for each type of I/O operation that it",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.725
+    },
+    {
+      "title": "Pending an I/O Operation in a Preoperation Callback Routine - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/pending-an-i-o-operation-in-a-preoperation-callback-routine",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.725
+    },
+    {
+      "title": "PFLT_PRE_OPERATION_CALLBACK (fltkernel.h) - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nc-fltkernel-pflt_pre_operation_callback",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.725
+    },
+    {
+      "title": "Completing an I/O Operation in a Preoperation Callback Routine - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/completing-an-i-o-operation-in-a-preoperation-callback-routine",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.725
+    },
+    {
+      "title": "Registering Preoperation and Postoperation Callback Routines - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/registering-preoperation-and-postoperation-callback-routines",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.725
+    },
+    {
+      "title": "GitHub - gmh5225/Driver-minifilter-MCP-PoC",
+      "url": "https://github.com/gmh5225/Driver-minifilter-MCP-PoC",
+      "snippet": "A minifilter driver's pre-operation callback routine processes one or more types of I/O operations. This callback routine is similar to a dispatch routine in",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.725
+    },
+    {
+      "title": "wdk-ddi-src/content/fltkernel/nf-fltkernel-fltcompletependedpreoperation.md at staging · MicrosoftDocs/windows-driver-docs-ddi",
+      "url": "https://github.com/MicrosoftDocs/windows-driver-docs-ddi/blob/staging/wdk-ddi-src/content/fltkernel/nf-fltkernel-fltcompletependedpreoperation.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.7
+    },
+    {
+      "title": "Communication Between User-mode and Minifilters - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/communication-between-user-mode-and-kernel-mode",
+      "snippet": "",
+      "published_date": "2024-07-10T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.675
+    },
+    {
+      "title": "FltRegisterFilter function (fltkernel.h) - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nf-fltkernel-fltregisterfilter",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "Registering the Minifilter Driver - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/registering-the-minifilter-driver",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "FltCompletePendedPreOperation function (fltkernel.h)",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nf-fltkernel-fltcompletependedpreoperation",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "FltCreateCommunicationPort function (fltkernel.h) - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nf-fltkernel-fltcreatecommunicationport",
+      "snippet": "",
+      "published_date": "2024-07-10T00:00:00.000Z",
+      "source": "exa, tavily",
+      "score": 0.65
+    },
+    {
+      "title": "FltSendMessage function (fltkernel.h) - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nf-fltkernel-fltsendmessage",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Initiating Filtering - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/initiating-filtering",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "Building a Windows File System Minifilter Driver: Intercepting File Access",
+      "url": "https://medium.com/@s12deff/building-a-windows-file-system-minifilter-driver-intercepting-file-access-55b933ccd6a4",
+      "snippet": "# Building a Windows File System Minifilter Driver: Intercepting File Access | by S12 - 0x12Dark Development | Apr, 2026 | Medium. # **Building a Windows File System Minifilter Driver: Intercepting File Access**. Welcome to this new Medium post. In this article, I’ll walk you through the implementation of a basic **Windows File System Minifilter Driver** capable of intercepting file operations at the kernel level. We will use the Windows **Filter Manager** framework to build a minifilter that hooks file system requests, monitor file access events, and demonstrate how to inspect or block operations such as file creation/opening. By the end of this post, you’ll understand the core architecture of minifilter drivers, how callback registration works, and how to start building your own file system monitoring. To intercept file system operations using a Windows Minifilter Driver, we follow these logical steps:. This tells the operating system that our driver wants to participate in the file system filtering pipeline.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.605
+    },
+    {
+      "title": "FltBuildDefaultSecurityDescriptor function (fltkernel.h)",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nf-fltkernel-fltbuilddefaultsecuritydescriptor",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "FilterConnectCommunicationPort function (fltuser.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/fltuser/nf-fltuser-filterconnectcommunicationport",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "[Research] Walking Through Windows Minifilter Drivers (EN)",
+      "url": "https://hackyboiz.github.io/2025/08/15/banda/Minifilter-Driver/en",
+      "snippet": "Using the FltCreateCommunicationPort() function, the driver can create a communication port. In the code above, it creates the port \\\\",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.525
+    },
+    {
+      "title": "Understanding Mini-Filter Drivers for Windows Vulnerability ...",
+      "url": "https://medium.com/@WaterBucket/understanding-mini-filter-drivers-for-windows-vulnerability-research-exploit-development-391153c945d6",
+      "snippet": "FltCreateCommunicationPort (): Creates a named communication port. FltSendMessage(): Sends messages from the driver to user-mode.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.45
+    },
+    {
+      "title": "Filter Manager API - FltCreateCommunicationPort function - EaseFilter",
+      "url": "https://www.easefilter.com/kb/fltkernel-fltcreatecommunicationport.htm",
+      "snippet": "FltCreateCommunicationPort creates a communication server port on which a minifilter driver can receive connection requests from user-mode applications.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "FltCompletePendedPreOperation function (fltkernel.h)",
+        "url": "https://learn.microsoft.com/pl-pl/windows-hardware/drivers/ddi/fltkernel/nf-fltkernel-fltcompletependedpreoperation",
+        "snippet": "FltCompletePendedPreOperation resumes processing for an I/O operation that was pended in a minifilter driver's preoperation callback",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.725
+      },
+      {
+        "title": "Processing I/O Operations - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/processing-i-o-operations",
+        "snippet": "# Processing I/O Operations. *FltMgr* simplifies processing I/O operations for minifilter drivers. For a given I/O operation, *FltMgr* calls only minifilter drivers that register a **preoperation callback** routine for that operation. In its preoperation callback routine, a minifilter driver:. To do the same with a completion routine (the minifilter driver's postoperation callback routine for the I/O operation), the minifilter driver returns FLT\\_PREOP\\_SUCCESS\\_WITH\\_CALLBACK. In its preoperation callback routine, the minifilter driver can queue the operation to a worker thread if needed by calling **FltQueueDeferredIoWorkItem**. After doing so, the minifilter driver returns FLT\\_PREOP\\_PENDING from its preoperation callback routine to indicate that the I/O operation is pending. * Calling *FltCbdqInsertIo* in its preoperation callback routine as needed to insert I/O operations into the queue. Or it can queue the completion processing of the operation to a worker thread if needed by calling **FltQueueDeferredIoWorkItem**. *FltMgr* provides the following support routines for pending I/O in **preoperation** and **postoperation** callback routines:. ## Minifilter callback routines for processing I/O operations.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "Writing Pre-operation Callback Routines - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/writing-preoperation-callback-routines",
+        "snippet": "A minifilter driver uses one or more *pre-operation callback routines* to filter I/O operations. **Pre-operation callback routines** are similar to the dispatch routines used in the legacy filter model. A minifilter registers a pre-operation callback routine for a particular type of I/O operation by storing the callback routine's entry point in the **OperationRegistration** member of the **FLT\\_REGISTRATION** structure. A minifilter can register a pre-operation callback routine for a given type of I/O operation without registering a **post-operation callback routine**, and vice versa. When *FltMgr* calls a minifilter's pre-operation callback routine for a given I/O operation, the minifilter temporarily controls the I/O operation. | The routine isn't relevant for the operation and doesn't require the final status of the operation or it has no post-operation callback. | Pass the I/O operation through and tell *FltMgr* to not call the minifilter's post-operation callback on completion. | Pass the operation through and tell *FltMgr* to call the minifilter's post-operation callback routine.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "Filter Manager Concepts - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/filter-manager-concepts",
+        "snippet": "The Filter Manager (*FltMgr.sys*) is a system-supplied kernel-mode driver that implements and exposes functionality commonly required in file system filter drivers. File system filter developers can use *FltMgr*'s functionality to write *minifilter* drivers that are simpler to develop than legacy file system filter drivers. A minifilter driver attaches to the file system stack indirectly, by registering with *FltMgr* for the I/O operations that the minifilter driver chooses to filter. The following figure shows a simplified I/O stack with the filter manager and three minifilter drivers. Diagram illustrating a simplified I/O stack with the filter manager and three minifilter drivers. For each of the I/O operations it chooses to filter, a minifilter can register a preoperation callback routine, a postoperation callback routine, or both. For interoperability with legacy filter drivers, *FltMgr* can attach filter device objects to a file system I/O stack in more than one location. The following figure shows a simplified I/O stack with two filter manager frames, minifilter driver instances, and a legacy filter driver.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "Writing Preoperation and Postoperation Callback Routines",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/writing-preoperation-and-postoperation-callback-routines",
+        "snippet": "A minifilter driver can register up to one preoperation callback routine and up to one postoperation callback routine for each type of I/O operation that it",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.725
+      },
+      {
+        "title": "FltCreateCommunicationPort function (fltkernel.h) - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nf-fltkernel-fltcreatecommunicationport",
+        "snippet": "FltCreateCommunicationPort creates a communication server port on which a minifilter can receive connection requests from user-mode applications and services.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Understanding Mini-Filter Drivers for Windows Vulnerability ...",
+        "url": "https://medium.com/@WaterBucket/understanding-mini-filter-drivers-for-windows-vulnerability-research-exploit-development-391153c945d6",
+        "snippet": "FltCreateCommunicationPort (): Creates a named communication port. FltSendMessage(): Sends messages from the driver to user-mode.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.45
+      },
+      {
+        "title": "Filter Manager API - FltCreateCommunicationPort function - EaseFilter",
+        "url": "https://www.easefilter.com/kb/fltkernel-fltcreatecommunicationport.htm",
+        "snippet": "FltCreateCommunicationPort creates a communication server port on which a minifilter driver can receive connection requests from user-mode applications.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "[Research] Walking Through Windows Minifilter Drivers (EN)",
+        "url": "https://hackyboiz.github.io/2025/08/15/banda/Minifilter-Driver/en",
+        "snippet": "Using the FltCreateCommunicationPort() function, the driver can create a communication port. In the code above, it creates the port \\\\",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.525
+      },
+      {
+        "title": "Communication Between User-mode and Minifilters - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/communication-between-user-mode-and-kernel-mode",
+        "snippet": "FltMgr supports communication between user-mode (UM) applications and kernel-mode (KM) minifilters through communication ports.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Writing Pre-operation Callback Routines - Windows drivers",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/writing-preoperation-callback-routines",
+        "snippet": "A minifilter driver uses one or more *pre-operation callback routines* to filter I/O operations. **Pre-operation callback routines** are similar to the dispatch routines used in the legacy filter model. A minifilter registers a pre-operation callback routine for a particular type of I/O operation by storing the callback routine's entry point in the **OperationRegistration** member of the **FLT\\_REGISTRATION** structure. A minifilter can register a pre-operation callback routine for a given type of I/O operation without registering a **post-operation callback routine**, and vice versa. When *FltMgr* calls a minifilter's pre-operation callback routine for a given I/O operation, the minifilter temporarily controls the I/O operation. | The routine isn't relevant for the operation and doesn't require the final status of the operation or it has no post-operation callback. | Pass the I/O operation through and tell *FltMgr* to not call the minifilter's post-operation callback on completion. | Pass the operation through and tell *FltMgr* to call the minifilter's post-operation callback routine.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "PFLT_PRE_OPERATION_CALL...",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nc-fltkernel-pflt_pre_operation_callback",
+        "snippet": "A minifilter driver's pre-operation or post-operation callback routine can modify the contents of the callback data structure for the operation.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "Building a Windows File System Minifilter Driver: Intercepting File Access",
+        "url": "https://medium.com/@s12deff/building-a-windows-file-system-minifilter-driver-intercepting-file-access-55b933ccd6a4",
+        "snippet": "# Building a Windows File System Minifilter Driver: Intercepting File Access | by S12 - 0x12Dark Development | Apr, 2026 | Medium. # **Building a Windows File System Minifilter Driver: Intercepting File Access**. Welcome to this new Medium post. In this article, I’ll walk you through the implementation of a basic **Windows File System Minifilter Driver** capable of intercepting file operations at the kernel level. We will use the Windows **Filter Manager** framework to build a minifilter that hooks file system requests, monitor file access events, and demonstrate how to inspect or block operations such as file creation/opening. By the end of this post, you’ll understand the core architecture of minifilter drivers, how callback registration works, and how to start building your own file system monitoring. To intercept file system operations using a Windows Minifilter Driver, we follow these logical steps:. This tells the operating system that our driver wants to participate in the file system filtering pipeline.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.605
+      },
+      {
+        "title": "[Research] Walking Through Windows Minifilter Drivers (EN)",
+        "url": "https://hackyboiz.github.io/2025/08/15/banda/Minifilter-Driver/en",
+        "snippet": "By registering pre-operation ( PreOperation Callback ) a Minifilter can monitor or control I/O operations at the system level when they occur.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "GitHub - gmh5225/Driver-minifilter-MCP-PoC",
+        "url": "https://github.com/gmh5225/Driver-minifilter-MCP-PoC",
+        "snippet": "A minifilter driver's pre-operation callback routine processes one or more types of I/O operations. This callback routine is similar to a dispatch routine in",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.725
+      }
+    ],
+    "exa": [
+      {
+        "title": "FltCompletePendedPreOperation function (fltkernel.h)",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nf-fltkernel-fltcompletependedpreoperation",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "Pending an I/O Operation in a Preoperation Callback Routine - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/pending-an-i-o-operation-in-a-preoperation-callback-routine",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.725
+      },
+      {
+        "title": "PFLT_PRE_OPERATION_CALLBACK (fltkernel.h) - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nc-fltkernel-pflt_pre_operation_callback",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.725
+      },
+      {
+        "title": "wdk-ddi-src/content/fltkernel/nf-fltkernel-fltcompletependedpreoperation.md at staging · MicrosoftDocs/windows-driver-docs-ddi",
+        "url": "https://github.com/MicrosoftDocs/windows-driver-docs-ddi/blob/staging/wdk-ddi-src/content/fltkernel/nf-fltkernel-fltcompletependedpreoperation.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.7
+      },
+      {
+        "title": "Completing an I/O Operation in a Preoperation Callback Routine - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/completing-an-i-o-operation-in-a-preoperation-callback-routine",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.725
+      },
+      {
+        "title": "Communication Between User-mode and Minifilters - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/communication-between-user-mode-and-kernel-mode",
+        "snippet": "",
+        "published_date": "2024-07-10T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.675
+      },
+      {
+        "title": "FltCreateCommunicationPort function (fltkernel.h) - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nf-fltkernel-fltcreatecommunicationport",
+        "snippet": "",
+        "published_date": "2024-07-10T00:00:00.000Z",
+        "source": "exa, tavily",
+        "score": 0.65
+      },
+      {
+        "title": "FltSendMessage function (fltkernel.h) - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nf-fltkernel-fltsendmessage",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "FltBuildDefaultSecurityDescriptor function (fltkernel.h)",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nf-fltkernel-fltbuilddefaultsecuritydescriptor",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "FilterConnectCommunicationPort function (fltuser.h) - Win32 apps | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows/win32/api/fltuser/nf-fltuser-filterconnectcommunicationport",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Registering Preoperation and Postoperation Callback Routines - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/registering-preoperation-and-postoperation-callback-routines",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.725
+      },
+      {
+        "title": "FltRegisterFilter function (fltkernel.h) - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nf-fltkernel-fltregisterfilter",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.675
+      },
+      {
+        "title": "PFLT_PRE_OPERATION_CALLBACK (fltkernel.h) - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fltkernel/nc-fltkernel-pflt_pre_operation_callback",
+        "snippet": "",
+        "published_date": "2023-01-25T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Initiating Filtering - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/initiating-filtering",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "Registering the Minifilter Driver - Windows drivers | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ifs/registering-the-minifilter-driver",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.675
+      }
+    ],
+    "grok": []
+  }
+}
