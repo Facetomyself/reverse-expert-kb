@@ -50,6 +50,8 @@
 - `cliproxy-cn.zhangxuemin.work`
 - `proxy-bak-cn.zhangxuemin.work`
 - `claw-cn.zhangxuemin.work`
+- `ai.zhangxuemin.work`
+- `ai-cn.zhangxuemin.work`
 - `cpam.zhangxuemin.work`
 - `cpam-cn.zhangxuemin.work`
 - `gptam.zhangxuemin.work`
@@ -144,7 +146,7 @@
 ### 当前不要误删的
 - `mail`
 - `derp`
-- `hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `claw-cn`
+- `hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `claw-cn` / `ai-cn`
 - `cpam` / `cpam-cn`
 - `tmail` / `tmail-front`
 - root MX / SPF / DMARC

@@ -33,6 +33,8 @@
 - `cliproxy-cn.zhangxuemin.work`
 - `proxy-bak-cn.zhangxuemin.work`
 - `claw-cn.zhangxuemin.work`
+- `ai.zhangxuemin.work`
+- `ai-cn.zhangxuemin.work`
 - `cpam.zhangxuemin.work`
 - `cpam-cn.zhangxuemin.work`
 - `gptam.zhangxuemin.work`
@@ -188,6 +190,8 @@ Reason:
 - `clash.hk`
 - `cliproxy-cn`
 - `claw-cn`
+- `ai`
+- `ai-cn`
 - `tmail`
 - `tmail-front`
 - Cloudflare MX

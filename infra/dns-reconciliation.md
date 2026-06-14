@@ -20,9 +20,9 @@
 
 - zone: `zhangxuemin.work`
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- current live record count: **42**
+- current live record count: **44**
 - type counts:
-  - `A`: 32
+  - `A`: 34
   - `AAAA`: 2
   - `MX`: 4
   - `TXT`: 4
@@ -39,6 +39,8 @@
 | `backup.zhangxuemin.work` | `129.150.61.78` | 指向 `oracle-gateway`，当前承载 Hysteria / gateway 角色 | **匹配** | 仍然有效，但不再是主公共 HTTPS front door |
 | `derp.zhangxuemin.work` | `129.150.61.78` | 指向 `oracle-gateway`，当前是该主机的主公共 TCP front door | **匹配** | `derper` 当前占用公共 `80/443` |
 | `dev.zhangxuemin.work` | `64.110.106.11` | 指向当前 OpenClaw 本机 `oracle-open_claw` | **匹配** | 当前 comment `openclaw-host` 与事实一致 |
+| `ai.zhangxuemin.work` | `140.245.33.114` | 指向 `oracle-newapi-primary`，当前是 New API 全球/源站入口 | **匹配** | Caddy -> `127.0.0.1:13000`，含 `/docs` 静态文档路径 |
+| `ai-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 New API 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://ai.zhangxuemin.work` |
 | `hub.zhangxuemin.work` | `140.245.33.114` | 指向 `oracle-registry`，现役 | **匹配** | registry front door |
 | `ghcr.zhangxuemin.work` | `140.245.33.114` | 指向 `oracle-registry`，现役 | **匹配** | registry front door |
 | `k8s.zhangxuemin.work` | `140.245.33.114` | 指向 `oracle-registry`，现役 | **匹配** | registry front door |
@@ -113,7 +115,7 @@
 
 - 当前 live zone 与提交的 baseline **一致**，没有即时 drift。
 - 当前核心活跃基础设施域名与主机文档 **整体一致**。
-- 新纳入当前事实的域名组包括：`derp.*`、CPA Manager Plus 入口（`cpam` / `cpam-cn`）、GPT Account Manager 双入口（`gptam` / `gptam-cn`）、Kiro-Go/Kiro-RS 入口（`kiro` / `kiro-cn` / `kiro-rs` / `kiro-rs-cn`）、Kiro docs（`docs` / `docs-cn`）、Card Shop（`card` / `card-cn`）、GPT Card Shop（`gpt-card` / `gpt-card-cn`）、`oracle-reverse-dev` SSH 边缘入口（`reverse-cn`）与 `hk-relay` 相关记录（`hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `proxy-bak-cn` / `claw-cn` / `cpam-cn` / `gptam-cn` / `kiro-cn` / `docs-cn` / `card-cn` / `gpt-card-cn` / `reverse-cn`）。
+- 新纳入当前事实的域名组包括：`derp.*`、CPA Manager Plus 入口（`cpam` / `cpam-cn`）、GPT Account Manager 双入口（`gptam` / `gptam-cn`）、Kiro-Go/Kiro-RS 入口（`kiro` / `kiro-cn` / `kiro-rs` / `kiro-rs-cn`）、Kiro docs（`docs` / `docs-cn`）、Card Shop（`card` / `card-cn`）、GPT Card Shop（`gpt-card` / `gpt-card-cn`）、`oracle-reverse-dev` SSH 边缘入口（`reverse-cn`）与 `hk-relay` 相关记录（`hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `proxy-bak-cn` / `claw-cn` / `ai-cn` / `cpam-cn` / `gptam-cn` / `kiro-cn` / `docs-cn` / `card-cn` / `gpt-card-cn` / `reverse-cn`）。
 - 当前 DNS 主要未闭环点不是主机映射，而是 **剩余唯一一条 DKIM（`cf2024-1`）的发送方归属与长期去留还需继续收口**。
 - 已新增 `infra/cloudflare-dns/dkim-reconciliation.md` 作为 DKIM 归属说明页，后续优先在那一页继续推进而不是在各处零散猜测。
 - 历史 Mailu 相关主机残留与其对应 `dkim._domainkey` 记录已在 2026-04-14 按用户确认完成删除。
