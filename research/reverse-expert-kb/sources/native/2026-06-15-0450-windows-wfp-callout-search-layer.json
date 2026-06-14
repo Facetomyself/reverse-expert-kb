@@ -1,0 +1,82 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "sources_requested": ["exa", "tavily", "grok"],
+  "sources_succeeded": ["exa", "tavily"],
+  "sources_failed": [
+    {
+      "source": "grok",
+      "error": "502 Server Error: Bad Gateway for url: http://proxy.zhangxuemin.work:8000/v1/chat/completions",
+      "attempts": 3
+    }
+  ],
+  "endpoints": {
+    "exa": "http://158.178.236.241:7860/search",
+    "tavily": "http://proxy.zhangxuemin.work:9874/api/search",
+    "grok": "http://proxy.zhangxuemin.work:8000/v1/chat/completions"
+  },
+  "command": "python3 /root/.openclaw/workspace/skills/search-layer/scripts/search.py --source exa,tavily,grok --mode deep --intent exploratory --num 5 --queries 'Windows Filtering Platform callout driver classifyFn notifyFn flowDeleteFn reverse engineering policy consumer' 'Microsoft WFP callout driver FwpsCalloutRegister FwpmCalloutAdd classifyFn documentation' 'Windows Filtering Platform callout ALE classify permit block injection user mode policy engine FwpmFilterAdd'",
+  "aggregate_result_count": 24,
+  "high_signal_results": [
+    {
+      "title": "FWPS_CALLOUT_CLASSIFY_FN0 (fwpsk.h) - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/fwpsk/nc-fwpsk-fwps_callout_classify_fn0",
+      "source": "tavily",
+      "score": 0.725
+    },
+    {
+      "title": "Introduction to Windows Filtering Platform Callout Drivers - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/network/introduction-to-windows-filtering-platform-callout-drivers",
+      "source": "tavily",
+      "score": 0.725
+    },
+    {
+      "title": "Registering Callouts with the Filter Engine - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/network/registering-callouts-with-the-filter-engine",
+      "source": "exa,tavily",
+      "score": 0.675
+    },
+    {
+      "title": "Processing Classify Callouts - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/network/processing-classify-callouts",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "Processing Classify Callouts Asynchronously - Windows drivers | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/network/processing-classify-callouts-asynchronously",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "FWPS_CLASSIFY_OUT0 (fwpstypes.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/fwpstypes/ns-fwpstypes-fwps_classify_out0",
+      "source": "tavily",
+      "score": 0.65
+    },
+    {
+      "title": "FwpmCalloutAdd0 function (fwpmu.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/fwpmu/nf-fwpmu-fwpmcalloutadd0",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "FwpmFilterAdd0 function (fwpmu.h) - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/fwpmu/nf-fwpmu-fwpmfilteradd0",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "ALE Layers - Win32 apps | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fwp/ale-layers",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "Guided tour inside WinDefender’s network inspection driver - Quarkslab's blog",
+      "url": "https://blog.quarkslab.com/guided-tour-inside-windefenders-network-inspection-driver.html",
+      "source": "tavily",
+      "score": 0.525
+    }
+  ]
+}

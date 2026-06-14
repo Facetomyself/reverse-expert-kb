@@ -31,6 +31,7 @@ Related pages:
 - topics/native-macos-endpointsecurity-event-to-policy-consumer-workflow-note.md
 - topics/native-etw-provider-session-consumer-workflow-note.md
 - topics/native-windows-minifilter-callback-to-policy-consumer-workflow-note.md
+- topics/native-windows-wfp-callout-classify-to-policy-consumer-workflow-note.md
 - topics/runtime-behavior-recovery.md
 
 ## 1. Why this guide exists
@@ -121,6 +122,10 @@ A Windows telemetry reminder now worth preserving before treating trace events a
 A Windows file-system minifilter reminder now worth preserving inside family 5 / native policy-driver overlap is the callback-to-policy-consumer seam:
 - Filter Manager registration, active filtering, operation selection, pre-operation callback entry, pended/user-mode verdict handoff, kernel-side completion/resume, and caller-visible effect are different proof objects
 - use `topics/native-windows-minifilter-callback-to-policy-consumer-workflow-note.md` when the visible API is `FltRegisterFilter`, `FltStartFiltering`, `PFLT_PRE_OPERATION_CALLBACK`, `FLT_PREOP_PENDING`, `FltCompletePendedPreOperation`, `FltCreateCommunicationPort`, `FilterConnectCommunicationPort`, or `FltSendMessage`, and the current liar is whether **registered != operation-selected != pre-callback-entered != pended/sent != replied/decided != completed/resumed != effect-owned** was flattened into one claim
+
+A Windows network-filter reminder now worth preserving inside family 5 / native policy-driver overlap is the WFP callout classify-to-policy-consumer seam:
+- WFP callout registration, BFE filter/layer match, classify callback entry, `classifyOut` decision writes, async pend/clone/absorb ownership, completion/reinjection/discard, and first network/policy effect are different proof objects
+- use `topics/native-windows-wfp-callout-classify-to-policy-consumer-workflow-note.md` when the visible API is `FwpsCalloutRegister*`, `FwpmCalloutAdd*`, `FwpmFilterAdd*`, `FWPS_CALLOUT_CLASSIFY_FN*`, `FWPS_CLASSIFY_OUT*`, `FwpsPendOperation*`, `FwpsCompleteOperation*`, clone/injection helpers, ALE layers, or redirect layers, and the current liar is whether **registered != filter-matched != classify-entered != decision-written != async-owned != completed/reinjected/discarded != effect-owned** was flattened into one claim
 
 ```text
 choose the current native bottleneck
