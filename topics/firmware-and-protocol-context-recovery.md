@@ -30,6 +30,7 @@ Related pages:
 - topics/firmware-android-ab-slot-rollback-to-stable-runtime-workflow-note.md
 - topics/firmware-devicetree-to-driver-consumer-workflow-note.md
 - topics/firmware-acpi-namespace-to-driver-consumer-workflow-note.md
+- topics/firmware-i2c-spi-register-transaction-to-driver-consumer-workflow-note.md
 
 ## 1. Topic identity
 
@@ -116,6 +117,7 @@ A compact reading worth preserving is:
 - once Android A/B / AVB material is visible, preserve the narrower slot-stability split `metadata != active != current != verified != consumed != successful/stable != effect-owned`, so A/B metadata, active slot, current suffix, `vbmeta`, rollback index, or update-engine evidence do not collapse into one vague “this slot owns the runtime behavior” claim
 - once Devicetree / DTB / overlay material is visible, preserve the narrower driver-consumer split `base DTB visible != overlay selected/applied != live tree mutated != device populated != match/bind selected != probe succeeded after suppliers ready != resource/property consumed != behavior/effect owned`, so `compatible`, `reg`, `interrupts`, phandles, `/proc/device-tree`, sysfs links, `fdt apply`, or `probe()` entry do not collapse into current driver-owned behavior
 - once ACPI namespace / DSDT / SSDT / AML material is visible, preserve the narrower ACPI driver-consumer split `ACPI table visible != namespace node loaded != device enumerated != bus object bound != resource/method consumed != handler/effect owned`, so `_HID`, `_CID`, `_CRS`, `_DSD`, `_DSM`, AML method traces, or `/sys/bus/acpi` nodes do not collapse into current driver-owned behavior
+- once I2C / SPI child-node, address, chip-select, bus trace, transfer-helper, or `regmap_*` material is visible, preserve the narrower serial-bus driver-consumer split `node/bus visible != device bound != transaction issued != completed/ACKed != register decoded/cache-updated != driver consumer ran != effect-owned`, so address ACKs, MOSI/MISO bytes, `i2c_transfer(...)`, `spi_sync(...)`, or `regmap_update_bits(...)` do not collapse into behavior ownership
 - choose the right boundary before overcommitting to protocol semantics
 - surface the first truthful socket-boundary, serializer-adjacent, parser-adjacent, or hardware-adjacent object
 - peel one visible layered object into one smaller trustworthy contract
@@ -135,6 +137,7 @@ Compact anti-drift reminders worth preserving here:
 - do not treat Android A/B metadata, fastboot active slot, `androidboot.slot_suffix=`, Boot Control HAL state, AVB success, or rollback-index state as equivalent to stable current-runtime ownership; prove active-for-next, current slot, resolved slot image tuple, policy acceptance, userspace consumption, successful/stable marking, and first behavior owner separately
 - do not treat a recovered DTB/DTS, bootloader overlay command, live-tree node, `compatible` match, sysfs device/driver link, or first `probe()` entry as equivalent to current resource/property consumption or behavior ownership; prove selected live tree, population, final successful probe after supplier readiness, and first behavior-bearing consumer separately
 - do not treat DSDT/SSDT visibility, `_HID` / `_CID`, `_CRS`, `_DSD`, `_DSM`, an AML method trace, or a sysfs ACPI node as equivalent to bus-visible driver binding, resource/method consumption, or behavior ownership; prove loaded namespace, OS enumeration, actual binding, consumed resource/method output, and first handler/effect owner separately
+- do not treat I2C/SPI bus visibility, address ACK, Devicetree/ACPI child node, chip-select trace, transfer-helper hit, or regmap wrapper as equivalent to live peripheral behavior; prove bound device, completed transaction, decoded register/cache state, first IRQ/poll/workqueue consumer, and subsystem/userspace-visible effect separately
 - do not keep broad packet or register collection going when the real blocker is still selecting the first truthful boundary
 - do not keep naming protocol or peripheral families once one smaller trustworthy contract is already available and the real bottleneck has shifted to ownership, consequence, acceptance, or handoff proof
 - in descriptor/ring-heavy firmware cases, do not mistake visible completion bytes for solved understanding when ownership transfer, freshness rules, notify/doorbell scope, or non-coherent cache visibility still decide whether the peer or CPU may trust them

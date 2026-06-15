@@ -11,6 +11,7 @@ Related pages:
 - topics/firmware-android-ab-slot-rollback-to-stable-runtime-workflow-note.md
 - topics/firmware-devicetree-to-driver-consumer-workflow-note.md
 - topics/firmware-acpi-namespace-to-driver-consumer-workflow-note.md
+- topics/firmware-i2c-spi-register-transaction-to-driver-consumer-workflow-note.md
 - topics/protocol-state-and-message-recovery.md
 - topics/protocol-capture-failure-and-boundary-relocation-workflow-note.md
 - topics/protocol-socket-boundary-and-private-overlay-recovery-workflow-note.md
@@ -62,6 +63,7 @@ The branch already had practical entry surfaces for:
 - descriptor ownership-transfer / completion-visibility proof
 - CAN / UDS diagnostic session -> state consumer proof
 - BLE GATT notification / indication consumer proof
+- I2C / SPI register transaction -> driver consumer proof
 - peripheral/MMIO effect proof
 - ISR/deferred-worker consequence proof
 
@@ -76,7 +78,7 @@ This page makes the branch read more like the native, runtime-evidence, malware,
 - a compact ladder for turning visible traffic, device activity, and parser clues into one smaller trustworthy working model
 
 ## 2. Core claim
-Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty-six recurring families:
+Firmware/protocol practical work is easiest to navigate when the analyst first classifies the current bottleneck into one of twenty-seven recurring families:
 
 
 0. **hardware observation / image-lineage uncertainty**
@@ -135,6 +137,8 @@ Firmware/protocol practical work is easiest to navigate when the analyst first c
    - USB HID descriptor bytes, report IDs, hidraw report bytes, evdev events, or parser output are already visible, but the real bottleneck is still whether descriptor truth, report-ID/type truth, field-layout truth, live report-instance truth, kernel quirk/fixup truth, or the first semantic consumer actually owns the behavior; keep **descriptor parsed != report selected != field decoded != live report delivered != parsed/quirked meaning != semantic consumer/effect** visible before treating usages or hidraw bytes as state truth
 16a. **USB URB completion / first-consumer uncertainty**
    - USB transfer submission or completion visibility is already good enough, but the real bottleneck is still whether submit/setup truth, retire/cancel truth, usbmon-visible completion truth, callback/giveback truth, or the first callback/parser/router consumer actually owns the behavior
+16b. **I2C / SPI register transaction / driver-consumer uncertainty**
+   - I2C addresses, SPI chip-select traffic, Devicetree/ACPI child nodes, `i2c_transfer(...)`, `i2c_smbus_*`, `spi_sync(...)`, `spi_async(...)`, or `regmap_*` calls are visible, but the first truthful device binding, transfer completion, register decode/cache update, IRQ/poll/workqueue consumer, and subsystem/userspace-visible effect are still unclear; keep **node/bus visible != device bound != transaction issued != completed/ACKed != register decoded/cache-updated != driver consumer ran != effect-owned** visible before treating bus bytes or register helpers as behavior proof
 17. **hardware-side effect / interrupt consequence uncertainty**
    - the path already reaches peripheral or interrupt/deferred boundaries, but the first durable effect-bearing write or later consequence handoff is still unproved
 
@@ -165,6 +169,7 @@ The subtree is strongest when read as:
 - **stabilize** one Linux Netlink request / dump / notification chain when family/control discovery, command truth, ACK truth, dump completion, notification delivery, and local consumer truth are easy to flatten together
 - **stabilize** one MQTT delivery-state chain when visible `PUBLISH` packets, topic strings, QoS acknowledgements, retained flags, Packet Identifiers, topic aliases, or session queues can still lie about broker acceptance, subscription/session match, callback delivery, and first app/device state consumption
 - **stabilize** one Modbus register-map chain when register rows, function codes, exception responses, decoded values, or TCP transaction identifiers can still lie about the actual PDU offset, accepted access, live value validation, and first device-state/effect consumer
+- **stabilize** one I2C / SPI register-transaction chain when bus nodes, address ACKs, chip-select traces, transfer helper calls, or regmap wrappers can still lie about bound driver ownership, transfer completion, decoded register/cache state, and first subsystem/userspace-visible effect
 - **reduce** one parser/state consequence
 - **accept** one interaction under the right local precondition
 - **stabilize** one pending-request lifetime contract when broad owner-match is already good enough but late replies or reuse still drift

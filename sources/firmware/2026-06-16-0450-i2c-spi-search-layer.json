@@ -1,0 +1,445 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "Linux I2C subsystem driver adapter client transfer probe regmap documentation reverse engineering",
+    "Linux SPI subsystem spi_device spi_transfer regmap driver probe documentation reverse engineering",
+    "firmware reverse engineering I2C SPI bus trace register map driver consumer regmap"
+  ],
+  "count": 24,
+  "results": [
+    {
+      "title": "linux/drivers/i2c/i2c-core-base.c at master · torvalds/linux · GitHub",
+      "url": "https://github.com/torvalds/linux/blob/master/drivers/i2c/i2c-core-base.c",
+      "snippet": "#define I2C\\_ADDR\\_7BITS\\_MAX 0x77. #define I2C\\_ADDR\\_7BITS\\_COUNT (I2C\\_ADDR\\_7BITS\\_MAX + 1). #define I2C\\_ADDR\\_DEVICE\\_ID 0x7c. \\* core\\_lock protects i2c\\_adapter\\_idr, and guarantees that device detection,. static int i2c\\_detect(struct i2c\\_adapter \\*adapter, struct i2c\\_driver \\*driver);. const struct i2c\\_device\\_id \\*i2c\\_match\\_id(const struct i2c\\_device\\_id \\*id,. const struct i2c\\_client \\*client). const void \\*i2c\\_get\\_match\\_data(const struct i2c\\_client \\*client). struct i2c\\_driver \\*driver = to\\_i2c\\_driver(client->dev.driver);. const struct i2c\\_device\\_id \\*match;. data = device\\_get\\_match\\_data(&client->dev);. match = i2c\\_match\\_id(driver->id\\_table, client);. static int i2c\\_device\\_match(struct device \\*dev, const struct device\\_driver \\*drv). const struct i2c\\_driver \\*driver;. if (i2c\\_of\\_match\\_device(drv->of\\_match\\_table, client)). if (acpi\\_driver\\_match\\_device(dev, drv)). if (i2c\\_match\\_id(driver->id\\_table, client)). static int i2c\\_device\\_uevent(const struct device \\*dev, struct kobj\\_uevent\\_env \\*env). const struct i2c\\_client \\*client = to\\_i2c\\_client(dev);. static int get\\_scl\\_gpio\\_value(struct i2c\\_adapter \\*adap). return gpiod\\_get\\_value\\_cansleep(adap->bus\\_recovery\\_info->scl\\_gpiod);. static void set\\_scl\\_gpio\\_value(struct i2c\\_adapter \\*adap, int val). static int i2c\\_generic\\_bus\\_free(struct i2c\\_adapter \\*adap). int i2c\\_generic\\_scl\\_recovery(struct i2c\\_adapter \\*adap). int i2c\\_recover\\_bus(struct i2c\\_adapter \\*adap). static void i2c\\_gpio\\_init\\_pinctrl\\_recovery(struct i2c\\_adapter \\*adap). struct device \\*dev = &adap->dev;. static int i2c\\_gpio\\_init\\_generic\\_recovery(struct i2c\\_adapter \\*adap). static int i2c\\_gpio\\_init\\_recovery(struct i2c\\_adapter \\*adap). static int i2c\\_init\\_recovery(struct i2c\\_adapter \\*adap). struct i2c\\_adapter \\*adap = client->adapter;. static int i2c\\_device\\_probe(struct device \\*dev).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.75
+    },
+    {
+      "title": "drivers/base/regmap/regmap-spi.c at master · torvalds/linux",
+      "url": "https://github.com/torvalds/linux/blob/master/drivers/base/regmap/regmap-spi.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.675
+    },
+    {
+      "title": "Serial Peripheral Interface (SPI) — The Linux Kernel documentation",
+      "url": "https://docs.kernel.org/driver-api/spi.html",
+      "snippet": "A “Controller Driver” abstracts the controller hardware, which may be as simple as a set of GPIO pins or as complex as a pair of FIFOs connected to dual DMA engines on the other side of the SPI shift register (maximizing throughput). Such drivers bridge between whatever bus they sit on (often the platform bus) and SPI, and expose the SPI side of their device as a `struct spi_controller`. SPI devices are children of that master, represented as a `struct spi_device` and manufactured from `struct spi_board_info` descriptors which are usually provided by board-specific initialization code. A `struct spi_driver` is called a “Protocol Driver”, and is bound to a spi\\_device using normal driver model calls. :   number of bytes transferred to/from device. :   SPI controller used with the device. :   Maximum clock rate to be used with this chip (on this board); may be changed by the device’s driver. This may be changed by the device’s driver.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.65
+    },
+    {
+      "title": "Implementing I2C device drivers — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/6.4/i2c/writing-clients.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.65
+    },
+    {
+      "title": "I2C and SMBus Subsystem - The Linux Kernel documentation",
+      "url": "https://docs.kernel.org/driver-api/i2c.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa, tavily",
+      "score": 0.65
+    },
+    {
+      "title": "I2C/SMBus Functionality — The Linux Kernel  documentation",
+      "url": "https://docs.kernel.org/next/i2c/functionality.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.625
+    },
+    {
+      "title": "Linux-Kernel Archive: [PATCH 0/4] regmap: Generic I2C and SPI register map library",
+      "url": "https://lkml.indiana.edu/1107.1/03144.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.575
+    },
+    {
+      "title": "How to reverse engineer I2C and SPI protocols?",
+      "url": "https://electronics.stackexchange.com/questions/350/how-to-reverse-engineer-i2c-and-spi-protocols",
+      "snippet": "If I have an unkown device which talk I2C or SPI how can I reverse engineer the protocol. Basically I am looking for something similar as snoop",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.55
+    },
+    {
+      "title": "[PDF] Basics of I2C on Linux - Bootlin",
+      "url": "https://bootlin.com/pub/conferences/2022/elce/ceresoli-basics-of-i2c-on-linux/ceresoli-basics-of-i2c-on-linux.pdf",
+      "snippet": "The I2C subsystem in the linux kernel - Kernel, drivers and embedded Linux. I2C “Devices” includes both adapters and clients: Client device driver: probe",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.475
+    },
+    {
+      "title": "I2C and SMBus Subsystem — The Linux Kernel documentation",
+      "url": "https://www.kernel.org/doc/html/v4.14/driver-api/i2c.html",
+      "snippet": "I2C (or without fancy typography, “I2C”) is an acronym for the “Inter-IC” bus, a simple bus protocol which is widely used where low data rate communications suffice. Since it’s also a licensed trademark, some vendors use another name (such as “Two-Wire Interface”, TWI) for the same bus. Most I2C devices use seven bit addresses, and bus speeds of up to 400 kHz; there’s a high speed extension (3.4 MHz) that’s not yet found wide use. I2C is a multi-master bus; open drain signaling is used to arbitrate between masters, as well as to handshake and to synchronize clocks from slower clients. An I2C “Adapter Driver” abstracts the controller hardware; it binds to a physical device (perhaps a PCI device or platform\\_device) and exposes a `struct i2c_adapter` representing each I2C bus segment it manages. On each I2C bus segment will be I2C devices represented by a `struct i2c_client`. Those devices will be bound to a `struct i2c_driver`, which should follow the standard Linux driver model.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.475
+    },
+    {
+      "title": "[PDF] Groking the Linux SPI Subsystem",
+      "url": "http://events17.linuxfoundation.org/sites/events/files/slides/Groking%20the%20Linux%20SPI%20Subsystem.pdf",
+      "snippet": "○ tx/rx buffer pointers ○ optional chip select behavior after operation ○ optional delay after operation ● Messages ○ Atomic sequence of transfers ○ Fundamental argument to all SPI subsystem read/write APIs. SPI Messages and Transfers Linux SPI use cases Exploring via use cases ●I want to hook up a SPI device on my board that already has a protocol driver in the kernel. ●I want to write a kernel protocol driver to control my SPI slave. ●I want to write a kernel controller driver to drive my SPI master. ●I want to write a userspace protocol driver to control my SPI slave.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Implement a custom SPI device driver - Linux Kernel - RocketBoards Forum",
+      "url": "https://forum.rocketboards.org/t/implement-a-custom-spi-device-driver/576",
+      "snippet": "# Implement a custom SPI device driver. Currently I work on a implementation for a custom SPI protocol driver. The goal is, that I have a single kernel module which can be used for a custom SPI device. In the dtb I declare my device with the name “vend,mySPI\\_slave\\_0” on the corresponding SPI controller. But when I add a second device in the dtb, I have some troubles with the class declaration… So I received some error like: \"sysfs: cannot create duplicate filename ‘/class/mySPIClass’ \". My question is, what is the state of the art, for creating a custom SPI device with access over sysfs…? Should I share the created class in a static variable, and if it initialized then use them again? or is it better to have a base module which create only the class and share them with other modules? printk(\"mySPI_slave::my_device_open called.\\n\");. printk(\"mySPI_slave::my_device_release called.\\n\");. static int my_device_probe(struct spi_device *spi). printk(\"mySPI_slave::my_device_probe called.\\n\");. printk(\"mySPI_slave::my_device_probe spi_setup failed!\\n\");. printk(\"mySPI_slave::my_device_probe spi_sync_transfer failed!\\n\");. printk(\"mySPI_slave::my_device_probe alloc_chrdev_region failed!\\n\");. printk(\"mySPI_slave::my_device_probe cdev_add failed!\\n\");.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "Linux SPI Subsystem : LDD with Raspberry Pi #17 - YouTube",
+      "url": "https://www.youtube.com/watch?v=W7CJ3Fz--Ws",
+      "snippet": "In this video, we explore the Linux SPI subsystem inside the Linux kernel and build a minimal SPI client driver from scratch.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.4
+    },
+    {
+      "title": "I2C and SMBus Subsystem — The Linux Kernel  documentation",
+      "url": "https://cdn.kernel.org/doc/html/latest/driver-api/i2c.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "I2C and SPI Drivers - Linux Kernel Internals",
+      "url": "https://kernel-internals.org/drivers/i2c-spi",
+      "snippet": "I2C (Inter-Integrated Circuit) is a two-wire serial protocol for connecting low-speed peripherals to a microprocessor. regmap provides a unified API for",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.4
+    },
+    {
+      "title": "How to instantiate I2C devices — The Linux Kernel  documentation",
+      "url": "https://kernel.org/doc/html/v6.3/i2c/instantiating-devices.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.375
+    },
+    {
+      "title": "I2C Signal Reverse Engineering - Rheingold Heavy",
+      "url": "https://rheingoldheavy.com/i2c-signal-reverse-engineering",
+      "snippet": "This module focuses on I2C signal reverse engineering, by taking an oscilloscope trace and breaking it into its constituent parts to determine the values.",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.375
+    },
+    {
+      "title": "Overview of Linux kernel SPI support — The Linux Kernel 5.2.0-rc6-next-20190626+ documentation",
+      "url": "https://www.infradead.org/~mchehab/rst_conversion/spi/spi-summary.html",
+      "snippet": "* Overview of Linux kernel SPI support. The “Serial Peripheral Interface” (SPI) is a synchronous four wire serial link used to connect microcontrollers to sensors, memory, and peripherals. SPI uses a master/slave configuration. The three signal wires hold a clock (SCK, often on the order of 10 MHz), and parallel data lines with “Master Out, Slave In” (MOSI) or “Master In, Slave Out” (MISO) signals. (Other names are also used.) There are four clocking modes through which data is exchanged; mode-0 and mode-3 are most commonly used. Each clock cycle shifts data out and data in; the clock doesn’t cycle except when there is a data bit to shift. SPI masters use a fourth “chip select” line to activate a given SPI slave device, so those three signal wires may be connected to several chips in parallel. > * It may also be used to stream data in either direction (half duplex), or both of them at the same time (full duplex).",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "Linux Kernel Documentation / spi / spi-summary.rst",
+      "url": "https://mjmwired.net/kernel/Documentation/spi/spi-summary.rst",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "drivers/spi/spi.c - linux - Git at Google",
+      "url": "https://gbmc.googlesource.com/linux/+/9805f39d423a30a7189158905ec3d71774fe98a1/drivers/spi/spi.c",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "regmap: Generic I2C and SPI register map library [LWN.net]",
+      "url": "https://lwn.net/Articles/451789",
+      "snippet": "# regmap: Generic I2C and SPI register map library. This is a version of a series I've been posting for most of this release cycle which abstracts out a bunch of widely duplicated code for doing register I/O on devices with control slow buses like I2C and SPI. Hopefully Jean, Ben and Grant will be OK with this and with some churn in this code from the regmap tree that may be created as we build out the core API and possibly refactor the interface to the bus code.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "Reverse Engineering SPI tools - Page 1",
+      "url": "https://www.eevblog.com/forum/projects/reverse-engineering-spi-tools",
+      "snippet": "# EEVblog® Electronics Community Forum. ### Author Topic: Reverse Engineering SPI tools  (Read 1348 times). 0 Members and 1 Guest are viewing this topic. #### Offline margceTopic starter. ##### Reverse Engineering SPI tools. #### Offline Benta. ### Share me. | EEVblog® Main Site | EEVblog® on Youtube | EEVblog® on Twitter | EEVblog® on Facebook | EEVblog® on Odysee |.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.35
+    },
+    {
+      "title": "In-kernel memory-mapped I/O tracing — The Linux Kernel  documentation",
+      "url": "https://www.kernel.org/doc/html/latest/trace/mmiotrace.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.35
+    },
+    {
+      "title": "include/linux/spi/spi.h - kernel/common - Git at Google",
+      "url": "https://android.googlesource.com/kernel/common/+/d1b7f92035c6fb42529ada531e2cbf3534544c82/include/linux/spi/spi.h",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.325
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "Serial Peripheral Interface (SPI) — The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/driver-api/spi.html",
+        "snippet": "A “Controller Driver” abstracts the controller hardware, which may be as simple as a set of GPIO pins or as complex as a pair of FIFOs connected to dual DMA engines on the other side of the SPI shift register (maximizing throughput). Such drivers bridge between whatever bus they sit on (often the platform bus) and SPI, and expose the SPI side of their device as a `struct spi_controller`. SPI devices are children of that master, represented as a `struct spi_device` and manufactured from `struct spi_board_info` descriptors which are usually provided by board-specific initialization code. A `struct spi_driver` is called a “Protocol Driver”, and is bound to a spi\\_device using normal driver model calls. :   number of bytes transferred to/from device. :   SPI controller used with the device. :   Maximum clock rate to be used with this chip (on this board); may be changed by the device’s driver. This may be changed by the device’s driver.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.65
+      },
+      {
+        "title": "[PDF] Groking the Linux SPI Subsystem",
+        "url": "http://events17.linuxfoundation.org/sites/events/files/slides/Groking%20the%20Linux%20SPI%20Subsystem.pdf",
+        "snippet": "○ tx/rx buffer pointers ○ optional chip select behavior after operation ○ optional delay after operation ● Messages ○ Atomic sequence of transfers ○ Fundamental argument to all SPI subsystem read/write APIs. SPI Messages and Transfers Linux SPI use cases Exploring via use cases ●I want to hook up a SPI device on my board that already has a protocol driver in the kernel. ●I want to write a kernel protocol driver to control my SPI slave. ●I want to write a kernel controller driver to drive my SPI master. ●I want to write a userspace protocol driver to control my SPI slave.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Overview of Linux kernel SPI support — The Linux Kernel 5.2.0-rc6-next-20190626+ documentation",
+        "url": "https://www.infradead.org/~mchehab/rst_conversion/spi/spi-summary.html",
+        "snippet": "* Overview of Linux kernel SPI support. The “Serial Peripheral Interface” (SPI) is a synchronous four wire serial link used to connect microcontrollers to sensors, memory, and peripherals. SPI uses a master/slave configuration. The three signal wires hold a clock (SCK, often on the order of 10 MHz), and parallel data lines with “Master Out, Slave In” (MOSI) or “Master In, Slave Out” (MISO) signals. (Other names are also used.) There are four clocking modes through which data is exchanged; mode-0 and mode-3 are most commonly used. Each clock cycle shifts data out and data in; the clock doesn’t cycle except when there is a data bit to shift. SPI masters use a fourth “chip select” line to activate a given SPI slave device, so those three signal wires may be connected to several chips in parallel. > * It may also be used to stream data in either direction (half duplex), or both of them at the same time (full duplex).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "Implement a custom SPI device driver - Linux Kernel - RocketBoards Forum",
+        "url": "https://forum.rocketboards.org/t/implement-a-custom-spi-device-driver/576",
+        "snippet": "# Implement a custom SPI device driver. Currently I work on a implementation for a custom SPI protocol driver. The goal is, that I have a single kernel module which can be used for a custom SPI device. In the dtb I declare my device with the name “vend,mySPI\\_slave\\_0” on the corresponding SPI controller. But when I add a second device in the dtb, I have some troubles with the class declaration… So I received some error like: \"sysfs: cannot create duplicate filename ‘/class/mySPIClass’ \". My question is, what is the state of the art, for creating a custom SPI device with access over sysfs…? Should I share the created class in a static variable, and if it initialized then use them again? or is it better to have a base module which create only the class and share them with other modules? printk(\"mySPI_slave::my_device_open called.\\n\");. printk(\"mySPI_slave::my_device_release called.\\n\");. static int my_device_probe(struct spi_device *spi). printk(\"mySPI_slave::my_device_probe called.\\n\");. printk(\"mySPI_slave::my_device_probe spi_setup failed!\\n\");. printk(\"mySPI_slave::my_device_probe spi_sync_transfer failed!\\n\");. printk(\"mySPI_slave::my_device_probe alloc_chrdev_region failed!\\n\");. printk(\"mySPI_slave::my_device_probe cdev_add failed!\\n\");.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "Linux SPI Subsystem : LDD with Raspberry Pi #17 - YouTube",
+        "url": "https://www.youtube.com/watch?v=W7CJ3Fz--Ws",
+        "snippet": "In this video, we explore the Linux SPI subsystem inside the Linux kernel and build a minimal SPI client driver from scratch.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.4
+      },
+      {
+        "title": "linux/drivers/i2c/i2c-core-base.c at master · torvalds/linux · GitHub",
+        "url": "https://github.com/torvalds/linux/blob/master/drivers/i2c/i2c-core-base.c",
+        "snippet": "#define I2C\\_ADDR\\_7BITS\\_MAX 0x77. #define I2C\\_ADDR\\_7BITS\\_COUNT (I2C\\_ADDR\\_7BITS\\_MAX + 1). #define I2C\\_ADDR\\_DEVICE\\_ID 0x7c. \\* core\\_lock protects i2c\\_adapter\\_idr, and guarantees that device detection,. static int i2c\\_detect(struct i2c\\_adapter \\*adapter, struct i2c\\_driver \\*driver);. const struct i2c\\_device\\_id \\*i2c\\_match\\_id(const struct i2c\\_device\\_id \\*id,. const struct i2c\\_client \\*client). const void \\*i2c\\_get\\_match\\_data(const struct i2c\\_client \\*client). struct i2c\\_driver \\*driver = to\\_i2c\\_driver(client->dev.driver);. const struct i2c\\_device\\_id \\*match;. data = device\\_get\\_match\\_data(&client->dev);. match = i2c\\_match\\_id(driver->id\\_table, client);. static int i2c\\_device\\_match(struct device \\*dev, const struct device\\_driver \\*drv). const struct i2c\\_driver \\*driver;. if (i2c\\_of\\_match\\_device(drv->of\\_match\\_table, client)). if (acpi\\_driver\\_match\\_device(dev, drv)). if (i2c\\_match\\_id(driver->id\\_table, client)). static int i2c\\_device\\_uevent(const struct device \\*dev, struct kobj\\_uevent\\_env \\*env). const struct i2c\\_client \\*client = to\\_i2c\\_client(dev);. static int get\\_scl\\_gpio\\_value(struct i2c\\_adapter \\*adap). return gpiod\\_get\\_value\\_cansleep(adap->bus\\_recovery\\_info->scl\\_gpiod);. static void set\\_scl\\_gpio\\_value(struct i2c\\_adapter \\*adap, int val). static int i2c\\_generic\\_bus\\_free(struct i2c\\_adapter \\*adap). int i2c\\_generic\\_scl\\_recovery(struct i2c\\_adapter \\*adap). int i2c\\_recover\\_bus(struct i2c\\_adapter \\*adap). static void i2c\\_gpio\\_init\\_pinctrl\\_recovery(struct i2c\\_adapter \\*adap). struct device \\*dev = &adap->dev;. static int i2c\\_gpio\\_init\\_generic\\_recovery(struct i2c\\_adapter \\*adap). static int i2c\\_gpio\\_init\\_recovery(struct i2c\\_adapter \\*adap). static int i2c\\_init\\_recovery(struct i2c\\_adapter \\*adap). struct i2c\\_adapter \\*adap = client->adapter;. static int i2c\\_device\\_probe(struct device \\*dev).",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.75
+      },
+      {
+        "title": "I2C and SPI Drivers - Linux Kernel Internals",
+        "url": "https://kernel-internals.org/drivers/i2c-spi",
+        "snippet": "I2C (Inter-Integrated Circuit) is a two-wire serial protocol for connecting low-speed peripherals to a microprocessor. regmap provides a unified API for",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.4
+      },
+      {
+        "title": "[PDF] Basics of I2C on Linux - Bootlin",
+        "url": "https://bootlin.com/pub/conferences/2022/elce/ceresoli-basics-of-i2c-on-linux/ceresoli-basics-of-i2c-on-linux.pdf",
+        "snippet": "The I2C subsystem in the linux kernel - Kernel, drivers and embedded Linux. I2C “Devices” includes both adapters and clients: Client device driver: probe",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.475
+      },
+      {
+        "title": "I2C and SMBus Subsystem — The Linux Kernel documentation",
+        "url": "https://www.kernel.org/doc/html/v4.14/driver-api/i2c.html",
+        "snippet": "I2C (or without fancy typography, “I2C”) is an acronym for the “Inter-IC” bus, a simple bus protocol which is widely used where low data rate communications suffice. Since it’s also a licensed trademark, some vendors use another name (such as “Two-Wire Interface”, TWI) for the same bus. Most I2C devices use seven bit addresses, and bus speeds of up to 400 kHz; there’s a high speed extension (3.4 MHz) that’s not yet found wide use. I2C is a multi-master bus; open drain signaling is used to arbitrate between masters, as well as to handshake and to synchronize clocks from slower clients. An I2C “Adapter Driver” abstracts the controller hardware; it binds to a physical device (perhaps a PCI device or platform\\_device) and exposes a `struct i2c_adapter` representing each I2C bus segment it manages. On each I2C bus segment will be I2C devices represented by a `struct i2c_client`. Those devices will be bound to a `struct i2c_driver`, which should follow the standard Linux driver model.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.475
+      },
+      {
+        "title": "I2C and SMBus Subsystem — The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/driver-api/i2c.html",
+        "snippet": "# The Linux Kernel. I2C (or without fancy typography, “I2C”) is an acronym for the “Inter-IC” bus, a simple bus protocol which is widely used where low data rate communications suffice. An I2C “Adapter Driver” abstracts the controller hardware; it binds to a physical device (perhaps a PCI device or platform\\_device) and exposes a `struct i2c_adapter` representing each I2C bus segment it manages. On each I2C bus segment will be I2C devices represented by a `struct i2c_client`. Those devices will be bound to a `struct i2c_driver`, which should follow the standard Linux driver model. :   Where to store data read from slave, must be safe to use with DMA. Returns negative errno, or else the number of bytes read. :   Data that will be written to the slave, must be safe to use with DMA. :   Data that will be written to the slave. :   Flags for an I2C device driver.",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "I2C and SPI Drivers - Linux Kernel Internals",
+        "url": "https://kernel-internals.org/drivers/i2c-spi",
+        "snippet": "regmap: register access abstraction. regmap provides a unified API for register access across I2C, SPI, MMIO, and other buses: #include <linux/regmap.h>",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "regmap: Generic I2C and SPI register map library [LWN.net]",
+        "url": "https://lwn.net/Articles/451789",
+        "snippet": "# regmap: Generic I2C and SPI register map library. This is a version of a series I've been posting for most of this release cycle which abstracts out a bunch of widely duplicated code for doing register I/O on devices with control slow buses like I2C and SPI. Hopefully Jean, Ben and Grant will be OK with this and with some churn in this code from the regmap tree that may be created as we build out the core API and possibly refactor the interface to the bus code.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      },
+      {
+        "title": "I2C Signal Reverse Engineering - Rheingold Heavy",
+        "url": "https://rheingoldheavy.com/i2c-signal-reverse-engineering",
+        "snippet": "This module focuses on I2C signal reverse engineering, by taking an oscilloscope trace and breaking it into its constituent parts to determine the values.",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.375
+      },
+      {
+        "title": "How to reverse engineer I2C and SPI protocols?",
+        "url": "https://electronics.stackexchange.com/questions/350/how-to-reverse-engineer-i2c-and-spi-protocols",
+        "snippet": "If I have an unkown device which talk I2C or SPI how can I reverse engineer the protocol. Basically I am looking for something similar as snoop",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.55
+      },
+      {
+        "title": "Reverse Engineering SPI tools - Page 1",
+        "url": "https://www.eevblog.com/forum/projects/reverse-engineering-spi-tools",
+        "snippet": "# EEVblog® Electronics Community Forum. ### Author Topic: Reverse Engineering SPI tools  (Read 1348 times). 0 Members and 1 Guest are viewing this topic. #### Offline margceTopic starter. ##### Reverse Engineering SPI tools. #### Offline Benta. ### Share me. | EEVblog® Main Site | EEVblog® on Youtube | EEVblog® on Twitter | EEVblog® on Facebook | EEVblog® on Odysee |.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.35
+      }
+    ],
+    "exa": [
+      {
+        "title": "Serial Peripheral Interface (SPI) - The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/driver-api/spi.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "drivers/base/regmap/regmap-spi.c at master · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/master/drivers/base/regmap/regmap-spi.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.675
+      },
+      {
+        "title": "include/linux/spi/spi.h - kernel/common - Git at Google",
+        "url": "https://android.googlesource.com/kernel/common/+/d1b7f92035c6fb42529ada531e2cbf3534544c82/include/linux/spi/spi.h",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.325
+      },
+      {
+        "title": "Linux Kernel Documentation / spi / spi-summary.rst",
+        "url": "https://mjmwired.net/kernel/Documentation/spi/spi-summary.rst",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "drivers/spi/spi.c - linux - Git at Google",
+        "url": "https://gbmc.googlesource.com/linux/+/9805f39d423a30a7189158905ec3d71774fe98a1/drivers/spi/spi.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.35
+      },
+      {
+        "title": "Implementing I2C device drivers — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/6.4/i2c/writing-clients.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.65
+      },
+      {
+        "title": "I2C and SMBus Subsystem - The Linux Kernel documentation",
+        "url": "https://docs.kernel.org/driver-api/i2c.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa, tavily",
+        "score": 0.65
+      },
+      {
+        "title": "I2C and SMBus Subsystem — The Linux Kernel  documentation",
+        "url": "https://cdn.kernel.org/doc/html/latest/driver-api/i2c.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "How to instantiate I2C devices — The Linux Kernel  documentation",
+        "url": "https://kernel.org/doc/html/v6.3/i2c/instantiating-devices.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.375
+      },
+      {
+        "title": "I2C/SMBus Functionality — The Linux Kernel  documentation",
+        "url": "https://docs.kernel.org/next/i2c/functionality.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.625
+      },
+      {
+        "title": "I2C and SPI Drivers - Linux Kernel Internals",
+        "url": "https://kernel-internals.org/drivers/i2c-spi/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Linux-Kernel Archive: [PATCH 0/4] regmap: Generic I2C and SPI register map library",
+        "url": "https://lkml.indiana.edu/1107.1/03144.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.575
+      },
+      {
+        "title": "I2C Signal Reverse Engineering",
+        "url": "https://rheingoldheavy.com/i2c-signal-reverse-engineering/",
+        "snippet": "",
+        "published_date": "2015-01-17T18:00:13.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "drivers/base/regmap/regmap-spi.c at master · torvalds/linux",
+        "url": "https://github.com/torvalds/linux/blob/master/drivers/base/regmap/regmap-spi.c",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "In-kernel memory-mapped I/O tracing — The Linux Kernel  documentation",
+        "url": "https://www.kernel.org/doc/html/latest/trace/mmiotrace.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.35
+      }
+    ],
+    "grok": []
+  }
+}
