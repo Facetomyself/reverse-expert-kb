@@ -75,6 +75,27 @@ ssh oracle-proxy
 docker logs -f cliproxy
 ```
 
+### Update helper
+```bash
+ssh oracle-proxy
+/root/update_cliproxy.sh
+```
+
+Force recreate even when the target image tag already resolves to the same image ID:
+
+```bash
+ssh oracle-proxy
+/root/update_cliproxy.sh --force-recreate
+```
+
+The helper now compares the running container's immutable image SHA (`docker inspect .Image`) against the pulled target image ID. Do not compare through `Config.Image` when the image is a mutable tag such as `eceasy/cli-proxy-api:latest`; after `docker pull`, that tag may point to a newer image while the existing container still runs the old SHA, causing false "image unchanged" skips.
+
+Current helper safety checks:
+- pulls `eceasy/cli-proxy-api:latest` by default, with temporary override via `CLIPROXY_IMAGE=...`
+- recreates `cliproxy` only when the running image SHA differs unless forced
+- validates container running state, host port `8317`, and local `/management.html` HTTP 200
+- rolls back to the previous running image SHA if startup or health checks fail
+
 ## 8. Health Checks
 Healthy signs:
 - container `cliproxy` is `Up`
@@ -140,5 +161,6 @@ Practical triage guidance for future debugging:
 - Related host docs: `../HOST.md`, `../NETWORK.md`
 
 ## 13. Change History
+- 2026-06-17: Fixed `/root/update_cliproxy.sh` so the primary pool no longer skips recreation after `latest` is pulled. Root cause was comparing the current container through mutable `Config.Image=eceasy/cli-proxy-api:latest` instead of the container's actual image SHA. Upgraded primary `cliproxy` from running image `sha256:249c97b7...` (`v7.1.44` lineage) to current `latest` image `sha256:12f36000...`; local root and `/management.html` checks returned HTTP 200. Backup of the old helper: `/root/update_cliproxy.sh.bak-20260617-030559`.
 - 2026-03-19: documented Codex performance investigation, including proxy-vs-direct measurements, temporary no-proxy experiment, and follow-up debugging guidance
 - 2026-03-15: documented first-pass container and access information
