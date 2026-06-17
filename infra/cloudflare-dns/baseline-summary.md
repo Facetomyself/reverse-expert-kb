@@ -1,9 +1,9 @@
 # Cloudflare DNS Snapshot
 
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- record_count: 44
+- record_count: 46
 - type_counts:
-  - A: 34
+  - A: 36
   - AAAA: 2
   - MX: 4
   - TXT: 4
@@ -50,6 +50,8 @@
 - TXT send.zhangxuemin.work -> "v=spf1 include:amazonses.com ~all" proxied=false ttl=3600
 - AAAA tmail-front.zhangxuemin.work -> 100:: proxied=true ttl=1
 - AAAA tmail.zhangxuemin.work -> 100:: proxied=true ttl=1
+- A wa-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK edge via hk-relay for WA app
+- A wa.zhangxuemin.work -> 140.83.52.216 proxied=false ttl=300 comment=WA app global/source on oracle-mail
 - MX zhangxuemin.work -> route1.mx.cloudflare.net priority=56 proxied=false ttl=1
 - MX zhangxuemin.work -> route2.mx.cloudflare.net priority=24 proxied=false ttl=1
 - MX zhangxuemin.work -> route3.mx.cloudflare.net priority=98 proxied=false ttl=1

@@ -1,8 +1,8 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 44,
+  "record_count": 46,
   "type_counts": {
-    "A": 34,
+    "A": 36,
     "AAAA": 2,
     "MX": 4,
     "TXT": 4
@@ -312,6 +312,22 @@
       "content": "100::",
       "ttl": 1,
       "proxied": true
+    },
+    {
+      "name": "wa-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN/HK edge via hk-relay for WA app"
+    },
+    {
+      "name": "wa.zhangxuemin.work",
+      "type": "A",
+      "content": "140.83.52.216",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "WA app global/source on oracle-mail"
     },
     {
       "name": "zhangxuemin.work",
