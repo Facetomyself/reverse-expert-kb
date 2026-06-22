@@ -1,9 +1,9 @@
 # Cloudflare DNS Snapshot
 
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- record_count: 46
+- record_count: 48
 - type_counts:
-  - A: 36
+  - A: 38
   - AAAA: 2
   - MX: 4
   - TXT: 4
@@ -52,6 +52,8 @@
 - AAAA tmail.zhangxuemin.work -> 100:: proxied=true ttl=1
 - A wa-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK edge via hk-relay for WA app
 - A wa.zhangxuemin.work -> 140.83.52.216 proxied=false ttl=300 comment=WA app global/source on oracle-mail
+- A zcode-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK edge via hk-relay for zcode2api
+- A zcode.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=300 comment=zcode2api global/source entry via oracle-proxy Caddy
 - MX zhangxuemin.work -> route1.mx.cloudflare.net priority=56 proxied=false ttl=1
 - MX zhangxuemin.work -> route2.mx.cloudflare.net priority=24 proxied=false ttl=1
 - MX zhangxuemin.work -> route3.mx.cloudflare.net priority=98 proxied=false ttl=1

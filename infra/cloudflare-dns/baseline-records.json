@@ -1,8 +1,8 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 46,
+  "record_count": 48,
   "type_counts": {
-    "A": 36,
+    "A": 38,
     "AAAA": 2,
     "MX": 4,
     "TXT": 4
@@ -328,6 +328,22 @@
       "ttl": 300,
       "proxied": false,
       "comment": "WA app global/source on oracle-mail"
+    },
+    {
+      "name": "zcode-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN/HK edge via hk-relay for zcode2api"
+    },
+    {
+      "name": "zcode.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "zcode2api global/source entry via oracle-proxy Caddy"
     },
     {
       "name": "zhangxuemin.work",
