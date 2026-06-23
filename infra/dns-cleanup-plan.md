@@ -57,6 +57,7 @@
 - `ctf-gpt-cn.zhangxuemin.work`
 - `tmail.zhangxuemin.work`
 - `tmail-front.zhangxuemin.work`
+- `drop-cn.zhangxuemin.work`
 
 ### Current policy / mail-path records
 - `zhangxuemin.work MX -> route*.mx.cloudflare.net`

@@ -1,8 +1,8 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 48,
+  "record_count": 49,
   "type_counts": {
-    "A": 38,
+    "A": 39,
     "AAAA": 2,
     "MX": 4,
     "TXT": 4
@@ -140,6 +140,14 @@
       "ttl": 300,
       "proxied": false,
       "comment": "Kiro docs global/source on oracle-proxy"
+    },
+    {
+      "name": "drop-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 1,
+      "proxied": false,
+      "comment": "FileCodeBox CN/HK edge on hk-relay"
     },
     {
       "name": "drop.hk.zhangxuemin.work",

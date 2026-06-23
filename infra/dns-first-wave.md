@@ -74,6 +74,7 @@
 - `ctf-gpt-cn.zhangxuemin.work`
 - `tmail.zhangxuemin.work`
 - `tmail-front.zhangxuemin.work`
+- `drop-cn.zhangxuemin.work`
 
 ### Mail policy / sending-path records
 - root MX records for Cloudflare Email Routing
