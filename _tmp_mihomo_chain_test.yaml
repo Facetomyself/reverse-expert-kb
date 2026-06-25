@@ -1,0 +1,47 @@
+mixed-port: 7899
+allow-lan: false
+mode: rule
+log-level: debug
+ipv6: true
+
+dns:
+  enable: true
+  ipv6: true
+  enhanced-mode: fake-ip
+  nameserver:
+    - 223.5.5.5
+    - 1.1.1.1
+
+proxies:
+  - name: hk-socks
+    type: socks5
+    server: 154.86.30.10
+    port: 1080
+    username: zxmu
+    password: 3fbc4bb7d47e8fda
+    udp: true
+
+  - name: home-http-via-hk
+    type: http
+    server: 204.237.153.49
+    port: 60088
+    username: VbyYbQEAVhrp
+    password: lPgcIWCHPKQ9
+    tls: false
+    udp: false
+    dialer-proxy: HK-Transit
+
+proxy-groups:
+  - name: HK-Transit
+    type: select
+    proxies:
+      - hk-socks
+
+  - name: Proxy
+    type: select
+    proxies:
+      - home-http-via-hk
+      - DIRECT
+
+rules:
+  - MATCH,Proxy

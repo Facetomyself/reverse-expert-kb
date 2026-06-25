@@ -1,0 +1,31 @@
+mixed-port: 7900
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: true
+
+proxies:
+  - name: oracle-proxy-xray-reality
+    type: vless
+    server: 158.178.236.241
+    port: 14391
+    uuid: 62a6644b-0e24-4ec1-8a2d-5c95c84a248c
+    network: tcp
+    udp: true
+    tls: true
+    servername: player.live-video.net
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: byedoCbgTqEE_6onxgxE5Q2xZnzMqApdswmpmnnEAWg
+      short-id: 6ba85179e30d4fc2
+    client-fingerprint: chrome
+
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - oracle-proxy-xray-reality
+      - DIRECT
+
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,23 @@
+server: backup.zhangxuemin.work:443
+auth: Ol*yhh5Ic!#3lMHizocQ90c*x2-d41_A
+
+transport:
+  type: udp
+
+obfs:
+  type: salamander
+  salamander:
+    password: CFhqou0E2%lNAiXmlJ1MqntwzXyI2C7z
+
+bandwidth:
+  up: 200 mbps
+  down: 200 mbps
+
+fastOpen: true
+lazy: true
+
+socks5:
+  listen: 127.0.0.1:10808
+
+http:
+  listen: 127.0.0.1:10809

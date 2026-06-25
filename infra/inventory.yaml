@@ -62,6 +62,7 @@ hosts:
     public_ip: 140.83.52.216
     domains:
       - mail.zhangxuemin.work
+      - wa.zhangxuemin.work
     docs:
       host: infra/hosts/oracle-mail/HOST.md
       network: infra/hosts/oracle-mail/NETWORK.md
@@ -83,22 +84,23 @@ hosts:
       network: infra/hosts/ali-cloud/NETWORK.md
       projects: infra/hosts/ali-cloud/PROJECTS.md
 
-  - name: oracle-registry
-    ssh_alias: oracle-registry
+  - name: oracle-newapi-primary
+    ssh_alias: oracle-newapi-primary
     provider: oracle
     role:
-      - registry-front-door-host
+      - newapi-primary
+      - ai-api-relay-host
       - ubuntu-arm-host
     public_ip: 140.245.33.114
+    aliases:
+      - oracle-registry
     domains:
-      - hub.zhangxuemin.work
-      - ghcr.zhangxuemin.work
-      - k8s.zhangxuemin.work
-      - mcr.zhangxuemin.work
+      - newapi.zhangxuemin.work
+      - ai.zhangxuemin.work
     docs:
-      host: infra/hosts/oracle-registry/HOST.md
-      network: infra/hosts/oracle-registry/NETWORK.md
-      projects: infra/hosts/oracle-registry/PROJECTS.md
+      host: infra/hosts/oracle-newapi-primary/HOST.md
+      network: infra/hosts/oracle-newapi-primary/NETWORK.md
+      projects: infra/hosts/oracle-newapi-primary/PROJECTS.md
 
   - name: hk-relay
     ssh_alias: hk-relay
@@ -115,6 +117,7 @@ hosts:
       - cliproxy-cn.zhangxuemin.work
       - proxy-bak-cn.zhangxuemin.work
       - claw-cn.zhangxuemin.work
+      - ai-cn.zhangxuemin.work
       - cpam-cn.zhangxuemin.work
       - gptam-cn.zhangxuemin.work
       - kiro-cn.zhangxuemin.work
@@ -122,6 +125,7 @@ hosts:
       - docs-cn.zhangxuemin.work
       - card-cn.zhangxuemin.work
       - gpt-card-cn.zhangxuemin.work
+      - wa-cn.zhangxuemin.work
       - zcode-cn.zhangxuemin.work
       - reverse-cn.zhangxuemin.work
       - ctf-gpt-cn.zhangxuemin.work
@@ -129,20 +133,23 @@ hosts:
       host: infra/hosts/hk-relay/HOST.md
       network: infra/hosts/hk-relay/NETWORK.md
 
-  - name: oracle-reverse-dev
-    ssh_alias: oracle-reverse-dev
+  - name: oracle-newapi-standby
+    ssh_alias: oracle-newapi-standby
     provider: oracle
     role:
-      - utility-worker-host
-      - reverse-development-host
+      - newapi-standby
+      - ai-api-relay-host
       - ubuntu-arm-host
     public_ip: 140.245.61.236
+    aliases:
+      - oracle-reverse-dev
     domains:
+      - newapi-standby.zhangxuemin.work
       - reverse-cn.zhangxuemin.work
-      - ctf-gpt-cn.zhangxuemin.work
     docs:
-      host: infra/hosts/oracle-reverse-dev/HOST.md
-      projects: infra/hosts/oracle-reverse-dev/PROJECTS.md
+      host: infra/hosts/oracle-newapi-standby/HOST.md
+      network: infra/hosts/oracle-newapi-standby/NETWORK.md
+      projects: infra/hosts/oracle-newapi-standby/PROJECTS.md
 
   - name: self-server
     ssh_alias: self-server

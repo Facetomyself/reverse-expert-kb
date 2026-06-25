@@ -1,0 +1,351 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: true
+unified-delay: true
+tcp-concurrent: true
+profile:
+  store-selected: true
+  store-fake-ip: true
+dns:
+  enable: true
+  ipv6: true
+  enhanced-mode: fake-ip
+  nameserver:
+  - 223.5.5.5
+  - 1.1.1.1
+  fallback:
+  - https://1.1.1.1/dns-query
+  - https://dns.google/dns-query
+  fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - localhost.ptlogin2.qq.com
+  - time.*.com
+  - time.*.gov
+  - time.*.edu.cn
+  - time.*.apple.com
+  - ntp.*.com
+  - ntp.*.com.cn
+  - '*.ntp.org.cn'
+  - +.pool.ntp.org
+  - connect.rom.miui.com
+  - connectivitycheck.gstatic.com
+  - detectportal.firefox.com
+  - msftconnecttest.com
+  - msftncsi.com
+  - '*.home.arpa'
+  - router.asus.com
+  - routerlogin.net
+proxies:
+- name: 香港 01
+  type: hysteria2
+  server: 154.86.30.10
+  port: 8444
+  password: db8cb0279a30e252754be058a7efe09f
+  sni: www.apple.com
+  skip-cert-verify: true
+  udp: true
+- name: 香港 02
+  type: vless
+  server: 154.86.30.10
+  port: 8443
+  uuid: 7d426249-1723-437e-8e17-70e9cca11a03
+  network: tcp
+  udp: true
+  tls: true
+  servername: www.cloudflare.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: KFJNJ2wp9cnCSiDel7ur72xAFWUZ7wdHa356ORxAplQ
+    short-id: 3fbc4bb7d47e8fda
+  client-fingerprint: chrome
+- name: 香港 03
+  type: socks5
+  server: 154.86.30.10
+  port: 1080
+  username: zxmu
+  password: 3fbc4bb7d47e8fda
+  udp: true
+- name: 香港 04
+  type: http
+  server: 154.86.30.10
+  port: 1081
+  username: zxmu
+  password: yqpCVgYXUL7yYgy22ovnlq44ZHJ5yeUq
+  tls: false
+  udp: false
+- name: 家庭出口 01
+  type: http
+  server: 204.237.153.49
+  port: 60088
+  username: VbyYbQEAVhrp
+  password: lPgcIWCHPKQ9
+  tls: false
+  udp: false
+  dialer-proxy: 香港 02
+- name: 新加坡 01
+  type: hysteria2
+  server: backup.zhangxuemin.work
+  port: 443
+  password: Ol*yhh5Ic!#3lMHizocQ90c*x2-d41_A
+  sni: backup.zhangxuemin.work
+  skip-cert-verify: false
+  obfs: salamander
+  obfs-password: CFhqou0E2%lNAiXmlJ1MqntwzXyI2C7z
+  udp: true
+- name: 备用 02
+  type: hysteria2
+  server: 158.178.236.241
+  port: 30002
+  password: 822d37a6-4859-4281-ad0e-0dff90345258
+  sni: mozilla.org
+  skip-cert-verify: true
+  udp: true
+- name: 备用 03
+  type: socks5
+  server: 106.15.239.221
+  port: 2080
+  username: gateway
+  password: mIw3JsLfsnLFu1yw0mcElNPW
+  udp: true
+proxy-groups:
+- name: 自动选择
+  type: url-test
+  proxies:
+  - 香港 01
+  - 香港 02
+  - 新加坡 01
+  - 备用 02
+  - 备用 03
+  url: https://cp.cloudflare.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 香港优先
+  type: select
+  proxies:
+  - 香港 01
+  - 香港 02
+  - 香港 03
+  - 香港 04
+  - 自动选择
+  - DIRECT
+- name: AI账号
+  type: select
+  proxies:
+  - 家庭出口 01
+  - 新加坡 01
+  - 自动选择
+  - DIRECT
+- name: 大文件
+  type: select
+  proxies:
+  - 香港 03
+  - 香港 04
+  - 备用 03
+  - 自动选择
+  - DIRECT
+- name: 故障切换
+  type: fallback
+  proxies:
+  - 新加坡 01
+  - 备用 02
+  - 备用 03
+  - 香港 01
+  - DIRECT
+  url: https://cp.cloudflare.com/generate_204
+  interval: 300
+- name: 手动选择
+  type: select
+  proxies:
+  - 自动选择
+  - 香港优先
+  - AI账号
+  - 大文件
+  - 故障切换
+  - 香港 01
+  - 香港 02
+  - 香港 03
+  - 香港 04
+  - 家庭出口 01
+  - 新加坡 01
+  - 备用 02
+  - 备用 03
+  - DIRECT
+rule-providers:
+  geosite-private:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    path: ./rulesets/geosite-private.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs
+    proxy: 自动选择
+  geoip-private:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    interval: 86400
+    path: ./rulesets/geoip-private.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs
+    proxy: 自动选择
+  geosite-cn:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    path: ./rulesets/geosite-cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs
+    proxy: 自动选择
+  geoip-cn:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    interval: 86400
+    path: ./rulesets/geoip-cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs
+    proxy: 自动选择
+  ai-non-cn:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    path: ./rulesets/ai-non-cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs
+    proxy: 自动选择
+  dev:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    path: ./rulesets/dev.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-dev.mrs
+    proxy: 自动选择
+  github:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    path: ./rulesets/github.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs
+    proxy: 自动选择
+  google:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    path: ./rulesets/google.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs
+    proxy: 自动选择
+  cloudflare:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    path: ./rulesets/cloudflare.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cloudflare.mrs
+    proxy: 自动选择
+  docker:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    path: ./rulesets/docker.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/docker.mrs
+    proxy: 自动选择
+  npmjs:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    path: ./rulesets/npmjs.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/npmjs.mrs
+    proxy: 自动选择
+  python:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    path: ./rulesets/python.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/python.mrs
+    proxy: 自动选择
+  telegram:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    path: ./rulesets/telegram.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs
+    proxy: 自动选择
+  discord:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    path: ./rulesets/discord.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/discord.mrs
+    proxy: 自动选择
+  youtube:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    path: ./rulesets/youtube.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs
+    proxy: 自动选择
+rules:
+- DOMAIN-SUFFIX,local,DIRECT
+- DOMAIN-SUFFIX,lan,DIRECT
+- RULE-SET,geosite-private,DIRECT
+- RULE-SET,geoip-private,DIRECT,no-resolve
+- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+- IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+- DOMAIN-SUFFIX,openai.com,AI账号
+- DOMAIN-SUFFIX,chatgpt.com,AI账号
+- DOMAIN-SUFFIX,oaistatic.com,AI账号
+- DOMAIN-SUFFIX,oaiusercontent.com,AI账号
+- DOMAIN-SUFFIX,anthropic.com,AI账号
+- DOMAIN-SUFFIX,claude.ai,AI账号
+- DOMAIN-SUFFIX,x.ai,AI账号
+- DOMAIN-SUFFIX,grok.com,AI账号
+- RULE-SET,ai-non-cn,AI账号
+- DOMAIN-SUFFIX,huggingface.co,大文件
+- DOMAIN-SUFFIX,hf.co,大文件
+- DOMAIN-SUFFIX,huggingfaceusercontent.com,大文件
+- DOMAIN-SUFFIX,cdn-lfs.huggingface.co,大文件
+- DOMAIN-SUFFIX,github-releases.githubusercontent.com,大文件
+- DOMAIN-SUFFIX,objects.githubusercontent.com,大文件
+- DOMAIN-SUFFIX,ghcr.io,大文件
+- DOMAIN-SUFFIX,docker.com,大文件
+- DOMAIN-SUFFIX,docker.io,大文件
+- DOMAIN-SUFFIX,dockerusercontent.com,大文件
+- DOMAIN-SUFFIX,quay.io,大文件
+- DOMAIN-SUFFIX,npmjs.org,大文件
+- DOMAIN-SUFFIX,registry.npmjs.org,大文件
+- DOMAIN-SUFFIX,pypi.org,大文件
+- DOMAIN-SUFFIX,pythonhosted.org,大文件
+- DOMAIN-SUFFIX,files.pythonhosted.org,大文件
+- RULE-SET,docker,大文件
+- RULE-SET,npmjs,大文件
+- RULE-SET,python,大文件
+- RULE-SET,github,自动选择
+- RULE-SET,google,自动选择
+- RULE-SET,cloudflare,自动选择
+- RULE-SET,dev,自动选择
+- RULE-SET,telegram,自动选择
+- RULE-SET,discord,自动选择
+- RULE-SET,youtube,自动选择
+- DOMAIN-SUFFIX,gitlab.com,自动选择
+- DOMAIN-SUFFIX,bitbucket.org,自动选择
+- DOMAIN-SUFFIX,jsdelivr.net,自动选择
+- DOMAIN-SUFFIX,unpkg.com,自动选择
+- DOMAIN-SUFFIX,workers.dev,自动选择
+- RULE-SET,geosite-cn,DIRECT
+- RULE-SET,geoip-cn,DIRECT,no-resolve
+- GEOSITE,CN,DIRECT
+- GEOIP,CN,DIRECT
+- MATCH,自动选择

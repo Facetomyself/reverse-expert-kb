@@ -91,16 +91,15 @@ Operational note:
 - 2026-04-13 migration decision moved the active FRPS relay role off `:44005` and back onto `:44001`, so this VM should no longer be treated as the long-term FRP relay host.
 - Effective application-focused public TCP allocation after the later EasyAI bring-up is now intended to be:
   - `30001/tcp` -> `NapCat WebUI`
-  - `30002/tcp` -> `EasyAI WebUI`
-  - `30003/tcp` -> `EasyAI API`
-  - `30004/tcp` -> `EasyAI WS gateway`
+  - `30002/tcp` -> `ruyipage 151-ruyi` static release mirror
+  - `30003/tcp` -> free/unassigned after EasyAI removal
+  - `30004/tcp` -> free/unassigned after EasyAI removal
   - `30005/tcp` -> `AstrBot` / QQ personal / OneBot v11 host publish
   - `30006/tcp` -> `AstrBot` auxiliary publish
   - `30007/tcp` -> `AstrBot WebUI`
   - `30008/tcp` -> `1panel-core`
-  - `30009/tcp` -> `EasyAI ASG / governance API`
-- Former FRPS-related ports on `:44005` that should now stay free unless explicitly redesigned:
-  - `30010/tcp`
+  - `30009/tcp` -> free/unassigned after EasyAI removal
+  - `30010/tcp` -> `ChatGpt Image Studio`
 - Historical note:
   - `:44005` did temporarily host the live FRPS relay and business-service mappings on 2026-04-08 through 2026-04-12
   - those mappings were migrated on 2026-04-13 to the cleaner `:44001` FRPS layout using `30012` control and payload ports beginning at `30014`
@@ -122,7 +121,119 @@ Operational note:
   - same-day public-port snapshot from `ali-cloud` against the shared public IP after the fix showed the currently effective external-open subset on `:44005` is at least:
     - open: `30001`, `30002`, `30003`, `30004`, `30005`, `30007`, `30008`, `30009`
     - closed/refused: `30006`, `30010`
+- Live validation on 2026-04-24 after ChatGpt Image Studio bring-up:
+  - Docker now binds `30010/tcp -> 7000/tcp` for container `chatgpt-image-studio` from `/opt/chatgpt-image-studio`
+  - host-local `curl http://127.0.0.1:30010/health` returned `{"status":"ok"}`
+  - transit-side validation from `ali-cloud` confirmed public `211.144.221.229:30010/health` returned `200 OK`
+  - additional ali-cloud-side functional probes also confirmed:
+    - `POST /auth/login` succeeds with the configured app auth key
+    - `GET /v1/models` succeeds with the configured app API key
+  - local runtime validation on `host185` confirmed the service can talk to the oracle-proxy CPA stack and the first deployment ended with `26` synced local accounts available to the UI/API
+  - practical interpretation:
+    - `30010/tcp` is no longer a spare FRPS-era leftover; it is now an actively assigned application slot on `:44005`
+
+- Live validation on 2026-06-08 after EasyAI removal and ruyipage deployment:
+  - EasyAI stack under `/opt/easyai` was removed without archive by user request
+  - former EasyAI listeners were confirmed freed: `30003`, `30004`, `30009`, plus helper ports `8080`, `8888`, `8000`, `5672`, `15672`, `27017`, and `3004`
+  - `30002/tcp` is now assigned to `ruyipage-151.service` (`python3 -m http.server`) serving `/opt/ruyipage-151`
+  - current effective application subset on `:44005` observed after the change:
+    - `30001` -> `NapCat WebUI`
+    - `30002` -> `ruyipage 151-ruyi` static release mirror
+    - `30003` -> `proxy_pool` API (`/opt/proxy_pool`, Docker Compose; added 2026-06-16 after disabling temporary `textdrop.service`)
+    - `30004` -> free/unassigned
+    - `30005` -> `AstrBot` / QQ personal / OneBot v11 host publish
+    - `30006` -> `AstrBot` auxiliary publish
+    - `30007` -> `AstrBot WebUI`
+    - `30008` -> `1Panel`
+    - `30009` -> free/unassigned
+    - `30010` -> `ChatGpt Image Studio`
+  - transit-side probe from `ali-cloud` confirmed `http://211.144.221.229:30002/` and the Linux package URL return `200 OK`; package `Content-Length` was `103125296`
+  - cleanup follow-up: user explicitly confirmed at 2026-06-08 14:41 GMT+8 that `crawl4ai_redis_data`, `linovel_scrapy_redis_data`, and `mailu_api_redis_data` should also be cleaned; follow-up checks confirmed all three Docker volumes are removed
+- Live validation on 2026-06-16 after proxy_pool deployment:
+  - Docker Compose project under `/opt/proxy_pool` now runs `proxy_pool_server`, `proxy_pool_scheduler`, and internal Redis container `proxy_pool_redis`
+  - published mapping is `30003/tcp -> proxy_pool_server:5010`
+  - host-local `GET http://127.0.0.1:30003/` returned the ProxyPool API index
+  - host-local and ali-cloud transit-side `GET http://211.144.221.229:30003/count/` returned JSON successfully
+  - machine health after deployment: root filesystem about `25%` used, memory headroom about `13G` available, Docker services including NapCat/AstrBot/ChatGpt Image Studio restarted and were running after a Docker daemon restart used to clear a stuck first-attempt `proxy_pool` container
+
+- Live validation on 2026-06-17 after AstrBot upgrade:
+  - `astrbot` now runs image `soulter/astrbot:v4.26.0-beta.4` with the existing port mappings preserved.
+  - host-local `GET http://127.0.0.1:30007/` returned `200`; public transit-side `GET http://211.144.221.229:30007/` from `ali-cloud` returned `200`.
+  - `HEAD /` returned `405` on the upgraded WebUI, so future health checks should use `GET` rather than assuming HEAD support.
 - Firewall caution:
   - do not broadly open `30001-30010` just because the VM owns that range; only keep the ports that are actually assigned to running services
-  - after the EasyAI reassignment, only residual FRPS-era public opens for `30009/30010` should still be treated as cleanup candidates unless a future redesign explicitly reuses them
+  - after the ChatGpt Image Studio reassignment, `30010` should be treated as live application exposure rather than cleanup residue
 - Final outbound model remains explicit rather than transparent: this VM keeps a local `dnsmasq` listener on `127.0.0.1:53`, forwards DNS to `106.15.239.221#1053`, and uses `ali-cloud` authenticated proxy ingress on `:2081` / `:2080` for shell and Docker egress; the short-lived transparent TUN experiment was removed after proving unstable for general HTTPS traffic.
+
+
+## Oracle -> self-server bulk transfer note (2026-05-25)
+
+A transfer test from `oracle-proxy` to `self-server:44001` showed that the domestic host's default shell proxy environment is bad for this direction of large-file movement.
+
+Summary:
+
+- `oracle-proxy` direct SSH/TCP to `self-server` public SSH ports timed out, so the practical test shape was HTTP pull from `self-server`.
+- A 512 MiB attempt with the normal shell proxy environment was interrupted after ~96s at only ~37.7 MiB transferred (~394 KiB/s).
+- 64 MiB direct no-proxy pull from `self-server` to `oracle-proxy` completed successfully at ~6.9–9.6 MiB/s with SHA256 verified.
+- Temporarily switching `ali-cloud` selector to `hk-http` did not help this direction; the proxied path still sat around ~380 KiB/s and was interrupted.
+
+Operational rule:
+
+For deliberate bulk pulls from Oracle hosts to `self-server`, unset proxy variables for the single transfer or add the source Oracle IP to `NO_PROXY`. Do not rely on the default `http_proxy` / `all_proxy` shell environment.
+
+Detailed report: `oracle-transfer-test-2026-05-25.md`.
+
+
+## dufs domestic file-drop test note (2026-05-25)
+
+A temporary authenticated `dufs` service was tested on `self-server:30019` and fully removed after the test.
+
+Result:
+
+- `self-server -> 127.0.0.1:30019`: OK
+- `ali-cloud -> 211.144.221.229:30019`: OK
+- `oracle-proxy -> 211.144.221.229:30019`: timed out
+- `oracle-proxy -> ali-cloud HTTP proxy -> self-server:30019`: not suitable for large uploads; one 64 MiB attempt ended with HTTP `502` and no file, and a 512 MiB attempt stabilized around `~0.4 MiB/s` before being killed.
+
+Interpretation:
+
+- `dufs` itself is usable, but placing the file-drop on `self-server` does not solve Oracle -> domestic transfer because this Oracle source cannot directly reach the shared-IP domestic service port.
+- The measured good path remains foreign-side serving plus `self-server` no-proxy pull.
+
+Detailed report: `dufs-relay-test-2026-05-25.md`.
+
+
+## hk-relay pull comparison note (2026-05-25)
+
+A no-proxy pull from `self-server` to `hk-relay` dufs (`154.86.30.10:8088`) was tested as a possible Oracle -> HK -> domestic staging path.
+
+Result:
+
+- 512 MiB completed with SHA256 verified after one timeout + HTTP Range resume.
+- Effective rate was roughly `1.1–1.3 MiB/s`.
+- 2 GiB capped sample averaged about `1.0 MiB/s`, projecting roughly `35–36 minutes` for a full 2 GiB file.
+
+Interpretation:
+
+- HK staging works and is resumable, but it is significantly slower than direct `self-server` no-proxy pull from `oracle-proxy` (`~6.9–9.6 MiB/s`).
+- Prefer foreign/Oracle-side serving plus `self-server` no-proxy pull for bulk movement; keep HK dufs as fallback/convenience, not default bulk bridge.
+
+
+## Priority large-file transfer receiver role (2026-05-25)
+
+This host is now prepared as the domestic receiver for the preferred large-file transfer path.
+
+Installed helper:
+
+```text
+/usr/local/sbin/openclaw-transfer-pull-no-proxy.sh
+```
+
+Operational stance:
+
+- receive large files by pulling from the foreign/Oracle source
+- always unset `http_proxy` / `https_proxy` / `all_proxy` for the transfer
+- use HTTP Range resume (`curl -C -`) and SHA256 verification
+- avoid inbound Oracle -> self-server service-port designs unless reachability changes
+
+Canonical runbook: `../../large-file-transfer-priority-path.md`.

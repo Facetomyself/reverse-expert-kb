@@ -1,0 +1,24 @@
+{
+  "changed": true,
+  "added_count": 2,
+  "removed_count": 0,
+  "added": [
+    {
+      "comment": "CN/HK edge via hk-relay for WA app",
+      "content": "154.86.30.10",
+      "name": "wa-cn.zhangxuemin.work",
+      "proxied": false,
+      "ttl": 300,
+      "type": "A"
+    },
+    {
+      "comment": "WA app global/source on oracle-mail",
+      "content": "140.83.52.216",
+      "name": "wa.zhangxuemin.work",
+      "proxied": false,
+      "ttl": 300,
+      "type": "A"
+    }
+  ],
+  "removed": []
+}

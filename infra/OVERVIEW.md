@@ -5,8 +5,8 @@
 - `oracle-proxy` — proxy/search/tooling host
 - `oracle-gateway` — gateway / Hysteria host
 - `oracle-mail` — web-app host with archived mail-stack footprints
-- `oracle-registry` — current registry front-door host
-- `oracle-reverse-dev` — reverse-development utility host
+- `oracle-newapi-primary` — primary New API / AI API relay host; former `oracle-registry`
+- `oracle-newapi-standby` — standby New API / AI API relay host; former `oracle-reverse-dev`
 
 ## Naming policy
 - Use only the semantic names above in current docs and automation.
@@ -17,10 +17,12 @@
 - primary gateway / Hysteria machine
 - helper `caddy` reduced to local/helper ports
 
-### `oracle-registry`
-- current registry front-door host
-- use this name everywhere instead of earlier generic host naming
+### `oracle-newapi-primary`
+- primary New API / AI API relay host, formerly `oracle-registry`
+- New API lives at `/opt/new-api`, loopback app listener `127.0.0.1:13000`, Caddy public HTTP on `:80`
+- prefer this canonical name; keep `oracle-registry` only as a compatibility alias
 
-### `oracle-reverse-dev`
-- current reverse-development / MCP utility host
-- use this name everywhere instead of earlier generic host naming
+### `oracle-newapi-standby`
+- standby New API / AI API relay host, formerly `oracle-reverse-dev`
+- New API lives at `/opt/new-api`, loopback app listener `127.0.0.1:13000`, Caddy public HTTP on `:80`
+- prefer this canonical name; keep `oracle-reverse-dev` only as a compatibility alias

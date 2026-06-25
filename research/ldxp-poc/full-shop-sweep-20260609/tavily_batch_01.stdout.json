@@ -1,0 +1,82 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "site:pay.ldxp.cn/shop",
+    "site:pay.ldxp.cn/shop 链动小铺",
+    "site:pay.ldxp.cn/shop 自动发卡",
+    "site:pay.ldxp.cn/shop 自动发卡网",
+    "site:pay.ldxp.cn/shop 店铺地址"
+  ],
+  "count": 4,
+  "results": [
+    {
+      "title": "冒险岛宇宙- 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/lucifer",
+      "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "wobuhuijianji - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/HF7SHNTA",
+      "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "mozheAPI - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/XEBRMV34",
+      "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "晓晓游戏屋- 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/96H3487D",
+      "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "冒险岛宇宙- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/lucifer",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "wobuhuijianji - 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/HF7SHNTA",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "mozheAPI - 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/XEBRMV34",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "晓晓游戏屋- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/96H3487D",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      }
+    ]
+  }
+}

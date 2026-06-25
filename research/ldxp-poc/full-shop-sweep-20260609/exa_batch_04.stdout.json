@@ -1,0 +1,194 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "site:pay.ldxp.cn/shop 会员",
+    "site:pay.ldxp.cn/shop 账号",
+    "site:pay.ldxp.cn/shop 软件",
+    "site:pay.ldxp.cn/shop 课程",
+    "site:pay.ldxp.cn/shop 兑换"
+  ],
+  "count": 11,
+  "results": [
+    {
+      "title": "晓晓游戏屋- 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/96H3487D",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "购买会员 - 自动发卡网",
+      "url": "https://pay.ldxp.cn/shop/mekyun",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Z3vskegc",
+      "url": "https://pay.ldxp.cn/shop/Z3VSKEGC",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Kd7he66s",
+      "url": "https://pay.ldxp.cn/shop/KD7HE66S",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Mirage",
+      "url": "https://pay.ldxp.cn/shop/mirage",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Loa3izw5",
+      "url": "https://pay.ldxp.cn/shop/LOA3IZW5",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "AI账号资源 - 自动发卡网",
+      "url": "https://pay.ldxp.cn/shop/KQ73NYO7",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "9wqwaimd",
+      "url": "https://pay.ldxp.cn/shop/9WQWAIMD",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "mozheAPI - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/XEBRMV34",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "AI特战队- 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/RSIAY6WR",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "F6r79hva",
+      "url": "https://pay.ldxp.cn/shop/F6R79HVA",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "晓晓游戏屋- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/96H3487D",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "购买会员 - 自动发卡网",
+        "url": "https://pay.ldxp.cn/shop/mekyun",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Z3vskegc",
+        "url": "https://pay.ldxp.cn/shop/Z3VSKEGC",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Kd7he66s",
+        "url": "https://pay.ldxp.cn/shop/KD7HE66S",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Mirage",
+        "url": "https://pay.ldxp.cn/shop/mirage",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Loa3izw5",
+        "url": "https://pay.ldxp.cn/shop/LOA3IZW5",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "AI账号资源 - 自动发卡网",
+        "url": "https://pay.ldxp.cn/shop/KQ73NYO7",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "9wqwaimd",
+        "url": "https://pay.ldxp.cn/shop/9WQWAIMD",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "mozheAPI - 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/XEBRMV34",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "AI特战队- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/RSIAY6WR",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "F6r79hva",
+        "url": "https://pay.ldxp.cn/shop/F6R79HVA",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      }
+    ]
+  }
+}

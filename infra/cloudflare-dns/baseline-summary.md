@@ -1,7 +1,7 @@
 # Cloudflare DNS Snapshot
 
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- record_count: 48
+- record_count: 49
 - type_counts:
   - A: 38
   - AAAA: 2

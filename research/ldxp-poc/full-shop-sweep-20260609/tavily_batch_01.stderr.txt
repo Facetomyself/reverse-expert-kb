@@ -1,0 +1,1 @@
+[tavily] error: 400 Client Error: Bad Request for url: http://proxy.zhangxuemin.work:9874/api/search

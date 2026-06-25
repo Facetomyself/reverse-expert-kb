@@ -85,16 +85,21 @@ Recorded on 2026-04-04 because public IP / forwarding resources are limited on t
 - Preferred public-use budget remains: `30001-30010`
 - Main intended public occupancy now is:
   - `30001` -> `NapCat WebUI`
+  - `30002` -> `ruyipage 151-ruyi` static release mirror
+  - `30003` -> `proxy_pool` free proxy pool API (`/opt/proxy_pool`, Docker Compose, API mapped to container `5010`)
+  - `30004` -> free/unassigned after EasyAI removal
   - `30005` -> `AstrBot` OneBot / QQ personal host publish
   - `30006` -> `AstrBot` auxiliary publish
   - `30007` -> `AstrBot WebUI`
   - `30008` -> `1panel-core`
+  - `30009` -> free/unassigned after EasyAI removal
+  - `30010` -> `ChatGpt Image Studio`
 - Historical note:
   - this VM temporarily carried the active FRPS relay role on 2026-04-08 through 2026-04-12, using `30009/30010` plus service ports like `30002-30004`
   - that relay role was intentionally migrated away on 2026-04-13 so the smaller `:44005` budget could be reclaimed for application traffic
 - Desired steady state after migration:
-  - keep `1Panel`, SSH, `NapCat`, and `AstrBot`
-  - keep `30002/30003/30004/30009/30010` cleared unless a future redesign explicitly reassigns them
+  - keep `1Panel`, SSH, `NapCat`, `AstrBot`, `ruyipage 151-ruyi`, and `ChatGpt Image Studio`
+  - treat the `30001-30010` allocation as intentionally assigned service budget rather than “free by default”; only reclaim ports during an explicit redesign
   - avoid reintroducing unrelated long-lived dev tooling
 - Outbound access model:
   - keep local resolver pointed at `127.0.0.1`
@@ -107,3 +112,22 @@ Recorded on 2026-04-04 because public IP / forwarding resources are limited on t
 - Prefer `ali-cloud` as the transit path for routine access from the current OpenClaw environment
 - Treat `self-server` (`:44001`) and `self-server-44005` (`:44005`) as distinct machines even though they share the same public IP
 - Before introducing any new externally reachable service, first map it into the user-confirmed per-VM TCP budget above
+
+
+## 2026-06-08 update
+- On `:44005` / `host185`, the user requested EasyAI be fully cleaned with no archive and ruyipage deployed on the freed host.
+- EasyAI was removed from `/opt/easyai`; its containers/images/networks were cleaned, and its former ports `30002`, `30003`, `30004`, and `30009` were released.
+- `ruyipage 151-ruyi` is now deployed on `30002/tcp` via `ruyipage-151.service`, serving only the Linux release package from `/opt/ruyipage-151`.
+- Cleanup follow-up: user explicitly confirmed at 2026-06-08 14:41 GMT+8 that `crawl4ai_redis_data`, `linovel_scrapy_redis_data`, and `mailu_api_redis_data` should also be cleaned; follow-up checks confirmed all three Docker volumes are removed.
+
+## 2026-06-16 update
+- On `:44005` / `host185`, deployed `jhao104/proxy_pool` under `/opt/proxy_pool` using Docker Compose.
+- Public API mapping is `211.144.221.229:30003 -> proxy_pool_server:5010`; Redis is internal-only as `proxy_pool_redis` with persistent Compose volume `proxy_pool_redis_data`.
+- Runtime uses split containers `proxy_pool_server` (`python proxyPool.py server`) and `proxy_pool_scheduler` (`python proxyPool.py schedule`) because the upstream `jhao104/proxy_pool:latest` image entrypoint references `bash`, which is absent in the image, causing the stock entrypoint to restart with exit `127`.
+- Former temporary `textdrop.service` on `30003/tcp` was disabled so the port could be reassigned to `proxy_pool`; `/opt/textdrop` was not documented as deleted.
+- Validation: host-local `http://127.0.0.1:30003/` returned the ProxyPool API index; host-local and ali-cloud transit-side `GET /count/` returned JSON; `proxy_pool_scheduler` had begun fetching sources. The pool count was initially `0`, which is normal immediately after startup before proxy validation succeeds.
+
+## 2026-06-17 update
+- On `:44005` / `host185`, upgraded the 1Panel-managed AstrBot deployment for `http://211.144.221.229:30007` from `soulter/astrbot:v4.22.3` to `soulter/astrbot:v4.26.0-beta.4`.
+- Pre-upgrade backup kept on-host at `/opt/backups/astrbot/astrbot-pre-upgrade-20260617-150324.tgz`; post-upgrade WebUI and OneBot listener validation passed.
+- Direct Docker Hub pull from the domestic host was unreliable, so the successful image transfer path staged the saved image tarball on `oracle-proxy` and let `host185` pull it without proxy before `docker load`.

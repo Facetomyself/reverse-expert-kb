@@ -1,0 +1,281 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "site:pay.ldxp.cn/shop 充值",
+    "site:pay.ldxp.cn/shop 代充",
+    "site:pay.ldxp.cn/shop 微信",
+    "site:pay.ldxp.cn/shop 支付宝",
+    "site:pay.ldxp.cn/shop QQ"
+  ],
+  "count": 16,
+  "results": [
+    {
+      "title": "https://pay.ldxp.cn/shop/22SC405L",
+      "url": "https://pay.ldxp.cn/shop/22SC405L",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "充值 - 自动发卡网",
+      "url": "https://pay.ldxp.cn/shop/mirage",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Parhom",
+      "url": "https://pay.ldxp.cn/shop/parhom",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Ydbsq123",
+      "url": "https://pay.ldxp.cn/shop/ydbsq123",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Kd7he66s",
+      "url": "https://pay.ldxp.cn/shop/KD7HE66S",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Yuanai",
+      "url": "https://pay.ldxp.cn/shop/yuanAi",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Jvdcg8ig",
+      "url": "https://pay.ldxp.cn/shop/JVDCG8IG",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Lvvk5rty",
+      "url": "https://pay.ldxp.cn/shop/LVVK5RTY",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Wjgysheh",
+      "url": "https://pay.ldxp.cn/shop/WJGYSHEH",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Hngfw0ma",
+      "url": "https://pay.ldxp.cn/shop/HNGFW0MA",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Ysr74hu9",
+      "url": "https://pay.ldxp.cn/shop/YSR74HU9",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Z3vskegc",
+      "url": "https://pay.ldxp.cn/shop/Z3VSKEGC",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "https://pay.ldxp.cn/shop/1S5RU8IS",
+      "url": "https://pay.ldxp.cn/shop/1S5RU8IS",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "冒险岛宇宙- 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/lucifer",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Ice",
+      "url": "https://pay.ldxp.cn/shop/ice",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "https://pay.ldxp.cn/shop/MAMY9DA8/wxct14",
+      "url": "https://pay.ldxp.cn/shop/MAMY9DA8/wxct14",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "https://pay.ldxp.cn/shop/22SC405L",
+        "url": "https://pay.ldxp.cn/shop/22SC405L",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "充值 - 自动发卡网",
+        "url": "https://pay.ldxp.cn/shop/mirage",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Parhom",
+        "url": "https://pay.ldxp.cn/shop/parhom",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Ydbsq123",
+        "url": "https://pay.ldxp.cn/shop/ydbsq123",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Mirage",
+        "url": "https://pay.ldxp.cn/shop/mirage",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Kd7he66s",
+        "url": "https://pay.ldxp.cn/shop/KD7HE66S",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Yuanai",
+        "url": "https://pay.ldxp.cn/shop/yuanAi",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Jvdcg8ig",
+        "url": "https://pay.ldxp.cn/shop/JVDCG8IG",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Lvvk5rty",
+        "url": "https://pay.ldxp.cn/shop/LVVK5RTY",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Wjgysheh",
+        "url": "https://pay.ldxp.cn/shop/WJGYSHEH",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Hngfw0ma",
+        "url": "https://pay.ldxp.cn/shop/HNGFW0MA",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Ysr74hu9",
+        "url": "https://pay.ldxp.cn/shop/YSR74HU9",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Z3vskegc",
+        "url": "https://pay.ldxp.cn/shop/Z3VSKEGC",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/1S5RU8IS",
+        "url": "https://pay.ldxp.cn/shop/1S5RU8IS",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "冒险岛宇宙- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/lucifer",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Ice",
+        "url": "https://pay.ldxp.cn/shop/ice",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/MAMY9DA8/wxct14",
+        "url": "https://pay.ldxp.cn/shop/MAMY9DA8/wxct14",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      }
+    ]
+  }
+}

@@ -16,7 +16,7 @@ Domestic self-hosted AstrBot deployment on `host185` for WebUI access plus QQ/We
 - Deployment root: `/opt/1panel/apps/astrbot/astrbot`
 - Runtime manager: 1Panel-managed Docker app
 - Main container: `astrbot`
-- Image: `soulter/astrbot:v4.22.3`
+- Image: `soulter/astrbot:v4.26.0-beta.4`
 - Compose file: `/opt/1panel/apps/astrbot/astrbot/docker-compose.yml`
 - Env file: `/opt/1panel/apps/astrbot/astrbot/.env`
 - Main data directory: `/opt/1panel/apps/astrbot/astrbot/data`
@@ -105,6 +105,23 @@ If a future network regression appears, the least-invasive fallback is:
 5. Restart the container:
    - `docker restart astrbot`
 6. Verify startup logs show provider adapters loading successfully.
+
+## Upgrade note (2026-06-17)
+- User requested upgrading the self-hosted AstrBot at `http://211.144.221.229:30007` to the latest available version.
+- Latest GitHub/Docker Hub release observed at upgrade time: `v4.26.0-beta.4`; live container image updated from `soulter/astrbot:v4.22.3` to `soulter/astrbot:v4.26.0-beta.4`.
+- Pre-upgrade backup on host185: `/opt/backups/astrbot/astrbot-pre-upgrade-20260617-150324.tgz` containing `docker-compose.yml`, `.env`, and `data/`.
+- Direct Docker Hub pull from `host185` stalled / timed out on final layers despite Docker daemon proxy config. Stable transfer path used instead:
+  1. Pull `soulter/astrbot:v4.26.0-beta.4` on the OpenClaw/Oracle side.
+  2. `docker save | gzip` to a temporary image tarball.
+  3. Copy tarball to `oracle-proxy` and serve it temporarily via Python HTTP server.
+  4. Pull from `host185` with proxy variables unset, verify SHA256, then `docker load`.
+- Temporary image tarballs and HTTP servers were removed after deployment.
+- Validation after upgrade:
+  - `docker inspect astrbot` showed `soulter/astrbot:v4.26.0-beta.4`, state `running`, restart count `0`.
+  - host-local WebUI `GET http://127.0.0.1:30007/` returned `200`; note `HEAD /` returned `405` on this version, so use GET for health checks.
+  - ali-cloud transit-side public WebUI `GET http://211.144.221.229:30007/` returned `200`.
+  - startup logs showed `AstrBot v4.26.0-beta.4 WebUI is ready`, providers loaded, and OneBot reverse listener running on `0.0.0.0:6199`.
+  - startup logs included many Python `DEPRECATION: Unexpected import ... after pip install started` warnings from package imports; no `Traceback` / fatal `ERROR` was observed in the verification window.
 
 ## Novel rank plugin note (2026-04-19)
 Confirmed on `self-server-44005` / container `astrbot`:

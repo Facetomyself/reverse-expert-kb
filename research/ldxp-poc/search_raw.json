@@ -1,0 +1,406 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "site:pay.ldxp.cn/shop",
+    "site:pay.ldxp.cn/item",
+    "site:pay.ldxp.cn 链动小铺",
+    "site:pay.ldxp.cn 自动发卡",
+    "site:pay.ldxp.cn 商品 价格",
+    "site:pay.ldxp.cn 店铺 公告",
+    "site:pay.ldxp.cn \"链动小铺\" \"¥\"",
+    "site:pay.ldxp.cn \"购买\" \"库存\""
+  ],
+  "count": 16,
+  "results": [
+    {
+      "title": "冒险岛宇宙- 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/lucifer",
+      "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3
+    },
+    {
+      "title": "晓晓游戏屋- 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/96H3487D",
+      "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3
+    },
+    {
+      "title": "11780 - 链动小铺",
+      "url": "https://pay.ldxp.cn/item/42fli5",
+      "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3
+    },
+    {
+      "title": "下雪的史努比- 链动小铺",
+      "url": "https://pay.ldxp.cn/item/wv08td",
+      "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3
+    },
+    {
+      "title": "Untitled",
+      "url": "https://pay.ldxp.cn/item/r6j5pd",
+      "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+      "published_date": "",
+      "source": "tavily, exa",
+      "score": 0.3
+    },
+    {
+      "title": "Parhom",
+      "url": "https://pay.ldxp.cn/shop/parhom",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "店铺地址 - 自动发卡网",
+      "url": "https://pay.ldxp.cn/shop/Lucoo",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "mozheAPI - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/XEBRMV34",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Wjgysheh",
+      "url": "https://pay.ldxp.cn/shop/WJGYSHEH",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Untitled",
+      "url": "https://pay.ldxp.cn/item/9t0s0y",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "https://pay.ldxp.cn/item/9axixc",
+      "url": "https://pay.ldxp.cn/item/9axixc",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Loa3izw5",
+      "url": "https://pay.ldxp.cn/shop/LOA3IZW5",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "https://pay.ldxp.cn/shop/52ai",
+      "url": "https://pay.ldxp.cn/shop/52ai",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Kd7he66s",
+      "url": "https://pay.ldxp.cn/shop/KD7HE66S",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "鬼灭之刃蛇恋CP - 链动小铺",
+      "url": "https://pay.ldxp.cn/item/x3bps3",
+      "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "Ydbsq123",
+      "url": "https://pay.ldxp.cn/shop/ydbsq123",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "冒险岛宇宙- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/lucifer",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3
+      },
+      {
+        "title": "晓晓游戏屋- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/96H3487D",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3
+      },
+      {
+        "title": "11780 - 链动小铺",
+        "url": "https://pay.ldxp.cn/item/42fli5",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3
+      },
+      {
+        "title": "下雪的史努比- 链动小铺",
+        "url": "https://pay.ldxp.cn/item/wv08td",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3
+      },
+      {
+        "title": "Untitled",
+        "url": "https://pay.ldxp.cn/item/r6j5pd",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily, exa",
+        "score": 0.3
+      },
+      {
+        "title": "冒险岛宇宙- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/lucifer",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "11780 - 链动小铺",
+        "url": "https://pay.ldxp.cn/item/42fli5",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "晓晓游戏屋- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/96H3487D",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "鬼灭之刃蛇恋CP - 链动小铺",
+        "url": "https://pay.ldxp.cn/item/x3bps3",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "Untitled",
+        "url": "https://pay.ldxp.cn/item/r6j5pd",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily"
+      },
+      {
+        "title": "晓晓游戏屋- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/96H3487D",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ],
+    "exa": [
+      {
+        "title": "晓晓游戏屋- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/96H3487D",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "冒险岛宇宙- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/lucifer",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "下雪的史努比- 链动小铺",
+        "url": "https://pay.ldxp.cn/item/wv08td",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Parhom",
+        "url": "https://pay.ldxp.cn/shop/parhom",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "11780 - 链动小铺",
+        "url": "https://pay.ldxp.cn/item/42fli5",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "店铺地址 - 自动发卡网",
+        "url": "https://pay.ldxp.cn/shop/Lucoo",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "mozheAPI - 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/XEBRMV34",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Wjgysheh",
+        "url": "https://pay.ldxp.cn/shop/WJGYSHEH",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "冒险岛宇宙- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/lucifer",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Untitled",
+        "url": "https://pay.ldxp.cn/item/r6j5pd",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Untitled",
+        "url": "https://pay.ldxp.cn/item/9t0s0y",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/item/9axixc",
+        "url": "https://pay.ldxp.cn/item/9axixc",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Loa3izw5",
+        "url": "https://pay.ldxp.cn/shop/LOA3IZW5",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/52ai",
+        "url": "https://pay.ldxp.cn/shop/52ai",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Kd7he66s",
+        "url": "https://pay.ldxp.cn/shop/KD7HE66S",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "冒险岛宇宙- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/lucifer",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "11780 - 链动小铺",
+        "url": "https://pay.ldxp.cn/item/42fli5",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "下雪的史努比- 链动小铺",
+        "url": "https://pay.ldxp.cn/item/wv08td",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "晓晓游戏屋- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/96H3487D",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Ydbsq123",
+        "url": "https://pay.ldxp.cn/shop/ydbsq123",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Kd7he66s",
+        "url": "https://pay.ldxp.cn/shop/KD7HE66S",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Parhom",
+        "url": "https://pay.ldxp.cn/shop/parhom",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Kd7he66s",
+        "url": "https://pay.ldxp.cn/shop/KD7HE66S",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ],
+    "grok": []
+  }
+}

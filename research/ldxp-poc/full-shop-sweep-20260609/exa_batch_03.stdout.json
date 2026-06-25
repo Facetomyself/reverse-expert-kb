@@ -1,0 +1,183 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "site:pay.ldxp.cn/shop 卡密",
+    "site:pay.ldxp.cn/shop 发卡",
+    "site:pay.ldxp.cn/shop API",
+    "site:pay.ldxp.cn/shop api",
+    "site:pay.ldxp.cn/shop 游戏"
+  ],
+  "count": 9,
+  "results": [
+    {
+      "title": "冒险岛宇宙- 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/lucifer",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "晓晓游戏屋- 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/96H3487D",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Loa3izw5",
+      "url": "https://pay.ldxp.cn/shop/LOA3IZW5",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "https://pay.ldxp.cn/shop/MAMY9DA8/wxct14",
+      "url": "https://pay.ldxp.cn/shop/MAMY9DA8/wxct14",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Li1gn6df",
+      "url": "https://pay.ldxp.cn/shop/LI1GN6DF",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "https://pay.ldxp.cn/shop/2XLR97IG",
+      "url": "https://pay.ldxp.cn/shop/2XLR97IG",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "前往发卡网购买",
+      "url": "https://pay.ldxp.cn/shop/2DHC9ER8",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Hngfw0ma",
+      "url": "https://pay.ldxp.cn/shop/HNGFW0MA",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Ice",
+      "url": "https://pay.ldxp.cn/shop/ice",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "冒险岛宇宙- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/lucifer",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "晓晓游戏屋- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/96H3487D",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Loa3izw5",
+        "url": "https://pay.ldxp.cn/shop/LOA3IZW5",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/MAMY9DA8/wxct14",
+        "url": "https://pay.ldxp.cn/shop/MAMY9DA8/wxct14",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Li1gn6df",
+        "url": "https://pay.ldxp.cn/shop/LI1GN6DF",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/2XLR97IG",
+        "url": "https://pay.ldxp.cn/shop/2XLR97IG",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "前往发卡网购买",
+        "url": "https://pay.ldxp.cn/shop/2DHC9ER8",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Li1gn6df",
+        "url": "https://pay.ldxp.cn/shop/LI1GN6DF",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "晓晓游戏屋- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/96H3487D",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Hngfw0ma",
+        "url": "https://pay.ldxp.cn/shop/HNGFW0MA",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Ice",
+        "url": "https://pay.ldxp.cn/shop/ice",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/2XLR97IG",
+        "url": "https://pay.ldxp.cn/shop/2XLR97IG",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      }
+    ]
+  }
+}

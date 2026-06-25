@@ -4,6 +4,7 @@
 - Public IP: `140.83.52.216`
 - Primary domain: `mail.zhangxuemin.work`
 - Additional active domain: `wa.zhangxuemin.work`
+- FileCodeBox CN/HK edge domain: `drop-cn.zhangxuemin.work` (DNS points to `hk-relay`, origin service on this host)
 - Retired / no longer live DNS:
   - `autoconfig.zhangxuemin.work`
   - `autodiscover.zhangxuemin.work`
@@ -12,6 +13,7 @@
 Current documented state after the 2026-03-20 repurpose:
 - `mail.zhangxuemin.work` is live on this host as the `Outlook Email Plus` web app
 - `wa.zhangxuemin.work` is live on this host as the WA app global/source entrypoint
+- FileCodeBox is live as an origin service on `18085/tcp`; the intended browser entry is `https://drop-cn.zhangxuemin.work/` via `hk-relay` Caddy Basic Auth
 - public `80/443` are owned by the `outlook-email-plus-caddy` container, which fronts both web-app routes
 - `autoconfig.zhangxuemin.work` and `autodiscover.zhangxuemin.work` are no longer present in the current Cloudflare live zone; no classic mail protocol stack has been reactivated behind them
 
@@ -21,6 +23,7 @@ Currently listening services include:
 - `80/tcp` (Caddy container)
 - `443/tcp` + `443/udp` (Caddy container with HTTPS/HTTP3)
 - `111/tcp` (rpcbind)
+- `18085/tcp` (FileCodeBox origin, iptables-restricted to `154.86.30.10` plus localhost)
 - local PCP monitoring ports
 
 Still not observed / not reactivated as of 2026-03-24:

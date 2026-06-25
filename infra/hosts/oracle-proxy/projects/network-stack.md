@@ -77,11 +77,38 @@ ss -ltnp | grep 20241
 find /etc/cloudflared -maxdepth 2 -type f
 ```
 
-## 5. What is still unknown
-- full sing-box protocol matrix and public subscription semantics
-- exact xray inbound/outbound config graph
+## 5. Verified protocol snapshot (2026-04-21)
+A later external Mihomo validation pass turned part of the previously fuzzy protocol surface into confirmed working candidates.
+
+### Confirmed working sing-box inbounds
+- `30002/udp` -> `hysteria2`
+- `30003/udp` -> `tuic`
+- `30005/tcp+udp` -> `shadowsocks`
+- `30006/tcp+udp` -> `trojan`
+
+### Confirmed working Xray inbound
+- `14391/tcp` -> `VLESS Reality Vision`
+
+Validation outcome:
+- each of the above produced external egress IP `158.178.236.241` from a fresh Mihomo client smoke test
+- this means the host still retains a usable multi-protocol fallback pool even though only a smaller subset may be published in day-to-day managed subscriptions
+- operator-facing usage details, connection snippets, and recommended order now live in `./proxy-fallback-pool.md`
+
+### Still unconfirmed / not promoted yet
+The following surfaces were observed in config but were not promoted as default subscription inventory in this pass:
+- `30001` sing-box `xtls-reality`
+- `30004` `ShadowTLS`
+- `30007` `vmess-ws`
+- `30008` `vless-ws-tls`
+- `30009` `h2-reality`
+- `30010` `grpc-reality`
+
+## 6. What is still unknown
+- full sing-box protocol matrix and public subscription semantics beyond the now-verified subset
+- exact xray inbound/outbound config graph beyond the confirmed `14391 -> 127.0.0.1:45987` reality chain
 - whether system nginx is actually in the active public request path or just left installed with defaults
 - exact cloudflared tunnel target(s)
 
-## 6. Change History
+## 7. Change History
 - 2026-03-15: created dedicated machine-level network stack note during oracle-proxy second-pass documentation
+- 2026-04-21: appended a verified external-protocol snapshot after Mihomo smoke tests confirmed working `hysteria2`, `tuic`, `shadowsocks`, `trojan`, and Xray `VLESS Reality Vision` paths

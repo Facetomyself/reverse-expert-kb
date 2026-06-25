@@ -1,0 +1,1474 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "pay.ldxp.cn/shop 购买",
+    "pay.ldxp.cn/shop 库存",
+    "pay.ldxp.cn/shop 卡密",
+    "pay.ldxp.cn/shop 发卡",
+    "pay.ldxp.cn/shop API"
+  ],
+  "count": 84,
+  "results": [
+    {
+      "title": "https://pay.ldxp.cn/shop/RSIAY6WR 在这里买的无限token · Issue ...",
+      "url": "https://github.com/openclaw/openclaw/issues/48090",
+      "snippet": "",
+      "published_date": "2026-03-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.9
+    },
+    {
+      "title": "https://pay.ldxp.cn/shop/DinoAI - t.co / X",
+      "url": "https://t.co/tBthoC8lWs",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "https://pay.ldxp.cn/shop/AItools",
+      "url": "https://pay.ldxp.cn/shop/AItools",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "binjoo/ldc-shop",
+      "url": "https://github.com/binjoo/ldc-shop",
+      "snippet": "",
+      "published_date": "2026-01-18T03:00:20.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "shiquda/ldc-shop",
+      "url": "https://github.com/shiquda/ldc-shop",
+      "snippet": "",
+      "published_date": "2026-02-24T07:31:47.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "http://pay.ldxp.cn/shop/YSSQQF8U - t.co / X",
+      "url": "https://t.co/5RXkHp1OoV",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "https://pay.ldxp.cn/shop/DVDG1G1I - t.co / X",
+      "url": "https://t.co/9WMFqD2RZ9",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "sharealine/SecurePay-Visa",
+      "url": "https://github.com/sharealine/SecurePay-Visa",
+      "snippet": "",
+      "published_date": "2026-01-16T09:15:42.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "卡支付-收银台模式集成 | PayerMax",
+      "url": "https://docs.shareitpay.com/doc-center/acquiring/start-integration/integrate-by-payment-method/card/cashier.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.55
+    },
+    {
+      "title": "2026最新实测：ChatGPT Plus 国内充值全攻略｜卡密代充",
+      "url": "https://zhuanlan.zhihu.com/p/2028252039096930866",
+      "snippet": "",
+      "published_date": "2026-04-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "商品库存常见问题 - 银豹博客",
+      "url": "https://blog.pospal.cn/kb/1183",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Gemini在国内如何使用？ - 陈东汉也是个憨批的回答- 知乎",
+      "url": "https://www.zhihu.com/question/1995580558823162273/answer/2003177824836687513",
+      "snippet": "",
+      "published_date": "2026-01-16T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Mirage",
+      "url": "https://pay.ldxp.cn/shop/mirage",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "小小鱼的低价小店--链动小铺",
+      "url": "https://pay.ldxp.me/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "GPC 卡密与 API 使用说明：充值卡密、API Key 与自动化接入 · Lucoo",
+      "url": "https://lucoo.net/postsinfo/gpc-card-api-key-flowpilot/",
+      "snippet": "",
+      "published_date": "2026-05-20T02:00:32.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "GPT 月卡充值卡密￥ 15 - V2EX",
+      "url": "https://www.v2ex.com/t/1203761",
+      "snippet": "",
+      "published_date": "2026-04-06T01:44:44.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "出GPT Plus直充卡密低至7.5元pro 20x 200元 - NodeSeek",
+      "url": "https://www.nodeseek.com/post-675040-1",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "plus 1 个月目前稳定，但不包售后，自己的号也在使用 - V2EX",
+      "url": "https://www.v2ex.com/t/1207197",
+      "snippet": "",
+      "published_date": "2026-04-20T07:14:19.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "site:pay.ldxp.cn 上关于 Cursor 的服务和商品有哪些？ - 问答 - Glarity",
+      "url": "https://askai.glarity.app/zh-CN/search/site-pay-ldxp-cn-%E4%B8%8A%E5%85%B3%E4%BA%8E-Cursor-%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%92%8C%E5%95%86%E5%93%81%E6%9C%89%E5%93%AA%E4%BA%9B",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "智友社上新啦， ChatGPT 全新自助接码服务（ATT 实体卡接近 1 个月有效期，有效期内可无限接码），欢迎您的试用反馈。 - V2EX",
+      "url": "https://www.v2ex.com/t/1216614",
+      "snippet": "",
+      "published_date": "2026-05-30T01:50:30.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "https://pay.ldxp.cn/item/1kisbo",
+      "url": "https://pay.ldxp.cn/item/1kisbo",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "霞葉杂货店",
+      "url": "https://ldshop.kasuha.com/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "发卡网-自动发卡平台-发卡网",
+      "url": "https://ldxp.top/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "site:pay.ldxp.cn 上的 “Cursor” 是什么？它提供哪些服务和商品？ - 问答 - Glarity",
+      "url": "https://askai.glarity.app/zh-CN/search/site-pay-ldxp-cn-%E4%B8%8A%E7%9A%84--Cursor--%E6%98%AF%E4%BB%80%E4%B9%88-%E5%AE%83%E6%8F%90%E4%BE%9B%E5%93%AA%E4%BA%9B%E6%9C%8D%E5%8A%A1%E5%92%8C%E5%95%86%E5%93%81",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "攒钱修仙的LDC小店",
+      "url": "https://ldc-shop-next.jnhy508.workers.dev/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "时光杂货店",
+      "url": "https://ldcshop.13916454.xyz/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "立答AI卡密商城 – 微智易AI人工智能网",
+      "url": "https://vip.lida-ai.com/shop",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "LDC Virtual Goods Shop",
+      "url": "https://ldcshop.cxk.world/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "卡密解密 - 蓝鼎数字权益平台接口",
+      "url": "https://doc.ldvip.cn/doc-1798395",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "自建云端卡密 / 一年时间 – 闲蛋网",
+      "url": "https://www.xdau.cn/shop/1140.html",
+      "snippet": "",
+      "published_date": "2026-01-15T06:52:32.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "稳定度99%的PLUS 成品号欢迎您的试用（截至20260513 店铺3200+ ...",
+      "url": "https://v2ex.com/t/1212301",
+      "snippet": "",
+      "published_date": "2026-05-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "稳定零售后的PLUS 补库存了 - V2EX",
+      "url": "https://v2ex.com/t/1208387",
+      "snippet": "",
+      "published_date": "2026-04-24T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "稳定度99%的PLUS 成品号已补库存，需要尽快购买！ - V2EX",
+      "url": "https://v2ex.com/t/1209138",
+      "snippet": "",
+      "published_date": "2026-04-28T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Smart Tech Home - YouTube",
+      "url": "https://www.youtube.com/channel/UCoZ9seMwgXym27MMxoGkmhQ/about",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "AI Pro 充值中心",
+      "url": "https://www.caitou.shop/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "库存查询 API | 开源商城系统_开源OMS订单管理系统-商派ShopeX",
+      "url": "https://doc.shopex.cn/oms/oms-apis/openapi/stock-api.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "批量查询地点库存数量",
+      "url": "https://developer.shopline.com/zh-hans-cn/docs/admin-rest-api/product/inventory/get-inventory-quantities.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "查询供应链物品库存 - 客如云 API",
+      "url": "https://s.apifox.cn/apidoc/docs-site/507547/api-8393385",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "库存管理 | 开源商城系统_开源OMS订单管理系统-商派ShopeX",
+      "url": "https://doc.shopex.cn/oms/book/%E5%BA%93%E5%AD%98%E7%AE%A1%E7%90%86.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "查询门店库存_抖音开放平台",
+      "url": "https://partner.open-douyin.com/docs/resource/zh-CN/local-life/develop/OpenAPI/comprehensive/store-pickup/product-inquiry/store-inventory-query",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "盘点管理 API | 开源商城系统_开源OMS订单管理系统-商派ShopeX",
+      "url": "https://doc.shopex.cn/oms/oms-apis/openapi/inventory-api.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "更新地点库存数量",
+      "url": "https://developer.shopline.com/zh-hans-cn/docs/admin-rest-api/product/inventory/update-item-inventory/?version=v20210901",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "ShopEX(上海商派)开放平台-开发文档",
+      "url": "http://open.shopex.cn/apidocs/api/202/11/8.htm",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Ice",
+      "url": "https://pay.ldxp.cn/shop/ice",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "https://pay.ldxp.cn/item/7ho9w0",
+      "url": "https://pay.ldxp.cn/item/7ho9w0",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "【大陆用户必看】ChatGPT Plus怎么充值？升级后就能体验GPT-5.5 ...",
+      "url": "https://www.youtube.com/watch?v=UcJC7dkqRrM",
+      "snippet": "",
+      "published_date": "2026-05-19T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "查询pay.ldxp.cn的移动权重和收录-雅牛网",
+      "url": "https://yaniu.net/mrank/pay.ldxp.cn/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "LDShop",
+      "url": "https://www.ldshop.gg/FAQ",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "LDShop: 安全可信的遊戲儲值平台",
+      "url": "https://www.ldshop.gg/tw",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "原神 UID 儲值",
+      "url": "https://www.ldshop.gg/tw/top-up/genshin-impact.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "LDShop: 安全可信的遊戲儲值平台",
+      "url": "https://www.ldshop.gg/tw?ws=kol&shareuid=1863394792321249281",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "LDShop",
+      "url": "https://www.ldshop.gg/tw/FAQ",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "LDShop - Apps on Google Play",
+      "url": "https://play.google.com/store/apps/details?id=com.ld.space&hl=en",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Roblox 儲值 | 以最高 21% OFF 購買 Robux",
+      "url": "https://www.ldshop.gg/tw/top-up/roblox-gp.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "領先者儲值 - 便宜、安全 & 快速",
+      "url": "https://www.ldshop.gg/tw/top-up/outrankers-gp.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "适用于Android的 LDShop - 从Uptodown上下载APK",
+      "url": "https://ldshop.cn.uptodown.com/android",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "LDShop - Apps on Google Play",
+      "url": "https://play.google.com/store/apps/details?id=com.ld.space&hl=en_US",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "AI-MEMBER发卡网: Store",
+      "url": "https://www.ai-member.icu/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "稳定货源｜可开票] GPT Plus/Pro 5x 20x / Gemini Pro 月卡充值服务",
+      "url": "https://global.v2ex.co/t/1208533",
+      "snippet": "",
+      "published_date": "2026-04-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "出gpt plus一个月优惠码 - NodeSeek",
+      "url": "https://www.nodeseek.com/post-554205-1",
+      "snippet": "",
+      "published_date": "2025-12-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "出gpt plus 8.5r - 交易市场 - Aito.do",
+      "url": "https://aito.do/t/gpt-plus-8-5r/746",
+      "snippet": "",
+      "published_date": "2026-04-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "便宜gpt plus 月卡稳定使用 - V2EX",
+      "url": "https://v2ex.com/t/1203754",
+      "snippet": "",
+      "published_date": "2026-04-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "产品介绍 - 支付宝",
+      "url": "https://s.apifox.cn/apidoc/docs-site/3618910/doc-3283660",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "基础功能 - 支付宝",
+      "url": "https://s.apifox.cn/apidoc/docs-site/3618910/doc-3283670",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "https://pay.ldxp.cn/item/juzfp6",
+      "url": "https://pay.ldxp.cn/item/juzfp6",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "签发虚拟卡",
+      "url": "https://developers.uqpay.com/zh/card-issuance/v1.6/guide/issue-virtual-cards",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "LinkPay-全球数字支付服务商-",
+      "url": "https://linkpay.ltd/html/web/cn/chanpinfuwu/vcc/index.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "跳转银行选卡页面（小程序或H5）_免输卡号绑卡|微信支付合作伙伴文档中心",
+      "url": "https://pay.wechatpay.cn/doc/v3/partner/4012161967",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "创建支付应用",
+      "url": "https://developer.shopline.com/zh-hans-cn/doc/3cv5d7wpfgr6a8z5/cq7qdy4wwqurdbxp?version=v20240301",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "New API",
+      "url": "https://www.ciciapi.com/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Post #14301 — 黑科技软件资源分享(@kkaifenxiang)",
+      "url": "https://cn.tgstat.com/channel/%40kkaifenxiang/14301",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "GPT Plus 稳定供货｜批发群",
+      "url": "https://telemetr.io/en/channels/3974288001-aivip6688/posts",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "支付 - likeshop多商户商城系统 PHP版",
+      "url": "https://8z6437lnum.apifox.cn/doc-1153706",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "支付结果 - likeshop单商户高级版",
+      "url": "https://e97nsnrlxz.apifox.cn/api-68462966",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "支付订单 - Lsky Pro+",
+      "url": "https://lsky-pro.apifox.cn/api-192155284",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "支付查询接口 - 统一支付平台接口文档",
+      "url": "https://9ldxfqv6ej.apifox.cn/api-86164896",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "订单支付 - API接口文档 - ShopXO文档管理系统",
+      "url": "https://doc.shopxo.net/article/2/287820960352960512.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "接口文档",
+      "url": "https://developer.shopline.com/zh-hans-cn/docs/apps/payment-application/api-reference.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "获取支付方式 - likeshop多商户商城系统 PHP版",
+      "url": "https://8z6437lnum.apifox.cn/api-31624990",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "普通支付2.0 - API - 帮助中心",
+      "url": "http://help.lcsw.cn/xrmpic/tisnldchblgxohfl/rinsc3",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "API reference",
+      "url": "https://developer.shopline.com/docs/apps/payment-application/api-reference.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "订单支付 - 国派商城",
+      "url": "https://guopai.apifox.cn/api-170396301",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "结算&提交订单 - likeshop单商户高级版",
+      "url": "https://e97nsnrlxz.apifox.cn/api-126472070",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "配置说明",
+      "url": "https://www.likeshop.cn/doc/13/85",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Mirage",
+        "url": "https://pay.ldxp.cn/shop/mirage",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "小小鱼的低价小店--链动小铺",
+        "url": "https://pay.ldxp.me/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "GPC 卡密与 API 使用说明：充值卡密、API Key 与自动化接入 · Lucoo",
+        "url": "https://lucoo.net/postsinfo/gpc-card-api-key-flowpilot/",
+        "snippet": "",
+        "published_date": "2026-05-20T02:00:32.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "GPT 月卡充值卡密￥ 15 - V2EX",
+        "url": "https://www.v2ex.com/t/1203761",
+        "snippet": "",
+        "published_date": "2026-04-06T01:44:44.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "出GPT Plus直充卡密低至7.5元pro 20x 200元 - NodeSeek",
+        "url": "https://www.nodeseek.com/post-675040-1",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "plus 1 个月目前稳定，但不包售后，自己的号也在使用 - V2EX",
+        "url": "https://www.v2ex.com/t/1207197",
+        "snippet": "",
+        "published_date": "2026-04-20T07:14:19.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "2026最新实测：ChatGPT Plus 国内充值全攻略｜卡密代充",
+        "url": "https://zhuanlan.zhihu.com/p/2028252039096930866",
+        "snippet": "",
+        "published_date": "2026-04-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "site:pay.ldxp.cn 上关于 Cursor 的服务和商品有哪些？ - 问答 - Glarity",
+        "url": "https://askai.glarity.app/zh-CN/search/site-pay-ldxp-cn-%E4%B8%8A%E5%85%B3%E4%BA%8E-Cursor-%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%92%8C%E5%95%86%E5%93%81%E6%9C%89%E5%93%AA%E4%BA%9B",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "智友社上新啦， ChatGPT 全新自助接码服务（ATT 实体卡接近 1 个月有效期，有效期内可无限接码），欢迎您的试用反馈。 - V2EX",
+        "url": "https://www.v2ex.com/t/1216614",
+        "snippet": "",
+        "published_date": "2026-05-30T01:50:30.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/item/1kisbo",
+        "url": "https://pay.ldxp.cn/item/1kisbo",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "霞葉杂货店",
+        "url": "https://ldshop.kasuha.com/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "发卡网-自动发卡平台-发卡网",
+        "url": "https://ldxp.top/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "site:pay.ldxp.cn 上的 “Cursor” 是什么？它提供哪些服务和商品？ - 问答 - Glarity",
+        "url": "https://askai.glarity.app/zh-CN/search/site-pay-ldxp-cn-%E4%B8%8A%E7%9A%84--Cursor--%E6%98%AF%E4%BB%80%E4%B9%88-%E5%AE%83%E6%8F%90%E4%BE%9B%E5%93%AA%E4%BA%9B%E6%9C%8D%E5%8A%A1%E5%92%8C%E5%95%86%E5%93%81",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/DinoAI - t.co / X",
+        "url": "https://t.co/tBthoC8lWs",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "攒钱修仙的LDC小店",
+        "url": "https://ldc-shop-next.jnhy508.workers.dev/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "时光杂货店",
+        "url": "https://ldcshop.13916454.xyz/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "立答AI卡密商城 – 微智易AI人工智能网",
+        "url": "https://vip.lida-ai.com/shop",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "LDC Virtual Goods Shop",
+        "url": "https://ldcshop.cxk.world/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "卡密解密 - 蓝鼎数字权益平台接口",
+        "url": "https://doc.ldvip.cn/doc-1798395",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "自建云端卡密 / 一年时间 – 闲蛋网",
+        "url": "https://www.xdau.cn/shop/1140.html",
+        "snippet": "",
+        "published_date": "2026-01-15T06:52:32.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/AItools",
+        "url": "https://pay.ldxp.cn/shop/AItools",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "稳定度99%的PLUS 成品号欢迎您的试用（截至20260513 店铺3200+ ...",
+        "url": "https://v2ex.com/t/1212301",
+        "snippet": "",
+        "published_date": "2026-05-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "小小鱼的低价小店--链动小铺",
+        "url": "https://pay.ldxp.me/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "稳定零售后的PLUS 补库存了 - V2EX",
+        "url": "https://v2ex.com/t/1208387",
+        "snippet": "",
+        "published_date": "2026-04-24T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "出GPT Plus直充卡密低至7.5元pro 20x 200元 - NodeSeek",
+        "url": "https://www.nodeseek.com/post-675040-1",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "稳定度99%的PLUS 成品号已补库存，需要尽快购买！ - V2EX",
+        "url": "https://v2ex.com/t/1209138",
+        "snippet": "",
+        "published_date": "2026-04-28T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "binjoo/ldc-shop",
+        "url": "https://github.com/binjoo/ldc-shop",
+        "snippet": "",
+        "published_date": "2026-01-18T03:00:20.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "shiquda/ldc-shop",
+        "url": "https://github.com/shiquda/ldc-shop",
+        "snippet": "",
+        "published_date": "2026-02-24T07:31:47.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "Smart Tech Home - YouTube",
+        "url": "https://www.youtube.com/channel/UCoZ9seMwgXym27MMxoGkmhQ/about",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "http://pay.ldxp.cn/shop/YSSQQF8U - t.co / X",
+        "url": "https://t.co/5RXkHp1OoV",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "AI Pro 充值中心",
+        "url": "https://www.caitou.shop/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "库存查询 API | 开源商城系统_开源OMS订单管理系统-商派ShopeX",
+        "url": "https://doc.shopex.cn/oms/oms-apis/openapi/stock-api.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "批量查询地点库存数量",
+        "url": "https://developer.shopline.com/zh-hans-cn/docs/admin-rest-api/product/inventory/get-inventory-quantities.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "查询供应链物品库存 - 客如云 API",
+        "url": "https://s.apifox.cn/apidoc/docs-site/507547/api-8393385",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "库存管理 | 开源商城系统_开源OMS订单管理系统-商派ShopeX",
+        "url": "https://doc.shopex.cn/oms/book/%E5%BA%93%E5%AD%98%E7%AE%A1%E7%90%86.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "查询门店库存_抖音开放平台",
+        "url": "https://partner.open-douyin.com/docs/resource/zh-CN/local-life/develop/OpenAPI/comprehensive/store-pickup/product-inquiry/store-inventory-query",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "盘点管理 API | 开源商城系统_开源OMS订单管理系统-商派ShopeX",
+        "url": "https://doc.shopex.cn/oms/oms-apis/openapi/inventory-api.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "商品库存常见问题 - 银豹博客",
+        "url": "https://blog.pospal.cn/kb/1183",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "更新地点库存数量",
+        "url": "https://developer.shopline.com/zh-hans-cn/docs/admin-rest-api/product/inventory/update-item-inventory/?version=v20210901",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "ShopEX(上海商派)开放平台-开发文档",
+        "url": "http://open.shopex.cn/apidocs/api/202/11/8.htm",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Mirage",
+        "url": "https://pay.ldxp.cn/shop/mirage",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Ice",
+        "url": "https://pay.ldxp.cn/shop/ice",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "小小鱼的低价小店--链动小铺",
+        "url": "https://pay.ldxp.me/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "https://pay.ldxp.cn/item/7ho9w0",
+        "url": "https://pay.ldxp.cn/item/7ho9w0",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "site:pay.ldxp.cn 上的 “Cursor” 是什么？它提供哪些服务和商品？ - 问答 - Glarity",
+        "url": "https://askai.glarity.app/zh-CN/search/site-pay-ldxp-cn-%E4%B8%8A%E7%9A%84--Cursor--%E6%98%AF%E4%BB%80%E4%B9%88-%E5%AE%83%E6%8F%90%E4%BE%9B%E5%93%AA%E4%BA%9B%E6%9C%8D%E5%8A%A1%E5%92%8C%E5%95%86%E5%93%81",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "plus 1 个月目前稳定，但不包售后，自己的号也在使用 - V2EX",
+        "url": "https://www.v2ex.com/t/1207197",
+        "snippet": "",
+        "published_date": "2026-04-20T07:14:19.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "【大陆用户必看】ChatGPT Plus怎么充值？升级后就能体验GPT-5.5 ...",
+        "url": "https://www.youtube.com/watch?v=UcJC7dkqRrM",
+        "snippet": "",
+        "published_date": "2026-05-19T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "查询pay.ldxp.cn的移动权重和收录-雅牛网",
+        "url": "https://yaniu.net/mrank/pay.ldxp.cn/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "LDShop",
+        "url": "https://www.ldshop.gg/FAQ",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "LDShop: 安全可信的遊戲儲值平台",
+        "url": "https://www.ldshop.gg/tw",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "原神 UID 儲值",
+        "url": "https://www.ldshop.gg/tw/top-up/genshin-impact.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "攒钱修仙的LDC小店",
+        "url": "https://ldc-shop-next.jnhy508.workers.dev/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "LDShop: 安全可信的遊戲儲值平台",
+        "url": "https://www.ldshop.gg/tw?ws=kol&shareuid=1863394792321249281",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "LDShop",
+        "url": "https://www.ldshop.gg/tw/FAQ",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "LDShop - Apps on Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.ld.space&hl=en",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Roblox 儲值 | 以最高 21% OFF 購買 Robux",
+        "url": "https://www.ldshop.gg/tw/top-up/roblox-gp.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "領先者儲值 - 便宜、安全 & 快速",
+        "url": "https://www.ldshop.gg/tw/top-up/outrankers-gp.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "适用于Android的 LDShop - 从Uptodown上下载APK",
+        "url": "https://ldshop.cn.uptodown.com/android",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "LDC Virtual Goods Shop",
+        "url": "https://ldcshop.cxk.world/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "LDShop - Apps on Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.ld.space&hl=en_US",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "发卡网-自动发卡平台-发卡网",
+        "url": "https://ldxp.top/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "AI-MEMBER发卡网: Store",
+        "url": "https://www.ai-member.icu/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "小小鱼的低价小店--链动小铺",
+        "url": "https://pay.ldxp.me/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "稳定货源｜可开票] GPT Plus/Pro 5x 20x / Gemini Pro 月卡充值服务",
+        "url": "https://global.v2ex.co/t/1208533",
+        "snippet": "",
+        "published_date": "2026-04-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "出gpt plus一个月优惠码 - NodeSeek",
+        "url": "https://www.nodeseek.com/post-554205-1",
+        "snippet": "",
+        "published_date": "2025-12-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "出gpt plus 8.5r - 交易市场 - Aito.do",
+        "url": "https://aito.do/t/gpt-plus-8-5r/746",
+        "snippet": "",
+        "published_date": "2026-04-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "便宜gpt plus 月卡稳定使用 - V2EX",
+        "url": "https://v2ex.com/t/1203754",
+        "snippet": "",
+        "published_date": "2026-04-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "2026最新实测：ChatGPT Plus 国内充值全攻略｜卡密代充",
+        "url": "https://zhuanlan.zhihu.com/p/2028252039096930866",
+        "snippet": "",
+        "published_date": "2026-04-15T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "Gemini在国内如何使用？ - 陈东汉也是个憨批的回答- 知乎",
+        "url": "https://www.zhihu.com/question/1995580558823162273/answer/2003177824836687513",
+        "snippet": "",
+        "published_date": "2026-01-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "产品介绍 - 支付宝",
+        "url": "https://s.apifox.cn/apidoc/docs-site/3618910/doc-3283660",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "基础功能 - 支付宝",
+        "url": "https://s.apifox.cn/apidoc/docs-site/3618910/doc-3283670",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/item/juzfp6",
+        "url": "https://pay.ldxp.cn/item/juzfp6",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "签发虚拟卡",
+        "url": "https://developers.uqpay.com/zh/card-issuance/v1.6/guide/issue-virtual-cards",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Smart Tech Home - YouTube",
+        "url": "https://www.youtube.com/channel/UCoZ9seMwgXym27MMxoGkmhQ/about",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "LinkPay-全球数字支付服务商-",
+        "url": "https://linkpay.ltd/html/web/cn/chanpinfuwu/vcc/index.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/DVDG1G1I - t.co / X",
+        "url": "https://t.co/9WMFqD2RZ9",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "sharealine/SecurePay-Visa",
+        "url": "https://github.com/sharealine/SecurePay-Visa",
+        "snippet": "",
+        "published_date": "2026-01-16T09:15:42.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "跳转银行选卡页面（小程序或H5）_免输卡号绑卡|微信支付合作伙伴文档中心",
+        "url": "https://pay.wechatpay.cn/doc/v3/partner/4012161967",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "创建支付应用",
+        "url": "https://developer.shopline.com/zh-hans-cn/doc/3cv5d7wpfgr6a8z5/cq7qdy4wwqurdbxp?version=v20240301",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "卡支付-收银台模式集成 | PayerMax",
+        "url": "https://docs.shareitpay.com/doc-center/acquiring/start-integration/integrate-by-payment-method/card/cashier.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.55
+      },
+      {
+        "title": "稳定货源｜可开票] GPT Plus/Pro 5x 20x / Gemini Pro 月卡充值服务",
+        "url": "https://global.v2ex.co/t/1208533",
+        "snippet": "",
+        "published_date": "2026-04-25T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/RSIAY6WR 在这里买的无限token · Issue ...",
+        "url": "https://github.com/openclaw/openclaw/issues/48090",
+        "snippet": "",
+        "published_date": "2026-03-16T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.9
+      },
+      {
+        "title": "New API",
+        "url": "https://www.ciciapi.com/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Post #14301 — 黑科技软件资源分享(@kkaifenxiang)",
+        "url": "https://cn.tgstat.com/channel/%40kkaifenxiang/14301",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "GPT Plus 稳定供货｜批发群",
+        "url": "https://telemetr.io/en/channels/3974288001-aivip6688/posts",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/DinoAI - t.co / X",
+        "url": "https://t.co/tBthoC8lWs",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "https://pay.ldxp.cn/item/7ho9w0",
+        "url": "https://pay.ldxp.cn/item/7ho9w0",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "支付 - likeshop多商户商城系统 PHP版",
+        "url": "https://8z6437lnum.apifox.cn/doc-1153706",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "支付结果 - likeshop单商户高级版",
+        "url": "https://e97nsnrlxz.apifox.cn/api-68462966",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "shiquda/ldc-shop",
+        "url": "https://github.com/shiquda/ldc-shop",
+        "snippet": "",
+        "published_date": "2026-02-24T07:31:47.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "支付订单 - Lsky Pro+",
+        "url": "https://lsky-pro.apifox.cn/api-192155284",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "支付查询接口 - 统一支付平台接口文档",
+        "url": "https://9ldxfqv6ej.apifox.cn/api-86164896",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "订单支付 - API接口文档 - ShopXO文档管理系统",
+        "url": "https://doc.shopxo.net/article/2/287820960352960512.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "接口文档",
+        "url": "https://developer.shopline.com/zh-hans-cn/docs/apps/payment-application/api-reference.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "获取支付方式 - likeshop多商户商城系统 PHP版",
+        "url": "https://8z6437lnum.apifox.cn/api-31624990",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "普通支付2.0 - API - 帮助中心",
+        "url": "http://help.lcsw.cn/xrmpic/tisnldchblgxohfl/rinsc3",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "API reference",
+        "url": "https://developer.shopline.com/docs/apps/payment-application/api-reference.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "订单支付 - 国派商城",
+        "url": "https://guopai.apifox.cn/api-170396301",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "结算&提交订单 - likeshop单商户高级版",
+        "url": "https://e97nsnrlxz.apifox.cn/api-126472070",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "配置说明",
+        "url": "https://www.likeshop.cn/doc/13/85",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      }
+    ]
+  }
+}

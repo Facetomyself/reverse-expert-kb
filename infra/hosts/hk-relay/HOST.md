@@ -56,6 +56,7 @@ After first relay bootstrap on 2026-04-13:
   - UDP `8444` -> Hysteria2 inbound
   - TCP `8080` -> authenticated Caddy-based file browse/download surface
   - TCP `8088` -> authenticated `dufs` upload/download surface for large-file transfer relay
+  - TCP `22061` -> `socat` TCP relay to `oracle-reverse-dev` SSH (`140.245.61.236:22`) for domestic-optimized SSH access
 
 External connectivity smoke check on 2026-04-13:
 - `https://www.google.com` -> `HTTP/2 200`
@@ -69,22 +70,35 @@ Operational interpretation:
 ## 6. Machine-Level Infrastructure Notes
 - cloud-init currently owns `/etc/netplan/50-cloud-init.yaml`
 - hostname is still the provider-generated UUID-like name and has not yet been semantically renamed on-host
-- this host currently has no swap; if future relay software proves memory-spiky, swap may become the first low-risk stabilization lever
-- because the user called out a **bidirectional 800G/month** transfer limit, any future documentation should record whether a service is ingress-heavy, egress-heavy, or symmetric
+- this host now has a persistent 2G `/swapfile` enabled (added 2026-04-29) to reduce risk from memory spikes on the 1G RAM relay box
+- because the user called out a **bidirectional 800G/month** transfer limit, any future documentation should record whether a service is ingress-heavy, egress-heavy, or symmetric; `vnstat` is installed/enabled for host-side traffic accounting from 2026-04-29 onward
 - first production relay stack installed on 2026-04-13 is `sing-box 1.11.0`
 - first deployed access pattern is intentionally multi-entry:
   - direct server/tool usage via authenticated HTTP/SOCKS-style proxy ports
   - Clash/sing-box client usage via VLESS Reality and Hysteria2
-- current firewall baseline uses `ufw` with explicit allows for `22/tcp`, `1080/tcp`, `1081/tcp`, `8080/tcp`, `8088/tcp`, `8443/tcp`, and `8444/udp`
+- current firewall baseline uses `ufw` deny-in/allow-out with explicit allows for `22/tcp`, `80/tcp`, `443/tcp`, `1080/tcp`, `1081/tcp`, `8080/tcp`, `8088/tcp`, `8443/tcp`, and `8444/udp`; port/service exposure was intentionally not narrowed during the 2026-04-29 baseline hardening pass because CN/Global endpoint topology is still being finalized
+- SSH hardening baseline from 2026-04-29: root login remains available by key (`PermitRootLogin prohibit-password` / effective `without-password`), password auth and keyboard-interactive auth are disabled, `MaxAuthTries=4`, and `fail2ban` is enabled for the `sshd` jail
+- journald is capped via `/etc/systemd/journald.conf.d/90-openclaw-hardening.conf` (`SystemMaxUse=128M`, `RuntimeMaxUse=64M`, `MaxRetentionSec=14day`, compression enabled)
 - Hysteria2 currently uses a self-signed certificate generated on-host for initial bootstrap; if long-term client UX matters, replace this with a real certificate/domain later
 - canonical public hostname for this relay node is now `hk.zhangxuemin.work` (Cloudflare DNS-only A record -> `154.86.30.10` created on 2026-04-13)
 - additional public helper domains created on 2026-04-13:
   - `drop.hk.zhangxuemin.work` -> HTTPS upload/download entry proxied to local `dufs:8088`
   - `clash.hk.zhangxuemin.work` -> Clash config distribution hostname
+- CN edge entrypoints added on 2026-04-29 and extended on 2026-06-01:
+  - `cliproxy-cn.zhangxuemin.work` -> HK Caddy TLS edge -> `proxy.zhangxuemin.work:8317` (`oracle-proxy` primary cliproxy origin)
+  - `proxy-bak-cn.zhangxuemin.work` -> HK Caddy TLS edge -> `https://proxy-bak.zhangxuemin.work` (`oracle-proxy` cliproxy backup pool origin)
+  - `claw-cn.zhangxuemin.work` -> HK Caddy TLS edge -> `https://dev.zhangxuemin.work` (`oracle-open_claw` OpenClaw origin)
+  - `reverse-cn.zhangxuemin.work:22061` -> HK TCP relay -> `oracle-reverse-dev:22` (`ssh -p 22061 ubuntu@reverse-cn.zhangxuemin.work`)
+  - `ctf-gpt-cn.zhangxuemin.work` -> HK Caddy TLS edge -> `http://140.245.61.236:8000` (`oracle-reverse-dev` CTF GPT Plus origin)
+  - interpretation: these are domestic/China-facing optimized entrypoints; overseas/oracle-side consumers should keep using the original global/source endpoints unless intentionally testing the CN path
+  - policy clarified on 2026-04-29: do not firewall source services down to HK-only; direct/global Oracle/source entrypoints should remain available for HK single-point-of-failure fallback and overseas access
 - subscription hardening update on 2026-04-21:
   - legacy public paths such as `/clash-meta.yaml` are no longer exposed directly
-  - Clash YAML downloads on `clash.hk.zhangxuemin.work` now use a randomized private path segment on the same host
+  - Clash YAML downloads on `clash.hk.zhangxuemin.work` now use randomized private path segments on the same host
   - the exact secret path is intentionally kept out of `infra/` and repo history; treat it like a credential and share it only out-of-band when needed
+- consumer track update on 2026-05-30:
+  - a separate cleaner consumer-facing track was added beside the full operator/private track
+  - the clean track is intentionally smaller and uses human-friendly names to reduce client UI clutter while preserving the same core policy model
 - operational subscription gotcha confirmed on 2026-04-13: for client proxy nodes on this host, Clash import/runtime was reliable only after publishing HK node `server` fields as the bare IP `154.86.30.10` instead of `hk.zhangxuemin.work`; keep the domains for file/distribution surfaces, but prefer IP literals inside proxy subscription entries for this relay.
 
 ## 7. Documentation Scope

@@ -1,4 +1,4 @@
-generated_at: 2026-04-13
+generated_at: 2026-03-16
 hosts:
   - name: oracle-proxy
     provider: oracle
@@ -15,7 +15,10 @@ hosts:
     notes:
       - proxy.zhangxuemin.work is the primary documented domain
       - ExaFree is running on host port 7860 with host-side cron automation for approximate 3-hour / 5-account registration batches
-      - same-day read-only recheck also confirmed an older standalone host-level Hysteria server is still active on UDP 53752 from /etc/hysteria/config.yaml
+      - 2026-03-26 recurring check initially found root filesystem pressure at 87% (~6.1G free); follow-up triage showed the main contributors were Docker images/overlay/build-cache plus large logs under /var, and a same-day conservative cleanup reduced usage to 50% (~23G free) without disturbing active services
+      - formerly public `:8011` ad-hoc host-level `uv/granian` Grok2API instance has been retired on 2026-03-26; the main Dockerized `:8000` service remained healthy after removal
+      - low-risk retention controls were added on 2026-03-26: journald size cap + weekly Docker prune cron
+      - same-day read-only recheck also confirmed an older standalone host-level Hysteria server is still active on UDP `53752` from `/etc/hysteria/config.yaml`; this is now recorded as documented legacy/live network surface rather than a new failure
 
   - name: oracle-gateway
     provider: oracle
@@ -27,10 +30,14 @@ hosts:
     roles:
       - gateway-host
       - hysteria-relay
+      - tailnet-member
     notes:
-      - host is now the lightweight oracle-gateway and remains a small-footprint box with low free RAM and some swap use
-      - old mixed registry / Harbor runtime residue was removed so the host can stay focused on gateway duties
-      - temporary upload pattern on backup.zhangxuemin.work remains reusable when explicitly needed
+      - host is now the lightweight `oracle-gateway` and remains a small-footprint box with low free RAM and some swap use
+      - old mixed registry / Harbor runtime residue was removed on 2026-03-25 so the host can stay focused on gateway duties
+      - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.116.171.76`
+      - 2026-03-27 validated a reusable but normally-disabled temporary upload pattern on `backup.zhangxuemin.work`: browser Basic Auth popup via Caddy in front of a localhost Python upload backend; route was removed again after transfer and host-side notes remain under `~/.tmp-upload-gateway/`
+      - 2026-04-05 recurring read-only check found an additional temporary public static distribution endpoint on `:18733` (`python3 -m http.server --directory /tmp/hy2dist`), while the older helper backend on `127.0.0.1:18081` still remained local-only
+      - currently serves as the main connectivity reference point for tailnet validation against the other hosts
 
   - name: ali-cloud
     provider: alibaba
@@ -43,13 +50,21 @@ hosts:
       - 1panel
       - easyimage
       - camoufox-remote
+      - tailnet-member
       - explicit-proxy-gateway
       - dns-forwarder-gateway
+      - zcode2api-gateway
     notes:
       - 1Panel controls host port 80
+      - camoufox websocket endpoint on 39222
       - current camoufox exposure is plain ws://<host>:39222/camoufox with no documented TLS/auth proxy in front
-      - explicit-proxy ingress layer is active for other machines: authenticated SOCKS5 on :2080 and authenticated HTTP proxy on :2081
-      - public DNS forwarder on :1053 is used by 181 and 185 via local dnsmasq
+      - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.98.184.19`
+      - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
+      - 2026-04-04 root cause for the old DNS warning was confirmed on-host: DHCP had pinned `eth0` to unreachable Alibaba internal resolvers `100.100.2.136` / `100.100.2.138`; a persistent netplan override now forces `223.5.5.5` / `223.6.6.6`, restoring local stub resolution through `127.0.0.53`
+      - same-day follow-up established persistent Oracle-side foreign egress for this host: a local-only Hysteria SOCKS5 path on `127.0.0.1:18080` now runs via Docker Compose + `hysteria-egress.service`, exits through `oracle-gateway` (`129.150.61.78`), and Docker daemon is configured to use that SOCKS5 via systemd proxy drop-in; validated pulls succeeded for both `hello-world` and `tobyxdd/hysteria:latest`
+      - same-day gateway build-out added an explicit-proxy ingress layer for other machines: authenticated SOCKS5 on `:2080` and authenticated HTTP proxy on `:2081`, both implemented by `sing-box-gateway.service` / `/opt/sing-box-gateway` and both forwarding into the local Hysteria egress path
+      - same-day final domestic-host routing shape also added a public DNS forwarder on `:1053`; `181` and `185` now use local `dnsmasq` on `127.0.0.1:53` with upstream `106.15.239.221#1053`, and both hosts use explicit shell/Docker proxying through `ali-cloud` instead of transparent TUN routing because TUN->remote-SOCKS proved unstable for general HTTPS traffic
+      - 2026-06-22 deployed `zcode2api` manually under `/opt/zcode2api`, published as `106.15.239.221:18084`; gateway API authentication is enabled, and keys were delivered to the user out-of-band rather than committed to infra docs
 
   - name: oracle-mail
     provider: oracle
@@ -62,9 +77,13 @@ hosts:
       - web-app-host
       - outlook-email-plus
       - archived-mail-stack-footprints
+      - tailnet-member
     notes:
-      - mail.zhangxuemin.work is currently live as the Outlook Email Plus web app via Docker Compose + Caddy
+      - `mail.zhangxuemin.work` is currently live as the Outlook Email Plus web app via Docker Compose + Caddy
       - active containers live under /opt/outlook-email-plus
+      - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.116.13.44`
+      - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
+      - Tailscale health check warns that SELinux may interfere with Tailscale SSH on this host
 
   - name: self-server
     provider: unknown
@@ -77,53 +96,71 @@ hosts:
       - china-server
       - explicit-proxy-consumer
     notes:
-      - prefers China-side transit via ali-cloud rather than direct access from the current OpenClaw host
-      - final network shape is local dnsmasq on 127.0.0.1:53 forwarding to ali-cloud:1053, plus shell/Docker explicit proxying through ali-cloud:2081 / :2080
-      - validated foreign-access outcome after the cutover: GitHub/Google worked through the explicit proxy path, and Docker pulls succeeded
+      - direct path from the current OpenClaw host still timed out during both the older 2026-03-15 probe and the refreshed 2026-04-04 probe
+      - user clarified on 2026-04-04 that the likely active SSH entrypoint is `root@211.144.221.229:44001`
+      - same-day TCP probe from `ali-cloud` to `211.144.221.229:44001` succeeded, so this host now prefers China-side transit via `ali-cloud` rather than direct access from the current OpenClaw host
+      - a same-day SSH attempt through `ProxyJump ali-cloud` reached the target password prompt, and a later retry with corrected credentials succeeded; OpenClaw-side public-key login was then installed and validated through `ssh self-server` (`:44001`)
+      - the same public IP also exposes a second user-confirmed SSH target on `:44005`; direct path from the current OpenClaw host still timed out, but transit via `ali-cloud` worked, password `WnhtOTcxMDA0` succeeded, and OpenClaw-side public-key login was then installed and validated through `ssh self-server-44005`
+      - same-day cleanup intent later diverged by VM: `:44001` was intentionally kept as `1Panel + FRPS`, while `:44005` was aggressively reduced toward a near-`1Panel`-only shape with `mihomo`, postfix, extra SSH listener `5837`, rpcbind, containers, and most MCP/dev-tool residue removed
+      - final same-day network shape on both VMs is local `dnsmasq` on `127.0.0.1:53` forwarding to `ali-cloud:1053`, plus shell/Docker explicit proxying through `ali-cloud:2081` / `:2080`; this replaced an unstable experimental transparent TUN path
+      - validated foreign-access outcome after the cutover: GitHub/Google worked through the explicit proxy path, and Docker pulls for `hello-world` plus `coredns/coredns:latest` succeeded on both `:44001` and `:44005`
+      - password authentication is expected for bootstrap/recovery only, but passwords are intentionally not stored in `infra/`
+      - 2026-04-06 added a new public service on `:44005`: `prompt-optimizer-studio` on `30001/tcp`, deployed from local source build with data persisted under `/opt/prompt-optimizer-studio/data`; extra accidental exposure on `3000/tcp` was later removed the same day so only `30001` remains public
+      - 2026-04-08 initial read-only validation on `:44005` found actual listeners limited to `22`, `30001`, and `30008`, while `firewalld` still had residual opens for `30003-30007`, `30009`, `30010`, plus a stale `30007 -> 9090` forward rule
+      - later on 2026-04-08, FRPS on `:44005` was confirmed live with listeners on `30009` and `30010`, plus active FRP-published SSH mappings `30002 -> home-macmini:22` and `30003 -> home-nas:22`; public TCP connect checks from `ali-cloud` succeeded for `30002`, `30003`, `30009`, and `30010`
+      - 2026-06-08 user-requested cleanup removed EasyAI from `:44005` without archive, freed `30003`, `30004`, and `30009`, and reassigned `30002` to `ruyipage 151-ruyi` static Linux package mirror; follow-up user confirmation at 14:41 GMT+8 also approved cleaning Docker volumes `crawl4ai_redis_data`, `linovel_scrapy_redis_data`, and `mailu_api_redis_data`, all confirmed removed
+      - 2026-06-16 deployed `jhao104/proxy_pool` on `:44005` port `30003` under `/opt/proxy_pool` via Docker Compose; the previous temporary `textdrop.service` on that port was disabled, and validation from `ali-cloud` confirmed public `/count/` JSON on `211.144.221.229:30003`
 
-  - name: oracle-registry
+  - name: oracle-newapi-primary
     provider: oracle
-    ssh_alias: oracle-registry
+    ssh_alias: oracle-newapi-primary
+    legacy_ssh_aliases:
+      - oracle-registry
     ip: 140.245.33.114
     lifecycle: active
     reachability: reachable
-    importance: tier2
+    importance: tier1
     roles:
       - ubuntu-arm-host
-      - registry-front-door-host
+      - newapi-primary
+      - ai-api-relay-host
+      - tailnet-member
     notes:
-      - first SSH tests timed out until OCI networking was corrected
-      - public SSH is reachable as user ubuntu
-      - system hostname was updated to semantic name oracle-registry
+      - 2026-06-08 deployed custom New API docs site at /docs/ via Caddy static file server, root console preserved
+      - 2026-06-08 corrected New API protocol types: claude channel type 14/Anthropic, other family channels type 1/OpenAI-compatible; native /v1/messages smoke OK
+      - 2026-06-08 New API channels corrected to semantic families gpt/claude/deepseek/minimax/glm/qwen; codex-auto-review, auto, duplicate GPT aliases removed
+      - 2026-06-08 New API routing repartitioned by model family: CPA/OpenAI, Kiro-Go/Anthropic, Kiro-Go/Other; smoke tests OK
+      - 2026-06-08 19:17 GMT+8 user re-positioned this former `oracle-registry` host as the primary New API / AI API relay host
+      - 2026-06-08 integrated CPA/CLIProxy and Kiro-Go upstream channels; smoke tests for `gpt-5.5` and `auto` returned OK
+      - New API deployed under `/opt/new-api`, container `new-api`, compose project `newapi`, image `calciumion/new-api:latest`, loopback listener `127.0.0.1:13000`, Caddy public HTTP on `:80`, role header `X-NewAPI-Role: primary`
+      - system hostname was updated on 2026-06-08 to `oracle-newapi-primary`; old SSH alias `oracle-registry` remains as a compatibility alias
+      - public SSH is reachable as user `ubuntu`
+      - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.96.23.110`
+      - tailnet connectivity to `oracle-gateway` was validated successfully on 2026-03-25
 
-  - name: hk-relay
-    provider: unknown
-    ssh_alias: hk-relay
-    ip: 154.86.30.10
-    lifecycle: active
-    reachability: reachable
-    importance: tier2
-    roles:
-      - hong-kong-relay
-      - transit-host
-      - bandwidth-capped-host
-    notes:
-      - user added this host as a Hong Kong three-network-optimized relay machine
-      - sing-box on 1080/tcp, 1081/tcp, 8443/tcp, 8444/udp plus file-transfer services on 8080/tcp and 8088/tcp are documented live surface
-
-  - name: oracle-reverse-dev
+  - name: oracle-newapi-standby
     provider: oracle
-    ssh_alias: oracle-reverse-dev
+    ssh_alias: oracle-newapi-standby
+    legacy_ssh_aliases:
+      - oracle-reverse-dev
     ip: 140.245.61.236
     lifecycle: active
     reachability: reachable
-    importance: tier2
+    importance: tier1
     roles:
       - ubuntu-arm-host
-      - utility-worker-host
+      - newapi-standby
+      - ai-api-relay-host
+      - tailnet-member
     notes:
-      - host remains intentionally mostly idle with no permanent public-facing application surface beyond SSH unless explicitly kept
-      - helper launchers exist on-host for js-reverse-mcp and Chromium remote-debug workflows
+      - 2026-06-08 deployed custom New API docs site at /docs/ via Caddy static file server, root console preserved
+      - 2026-06-08 corrected New API protocol types: claude channel type 14/Anthropic, other family channels type 1/OpenAI-compatible; native /v1/messages smoke OK
+      - 2026-06-08 New API channels corrected to semantic families gpt/claude/deepseek/minimax/glm/qwen; codex-auto-review, auto, duplicate GPT aliases removed
+      - 2026-06-08 New API routing repartitioned by model family: CPA/OpenAI, Kiro-Go/Anthropic, Kiro-Go/Other; smoke tests OK
+      - 2026-06-08 19:17 GMT+8 user re-positioned this former `oracle-reverse-dev` host as the standby New API / AI API relay host
+      - New API deployed under `/opt/new-api`, container `new-api`, compose project `newapi`, image `calciumion/new-api:latest`, loopback listener `127.0.0.1:13000`, Caddy public HTTP on `:80`, role header `X-NewAPI-Role: standby`; host iptables TCP/80 allow rule added/persisted on 2026-06-08
+      - system hostname was updated on 2026-06-08 to `oracle-newapi-standby`; old SSH alias `oracle-reverse-dev` remains as a compatibility alias
+      - reverse/dev helper residue may still exist on-host, but the host's primary operational role is now standby API relay
 
   - name: oracle-open_claw
     provider: oracle
@@ -134,62 +171,80 @@ hosts:
     importance: tier0
     roles:
       - current-openclaw-host
+      - tailnet-member
     notes:
       - this is the local machine, not a separate next remote audit target
+      - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.78.194.18`
+      - tailnet connectivity from the local host to `oracle-gateway` was validated successfully on 2026-03-25
 
   - name: home
-    provider: home
+    provider: home-tailnet
     ssh_alias: home
-    ip: null
+    ip: 100.73.71.81
     lifecycle: active
-    reachability: pending-refresh
+    reachability: reachable_over_tailnet
     importance: tier3
     roles:
       - windows-workstation
       - home-lan-entrypoint
+      - tailnet-member
     notes:
-      - current remote-management path needs refresh under the new fleet design
+      - Windows machine with raw hostname `DESKTOP-CAU8JMI` and MagicDNS name `home`
+      - verified reachable from the local OpenClaw host over Tailnet on 2026-03-26 via `tailscale ping`
+      - TCP 22 returned connection refused during 2026-03-26 probe, so generic SSH access is not yet enabled
 
   - name: company
-    provider: company
+    provider: home-tailnet
     ssh_alias: company
-    ip: null
+    ip: 100.110.20.68
     lifecycle: active
-    reachability: pending-refresh
+    reachability: reachable_over_tailnet
     importance: tier3
     roles:
       - windows-workstation
       - company-lan-entrypoint
+      - tailnet-member
     notes:
-      - current remote-management path needs refresh under the new fleet design
+      - Windows machine with current hostname `mengma` and MagicDNS name `company`
+      - present online in the same Tailnet as of 2026-03-26
+      - 2026-03-26 probe from the OpenClaw host confirmed Tailnet reachability, but TCP 22 returned connection refused so SSH is not currently enabled
 
   - name: home-macmini
-    provider: home
+    provider: home-tailnet
     ssh_alias: home-macmini
-    ip: null
+    ip: 100.105.248.53
     lifecycle: active
-    reachability: reachable_via_ali_cloud_frp
+    reachability: reachable_over_tailnet
     importance: tier3
     roles:
       - mac-mini
       - home-lan-node
+      - tailnet-member
     notes:
-      - stable maintenance path is now ali-cloud transit plus FRP SSH relay on `self-server(:44001)` `30017`
-      - durable reusable two-hop root access was established from `ali-cloud` using a host-local ED25519 key on 2026-04-13
-      - removed overlay client residuals were fully cleared on 2026-04-13 (`TS_REMOVED`)
+      - macOS node added to Tailnet on 2026-03-26 with semantic hostname `home-macmini`
+      - early setup was blocked by local GUI/VPN permission flow; later confirmed online with `tailscale ip -4` = `100.105.248.53`
+      - sleep policy was adjusted on 2026-03-26 (`sleep 0`, `tcpkeepalive 1`, `womp 1`) after observing that SSH access woke the machine and Tailscale connectivity returned
+      - 2026-03-26 probe from the OpenClaw host confirmed both Tailnet reachability and open TCP 22, but repeated later same-day probes still saw the node fall offline / time out over SSH
+      - per user decision on 2026-03-26, this instability is recorded for later and is not being actively remediated in the current session
 
   - name: home-nas
-    provider: home
+    provider: home-tailnet
     ssh_alias: home-nas
-    ip: null
+    ip: 100.73.212.89
     lifecycle: active
-    reachability: reachable_via_ali_cloud_frp
+    reachability: reachable_over_tailnet
     importance: tier3
     roles:
       - nas
       - home-storage-node
+      - tailnet-member
     notes:
-      - stable maintenance path is now ali-cloud transit plus FRP SSH relay on `self-server(:44001)` `30018`
-      - zhangxuemin has passwordless sudo on the NAS
-      - removed overlay client residuals were confirmed cleared earlier on 2026-04-13 (`TS_REMOVED`)
-      - this host should now be documented around FRP publication and host-native outbound proxy shape only
+      - currently appears in Tailnet as hostname `NAS`
+      - MagicDNS name confirmed on 2026-03-27 as `nas.tail646ee3.ts.net`
+      - confirmed online from the local OpenClaw host on 2026-03-26 with tailnet IPv4 `100.73.212.89`
+      - later on 2026-03-26, SSH on TCP 22 was enabled and successfully verified from the OpenClaw host using user `zhangxuemin`
+      - 2026-03-27 follow-up: `zhangxuemin` now has passwordless sudo via `/etc/sudoers.d/zhangxuemin`
+      - Tailscale package status on Synology is misleading here: `/usr/syno/bin/synopkg status Tailscale` may report stopped (`263`) even while `/var/packages/Tailscale/target/bin/tailscale status` and `netcheck` work
+      - NAS-side Tailscale diagnostics on 2026-03-27: `UDP: true`, `PortMapping: UPnP`, `MappingVariesByDestIP: true`, `Nearest DERP: San Francisco`
+      - path quality is peer-specific: local OpenClaw host can reach `home-nas` directly, but `company` still consistently hits `via DERP(sfo)` around 480-570 ms
+      - current hypothesis is not a simple NAS misconfiguration, but a `company <-> home-nas` NAT/path issue amplified by the NAS-side network preferring SFO as nearest DERP

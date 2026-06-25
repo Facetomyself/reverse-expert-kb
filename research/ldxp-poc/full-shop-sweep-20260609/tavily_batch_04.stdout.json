@@ -1,0 +1,66 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "site:pay.ldxp.cn/shop 会员",
+    "site:pay.ldxp.cn/shop 账号",
+    "site:pay.ldxp.cn/shop 软件",
+    "site:pay.ldxp.cn/shop 课程",
+    "site:pay.ldxp.cn/shop 兑换"
+  ],
+  "count": 3,
+  "results": [
+    {
+      "title": "晓晓游戏屋- 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/96H3487D",
+      "snippet": "包站会员18.8元【全站畅玩-持续更新−永久有效】 每周上新20款左右新游戏. 联系TA. 卡密. 包站会员. 包含2种商品. 选择商品. 包站会员.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "mozheAPI - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/XEBRMV34",
+      "snippet": "余额兑换码. 包含4种商品. 订阅兑换码. 包含2种商品. 选择商品. 5元余额兑换码. ￥. 5. 剩余8件. 50元余额兑换码. ￥. 50. 剩余7件. 20元余额兑换码.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "AI特战队- 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/RSIAY6WR",
+      "snippet": "200刀key【新用户先买key，已有key就用兑换码续费】 · 10. 库存少量 ; 2200刀兑换码 · 100. 库存一般 ; 1050刀兑换码 · 50. 库存一般 ; 200刀额度兑换码 · 10. 库存少量.",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "晓晓游戏屋- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/96H3487D",
+        "snippet": "包站会员18.8元【全站畅玩-持续更新−永久有效】 每周上新20款左右新游戏. 联系TA. 卡密. 包站会员. 包含2种商品. 选择商品. 包站会员.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "mozheAPI - 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/XEBRMV34",
+        "snippet": "余额兑换码. 包含4种商品. 订阅兑换码. 包含2种商品. 选择商品. 5元余额兑换码. ￥. 5. 剩余8件. 50元余额兑换码. ￥. 50. 剩余7件. 20元余额兑换码.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "AI特战队- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/RSIAY6WR",
+        "snippet": "200刀key【新用户先买key，已有key就用兑换码续费】 · 10. 库存少量 ; 2200刀兑换码 · 100. 库存一般 ; 1050刀兑换码 · 50. 库存一般 ; 200刀额度兑换码 · 10. 库存少量.",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "files": {
+    "research/ldxp-poc/search_raw.json": 16,
+    "research/ldxp-poc/search_exa_expand.json": 26,
+    "research/ldxp-poc/search_tavily_check.json": 8
+  },
+  "total_unique": 32,
+  "shops": 21,
+  "items": 11,
+  "multi_source": 8
+}

@@ -57,6 +57,10 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
   - Safer pattern: use `write` to stage a local script/file, then run it directly (`python3 /path/to/script.py`) and feed the final remote script/body via SSH stdin (`ssh host python3 -`).
   - This also avoids `exec` preflight refusing complex inline interpreter invocations.
 
+- On older CentOS/bash remote hosts such as `self-server-44005`, avoid `printf "--- label ---\n"` because the leading dashes can be interpreted as an option (`printf: --: invalid option`). Use `echo "--- label ---"` or `printf '%s\n' '--- label ---'` instead.
+- For quote-heavy nested SSH checks, especially `ali-cloud -> home-macmini-via-frp`, avoid one-liners that combine regex pipes, nested quotes, and heredocs.
+  - Safer pattern: stage a small local script (`cat > /tmp/check.sh` or `write`) and pipe it to the second hop, e.g. `ssh ali-cloud "ssh -F /root/.ssh/config home-macmini-via-frp bash -s" < /tmp/check.sh`.
+
 ## GitHub / gh on This Host
 
 - Installed GitHub CLI is relatively old: `/usr/bin/gh 2.4.0+dfsg1`.
@@ -76,6 +80,13 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - Practical rule for this host:
   - if running compose remotely through `ssh self-server-44005`, use `docker-compose` explicitly.
 
+## ComfyUI on `home-macmini`
+
+- ComfyUI runs as user `mengma` under `/Users/mengma/ai/ComfyUI`.
+- When automating ComfyUI from the root SSH maintenance path, do **not** pre-create output subdirectories under `/Users/mengma/ai/ComfyUI/output/...` as root unless you immediately `chown -R mengma:staff`.
+  - Otherwise `SaveImage` can finish sampling but fail at write time with `PermissionError: [Errno 13] Permission denied`.
+  - Safer pattern: set `filename_prefix` to a new subfolder and let ComfyUI create it, or repair ownership before queueing.
+
 ## Docker / Redeploy Gotcha on oracle-proxy
 
 - For `oracle-proxy:/root/grok2api`, do **not** assume `docker compose up -d --build grok2api` can safely replace the running service.
@@ -89,6 +100,17 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
   6. verify with `docker inspect grok2api --format '{{.Config.Image}}'`
 - Otherwise compose may silently recreate the service from its default remote image `ghcr.io/tqzhr/grok2api:latest`, making local code changes appear to "not take effect".
 - Inspect `docker ps -a`, `docker inspect grok2api`, `.env`, and `docker compose config` first if the runtime topology seems inconsistent.
+
+## SSH / HK Edge Aliases
+
+- As of 2026-04-29, local `~/.ssh/config` includes CN/HK-edge `ProxyJump hk-relay` aliases for domestic access testing and fallback:
+  - `oracle-proxy-via-hk`
+  - `oracle-openclaw-via-hk` / `oracle-open_claw-via-hk`
+  - `oracle-gateway-via-hk`
+  - `oracle-mail-via-hk`
+  - `oracle-registry-via-hk`
+  - `oracle-reverse-dev-via-hk`
+- Use these when the domestic route to Oracle is poor. Do **not** use them for Oracle-to-Oracle machine traffic; direct/global Oracle endpoints should stay direct unless explicitly testing the HK edge path.
 
 ## Git / GitHub Auth on This Host
 
@@ -151,3 +173,12 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
   - Treat that specific combination as a **probe-timeout inconsistency**, not immediate proof that local memory embeddings are broken.
 
 Add whatever helps you do your job. This is your cheat sheet.
+
+## Docker Cleanup Safety
+
+- For remote Docker cleanup, never use broad generic volume/image filters like `mongo|redis|rabbitmq` unless the user explicitly asked to remove every matching datastore on the host.
+- Prefer Compose labels or exact project prefixes, for example:
+  - `docker volume ls --filter label=com.docker.compose.project=<project>`
+  - `grep -E '^<project>[_-]'`
+- Before destructive volume deletion, print the candidate list and verify it is project-scoped. This matters on multi-app hosts such as `self-server-44005`, where unrelated projects can have redis/mongo volumes.
+

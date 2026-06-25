@@ -129,12 +129,12 @@ Keep reduced variants only for compatibility/debug:
 
 ### 2. Group design
 Recommended default groups:
-- `Proxy` -> main manual select group
-- `HK` -> Hong Kong-only group
-- `HK-Transit` -> HK relay selector used as a `dialer-proxy` upstream when the subscription carries chained home-exit nodes
-- `Home-Egress` -> chained home-exit / sensitive-site group when present
-- `Fallback` -> ali/oracle fallback group
-- `Big-Transfer` -> HF/GitHub/large-transfer-biased group
+- `Proxy` -> main manual select group, but default first option should be `Proxy-Auto`
+- `HK` -> Hong Kong-only group, but default first option should be `HK-Auto`
+- `HK-Transit` -> HK relay selector used as a `dialer-proxy` upstream when the subscription carries chained home-exit nodes; default first option should be `HK-Transit-Auto`
+- `Home-Egress` -> chained home-exit / sensitive-site group when present; default first option should be `Home-Egress-Auto`
+- `Fallback` -> ali/oracle fallback group, but default first option should be `Fallback-Auto`
+- `Big-Transfer` -> HF/GitHub/large-transfer-biased group, but default first option should be `Big-Transfer-Auto`
 
 ### 3. Routing policy direction
 Recommended practical policy:

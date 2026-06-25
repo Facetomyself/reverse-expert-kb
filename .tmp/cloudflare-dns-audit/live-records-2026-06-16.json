@@ -1,0 +1,348 @@
+{
+  "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
+  "record_count": 44,
+  "type_counts": {
+    "A": 34,
+    "AAAA": 2,
+    "MX": 4,
+    "TXT": 4
+  },
+  "records": [
+    {
+      "name": "_dmarc.zhangxuemin.work",
+      "type": "TXT",
+      "content": "\"v=DMARC1; p=reject; rua=mailto:f7f21e5e0ab844279caa542a187734f0@dmarc-reports.cloudflare.net,mailto:mail@zhangxuemin.work; ruf=mailto:mail@zhangxuemin.work; adkim=s; aspf=s\"",
+      "ttl": 1,
+      "proxied": false,
+      "comment": "DMARC"
+    },
+    {
+      "name": "ai-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN/HK edge via hk-relay for New API"
+    },
+    {
+      "name": "ai.zhangxuemin.work",
+      "type": "A",
+      "content": "140.245.33.114",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "New API global/source on oracle-newapi-primary"
+    },
+    {
+      "name": "backup.zhangxuemin.work",
+      "type": "A",
+      "content": "129.150.61.78",
+      "ttl": 1,
+      "proxied": false,
+      "comment": "oracle-gateway / hysteria"
+    },
+    {
+      "name": "card-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN edge via hk-relay for card shop"
+    },
+    {
+      "name": "card.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "card shop global/source on oracle-proxy"
+    },
+    {
+      "name": "cf2024-1._domainkey.zhangxuemin.work",
+      "type": "TXT",
+      "content": "\"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78k\" \"m4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB\"",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "clash.hk.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "claw-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN edge via hk-relay for OpenClaw"
+    },
+    {
+      "name": "cliproxy-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN edge via hk-relay for cliproxy"
+    },
+    {
+      "name": "cpam-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN edge via hk-relay for CPA Manager Plus"
+    },
+    {
+      "name": "cpam.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "oracle-proxy CPA Manager Plus"
+    },
+    {
+      "name": "ctf-gpt-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN/HK edge via hk-relay for oracle-reverse-dev CTF GPT Plus"
+    },
+    {
+      "name": "derp.zhangxuemin.work",
+      "type": "A",
+      "content": "129.150.61.78",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "dev.zhangxuemin.work",
+      "type": "A",
+      "content": "64.110.106.11",
+      "ttl": 1,
+      "proxied": false,
+      "comment": "openclaw-host"
+    },
+    {
+      "name": "docs-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN edge via hk-relay for Kiro docs"
+    },
+    {
+      "name": "docs.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "Kiro docs global/source on oracle-proxy"
+    },
+    {
+      "name": "drop.hk.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "ghcr.zhangxuemin.work",
+      "type": "A",
+      "content": "140.245.33.114",
+      "ttl": 1,
+      "proxied": false,
+      "comment": "oracle-registry"
+    },
+    {
+      "name": "gpt-card-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "gpt-card.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "gptam-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN/HK edge via hk-relay for GPT Account Manager"
+    },
+    {
+      "name": "gptam.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "oracle-proxy GPT Account Manager direct/source entry"
+    },
+    {
+      "name": "hk.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "hub.zhangxuemin.work",
+      "type": "A",
+      "content": "140.245.33.114",
+      "ttl": 1,
+      "proxied": false,
+      "comment": "oracle-registry"
+    },
+    {
+      "name": "k8s.zhangxuemin.work",
+      "type": "A",
+      "content": "140.245.33.114",
+      "ttl": 1,
+      "proxied": false,
+      "comment": "oracle-registry"
+    },
+    {
+      "name": "kiro-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "kiro-rs-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "kiro-rs.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "kiro.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "mail.zhangxuemin.work",
+      "type": "A",
+      "content": "140.83.52.216",
+      "ttl": 1,
+      "proxied": false,
+      "comment": "oracle-mail web-app host"
+    },
+    {
+      "name": "mcr.zhangxuemin.work",
+      "type": "A",
+      "content": "140.245.33.114",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "proxy-bak-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 1,
+      "proxied": false,
+      "comment": "cliproxy backup pool CN/HK edge on hk-relay"
+    },
+    {
+      "name": "proxy-bak.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 1,
+      "proxied": false,
+      "comment": "cliproxy backup pool direct/source entry on oracle-proxy"
+    },
+    {
+      "name": "proxy.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 1,
+      "proxied": false,
+      "comment": "oracle-proxy"
+    },
+    {
+      "name": "reverse-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN/HK SSH edge via hk-relay to oracle-reverse-dev:22"
+    },
+    {
+      "name": "send.zhangxuemin.work",
+      "type": "MX",
+      "content": "feedback-smtp.ap-northeast-1.amazonses.com",
+      "ttl": 3600,
+      "proxied": false,
+      "priority": 10
+    },
+    {
+      "name": "send.zhangxuemin.work",
+      "type": "TXT",
+      "content": "\"v=spf1 include:amazonses.com ~all\"",
+      "ttl": 3600,
+      "proxied": false
+    },
+    {
+      "name": "tmail-front.zhangxuemin.work",
+      "type": "AAAA",
+      "content": "100::",
+      "ttl": 1,
+      "proxied": true
+    },
+    {
+      "name": "tmail.zhangxuemin.work",
+      "type": "AAAA",
+      "content": "100::",
+      "ttl": 1,
+      "proxied": true
+    },
+    {
+      "name": "zhangxuemin.work",
+      "type": "MX",
+      "content": "route1.mx.cloudflare.net",
+      "ttl": 1,
+      "proxied": false,
+      "priority": 56
+    },
+    {
+      "name": "zhangxuemin.work",
+      "type": "MX",
+      "content": "route2.mx.cloudflare.net",
+      "ttl": 1,
+      "proxied": false,
+      "priority": 24
+    },
+    {
+      "name": "zhangxuemin.work",
+      "type": "MX",
+      "content": "route3.mx.cloudflare.net",
+      "ttl": 1,
+      "proxied": false,
+      "priority": 98
+    },
+    {
+      "name": "zhangxuemin.work",
+      "type": "TXT",
+      "content": "\"v=spf1 include:_spf.mx.cloudflare.net ~all\"",
+      "ttl": 1,
+      "proxied": false
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+mixed-port: 7899
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: true
+
+proxies:
+  - name: hk-hy2
+    type: hysteria2
+    server: 154.86.30.10
+    port: 8444
+    password: "db8cb0279a30e252754be058a7efe09f"
+    sni: www.apple.com
+    skip-cert-verify: true
+    udp: true
+
+  - name: home-http-via-hk-hy2
+    type: http
+    server: 204.237.153.49
+    port: 60088
+    username: VbyYbQEAVhrp
+    password: lPgcIWCHPKQ9
+    tls: false
+    udp: false
+    dialer-proxy: hk-hy2
+
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - home-http-via-hk-hy2
+      - DIRECT
+
+rules:
+  - MATCH,Proxy

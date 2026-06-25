@@ -6,8 +6,8 @@
 | oracle-gateway | `oracle-gateway` | `129.150.61.78` | active | reachable | `hosts/oracle-gateway/HOST.md` |
 | oracle-mail | `oracle-mail` | `140.83.52.216` | active | reachable | `hosts/oracle-mail/HOST.md` |
 | ali-cloud | `ali-cloud` | `106.15.239.221` | active | reachable | `hosts/ali-cloud/HOST.md` |
-| oracle-registry | `oracle-registry` | `140.245.33.114` | active | reachable | `hosts/oracle-registry/HOST.md` |
-| oracle-reverse-dev | `oracle-reverse-dev` | `140.245.61.236` | active | reachable | `hosts/oracle-reverse-dev/HOST.md` |
+| oracle-newapi-primary | `oracle-newapi-primary` (`oracle-registry` compat) | `140.245.33.114` | active | reachable | `hosts/oracle-newapi-primary/HOST.md` |
+| oracle-newapi-standby | `oracle-newapi-standby` (`oracle-reverse-dev` compat) | `140.245.61.236` | active | reachable | `hosts/oracle-newapi-standby/HOST.md` |
 | hk-relay | `hk-relay` | `154.86.30.10` | active | reachable | `hosts/hk-relay/HOST.md` |
 | self-server | `self-server` | `211.144.221.229` | active | transit_preferred_via_ali_cloud | `hosts/self-server/HOST.md` |
 | home-macmini | `home-macmini` | `-` | active | pending-refresh | `hosts/home-macmini/HOST.md` |

@@ -75,7 +75,9 @@ Current shape is noticeably heavier and contains more development residue / oper
   - `1Panel`
   - `AstrBot`
   - `NapCat`
-  - `EasyAI`
+  - `ruyipage 151-ruyi`
+  - `ChatGpt Image Studio`
+  - `proxy_pool`
 - `prompt-optimizer-studio` was intentionally retired and its former `30001/tcp` slot was repurposed for `NapCat WebUI`
 - the temporary FRPS role that briefly lived on this VM was moved away; do not treat `host185` as the steady FRP relay box anymore
 - future workloads should still be introduced intentionally from a low-noise baseline
@@ -87,9 +89,13 @@ Current shape is noticeably heavier and contains more development residue / oper
 - validated after cutover: `docker pull hello-world` and `docker pull coredns/coredns:latest` both succeeded; the discarded transparent `sing-box-global` experiment should not be treated as an active project
 - current intended externally published application slots on this VM are primarily:
   - `30001/tcp` for `NapCat WebUI`
-  - `30002-30004/tcp` for `EasyAI`
+  - `30002/tcp` for `ruyipage 151-ruyi` static release mirror
+  - `30003/tcp` for `proxy_pool` API (`/opt/proxy_pool`, Docker Compose; reassigned from temporary TextDrop on 2026-06-16)
+  - `30004/tcp` is now free/unassigned after EasyAI removal
   - `30005-30007/tcp` for `AstrBot`
   - `30008/tcp` for `1Panel`
+  - `30009/tcp` is now free/unassigned after EasyAI removal
+  - `30010/tcp` for `ChatGpt Image Studio`
 
 #### Active project added on 2026-04-06: Prompt Optimizer Studio
 - deployment path: `/opt/prompt-optimizer-studio`
@@ -128,30 +134,113 @@ Current shape is noticeably heavier and contains more development residue / oper
   - post-restart logs confirmed provider adapters now load successfully for `openai/gpt-5.4`, `openai/gpt-5.4-mini`, and `openai/gpt-5.2`
 - detailed runbook: `infra/hosts/self-server/projects/astrbot.md`
 
-#### Active project confirmed on 2026-04-16: EasyAI
-- deployment path: `/opt/easyai`
-- runtime shape: Docker Compose application on `host185`, started successfully after offline image staging from `ali-cloud`
-- main intended published ports:
-  - `30002 -> EasyAI WebUI`
-  - `30003 -> EasyAI API`
-  - `30004 -> EasyAI WS gateway`
-- notable host-bound helper/runtime ports currently present from the shipped compose:
-  - `8080` (`dozzle`)
-  - `8888` (`sandbox`)
-  - `8000` (`video-edit`)
-  - `5672` / `15672` (`rabbitmq`)
-  - `27017` (`mongo`)
-- recovery note from the first successful bring-up:
-  - compose initially failed because its custom network wanted `172.21.0.0/16`
-  - the real overlap was a stale Docker network `one-mcp_default` from an abandoned compose project `one-mcp`
-  - verification before cleanup showed `one-mcp_default` had no attached containers and `/opt/1panel/mcp` was empty
-  - removing that stale network allowed `docker-compose up -d` to complete successfully
-- offline-transfer note:
-  - all required images were confirmed present on `host185`
-  - temporary `.tar.gz` bundles were cleaned from both `host185:/data` and `ali-cloud:/tmp/easyai-image-cache/http-root` after import
-- current runtime verification on 2026-04-16:
-  - local probe: `30002` returned `302 -> /home`
-  - local probe: `30003` returned `200 OK`
-  - external probe from `ali-cloud`: `30002` and `30003` were reachable
-  - external probe from `ali-cloud`: `30004` still returned connection refused even though Docker bound the port locally, so verify whether external WS exposure is actually required before depending on it
-- detailed runbook: `infra/hosts/self-server/projects/easyai.md`
+#### Removed project on 2026-06-08: EasyAI
+- former deployment path: `/opt/easyai`
+- former runtime shape: Docker Compose application on `host185`
+- former public ports: `30002` WebUI, `30003` API, `30004` WS gateway, `30009` ASG / governance API
+- removal decision: user explicitly requested all EasyAI-related projects on `44005` be cleaned with no archive and ruyipage deployed to `44005` instead
+- cleanup performed on 2026-06-08:
+  - `docker-compose down --remove-orphans` from `/opt/easyai`
+  - removed known EasyAI containers: `easyai-asg`, `easyai-wsgateway`, `agent-memory`, `easyai-web`, `easyai-server`, `video-edit`, `rabbitmq`, `easyai-watchtower-1`, `mongo`, `redis`, `sandbox`, `easyai-pgvector`, `dozzle`
+  - removed `/opt/easyai` without archive
+  - removed known EasyAI images and EasyAI networks
+  - freed listeners on `30002`, `30003`, `30004`, `30009`, and helper ports `8080`, `8888`, `8000`, `5672`, `15672`, `27017`, `3004`
+- cleanup follow-up:
+  - one cleanup command initially exposed that the broader host also had redis-named volumes `crawl4ai_redis_data`, `linovel_scrapy_redis_data`, and `mailu_api_redis_data`
+  - user explicitly confirmed on 2026-06-08 14:41 GMT+8 that these three volumes should also be cleaned, and follow-up `docker volume inspect` confirmed all three are removed
+  - future cleanup should still use Compose labels or exact project prefixes by default unless the user explicitly widens the cleanup scope
+
+#### Active project added on 2026-06-08: ruyipage 151-ruyi
+- deployment path: `/opt/ruyipage-151`
+- runtime shape: systemd-managed Python static HTTP server
+- service: `ruyipage-151.service`
+- public port mapping: `30002/tcp -> python3 http.server`
+- contents:
+  - landing page: `/opt/ruyipage-151/index.html`
+  - Linux package only: `/opt/ruyipage-151/files/firefox-151.0a1.en-US.linux-x86_64.tar.xz`
+  - Windows package intentionally not mirrored because the user said it is not needed
+- source release: `https://github.com/LoseNine/ruyipage/releases/tag/151-ruyi`
+- validation on 2026-06-08:
+  - file size verified: `103125296` bytes
+  - host-local `curl -I http://127.0.0.1:30002/` returned `200 OK`
+  - host-local package `HEAD` returned `Content-Length: 103125296`
+  - transit-side probe from `ali-cloud` to `http://211.144.221.229:30002/` returned `200 OK`
+  - transit-side package `HEAD` returned `Content-Length: 103125296`
+- update path:
+  - replace files under `/opt/ruyipage-151/files`
+  - `systemctl restart ruyipage-151.service` if the service definition changes
+
+#### Active project added on 2026-04-24: ChatGpt Image Studio
+- deployment path: `/opt/chatgpt-image-studio`
+- runtime shape: Docker Compose deployment on `host185`; current live image is the local patched tag `chatgpt-image-studio:patched-20260424-refresh-serial`, derived from upstream `ghcr.io/peiyizhi0724/chatgpt-image-studio:v1.2.6`
+- compose file: `/opt/chatgpt-image-studio/docker-compose.yml`
+- persistent data/config path: `/opt/chatgpt-image-studio/backend-data`
+- container/service name shape: `chatgpt-image-studio`
+- public port mapping: `30010 -> container 7000`
+- current active runtime decisions after the same-day repair:
+  - active image mode is `studio`
+  - `sync.enabled = true`, still pointed at the existing oracle-proxy cliproxy/CPA management surface on `http://proxy.zhangxuemin.work:8317`
+  - `cpa.base_url` remains configured for future retests, but it is not the active image path in the repaired runtime
+  - direct ChatGPT/offline-refresh traffic now uses the ali-cloud authenticated HTTP explicit proxy on `106.15.239.221:2081` instead of the earlier unstable fixed SOCKS path
+  - the local patched image serializes account refresh requests (`/backend-api/me` then `/backend-api/conversation/init`) instead of issuing those two calls concurrently
+  - `proxy.sync_enabled = false`, so sync / CPA management requests are not redundantly wrapped by that outbound proxy layer
+- deployment + repair validation on 2026-04-24:
+  - local `curl http://127.0.0.1:30010/health` returned `{"status":"ok"}`
+  - transit-side validation from `ali-cloud` confirmed public `211.144.221.229:30010/health` returned `200 OK`
+  - additional ali-cloud-side probes confirmed `POST /auth/login` and `GET /v1/models` work with the configured app credentials
+  - first deployment completed with `26` synced local accounts visible to the service
+  - after the proxy switch + patched image rollout, live quota refresh for a non-disabled `Plus` account succeeded with empty `refresh_error` and a populated `image_gen` quota window
+- operational note:
+  - secrets for app login/API and upstream CPA/proxy access live only in the on-host `backend-data/config.toml`; do not copy them into `infra/`
+- update path:
+  - `cd /opt/chatgpt-image-studio`
+  - `/usr/local/bin/docker-compose up -d`
+  - if upstream image refresh is desired later, re-evaluate whether the local patched image must be rebuilt before switching away from the local tag
+- logs:
+  - `docker logs -f chatgpt-image-studio`
+- detailed runbook: `infra/hosts/self-server/projects/chatgpt-image-studio.md`
+
+#### Disabled temporary project added on 2026-06-10: TextDrop
+- deployment path: `/opt/textdrop`
+- runtime shape: systemd-managed Python 3 HTTP service
+- service: `textdrop.service`
+- former public port mapping: `30003/tcp -> python3 /opt/textdrop/app.py`
+- purpose: short-term browser-based transfer of long text/scripts from chat-constrained devices to another computer
+- access control: random token stored on-host at `/opt/textdrop/token.txt`; do not commit the token into `infra/`
+- storage path: `/opt/textdrop/files`
+- validation on 2026-06-10:
+  - host-local `curl http://127.0.0.1:30003/health` returned `ok`
+  - transit-side probe from `ali-cloud` to `http://211.144.221.229:30003/?t=<token>` returned `200 OK`
+- 2026-06-16 status:
+  - `textdrop.service` was disabled/stopped so `30003/tcp` could be reassigned to `proxy_pool`
+  - `/opt/textdrop` was not recorded as deleted
+  - do not re-enable TextDrop on `30003` unless `proxy_pool` is moved or removed first
+
+#### Active project added on 2026-06-16: proxy_pool
+- upstream: `https://github.com/jhao104/proxy_pool`
+- deployment path: `/opt/proxy_pool`
+- runtime shape: Docker Compose on `host185`
+- compose file: `/opt/proxy_pool/docker-compose.yml`
+- containers:
+  - `proxy_pool_server` (`jhao104/proxy_pool:latest`, entrypoint `python proxyPool.py server`)
+  - `proxy_pool_scheduler` (`jhao104/proxy_pool:latest`, entrypoint `python proxyPool.py schedule`)
+  - `proxy_pool_redis` (`redis:7-alpine`, internal-only, AOF enabled)
+- persistent storage:
+  - Compose volume `proxy_pool_redis_data` mounted to Redis `/data`
+- public port mapping:
+  - `30003/tcp -> proxy_pool_server:5010`
+- key deployment note:
+  - the upstream `jhao104/proxy_pool:latest` image entrypoint uses `bash proxy_pool.sh start --fg`, but the image did not contain `bash`; the stock single-container entrypoint restarted with exit `127`
+  - deployed stable shape avoids that broken entrypoint by splitting API and scheduler into two Compose services with explicit Python entrypoints
+- validation on 2026-06-16:
+  - host-local `GET http://127.0.0.1:30003/` returned the API index
+  - host-local `GET http://127.0.0.1:30003/count/` returned JSON
+  - ali-cloud transit-side `GET http://211.144.221.229:30003/count/` returned JSON and `HEAD /` returned `HTTP/1.1 200 OK` from gunicorn
+  - scheduler logs showed active fetch attempts from enabled proxy sources
+  - initial pool count was `0`, expected shortly after startup before validation admits proxies
+- operational commands:
+  - `cd /opt/proxy_pool && /usr/local/bin/docker-compose ps`
+  - `cd /opt/proxy_pool && /usr/local/bin/docker-compose logs -f proxy_pool_server proxy_pool_scheduler`
+  - `cd /opt/proxy_pool && /usr/local/bin/docker-compose up -d`
+- caution:
+  - avoid reverting to the upstream stock entrypoint unless the image is fixed to include `bash` or the entrypoint is changed upstream

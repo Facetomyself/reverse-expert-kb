@@ -24,42 +24,89 @@ Operational notes:
 - Outlook OAuth can be postponed until actual import time
 - Cloudflare temporary mailbox integration was evaluated on 2026-03-20 and intentionally deferred
 
-### 2. Historical Mailu note
-Previously observed Mailu facts before final deletion:
-- root domain: `zhangxuemin.work`
-- historical hostname: `mail.zhangxuemin.work`
-- the old stack was capable of owning classic mail ports (`25/465/587/110/995/143/993/4190`) if started
 
-Cleanup outcome on 2026-04-14 after explicit user confirmation that Mailu is no longer used:
-- deleted host-side Mailu persistent data directory: `/mailu`
-- deleted archived Mailu copy: `/root/retired-services/2026-03-15/mailu`
-- removed historical Mailu DKIM record from Cloudflare live zone: `dkim._domainkey.zhangxuemin.work`
+### 2. WA App deployment
+Located at:
+- `/opt/wa-app/docker-compose.yml`
+- `/opt/wa-app/.env`
+- persistent data: Docker volume `wa-app-data` mounted at `/var/lib/wa-app`
+
+Deployment characteristics:
+- container: `wa-app`
+- image: `ghcr.io/pood1e/wa-app-service:latest`
+- public source/global domain: `wa.zhangxuemin.work`
+- domestic/HK edge domain: `wa-cn.zhangxuemin.work` via `hk-relay`
+- dashboard: Docker-internal `8080`, exposed publicly only through the shared `outlook-email-plus-caddy` reverse proxy
+- gRPC: Docker-internal `50091`, no host port published
+- compose action: `cd /opt/wa-app && docker compose up -d wa-app`
+
+Runtime proxy configuration:
+- configured in `/opt/wa-app/.env`
+- current `WA_COMMON_PROXY`: `socks5://VbyYbQEAVhrp:lPgcIWCHPKQ9@204.237.153.49:60088/`
+- updated on 2026-06-16 and verified in the recreated `wa-app` container environment
+
+Operational notes:
+- login is gated by `WA_APP_AUTH_PASSWORD` in `/opt/wa-app/.env`
+- the app shares the external Docker network `outlook-email-plus_default` so Caddy can reverse-proxy to `wa-app:8080`
+- keep `50091` internal unless there is a specific gRPC exposure requirement
+
+### 3. FileCodeBox deployment
+Located at:
+- `/opt/filecodebox/docker-compose.yml`
+- persistent data: `/opt/filecodebox/data`
+
+Deployment characteristics:
+- container: `filecodebox`
+- image: `lanol/filecodebox:latest`
+- host/source port: `18085`, firewall-restricted to `hk-relay` (`154.86.30.10`) plus localhost
+- domestic/HK entry domain: `drop-cn.zhangxuemin.work` via `hk-relay` Caddy
+- FileCodeBox provides the application-level authentication/initialization; no extra HK Basic Auth is layered on top
+- compose action: `cd /opt/filecodebox && /usr/local/bin/docker-compose up -d`
+
+Operational notes:
+- FileCodeBox is suitable for longer-lived personal file/text handoff than ad-hoc Python upload scripts: it supports extraction codes, expiry by time/count, admin management, local persistent storage, and curl uploads.
+- Back up `/opt/filecodebox/data` to preserve SQLite/app data and uploaded files.
+
+### 4. Mailu deployment footprint
+Located at:
+- `/root/mailu/docker-compose.yml`
+- `/root/mailu/mailu.env`
+
+Mailu configuration indicates:
+- `DOMAIN=zhangxuemin.work`
+- `HOSTNAMES=mail.zhangxuemin.work`
+- `TLS_FLAVOR=letsencrypt`
+- `ADMIN=true`
+- `WEBMAIL=none`
+- `API=true`
+- `WEBDAV=radicale`
+- `ANTIVIRUS=clamav`
+- `FETCHMAIL_ENABLED=true`
+
+Mailu compose exposes, if started:
+- `80`, `443`
+- `25`, `465`, `587`
+- `110`, `995`
+- `143`, `993`
+- `4190`
 
 Current reality:
-- no Mailu files should be treated as part of the live host state anymore
-- do not assume Mailu is available for rollback unless it is reintroduced later from a fresh deployment path
+- this stack remains archived / inactive
+- do not assume Mailu is serving traffic on the host
 
-### 3. Historical moemail note
-Previously observed before final cleanup:
+### 5. moemail repository
+Located at:
+- `/root/moemail`
+
+Observed characteristics:
 - Next.js app (`next 15.x`)
 - Cloudflare/Wrangler deployment tooling
 - DB migration scripts
 - email worker scripts
-- project documentation/code path indicated temporary-address sending via **Resend**
-- archived `.env` snapshot had `CUSTOM_DOMAIN=""`, so the saved checkout itself did not prove which custom domain was last bound in production
+- local `.env` present
+- retained only as historical project context, not active public service
 
-Cleanup outcome on 2026-04-14 after explicit user request to clean moemail residuals:
-- deleted archived moemail copy: `/root/retired-services/2026-03-15/moemail`
-- deleted 3 moemail-specific Wrangler logs under `/root/.config/.wrangler/logs/`
-- removed historical moemail / Resend DKIM record from Cloudflare live zone: `resend._domainkey.zhangxuemin.work`
-- checked Cloudflare account scope with the moemail token: Pages project `moemail` = not found, D1 database `moemail` = not found
-
-Current reality:
-- no moemail files should be treated as part of the live host state anymore
-- no moemail Pages/D1 artifact was found at Cloudflare account scope with the project token
-- moemail should now be treated as historical context only, not a retained local fallback
-
-### 4. Deferred Cloudflare temp-mail integration note
+### 6. Deferred Cloudflare temp-mail integration note
 Evaluated target:
 - `dreamhunter2333/cloudflare_temp_email`
 
@@ -70,10 +117,10 @@ Conclusion:
 - integration is feasible later via a compatibility adapter layer, but is explicitly deferred for now
 
 ## Current operational conclusion
-This host has been repurposed from a dormant/retired mail-stack machine into an active web-app host for `Outlook Email Plus`. Both Mailu and moemail should now be treated as removed local history rather than retained host components. The live public service on this host is the containerized Outlook/IMAP management UI at `mail.zhangxuemin.work`.
+This host has been repurposed from a dormant/retired mail-stack machine into an active web-app host for `Outlook Email Plus`. Historical Mailu/moemail assets still matter as archived context, but the live public service on this host is now the containerized Outlook/IMAP management UI at `mail.zhangxuemin.work`, plus the `wa-app` dashboard at `wa.zhangxuemin.work` / `wa-cn.zhangxuemin.work`.
 
 ## Next operational step
 - if Outlook OAuth is needed in production, verify the Microsoft app registration uses the exact redirect URI configured in `/opt/outlook-email-plus/.env`
-- decide later whether `autoconfig` / `autodiscover` should be reintroduced for this host or remain absent from the live zone
+- decide later whether `autoconfig` / `autodiscover` should remain Cloudflare-only or be realigned to the host
 - if Cloudflare temp-mail management is revisited later, prefer a small GPTMail-compatible adapter instead of patching Outlook Email Plus directly
-- keep only high-level historical context that still matters; do not assume mail protocols are active
+- keep archived mail-stack directories for rollback/reference only; do not assume mail protocols are active

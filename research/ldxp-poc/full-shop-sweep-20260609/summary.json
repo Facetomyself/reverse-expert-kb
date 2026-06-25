@@ -1,0 +1,213 @@
+{
+  "generated_at": "2026-06-09T20:39:56.446914+08:00",
+  "target": "pay.ldxp.cn shop pages",
+  "method": "two-source search sweep and URL/slug dedupe",
+  "sources": [
+    "exa",
+    "tavily"
+  ],
+  "query_count": 40,
+  "run_count": 16,
+  "raw_runs": [
+    {
+      "run_id": "exa_batch_01",
+      "source": "exa",
+      "queries": [
+        "site:pay.ldxp.cn/shop",
+        "site:pay.ldxp.cn/shop 链动小铺",
+        "site:pay.ldxp.cn/shop 自动发卡",
+        "site:pay.ldxp.cn/shop 自动发卡网",
+        "site:pay.ldxp.cn/shop 店铺地址"
+      ],
+      "count": 18
+    },
+    {
+      "run_id": "exa_batch_02",
+      "source": "exa",
+      "queries": [
+        "site:pay.ldxp.cn/shop 店铺",
+        "site:pay.ldxp.cn/shop 商品",
+        "site:pay.ldxp.cn/shop 公告",
+        "site:pay.ldxp.cn/shop 购买",
+        "site:pay.ldxp.cn/shop 库存"
+      ],
+      "count": 24
+    },
+    {
+      "run_id": "exa_batch_03",
+      "source": "exa",
+      "queries": [
+        "site:pay.ldxp.cn/shop 卡密",
+        "site:pay.ldxp.cn/shop 发卡",
+        "site:pay.ldxp.cn/shop API",
+        "site:pay.ldxp.cn/shop api",
+        "site:pay.ldxp.cn/shop 游戏"
+      ],
+      "count": 9
+    },
+    {
+      "run_id": "exa_batch_04",
+      "source": "exa",
+      "queries": [
+        "site:pay.ldxp.cn/shop 会员",
+        "site:pay.ldxp.cn/shop 账号",
+        "site:pay.ldxp.cn/shop 软件",
+        "site:pay.ldxp.cn/shop 课程",
+        "site:pay.ldxp.cn/shop 兑换"
+      ],
+      "count": 11
+    },
+    {
+      "run_id": "exa_batch_05",
+      "source": "exa",
+      "queries": [
+        "site:pay.ldxp.cn/shop 充值",
+        "site:pay.ldxp.cn/shop 代充",
+        "site:pay.ldxp.cn/shop 微信",
+        "site:pay.ldxp.cn/shop 支付宝",
+        "site:pay.ldxp.cn/shop QQ"
+      ],
+      "count": 16
+    },
+    {
+      "run_id": "exa_batch_06",
+      "source": "exa",
+      "queries": [
+        "pay.ldxp.cn/shop 链动小铺",
+        "pay.ldxp.cn/shop 自动发卡",
+        "pay.ldxp.cn/shop 店铺地址",
+        "pay.ldxp.cn/shop 商品",
+        "pay.ldxp.cn/shop 公告"
+      ],
+      "count": 85
+    },
+    {
+      "run_id": "exa_batch_07",
+      "source": "exa",
+      "queries": [
+        "pay.ldxp.cn/shop 购买",
+        "pay.ldxp.cn/shop 库存",
+        "pay.ldxp.cn/shop 卡密",
+        "pay.ldxp.cn/shop 发卡",
+        "pay.ldxp.cn/shop API"
+      ],
+      "count": 84
+    },
+    {
+      "run_id": "exa_batch_08",
+      "source": "exa",
+      "queries": [
+        "pay.ldxp.cn/shop 游戏",
+        "pay.ldxp.cn/shop 会员",
+        "pay.ldxp.cn/shop 账号",
+        "pay.ldxp.cn/shop 软件",
+        "pay.ldxp.cn/shop 充值"
+      ],
+      "count": 78
+    },
+    {
+      "run_id": "tavily_batch_01",
+      "source": "tavily",
+      "queries": [
+        "site:pay.ldxp.cn/shop",
+        "site:pay.ldxp.cn/shop 链动小铺",
+        "site:pay.ldxp.cn/shop 自动发卡",
+        "site:pay.ldxp.cn/shop 自动发卡网",
+        "site:pay.ldxp.cn/shop 店铺地址"
+      ],
+      "count": 4
+    },
+    {
+      "run_id": "tavily_batch_02",
+      "source": "tavily",
+      "queries": [
+        "site:pay.ldxp.cn/shop 店铺",
+        "site:pay.ldxp.cn/shop 商品",
+        "site:pay.ldxp.cn/shop 公告",
+        "site:pay.ldxp.cn/shop 购买",
+        "site:pay.ldxp.cn/shop 库存"
+      ],
+      "count": 5
+    },
+    {
+      "run_id": "tavily_batch_03",
+      "source": "tavily",
+      "queries": [
+        "site:pay.ldxp.cn/shop 卡密",
+        "site:pay.ldxp.cn/shop 发卡",
+        "site:pay.ldxp.cn/shop API",
+        "site:pay.ldxp.cn/shop api",
+        "site:pay.ldxp.cn/shop 游戏"
+      ],
+      "count": 3
+    },
+    {
+      "run_id": "tavily_batch_04",
+      "source": "tavily",
+      "queries": [
+        "site:pay.ldxp.cn/shop 会员",
+        "site:pay.ldxp.cn/shop 账号",
+        "site:pay.ldxp.cn/shop 软件",
+        "site:pay.ldxp.cn/shop 课程",
+        "site:pay.ldxp.cn/shop 兑换"
+      ],
+      "count": 3
+    },
+    {
+      "run_id": "tavily_batch_05",
+      "source": "tavily",
+      "queries": [
+        "site:pay.ldxp.cn/shop 充值",
+        "site:pay.ldxp.cn/shop 代充",
+        "site:pay.ldxp.cn/shop 微信",
+        "site:pay.ldxp.cn/shop 支付宝",
+        "site:pay.ldxp.cn/shop QQ"
+      ],
+      "count": 1
+    },
+    {
+      "run_id": "tavily_batch_06",
+      "source": "tavily",
+      "queries": [
+        "pay.ldxp.cn/shop 链动小铺",
+        "pay.ldxp.cn/shop 自动发卡",
+        "pay.ldxp.cn/shop 店铺地址",
+        "pay.ldxp.cn/shop 商品",
+        "pay.ldxp.cn/shop 公告"
+      ],
+      "count": 23
+    },
+    {
+      "run_id": "tavily_batch_07",
+      "source": "tavily",
+      "queries": [
+        "pay.ldxp.cn/shop 购买",
+        "pay.ldxp.cn/shop 库存",
+        "pay.ldxp.cn/shop 卡密",
+        "pay.ldxp.cn/shop 发卡",
+        "pay.ldxp.cn/shop API"
+      ],
+      "count": 51
+    },
+    {
+      "run_id": "tavily_batch_08",
+      "source": "tavily",
+      "queries": [
+        "pay.ldxp.cn/shop 游戏",
+        "pay.ldxp.cn/shop 会员",
+        "pay.ldxp.cn/shop 账号",
+        "pay.ldxp.cn/shop 软件",
+        "pay.ldxp.cn/shop 充值"
+      ],
+      "count": 66
+    }
+  ],
+  "unique_shops": 42,
+  "dual_source_shops": 6,
+  "single_source_shops": 36,
+  "errors": [],
+  "limitations": [
+    "This is search-index coverage, not guaranteed site-internal exhaustive coverage.",
+    "Search snippets/titles are not reliable enough for announcement/product/price extraction."
+  ]
+}

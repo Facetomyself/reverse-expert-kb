@@ -37,13 +37,13 @@
 ## 5. Purpose and Workflow
 This service is the stable client-facing layer for Tavily usage on this infrastructure.
 
-Workflow:
-1. `tavily-key-generator` registers new Tavily accounts
-2. generated keys are stored in `output/api_keys.md`
-3. scheduler auto-uploads fresh keys into this proxy
-4. proxy stores keys in `proxy.db`
-5. clients use proxy-issued tokens instead of raw Tavily keys
-6. proxy fans requests out to pooled underlying Tavily keys
+Current workflow:
+1. proxy stores Tavily keys in `proxy.db`
+2. clients use proxy-issued tokens instead of raw Tavily keys
+3. proxy fans requests out to pooled underlying Tavily keys
+
+Retired workflow:
+- The old `tavily-key-generator` registration scheduler/Camoufox runtime is no longer active and must not be treated as an expected dependency.
 
 ## 6. Configuration
 Important config files:
@@ -184,3 +184,9 @@ Checks:
   - changed compose to read `ADMIN_PASSWORD` from `.env`
   - verified `/api/search` with a generated proxy token
   - confirmed local search-layer can use this proxy as Tavily backend
+
+### 2026-06-07 registration scheduler cleanup
+- Per user instruction, the legacy Tavily registration runtime was fully cleaned from Docker: `tavily-scheduler`, `tavily-camoufox`, and `tavily-camoufox-adapter` containers/images were removed.
+- Docker network `tavily-key-generator_default` was removed.
+- `/root/tavily-key-generator/docker-compose.yml` was renamed to `/root/tavily-key-generator/docker-compose.retired-20260607.yml` and a `RETIRED-SCHEDULER-20260607.md` marker was written on-host.
+- Active Tavily Proxy (`proxy-tavily-proxy-1` on `:9874`, compose under `/root/tavily-key-generator/proxy`) was intentionally preserved and remains the only active Tavily service documented here.

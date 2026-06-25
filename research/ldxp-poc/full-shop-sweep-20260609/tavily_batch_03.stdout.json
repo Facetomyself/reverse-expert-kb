@@ -1,0 +1,73 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "site:pay.ldxp.cn/shop 卡密",
+    "site:pay.ldxp.cn/shop 发卡",
+    "site:pay.ldxp.cn/shop API",
+    "site:pay.ldxp.cn/shop api",
+    "site:pay.ldxp.cn/shop 游戏"
+  ],
+  "count": 3,
+  "results": [
+    {
+      "title": "冒险岛宇宙- 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/lucifer",
+      "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "PaperPolisher工作室- 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/FPSRW5QW",
+      "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    },
+    {
+      "title": "晓晓游戏屋- 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/96H3487D",
+      "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+      "published_date": "",
+      "source": "tavily",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "tavily": [
+      {
+        "title": "冒险岛宇宙- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/lucifer",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "PaperPolisher工作室- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/FPSRW5QW",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "晓晓游戏屋- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/96H3487D",
+        "snippet": "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "published_date": "",
+        "source": "tavily",
+        "score": 0.3
+      },
+      {
+        "title": "晓晓游戏屋- 链动小铺",
+        "url": "https://pay.ldxp.cn/shop/96H3487D",
+        "snippet": "包站会员18.8元【全站畅玩-持续更新−永久有效】 每周上新20款左右新游戏. 联系TA. 卡密. 包站会员. 包含2种商品. 选择商品. 包站会员.",
+        "published_date": "",
+        "source": "tavily"
+      }
+    ]
+  }
+}

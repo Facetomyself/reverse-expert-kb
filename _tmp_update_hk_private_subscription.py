@@ -1,0 +1,218 @@
+import subprocess
+import textwrap
+
+SECRET_PATH = "sub-a49d371396d93e9572ddecff6f51fc4707316b99c0edc0b6"
+HOME_USER = "VbyYbQEAVhrp"
+HOME_PASS = "lPgcIWCHPKQ9"
+
+content = f'''mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: true
+unified-delay: true
+
+dns:
+  enable: true
+  ipv6: true
+  enhanced-mode: fake-ip
+  nameserver:
+    - 223.5.5.5
+    - 1.1.1.1
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+
+proxies:
+  - name: hk-hy2
+    type: hysteria2
+    server: 154.86.30.10
+    port: 8444
+    password: "db8cb0279a30e252754be058a7efe09f"
+    sni: www.apple.com
+    skip-cert-verify: true
+    udp: true
+
+  - name: hk-reality
+    type: vless
+    server: 154.86.30.10
+    port: 8443
+    uuid: 7d426249-1723-437e-8e17-70e9cca11a03
+    network: tcp
+    udp: true
+    tls: true
+    servername: www.cloudflare.com
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: KFJNJ2wp9cnCSiDel7ur72xAFWUZ7wdHa356ORxAplQ
+      short-id: 3fbc4bb7d47e8fda
+    client-fingerprint: chrome
+
+  - name: hk-socks
+    type: socks5
+    server: 154.86.30.10
+    port: 1080
+    username: zxmu
+    password: 3fbc4bb7d47e8fda
+    udp: true
+
+  - name: hk-http
+    type: http
+    server: 154.86.30.10
+    port: 1081
+    username: zxmu
+    password: yqpCVgYXUL7yYgy22ovnlq44ZHJ5yeUq
+    tls: false
+    udp: false
+
+  - name: home-http-via-hk
+    type: http
+    server: 204.237.153.49
+    port: 60088
+    username: {HOME_USER}
+    password: {HOME_PASS}
+    tls: false
+    udp: false
+    dialer-proxy: HK-Transit
+
+  - name: home-http-direct
+    type: http
+    server: 204.237.153.49
+    port: 60088
+    username: {HOME_USER}
+    password: {HOME_PASS}
+    tls: false
+    udp: false
+
+  - name: oracle-gateway-hy2-backup
+    type: hysteria2
+    server: backup.zhangxuemin.work
+    port: 443
+    password: "Ol*yhh5Ic!#3lMHizocQ90c*x2-d41_A"
+    sni: backup.zhangxuemin.work
+    skip-cert-verify: false
+    obfs: salamander
+    obfs-password: "CFhqou0E2%lNAiXmlJ1MqntwzXyI2C7z"
+    udp: true
+
+  - name: oracle-proxy-hy2-extra
+    type: hysteria2
+    server: 158.178.236.241
+    port: 30002
+    password: "822d37a6-4859-4281-ad0e-0dff90345258"
+    sni: mozilla.org
+    skip-cert-verify: true
+    udp: true
+
+  - name: ali-http-oracle-egress
+    type: http
+    server: 106.15.239.221
+    port: 2081
+    username: gateway
+    password: mIw3JsLfsnLFu1yw0mcElNPW
+    tls: false
+    udp: false
+
+  - name: ali-socks-oracle-egress
+    type: socks5
+    server: 106.15.239.221
+    port: 2080
+    username: gateway
+    password: mIw3JsLfsnLFu1yw0mcElNPW
+    udp: true
+
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - hk-hy2
+      - hk-reality
+      - Home-Egress
+      - oracle-gateway-hy2-backup
+      - oracle-proxy-hy2-extra
+      - ali-socks-oracle-egress
+      - ali-http-oracle-egress
+      - hk-socks
+      - hk-http
+      - DIRECT
+
+  - name: HK-Transit
+    type: select
+    proxies:
+      - hk-hy2
+      - hk-reality
+      - hk-socks
+      - hk-http
+
+  - name: Home-Egress
+    type: select
+    proxies:
+      - home-http-via-hk
+      - home-http-direct
+      - DIRECT
+
+  - name: HK
+    type: select
+    proxies:
+      - hk-hy2
+      - hk-reality
+      - hk-socks
+      - hk-http
+
+  - name: Fallback
+    type: select
+    proxies:
+      - oracle-gateway-hy2-backup
+      - oracle-proxy-hy2-extra
+      - ali-socks-oracle-egress
+      - ali-http-oracle-egress
+      - DIRECT
+
+  - name: Big-Transfer
+    type: select
+    proxies:
+      - hk-socks
+      - hk-http
+      - ali-socks-oracle-egress
+      - ali-http-oracle-egress
+      - DIRECT
+
+rules:
+  - DOMAIN-SUFFIX,openai.com,Home-Egress
+  - DOMAIN-SUFFIX,chatgpt.com,Home-Egress
+  - DOMAIN-SUFFIX,anthropic.com,Home-Egress
+  - DOMAIN-SUFFIX,claude.ai,Home-Egress
+  - DOMAIN-SUFFIX,x.ai,Home-Egress
+  - DOMAIN-SUFFIX,grok.com,Home-Egress
+  - DOMAIN-SUFFIX,github.com,Proxy
+  - DOMAIN-SUFFIX,githubusercontent.com,Proxy
+  - DOMAIN-SUFFIX,huggingface.co,Big-Transfer
+  - DOMAIN-SUFFIX,hf.co,Big-Transfer
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy
+'''
+
+remote_py = textwrap.dedent(f'''
+from pathlib import Path
+import shutil, time
+content = {content!r}
+secret = {SECRET_PATH!r}
+ts = time.strftime("%Y%m%d-%H%M%S")
+paths = [Path(f"/srv/drop/public/{{secret}}/clash-meta.yaml"), Path("/srv/drop/public/clash-meta.yaml")]
+for path in paths:
+    if path.exists():
+        shutil.copy2(path, f"{{path}}.bak-{{ts}}")
+    path.write_text(content)
+print("updated", paths[0])
+print("updated", paths[1])
+''')
+
+proc = subprocess.run(
+    ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10", "hk-relay", "python3", "-"],
+    input=remote_py,
+    text=True,
+    capture_output=True,
+)
+print(proc.stdout, end="")
+print(proc.stderr, end="")
+raise SystemExit(proc.returncode)

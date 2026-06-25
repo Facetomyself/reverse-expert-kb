@@ -1,25 +1,31 @@
 # ali-cloud / NETWORK
 
-## Public identity
+## 1. Public Network Identity
 - Public IP: `106.15.239.221`
+- Provider: Alibaba Cloud
+- Historical mistaken zcode2api origin endpoint: `http://106.15.239.221:18084` (stopped after migration on 2026-06-22)
+- Live zcode2api origin is now on `oracle-proxy`; `ali-cloud` should not be used for this project's domestic/global entry topology.
 
-## Active public services
-- `1panel` on host port `80`
-- `camoufox-remote` websocket endpoint on `39222`
-- authenticated SOCKS5 proxy on `2080`
-- authenticated HTTP proxy on `2081`
-- DNS forwarder on `1053`
+## 2. Current Listener Map
+Observed listeners:
+- `22/tcp` -> SSH
+- `80/tcp` -> `1panel`
+- `10086/tcp` -> Docker-published `easyimage`
+- `39222/tcp` -> Docker-published `camoufox-remote`
+- `18084/tcp` -> Docker-published `zcode2api` Anthropic-compatible gateway/admin UI
 
-## Proxy gateway implementation
-Validated on 2026-04-13:
-- `:2080` / `:2081` are not direct foreign exits by themselves; they are sing-box inbounds from `/opt/sing-box-gateway/config.json`
-- sing-box currently forwards all traffic to one final outbound tag: `oracle-egress`
-- `oracle-egress` is a SOCKS5 upstream at `127.0.0.1:18080`
-- `127.0.0.1:18080` is provided by the local Hysteria client from `/opt/hysteria-egress/client.yaml`
-- the current Hysteria upstream is `backup.zhangxuemin.work:443`
-- practical interpretation: domestic servers that use `106.15.239.221:2080/:2081` are currently exiting through `ali-cloud` only as a stable authenticated ingress, while the real foreign egress path is the local Hysteria client chained to `oracle-gateway`
+## 3. Interpretation
+This host exposes a small application surface:
+- one panel/control-plane HTTP endpoint on `80`
+- one app endpoint on `10086`
+- one remote browser/automation endpoint on `39222`
+- one zcode2api gateway/admin endpoint on `18084`
 
-## DNS notes
-- Alibaba DHCP previously supplied unusable internal resolvers `100.100.2.136` / `100.100.2.138`
-- persistent netplan override now forces `223.5.5.5` / `223.6.6.6`
-- local stub resolution through `127.0.0.53` recovered after the override
+For `39222`, the currently documented contract is a direct public websocket endpoint:
+- `ws://106.15.239.221:39222/camoufox`
+- no confirmed TLS termination or auth gateway currently documented in front of that port
+
+## 4. To Be Confirmed
+- whether `1panel` also serves an admin UI on a non-obvious path or additional port
+- any bound domain names for `10086` / `39222`
+- whether TLS termination exists elsewhere for `10086` / `39222` (CDN / reverse proxy / 1Panel site config)

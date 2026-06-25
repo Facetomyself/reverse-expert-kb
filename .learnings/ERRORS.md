@@ -1,4 +1,34 @@
 ## [ERR-20260429-001] nested-ssh-heredoc-quoting
+## [ERR-20260622-001] edit-overlapping-replacements
+
+**Logged**: 2026-06-22T19:59:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: tooling
+
+### Summary
+A documentation update initially failed because multiple `edit` replacements targeted the same nearby lines in `infra/hosts/ali-cloud/NETWORK.md`.
+
+### Error
+```text
+edits[0] and edits[1] overlap in infra/hosts/ali-cloud/NETWORK.md. Merge them into one edit or target disjoint regions.
+```
+
+### Context
+- Task: document a new `zcode2api` deployment on `ali-cloud`.
+- The attempted `edit` call separately replaced the same `39222/tcp` listener line and the surrounding listener block.
+- The `edit` tool matches all replacements against the original file and rejects overlapping regions.
+
+### Suggested Fix
+When two changes touch the same paragraph/list block, merge them into one larger exact replacement instead of emitting separate edits.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/.openclaw/workspace/infra/hosts/ali-cloud/NETWORK.md, /root/.openclaw/workspace/.learnings/ERRORS.md
+- See Also: none
+
+---
+
 
 **Logged**: 2026-04-29T03:04:00+08:00
 **Priority**: low
@@ -1821,5 +1851,331 @@ For recurring SSH fleet checks with `$`-heavy awk/sed snippets, stage or generat
 - Reproducible: yes
 - Related Files: skills/oracle-fleet-maintenance/references/workflow.md
 - See Also: none
+
+---
+
+- 2026-05-26: While launching a remote macOS training script through nested `ssh ali-cloud 'ssh home-macmini "..."'`, a quoted here-doc still expanded `$BASE` on the wrong shell and produced `/configs/...` paths. Prevention: stage complex `$`-heavy remote scripts as a local file and pipe them via `ssh ... sh -s`, or use `write` + execute; avoid nested inline here-docs for launch scripts.
+- 2026-05-26: Nested SSH + Python heredoc quoting again stripped quotes around `http://127.0.0.1...` inside remote Python (`url=http://...` SyntaxError). Prevention: for remote Python containing string literals, prefer staging a local script and piping it to `ssh ... python3 -`, or write to a temp file, instead of embedding code inside nested shell quotes.
+
+## [ERR-20260528-001] nested SSH quoting caused remote command breakup
+
+**Logged**: 2026-05-28T09:46:30+08:00
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+A nested `ssh ali-cloud "ssh home-macmini ..."` one-liner with grep alternation and heredoc content was broken by shell quoting, causing fragments like `python.*train` and `train_network` to execute as local commands.
+
+### Details
+During a home-macmini progress check, the first nested SSH command mixed local Bash quoting, remote SSH quoting, regex pipes, and an inline Python heredoc. The command failed with `unexpected EOF while looking for matching '"'` and several `command not found` errors. Staging a small local script and piping it to `ssh ... bash -s` worked reliably.
+
+### Suggested Action
+For multi-line or quote-heavy remote checks over ali-cloud -> home-macmini FRP, prefer `cat > /tmp/script.sh` then `ssh ali-cloud "ssh -F /root/.ssh/config home-macmini-via-frp bash -s" < /tmp/script.sh` instead of nested quoted one-liners.
+
+### Metadata
+- Source: conversation
+- Related Files: TOOLS.md
+- Tags: ssh, quoting, macmini, infra
+
+## [ERR-20260528-002] search-layer Grok source returned 502 during character-reference lookup
+
+**Logged**: 2026-05-28T10:06:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: search
+
+### Summary
+`search-layer` with `--source grok` returned `502 Bad Gateway` from `http://proxy.zhangxuemin.work:8000/v1/chat/completions` during an Adachi/Shimamura reference lookup.
+
+### Details
+The fallback raw `web_search` DuckDuckGo path worked and returned usable character appearance snippets. Do not rely on Grok-only search as the sole source when it returns transport errors; retry with another source/tool.
+
+### Suggested Action
+If Grok 502 recurs, inspect the proxy/Grok service on oracle-proxy. For immediate work, fall back to `web_search` or explicit `--source exa/tavily` if available.
+
+### Metadata
+- Source: conversation
+- Tags: search-layer, grok, 502, fallback
+
+## [ERR-20260528-003] ComfyUI SaveImage failed because output subdirectory was root-owned
+
+**Logged**: 2026-05-28T10:06:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: image-generation
+
+### Summary
+Creating `/Users/mengma/ai/ComfyUI/output/novel_tests/adashima_lyy_v3_fast` from a root-run SSH script caused ComfyUI, running as `mengma`, to fail saving images with `PermissionError: [Errno 13] Permission denied`.
+
+### Details
+The KSampler completed and SaveImage failed only at write time. The fix was to avoid pre-creating ComfyUI output subdirectories as root, or chown them back to `mengma:staff`, then submit again with a fresh prefix.
+
+### Suggested Action
+When automating ComfyUI over root SSH, do not `mkdir` under ComfyUI output paths unless immediately `chown -R mengma:staff`. Prefer letting ComfyUI create output subfolders itself.
+
+### Metadata
+- Source: conversation
+- Tags: comfyui, permissions, macmini, saveimage
+## [ERR-20260530-001] docker_image_pull
+
+**Logged**: 2026-05-30T15:09:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+CPA Manager Plus README advertised `seakee/cpa-manager-plus:latest`, but Docker Hub returned `manifest unknown` when pulling it on oracle-proxy.
+
+### Details
+During oracle-proxy deployment planning/execution for CPA Manager Plus, `docker pull seakee/cpa-manager-plus:latest` failed with `manifest for seakee/cpa-manager-plus:latest not found`. Do not assume README image tags exist; inspect GHCR/Docker Hub tags or GitHub releases first.
+
+### Suggested Action
+Before deployment, query available container tags/releases and choose a concrete existing tag or build from source if no public image is published yet.
+
+### Metadata
+- Source: error
+- Related Files: infra/hosts/oracle-proxy/projects/cliproxy.md
+- Tags: docker, cpa-manager-plus, oracle-proxy
+
+---
+## [ERR-20260530-002] oracle_proxy_caddy_absent
+
+**Logged**: 2026-05-30T15:14:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+oracle-proxy had no native `caddy` binary despite Caddy being selected for the new CPA Manager Plus TLS front door.
+
+### Details
+`systemctl is-active caddy` returned inactive/no unit style output and `caddy validate` failed with `command not found`. Do not assume Caddy exists on oracle-proxy just because hk-relay uses Caddy.
+
+### Suggested Action
+For oracle-proxy app front doors, either install native Caddy explicitly or run a dedicated Caddy container bound to 443, while preserving existing 1Panel ownership of port 80.
+
+### Metadata
+- Source: error
+- Tags: caddy, oracle-proxy, cpam
+
+---
+
+## 2026-06-01 — Shell here-doc command mangled by unescaped backticks
+- Context: While updating infra docs from an inline `python3 - <<"PY"` script passed through `exec`, markdown backticks inside the Python string were interpreted by the outer shell, causing command substitution attempts like `firefox-fingerprintBrowser/...: not found` and a Python `SyntaxError`.
+- Impact: The doc update command failed once; no live infra change was affected.
+- Fix: Rewrote the Python update script with the `write` tool to `/tmp/update_oracle_reverse_browser_deps.py`, then executed it as a file.
+- Prevention: For quote-heavy Python/doc-generation payloads containing markdown backticks, use `write` to stage a script instead of inline shell heredocs.
+
+## 2026-06-07 — GPT Card Shop smoke test failed under nested /bin/sh quoting
+- **Context:** While deploying `gpt-card-shop`, an end-to-end smoke test was initially executed as one large nested `ssh ... '...'` command.
+- **Symptom:** Remote shell returned `/bin/sh: 55: Syntax error: "(" unexpected` before the app test ran.
+- **Cause:** Complex nested here-docs, JSON, command substitution, and shell syntax were fragile under the default `/bin/sh` execution path.
+- **Resolution:** Re-ran the same test by writing a local bash script, copying it to the host, and executing `bash /tmp/gpt_card_smoke.sh`; the smoke test passed.
+- **Prevention:** For quote-heavy remote validation scripts, stage a script file and run it with explicit `bash` instead of embedding the entire script in one SSH command.
+## [ERR-20260608-001] remote_cleanup_volume_match_too_broad
+
+**Logged**: 2026-06-08T14:38:00+08:00
+**Priority**: high
+**Status**: pending
+**Area**: infra
+
+### Summary
+During self-server-44005 EasyAI cleanup, a Docker volume deletion matcher was too broad and included non-EasyAI redis/mongo-like volume names in command output.
+
+### Error
+```
+for v in $(docker volume ls --format '{{.Name}}' | grep -Ei '(^easyai|easyai|mongo|rabbitmq|redis|pgvector)'); do docker volume rm -f "$v" ...
+# output included non-EasyAI names such as crawl4ai_redis_data, linovel_scrapy_redis_data, mailu_api_redis_data
+```
+
+### Context
+- User explicitly requested EasyAI cleanup on `self-server-44005` with no archive.
+- The intended target was EasyAI containers/project data, but the volume name filter included generic `mongo|redis|rabbitmq` patterns.
+- Future cleanup scripts must match project-prefixed volume names or inspect compose labels before deletion.
+
+### Suggested Fix
+Use exact project labels/prefixes for Docker cleanup, e.g. `docker volume ls --filter label=com.docker.compose.project=easyai`, or only `^easyai_` / `^easyai-` names after a dry-run print. Avoid generic datastore words in destructive filters.
+
+### Metadata
+- Reproducible: yes
+- Related Files: infra/hosts/self-server/NETWORK.md, infra/hosts/self-server/PROJECTS.md, TOOLS.md
+- Tags: docker, cleanup, infra, destructive-filter
+
+---
+## [ERR-20260608-001] caddy_fmt_in_readonly_container
+
+**Logged**: 2026-06-08T20:08:30+08:00
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+Attempted to run `caddy fmt --overwrite /etc/caddy/Caddyfile` inside `oracle-proxy` container `caddy-cpam`, but the Caddyfile mount is read-only.
+
+### Error
+```text
+Error: overwriting formatted file: open /etc/caddy/Caddyfile: read-only file system
+```
+
+### Context
+- While adding exact-root redirect for `kiro-rs.zhangxuemin.work`.
+- Host file `/root/containers/caddy-cpam/Caddyfile` is writable; container path `/etc/caddy/Caddyfile` is read-only.
+
+### Suggested Fix
+For `caddy-cpam`, edit/backup the host-side Caddyfile, then run `docker exec caddy-cpam caddy validate --config /etc/caddy/Caddyfile && docker exec caddy-cpam caddy reload --config /etc/caddy/Caddyfile`. Do not use in-container `fmt --overwrite` unless the mount mode changes.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /root/containers/caddy-cpam/Caddyfile
+- Tags: caddy, docker, oracle-proxy
+
+---
+
+- 2026-06-10 reverse-kb-autosync: search-layer helper exposes get_keys(), not load_keys(); use get_keys() when auditing configured Exa/Tavily/Grok endpoints.
+
+## [ERR-20260617-001] remote_perl_patch_broke_shell_script
+
+**Logged**: 2026-06-17T03:12:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Tried to patch `oracle-proxy:/root/update_cliproxy.sh` with nested SSH + Perl one-liners. Shell interpolation corrupted command substitutions into strings like `0 0current_image_ref)` and broke the generated curl health-check line.
+
+### Error
+```text
+old_image_ref="0 0current_image_ref)"
+code="0 0curl -fsS -o /dev/null -w %{http_code} "http://127.0.0.1:/management.html" ..."
+```
+
+### Context
+The script was backed up first, so the bad patch was recoverable. The reliable fix was to generate the full replacement script locally with `write`, run `bash -n`, then copy it to the remote host and validate again.
+
+### Suggested Fix
+For nontrivial remote shell-script edits, especially lines containing `$()`, `${...}`, quotes, and curl format strings, stage a complete local script and copy it into place. Avoid layered `ssh 'perl -0pi -e ...'` substitutions unless the replacement is trivial.
+
+### Metadata
+- Reproducible: yes
+- Related Files: `/root/update_cliproxy.sh`, `infra/hosts/oracle-proxy/projects/cliproxy.md`
+- Tags: ssh, shell, quoting, oracle-proxy
+
+---
+
+## [ERR-20260616-001] infra_dirty_worktree_checkout
+
+**Logged**: 2026-06-16T19:25:00+08:00
+**Priority**: high
+**Status**: pending
+**Area**: infra
+
+### Summary
+Used  while  already had many pre-existing unstaged changes.
+
+### Error
+A checkout in a dirty shared knowledge repo can discard someone else’s unstaged edits even if the intent is only to isolate the current commit.
+
+### Context
+During WA app deployment documentation,  had broad unrelated modifications. I staged only selected files, but first reset one file to HEAD, which may have removed pre-existing local edits in that file.
+
+### Suggested Fix
+Before any checkout/reset in dirty repos, inspect per-file diff and prefer saving a patch/stash or asking if unrelated dirty state may belong to ongoing work. For isolated commits, only ; do not reset unrelated dirty files unless explicitly approved.
+
+### Metadata
+- Reproducible: yes
+- Related Files: infra/hosts/oracle-mail/PROJECTS.md
+- Tags: git, infra, dirty-worktree
+
+---
+
+## [ERR-20260617-001] centos-printf-leading-dash
+
+**Logged**: 2026-06-17T15:45:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+Remote CentOS/bash `printf "--- ..."` failed with `printf: --: invalid option` during SSH maintenance checks.
+
+### Error
+```text
+bash: line 1: printf: --: invalid option
+printf: usage: printf [-v var] format [arguments]
+```
+
+### Context
+- Occurred while upgrading AstrBot on `self-server-44005`.
+- The remote shell interpreted the leading `---` format string as an option.
+
+### Suggested Fix
+Use `echo "--- label ---"` or `printf '%s\n' '--- label ---'` for separator lines in remote shell snippets, especially on older CentOS hosts.
+
+### Metadata
+- Reproducible: yes
+- Related Files: TOOLS.md
+- Tags: shell, centos, ssh, printf
+
+---
+
+## [ERR-20260618-001] apply_patch-missing-in-openclaw-workspace
+
+**Logged**: 2026-06-18T04:33:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: tools
+
+### Summary
+Attempted to use `apply_patch` during Cloudflare DNS maintenance, but the command is not installed in this OpenClaw workspace runtime.
+
+### Error
+```text
+/bin/sh: 1: apply_patch: not found
+
+Command not found
+```
+
+### Context
+- Task: recurring Cloudflare DNS documentation reconciliation.
+- The environment provides native `edit` for precise file replacements; shell `apply_patch` should not be assumed available.
+
+### Suggested Fix
+Use the OpenClaw `edit` tool for precise replacements, or a short Python script for multi-location text updates, instead of shelling out to `apply_patch`.
+
+### Metadata
+- Reproducible: yes
+- Related Files: infra/dns-reconciliation.md
+- Tags: tools, openclaw, edit
+
+---
+
+## [ERR-20260622-001] remote-js-template-shell-expansion
+
+**Logged**: 2026-06-22T21:45:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: infra
+
+### Summary
+A remote SSH inline Python patch failed because JavaScript template/string characters were interpreted by the local or remote shell before Python received the script.
+
+### Error
+```text
+/bin/sh: 5: Syntax error: "(" unexpected
+```
+
+### Context
+- Task: add `?token=` one-click login support to `ali-cloud:/opt/zcode2api/app/statics/admin/login.html`.
+- The attempted `ssh "python3 - <<'PY' ..."` style command embedded JS with backticks, `${...}`, quotes, and parentheses.
+- Shell parsing failed before the Python patch ran.
+
+### Suggested Fix
+For quote-heavy remote edits, write a local script with the `write` tool and pipe it over SSH stdin, for example `ssh host 'python3 -' < /tmp/script.py`. Avoid embedding JS/HTML patches inside nested shell strings.
+
+### Metadata
+- Reproducible: yes
+- Related Files: TOOLS.md, /opt/zcode2api/app/statics/admin/login.html
+- Tags: ssh, quoting, javascript, remote-edit
 
 ---

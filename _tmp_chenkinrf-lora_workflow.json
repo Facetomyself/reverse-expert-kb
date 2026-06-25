@@ -1,0 +1,103 @@
+{
+  "1": {
+    "inputs": {
+      "ckpt_name": "ChenkinNoob-XL-v0.2-Rectified-Flow.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "2": {
+    "inputs": {
+      "model": ["1", 0],
+      "clip": ["1", 1],
+      "lora_name": "Delta26-ChenkinRF.safetensors",
+      "strength_model": 0.85,
+      "strength_clip": 0.85
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Optional LoRA"
+    }
+  },
+  "3": {
+    "inputs": {
+      "model": ["2", 0],
+      "shift": 3.5
+    },
+    "class_type": "ModelSamplingSD3",
+    "_meta": {
+      "title": "ModelSamplingSD3"
+    }
+  },
+  "4": {
+    "inputs": {
+      "text": "masterpiece, best quality, aesthetic, year 2025, newest, 1girl, solo, upper body, detailed eyes, dramatic lighting, looking at viewer, anime illustration",
+      "clip": ["2", 1]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive Prompt"
+    }
+  },
+  "5": {
+    "inputs": {
+      "text": "worst quality, lowres, normal quality, bad anatomy, watermark, signature, text",
+      "clip": ["2", 1]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative Prompt"
+    }
+  },
+  "6": {
+    "inputs": {
+      "width": 832,
+      "height": 1216,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "7": {
+    "inputs": {
+      "seed": 42,
+      "steps": 24,
+      "cfg": 4.5,
+      "sampler_name": "dpmpp_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1.0,
+      "model": ["3", 0],
+      "positive": ["4", 0],
+      "negative": ["5", 0],
+      "latent_image": ["6", 0]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": ["7", 0],
+      "vae": ["1", 2]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "9": {
+    "inputs": {
+      "images": ["8", 0],
+      "filename_prefix": "ChenkinRF/chenkinrf-lora"
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}

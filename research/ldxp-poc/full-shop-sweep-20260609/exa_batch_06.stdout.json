@@ -1,0 +1,1483 @@
+{
+  "mode": "deep",
+  "intent": "exploratory",
+  "queries": [
+    "pay.ldxp.cn/shop 链动小铺",
+    "pay.ldxp.cn/shop 自动发卡",
+    "pay.ldxp.cn/shop 店铺地址",
+    "pay.ldxp.cn/shop 商品",
+    "pay.ldxp.cn/shop 公告"
+  ],
+  "count": 85,
+  "results": [
+    {
+      "title": "https://pay.ldxp.cn/shop/RSIAY6WR 在这里买的无限token · Issue #48090 · openclaw/openclaw",
+      "url": "https://github.com/openclaw/openclaw/issues/48090",
+      "snippet": "",
+      "published_date": "2026-03-16T09:31:07.000Z",
+      "source": "exa",
+      "score": 0.75
+    },
+    {
+      "title": "shiquda/ldc-shop",
+      "url": "https://github.com/shiquda/ldc-shop",
+      "snippet": "",
+      "published_date": "2026-02-24T07:31:47.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "wenjy/ldc-shop",
+      "url": "https://github.com/wenjy/ldc-shop",
+      "snippet": "",
+      "published_date": "2026-03-09T07:32:56.000Z",
+      "source": "exa",
+      "score": 0.6
+    },
+    {
+      "title": "小小鱼的低价小店--链动小铺",
+      "url": "https://pay.ldxp.me/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "https://pay.ldxp.cn/shop/DinoAI - t.co / X",
+      "url": "https://t.co/tBthoC8lWs",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "https://pay.ldxp.cn/shop/zxdian",
+      "url": "https://pay.ldxp.cn/shop/zxdian",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "链动小铺（www.ldxp.cn）：助力虚拟商品商家的全能平台 - 行业资讯 - 自动发卡网",
+      "url": "https://www.ncwmj.com/news/68.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "链动小铺的独立之路，搞定支付通道，你的小店才算真正开张 - 行业资讯 - 自动发卡网",
+      "url": "https://www.ncwmj.com/news/8538.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "链动小铺接入发卡网，多角度解析与实操指南 - 行业资讯 - 自动发卡网",
+      "url": "https://www.ncwmj.com/news/9645.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "今日收款，即刻到账？链动小铺支付结算全解析！ - 行业资讯 - 自动发卡网",
+      "url": "https://www.ncwmj.com/news/7092.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "链动小铺发卡网，一个虚拟商品交易平台的运行逻辑与实战指南 - 行业资讯 - 自动发卡网",
+      "url": "https://www.ncwmj.com/news/8722.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "链动小铺自营权益店（一键对接） - 行业资讯 - 自动发卡网",
+      "url": "https://www.ncwmj.com/news/5499.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "链动小铺支付结算全解析，对公账户支持与否及企业级资金管理实战指南 - 行业资讯 - 自动发卡网",
+      "url": "https://www.ncwmj.com/news/7054.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "小投入，大布局，链动小铺如何用多店铺管理撬动流量裂变 - 行业资讯 - 自动发卡网",
+      "url": "https://www.ncwmj.com/news/7094.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "新手如何用链动小铺与金蝶AI星辰轻松搞定虚拟商品变现-金蝶AI星辰官网",
+      "url": "https://www.jdy.com/article/1968205977882800129.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "链动小铺，个人发卡网自动化运营的新引擎与常见误区解析 - 行业资讯 - 自动发卡网",
+      "url": "https://www.ncwmj.com/news/10041.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "官方筛选不够用，我用油猴给链动小铺货源列表加了增强筛选 - 小赵的技术实践笔记",
+      "url": "https://www.xzhao.vip/503.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "链动小铺发卡网，如何让虚拟交易成本瘦身成功？ - 行业资讯 - 自动发卡网",
+      "url": "https://www.ncwmj.com/news/8691.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "链动小铺，揭秘发卡网创业的成本迷局与破局之道 - 行业资讯 - 自动发卡网",
+      "url": "https://www.ncwmj.com/news/10090.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "链动小铺发卡网兼职，是风口还是陷阱？深度拆解值得做吗？ - 行业资讯 - 自动发卡网",
+      "url": "https://www.ncwmj.com/news/10094.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "一秒钟到账的魔法，链动小铺发卡网虚拟商品自动交付体系深度拆解 - 行业资讯 - 自动发卡网",
+      "url": "https://www.ncwmj.com/news/10204.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "链动小铺自动发卡网VS传统发卡，一场效率革命与体验重构 - 行业资讯 - 自动发卡网",
+      "url": "https://www.ncwmj.com/news/7070.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "https://pay.ldxp.cn/shop/ELSXOANJ",
+      "url": "https://pay.ldxp.cn/shop/ELSXOANJ",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "https://pay.ldxp.cn/shop/DVDG1G1I - t.co / X",
+      "url": "https://t.co/9WMFqD2RZ9",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.45
+    },
+    {
+      "title": "2026最新实测：ChatGPT Plus 国内充值全攻略｜卡密代充",
+      "url": "https://zhuanlan.zhihu.com/p/2028252039096930866",
+      "snippet": "",
+      "published_date": "2026-04-15T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "卡密 / 优惠券自动发货插件实现虚拟物品自动发货",
+      "url": "https://blog.csdn.net/abccba9978/article/details/101574027",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.4
+    },
+    {
+      "title": "Ice",
+      "url": "https://pay.ldxp.cn/shop/ice",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Mirage",
+      "url": "https://pay.ldxp.cn/shop/mirage",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "查询pay.ldxp.cn的移动权重和收录-雅牛网",
+      "url": "https://yaniu.net/mrank/pay.ldxp.cn/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "龙翔智选",
+      "url": "https://shop.lx1999.cn/index.php/stores-detail.html?stores_id=493",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "门店列表",
+      "url": "https://www.likeshop.cn/doc/18/2283",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "获取门店信息 - 客如云 API",
+      "url": "https://s.apifox.cn/apidoc/docs-site/507547/api-8375522",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "店铺分页查询接口 - 支付宝",
+      "url": "https://s.apifox.cn/apidoc/docs-site/3618910/doc-3306762",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "获取收货地址",
+      "url": "https://www.likeshop.cn/doc/18/2275",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "下单接口",
+      "url": "https://www.likeshop.cn/doc/18/2289",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Shopee虾皮店铺发货怎么换仓？更换华东仓图文教程 - 虾皮路",
+      "url": "https://www.xiapilu.com/experience/shopee-replace-east-china-warehouse.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Shop 帮助中心 | 编辑您的 Shop Pay 收货地址和付款方式",
+      "url": "https://help.shop.app/zh-CN/shop/shop-pay-settings/shipping-and-payment",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "TPshop付款流程_TPshop商城",
+      "url": "http://www.tp-shop.cn/payment/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "O2O电商解决方案，多门店O2O解决方案 -- 新普软件 -- 我们致力于提供完美的电子商务解决方案！",
+      "url": "https://www.xpshop.cn/solutionpage.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "店铺详情 - 京东购物",
+      "url": "https://shop.m.jd.com/shop/introduce?shopId=1000488643",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "说明",
+      "url": "https://likeshop.cn/doc/13/77",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "商城首页",
+      "url": "https://shop.shallpay.cn/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "新普商城系统客户客服中心-XpShop单店商城系统_XpMall多店商城系统_DIY个性礼品定制系统_礼品定制系统_服饰行业商城系统_网络打印订单系统_外贸客户关系管理系统_商城系统、网店系统、购物系统",
+      "url": "https://www.xpshop.cn/contactus.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "【微信支付】店铺小程序线上支付微信支付如何开通？三步开通教程 | LINK ONE",
+      "url": "https://jzxlp.com/guide/323",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "链动2+1推广分销商城小程序开发平台-团队晋级二级分销系统",
+      "url": "https://www.guandayun.com/shopldxjy.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "链小铺下载-链小铺免费版下载-去秀手游网",
+      "url": "http://www.quxiu.com/apk/2426015.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "发卡网-自动发卡平台-发卡网",
+      "url": "https://ldxp.top/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "自动发卡网 - 最好用的虚拟卡密寄售自动发卡平台",
+      "url": "https://miaoquka.cn/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "前往购买 - 自动发卡网",
+      "url": "https://pay.ldxp.cn/item/54e79n",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "自助发卡网 - 极受欢迎的虚拟卡密自动发卡网平台",
+      "url": "https://zhuachun.cn/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "GPC 卡密与 API 使用说明：充值卡密、API Key 与自动化接入 · Lucoo",
+      "url": "https://lucoo.net/postsinfo/gpc-card-api-key-flowpilot/",
+      "snippet": "",
+      "published_date": "2026-05-20T02:00:32.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "虚拟自动发货 - 虚拟商品自动发码发货 - 有赞产品中心",
+      "url": "https://www.youzan.com/chanpin/xunizidongfahuo",
+      "snippet": "",
+      "published_date": "2026-01-22T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "出gpt plus一个月优惠码 - NodeSeek",
+      "url": "https://www.nodeseek.com/post-554205-1",
+      "snippet": "",
+      "published_date": "2025-12-23T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "便宜gpt plus 月卡稳定使用 - V2EX",
+      "url": "https://v2ex.com/t/1203754?p=1",
+      "snippet": "",
+      "published_date": "2026-04-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "NodeSeek官方频道",
+      "url": "https://t.me/s/nodeseekc?before=663614",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "自动发卡系统 · 后台教程 · 看云",
+      "url": "https://www.kancloud.cn/testshouhouzu/tanggexiaoqi/1781755",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "Aibijia 社区— 论坛/ 沉淀区",
+      "url": "https://aibijia.org/community/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "虾皮有卡券商品如何设置自动发货 - 虾皮自动发货产品手册",
+      "url": "https://www.agiso.com/detail/1427",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "最新版波猫商店自动发卡售卡系统源码-YYDS源码网",
+      "url": "https://www.yydsym.com/code/sell-card/9026.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "【PC端】自动发卡、卡密-模板编号：0096 | 易支付系统 - 全渠道支付聚合支付源码 | 微信/支付宝/云闪付/代付API",
+      "url": "https://yinjieyuedong.com/blog/180",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "出gpt plus 8.5r - 交易市场 - Aito.do",
+      "url": "https://aito.do/t/gpt-plus-8-5r/746",
+      "snippet": "",
+      "published_date": "2026-04-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "chatgpt plus一个月优惠码零售8.5r一个 - NodeSeek",
+      "url": "https://www.nodeseek.com/post-550281-1",
+      "snippet": "",
+      "published_date": "2025-12-20T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "门店公告",
+      "url": "https://likeshop.cn/doc/10/1046",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "plus 1 个月目前稳定，但不包售后，自己的号也在使用 - V2EX",
+      "url": "https://www.v2ex.com/t/1207197",
+      "snippet": "",
+      "published_date": "2026-04-20T07:14:19.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "门店公告",
+      "url": "https://www.likeshop.cn/doc/18/2298",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "找gpt的team - NodeSeek",
+      "url": "https://www.nodeseek.com/post-682440-1",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "公告详情 ·  likeshop单商户plus开发文档 · 看云",
+      "url": "https://www.kancloud.cn/yi_xiang_42/likeshopb2cplus/2505379",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "号商全跑路？重生靠手搓gpt plus月卡，畅想gpt自由！ - Aito.do",
+      "url": "https://aito.do/t/gpt-plus-gpt/969",
+      "snippet": "",
+      "published_date": "2026-04-25T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "https://pay.ldxp.cn/item/olrcb6",
+      "url": "https://pay.ldxp.cn/item/olrcb6",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "商派",
+      "url": "https://www.shopex.cn/notice_3",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "AI Pro 充值中心",
+      "url": "https://www.caitou.shop/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "支付方式列表 ·  likeshop单商户plus开发文档 · 看云",
+      "url": "https://www.kancloud.cn/yi_xiang_42/likeshopb2cplus/2505677",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "[作者已经答复]LDC SHOP被某小可爱抓包修改参数下单！ - 钛刻科技 | TCTI.cn",
+      "url": "https://www.tcti.cn/post/808084",
+      "snippet": "",
+      "published_date": "2026-05-07T14:18:12.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "接口文档",
+      "url": "https://developer.shopline.com/zh-hans-cn/docs/apps/payment-application/api-reference.md",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "LDShop",
+      "url": "https://www.ldshop.gg/tw/faq",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "稳定度99%的PLUS 成品号欢迎您的试用（截至20260513 店铺3200+ ...",
+      "url": "https://www.v2ex.com/t/1212301",
+      "snippet": "",
+      "published_date": "2026-05-13T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "便宜gpt plus 月卡稳定使用 - V2EX",
+      "url": "https://v2ex.com/t/1203754",
+      "snippet": "",
+      "published_date": "2026-04-06T00:00:00.000Z",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "LDShop: 安全可信的遊戲儲值平台",
+      "url": "https://www.ldshop.gg/tw",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "商品详情 - likeshop单商户高级版",
+      "url": "https://e97nsnrlxz.apifox.cn/api-68462881",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "精秀科技 -全球领先的移动聚合支付解决方案提供商",
+      "url": "https://pay.jx.cn/index.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "提交订单 ·  likeshop单商户plus开发文档 · 看云",
+      "url": "https://www.kancloud.cn/yi_xiang_42/likeshopb2cplus/2505626",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "移动端及H5统一自定义协议链接详情 | 扩展开发教程",
+      "url": "https://www.leapcloud.cn/website/docs/doc_extend/zdyxy/zdyxynew.html",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "小程序开发制作",
+      "url": "https://shop.xcxdl.cn/",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "支付结果 - likeshop单商户高级版",
+      "url": "https://e97nsnrlxz.apifox.cn/api-68462966",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    },
+    {
+      "title": "财务中心",
+      "url": "https://www.likeshop.cn/doc/8/491",
+      "snippet": "",
+      "published_date": "",
+      "source": "exa",
+      "score": 0.3
+    }
+  ],
+  "resultsBySource": {
+    "exa": [
+      {
+        "title": "Ice",
+        "url": "https://pay.ldxp.cn/shop/ice",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Mirage",
+        "url": "https://pay.ldxp.cn/shop/mirage",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "小小鱼的低价小店--链动小铺",
+        "url": "https://pay.ldxp.me/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "查询pay.ldxp.cn的移动权重和收录-雅牛网",
+        "url": "https://yaniu.net/mrank/pay.ldxp.cn/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/DinoAI - t.co / X",
+        "url": "https://t.co/tBthoC8lWs",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "龙翔智选",
+        "url": "https://shop.lx1999.cn/index.php/stores-detail.html?stores_id=493",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "门店列表",
+        "url": "https://www.likeshop.cn/doc/18/2283",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "获取门店信息 - 客如云 API",
+        "url": "https://s.apifox.cn/apidoc/docs-site/507547/api-8375522",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "店铺分页查询接口 - 支付宝",
+        "url": "https://s.apifox.cn/apidoc/docs-site/3618910/doc-3306762",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "获取收货地址",
+        "url": "https://www.likeshop.cn/doc/18/2275",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "下单接口",
+        "url": "https://www.likeshop.cn/doc/18/2289",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Shopee虾皮店铺发货怎么换仓？更换华东仓图文教程 - 虾皮路",
+        "url": "https://www.xiapilu.com/experience/shopee-replace-east-china-warehouse.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Shop 帮助中心 | 编辑您的 Shop Pay 收货地址和付款方式",
+        "url": "https://help.shop.app/zh-CN/shop/shop-pay-settings/shipping-and-payment",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "TPshop付款流程_TPshop商城",
+        "url": "http://www.tp-shop.cn/payment/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "O2O电商解决方案，多门店O2O解决方案 -- 新普软件 -- 我们致力于提供完美的电子商务解决方案！",
+        "url": "https://www.xpshop.cn/solutionpage.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "店铺详情 - 京东购物",
+        "url": "https://shop.m.jd.com/shop/introduce?shopId=1000488643",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "说明",
+        "url": "https://likeshop.cn/doc/13/77",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "商城首页",
+        "url": "https://shop.shallpay.cn/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "新普商城系统客户客服中心-XpShop单店商城系统_XpMall多店商城系统_DIY个性礼品定制系统_礼品定制系统_服饰行业商城系统_网络打印订单系统_外贸客户关系管理系统_商城系统、网店系统、购物系统",
+        "url": "https://www.xpshop.cn/contactus.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "【微信支付】店铺小程序线上支付微信支付如何开通？三步开通教程 | LINK ONE",
+        "url": "https://jzxlp.com/guide/323",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/zxdian",
+        "url": "https://pay.ldxp.cn/shop/zxdian",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "小小鱼的低价小店--链动小铺",
+        "url": "https://pay.ldxp.me/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/DinoAI - t.co / X",
+        "url": "https://t.co/tBthoC8lWs",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "链动小铺（www.ldxp.cn）：助力虚拟商品商家的全能平台 - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/68.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "链动小铺的独立之路，搞定支付通道，你的小店才算真正开张 - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/8538.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "链动小铺接入发卡网，多角度解析与实操指南 - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/9645.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "今日收款，即刻到账？链动小铺支付结算全解析！ - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/7092.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "链动小铺发卡网，一个虚拟商品交易平台的运行逻辑与实战指南 - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/8722.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "链动小铺自营权益店（一键对接） - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/5499.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "链动小铺支付结算全解析，对公账户支持与否及企业级资金管理实战指南 - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/7054.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "小投入，大布局，链动小铺如何用多店铺管理撬动流量裂变 - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/7094.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "新手如何用链动小铺与金蝶AI星辰轻松搞定虚拟商品变现-金蝶AI星辰官网",
+        "url": "https://www.jdy.com/article/1968205977882800129.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "链动小铺，个人发卡网自动化运营的新引擎与常见误区解析 - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/10041.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "官方筛选不够用，我用油猴给链动小铺货源列表加了增强筛选 - 小赵的技术实践笔记",
+        "url": "https://www.xzhao.vip/503.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "链动小铺发卡网，如何让虚拟交易成本瘦身成功？ - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/8691.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "链动小铺，揭秘发卡网创业的成本迷局与破局之道 - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/10090.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "链动小铺发卡网兼职，是风口还是陷阱？深度拆解值得做吗？ - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/10094.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "链动2+1推广分销商城小程序开发平台-团队晋级二级分销系统",
+        "url": "https://www.guandayun.com/shopldxjy.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "链小铺下载-链小铺免费版下载-去秀手游网",
+        "url": "http://www.quxiu.com/apk/2426015.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "【微信支付】店铺小程序线上支付微信支付如何开通？三步开通教程 | LINK ONE",
+        "url": "https://jzxlp.com/guide/323",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "发卡网-自动发卡平台-发卡网",
+        "url": "https://ldxp.top/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "自动发卡网 - 最好用的虚拟卡密寄售自动发卡平台",
+        "url": "https://miaoquka.cn/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "前往购买 - 自动发卡网",
+        "url": "https://pay.ldxp.cn/item/54e79n",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "自助发卡网 - 极受欢迎的虚拟卡密自动发卡网平台",
+        "url": "https://zhuachun.cn/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "GPC 卡密与 API 使用说明：充值卡密、API Key 与自动化接入 · Lucoo",
+        "url": "https://lucoo.net/postsinfo/gpc-card-api-key-flowpilot/",
+        "snippet": "",
+        "published_date": "2026-05-20T02:00:32.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "2026最新实测：ChatGPT Plus 国内充值全攻略｜卡密代充",
+        "url": "https://zhuanlan.zhihu.com/p/2028252039096930866",
+        "snippet": "",
+        "published_date": "2026-04-15T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "虚拟自动发货 - 虚拟商品自动发码发货 - 有赞产品中心",
+        "url": "https://www.youzan.com/chanpin/xunizidongfahuo",
+        "snippet": "",
+        "published_date": "2026-01-22T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "出gpt plus一个月优惠码 - NodeSeek",
+        "url": "https://www.nodeseek.com/post-554205-1",
+        "snippet": "",
+        "published_date": "2025-12-23T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "便宜gpt plus 月卡稳定使用 - V2EX",
+        "url": "https://v2ex.com/t/1203754?p=1",
+        "snippet": "",
+        "published_date": "2026-04-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "一秒钟到账的魔法，链动小铺发卡网虚拟商品自动交付体系深度拆解 - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/10204.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "NodeSeek官方频道",
+        "url": "https://t.me/s/nodeseekc?before=663614",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "自动发卡系统 · 后台教程 · 看云",
+        "url": "https://www.kancloud.cn/testshouhouzu/tanggexiaoqi/1781755",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "卡密 / 优惠券自动发货插件实现虚拟物品自动发货",
+        "url": "https://blog.csdn.net/abccba9978/article/details/101574027",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.4
+      },
+      {
+        "title": "链动小铺，个人发卡网自动化运营的新引擎与常见误区解析 - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/10041.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "链动小铺自动发卡网VS传统发卡，一场效率革命与体验重构 - 行业资讯 - 自动发卡网",
+        "url": "https://www.ncwmj.com/news/7070.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "Aibijia 社区— 论坛/ 沉淀区",
+        "url": "https://aibijia.org/community/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "虾皮有卡券商品如何设置自动发货 - 虾皮自动发货产品手册",
+        "url": "https://www.agiso.com/detail/1427",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "最新版波猫商店自动发卡售卡系统源码-YYDS源码网",
+        "url": "https://www.yydsym.com/code/sell-card/9026.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "【PC端】自动发卡、卡密-模板编号：0096 | 易支付系统 - 全渠道支付聚合支付源码 | 微信/支付宝/云闪付/代付API",
+        "url": "https://yinjieyuedong.com/blog/180",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "出gpt plus 8.5r - 交易市场 - Aito.do",
+        "url": "https://aito.do/t/gpt-plus-8-5r/746",
+        "snippet": "",
+        "published_date": "2026-04-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Ice",
+        "url": "https://pay.ldxp.cn/shop/ice",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "小小鱼的低价小店--链动小铺",
+        "url": "https://pay.ldxp.me/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "chatgpt plus一个月优惠码零售8.5r一个 - NodeSeek",
+        "url": "https://www.nodeseek.com/post-550281-1",
+        "snippet": "",
+        "published_date": "2025-12-20T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "门店公告",
+        "url": "https://likeshop.cn/doc/10/1046",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "plus 1 个月目前稳定，但不包售后，自己的号也在使用 - V2EX",
+        "url": "https://www.v2ex.com/t/1207197",
+        "snippet": "",
+        "published_date": "2026-04-20T07:14:19.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/RSIAY6WR 在这里买的无限token · Issue #48090 · openclaw/openclaw",
+        "url": "https://github.com/openclaw/openclaw/issues/48090",
+        "snippet": "",
+        "published_date": "2026-03-16T09:31:07.000Z",
+        "source": "exa",
+        "score": 0.75
+      },
+      {
+        "title": "门店公告",
+        "url": "https://www.likeshop.cn/doc/18/2298",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "找gpt的team - NodeSeek",
+        "url": "https://www.nodeseek.com/post-682440-1",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "公告详情 ·  likeshop单商户plus开发文档 · 看云",
+        "url": "https://www.kancloud.cn/yi_xiang_42/likeshopb2cplus/2505379",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "号商全跑路？重生靠手搓gpt plus月卡，畅想gpt自由！ - Aito.do",
+        "url": "https://aito.do/t/gpt-plus-gpt/969",
+        "snippet": "",
+        "published_date": "2026-04-25T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "查询pay.ldxp.cn的移动权重和收录-雅牛网",
+        "url": "https://yaniu.net/mrank/pay.ldxp.cn/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/DinoAI - t.co / X",
+        "url": "https://t.co/tBthoC8lWs",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "https://pay.ldxp.cn/item/olrcb6",
+        "url": "https://pay.ldxp.cn/item/olrcb6",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "shiquda/ldc-shop",
+        "url": "https://github.com/shiquda/ldc-shop",
+        "snippet": "",
+        "published_date": "2026-02-24T07:31:47.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "商派",
+        "url": "https://www.shopex.cn/notice_3",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "AI Pro 充值中心",
+        "url": "https://www.caitou.shop/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "支付方式列表 ·  likeshop单商户plus开发文档 · 看云",
+        "url": "https://www.kancloud.cn/yi_xiang_42/likeshopb2cplus/2505677",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "[作者已经答复]LDC SHOP被某小可爱抓包修改参数下单！ - 钛刻科技 | TCTI.cn",
+        "url": "https://www.tcti.cn/post/808084",
+        "snippet": "",
+        "published_date": "2026-05-07T14:18:12.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "接口文档",
+        "url": "https://developer.shopline.com/zh-hans-cn/docs/apps/payment-application/api-reference.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "LDShop",
+        "url": "https://www.ldshop.gg/tw/faq",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "Mirage",
+        "url": "https://pay.ldxp.cn/shop/mirage",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "小小鱼的低价小店--链动小铺",
+        "url": "https://pay.ldxp.me/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "Ice",
+        "url": "https://pay.ldxp.cn/shop/ice",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/ELSXOANJ",
+        "url": "https://pay.ldxp.cn/shop/ELSXOANJ",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "稳定度99%的PLUS 成品号欢迎您的试用（截至20260513 店铺3200+ ...",
+        "url": "https://www.v2ex.com/t/1212301",
+        "snippet": "",
+        "published_date": "2026-05-13T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "https://pay.ldxp.cn/shop/DVDG1G1I - t.co / X",
+        "url": "https://t.co/9WMFqD2RZ9",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.45
+      },
+      {
+        "title": "便宜gpt plus 月卡稳定使用 - V2EX",
+        "url": "https://v2ex.com/t/1203754",
+        "snippet": "",
+        "published_date": "2026-04-06T00:00:00.000Z",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "出gpt plus 8.5r - 交易市场 - Aito.do",
+        "url": "https://aito.do/t/gpt-plus-8-5r/746",
+        "snippet": "",
+        "published_date": "2026-04-13T00:00:00.000Z",
+        "source": "exa"
+      },
+      {
+        "title": "LDShop: 安全可信的遊戲儲值平台",
+        "url": "https://www.ldshop.gg/tw",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "接口文档",
+        "url": "https://developer.shopline.com/zh-hans-cn/docs/apps/payment-application/api-reference.md",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "wenjy/ldc-shop",
+        "url": "https://github.com/wenjy/ldc-shop",
+        "snippet": "",
+        "published_date": "2026-03-09T07:32:56.000Z",
+        "source": "exa",
+        "score": 0.6
+      },
+      {
+        "title": "商品详情 - likeshop单商户高级版",
+        "url": "https://e97nsnrlxz.apifox.cn/api-68462881",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "精秀科技 -全球领先的移动聚合支付解决方案提供商",
+        "url": "https://pay.jx.cn/index.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "提交订单 ·  likeshop单商户plus开发文档 · 看云",
+        "url": "https://www.kancloud.cn/yi_xiang_42/likeshopb2cplus/2505626",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "支付方式列表 ·  likeshop单商户plus开发文档 · 看云",
+        "url": "https://www.kancloud.cn/yi_xiang_42/likeshopb2cplus/2505677",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "移动端及H5统一自定义协议链接详情 | 扩展开发教程",
+        "url": "https://www.leapcloud.cn/website/docs/doc_extend/zdyxy/zdyxynew.html",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "说明",
+        "url": "https://likeshop.cn/doc/13/77",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa"
+      },
+      {
+        "title": "小程序开发制作",
+        "url": "https://shop.xcxdl.cn/",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "支付结果 - likeshop单商户高级版",
+        "url": "https://e97nsnrlxz.apifox.cn/api-68462966",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      },
+      {
+        "title": "财务中心",
+        "url": "https://www.likeshop.cn/doc/8/491",
+        "snippet": "",
+        "published_date": "",
+        "source": "exa",
+        "score": 0.3
+      }
+    ]
+  }
+}

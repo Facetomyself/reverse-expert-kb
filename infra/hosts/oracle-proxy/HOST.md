@@ -36,10 +36,10 @@
 ## 5. High-Level Service Map
 当前确认运行中的主要服务：
 - `proxy-tavily-proxy-1` — Tavily key pool + Web console + API proxy
-- `grok-register-camoufox` / `grok-register-camoufox-adapter` — Grok 独立求解链路
 - `grok2api` — Grok API bridge on port 8000
 - `cliproxy` — CLI proxy service on port 8317
 - `exafree` — Exa 注册 / 刷新 / 管理面板服务 on port 7860
+- `kiro-rs` — Rust Anthropic-compatible Kiro proxy on loopback port 18769
 - `nginx` — 系统级默认 Nginx（当前只见默认站点 `/var/www/html`）
 - `sing-box` — 独立代理/订阅栈，自带一套专用 nginx 和多协议入站配置
 - `xray` — 独立代理服务，使用 `/etc/v2ray-agent/xray/conf`
@@ -84,3 +84,21 @@
 - sing-box / xray 的协议细节与用途拆分
 - cloudflared 的具体 tunnel 配置
 - 域名与反代拓扑的完整映射
+
+### 2026-06-06 docs anti-abuse baseline
+- `fail2ban` is now installed/enabled on this host for the public Kiro docs static site.
+- Current docs-specific jails: `openclaw-docs-general`, `openclaw-docs-assets`.
+- The jails read `/var/log/caddy/docs-access.log` and apply iptables bans for abusive request rates on HTTP/HTTPS.
+- `hk-relay` (`154.86.30.10`) is intentionally in `ignoreip` so domestic edge traffic is not accidentally banned by the source host.
+
+### 2026-06-06 card shop baseline
+- `card-shop` now runs on this host as a loopback-only Docker service at `127.0.0.1:18767`.
+- Runtime root: `/root/containers/card-shop`.
+- Sensitive env: `/root/containers/card-shop/.env` (`0600`; contains admin password/session secret).
+- Current card-shop fail2ban jails: `openclaw-card-general`, `openclaw-card-api`.
+
+### 2026-06-07 retired container cleanup baseline
+- The legacy Tavily registration scheduler/Camoufox runtime has been fully cleaned from Docker runtime: `tavily-scheduler`, `tavily-camoufox`, `tavily-camoufox-adapter` containers and their local images were removed.
+- The legacy Grok register Camoufox solver stack has been fully cleaned from Docker runtime: `grok-register-camoufox`, `grok-register-camoufox-adapter` containers and their local images were removed.
+- The old Grok register public adapter listener on `:15072` is no longer part of the active surface.
+- On-host source directories were retained as retired archives, with root compose files renamed to `docker-compose.retired-20260607.yml` to avoid accidental restart.

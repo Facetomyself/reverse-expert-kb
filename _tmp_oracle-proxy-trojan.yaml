@@ -1,0 +1,25 @@
+mixed-port: 7900
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: true
+
+proxies:
+  - name: oracle-proxy-trojan
+    type: trojan
+    server: 158.178.236.241
+    port: 30006
+    password: 822d37a6-4859-4281-ad0e-0dff90345258
+    sni: mozilla.org
+    skip-cert-verify: true
+    udp: true
+
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - oracle-proxy-trojan
+      - DIRECT
+
+rules:
+  - MATCH,Proxy

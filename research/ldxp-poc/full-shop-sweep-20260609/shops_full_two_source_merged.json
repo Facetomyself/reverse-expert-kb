@@ -1,0 +1,1115 @@
+{
+  "summary": {
+    "generated_at": "2026-06-09T20:39:56.446914+08:00",
+    "target": "pay.ldxp.cn shop pages",
+    "method": "two-source search sweep and URL/slug dedupe",
+    "sources": [
+      "exa",
+      "tavily"
+    ],
+    "query_count": 40,
+    "run_count": 16,
+    "raw_runs": [
+      {
+        "run_id": "exa_batch_01",
+        "source": "exa",
+        "queries": [
+          "site:pay.ldxp.cn/shop",
+          "site:pay.ldxp.cn/shop 链动小铺",
+          "site:pay.ldxp.cn/shop 自动发卡",
+          "site:pay.ldxp.cn/shop 自动发卡网",
+          "site:pay.ldxp.cn/shop 店铺地址"
+        ],
+        "count": 18
+      },
+      {
+        "run_id": "exa_batch_02",
+        "source": "exa",
+        "queries": [
+          "site:pay.ldxp.cn/shop 店铺",
+          "site:pay.ldxp.cn/shop 商品",
+          "site:pay.ldxp.cn/shop 公告",
+          "site:pay.ldxp.cn/shop 购买",
+          "site:pay.ldxp.cn/shop 库存"
+        ],
+        "count": 24
+      },
+      {
+        "run_id": "exa_batch_03",
+        "source": "exa",
+        "queries": [
+          "site:pay.ldxp.cn/shop 卡密",
+          "site:pay.ldxp.cn/shop 发卡",
+          "site:pay.ldxp.cn/shop API",
+          "site:pay.ldxp.cn/shop api",
+          "site:pay.ldxp.cn/shop 游戏"
+        ],
+        "count": 9
+      },
+      {
+        "run_id": "exa_batch_04",
+        "source": "exa",
+        "queries": [
+          "site:pay.ldxp.cn/shop 会员",
+          "site:pay.ldxp.cn/shop 账号",
+          "site:pay.ldxp.cn/shop 软件",
+          "site:pay.ldxp.cn/shop 课程",
+          "site:pay.ldxp.cn/shop 兑换"
+        ],
+        "count": 11
+      },
+      {
+        "run_id": "exa_batch_05",
+        "source": "exa",
+        "queries": [
+          "site:pay.ldxp.cn/shop 充值",
+          "site:pay.ldxp.cn/shop 代充",
+          "site:pay.ldxp.cn/shop 微信",
+          "site:pay.ldxp.cn/shop 支付宝",
+          "site:pay.ldxp.cn/shop QQ"
+        ],
+        "count": 16
+      },
+      {
+        "run_id": "exa_batch_06",
+        "source": "exa",
+        "queries": [
+          "pay.ldxp.cn/shop 链动小铺",
+          "pay.ldxp.cn/shop 自动发卡",
+          "pay.ldxp.cn/shop 店铺地址",
+          "pay.ldxp.cn/shop 商品",
+          "pay.ldxp.cn/shop 公告"
+        ],
+        "count": 85
+      },
+      {
+        "run_id": "exa_batch_07",
+        "source": "exa",
+        "queries": [
+          "pay.ldxp.cn/shop 购买",
+          "pay.ldxp.cn/shop 库存",
+          "pay.ldxp.cn/shop 卡密",
+          "pay.ldxp.cn/shop 发卡",
+          "pay.ldxp.cn/shop API"
+        ],
+        "count": 84
+      },
+      {
+        "run_id": "exa_batch_08",
+        "source": "exa",
+        "queries": [
+          "pay.ldxp.cn/shop 游戏",
+          "pay.ldxp.cn/shop 会员",
+          "pay.ldxp.cn/shop 账号",
+          "pay.ldxp.cn/shop 软件",
+          "pay.ldxp.cn/shop 充值"
+        ],
+        "count": 78
+      },
+      {
+        "run_id": "tavily_batch_01",
+        "source": "tavily",
+        "queries": [
+          "site:pay.ldxp.cn/shop",
+          "site:pay.ldxp.cn/shop 链动小铺",
+          "site:pay.ldxp.cn/shop 自动发卡",
+          "site:pay.ldxp.cn/shop 自动发卡网",
+          "site:pay.ldxp.cn/shop 店铺地址"
+        ],
+        "count": 4
+      },
+      {
+        "run_id": "tavily_batch_02",
+        "source": "tavily",
+        "queries": [
+          "site:pay.ldxp.cn/shop 店铺",
+          "site:pay.ldxp.cn/shop 商品",
+          "site:pay.ldxp.cn/shop 公告",
+          "site:pay.ldxp.cn/shop 购买",
+          "site:pay.ldxp.cn/shop 库存"
+        ],
+        "count": 5
+      },
+      {
+        "run_id": "tavily_batch_03",
+        "source": "tavily",
+        "queries": [
+          "site:pay.ldxp.cn/shop 卡密",
+          "site:pay.ldxp.cn/shop 发卡",
+          "site:pay.ldxp.cn/shop API",
+          "site:pay.ldxp.cn/shop api",
+          "site:pay.ldxp.cn/shop 游戏"
+        ],
+        "count": 3
+      },
+      {
+        "run_id": "tavily_batch_04",
+        "source": "tavily",
+        "queries": [
+          "site:pay.ldxp.cn/shop 会员",
+          "site:pay.ldxp.cn/shop 账号",
+          "site:pay.ldxp.cn/shop 软件",
+          "site:pay.ldxp.cn/shop 课程",
+          "site:pay.ldxp.cn/shop 兑换"
+        ],
+        "count": 3
+      },
+      {
+        "run_id": "tavily_batch_05",
+        "source": "tavily",
+        "queries": [
+          "site:pay.ldxp.cn/shop 充值",
+          "site:pay.ldxp.cn/shop 代充",
+          "site:pay.ldxp.cn/shop 微信",
+          "site:pay.ldxp.cn/shop 支付宝",
+          "site:pay.ldxp.cn/shop QQ"
+        ],
+        "count": 1
+      },
+      {
+        "run_id": "tavily_batch_06",
+        "source": "tavily",
+        "queries": [
+          "pay.ldxp.cn/shop 链动小铺",
+          "pay.ldxp.cn/shop 自动发卡",
+          "pay.ldxp.cn/shop 店铺地址",
+          "pay.ldxp.cn/shop 商品",
+          "pay.ldxp.cn/shop 公告"
+        ],
+        "count": 23
+      },
+      {
+        "run_id": "tavily_batch_07",
+        "source": "tavily",
+        "queries": [
+          "pay.ldxp.cn/shop 购买",
+          "pay.ldxp.cn/shop 库存",
+          "pay.ldxp.cn/shop 卡密",
+          "pay.ldxp.cn/shop 发卡",
+          "pay.ldxp.cn/shop API"
+        ],
+        "count": 51
+      },
+      {
+        "run_id": "tavily_batch_08",
+        "source": "tavily",
+        "queries": [
+          "pay.ldxp.cn/shop 游戏",
+          "pay.ldxp.cn/shop 会员",
+          "pay.ldxp.cn/shop 账号",
+          "pay.ldxp.cn/shop 软件",
+          "pay.ldxp.cn/shop 充值"
+        ],
+        "count": 66
+      }
+    ],
+    "unique_shops": 42,
+    "dual_source_shops": 6,
+    "single_source_shops": 36,
+    "errors": [],
+    "limitations": [
+      "This is search-index coverage, not guaranteed site-internal exhaustive coverage.",
+      "Search snippets/titles are not reliable enough for announcement/product/price extraction."
+    ]
+  },
+  "shops": [
+    {
+      "shop_id": "1S5RU8IS",
+      "url": "https://pay.ldxp.cn/shop/1S5RU8IS",
+      "title_candidates": [
+        "https://pay.ldxp.cn/shop/1S5RU8IS"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/1S5RU8IS"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_05"
+      ],
+      "source_count": 1,
+      "best_title": "https://pay.ldxp.cn/shop/1S5RU8IS"
+    },
+    {
+      "shop_id": "22SC405L",
+      "url": "https://pay.ldxp.cn/shop/22SC405L",
+      "title_candidates": [
+        "https://pay.ldxp.cn/shop/22SC405L"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/22SC405L"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_05"
+      ],
+      "source_count": 1,
+      "best_title": "https://pay.ldxp.cn/shop/22SC405L"
+    },
+    {
+      "shop_id": "2DHC9ER8",
+      "url": "https://pay.ldxp.cn/shop/2DHC9ER8",
+      "title_candidates": [
+        "前往发卡网购买"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/2DHC9ER8"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_03"
+      ],
+      "source_count": 1,
+      "best_title": "前往发卡网购买"
+    },
+    {
+      "shop_id": "2XLR97IG",
+      "url": "https://pay.ldxp.cn/shop/2XLR97IG",
+      "title_candidates": [
+        "https://pay.ldxp.cn/shop/2XLR97IG"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/2XLR97IG"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_03"
+      ],
+      "source_count": 1,
+      "best_title": "https://pay.ldxp.cn/shop/2XLR97IG"
+    },
+    {
+      "shop_id": "3KUOP84R",
+      "url": "https://pay.ldxp.cn/shop/3KUOP84R",
+      "title_candidates": [
+        "小明のAI店铺"
+      ],
+      "snippet_candidates": [
+        "Please complete the operation to verify that you are a real person"
+      ],
+      "sources": [
+        "tavily"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/3KUOP84R"
+      ],
+      "first_seen_query_runs": [
+        "tavily_batch_08"
+      ],
+      "source_count": 1,
+      "best_title": "小明のAI店铺"
+    },
+    {
+      "shop_id": "96H3487D",
+      "url": "https://pay.ldxp.cn/shop/96H3487D",
+      "title_candidates": [
+        "晓晓游戏屋- 链动小铺"
+      ],
+      "snippet_candidates": [
+        "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "包站会员18.8元【全站畅玩-持续更新−永久有效】 每周上新20款左右新游戏. 联系TA. 卡密. 包站会员. 包含2种商品. 选择商品. 包站会员."
+      ],
+      "sources": [
+        "exa",
+        "tavily"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/96H3487D"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_03",
+        "exa_batch_04",
+        "tavily_batch_01",
+        "tavily_batch_02",
+        "tavily_batch_03",
+        "tavily_batch_04"
+      ],
+      "source_count": 2,
+      "best_title": "晓晓游戏屋- 链动小铺"
+    },
+    {
+      "shop_id": "9WQWAIMD",
+      "url": "https://pay.ldxp.cn/shop/9WQWAIMD",
+      "title_candidates": [
+        "9wqwaimd"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/9WQWAIMD"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_04"
+      ],
+      "source_count": 1,
+      "best_title": "9wqwaimd"
+    },
+    {
+      "shop_id": "AItools",
+      "url": "https://pay.ldxp.cn/shop/AItools",
+      "title_candidates": [
+        "https://pay.ldxp.cn/shop/AItools"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/AItools"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_07"
+      ],
+      "source_count": 1,
+      "best_title": "https://pay.ldxp.cn/shop/AItools"
+    },
+    {
+      "shop_id": "dagou.vip",
+      "url": "https://pay.ldxp.cn/shop/dagou.vip",
+      "title_candidates": [
+        "Dagou.vip"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/dagou.vip"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02"
+      ],
+      "source_count": 1,
+      "best_title": "Dagou.vip"
+    },
+    {
+      "shop_id": "ELSXOANJ",
+      "url": "https://pay.ldxp.cn/shop/ELSXOANJ",
+      "title_candidates": [
+        "https://pay.ldxp.cn/shop/ELSXOANJ"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/ELSXOANJ"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_06"
+      ],
+      "source_count": 1,
+      "best_title": "https://pay.ldxp.cn/shop/ELSXOANJ"
+    },
+    {
+      "shop_id": "F6R79HVA",
+      "url": "https://pay.ldxp.cn/shop/F6R79HVA",
+      "title_candidates": [
+        "F6r79hva"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/F6R79HVA"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_04"
+      ],
+      "source_count": 1,
+      "best_title": "F6r79hva"
+    },
+    {
+      "shop_id": "FPSRW5QW",
+      "url": "https://pay.ldxp.cn/shop/FPSRW5QW",
+      "title_candidates": [
+        "PaperPolisher工作室- 链动小铺"
+      ],
+      "snippet_candidates": [
+        "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。"
+      ],
+      "sources": [
+        "tavily"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/FPSRW5QW"
+      ],
+      "first_seen_query_runs": [
+        "tavily_batch_02",
+        "tavily_batch_03"
+      ],
+      "source_count": 1,
+      "best_title": "PaperPolisher工作室- 链动小铺"
+    },
+    {
+      "shop_id": "HF7SHNTA",
+      "url": "https://pay.ldxp.cn/shop/HF7SHNTA",
+      "title_candidates": [
+        "wobuhuijianji - 链动小铺"
+      ],
+      "snippet_candidates": [
+        "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。"
+      ],
+      "sources": [
+        "exa",
+        "tavily"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/HF7SHNTA"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "tavily_batch_01",
+        "tavily_batch_02"
+      ],
+      "source_count": 2,
+      "best_title": "wobuhuijianji - 链动小铺"
+    },
+    {
+      "shop_id": "HNGFW0MA",
+      "url": "https://pay.ldxp.cn/shop/HNGFW0MA",
+      "title_candidates": [
+        "Hngfw0ma"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/HNGFW0MA"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_03",
+        "exa_batch_05"
+      ],
+      "source_count": 1,
+      "best_title": "Hngfw0ma"
+    },
+    {
+      "shop_id": "ice",
+      "url": "https://pay.ldxp.cn/shop/ice",
+      "title_candidates": [
+        "Ice"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/ice"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_03",
+        "exa_batch_05",
+        "exa_batch_06",
+        "exa_batch_07"
+      ],
+      "source_count": 1,
+      "best_title": "Ice"
+    },
+    {
+      "shop_id": "jiuyuan",
+      "url": "https://pay.ldxp.cn/shop/jiuyuan",
+      "title_candidates": [
+        "九渊Ai源头"
+      ],
+      "snippet_candidates": [
+        "Please complete the operation to verify that you are a real person"
+      ],
+      "sources": [
+        "tavily"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/jiuyuan"
+      ],
+      "first_seen_query_runs": [
+        "tavily_batch_08"
+      ],
+      "source_count": 1,
+      "best_title": "九渊Ai源头"
+    },
+    {
+      "shop_id": "JVDCG8IG",
+      "url": "https://pay.ldxp.cn/shop/JVDCG8IG",
+      "title_candidates": [
+        "Jvdcg8ig"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/JVDCG8IG"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_05"
+      ],
+      "source_count": 1,
+      "best_title": "Jvdcg8ig"
+    },
+    {
+      "shop_id": "KD7HE66S",
+      "url": "https://pay.ldxp.cn/shop/KD7HE66S",
+      "title_candidates": [
+        "Kd7he66s"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/KD7HE66S"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_04",
+        "exa_batch_05"
+      ],
+      "source_count": 1,
+      "best_title": "Kd7he66s"
+    },
+    {
+      "shop_id": "KHRR17MS",
+      "url": "https://pay.ldxp.cn/shop/KHRR17MS",
+      "title_candidates": [
+        "Ldxp"
+      ],
+      "snippet_candidates": [
+        "Please complete the operation to verify that you are a real person"
+      ],
+      "sources": [
+        "tavily"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/KHRR17MS"
+      ],
+      "first_seen_query_runs": [
+        "tavily_batch_08"
+      ],
+      "source_count": 1,
+      "best_title": "Ldxp"
+    },
+    {
+      "shop_id": "KQ73NYO7",
+      "url": "https://pay.ldxp.cn/shop/KQ73NYO7",
+      "title_candidates": [
+        "AI账号资源 - 自动发卡网",
+        "AI 账号资源站"
+      ],
+      "snippet_candidates": [
+        "Please complete the operation to verify that you are a real person"
+      ],
+      "sources": [
+        "exa",
+        "tavily"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/KQ73NYO7"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_04",
+        "tavily_batch_08"
+      ],
+      "source_count": 2,
+      "best_title": "AI账号资源 - 自动发卡网"
+    },
+    {
+      "shop_id": "LI1GN6DF",
+      "url": "https://pay.ldxp.cn/shop/LI1GN6DF",
+      "title_candidates": [
+        "Li1gn6df"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/LI1GN6DF"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_02",
+        "exa_batch_03"
+      ],
+      "source_count": 1,
+      "best_title": "Li1gn6df"
+    },
+    {
+      "shop_id": "LOA3IZW5",
+      "url": "https://pay.ldxp.cn/shop/LOA3IZW5",
+      "title_candidates": [
+        "Loa3izw5"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/LOA3IZW5"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_03",
+        "exa_batch_04"
+      ],
+      "source_count": 1,
+      "best_title": "Loa3izw5"
+    },
+    {
+      "shop_id": "lucifer",
+      "url": "https://pay.ldxp.cn/shop/lucifer",
+      "title_candidates": [
+        "冒险岛宇宙- 链动小铺"
+      ],
+      "snippet_candidates": [
+        "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。"
+      ],
+      "sources": [
+        "exa",
+        "tavily"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/lucifer"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_03",
+        "exa_batch_05",
+        "tavily_batch_01",
+        "tavily_batch_02",
+        "tavily_batch_03",
+        "tavily_batch_05"
+      ],
+      "source_count": 2,
+      "best_title": "冒险岛宇宙- 链动小铺"
+    },
+    {
+      "shop_id": "Lucoo",
+      "url": "https://pay.ldxp.cn/shop/Lucoo",
+      "title_candidates": [
+        "店铺地址 - 自动发卡网"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/Lucoo"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02"
+      ],
+      "source_count": 1,
+      "best_title": "店铺地址 - 自动发卡网"
+    },
+    {
+      "shop_id": "LVVK5RTY",
+      "url": "https://pay.ldxp.cn/shop/LVVK5RTY",
+      "title_candidates": [
+        "Lvvk5rty"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/LVVK5RTY"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_05"
+      ],
+      "source_count": 1,
+      "best_title": "Lvvk5rty"
+    },
+    {
+      "shop_id": "MAMY9DA8",
+      "url": "https://pay.ldxp.cn/shop/MAMY9DA8",
+      "title_candidates": [
+        "https://pay.ldxp.cn/shop/MAMY9DA8/wxct14"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/MAMY9DA8/wxct14"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_03",
+        "exa_batch_05"
+      ],
+      "source_count": 1,
+      "best_title": "https://pay.ldxp.cn/shop/MAMY9DA8/wxct14"
+    },
+    {
+      "shop_id": "mekyun",
+      "url": "https://pay.ldxp.cn/shop/mekyun",
+      "title_candidates": [
+        "购买会员 - 自动发卡网"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/mekyun"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_04"
+      ],
+      "source_count": 1,
+      "best_title": "购买会员 - 自动发卡网"
+    },
+    {
+      "shop_id": "mirage",
+      "url": "https://pay.ldxp.cn/shop/mirage",
+      "title_candidates": [
+        "Mirage",
+        "充值 - 自动发卡网"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/mirage"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_04",
+        "exa_batch_05",
+        "exa_batch_06",
+        "exa_batch_07",
+        "exa_batch_08"
+      ],
+      "source_count": 1,
+      "best_title": "Mirage"
+    },
+    {
+      "shop_id": "MJZ0U8HT",
+      "url": "https://pay.ldxp.cn/shop/MJZ0U8HT",
+      "title_candidates": [
+        "https://pay.ldxp.cn/shop/MJZ0U8HT"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/MJZ0U8HT"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_02"
+      ],
+      "source_count": 1,
+      "best_title": "https://pay.ldxp.cn/shop/MJZ0U8HT"
+    },
+    {
+      "shop_id": "parhom",
+      "url": "https://pay.ldxp.cn/shop/parhom",
+      "title_candidates": [
+        "Parhom"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/parhom"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_02",
+        "exa_batch_05"
+      ],
+      "source_count": 1,
+      "best_title": "Parhom"
+    },
+    {
+      "shop_id": "PDFJBHVR",
+      "url": "https://pay.ldxp.cn/shop/PDFJBHVR",
+      "title_candidates": [
+        "AI大大站！的小店 - 链动小铺"
+      ],
+      "snippet_candidates": [
+        "网站首页订单查询/投诉禁售目录常见问题开店教学举报违规商家 · 订单查询 · AI大大站！ · 已认证 · 联系TA · 分享 · 官网注册地址 · 📢 店铺公告 本店铺支持所有GPT模型 支持对接OpenClaw(大龙虾) Hermes 网站注册地址：h"
+      ],
+      "sources": [
+        "tavily"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/PDFJBHVR"
+      ],
+      "first_seen_query_runs": [
+        "tavily_batch_08"
+      ],
+      "source_count": 1,
+      "best_title": "AI大大站！的小店 - 链动小铺"
+    },
+    {
+      "shop_id": "plus7",
+      "url": "https://pay.ldxp.cn/shop/plus7",
+      "title_candidates": [
+        "chatgpt plus 6元- 链动小铺"
+      ],
+      "snippet_candidates": [
+        "Please complete the operation to verify that you are a real person"
+      ],
+      "sources": [
+        "tavily"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/plus7"
+      ],
+      "first_seen_query_runs": [
+        "tavily_batch_08"
+      ],
+      "source_count": 1,
+      "best_title": "chatgpt plus 6元- 链动小铺"
+    },
+    {
+      "shop_id": "RSIAY6WR",
+      "url": "https://pay.ldxp.cn/shop/RSIAY6WR",
+      "title_candidates": [
+        "AI特战队- 链动小铺"
+      ],
+      "snippet_candidates": [
+        "200刀key【新用户先买key，已有key就用兑换码续费】 · 10. 库存少量 ; 2200刀兑换码 · 100. 库存一般 ; 1050刀兑换码 · 50. 库存一般 ; 200刀额度兑换码 · 10. 库存少量."
+      ],
+      "sources": [
+        "exa",
+        "tavily"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/RSIAY6WR"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_04",
+        "tavily_batch_04"
+      ],
+      "source_count": 2,
+      "best_title": "AI特战队- 链动小铺"
+    },
+    {
+      "shop_id": "WBBXI1EV",
+      "url": "https://pay.ldxp.cn/shop/WBBXI1EV",
+      "title_candidates": [
+        "购买ID - 自动发卡网"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/WBBXI1EV"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_02"
+      ],
+      "source_count": 1,
+      "best_title": "购买ID - 自动发卡网"
+    },
+    {
+      "shop_id": "WGVSZTE2",
+      "url": "https://pay.ldxp.cn/shop/WGVSZTE2",
+      "title_candidates": [
+        "Wgvszte2"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/WGVSZTE2"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_02"
+      ],
+      "source_count": 1,
+      "best_title": "Wgvszte2"
+    },
+    {
+      "shop_id": "WJGYSHEH",
+      "url": "https://pay.ldxp.cn/shop/WJGYSHEH",
+      "title_candidates": [
+        "Wjgysheh"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/WJGYSHEH"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_05"
+      ],
+      "source_count": 1,
+      "best_title": "Wjgysheh"
+    },
+    {
+      "shop_id": "XEBRMV34",
+      "url": "https://pay.ldxp.cn/shop/XEBRMV34",
+      "title_candidates": [
+        "mozheAPI - 链动小铺"
+      ],
+      "snippet_candidates": [
+        "链动小铺发卡网是国内优秀自动发卡平台,提供专业虚拟软件卡密自动交易服务,D0当天秒结算,专注直清通道的稳定平台,稳定24小时不间断为您提供优质的寄售体验。",
+        "余额兑换码. 包含4种商品. 订阅兑换码. 包含2种商品. 选择商品. 5元余额兑换码. ￥. 5. 剩余8件. 50元余额兑换码. ￥. 50. 剩余7件. 20元余额兑换码."
+      ],
+      "sources": [
+        "exa",
+        "tavily"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/XEBRMV34"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_04",
+        "tavily_batch_01",
+        "tavily_batch_02",
+        "tavily_batch_04"
+      ],
+      "source_count": 2,
+      "best_title": "mozheAPI - 链动小铺"
+    },
+    {
+      "shop_id": "ydbsq123",
+      "url": "https://pay.ldxp.cn/shop/ydbsq123",
+      "title_candidates": [
+        "Ydbsq123"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/ydbsq123"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_05"
+      ],
+      "source_count": 1,
+      "best_title": "Ydbsq123"
+    },
+    {
+      "shop_id": "YSR74HU9",
+      "url": "https://pay.ldxp.cn/shop/YSR74HU9",
+      "title_candidates": [
+        "Ysr74hu9"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/YSR74HU9"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_02",
+        "exa_batch_05"
+      ],
+      "source_count": 1,
+      "best_title": "Ysr74hu9"
+    },
+    {
+      "shop_id": "yuanAi",
+      "url": "https://pay.ldxp.cn/shop/yuanAi",
+      "title_candidates": [
+        "Yuanai"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/yuanAi"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_05"
+      ],
+      "source_count": 1,
+      "best_title": "Yuanai"
+    },
+    {
+      "shop_id": "Z3VSKEGC",
+      "url": "https://pay.ldxp.cn/shop/Z3VSKEGC",
+      "title_candidates": [
+        "Z3vskegc"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/Z3VSKEGC"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_01",
+        "exa_batch_02",
+        "exa_batch_04",
+        "exa_batch_05"
+      ],
+      "source_count": 1,
+      "best_title": "Z3vskegc"
+    },
+    {
+      "shop_id": "zxdian",
+      "url": "https://pay.ldxp.cn/shop/zxdian",
+      "title_candidates": [
+        "https://pay.ldxp.cn/shop/zxdian"
+      ],
+      "snippet_candidates": [],
+      "sources": [
+        "exa"
+      ],
+      "raw_urls": [
+        "https://pay.ldxp.cn/shop/zxdian"
+      ],
+      "first_seen_query_runs": [
+        "exa_batch_06"
+      ],
+      "source_count": 1,
+      "best_title": "https://pay.ldxp.cn/shop/zxdian"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+mixed-port: 7900
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: true
+
+proxies:
+  - name: oracle-proxy-shadowsocks
+    type: ss
+    server: 158.178.236.241
+    port: 30005
+    cipher: aes-128-gcm
+    password: 822d37a6-4859-4281-ad0e-0dff90345258
+    udp: true
+
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - oracle-proxy-shadowsocks
+      - DIRECT
+
+rules:
+  - MATCH,Proxy

@@ -52,6 +52,7 @@ Use the same managed subscription family already documented for the fleet:
 
 Recommended first-stage local policy on the NAS:
 - treat `Home-Egress` as the preferred path for AI / login-sensitive sites when the managed subscription provides it
+- prefer subscriptions where the first/default option inside key groups is already an automatic `*-Auto` selector, so the NAS can start working without immediate hand-picking after import
 - keep ordinary HK / ali / oracle choices available for manual fallback or bulk transfer scenarios
 - keep `oracle-gateway` as fallback if retained by the subscription
 

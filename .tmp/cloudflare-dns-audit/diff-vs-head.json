@@ -1,0 +1,24 @@
+{
+  "changed": true,
+  "added_count": 2,
+  "removed_count": 0,
+  "added": [
+    {
+      "comment": "CN/HK edge via hk-relay for zcode2api",
+      "content": "154.86.30.10",
+      "name": "zcode-cn.zhangxuemin.work",
+      "proxied": false,
+      "ttl": 300,
+      "type": "A"
+    },
+    {
+      "comment": "zcode2api global/source entry via oracle-proxy Caddy",
+      "content": "158.178.236.241",
+      "name": "zcode.zhangxuemin.work",
+      "proxied": false,
+      "ttl": 300,
+      "type": "A"
+    }
+  ],
+  "removed": []
+}

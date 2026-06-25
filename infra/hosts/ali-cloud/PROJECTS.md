@@ -129,6 +129,39 @@ Confirmed on 2026-04-12:
 Operational implication:
 - for future large one-off transfers from `ali-cloud` to domestic hosts, prefer a proper static file server with Range support (for example `nginx`) over Python `http.server` when `aria2` multi-connection resume/splitting is desired.
 
+## 9. zcode2api (retired mistaken first placement)
+Confirmed on 2026-06-22:
+- upstream: `https://github.com/liu5269/zcode2api`
+- initial deployment root: `/opt/zcode2api`
+- initial runtime shape: manually maintained Docker Compose deployment outside 1Panel
+- initial container name: `zcode2api`
+- initial public port mapping: `18084/tcp -> container 3000`
+- this placement was corrected the same day: the live source now runs on `oracle-proxy:/root/containers/zcode2api` with origin `127.0.0.1:18770`, public entry `https://zcode.zhangxuemin.work`, and HK edge `https://zcode-cn.zhangxuemin.work`
+- the ali-cloud container was stopped on 2026-06-22 after migration; do not route zcode2api traffic through `ali-cloud`
+
+Access control:
+- admin password was generated at deployment time and delivered to the user out-of-band in the chat result
+- gateway API key was generated at deployment time, stored in the app SQLite settings, and delivered to the user out-of-band in the chat result
+- login page supports `?token=<admin-key>` one-click admin login as of 2026-06-22; the page verifies the token through `/admin/api/verify`, stores it through the existing frontend `adminKey` localStorage helper, and redirects with `location.replace` to remove the token from the visible URL
+- this one-click login mode is intended for trusted/private automation links only because query-string tokens may still appear in browser history, reverse-proxy access logs, and upstream request logs
+- do not commit these keys into `infra/`; retrieve/reset via the on-host app settings/admin flow if needed
+
+Build/deploy notes:
+- the first BuildKit attempt did not use the host's Docker proxy and failed against Docker Hub metadata
+- the successful initial ali-cloud build used legacy Docker builder with `--network host` and the host-local HTTP proxy exposed by `sing-box-gateway` on `127.0.0.1:2081`
+- this host should not be used as the zcode2api origin for the user's dual-entry topology; keep HK as edge-only and Oracle as business source
+
+Validation before retirement on 2026-06-22:
+- local `GET /admin/api/status` with the admin bearer key returned status JSON with `gateway_key_set: true`
+- unauthenticated local/public `GET /v1/models` returned `401`
+- authenticated local/public `GET /v1/models` returned the built-in GLM model list
+- after migration, `ali-cloud` is no longer part of the live validation path
+
+Operational commands for historical inspection only:
+- `cd /opt/zcode2api && /usr/bin/docker-compose ps`
+- `cd /opt/zcode2api && /usr/bin/docker-compose logs zcode2api`
+- do not restart this container unless intentionally rolling back from the Oracle deployment
+
 ## Next operational step
 - inspect 1Panel status/routes/config further
 - inspect EasyImages compose and health model
