@@ -3,10 +3,16 @@
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
 - record_count: 49
 - type_counts:
-  - A: 38
+  - A: 39
   - AAAA: 2
   - MX: 4
   - TXT: 4
+
+## Diff vs baseline
+
+- changed: no
+- added: 0
+- removed: 0
 
 ## Records
 
@@ -27,6 +33,7 @@
 - A dev.zhangxuemin.work -> 64.110.106.11 proxied=false ttl=1 comment=openclaw-host
 - A docs-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN edge via hk-relay for Kiro docs
 - A docs.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=300 comment=Kiro docs global/source on oracle-proxy
+- A drop-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1 comment=FileCodeBox CN/HK edge on hk-relay
 - A drop.hk.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1
 - A ghcr.zhangxuemin.work -> 140.245.33.114 proxied=false ttl=1 comment=oracle-registry
 - A gpt-card-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1
@@ -54,7 +61,6 @@
 - A wa.zhangxuemin.work -> 140.83.52.216 proxied=false ttl=300 comment=WA app global/source on oracle-mail
 - A zcode-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK edge via hk-relay for zcode2api
 - A zcode.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=300 comment=zcode2api global/source entry via oracle-proxy Caddy
-- A drop-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1 comment=FileCodeBox CN/HK edge on hk-relay
 - MX zhangxuemin.work -> route1.mx.cloudflare.net priority=56 proxied=false ttl=1
 - MX zhangxuemin.work -> route2.mx.cloudflare.net priority=24 proxied=false ttl=1
 - MX zhangxuemin.work -> route3.mx.cloudflare.net priority=98 proxied=false ttl=1
