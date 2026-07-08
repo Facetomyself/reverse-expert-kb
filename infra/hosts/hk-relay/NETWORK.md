@@ -17,6 +17,7 @@
   - `card-cn.zhangxuemin.work`
   - `wa-cn.zhangxuemin.work`
   - `zcode-cn.zhangxuemin.work`
+  - `gpt-session-cn.zhangxuemin.work`
   - `drop-cn.zhangxuemin.work`
 - Provider: unknown / user-added Hong Kong VPS
 - Intended role: 三网优化流量中转
@@ -105,6 +106,7 @@ Validated on 2026-04-13, then hardened on 2026-04-21:
 - `https://card-cn.zhangxuemin.work/` -> CN/HK TLS edge for Card Shop, reverse-proxied to `https://card.zhangxuemin.work/`
 - `https://wa-cn.zhangxuemin.work/` -> CN/HK TLS edge for WA app, reverse-proxied to `https://wa.zhangxuemin.work/`
 - `https://zcode-cn.zhangxuemin.work/` -> CN/HK TLS edge for zcode2api admin/API traffic, reverse-proxied to `https://zcode.zhangxuemin.work` on `oracle-proxy`; HK does not run the business container
+- `https://gpt-session-cn.zhangxuemin.work/` -> CN/HK TLS edge for GPT Session Converter static site, reverse-proxied to `https://gpt-session.zhangxuemin.work` on `oracle-proxy`; HK does not store submitted JSON or run app logic
 - `https://drop-cn.zhangxuemin.work/` -> CN/HK TLS edge for FileCodeBox file/text transfer, reverse-proxied to `oracle-mail:18085`
 - `reverse-cn.zhangxuemin.work:22061` -> CN/HK TCP edge for `oracle-reverse-dev` SSH, forwarding to `140.245.61.236:22`; normal use: `ssh -p 22061 ubuntu@reverse-cn.zhangxuemin.work`
 - `https://ctf-gpt-cn.zhangxuemin.work/ctf-gpt-plus` -> CN/HK TLS edge for `oracle-reverse-dev` CTF GPT Plus, reverse-proxied to `http://140.245.61.236:8000/ctf-gpt-plus`

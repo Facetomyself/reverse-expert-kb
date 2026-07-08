@@ -1,8 +1,8 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 49,
+  "record_count": 51,
   "type_counts": {
-    "A": 39,
+    "A": 41,
     "AAAA": 2,
     "MX": 4,
     "TXT": 4
@@ -177,6 +177,22 @@
       "content": "158.178.236.241",
       "ttl": 1,
       "proxied": false
+    },
+    {
+      "name": "gpt-session-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN/HK edge via hk-relay for GPT Session converter"
+    },
+    {
+      "name": "gpt-session.zhangxuemin.work",
+      "type": "A",
+      "content": "158.178.236.241",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "GPT Session converter global/source static site on oracle-proxy"
     },
     {
       "name": "gptam-cn.zhangxuemin.work",

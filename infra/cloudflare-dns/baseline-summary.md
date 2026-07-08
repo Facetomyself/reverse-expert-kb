@@ -1,9 +1,9 @@
 # Cloudflare DNS Snapshot
 
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- record_count: 49
+- record_count: 51
 - type_counts:
-  - A: 39
+  - A: 41
   - AAAA: 2
   - MX: 4
   - TXT: 4
@@ -38,6 +38,8 @@
 - A ghcr.zhangxuemin.work -> 140.245.33.114 proxied=false ttl=1 comment=oracle-registry
 - A gpt-card-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1
 - A gpt-card.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=1
+- A gpt-session-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK edge via hk-relay for GPT Session converter
+- A gpt-session.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=300 comment=GPT Session converter global/source static site on oracle-proxy
 - A gptam-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK edge via hk-relay for GPT Account Manager
 - A gptam.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=300 comment=oracle-proxy GPT Account Manager direct/source entry
 - A hk.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1

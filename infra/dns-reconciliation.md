@@ -20,13 +20,13 @@
 
 - zone: `zhangxuemin.work`
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- current live record count: **49**
+- current live record count: **51**
 - type counts:
-  - `A`: 39
+  - `A`: 41
   - `AAAA`: 2
   - `MX`: 4
   - `TXT`: 4
-- current live snapshot vs committed baseline: **no semantic diff** after refreshing the baseline for the intentional 2026-06-22 `zcode2api` additions; the baseline includes Cloudflare MX priorities (`send`: 10; root `route1/2/3`: 56/24/98), the active `proxy-bak` / `proxy-bak-cn` A records, the WA app source/CN edge records, and the newer app/doc/card/Kiro/zcode entrypoints
+- current live snapshot vs committed baseline: **no semantic diff** after refreshing the baseline for the intentional 2026-07-06 `gpt-session` / `gpt-session-cn` additions; the baseline includes Cloudflare MX priorities (`send`: 10; root `route1/2/3`: 56/24/98), the active `proxy-bak` / `proxy-bak-cn` A records, the WA app source/CN edge records, and the newer app/doc/card/Kiro/zcode/GPT Session entrypoints
 
 ---
 
@@ -68,6 +68,8 @@
 | `gpt-card-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 GPT Card Shop 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://gpt-card.zhangxuemin.work` |
 | `zcode.zhangxuemin.work` | `158.178.236.241` | 指向 `oracle-proxy`，当前是 zcode2api direct/source 入口 | **匹配** | Caddy -> zcode2api loopback origin `127.0.0.1:18770` |
 | `zcode-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 zcode2api 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://zcode.zhangxuemin.work` |
+| `gpt-session.zhangxuemin.work` | `158.178.236.241` | 指向 `oracle-proxy`，当前是 GPT Session Converter direct/source 静态站入口 | **匹配** | Caddy 静态站，源文件在 `/root/containers/gpt-session-converter/docs` |
+| `gpt-session-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 GPT Session Converter 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://gpt-session.zhangxuemin.work` |
 | `reverse-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 `oracle-reverse-dev` 的国内/HK SSH 边缘入口（HK `:22061` -> Oracle `:22`） | **匹配** | DNS-only A；使用 `ssh -p 22061 ubuntu@reverse-cn.zhangxuemin.work` |
 | `ctf-gpt-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 `oracle-reverse-dev` CTF GPT Plus 的国内/HK HTTPS 边缘入口 | **匹配** | HK Caddy -> `http://140.245.61.236:8000`; 使用 `https://ctf-gpt-cn.zhangxuemin.work/ctf-gpt-plus` |
 | `claw-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 OpenClaw 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://dev.zhangxuemin.work` |

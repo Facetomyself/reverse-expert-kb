@@ -32,6 +32,7 @@ hosts:
       - card.zhangxuemin.work
       - gpt-card.zhangxuemin.work
       - zcode.zhangxuemin.work
+      - gpt-session.zhangxuemin.work
     docs:
       host: infra/hosts/oracle-proxy/HOST.md
       network: infra/hosts/oracle-proxy/NETWORK.md
@@ -127,6 +128,7 @@ hosts:
       - gpt-card-cn.zhangxuemin.work
       - wa-cn.zhangxuemin.work
       - zcode-cn.zhangxuemin.work
+      - gpt-session-cn.zhangxuemin.work
       - reverse-cn.zhangxuemin.work
       - ctf-gpt-cn.zhangxuemin.work
     docs:

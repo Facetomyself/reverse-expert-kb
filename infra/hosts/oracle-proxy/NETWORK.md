@@ -40,6 +40,7 @@
 - `docs.zhangxuemin.work` → `158.178.236.241`
 - `card.zhangxuemin.work` → `158.178.236.241`
 - `zcode.zhangxuemin.work` → `158.178.236.241`
+- `gpt-session.zhangxuemin.work` → `158.178.236.241`
 
 ## 4. Tavily-related entry points
 - Web console: `http://proxy.zhangxuemin.work:9874/`
@@ -113,6 +114,7 @@
 - Kiro-Go direct domain: `kiro.zhangxuemin.work` -> `127.0.0.1:18766` through `caddy-cpam`; CN/HK optimized domain: `kiro-cn.zhangxuemin.work` -> HK Caddy -> `https://kiro.zhangxuemin.work`.
 - Kiro-RS direct domain: `kiro-rs.zhangxuemin.work` -> `127.0.0.1:18769` through `caddy-cpam`; exact `/` redirects to `/admin`. CN/HK optimized domain: `kiro-rs-cn.zhangxuemin.work` -> HK Caddy -> `https://kiro-rs.zhangxuemin.work`; exact `/` redirects to `/admin` on the HK edge to preserve the CN hostname.
 - Kiro docs direct domain: `docs.zhangxuemin.work` -> static VitePress dist under `/root/containers/kiro-docs`; CN/HK optimized domain: `docs-cn.zhangxuemin.work` -> HK Caddy -> `https://docs.zhangxuemin.work`.
+- GPT Session Converter direct domain: `gpt-session.zhangxuemin.work` -> static files under `/root/containers/gpt-session-converter/docs`; CN/HK optimized domain: `gpt-session-cn.zhangxuemin.work` -> HK Caddy -> `https://gpt-session.zhangxuemin.work`.
 
 ### sing-box embedded nginx
 - `sing-box.service` also owns nginx processes via `/etc/sing-box/nginx.conf`
