@@ -117,6 +117,30 @@ Reactions are lightweight social signals. Humans use them constantly — they sa
 
 Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
 
+## Matt Pocock Engineering Skills Adaptation
+
+The workspace includes a reviewed, OpenClaw-adapted subset of `mattpocock/skills`. Treat these as local engineering discipline, not as an external installer-managed framework.
+
+### Enabled adapted skills
+
+- `diagnosing-bugs` — use for hard bugs, regressions, flaky failures, broken services, and performance problems. Build a tight red-capable feedback loop before theorizing.
+- `tdd` — use for feature/fix work where tests, seams, or integration behavior matter. Prefer one red-green slice at a time.
+- `code-review` — use for substantial diffs, generated implementations, PRs, or pre-commit review. Keep Standards and Spec review axes separate; use OpenClaw subagents for non-trivial reviews.
+
+### Import boundaries
+
+- Upstream snapshot lives under `vendor/mattpocock-skills/upstream/` for audit and diffing only.
+- Do **not** run upstream `skills.sh`, `npx skills@latest add`, Claude Code plugin install, or `/setup-matt-pocock-skills` in this workspace unless the user explicitly asks for a new review.
+- Do **not** let upstream setup flows rewrite root `AGENTS.md`, `MEMORY.md`, `TOOLS.md`, identity files, or global workspace policy.
+- Enable only hand-adapted OpenClaw skills under `skills/`. When updating from upstream, review the diff, adapt to OpenClaw tools, then validate frontmatter and skill discovery.
+
+### Operating style
+
+- Preserve the user's low-back-and-forth preference: make reasonable engineering assumptions, state them briefly, and ask only when a missing decision blocks safe progress or changes risk materially.
+- Replace Claude Code-specific directions with OpenClaw-native mechanisms: `sessions_spawn`, `sessions_yield`, `exec`, `browser`, `github`, `spike`, `long-task-watchdog`, and `taskflow` as appropriate.
+- Completion claims need evidence: tests, build/lint/typecheck, command output, screenshots, diff inspection, or a clearly named blocker.
+- For project-specific domain modeling, ADRs, tickets, or triage flows, write inside the target project repo. Do not pollute the global OpenClaw workspace unless explicitly requested.
+
 ## SSH / Remote Host Knowledge Base
 
 SSH、远程主机、运维排障相关信息不要只留在聊天和临时记忆里；统一落到 `infra/` 这套知识库。
