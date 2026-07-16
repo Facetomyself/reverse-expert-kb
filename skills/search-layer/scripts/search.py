@@ -286,11 +286,31 @@ def get_keys():
                     keys["tavily_url"] = v.get("apiUrl", "")
                 else:
                     keys["tavily"] = v
-            if grok := cred.get("grok"):
-                if isinstance(grok, dict):
-                    keys["grok_url"] = grok.get("apiUrl", "")
-                    keys["grok_key"] = grok.get("apiKey", "")
-                    keys["grok_model"] = grok.get("model", "grok-4.1-fast")
+            # Collect Grok instances in deterministic order: grok, grok2, grok3, ...
+            # This lets search fall back across multiple configured Grok-compatible endpoints.
+            keys["grok_instances"] = []
+            grok_keys = []
+            if "grok" in cred:
+                grok_keys.append("grok")
+            numbered = []
+            for gk in cred.keys():
+                if gk.startswith("grok") and gk[4:].isdigit():
+                    numbered.append((int(gk[4:]), gk))
+            grok_keys.extend(gk for _, gk in sorted(numbered))
+            for gk in grok_keys:
+                v = cred.get(gk)
+                if isinstance(v, dict):
+                    keys["grok_instances"].append({
+                        "url": v.get("apiUrl", ""),
+                        "key": v.get("apiKey", ""),
+                        "model": v.get("model", "grok-4.1-fast"),
+                    })
+            # Back-compat: expose first grok instance as flat keys
+            if keys["grok_instances"]:
+                first = keys["grok_instances"][0]
+                keys["grok_url"] = first["url"]
+                keys["grok_key"] = first["key"]
+                keys["grok_model"] = first["model"]
         except (json.JSONDecodeError, FileNotFoundError):
             pass
     # 2. Env vars (override / fallback for users without credentials file)
@@ -600,18 +620,24 @@ def execute_search(query: str, mode: str, keys: dict, num: int,
     def _want(name: str) -> bool:
         return sources is None or name in sources
 
-    # Grok config
-    grok_url = keys.get("grok_url")
-    grok_key = keys.get("grok_key")
-    grok_model = keys.get("grok_model", "grok-4.1-fast")
-    has_grok = bool(grok_url and grok_key)
+    # Grok config: try all instances in sequence (first one wins)
+    grok_instances = keys.get("grok_instances", [])
+    has_grok = len(grok_instances) > 0
+
+    def _search_grok_fallback():
+        """Try each grok instance in order; return results from first success."""
+        for gi in grok_instances:
+            results = search_grok(query, gi["url"], gi["key"], gi["model"], num, freshness)
+            if results:
+                return results
+        return []
 
     if mode == "fast":
         if "exa" in keys and _want("exa"):
             all_results = search_exa(query, keys["exa"], num, keys.get("exa_url"))
             results_by_source["exa"] = list(all_results)
         elif has_grok and _want("grok"):
-            all_results = search_grok(query, grok_url, grok_key, grok_model, num, freshness)
+            all_results = _search_grok_fallback()
             results_by_source["grok"] = list(all_results)
         else:
             print('{"warning": "No API keys found for fast mode"}',
@@ -627,8 +653,7 @@ def execute_search(query: str, mode: str, keys: dict, num: int,
                     search_tavily, query, keys["tavily"], num,
                     freshness=freshness, base_url=keys.get("tavily_url"))] = "tavily"
             if has_grok and _want("grok"):
-                futures[pool.submit(
-                    search_grok, query, grok_url, grok_key, grok_model, num, freshness)] = "grok"
+                futures[pool.submit(_search_grok_fallback)] = "grok"
             for fut in concurrent.futures.as_completed(futures):
                 name = futures[fut]
                 try:
@@ -656,7 +681,7 @@ def execute_search(query: str, mode: str, keys: dict, num: int,
             # Graceful fallback: allow answer mode to return Grok search results
             # when Tavily is unavailable or explicitly excluded by --source.
             print('{"warning": "answer mode fell back to grok search results because tavily is unavailable or filtered out"}', file=sys.stderr)
-            all_results = search_grok(query, grok_url, grok_key, grok_model, num, freshness)
+            all_results = _search_grok_fallback()
             results_by_source["grok"] = list(all_results)
         elif "exa" in keys and _want("exa"):
             # Secondary fallback: return Exa results instead of failing empty.
