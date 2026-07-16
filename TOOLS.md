@@ -61,6 +61,37 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - For quote-heavy nested SSH checks, especially `ali-cloud -> home-macmini-via-frp`, avoid one-liners that combine regex pipes, nested quotes, and heredocs.
   - Safer pattern: stage a small local script (`cat > /tmp/check.sh` or `write`) and pipe it to the second hop, e.g. `ssh ali-cloud "ssh -F /root/.ssh/config home-macmini-via-frp bash -s" < /tmp/check.sh`.
 
+- Current workspace shell does **not** provide an `apply_patch` binary.
+  - When code-style patch edits are needed here, use the OpenClaw `edit` tool for exact replacements or `write` for whole-file generated artifacts instead of assuming `apply_patch` is installed.
+
+## OpenClaw Model Provider / WebUI Visibility
+
+- When adding or changing an OpenClaw model provider, do **not** stop at `models.providers.<provider>` plus raw `/v1/chat/completions` smoke tests.
+- The WebUI model picker uses the configured model view. If `agents.defaults.models` exists, it is the allowlist for `/model`, `/models`, and the WebUI picker.
+- Required completion checklist for provider/model changes:
+  1. Add/update `models.providers.<provider>` with the endpoint, auth, adapter, and concrete `models[]` entries.
+  2. Add/update `agents.defaults.models` for WebUI visibility and aliases.
+  3. Use exact `provider/model` entries when only selected models should show; use `provider/*` only when dynamic discovery of every upstream model for that provider is intended.
+  4. Validate with `gateway config.get` and with `openclaw models list <provider>` or another configured model-view call, not only with `curl`.
+- In SecretRef objects such as `{ "source": "env", "provider": "default", "id": "CLIPROXY_API_KEY" }`, `provider` is the secret-provider alias, **not** the model provider id.
+  - Do not set it to a new model provider name like `opencode` unless `secrets.providers.opencode` exists and resolves.
+  - Schema validation can pass while runtime still reports `models.providers.<provider>.apiKey is unresolved in the active runtime snapshot`.
+  - For the current config-local env secrets, use `provider: "default"`.
+- This is a repeated user correction as of 2026-07-07; treat WebUI visibility as part of done criteria.
+
+## OpenClaw Device Web Login / Pairing Approval
+
+- When the user says a new Mac/browser needs "网页登录" or asks to approve a web login, treat it as **device pairing**, not node pairing.
+- Do **not** rely only on the `nodes` tool or `openclaw nodes ...` for this flow. Those are node-host pairing views and may show `pending: []` / `paired: []` even when web device pairing exists.
+- Correct first checks:
+  - `openclaw devices list`
+  - `openclaw devices approve --latest`
+  - `openclaw devices approve <requestId>` when the request id is known
+- Useful state files for diagnosis only:
+  - `~/.openclaw/devices/pending.json`
+  - `~/.openclaw/devices/paired.json`
+- If `pending.json` contains an entry but `openclaw devices approve <requestId>` and `openclaw devices approve --latest` both say `unknown requestId` / no pending requests, treat the file entry as stale or out of sync with gateway runtime. Ask the user to re-trigger the browser pairing; do not hand-edit paired device auth files.
+
 ## GitHub / gh on This Host
 
 - Installed GitHub CLI is relatively old: `/usr/bin/gh 2.4.0+dfsg1`.

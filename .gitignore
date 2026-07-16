@@ -50,3 +50,10 @@ skills/self-improving-agent/.learnings/
 
 # Keep nested self-improving-agent as independent repo
 skills/self-improving-agent/
+
+# Nested independent workspace repos
+projects/proxy4reverse/
+skills/ali-cloud-ssh/
+
+# Runtime audit scratch outputs
+.tmp/

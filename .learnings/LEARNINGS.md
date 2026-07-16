@@ -43,6 +43,31 @@ Docker build fails on Apple Silicon due to platform mismatch
 
 ---
 
+## [LRN-20260707-001] correction
+
+**Logged**: 2026-07-07T13:09:04+08:00
+**Priority**: high
+**Status**: promoted
+**Area**: config
+
+### Summary
+When adding an OpenClaw model provider, verify WebUI/model-picker visibility, not only schema validity and raw API connectivity.
+
+### Details
+The user corrected a repeated miss: adding `models.providers.<provider>` and proving `/v1/chat/completions` works is insufficient when `agents.defaults.models` is present. The Control UI model picker uses the configured model view driven by `agents.defaults.models`. If a new provider/model is not added there, it may be valid and callable but invisible/unselectable in WebUI. If the intent is to expose only selected models, use exact `provider/model` allowlist entries; `provider/*` enables dynamic provider discovery and may show every upstream model for that provider.
+
+A second gotcha appeared during the fix: in SecretRef objects such as `{ "source": "env", "provider": "default", "id": "CLIPROXY_API_KEY" }`, `provider` means the configured secret provider alias, not the model provider id. Using `provider: "opencode"` passed schema but left `models.providers.opencode.apiKey` unresolved in the active runtime snapshot, causing `openclaw models list` and the WebUI-visible model view to fail. Use `provider: "default"` unless a matching `secrets.providers.<alias>` is configured.
+
+### Suggested Action
+For every OpenClaw provider/model change, perform all three checks before reporting done: `gateway config.get` has no issues, the API smoke test succeeds, and `openclaw models list <provider>` or equivalent configured model view shows the intended WebUI-visible models only. Add/update `agents.defaults.models` aliases as part of the same change. For SecretRef-backed provider credentials, verify the secret provider alias resolves in runtime; schema validity alone is not enough.
+
+### Metadata
+- Source: user_feedback
+- Related Files: ~/.openclaw/openclaw.json, TOOLS.md, /usr/lib/node_modules/openclaw/docs/concepts/models.md
+- Tags: openclaw, provider, webui, model-picker, allowlist, correction
+
+---
+
 ## [LRN-20260408-001] correction
 
 **Logged**: 2026-04-08T13:50:00+08:00
@@ -253,6 +278,29 @@ For future style-LoRA work, explicitly evaluate cross-subject generalization (ma
 - **Lesson:** Adding a Caddy HTTPS vhost is not enough for bare `http://domain` behavior if another service owns port 80. Check `ss -ltnp` and explicitly verify HTTP as well as HTTPS.
 - **Fix pattern used:** Move 1Panel off `:80`, let Caddy own `:80/:443`, and allow Caddy automatic HTTP→HTTPS redirects.
 
+
+## [LRN-20260625-001] correction
+
+**Logged**: 2026-06-25T21:33:00+08:00
+**Priority**: high
+**Status**: promoted
+**Area**: infra
+
+### Summary
+OpenClaw browser/web login approval is device pairing, not node pairing; `nodes` views can be misleading.
+
+### Details
+The user corrected a recurring failure where a new Mac browser login approval was checked through the `nodes` tool / `openclaw nodes ...`, which returned empty pending/paired views. Historical context from 2026-05-25 showed the real fix: browser webchat login requests live under device pairing and should be handled with `openclaw devices ...`. The correct state files are `~/.openclaw/devices/pending.json` and `~/.openclaw/devices/paired.json`, but the CLI runtime is authoritative for approval. If `pending.json` contains a request while `openclaw devices approve <requestId>` or `openclaw devices approve --latest` says `unknown requestId` / no pending requests, the file entry is stale or out of sync and the browser must re-trigger pairing.
+
+### Suggested Action
+For future "网页登录" / new Mac browser approval requests, immediately run `openclaw devices approve --latest` or `openclaw devices list`; only inspect `devices/pending.json` for diagnosis. Do not use `nodes` pairing commands as the primary approval path, and do not hand-edit paired device auth files.
+
+### Metadata
+- Source: user_feedback
+- Related Files: TOOLS.md, MEMORY.md, ~/.openclaw/devices/pending.json, ~/.openclaw/devices/paired.json
+- Tags: openclaw, device-pairing, approvals, correction, stale-state
+
+---
 
 ## [LRN-20260609-001] correction
 
