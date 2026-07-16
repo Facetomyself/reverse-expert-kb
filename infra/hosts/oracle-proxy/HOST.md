@@ -102,3 +102,12 @@
 - The legacy Grok register Camoufox solver stack has been fully cleaned from Docker runtime: `grok-register-camoufox`, `grok-register-camoufox-adapter` containers and their local images were removed.
 - The old Grok register public adapter listener on `:15072` is no longer part of the active surface.
 - On-host source directories were retained as retired archives, with root compose files renamed to `docker-compose.retired-20260607.yml` to avoid accidental restart.
+
+### 2026-07-03 proxy4reverse MVP deployment
+- `proxy4reverse` is deployed on this host as a loopback-only Docker Compose service under `/root/containers/proxy4reverse`.
+- Container: `proxy4reverse`; compose project directory: `/root/containers/proxy4reverse`.
+- Local proxy data-plane: `127.0.0.1:18773` -> container `1080`.
+- Local web/API panel: `127.0.0.1:18772` -> container `5000`.
+- Sensitive runtime files: `/root/containers/proxy4reverse/.env` and `/root/containers/proxy4reverse/config/config.ini` are mode `0600`; do not copy their values into docs or chat.
+- Current provider config uses environment-backed Cliproxy credentials and profile mapping (`default`, `us-ca`, `us-ca-sticky-30`).
+- Deployment status: service skeleton is healthy and authenticates clients, but Cliproxy upstream `us.cliproxy.io:1080` currently times out at TCP connect from this Oracle host, from `hk-relay`, and from the local OpenClaw host. Therefore no public/HK CN entrypoint has been enabled yet.

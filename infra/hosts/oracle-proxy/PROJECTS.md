@@ -17,6 +17,7 @@
 | Kiro Docs | running | `docs.zhangxuemin.work` / `docs-cn.zhangxuemin.work` | Public static VitePress documentation built from `Facetomyself/kiro` `使用说明.md` and images | Tier 3 | `./projects/kiro-docs.md` |
 | Card Shop | running | `card.zhangxuemin.work` / `card-cn.zhangxuemin.work` | Kiro card-code generation, redeem, and redeemed-card history query with admin backend | Tier 2 | `./projects/card-shop.md` |
 | GPT Card Shop | running | `gpt-card.zhangxuemin.work` / `gpt-card-cn.zhangxuemin.work`; origin `127.0.0.1:18768` | ChatGPT account card delivery with CPA zip / sub2api merged JSON / original JSON downloads | Tier 2 | `./projects/gpt-card-shop.md` |
+| GPT Session Converter | running | `gpt-session.zhangxuemin.work` / `gpt-session-cn.zhangxuemin.work` | Static browser-only converter for ChatGPT session / Codex / 9router / AxonHub / Codex-Manager JSON formats | Tier 3 | `./projects/gpt-session-converter.md` |
 | zcode2api | running | `zcode.zhangxuemin.work` / `zcode-cn.zhangxuemin.work`; origin `127.0.0.1:18770` | Anthropic-compatible Z.AI Coding Plan gateway/admin panel; Docker deployment, source bound only to loopback | Tier 2 | see zcode2api notes below |
 | Network Stack | running | machine-level | nginx / sing-box / xray / cloudflared / caddy-cpam infrastructure | Infra | `./projects/network-stack.md` |
 | Proxy Fallback Pool | available | `:30002/:30003/:30005/:30006/:14391` | 已外测通过的额外非 HK 代理节点包，可发布为 `Oracle-Proxy-Extra` | Tier 2 | `./projects/proxy-fallback-pool.md` |
@@ -43,6 +44,7 @@ flowchart LR
 - Kiro-Go follows the same loopback-origin + Caddy HTTPS front-door pattern, with the app bound to `127.0.0.1:18766` and public/HK entrypoints on `kiro` / `kiro-cn`.
 - Kiro-RS follows the same loopback-origin + Caddy HTTPS front-door pattern, with the app bound to `127.0.0.1:18769` and public/HK entrypoints on `kiro-rs` / `kiro-rs-cn`; credentials and API/admin keys live only on-host under `/root/containers/kiro-rs/config`.
 - GPT Card Shop follows the same loopback-origin + Caddy HTTPS front-door pattern, with the app bound to `127.0.0.1:18768`; public/HK entrypoints are `gpt-card` / `gpt-card-cn`.
+- GPT Session Converter is a static browser-only tool served from `/root/containers/gpt-session-converter/docs`; it is mounted read-only into `caddy-cpam` at `/srv/gpt-session-converter` and published through `gpt-session` / `gpt-session-cn`.
 - zcode2api follows the same loopback-origin + Caddy HTTPS front-door pattern, with the app bound to `127.0.0.1:18770`; public/HK entrypoints are `zcode` / `zcode-cn`. The first ali-cloud placement was corrected on 2026-06-22 because HK should only be a traffic edge and the app source should stay on Oracle.
 - Some machine-level services exist outside this project list (nginx, 1panel, sing-box, xray, cloudflared, caddy-cpam) and should be documented later as infrastructure services rather than app projects.
 

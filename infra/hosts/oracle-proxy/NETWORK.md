@@ -60,8 +60,8 @@
 - Direct source service on this host: `cliproxy-backup` container on public `8318`, reverse-proxied by `caddy-cpam` on public `443`
 - Runtime isolation from primary `cliproxy`: separate container, separate host port, separate config path `/root/containers/cliproxy-backup/config.yaml`, separate auth directory `/root/containers/cliproxy-backup/auth-dir`
 - Outbound proxy stance: seeded from the primary pool and intentionally keeps the same static residential `proxy-url` settings unless a later tuning pass changes it.
-- Update automation: root crontab runs `/root/update_cliproxy_backup.sh` daily at `04:17` and logs to `/var/log/cliproxy-backup-update.log`.
-- Operational gotcha fixed on 2026-06-09: the `/management.html` outage on the backup pool was traced to a bad upstream Docker build window rather than permanent feature removal. Direct validation on `oracle-proxy` showed `v7.1.44` OK, `v7.1.52` returning 404, and `v7.1.53` / `v7.1.56` OK again; this lines up with the upstream `v7.1.52 -> v7.1.53` Docker change adding CA certificates for HTTPS support, likely needed by the panel asset download path. The backup pool is now pinned to `eceasy/cli-proxy-api:v7.1.56`; `/root/update_cliproxy_backup.sh` defaults to that tag but supports temporary override via `CLIPROXY_BACKUP_IMAGE`, and it requires `/management.html` HTTP 200 during health checks/rollback.
+- Update automation: root crontab runs unified `/root/update_cpa_stack.sh` daily at `06:30` and logs to `/var/log/cpa-stack-update.log`, updating primary CLIProxy, backup CLIProxy, and CPA Manager Plus together.
+- Operational gotcha fixed on 2026-06-09: the `/management.html` outage on the backup pool was traced to a bad upstream Docker build window rather than permanent feature removal. Direct validation on `oracle-proxy` showed `v7.1.44` OK, `v7.1.52` returning 404, and `v7.1.53` / `v7.1.56` OK again; this lines up with the upstream `v7.1.52 -> v7.1.53` Docker change adding CA certificates for HTTPS support, likely needed by the panel asset download path. The backup pool was originally pinned to `eceasy/cli-proxy-api:v7.1.56` after that outage; on 2026-07-10 it was advanced to the same `eceasy/cli-proxy-api:latest` image as the primary pool, and `/root/lib/cpa-stack/update_cliproxy_backup.sh` now defaults to `latest` while still requiring `/management.html` HTTP 200 during health checks/rollback.
 
 ## 4C. GPT Account Manager entry points
 - Global/direct panel: `https://gptam.zhangxuemin.work/`
@@ -94,6 +94,22 @@
 - HK edge on `hk-relay` only terminates TLS and reverse-proxies `zcode-cn.zhangxuemin.work` to `https://zcode.zhangxuemin.work` with origin Host/TLS SNI preserved.
 - Earlier `ali-cloud` origin on `106.15.239.221:18084` was a mistaken first placement for this use case; it was stopped after migration on 2026-06-22 and should not be treated as live project topology.
 - DNS added and verified on 2026-06-22: `zcode -> 158.178.236.241`, `zcode-cn -> 154.86.30.10`; both HTTPS entries returned HTTP 200 for `/admin/login` and `/admin/api/verify` after migration.
+
+
+## 4J. proxy4reverse entry points
+- Source service: `proxy4reverse` Docker container under `/root/containers/proxy4reverse`.
+- Current binds are loopback-only, not public:
+  - `127.0.0.1:18773` -> HTTP proxy data plane (`default`, `us-ca`, `us-ca-sticky-30` users mapped to provider profiles).
+  - `127.0.0.1:18772` -> Web/API panel.
+- Intended future CN edge shape, once provider health is fixed: HK Caddy/TCP edge such as `proxy4reverse-cn.zhangxuemin.work` -> Oracle `127.0.0.1:18773`, with authentication retained at proxy4reverse.
+- Current blocker (2026-07-03): `us.cliproxy.io:1080` and `sg.cliproxy.io:1080` TCP-connect time out from `oracle-proxy`, `hk-relay`, and the local OpenClaw host. Smoke through `proxy4reverse` therefore returns HTTP 504 after authentication. Do not expose this service publicly until Cliproxy supplies a reachable forwarding machine/port or a working API/static endpoint.
+
+## 4K. GPT Session Converter entry points
+- Global/direct static tool: `https://gpt-session.zhangxuemin.work/`
+- Domestic/HK optimized static tool: `https://gpt-session-cn.zhangxuemin.work/`
+- Source static files live on `oracle-proxy` under `/root/containers/gpt-session-converter/docs`, mounted read-only into `caddy-cpam` as `/srv/gpt-session-converter`.
+- HK edge on `hk-relay` only terminates TLS and reverse-proxies `gpt-session-cn.zhangxuemin.work` to `https://gpt-session.zhangxuemin.work` with origin Host/TLS SNI preserved.
+- The app is browser-only static HTML/JS and does not persist submitted session/token JSON on the server.
 
 ## 5. Nginx / Proxy Layer Notes
 ### System nginx

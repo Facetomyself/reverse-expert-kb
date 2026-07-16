@@ -24,7 +24,7 @@ Browser -> cpam-cn.zhangxuemin.work -> hk-relay Caddy -> https://cpam.zhangxuemi
 - Compose directory: `/root/containers/cpa-manager-plus`
 - Compose file: `/root/containers/cpa-manager-plus/docker-compose.yml`
 - Secret env file: `/root/containers/cpa-manager-plus/.env` (`0600`; contains admin key, data key, and CPA Management Key)
-- Image: `ghcr.io/seakee/cpa-manager-plus:latest` (updated from `v0.7.0-beta` on 2026-06-06)
+- Image: `ghcr.io/seakee/cpa-manager-plus:latest` (updated from `v0.7.0-beta` on 2026-06-06; checked in unified CPA stack updates)
 - Container name: `cpa-manager-plus`
 - Docker volume: `cpa-manager-plus_cpa-manager-plus-data`
 - Volume mountpoint observed at deployment: `/var/lib/docker/volumes/cpa-manager-plus_cpa-manager-plus-data/_data`
@@ -82,10 +82,17 @@ curl -sS -o /dev/null -w '%{http_code}\n' https://cpam.zhangxuemin.work/manageme
 curl -sS -o /dev/null -w '%{http_code}\n' https://cpam-cn.zhangxuemin.work/management.html
 ```
 
-### Update helper
+### Update helpers
 ```bash
 ssh oracle-proxy
-/root/update_cpa_manager_plus.sh
+/root/update_cpa_stack.sh
+```
+
+The stack wrapper updates primary `cliproxy`, backup `cliproxy-backup`, and `cpa-manager-plus` as one batch. Use the service-specific implementation helper under `/root/lib/cpa-stack/` only for targeted maintenance:
+
+```bash
+ssh oracle-proxy
+/root/lib/cpa-stack/update_cpa_manager_plus.sh
 ```
 
 Force recreate even when the pulled `latest` image ID is unchanged:
@@ -113,6 +120,7 @@ HK edge Caddy site on `hk-relay`:
 - Host header and TLS SNI are set to `cpam.zhangxuemin.work`.
 
 ## 8. Change History
+- 2026-07-10: Added unified `/root/update_cpa_stack.sh` on `oracle-proxy` and changed the daily cron to update primary CLIProxy, backup CLIProxy, and CPA Manager Plus together at `06:30`. CPA Manager Plus image was already current (`ghcr.io/seakee/cpa-manager-plus:latest`, `sha256:3ac2ab1af87873de1e4b9164f64f92552798f60ad24bc30ffedfab354448ae83`), while the two CLIProxy pools were aligned to the same latest image. Verified direct and HK/CN management pages returned HTTP 200.
 - 2026-06-17: Forced Plus manager upgrade with `/root/update_cpa_manager_plus.sh --force-recreate`; `docker pull` downloaded a newer `ghcr.io/seakee/cpa-manager-plus:latest` image `sha256:064beb4c...` (digest `sha256:194bafe7...`). The recreated container became healthy, and both public panel entrypoints `cpam` and `cpam-cn` returned HTTP 200. The helper now treats both public panel URLs as post-update health checks.
 - 2026-06-17: Added `/root/update_cpa_manager_plus.sh` for the Plus manager service. The helper uses the same immutable running-image-SHA comparison pattern as the fixed primary CPA helper, so mutable `latest` tags do not hide a stale running container. Dry-run verified current Plus was already on image `sha256:4f4a2919...`; local `/management.html`, `/health`, and `/usage-service/info` checks returned HTTP 200.
 - 2026-05-30: Deployed CPA Manager Plus v0.7.0-beta on `oracle-proxy`; added direct `cpam` and HK/CN `cpam-cn` entrypoints; verified both returned HTTP 200 for `/management.html`.

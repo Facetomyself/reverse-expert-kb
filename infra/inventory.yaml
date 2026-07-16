@@ -139,8 +139,8 @@ hosts:
     ssh_alias: oracle-newapi-standby
     provider: oracle
     role:
-      - newapi-standby
-      - ai-api-relay-host
+      - empty-utility-host
+      - candidate-deployment-target
       - ubuntu-arm-host
     public_ip: 140.245.61.236
     aliases:

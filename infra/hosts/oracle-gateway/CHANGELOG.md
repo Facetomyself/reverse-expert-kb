@@ -1,5 +1,9 @@
 # oracle-gateway / CHANGELOG
 
+- 2026-07-06: Nightly read-only check confirmed `oracle-gateway` healthy in gateway role. Snapshot at `2026-07-06 03:00 GMT+8`: uptime 59d, load idle (`0.00 0.00 0.00`), root disk `45G total / 15G used / 31G free` (`33%` used), memory `952Mi` total with `588Mi` available, swap `64Mi / 2Gi`. Single `hysteria` container up 8 weeks. Listener surface consistent: `derper` on `80/443`, `caddy` on `8080/8443` + `127.0.0.1:2019`, SSH `22`. No drift.
+
+- 2026-07-03: Nightly read-only check confirmed `oracle-gateway` healthy in gateway role. Snapshot at `2026-07-03 03:02 GMT+8`: uptime 56d, load `0.00 0.00 0.00`, root disk `45G total / 15G used / 31G free` (`34%` used), memory `952Mi` total with `550Mi` available, swap `61Mi / 2Gi`. Single container `hysteria` up 8 weeks (healthy). No systemd failures. No drift.
+
 - 2026-05-09: Oracle-scoped nightly read-only check reconfirmed `oracle-gateway` remained reachable and resource-stable in its small gateway role. Snapshot at `2026-05-08 19:02 UTC`: uptime ~1.9 days, load idle (`0.00 0.00 0.00`), root disk `45G total / 15G used / 31G free` (`33%` used), memory still tight-but-stable (`952Mi` total, `570Mi` available) with light swap use (`33Mi / 2.0Gi`), `derper` still owned public TCP `80/443` plus UDP `3478`, the single `hysteria` container remained up on UDP `443`, and helper `caddy` stayed confined to `8080/8443` with admin on `127.0.0.1:2019`.
 - 2026-05-09: Meaningful runtime cleanup delta: previously tracked Python helper endpoints on public `:18733` and localhost `127.0.0.1:18081` were no longer present, so `HOST.md` / `NETWORK.md` were refreshed to stop treating that temporary distribution/upload residue as current runtime surface.
 
@@ -35,4 +39,10 @@
 
 - 2026-06-21: Nightly read-only check reconfirmed `oracle-gateway` healthy in gateway role. Snapshot at `2026-06-21 03:01 GMT+8`: uptime 44d, load idle (`0.00 0.00 0.00`), root disk `45G total / 15G used / 31G free` (`33%` used), memory `952Mi` total with `588Mi` available, swap `64Mi / 2.0Gi`. Single `hysteria` container up 6 weeks. Listener surface consistent: `derper` on `80/443`, `caddy` on `8080/8443` + `127.0.0.1:2019`, SSH `22`. No drift.
 
+- 2026-06-25: Nightly read-only check reconfirmed `oracle-gateway` healthy in gateway role. Snapshot at `2026-06-25 03:00 GMT+8`: uptime 48d, load idle (`0.00 0.00 0.00`), root disk `45G total / 15G used / 31G free` (`34%` used), memory `952Mi` total with `564Mi` available, swap `64Mi / 2.0Gi`. Single `hysteria` container up 6 weeks. Listener surface consistent: `derper` on `80/443`, `caddy` on `8080/8443` + `127.0.0.1:2019`, SSH `22`. **Journal at 3.9G** (large — needs vacuum). Hostname in SSH banner `24-7-10-2055` does not match documented `oracle-gateway` identity.
+
 - 2026-06-24: Nightly read-only check reconfirmed `oracle-gateway` healthy in gateway role. Snapshot at `2026-06-24 03:00 GMT+8`: uptime 47d, load idle (`0.00 0.00 0.00`), root disk `45G total / 15G used / 31G free` (`34%` used), memory `952Mi` total with `586Mi` available, swap `64Mi / 2.0Gi`. Single `hysteria` container up 6 weeks. Listener surface consistent: `derper` on `80/443`, `caddy` on `8080/8443` + `127.0.0.1:2019`, SSH `22`. No drift.
+
+- 2026-06-26: Nightly read-only check confirmed `oracle-gateway` healthy in gateway role. Snapshot at `2026-06-26 03:03 GMT+8`: uptime 49d, load idle (`0.00 0.00 0.00`), root disk `45G total / 15G used / 31G free` (`34%` used), memory `952Mi` total with `590Mi` available, swap `64Mi / 2.0Gi`. Single `hysteria` container up 7 weeks. Caddy active. Listener surface consistent: `derper` on `80/443`, `caddy` on `8080/8443` + `127.0.0.1:2019`, SSH `22`. No drift.
+
+- 2026-07-07: Nightly read-only check confirmed `oracle-gateway` healthy. Snapshot at `2026-07-07 03:01 GMT+8`: uptime 60d, load idle (`0.00 0.00 0.00`), root disk `45G total / 15G used / 31G free` (`33%` used), memory `952Mi` total with `569Mi` available, **swap now 0Mi (cleared from 64Mi)**. Single `hysteria` container up 2 months. Listener surface consistent. No drift.

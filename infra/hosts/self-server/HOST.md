@@ -92,13 +92,13 @@ Recorded on 2026-04-04 because public IP / forwarding resources are limited on t
   - `30006` -> `AstrBot` auxiliary publish
   - `30007` -> `AstrBot WebUI`
   - `30008` -> `1panel-core`
-  - `30009` -> free/unassigned after EasyAI removal
+  - `30009` -> `firefox-fingerprintBrowser 151-3` WebDriver BiDi / Firefox remote-debug service (`/opt/firefox-fingerprintBrowser-151-3`, Docker Compose)
   - `30010` -> `ChatGpt Image Studio`
 - Historical note:
   - this VM temporarily carried the active FRPS relay role on 2026-04-08 through 2026-04-12, using `30009/30010` plus service ports like `30002-30004`
   - that relay role was intentionally migrated away on 2026-04-13 so the smaller `:44005` budget could be reclaimed for application traffic
 - Desired steady state after migration:
-  - keep `1Panel`, SSH, `NapCat`, `AstrBot`, `ruyipage 151-ruyi`, and `ChatGpt Image Studio`
+  - keep `1Panel`, SSH, `NapCat`, `AstrBot`, `ruyipage 151-ruyi`, `proxy_pool`, `firefox-fingerprintBrowser 151-3`, and `ChatGpt Image Studio`
   - treat the `30001-30010` allocation as intentionally assigned service budget rather than “free by default”; only reclaim ports during an explicit redesign
   - avoid reintroducing unrelated long-lived dev tooling
 - Outbound access model:
@@ -114,7 +114,12 @@ Recorded on 2026-04-04 because public IP / forwarding resources are limited on t
 - Before introducing any new externally reachable service, first map it into the user-confirmed per-VM TCP budget above
 
 
-## 2026-06-08 update
+## 2026-06-24 update
+- On `:44005` / `host185`, deployed `firefox-fingerprintBrowser 151-3` under `/opt/firefox-fingerprintBrowser-151-3` using Docker Compose.
+- Public port mapping is `211.144.221.229:30009 -> firefox-fingerprintbrowser-151-3:30009`; inside the container, `socat` forwards `0.0.0.0:30009` to Firefox's WebDriver BiDi listener on `127.0.0.1:30090`.
+- Validation: host-local `GET http://127.0.0.1:30009/` and ali-cloud transit-side `GET http://211.144.221.229:30009/` return Firefox `HTTP/1.1 400 Bad Request` / `Bad request`, which is the expected plain-HTTP response from this BiDi/debug service. TCP connect from `ali-cloud` succeeded. Direct OpenClaw-host probe to the shared public service port timed out, matching earlier Oracle/OpenClaw-side reachability caveats for this domestic shared-IP topology.
+- Note: the release package includes `fp-default.txt`, but direct Firefox CLI startup did not accept `--fpfile`; that invalid flag was removed from the service command rather than documenting fingerprint config as active without proof.
+
 - On `:44005` / `host185`, the user requested EasyAI be fully cleaned with no archive and ruyipage deployed on the freed host.
 - EasyAI was removed from `/opt/easyai`; its containers/images/networks were cleaned, and its former ports `30002`, `30003`, `30004`, and `30009` were released.
 - `ruyipage 151-ruyi` is now deployed on `30002/tcp` via `ruyipage-151.service`, serving only the Linux release package from `/opt/ruyipage-151`.

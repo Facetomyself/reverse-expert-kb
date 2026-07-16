@@ -1,5 +1,24 @@
 # oracle-proxy / Change Log
 
+## 2026-07-06 — GPT Session Converter static site deployed
+- Fork status was reconciled for `gtxx3600/GPTSession2CPAandSub2API`: existing `Facetomyself/GPTSession2CPAandSub2API` fork had diverged, so the old fork main was preserved as `archive/fork-main-before-upstream-sync-20260706`, then fork `main` was aligned to upstream commit `a097eb155bb7bdf6cbbc26f1e4e75e120ab3163c`.
+- Deployed the static browser-only tool under `/root/containers/gpt-session-converter`, serving `/root/containers/gpt-session-converter/docs` through `caddy-cpam` as `https://gpt-session.zhangxuemin.work/`.
+- Added Cloudflare DNS-only A records for `gpt-session.zhangxuemin.work -> 158.178.236.241` and `gpt-session-cn.zhangxuemin.work -> 154.86.30.10`.
+- Added HK edge route on `hk-relay`: `gpt-session-cn.zhangxuemin.work -> https://gpt-session.zhangxuemin.work` with origin Host/TLS SNI preserved.
+- Verification: both global/source and CN/HK HTTPS entries returned HTTP 200 and served the expected static HTML.
+
+## 2026-07-06 — Nightly read-only check
+- Snapshot at `2026-07-06 03:00 GMT+8`: uptime 83d, load `0.17 0.19 0.20`, root disk `45G total / 21G used / 25G free` (`45%` used), memory `11Gi` total with `7.9Gi` available, no swap. 15 long-lived containers all up (same set including `proxy4reverse`). Top MEM: warp-svc 1.6GB. No new drift or concerning listeners.
+
+## 2026-07-05 — Nightly read-only check
+- Snapshot at `2026-07-05 03:01 GMT+8`: uptime 82d, load `0.10 0.16 0.18`, root disk `45G total / 21G used / 25G free` (`46%` used, +2% from last check), memory `11Gi` total with `7.9Gi` available, no swap. 15 long-lived containers up (same set including `proxy4reverse`). Top MEM: grok2api-camoufox-solver 4.96%. No new drift or concerning listeners.
+
+## 2026-07-03 — Nightly read-only check
+- Snapshot at `2026-07-03 03:02 GMT+8`: uptime 80d, load `0.35 0.20 0.22`, root disk `45G total / 20G used / 26G free` (`44%` used), memory `11Gi` total with `7.9Gi` available, no swap. 14 long-lived containers up (same set as last check). 14 zombie `[curl]` processes persistent (low risk). No new drift.
+
+## 2026-06-25 — Nightly read-only check
+- Snapshot at `2026-06-25 03:00 GMT+8`: uptime 72d, load `0.74 0.31 0.23`, root disk `45G total / 20G used / 26G free` (`44%` used), memory `11Gi` total with `8.1Gi` available, no swap. 14 long-lived containers up. **13 zombie processes detected** (new observation — low risk but worth monitoring). Ubuntu 20.04 Focal EOL (May 2025) — 167 ESM security updates pending. Journal 450MB (cap working). No concerning listener drift.
+
 ## 2026-06-24 — Nightly read-only check
 - Snapshot at `2026-06-24 03:00 GMT+8`: uptime 71d, load `0.06 0.15 0.17`, root disk `45G total / 20G used / 26G free` (`44%` used), memory `11Gi` total with `8.1Gi` available, no swap. 14 long-lived containers up including `zcode2api` (up 29h, new since last check). Docker overlay2 at 15G. Journal 472MB (within cap). No concerning drift.
 
@@ -275,3 +294,7 @@
 - Snapshot at `2026-06-21 03:01 GMT+8`: uptime 68d, load `0.20 0.28 0.24`, root disk `45G total / 20G used / 26G free` (`43%` used, improved from prior ~51%), memory `11Gi` total with `8.2Gi` available, no swap.
 - All 12 long-lived containers remain up: `cpa-manager-plus`, `cliproxy`, `gpt-card-shop`, `cliproxy-backup`, `kiro-rs`, `card-shop`, `caddy-cpam`, `kiro-go`, `gpt-account-manager`, `grok2api`, `grok2api-camoufox-solver`, `exafree`, `proxy-tavily-proxy-1`.
 - No new drift or concerning listeners observed.
+
+- 2026-06-26: Nightly read-only check confirmed `oracle-proxy` healthy. Snapshot at `2026-06-26 03:03 GMT+8`: uptime 73d, load `0.28 0.29 0.21`, root disk `45G total / 20G used / 26G free` (`45%` used), memory `11Gi` total with `8.1Gi` available, no swap. 14 long-lived containers up: `zcode2api` (3d), `cpa-manager-plus` (8d, healthy), `cliproxy` (8d), `grok2api` (2mo), `grok2api-camoufox-solver` (2mo), `exafree` (2mo, healthy), `proxy-tavily-proxy-1` (2mo), `gpt-account-manager` (2wk, healthy), `kiro-go` (2wk), `gpt-card-shop` (2wk), `cliproxy-backup` (2wk), `kiro-rs` (2wk), `card-shop` (2wk), `caddy-cpam` (2wk). Additional listeners: nginx `:30011`, 1panel `:18080`, python3 `:18084`. No new drift or concerning listeners observed.
+
+- 2026-07-07: Nightly read-only check confirmed `oracle-proxy` healthy. Snapshot at `2026-07-07 03:01 GMT+8`: uptime 84d, load idle (`0.00 0.06 0.14`), root disk `45G total / 20G used / 26G free` (`43%` used, improved from 45%), memory `11Gi` total with `7.8Gi` available, no swap. 14 long-lived containers up (same set; `caddy-cpam` up 11h, `proxy4reverse` up 2d, `zcode2api` up 2w, rest 2w–2mo). No systemd failures. No concerning drift.

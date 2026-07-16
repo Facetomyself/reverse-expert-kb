@@ -1,5 +1,33 @@
 # hk-relay / CHANGELOG
 
+## 2026-07-07 — NexusVault monitor website route disabled
+- Disabled the old NexusVault monitor website entry during the website revision / temporary retirement window:
+  - removed `drop.hk.zhangxuemin.work/nvmon/*` from the `drop.hk.zhangxuemin.work` Caddy site
+  - removed the legacy public `:58080` Caddy monitor edge on `hk-relay`
+- Preserved the main `drop.hk.zhangxuemin.work` dufs upload/download service.
+- Remote Caddy backup: `/etc/caddy/Caddyfile.bak-disable-nvmon-20260707002136`.
+- Verification:
+  - `caddy validate --config /etc/caddy/Caddyfile` passed
+  - `systemctl reload caddy` succeeded and `caddy` stayed active
+  - `https://drop.hk.zhangxuemin.work/` and `/nvmon/` now return the dufs auth challenge instead of the old monitor panel
+  - `154.86.30.10:58080` no longer accepts connections
+
+## 2026-07-06 — GPT Session Converter CN/HK edge added
+- Added live Cloudflare DNS-only A records:
+  - `gpt-session.zhangxuemin.work -> 158.178.236.241` (`oracle-proxy` source/global entry)
+  - `gpt-session-cn.zhangxuemin.work -> 154.86.30.10` (`hk-relay` CN/HK edge)
+- Added Caddy reverse-proxy site on `hk-relay`:
+  - `gpt-session-cn.zhangxuemin.work -> https://gpt-session.zhangxuemin.work` (`oracle-proxy` static origin)
+- Verification: both `https://gpt-session.zhangxuemin.work/` and `https://gpt-session-cn.zhangxuemin.work/` returned HTTP 200 and served the expected static HTML.
+- Direct/global source remains available for overseas/global fallback; HK is only the optimized edge and does not run the app logic.
+
+## 2026-06-29 — home-exit chaining normalized for Clash subscriptions
+- Rechecked the private Clash/Mihomo subscription files after Anthropic API connection resets/timeouts through the `AI账号` path.
+- Confirmed the clean consumer track's `家庭出口 01` HTTP node already uses `dialer-proxy: 香港 02`.
+- Normalized the full/operator Clash.Meta track so all HTTP home-exit entries for the same home proxy are chained through its HK transit selector; no published home-exit entry should depend on direct client reachability to the home proxy.
+- Created timestamped `.bak` copies beside the changed remote YAML files before replacement.
+- Validation: all published YAML files parsed successfully with PyYAML; legacy public `/clash-meta.yaml` remains HTTP 404 as intended; `caddy`, `dufs-drop`, and `sing-box` remained active.
+
 ## 2026-06-23 — FileCodeBox CN/HK edge added
 - Added live Cloudflare DNS-only A record: `drop-cn.zhangxuemin.work` -> `154.86.30.10` (`hk-relay`).
 - Added Caddy reverse-proxy site on `hk-relay`: `drop-cn.zhangxuemin.work` -> `http://140.83.52.216:18085` (`oracle-mail` FileCodeBox origin).

@@ -1,6 +1,6 @@
 # hk-relay private Mihomo subscription
 
-Updated: 2026-05-30
+Updated: 2026-06-29
 
 ## Purpose
 
@@ -20,6 +20,8 @@ Current validated contents after the 2026-05-25 refresh:
 - rules: 54
 
 A newer clean consumer-facing track was then added on 2026-05-30. It reuses the same routing policy family but exposes a smaller set of human-friendly nodes/groups for day-to-day use. Important: home-exit nodes in the clean track must preserve `dialer-proxy` chaining through HK; direct home-exit tests from the OpenClaw host do not prove end-user clients can reach the home proxy directly. The `oracle-gateway` Hysteria node should be presented as `新加坡 01` in the clean track, not as a generic backup node.
+
+On 2026-06-29, the published tracks were rechecked after connection resets/timeouts against Anthropic through the `AI账号` / home-exit path. The clean track's `家庭出口 01` node already used `dialer-proxy: 香港 02`; the full/operator track was normalized so every HTTP home-exit entry for the same home proxy is chained through its HK transit selector instead of leaving any direct home-exit entry.
 
 Major groups:
 

@@ -167,3 +167,15 @@ Operational commands for historical inspection only:
 - inspect EasyImages compose and health model
 - inspect camoufox-remote deployment wrapper and intended consumers
 - later decide whether to keep explicit-proxy ingress only, or evolve this host toward transparent/TUN/subnet-style gateway behavior
+
+## 2026-06-24 Cleanup
+
+All network services and Docker containers decommissioned. ali-cloud is not suitable as a transit host (strict management).
+
+- **Network services removed:** sing-box (2080/2081), hysteria-egress (18080), coredns (1053), camoufox-remote (39222), napcat-http-nginx (18082) — no active consumers
+- **All Docker images removed:** ~10.5GB reclaimed (zcode2api, ComfyUI/easyaigc legacy, apify/camoufox, nginx, etc.)
+- **Docker proxy config removed:** Docker daemon restored to direct outbound
+- **easyimage removed:** 1Panel-managed image hosting decommissioned
+- **Legacy python http.server on :18081** (running since 2026-04-12) killed
+- **Deployment directories cleaned:** /opt/sing-box-gateway, /opt/hysteria-egress, /opt/coredns-gateway, /opt/camoufox-remote, /opt/camoufox-gateway, /opt/zcode2api, /opt/napcat-http-nginx all removed
+- **Current state:** Only 1Panel panel running (port 80). Docker completely idle. Disk: 17GB/40GB (44%).

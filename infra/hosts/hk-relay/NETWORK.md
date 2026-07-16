@@ -95,6 +95,7 @@ Interpretation:
 Validated on 2026-04-13, then hardened on 2026-04-21:
 - `https://hk.zhangxuemin.work/` -> authenticated browse/download entry
 - `https://drop.hk.zhangxuemin.work/` -> HTTPS upload/download entry backed by local `dufs`
+- `https://drop.hk.zhangxuemin.work/nvmon/` -> disabled on 2026-07-07 after the site was no longer needed during a website revision; keep the root file-transfer service live
 - `https://clash.hk.zhangxuemin.work/` -> Clash distribution hostname, with the legacy public `/clash-meta.yaml` family kept disabled and private YAML downloads served only from randomized private path segments
 - `https://cliproxy-cn.zhangxuemin.work/` -> CN/HK TLS edge for primary cliproxy, reverse-proxied to `proxy.zhangxuemin.work:8317`
 - `https://proxy-bak-cn.zhangxuemin.work/` -> CN/HK TLS edge for CLIProxy backup pool, reverse-proxied to `https://proxy-bak.zhangxuemin.work`
@@ -156,6 +157,7 @@ Runtime note confirmed on 2026-04-13:
   - Card Shop global/source: `card.zhangxuemin.work`
   - WA app global/source: `wa.zhangxuemin.work`
   - zcode2api global/source: `zcode.zhangxuemin.work`
+  - GPT Session Converter global/source: `gpt-session.zhangxuemin.work`
   - oracle-reverse-dev global/source SSH: `140.245.61.236:22` / `oracle-reverse-dev`
   - oracle-reverse-dev CTF GPT Plus origin: `http://140.245.61.236:8000/ctf-gpt-plus`
 - Do **not** apply source-firewall restrictions that make HK the only public route to these services. Keeping direct/global entrypoints is intentional for HK single-point-of-failure avoidance and overseas access.

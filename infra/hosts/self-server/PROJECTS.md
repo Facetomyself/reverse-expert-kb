@@ -78,6 +78,7 @@ Current shape is noticeably heavier and contains more development residue / oper
   - `ruyipage 151-ruyi`
   - `ChatGpt Image Studio`
   - `proxy_pool`
+  - `firefox-fingerprintBrowser 151-3`
 - `prompt-optimizer-studio` was intentionally retired and its former `30001/tcp` slot was repurposed for `NapCat WebUI`
 - the temporary FRPS role that briefly lived on this VM was moved away; do not treat `host185` as the steady FRP relay box anymore
 - future workloads should still be introduced intentionally from a low-noise baseline
@@ -94,8 +95,29 @@ Current shape is noticeably heavier and contains more development residue / oper
   - `30004/tcp` is now free/unassigned after EasyAI removal
   - `30005-30007/tcp` for `AstrBot`
   - `30008/tcp` for `1Panel`
-  - `30009/tcp` is now free/unassigned after EasyAI removal
+  - `30009/tcp` for `firefox-fingerprintBrowser 151-3` WebDriver BiDi / Firefox remote-debug service
   - `30010/tcp` for `ChatGpt Image Studio`
+
+#### Active project added on 2026-06-24: firefox-fingerprintBrowser 151-3
+- upstream release: `https://github.com/LoseNine/firefox-fingerprintBrowser/releases/tag/151-3`
+- deployment path: `/opt/firefox-fingerprintBrowser-151-3`
+- runtime shape: Docker Compose on `host185`, container name `firefox-fingerprintbrowser-151-3`, image `firefox-fingerprintbrowser:151-3`
+- public port mapping:
+  - `30009/tcp -> container 30009/tcp`
+- internal runtime shape:
+  - Firefox binary from the 151.0a1 Linux x86_64 release runs headless with `--remote-debugging-port 30090`
+  - `socat` listens on container `0.0.0.0:30009` and forwards to Firefox's internal `127.0.0.1:30090` WebDriver BiDi/debug listener
+- important note:
+  - the upstream release includes `fp-default.txt`, but direct Firefox CLI startup rejected `--fpfile`; the deployed service removed that invalid flag and should be treated as verified Firefox/BiDi remote-debug exposure, not as proof that fingerprint-profile injection is active
+- validation on 2026-06-24:
+  - container `firefox-fingerprintbrowser-151-3` was `Up` with Docker publish `0.0.0.0:30009->30009/tcp`
+  - host-local `GET http://127.0.0.1:30009/` returned Firefox `Bad request`
+  - ali-cloud transit-side TCP connect to `211.144.221.229:30009` succeeded; `GET /` returned `HTTP/1.1 400 Bad Request` / `Bad request`, expected for plain HTTP against this BiDi/debug service
+  - direct OpenClaw-host probe to `211.144.221.229:30009` timed out, consistent with prior Oracle/OpenClaw-side direct reachability caveats for this domestic shared-IP service-port topology
+- operational commands:
+  - `cd /opt/firefox-fingerprintBrowser-151-3 && /usr/local/bin/docker-compose ps`
+  - `cd /opt/firefox-fingerprintBrowser-151-3 && /usr/local/bin/docker-compose logs -f`
+  - `curl -i --max-time 5 http://127.0.0.1:30009/`
 
 #### Active project added on 2026-04-06: Prompt Optimizer Studio
 - deployment path: `/opt/prompt-optimizer-studio`

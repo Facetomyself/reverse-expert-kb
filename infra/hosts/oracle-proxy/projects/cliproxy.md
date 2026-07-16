@@ -62,6 +62,17 @@ Unknown / TBD:
 
 ## 7. Operations
 
+### Unified CPA stack update
+For routine image refreshes, prefer the unified wrapper so primary CPA, backup CPA, and CPA Manager Plus advance together:
+
+```bash
+ssh oracle-proxy
+/root/update_cpa_stack.sh
+```
+
+Daily cron on `oracle-proxy` now runs the wrapper at `06:30` and logs to `/var/log/cpa-stack-update.log`. The old top-level per-service update scripts were cleaned from `/root`; their active implementations live under `/root/lib/cpa-stack/`.
+
+
 ### Check status
 ```bash
 ssh oracle-proxy
@@ -161,6 +172,7 @@ Practical triage guidance for future debugging:
 - Related host docs: `../HOST.md`, `../NETWORK.md`
 
 ## 13. Change History
+- 2026-07-10: Primary `cliproxy` updated to latest `eceasy/cli-proxy-api:latest` image `sha256:3e9b10b128286aaa0c172acb7f34d2f5b36710e1afff982aa3e5b260f9e4b7ed`; backup pool was aligned to the same image, and routine updates now use `/root/update_cpa_stack.sh` to refresh both CPA pools plus CPA Manager Plus in one batch.
 - 2026-06-17: Fixed `/root/update_cliproxy.sh` so the primary pool no longer skips recreation after `latest` is pulled. Root cause was comparing the current container through mutable `Config.Image=eceasy/cli-proxy-api:latest` instead of the container's actual image SHA. Upgraded primary `cliproxy` from running image `sha256:249c97b7...` (`v7.1.44` lineage) to current `latest` image `sha256:12f36000...`; local root and `/management.html` checks returned HTTP 200. Backup of the old helper: `/root/update_cliproxy.sh.bak-20260617-030559`.
 - 2026-03-19: documented Codex performance investigation, including proxy-vs-direct measurements, temporary no-proxy experiment, and follow-up debugging guidance
 - 2026-03-15: documented first-pass container and access information

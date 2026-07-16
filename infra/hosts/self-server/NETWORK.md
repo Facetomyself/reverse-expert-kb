@@ -145,7 +145,7 @@ Operational note:
     - `30006` -> `AstrBot` auxiliary publish
     - `30007` -> `AstrBot WebUI`
     - `30008` -> `1Panel`
-    - `30009` -> free/unassigned
+    - `30009` -> `firefox-fingerprintBrowser 151-3` WebDriver BiDi / Firefox remote-debug service (`/opt/firefox-fingerprintBrowser-151-3`, Docker Compose)
     - `30010` -> `ChatGpt Image Studio`
   - transit-side probe from `ali-cloud` confirmed `http://211.144.221.229:30002/` and the Linux package URL return `200 OK`; package `Content-Length` was `103125296`
   - cleanup follow-up: user explicitly confirmed at 2026-06-08 14:41 GMT+8 that `crawl4ai_redis_data`, `linovel_scrapy_redis_data`, and `mailu_api_redis_data` should also be cleaned; follow-up checks confirmed all three Docker volumes are removed
@@ -160,6 +160,14 @@ Operational note:
   - `astrbot` now runs image `soulter/astrbot:v4.26.0-beta.4` with the existing port mappings preserved.
   - host-local `GET http://127.0.0.1:30007/` returned `200`; public transit-side `GET http://211.144.221.229:30007/` from `ali-cloud` returned `200`.
   - `HEAD /` returned `405` on the upgraded WebUI, so future health checks should use `GET` rather than assuming HEAD support.
+- Live validation on 2026-06-24 after firefox-fingerprintBrowser deployment:
+  - Docker Compose project under `/opt/firefox-fingerprintBrowser-151-3` runs container `firefox-fingerprintbrowser-151-3`, image `firefox-fingerprintbrowser:151-3`
+  - published mapping is `30009/tcp -> container 30009/tcp`
+  - container startup launches Firefox 151.0a1 headless with `--remote-debugging-port 30090`, then exposes it through `socat` on container `0.0.0.0:30009`
+  - host-local `GET http://127.0.0.1:30009/` returned Firefox `Bad request`; ali-cloud transit-side TCP connect to `211.144.221.229:30009` succeeded and `GET /` returned `HTTP/1.1 400 Bad Request`, which is expected for a plain HTTP request to this WebDriver BiDi/debug service
+  - direct probe from the OpenClaw host to `211.144.221.229:30009` timed out, matching the known asymmetric reachability where Oracle/OpenClaw-side direct access to domestic shared-IP service ports is unreliable
+  - the upstream release includes `fp-default.txt`, but direct Firefox CLI startup rejected `--fpfile`; the deployed service therefore does not claim verified active fingerprint-profile injection beyond the shipped Firefox/BiDi runtime
+
 - Firewall caution:
   - do not broadly open `30001-30010` just because the VM owns that range; only keep the ports that are actually assigned to running services
   - after the ChatGpt Image Studio reassignment, `30010` should be treated as live application exposure rather than cleanup residue
