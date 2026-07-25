@@ -1,18 +1,12 @@
 # Cloudflare DNS Snapshot
 
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- record_count: 51
+- record_count: 53
 - type_counts:
-  - A: 41
+  - A: 43
   - AAAA: 2
   - MX: 4
   - TXT: 4
-
-## Diff vs baseline
-
-- changed: no
-- added: 0
-- removed: 0
 
 ## Records
 
@@ -57,6 +51,8 @@
 - A reverse-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK SSH edge via hk-relay to oracle-reverse-dev:22
 - MX send.zhangxuemin.work -> feedback-smtp.ap-northeast-1.amazonses.com priority=10 proxied=false ttl=3600
 - TXT send.zhangxuemin.work -> "v=spf1 include:amazonses.com ~all" proxied=false ttl=3600
+- A sub2api-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK edge via hk-relay for Sub2API
+- A sub2api.zhangxuemin.work -> 140.245.61.236 proxied=false ttl=300 comment=Sub2API global/source entry on oracle-newapi-standby
 - AAAA tmail-front.zhangxuemin.work -> 100:: proxied=true ttl=1
 - AAAA tmail.zhangxuemin.work -> 100:: proxied=true ttl=1
 - A wa-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK edge via hk-relay for WA app

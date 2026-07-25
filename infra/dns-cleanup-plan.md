@@ -52,6 +52,8 @@
 - `gpt-card-cn.zhangxuemin.work`
 - `zcode.zhangxuemin.work`
 - `zcode-cn.zhangxuemin.work`
+- `sub2api.zhangxuemin.work`
+- `sub2api-cn.zhangxuemin.work`
 - `wa-cn.zhangxuemin.work`
 - `reverse-cn.zhangxuemin.work`
 - `ctf-gpt-cn.zhangxuemin.work`
@@ -197,6 +199,8 @@ Reason:
 - `claw-cn`
 - `ai`
 - `ai-cn`
+- `sub2api`
+- `sub2api-cn`
 - `tmail`
 - `tmail-front`
 - Cloudflare MX

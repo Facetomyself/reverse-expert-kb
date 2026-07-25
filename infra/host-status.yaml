@@ -164,12 +164,14 @@ hosts:
     importance: tier1
     roles:
       - ubuntu-arm-host
-      - empty-utility-host
-      - candidate-deployment-target
+      - sub2api-origin
+      - ai-api-gateway-host
       - tailnet-member
     notes:
       - 2026-07-07 user clarified New API standby is unused and requested the host be cleaned to a no-project baseline
-      - 2026-07-07 cleanup removed New API standby, static docs, Docker containers/images/volumes/build-cache, and user-home project residue; Caddy is stopped/disabled and no public project listeners remain
+      - 2026-07-07 cleanup removed New API standby, static docs, Docker containers/images/volumes/build-cache, and user-home project residue
+      - 2026-07-22 deployed Sub2API latest Docker image under `/opt/sub2api`, backed by local PostgreSQL and Redis containers; app is loopback-only on `127.0.0.1:18088`, Caddy publishes `https://sub2api.zhangxuemin.work`, and HK relay publishes `https://sub2api-cn.zhangxuemin.work`
+      - 2026-07-22 validation: both global/source and CN/HK `/health` endpoints returned HTTP 200 with `{"status":"ok"}`; Docker containers `sub2api`, `sub2api-postgres`, and `sub2api-redis` were up, with `sub2api` healthy
       - public SSH is reachable as user `ubuntu`; legacy alias `oracle-reverse-dev` remains as a compatibility alias
       - joined Tailscale on 2026-03-25 with tailnet IPv4 `100.105.248.53`, but Tailscale status checks had been persistently unreliable before the 2026-07 cleanup
       - baseline packages remain installed, including Docker stack and common development/ops tooling

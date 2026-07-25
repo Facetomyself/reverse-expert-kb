@@ -45,3 +45,12 @@
 - 2026-06-30: Nightly read-only check confirmed `oracle-newapi-standby` healthy in standby New API role. Snapshot at `2026-06-30 03:01 GMT+8`: uptime 58d, load idle, root disk `96G total / 25G used / 72G free` (`26%` used), memory `11Gi` total with `10Gi` available, swap `48Ki / 2Gi`. `new-api` container up 3 weeks (healthy), loopback `127.0.0.1:13000` listening. Caddy on `80`. Legacy python listener on `127.0.0.1:8888` still present. **Tailscale not responding** (persistent). One new systemd failure: `snap-firefox-8519.mount` not-found/failed — likely stale snap mount, harmless.
 
 - 2026-07-07: Nightly read-only check confirmed `oracle-newapi-standby` healthy. Snapshot at `2026-07-07 03:01 GMT+8`: uptime 64d, load idle (`0.00 0.00 0.00`), root disk `96G total / 25G used / 72G free` (`26%` used), memory `11Gi` total with `10Gi` available, swap negligible. `new-api` container up 4 weeks (healthy), loopback `127.0.0.1:13000` listening. Caddy on `80`. Legacy python listener on `127.0.0.1:8888` still present. Kernel restart required (pending). Tailscale status not checked. `snap-firefox-8519.mount` not-found/failed persists (harmless). No meaningful delta.
+
+## 2026-07-22 — Sub2API deployed as dual-channel service
+- Selected `oracle-newapi-standby` as the Sub2API origin because it had ample idle resources after the 2026-07-07 cleanup, while `hk-relay` is RAM/traffic constrained and should remain an edge relay.
+- Deployed latest `weishaw/sub2api:latest` under `/opt/sub2api` with PostgreSQL 18 and Redis 8 via Docker Compose.
+- Published global/source entry `https://sub2api.zhangxuemin.work` on origin Caddy, reverse-proxying to `127.0.0.1:18088`.
+- Published domestic/CN optimized entry `https://sub2api-cn.zhangxuemin.work` on `hk-relay`, reverse-proxying to the global/source origin.
+- Added Cloudflare DNS-only A records for both names.
+- Fixed origin host iptables by adding an explicit `443/tcp` ACCEPT rule before the final `icmp-host-prohibited` reject.
+- Validation: both `/health` endpoints returned HTTP 200 with `{"status":"ok"}`, and all three Docker containers were running with `sub2api` healthy.

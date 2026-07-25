@@ -108,6 +108,7 @@ Validated on 2026-04-13, then hardened on 2026-04-21:
 - `https://wa-cn.zhangxuemin.work/` -> CN/HK TLS edge for WA app, reverse-proxied to `https://wa.zhangxuemin.work/`
 - `https://zcode-cn.zhangxuemin.work/` -> CN/HK TLS edge for zcode2api admin/API traffic, reverse-proxied to `https://zcode.zhangxuemin.work` on `oracle-proxy`; HK does not run the business container
 - `https://gpt-session-cn.zhangxuemin.work/` -> CN/HK TLS edge for GPT Session Converter static site, reverse-proxied to `https://gpt-session.zhangxuemin.work` on `oracle-proxy`; HK does not store submitted JSON or run app logic
+- `https://sub2api-cn.zhangxuemin.work/` -> CN/HK TLS edge for Sub2API, reverse-proxied to `https://sub2api.zhangxuemin.work` on `oracle-newapi-standby`; HK does not run the business container, PostgreSQL, or Redis
 - `https://drop-cn.zhangxuemin.work/` -> CN/HK TLS edge for FileCodeBox file/text transfer, reverse-proxied to `oracle-mail:18085`
 - `reverse-cn.zhangxuemin.work:22061` -> CN/HK TCP edge for `oracle-reverse-dev` SSH, forwarding to `140.245.61.236:22`; normal use: `ssh -p 22061 ubuntu@reverse-cn.zhangxuemin.work`
 - `https://ctf-gpt-cn.zhangxuemin.work/ctf-gpt-plus` -> CN/HK TLS edge for `oracle-reverse-dev` CTF GPT Plus, reverse-proxied to `http://140.245.61.236:8000/ctf-gpt-plus`
@@ -158,6 +159,7 @@ Runtime note confirmed on 2026-04-13:
   - WA app global/source: `wa.zhangxuemin.work`
   - zcode2api global/source: `zcode.zhangxuemin.work`
   - GPT Session Converter global/source: `gpt-session.zhangxuemin.work`
+  - Sub2API global/source: `sub2api.zhangxuemin.work`
   - oracle-reverse-dev global/source SSH: `140.245.61.236:22` / `oracle-reverse-dev`
   - oracle-reverse-dev CTF GPT Plus origin: `http://140.245.61.236:8000/ctf-gpt-plus`
 - Do **not** apply source-firewall restrictions that make HK the only public route to these services. Keeping direct/global entrypoints is intentional for HK single-point-of-failure avoidance and overseas access.

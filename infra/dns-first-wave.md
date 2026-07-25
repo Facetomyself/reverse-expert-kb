@@ -69,6 +69,8 @@
 - `gpt-card-cn.zhangxuemin.work`
 - `zcode.zhangxuemin.work`
 - `zcode-cn.zhangxuemin.work`
+- `sub2api.zhangxuemin.work`
+- `sub2api-cn.zhangxuemin.work`
 - `wa-cn.zhangxuemin.work`
 - `reverse-cn.zhangxuemin.work`
 - `ctf-gpt-cn.zhangxuemin.work`
@@ -153,6 +155,7 @@
 - `derp`
 - `hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `claw-cn` / `ai-cn`
 - `cpam` / `cpam-cn`
+- `sub2api` / `sub2api-cn`
 - `tmail` / `tmail-front`
 - root MX / SPF / DMARC
 - `send` SES 路径

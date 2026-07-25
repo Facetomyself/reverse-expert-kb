@@ -1,8 +1,8 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 51,
+  "record_count": 53,
   "type_counts": {
-    "A": 41,
+    "A": 43,
     "AAAA": 2,
     "MX": 4,
     "TXT": 4
@@ -322,6 +322,22 @@
       "content": "\"v=spf1 include:amazonses.com ~all\"",
       "ttl": 3600,
       "proxied": false
+    },
+    {
+      "name": "sub2api-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "CN/HK edge via hk-relay for Sub2API"
+    },
+    {
+      "name": "sub2api.zhangxuemin.work",
+      "type": "A",
+      "content": "140.245.61.236",
+      "ttl": 300,
+      "proxied": false,
+      "comment": "Sub2API global/source entry on oracle-newapi-standby"
     },
     {
       "name": "tmail-front.zhangxuemin.work",

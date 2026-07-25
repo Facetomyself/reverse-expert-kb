@@ -148,6 +148,8 @@ hosts:
     domains:
       - newapi-standby.zhangxuemin.work
       - reverse-cn.zhangxuemin.work
+      - sub2api.zhangxuemin.work
+      - sub2api-cn.zhangxuemin.work
     docs:
       host: infra/hosts/oracle-newapi-standby/HOST.md
       network: infra/hosts/oracle-newapi-standby/NETWORK.md

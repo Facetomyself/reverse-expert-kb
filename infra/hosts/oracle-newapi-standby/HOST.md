@@ -39,18 +39,19 @@
 - This host was initially unreachable because OCI networking was incomplete. SSH became reachable after the user added IPv4 ingress and internet gateway routing.
 - Uses the same provided private key material currently stored locally as `~/.ssh/oracle-registry.pem`.
 - It was formerly positioned as a reverse-development machine, then as standby New API relay. As of 2026-07-07, user confirmed New API standby is unused and requested cleanup to a no-project baseline.
-- Current stance: empty ARM utility host suitable for a future isolated deployment. Do not assume any New API service, static docs site, reverse/dev app, or user-home project residue remains active.
+- Current stance: ARM utility host now running Sub2API as its only active project deployment. Do not assume any New API service, static docs site, reverse/dev app, or user-home project residue remains active.
 - On 2026-06-08, user-requested cleanup removed the no-longer-needed `GPT-FULL-REGIST-AND-PAYMENT-FLOW` and `aBaiAutoplus` Docker/runtime/source payloads. Docker/base reverse-dev tooling remains for future use.
 - Snap CUPS public listener drift was stopped/disabled during the same cleanup; treat any future `:631` reappearance as drift unless explicitly re-approved.
 
-## Current empty-host baseline
+## Current active baseline
 - 2026-07-07 cleanup removed the New API standby deployment and user-home project residue.
 - 2026-07-07 follow-up removed Firefox snap with `snap remove --purge firefox`, deleted any remaining Firefox snap directories, and reset stale systemd failed state; `systemctl --failed` then reported `0 loaded units listed`.
-- Docker is installed but has no containers, images, volumes, or build cache after cleanup.
-- Caddy is installed but stopped and disabled; `/etc/caddy/Caddyfile` contains only an intentional-empty note.
+- 2026-07-22 deployed Sub2API under `/opt/sub2api` via Docker Compose.
+- Active Docker containers: `sub2api`, `sub2api-postgres`, `sub2api-redis`.
+- Caddy is active for `sub2api.zhangxuemin.work` on `80/443`, reverse-proxying to the loopback app listener `127.0.0.1:18088`.
 - `/home/ubuntu` is cleaned to login/shell basics only (`.ssh`, shell rc/profile files).
-- Expected public project listeners: none.
-- Verified after cleanup: root disk `96G total / 12G used / 84G free` (`13%` used), memory `11Gi` total with `10Gi` available.
+- Expected public project listeners: `22`, `80`, `443`.
+- Baseline after Sub2API deployment: root disk remained low-use with ample free space; memory headroom remains large for this service class.
 
 ## Retired New API deployment baseline
 - Former role: standby
