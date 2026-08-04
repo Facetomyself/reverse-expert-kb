@@ -1,8 +1,8 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 53,
+  "record_count": 52,
   "type_counts": {
-    "A": 43,
+    "A": 42,
     "AAAA": 2,
     "MX": 4,
     "TXT": 4
@@ -101,14 +101,6 @@
       "ttl": 300,
       "proxied": false,
       "comment": "oracle-proxy CPA Manager Plus"
-    },
-    {
-      "name": "ctf-gpt-cn.zhangxuemin.work",
-      "type": "A",
-      "content": "154.86.30.10",
-      "ttl": 300,
-      "proxied": false,
-      "comment": "CN/HK edge via hk-relay for oracle-reverse-dev CTF GPT Plus"
     },
     {
       "name": "derp.zhangxuemin.work",

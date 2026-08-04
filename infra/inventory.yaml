@@ -130,7 +130,6 @@ hosts:
       - zcode-cn.zhangxuemin.work
       - gpt-session-cn.zhangxuemin.work
       - reverse-cn.zhangxuemin.work
-      - ctf-gpt-cn.zhangxuemin.work
     docs:
       host: infra/hosts/hk-relay/HOST.md
       network: infra/hosts/hk-relay/NETWORK.md

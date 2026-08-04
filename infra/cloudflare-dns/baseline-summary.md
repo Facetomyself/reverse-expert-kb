@@ -1,9 +1,9 @@
 # Cloudflare DNS Snapshot
 
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- record_count: 53
+- record_count: 52
 - type_counts:
-  - A: 43
+  - A: 42
   - AAAA: 2
   - MX: 4
   - TXT: 4
@@ -22,7 +22,6 @@
 - A cliproxy-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN edge via hk-relay for cliproxy
 - A cpam-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN edge via hk-relay for CPA Manager Plus
 - A cpam.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=300 comment=oracle-proxy CPA Manager Plus
-- A ctf-gpt-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK edge via hk-relay for oracle-reverse-dev CTF GPT Plus
 - A derp.zhangxuemin.work -> 129.150.61.78 proxied=false ttl=1
 - A dev.zhangxuemin.work -> 64.110.106.11 proxied=false ttl=1 comment=openclaw-host
 - A docs-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN edge via hk-relay for Kiro docs

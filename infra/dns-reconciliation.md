@@ -1,6 +1,6 @@
 # DNS / Host / Service Reconciliation
 
-本文件反映 **2026-07-26** 抓取的 Cloudflare live zone 与当前 `infra/` 主机文档之间的正式对账结果。
+本文件反映 **2026-08-04** 抓取的 Cloudflare live zone 与当前 `infra/` 主机文档之间的正式对账结果。
 
 基于以下信息对账：
 - Cloudflare live zone (`zhangxuemin.work`)
@@ -20,13 +20,13 @@
 
 - zone: `zhangxuemin.work`
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- current live record count: **53**
+- current live record count: **52**
 - type counts:
-  - `A`: 43
+  - `A`: 42
   - `AAAA`: 2
   - `MX`: 4
   - `TXT`: 4
-- current live snapshot vs committed baseline: **no semantic diff** after refreshing the baseline for the intentional `gpt-session` / `gpt-session-cn` and `sub2api` / `sub2api-cn` additions; the baseline includes Cloudflare MX priorities (`send`: 10; root `route1/2/3`: 56/24/98), the active `proxy-bak` / `proxy-bak-cn` A records, the WA app source/CN edge records, and the newer app/doc/card/Kiro/zcode/GPT Session/Sub2API entrypoints
+- current live snapshot vs committed baseline: **no semantic diff** after refreshing the baseline for the intentional `gpt-session` / `gpt-session-cn`, `sub2api` / `sub2api-cn`, and the intentional `ctf-gpt-cn` retirement; the baseline includes Cloudflare MX priorities (`send`: 10; root `route1/2/3`: 56/24/98), the active `proxy-bak` / `proxy-bak-cn` A records, the WA app source/CN edge records, and the newer app/doc/card/Kiro/zcode/GPT Session/Sub2API entrypoints
 
 ---
 
@@ -41,10 +41,10 @@
 | `dev.zhangxuemin.work` | `64.110.106.11` | 指向当前 OpenClaw 本机 `oracle-open_claw` | **匹配** | 当前 comment `openclaw-host` 与事实一致 |
 | `ai.zhangxuemin.work` | `140.245.33.114` | 指向 `oracle-newapi-primary`，当前是 New API 全球/源站入口 | **匹配** | Caddy -> `127.0.0.1:13000`，含 `/docs` 静态文档路径 |
 | `ai-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 New API 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://ai.zhangxuemin.work` |
-| `hub.zhangxuemin.work` | `140.245.33.114` | 指向 `oracle-registry`，现役 | **匹配** | registry front door |
-| `ghcr.zhangxuemin.work` | `140.245.33.114` | 指向 `oracle-registry`，现役 | **匹配** | registry front door |
-| `k8s.zhangxuemin.work` | `140.245.33.114` | 指向 `oracle-registry`，现役 | **匹配** | registry front door |
-| `mcr.zhangxuemin.work` | `140.245.33.114` | 指向 `oracle-registry`，现役 | **匹配** | registry front door |
+| `hub.zhangxuemin.work` | `140.245.33.114` | 指向 `oracle-newapi-primary`，当前作为退役 registry 兼容 HTTPS 兜底入口 | **匹配** | Caddy 返回静态兼容说明，HTTPS 200 |
+| `ghcr.zhangxuemin.work` | `140.245.33.114` | 指向 `oracle-newapi-primary`，当前作为退役 registry 兼容 HTTPS 兜底入口 | **匹配** | Caddy 返回静态兼容说明，HTTPS 200 |
+| `k8s.zhangxuemin.work` | `140.245.33.114` | 指向 `oracle-newapi-primary`，当前作为退役 registry 兼容 HTTPS 兜底入口 | **匹配** | Caddy 返回静态兼容说明，HTTPS 200 |
+| `mcr.zhangxuemin.work` | `140.245.33.114` | 指向 `oracle-newapi-primary`，当前作为退役 registry 兼容 HTTPS 兜底入口 | **匹配** | Caddy 返回静态兼容说明，HTTPS 200 |
 | `mail.zhangxuemin.work` | `140.83.52.216` | 指向 `oracle-mail`，当前是 `Outlook Email Plus` web app host | **匹配** | 当前应视为活跃 web-app 域名，而不是默认删除候选 |
 | `wa.zhangxuemin.work` | `140.83.52.216` | 指向 `oracle-mail`，当前是 WA app global/source 入口 | **匹配** | Caddy -> `wa-app` 容器；与 `wa-cn` HK edge 配套 |
 | `hk.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是认证下载/浏览入口 | **匹配** | HK relay canonical domain |
@@ -73,7 +73,6 @@
 | `sub2api.zhangxuemin.work` | `140.245.61.236` | 指向 `oracle-newapi-standby`，当前是 Sub2API direct/source 入口 | **匹配** | Caddy -> `127.0.0.1:18088` |
 | `sub2api-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 Sub2API 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://sub2api.zhangxuemin.work` |
 | `reverse-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 `oracle-reverse-dev` 的国内/HK SSH 边缘入口（HK `:22061` -> Oracle `:22`） | **匹配** | DNS-only A；使用 `ssh -p 22061 ubuntu@reverse-cn.zhangxuemin.work` |
-| `ctf-gpt-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，但 `oracle-newapi-standby` 当前文档显示原 CTF GPT Plus origin app/listener 已在 2026-07-07 清理中移除 | **部分匹配 / 需复核** | DNS/HK edge 仍在 baseline 与 relay docs 中保留；在未决定重建 origin 或删除 edge/DNS 前，不自动改 Cloudflare |
 | `claw-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 OpenClaw 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://dev.zhangxuemin.work` |
 | `wa-cn.zhangxuemin.work` | `154.86.30.10` | 指向 `hk-relay`，当前是 WA app 国内/HK 边缘入口 | **匹配** | HK Caddy -> `https://wa.zhangxuemin.work` |
 | `tmail.zhangxuemin.work` | Cloudflare proxied (`AAAA 100::`) | 当前仍作为 Cloudflare 侧临时邮箱/worker front path | **匹配** | 非主机直连记录 |
@@ -125,7 +124,7 @@
 - 当前 live zone 与提交的 baseline **一致**，没有即时 Cloudflare DNS drift。
 - 当前核心活跃基础设施域名与主机文档 **整体一致**。
 - 新纳入当前事实的域名组包括：`derp.*`、CPA Manager Plus 入口（`cpam` / `cpam-cn`）、GPT Account Manager 双入口（`gptam` / `gptam-cn`）、Kiro-Go/Kiro-RS 入口（`kiro` / `kiro-cn` / `kiro-rs` / `kiro-rs-cn`）、Kiro docs（`docs` / `docs-cn`）、Card Shop（`card` / `card-cn`）、GPT Card Shop（`gpt-card` / `gpt-card-cn`）、zcode2api 入口（`zcode` / `zcode-cn`）、GPT Session Converter（`gpt-session` / `gpt-session-cn`）、Sub2API（`sub2api` / `sub2api-cn`）、WA app 入口（`wa` / `wa-cn`）、FileCodeBox CN/HK edge（`drop-cn`）、`oracle-reverse-dev` SSH 边缘入口（`reverse-cn`）与 `hk-relay` 相关记录（`hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `proxy-bak-cn` / `claw-cn` / `ai-cn` / `cpam-cn` / `gptam-cn` / `kiro-cn` / `docs-cn` / `card-cn` / `gpt-card-cn` / `zcode-cn` / `gpt-session-cn` / `sub2api-cn` / `wa-cn` / `reverse-cn`）。
-- 当前 DNS 未闭环点主要是：**剩余唯一一条 DKIM（`cf2024-1`）的发送方归属与长期去留还需继续收口**；以及 **`ctf-gpt-cn.zhangxuemin.work` 的 DNS/HK edge 仍存在，但 origin-host 文档显示对应 CTF GPT Plus listener 已移除，需要 operator 决定重建 origin 还是协调删除 HK edge 与 DNS**。
+- 当前 DNS 未闭环点主要是：**剩余唯一一条 DKIM（`cf2024-1`）的发送方归属与长期去留还需继续收口**；并且 2026-08-04 已完成 `ctf-gpt-cn.zhangxuemin.work` 的 HK edge / DNS 退役。
 - 已新增 `infra/cloudflare-dns/dkim-reconciliation.md` 作为 DKIM 归属说明页，后续优先在那一页继续推进而不是在各处零散猜测。
 - 历史 Mailu 相关主机残留与其对应 `dkim._domainkey` 记录已在 2026-04-14 按用户确认完成删除。
 - `mail.zhangxuemin.work` 当前应被视为 **活跃 web-app front door**；后续若要删改，需基于新应用路径单独评估，而不是沿用旧“退役 mail host”判断。

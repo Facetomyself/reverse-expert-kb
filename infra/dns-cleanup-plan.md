@@ -2,7 +2,7 @@
 
 这份计划不是直接动 DNS，而是把当前对账结果转成**可执行动作清单**。
 
-本版已按 **2026-06-23 live Cloudflare zone** 更新。
+本版已按 **2026-08-04 live Cloudflare zone** 更新。
 
 原则：
 - 先保守，不误删现役记录
@@ -56,7 +56,6 @@
 - `sub2api-cn.zhangxuemin.work`
 - `wa-cn.zhangxuemin.work`
 - `reverse-cn.zhangxuemin.work`
-- `ctf-gpt-cn.zhangxuemin.work`
 - `tmail.zhangxuemin.work`
 - `tmail-front.zhangxuemin.work`
 - `drop-cn.zhangxuemin.work`
@@ -109,6 +108,10 @@ Reason:
 
 ### Old uncertain host record
 - `pend.zhangxuemin.work`
+
+### Retired CTF GPT Plus HK edge
+- `ctf-gpt-cn.zhangxuemin.work`
+- 已于 2026-08-04 按用户要求退役：HK relay Caddy route removed, Cloudflare A record deleted, baseline refreshed
 
 ### Historical Mailu / moemail DKIM
 - `dkim._domainkey.zhangxuemin.work`
@@ -191,6 +194,7 @@ Reason:
 - `ghcr`
 - `k8s`
 - `mcr`
+- registry compatibility names are retained with HTTPS static fallback on `oracle-newapi-primary`
 - `mail`
 - `hk`
 - `drop.hk`

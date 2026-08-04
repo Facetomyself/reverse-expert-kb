@@ -12,7 +12,6 @@
   - `ai-cn.zhangxuemin.work`
   - `cpam-cn.zhangxuemin.work`
   - `reverse-cn.zhangxuemin.work`
-  - `ctf-gpt-cn.zhangxuemin.work`
   - `docs-cn.zhangxuemin.work`
   - `card-cn.zhangxuemin.work`
   - `wa-cn.zhangxuemin.work`
@@ -111,7 +110,7 @@ Validated on 2026-04-13, then hardened on 2026-04-21:
 - `https://sub2api-cn.zhangxuemin.work/` -> CN/HK TLS edge for Sub2API, reverse-proxied to `https://sub2api.zhangxuemin.work` on `oracle-newapi-standby`; HK does not run the business container, PostgreSQL, or Redis
 - `https://drop-cn.zhangxuemin.work/` -> CN/HK TLS edge for FileCodeBox file/text transfer, reverse-proxied to `oracle-mail:18085`
 - `reverse-cn.zhangxuemin.work:22061` -> CN/HK TCP edge for `oracle-reverse-dev` SSH, forwarding to `140.245.61.236:22`; normal use: `ssh -p 22061 ubuntu@reverse-cn.zhangxuemin.work`
-- `https://ctf-gpt-cn.zhangxuemin.work/ctf-gpt-plus` -> retained CN/HK TLS edge record for the former `oracle-reverse-dev` CTF GPT Plus route; `oracle-newapi-standby` docs say the origin app/listener was removed on 2026-07-07, so treat this route as pending operator decision until the origin is rebuilt or the HK edge/DNS record is removed in a coordinated cleanup
+- retired 2026-08-04: former `ctf-gpt-cn.zhangxuemin.work` CTF GPT Plus HK edge route was removed from Caddy, and the Cloudflare A record was deleted after the origin had already been removed on `oracle-newapi-standby`.
 - `https://kiro-rs-cn.zhangxuemin.work/` -> exact-root `308` redirect to `/admin` on HK edge; other paths reverse-proxy to `https://kiro-rs.zhangxuemin.work` with origin Host/TLS SNI preserved
 
 Subscription hardening on 2026-04-21:
@@ -161,7 +160,7 @@ Runtime note confirmed on 2026-04-13:
   - GPT Session Converter global/source: `gpt-session.zhangxuemin.work`
   - Sub2API global/source: `sub2api.zhangxuemin.work`
   - oracle-reverse-dev global/source SSH: `140.245.61.236:22` / `oracle-reverse-dev`
-  - oracle-reverse-dev CTF GPT Plus origin: removed as of the 2026-07-07 cleanup; `ctf-gpt-cn.zhangxuemin.work` remains a DNS/HK-edge cleanup-or-rebuild decision, not a verified active source service
+  - oracle-reverse-dev CTF GPT Plus origin: removed as of the 2026-07-07 cleanup; HK edge and DNS were retired on 2026-08-04
 - Do **not** apply source-firewall restrictions that make HK the only public route to these services. Keeping direct/global entrypoints is intentional for HK single-point-of-failure avoidance and overseas access.
 - Oracle-to-Oracle traffic should not be routed through `hk-relay`; use direct Oracle/source endpoints, Oracle private networking if available, or a dedicated non-HK overlay.
 - SSH via HK is normally exposed as client-side `ProxyJump` aliases. Exception added 2026-06-01: `reverse-cn.zhangxuemin.work:22061` is a dedicated TCP SSH edge for easier domestic access to `oracle-reverse-dev`; direct SSH aliases should remain available as emergency/global paths unless a separate hardening decision supersedes this.

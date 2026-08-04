@@ -40,7 +40,7 @@ https://newapi.zhangxuemin.work/
 ```
 
 ## Registry compatibility domains
-The former dedicated registry stack was retired on 2026-06-08, but the DNS names themselves remain active A records on this host for compatibility and should not be treated as Cloudflare drift by default:
+The former dedicated registry stack was retired on 2026-06-08, but the DNS names themselves remain active A records on this host for compatibility and should not be treated as Cloudflare drift by default. On 2026-08-04, Caddy gained HTTPS site handling for these names so browsers and HTTPS clients no longer fail the TLS handshake; each hostname now returns a static compatibility notice pointing users to `ai.zhangxuemin.work`:
 - `hub.zhangxuemin.work`
 - `ghcr.zhangxuemin.work`
 - `k8s.zhangxuemin.work`
@@ -51,4 +51,4 @@ Retired NexusVault monitor mappings:
 - `140.245.33.114:58080` / `:58080`
 - `drop.hk.zhangxuemin.work/nvmon/*`
 
-If the registry compatibility names are ever removed from service, reconcile `infra/dns-reconciliation.md` and `infra/cloudflare-dns/baseline-records.json` before treating the live DNS records as stale.
+If the registry compatibility names are ever removed from service, reconcile `infra/dns-reconciliation.md` and `infra/cloudflare-dns/baseline-records.json` before treating the live DNS records as stale. Current behavior verified on 2026-08-04: HTTPS 200 for all four names with managed certificates issued by Caddy.

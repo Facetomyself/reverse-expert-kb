@@ -1,6 +1,6 @@
 # DNS First-Wave Change Set
 
-这份文件已按 **2026-06-23 live Cloudflare 对账结果**更新。
+这份文件已按 **2026-08-04 live Cloudflare 对账结果**更新。
 
 它现在描述的是：
 - **第一波低风险 DNS 清理里，哪些目标已经事实上完成**
@@ -23,6 +23,7 @@
 - `dev.zhangxuemin.work` 的注释已与当前主机事实对齐（`openclaw-host`）
 - `pend.zhangxuemin.work` 已不在当前 live zone
 - 历史 Mailu 根域 DKIM `dkim._domainkey.zhangxuemin.work` 已于 2026-04-14 删除
+- 退役 CTF GPT Plus HK edge `ctf-gpt-cn.zhangxuemin.work` 已于 2026-08-04 删除
 
 结论：
 **最典型的“旧 mail 兼容记录清理”这波，DNS 层面其实已经基本做完。**
@@ -73,7 +74,6 @@
 - `sub2api-cn.zhangxuemin.work`
 - `wa-cn.zhangxuemin.work`
 - `reverse-cn.zhangxuemin.work`
-- `ctf-gpt-cn.zhangxuemin.work`
 - `tmail.zhangxuemin.work`
 - `tmail-front.zhangxuemin.work`
 - `drop-cn.zhangxuemin.work`

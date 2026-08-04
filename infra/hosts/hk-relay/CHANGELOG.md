@@ -167,4 +167,4 @@
   - `openclaw-gpt-card-cn-general`: 180 requests / 60s -> 30m ban
   - `openclaw-gpt-card-cn-api`: 40 API/admin-login requests / 60s -> 1h ban
 - Added live Cloudflare DNS-only A records for `gpt-card.zhangxuemin.work` and `gpt-card-cn.zhangxuemin.work`; source and CN HTTPS health checks returned HTTP 200 after certificate issuance.
-
+- 2026-08-04: Retired former CTF GPT Plus HK edge `ctf-gpt-cn.zhangxuemin.work`: removed the Caddy reverse-proxy route to the already-removed `140.245.61.236:8000` origin, reloaded Caddy, deleted the Cloudflare A record, and refreshed DNS baseline/docs.

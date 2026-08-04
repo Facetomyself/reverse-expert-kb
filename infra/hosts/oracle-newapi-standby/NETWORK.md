@@ -60,4 +60,4 @@ Caddy is active. `/etc/caddy/Caddyfile` serves `sub2api.zhangxuemin.work` and re
 - Origin iptables note: deployment found `443/tcp` missing from the accepted INPUT rules; an explicit `443/tcp` ACCEPT was inserted before the final `REJECT --reject-with icmp-host-prohibited` rule.
 
 ## CTF GPT Plus / HK edge compatibility
-Older docs recorded a domestic/HK optimized edge for `https://ctf-gpt-cn.zhangxuemin.work/ctf-gpt-plus` pointing through `hk-relay` to this host. As of the 2026-07-07 cleanup, this host no longer has the origin app/listener for that route. Treat any remaining DNS/HK-relay config as stale edge configuration until deliberately rebuilt or removed in a coordinated DNS/relay cleanup.
+Older docs recorded a domestic/HK optimized edge for `https://ctf-gpt-cn.zhangxuemin.work/ctf-gpt-plus` pointing through `hk-relay` to this host. As of the 2026-07-07 cleanup, this host no longer has the origin app/listener for that route. The remaining HK edge and Cloudflare DNS record were retired on 2026-08-04; keep future references historical unless the service is deliberately rebuilt.
