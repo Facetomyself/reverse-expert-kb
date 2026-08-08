@@ -2,7 +2,7 @@
 
 这份计划不是直接动 DNS，而是把当前对账结果转成**可执行动作清单**。
 
-本版已按 **2026-08-04 live Cloudflare zone** 更新。
+本版已按 **2026-08-09 live Cloudflare zone** 更新。
 
 原则：
 - 先保守，不误删现役记录
@@ -54,6 +54,8 @@
 - `zcode-cn.zhangxuemin.work`
 - `sub2api.zhangxuemin.work`
 - `sub2api-cn.zhangxuemin.work`
+- `poolx.zhangxuemin.work`
+- `poolx-cn.zhangxuemin.work`
 - `wa-cn.zhangxuemin.work`
 - `reverse-cn.zhangxuemin.work`
 - `tmail.zhangxuemin.work`

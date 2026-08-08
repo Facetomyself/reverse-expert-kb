@@ -1,9 +1,9 @@
 # Cloudflare DNS Snapshot
 
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- record_count: 52
+- record_count: 54
 - type_counts:
-  - A: 42
+  - A: 44
   - AAAA: 2
   - MX: 4
   - TXT: 4
@@ -44,6 +44,8 @@
 - A kiro.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=1
 - A mail.zhangxuemin.work -> 140.83.52.216 proxied=false ttl=1 comment=oracle-mail web-app host
 - A mcr.zhangxuemin.work -> 140.245.33.114 proxied=false ttl=1
+- A poolx-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300
+- A poolx.zhangxuemin.work -> 140.245.61.236 proxied=false ttl=300
 - A proxy-bak-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1 comment=cliproxy backup pool CN/HK edge on hk-relay
 - A proxy-bak.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=1 comment=cliproxy backup pool direct/source entry on oracle-proxy
 - A proxy.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=1 comment=oracle-proxy

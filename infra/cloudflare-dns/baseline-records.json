@@ -1,8 +1,8 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 52,
+  "record_count": 54,
   "type_counts": {
-    "A": 42,
+    "A": 44,
     "AAAA": 2,
     "MX": 4,
     "TXT": 4
@@ -266,6 +266,20 @@
       "type": "A",
       "content": "140.245.33.114",
       "ttl": 1,
+      "proxied": false
+    },
+    {
+      "name": "poolx-cn.zhangxuemin.work",
+      "type": "A",
+      "content": "154.86.30.10",
+      "ttl": 300,
+      "proxied": false
+    },
+    {
+      "name": "poolx.zhangxuemin.work",
+      "type": "A",
+      "content": "140.245.61.236",
+      "ttl": 300,
       "proxied": false
     },
     {

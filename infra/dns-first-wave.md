@@ -1,6 +1,6 @@
 # DNS First-Wave Change Set
 
-这份文件已按 **2026-08-04 live Cloudflare 对账结果**更新。
+这份文件已按 **2026-08-09 live Cloudflare 对账结果**更新。
 
 它现在描述的是：
 - **第一波低风险 DNS 清理里，哪些目标已经事实上完成**
@@ -72,6 +72,8 @@
 - `zcode-cn.zhangxuemin.work`
 - `sub2api.zhangxuemin.work`
 - `sub2api-cn.zhangxuemin.work`
+- `poolx.zhangxuemin.work`
+- `poolx-cn.zhangxuemin.work`
 - `wa-cn.zhangxuemin.work`
 - `reverse-cn.zhangxuemin.work`
 - `tmail.zhangxuemin.work`
