@@ -96,8 +96,11 @@ hosts:
     aliases:
       - oracle-registry
     domains:
-      - newapi.zhangxuemin.work
       - ai.zhangxuemin.work
+      - hub.zhangxuemin.work
+      - ghcr.zhangxuemin.work
+      - k8s.zhangxuemin.work
+      - mcr.zhangxuemin.work
     docs:
       host: infra/hosts/oracle-newapi-primary/HOST.md
       network: infra/hosts/oracle-newapi-primary/NETWORK.md
@@ -129,6 +132,8 @@ hosts:
       - wa-cn.zhangxuemin.work
       - zcode-cn.zhangxuemin.work
       - gpt-session-cn.zhangxuemin.work
+      - sub2api-cn.zhangxuemin.work
+      - poolx-cn.zhangxuemin.work
       - reverse-cn.zhangxuemin.work
     docs:
       host: infra/hosts/hk-relay/HOST.md
@@ -145,10 +150,11 @@ hosts:
     aliases:
       - oracle-reverse-dev
     domains:
-      - newapi-standby.zhangxuemin.work
       - reverse-cn.zhangxuemin.work
       - sub2api.zhangxuemin.work
       - sub2api-cn.zhangxuemin.work
+      - poolx.zhangxuemin.work
+      - poolx-cn.zhangxuemin.work
     docs:
       host: infra/hosts/oracle-newapi-standby/HOST.md
       network: infra/hosts/oracle-newapi-standby/NETWORK.md

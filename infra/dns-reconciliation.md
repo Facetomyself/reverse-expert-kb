@@ -116,6 +116,7 @@
 - 旧 `_25._tcp.mail...` TLSA 记录已不在当前 live zone
 - 历史 Mailu 根域 DKIM `dkim._domainkey.zhangxuemin.work` 已于 2026-04-14 在用户确认 Mailu 不再使用后删除
 - 历史 moemail / Resend DKIM `resend._domainkey.zhangxuemin.work` 已于 2026-04-14 在用户要求清理 moemail 残留后删除
+- 计划名 `newapi.zhangxuemin.work` / `newapi-standby.zhangxuemin.work` 从未在 live zone 创建：New API 的实际入口是 `ai.zhangxuemin.work`（standby 已于 2026-07-07 退役，入口为 `sub2api` / `poolx`）。`infra/inventory.yaml` 已同步移除这两个计划名，`oracle-newapi-primary` 的域名列表以实际 live A 记录（`ai` + registry 兼容名 `hub`/`ghcr`/`k8s`/`mcr`）为准。
 
 因此，任何仍声称这些记录“当前还存在”的文档都应视为**文档漂移**，而不是 live DNS 事实。
 
