@@ -1,8 +1,8 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 54,
+  "record_count": 49,
   "type_counts": {
-    "A": 44,
+    "A": 39,
     "AAAA": 2,
     "MX": 4,
     "TXT": 4
@@ -142,13 +142,6 @@
       "comment": "FileCodeBox CN/HK edge on hk-relay"
     },
     {
-      "name": "drop.hk.zhangxuemin.work",
-      "type": "A",
-      "content": "154.86.30.10",
-      "ttl": 1,
-      "proxied": false
-    },
-    {
       "name": "ghcr.zhangxuemin.work",
       "type": "A",
       "content": "140.245.33.114",
@@ -185,22 +178,6 @@
       "ttl": 300,
       "proxied": false,
       "comment": "GPT Session converter global/source static site on oracle-proxy"
-    },
-    {
-      "name": "gptam-cn.zhangxuemin.work",
-      "type": "A",
-      "content": "154.86.30.10",
-      "ttl": 300,
-      "proxied": false,
-      "comment": "CN/HK edge via hk-relay for GPT Account Manager"
-    },
-    {
-      "name": "gptam.zhangxuemin.work",
-      "type": "A",
-      "content": "158.178.236.241",
-      "ttl": 300,
-      "proxied": false,
-      "comment": "oracle-proxy GPT Account Manager direct/source entry"
     },
     {
       "name": "hk.zhangxuemin.work",
@@ -374,22 +351,6 @@
       "ttl": 300,
       "proxied": false,
       "comment": "WA app global/source on oracle-mail"
-    },
-    {
-      "name": "zcode-cn.zhangxuemin.work",
-      "type": "A",
-      "content": "154.86.30.10",
-      "ttl": 300,
-      "proxied": false,
-      "comment": "CN/HK edge via hk-relay for zcode2api"
-    },
-    {
-      "name": "zcode.zhangxuemin.work",
-      "type": "A",
-      "content": "158.178.236.241",
-      "ttl": 300,
-      "proxied": false,
-      "comment": "zcode2api global/source entry via oracle-proxy Caddy"
     },
     {
       "name": "zhangxuemin.work",

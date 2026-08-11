@@ -1,6 +1,6 @@
 # DNS First-Wave Change Set
 
-这份文件已按 **2026-08-09 live Cloudflare 对账结果**更新。
+这份文件已按 **2026-08-12 live Cloudflare 对账结果**更新（含 2026-08-11 的 `gptam` / `zcode` / `drop.hk` 退役）。
 
 它现在描述的是：
 - **第一波低风险 DNS 清理里，哪些目标已经事实上完成**
@@ -24,6 +24,9 @@
 - `pend.zhangxuemin.work` 已不在当前 live zone
 - 历史 Mailu 根域 DKIM `dkim._domainkey.zhangxuemin.work` 已于 2026-04-14 删除
 - 退役 CTF GPT Plus HK edge `ctf-gpt-cn.zhangxuemin.work` 已于 2026-08-04 删除
+- GPT Account Manager 双入口 `gptam.zhangxuemin.work` / `gptam-cn.zhangxuemin.work` 已于 2026-08-11 删除
+- zcode2api 双入口 `zcode.zhangxuemin.work` / `zcode-cn.zhangxuemin.work` 已于 2026-08-11 删除
+- dufs 上传/下载入口 `drop.hk.zhangxuemin.work` 已于 2026-08-11 删除
 
 结论：
 **最典型的“旧 mail 兼容记录清理”这波，DNS 层面其实已经基本做完。**
@@ -47,7 +50,6 @@
 - `mail.zhangxuemin.work`
 - `wa.zhangxuemin.work`
 - `hk.zhangxuemin.work`
-- `drop.hk.zhangxuemin.work`
 - `clash.hk.zhangxuemin.work`
 - `cliproxy-cn.zhangxuemin.work`
 - `proxy-bak-cn.zhangxuemin.work`
@@ -56,8 +58,6 @@
 - `ai-cn.zhangxuemin.work`
 - `cpam.zhangxuemin.work`
 - `cpam-cn.zhangxuemin.work`
-- `gptam.zhangxuemin.work`
-- `gptam-cn.zhangxuemin.work`
 - `kiro.zhangxuemin.work`
 - `kiro-cn.zhangxuemin.work`
 - `kiro-rs.zhangxuemin.work`
@@ -68,8 +68,6 @@
 - `card-cn.zhangxuemin.work`
 - `gpt-card.zhangxuemin.work`
 - `gpt-card-cn.zhangxuemin.work`
-- `zcode.zhangxuemin.work`
-- `zcode-cn.zhangxuemin.work`
 - `sub2api.zhangxuemin.work`
 - `sub2api-cn.zhangxuemin.work`
 - `poolx.zhangxuemin.work`
@@ -146,6 +144,7 @@
 - 旧 mail 兼容层（CNAME / SRV / TLSA）已从 live zone 清掉
 - `dev` 注释已纠正
 - `pend` 已移除
+- 2026-08-11：`gptam` / `gptam-cn`、`zcode` / `zcode-cn`、`drop.hk` 已按用户要求退役删除
 
 ### 当前该继续做的
 - 剩余 DKIM（`cf2024-1`）归属收口
@@ -155,7 +154,7 @@
 ### 当前不要误删的
 - `mail`
 - `derp`
-- `hk` / `drop.hk` / `clash.hk` / `cliproxy-cn` / `claw-cn` / `ai-cn`
+- `hk` / `clash.hk` / `cliproxy-cn` / `claw-cn` / `ai-cn`
 - `cpam` / `cpam-cn`
 - `sub2api` / `sub2api-cn`
 - `tmail` / `tmail-front`
