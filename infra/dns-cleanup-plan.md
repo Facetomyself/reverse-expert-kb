@@ -2,7 +2,7 @@
 
 这份计划不是直接动 DNS，而是把当前对账结果转成**可执行动作清单**。
 
-本版已按 **2026-08-12 live Cloudflare zone** 更新（含 2026-08-11 的 `gptam` / `zcode` / `drop.hk` 退役）。
+本版已按 **2026-08-13 live Cloudflare zone** 更新（含 2026-08-11 的 `gptam` / `zcode` / `drop.hk` 退役，以及 2026-08-12 的 New API 整体退役）。
 
 原则：
 - 先保守，不误删现役记录
@@ -22,10 +22,6 @@
 - `backup.zhangxuemin.work`
 - `derp.zhangxuemin.work`
 - `dev.zhangxuemin.work`
-- `hub.zhangxuemin.work`
-- `ghcr.zhangxuemin.work`
-- `k8s.zhangxuemin.work`
-- `mcr.zhangxuemin.work`
 - `mail.zhangxuemin.work`
 - `wa.zhangxuemin.work`
 - `hk.zhangxuemin.work`
@@ -33,8 +29,6 @@
 - `cliproxy-cn.zhangxuemin.work`
 - `proxy-bak-cn.zhangxuemin.work`
 - `claw-cn.zhangxuemin.work`
-- `ai.zhangxuemin.work`
-- `ai-cn.zhangxuemin.work`
 - `cpam.zhangxuemin.work`
 - `cpam-cn.zhangxuemin.work`
 - `kiro.zhangxuemin.work`
@@ -110,6 +104,10 @@ Reason:
 - `ctf-gpt-cn.zhangxuemin.work`
 - 已于 2026-08-04 按用户要求退役：HK relay Caddy route removed, Cloudflare A record deleted, baseline refreshed
 
+### Retired New API entrypoints (2026-08-12)
+- `ai.zhangxuemin.work` / `ai-cn.zhangxuemin.work` / `hub.zhangxuemin.work` / `ghcr.zhangxuemin.work` / `k8s.zhangxuemin.work` / `mcr.zhangxuemin.work`
+- 已于 2026-08-12 按用户要求整体退役：`oracle-newapi-primary` 上的 New API 容器/数据/镜像/Caddy 站点全部移除，六条 Cloudflare A 记录删除，Caddy 重置为 global-only（见 oracle-newapi-primary HOST/CHANGELOG/NETWORK/PROJECTS）
+
 ### Retired GPT Account Manager (2026-08-11)
 - `gptam.zhangxuemin.work` / `gptam-cn.zhangxuemin.work`
 - 已于 2026-08-11 按用户要求整体退役：oracle-proxy 与 hk-relay Caddy 路由移除，两条 Cloudflare A 记录删除，容器/归档清理完成
@@ -127,6 +125,8 @@ Reason:
 结论：
 这些不应该再出现在“待删第一波”的动作列表里；正确说法应是：
 **live DNS 已经没有它们了，剩下的问题是文档是否同步。**
+
+其中 `ai` / `ai-cn` / `hub` / `ghcr` / `k8s` / `mcr` 是 2026-08-12 随 New API 整体退役删除，不是残留漂移。
 
 ---
 
@@ -195,18 +195,11 @@ Reason:
 - `backup`
 - `derp`
 - `dev`
-- `hub`
-- `ghcr`
-- `k8s`
-- `mcr`
-- registry compatibility names are retained with HTTPS static fallback on `oracle-newapi-primary`
 - `mail`
 - `hk`
 - `clash.hk`
 - `cliproxy-cn`
 - `claw-cn`
-- `ai`
-- `ai-cn`
 - `sub2api`
 - `sub2api-cn`
 - `tmail`
@@ -229,6 +222,7 @@ Reason:
 - `gptam` / `gptam-cn`
 - `zcode` / `zcode-cn`
 - `drop.hk`
+- `ai` / `ai-cn` / `hub` / `ghcr` / `k8s` / `mcr` (New API, retired 2026-08-12)
 
 ---
 

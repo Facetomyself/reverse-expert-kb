@@ -1,8 +1,8 @@
 {
   "zone_id": "b68f5785980dfe650ca4cdd7d237254d",
-  "record_count": 49,
+  "record_count": 43,
   "type_counts": {
-    "A": 39,
+    "A": 33,
     "AAAA": 2,
     "MX": 4,
     "TXT": 4
@@ -15,22 +15,6 @@
       "ttl": 1,
       "proxied": false,
       "comment": "DMARC"
-    },
-    {
-      "name": "ai-cn.zhangxuemin.work",
-      "type": "A",
-      "content": "154.86.30.10",
-      "ttl": 300,
-      "proxied": false,
-      "comment": "CN/HK edge via hk-relay for New API"
-    },
-    {
-      "name": "ai.zhangxuemin.work",
-      "type": "A",
-      "content": "140.245.33.114",
-      "ttl": 300,
-      "proxied": false,
-      "comment": "New API global/source on oracle-newapi-primary"
     },
     {
       "name": "backup.zhangxuemin.work",
@@ -142,14 +126,6 @@
       "comment": "FileCodeBox CN/HK edge on hk-relay"
     },
     {
-      "name": "ghcr.zhangxuemin.work",
-      "type": "A",
-      "content": "140.245.33.114",
-      "ttl": 1,
-      "proxied": false,
-      "comment": "oracle-registry"
-    },
-    {
       "name": "gpt-card-cn.zhangxuemin.work",
       "type": "A",
       "content": "154.86.30.10",
@@ -187,22 +163,6 @@
       "proxied": false
     },
     {
-      "name": "hub.zhangxuemin.work",
-      "type": "A",
-      "content": "140.245.33.114",
-      "ttl": 1,
-      "proxied": false,
-      "comment": "oracle-registry"
-    },
-    {
-      "name": "k8s.zhangxuemin.work",
-      "type": "A",
-      "content": "140.245.33.114",
-      "ttl": 1,
-      "proxied": false,
-      "comment": "oracle-registry"
-    },
-    {
       "name": "kiro-cn.zhangxuemin.work",
       "type": "A",
       "content": "154.86.30.10",
@@ -237,13 +197,6 @@
       "ttl": 1,
       "proxied": false,
       "comment": "oracle-mail web-app host"
-    },
-    {
-      "name": "mcr.zhangxuemin.work",
-      "type": "A",
-      "content": "140.245.33.114",
-      "ttl": 1,
-      "proxied": false
     },
     {
       "name": "poolx-cn.zhangxuemin.work",

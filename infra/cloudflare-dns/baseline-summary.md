@@ -1,9 +1,9 @@
 # Cloudflare DNS Snapshot
 
 - zone_id: `b68f5785980dfe650ca4cdd7d237254d`
-- record_count: 49
+- record_count: 43
 - type_counts:
-  - A: 39
+  - A: 33
   - AAAA: 2
   - MX: 4
   - TXT: 4
@@ -11,8 +11,6 @@
 ## Records
 
 - TXT _dmarc.zhangxuemin.work -> "v=DMARC1; p=reject; rua=mailto:f7f21e5e0ab844279caa542a187734f0@dmarc-reports.cloudflare.net,mailto:mail@zhangxuemin.work; ruf=mailto:mail@zhangxuemin.work; adkim=s; aspf=s" proxied=false ttl=1 comment=DMARC
-- A ai-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK edge via hk-relay for New API
-- A ai.zhangxuemin.work -> 140.245.33.114 proxied=false ttl=300 comment=New API global/source on oracle-newapi-primary
 - A backup.zhangxuemin.work -> 129.150.61.78 proxied=false ttl=1 comment=oracle-gateway / hysteria
 - A card-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN edge via hk-relay for card shop
 - A card.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=300 comment=card shop global/source on oracle-proxy
@@ -27,20 +25,16 @@
 - A docs-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN edge via hk-relay for Kiro docs
 - A docs.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=300 comment=Kiro docs global/source on oracle-proxy
 - A drop-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1 comment=FileCodeBox CN/HK edge on hk-relay
-- A ghcr.zhangxuemin.work -> 140.245.33.114 proxied=false ttl=1 comment=oracle-registry
 - A gpt-card-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1
 - A gpt-card.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=1
 - A gpt-session-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300 comment=CN/HK edge via hk-relay for GPT Session converter
 - A gpt-session.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=300 comment=GPT Session converter global/source static site on oracle-proxy
 - A hk.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1
-- A hub.zhangxuemin.work -> 140.245.33.114 proxied=false ttl=1 comment=oracle-registry
-- A k8s.zhangxuemin.work -> 140.245.33.114 proxied=false ttl=1 comment=oracle-registry
 - A kiro-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1
 - A kiro-rs-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1
 - A kiro-rs.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=1
 - A kiro.zhangxuemin.work -> 158.178.236.241 proxied=false ttl=1
 - A mail.zhangxuemin.work -> 140.83.52.216 proxied=false ttl=1 comment=oracle-mail web-app host
-- A mcr.zhangxuemin.work -> 140.245.33.114 proxied=false ttl=1
 - A poolx-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=300
 - A poolx.zhangxuemin.work -> 140.245.61.236 proxied=false ttl=300
 - A proxy-bak-cn.zhangxuemin.work -> 154.86.30.10 proxied=false ttl=1 comment=cliproxy backup pool CN/HK edge on hk-relay

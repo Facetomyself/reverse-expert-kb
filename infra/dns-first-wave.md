@@ -1,6 +1,6 @@
 # DNS First-Wave Change Set
 
-这份文件已按 **2026-08-12 live Cloudflare 对账结果**更新（含 2026-08-11 的 `gptam` / `zcode` / `drop.hk` 退役）。
+这份文件已按 **2026-08-13 live Cloudflare 对账结果**更新（含 2026-08-11 的 `gptam` / `zcode` / `drop.hk` 退役，以及 2026-08-12 的 New API 整体退役）。
 
 它现在描述的是：
 - **第一波低风险 DNS 清理里，哪些目标已经事实上完成**
@@ -27,6 +27,7 @@
 - GPT Account Manager 双入口 `gptam.zhangxuemin.work` / `gptam-cn.zhangxuemin.work` 已于 2026-08-11 删除
 - zcode2api 双入口 `zcode.zhangxuemin.work` / `zcode-cn.zhangxuemin.work` 已于 2026-08-11 删除
 - dufs 上传/下载入口 `drop.hk.zhangxuemin.work` 已于 2026-08-11 删除
+- New API 全部入口（`ai` / `ai-cn` / `hub` / `ghcr` / `k8s` / `mcr`）已于 2026-08-12 随 New API 整体退役删除（oracle-newapi-primary 容器/数据/镜像/Caddy 站点全部移除，Caddy 重置为 global-only）
 
 结论：
 **最典型的“旧 mail 兼容记录清理”这波，DNS 层面其实已经基本做完。**
@@ -43,10 +44,6 @@
 - `backup.zhangxuemin.work`
 - `derp.zhangxuemin.work`
 - `dev.zhangxuemin.work`
-- `hub.zhangxuemin.work`
-- `ghcr.zhangxuemin.work`
-- `k8s.zhangxuemin.work`
-- `mcr.zhangxuemin.work`
 - `mail.zhangxuemin.work`
 - `wa.zhangxuemin.work`
 - `hk.zhangxuemin.work`
@@ -54,8 +51,6 @@
 - `cliproxy-cn.zhangxuemin.work`
 - `proxy-bak-cn.zhangxuemin.work`
 - `claw-cn.zhangxuemin.work`
-- `ai.zhangxuemin.work`
-- `ai-cn.zhangxuemin.work`
 - `cpam.zhangxuemin.work`
 - `cpam-cn.zhangxuemin.work`
 - `kiro.zhangxuemin.work`
@@ -90,6 +85,12 @@
 ## 3. What is no longer a first-wave deletion target
 
 这些项不应再写成“第一波建议删除 / repoint”：
+
+### `hub` / `ghcr` / `k8s` / `mcr` (retired registry compatibility names)
+- 这些记录已于 2026-08-12 随 New API 整体退役从 live zone 删除，不再有“保留为 HTTPS 静态兼容兜底入口”的说法
+
+### `ai` / `ai-cn` (New API entrypoints)
+- 已于 2026-08-12 随 New API 整体退役删除（oracle-newapi-primary 源站与 hk-relay CN 边缘同时移除）
 
 ### `mail.zhangxuemin.work`
 - 当前是 `oracle-mail` 上的 **活跃 `Outlook Email Plus` web app front door**
@@ -145,6 +146,7 @@
 - `dev` 注释已纠正
 - `pend` 已移除
 - 2026-08-11：`gptam` / `gptam-cn`、`zcode` / `zcode-cn`、`drop.hk` 已按用户要求退役删除
+- 2026-08-12：New API 整体退役，`ai` / `ai-cn` / `hub` / `ghcr` / `k8s` / `mcr` 已从 live zone 删除
 
 ### 当前该继续做的
 - 剩余 DKIM（`cf2024-1`）归属收口
@@ -154,7 +156,7 @@
 ### 当前不要误删的
 - `mail`
 - `derp`
-- `hk` / `clash.hk` / `cliproxy-cn` / `claw-cn` / `ai-cn`
+- `hk` / `clash.hk` / `cliproxy-cn` / `claw-cn`
 - `cpam` / `cpam-cn`
 - `sub2api` / `sub2api-cn`
 - `tmail` / `tmail-front`
