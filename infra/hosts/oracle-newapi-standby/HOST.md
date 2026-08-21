@@ -49,6 +49,8 @@
 - 2026-07-22 deployed Sub2API under `/opt/sub2api` via Docker Compose.
 - Active Docker containers: `sub2api`, `sub2api-postgres`, `sub2api-redis`.
 - Caddy is active for `sub2api.zhangxuemin.work` on `80/443`, reverse-proxying to the loopback app listener `127.0.0.1:18088`.
+- 2026-08-08 deployed PoolX under `/opt/poolx` via Docker Compose (`poolx-poolx-1` container, loopback `127.0.0.1:18089` -> `:8000`); Caddy serves `poolx.zhangxuemin.work`; HK relay serves `poolx-cn.zhangxuemin.work`. See `PROJECTS.md` / `NETWORK.md` for details and the compose bootstrap-password patch.
+- 2026-08-21: PoolX node-test regression was fixed by rebuilding a local image `poolx-local:latest` from the current `/opt/poolx` checkout and recreating the container; the upstream image lagged the Mihomo path fix and caused `未找到 Mihomo 二进制文件: mihomo` during `/api/v1/admin/clash/nodes/test`.
 - `/home/ubuntu` is cleaned to login/shell basics only (`.ssh`, shell rc/profile files).
 - Expected public project listeners: `22`, `80`, `443`.
 - Baseline after Sub2API deployment: root disk remained low-use with ample free space; memory headroom remains large for this service class.
